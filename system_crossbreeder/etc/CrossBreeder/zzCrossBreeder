@@ -1,0 +1,264 @@
+#!/system/etc/CrossBreeder/busybox sh
+exec 0>&1
+export PATH=/system/etc/CrossBreeder:$PATH:/sbin:/vendor/bin:/system/sbin:/system/bin:/system/xbin:
+export LD_LIBRARY_PATH=/system/etc/CrossBreeder:$LD_LIBRARY_PATH
+
+alias BUSYBOX='/system/etc/CrossBreeder/busybox'
+alias ECHO='BUSYBOX timeout -t 1 -s KILL /system/etc/CrossBreeder/busybox echo'
+
+alias [='BUSYBOX ['
+alias [[='BUSYBOX [['
+
+set +e
+
+if [[ "x$1" != "xRUN" && "x$1" != "xFORCE" ]]; then 
+  if [ -f /data/CrossBreeder.RUN ]; then return 0; fi
+  ( BUSYBOX start-stop-daemon -o -S -b -x /system/etc/CrossBreeder/zzCrossBreeder -- RUN 0<&- &>/dev/null 2>&1 ) &
+#  ( BUSYBOX setsid $0 RUN 0<&- &>/dev/null 2>&1 ) &
+  return 0;
+fi
+
+TRY=0
+
+#trap 'rm /dev/CrossBreeder.RUN 2>/dev/null; rm /data/CrossBreeder.RUN 2>/dev/null' 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+
+if [ "x$1" != "xFORCE" ]; then 
+ 
+  if [ -f /dev/CrossBreeder.RUN ]; then return 100; fi
+ 
+  CB_FileLock /dev/CrossBreeder.RUN >/dev/null 2>&1
+  ret=$?
+ 
+  if [ $ret -ne 0 ]; then return 99; fi
+ 
+  touch /dev/CrossBreeder.RUN
+
+fi
+
+RANDOMDEVICE=urandom
+if [ -c /dev/erandom ]; then
+  if [ ! -f /dev/urandom.MOD ]; then
+    touch /dev/urandom.MOD
+    BUSYBOX mv /dev/urandom /dev/urandom.ORIG && BUSYBOX ln /dev/erandom /dev/urandom
+  fi
+  BUSYBOX chmod 444 /dev/frandom
+  BUSYBOX chmod 444 /dev/erandom
+  RANDOMDEVICE=frandom
+elif [ -f /system/lib/modules/frandom.ko ]; then
+  BUSYBOX insmod -f /system/lib/modules/frandom.ko 2>/dev/null
+  if [ ! -c /dev/erandom ]; then
+    sleep 5
+  fi
+elif [ -f /lib/modules/frandom.ko ]; then
+  BUSYBOX insmod -f /lib/modules/frandom.ko 2>/dev/null
+  if [ ! -c /dev/erandom ]; then
+    sleep 5
+  fi
+elif [ -f /system/modules/frandom.ko ]; then
+  BUSYBOX insmod -f /system/modules/frandom.ko 2>/dev/null
+  if [ ! -c /dev/erandom ]; then
+    sleep 5
+  fi
+elif [ -f /modules/frandom.ko ]; then
+  BUSYBOX insmod -f /modules/frandom.ko 2>/dev/null
+  if [ ! -c /dev/erandom ]; then
+    sleep 5
+  fi
+elif [ -f /system/etc/CrossBreeder/frandom.ko ]; then
+  punchmod /system/etc/CrossBreeder/frandom.ko "" 2>/dev/null
+  if [ ! -c /dev/erandom ]; then
+    sleep 5
+  fi
+fi
+URANDOMDEVICE="/dev/urandom"
+if [ -c /dev/erandom ]; then 
+  if [ ! -f /dev/urandom.MOD ]; then 
+    touch /dev/urandom.MOD
+    BUSYBOX mv /dev/urandom /dev/urandom.ORIG && BUSYBOX ln /dev/erandom /dev/urandom
+    sleep 2
+  fi
+  BUSYBOX chmod 444 /dev/frandom
+  BUSYBOX chmod 444 /dev/erandom
+  RANDOMDEVICE=frandom
+  if [ ! -c /dev/urandom.ORIG ]; then 
+    BUSYBOX mknod -m 666 /dev/urandom.ORIG c 1 9
+    sleep 2
+  fi
+  URANDOMDEVICE="/dev/urandom.ORIG"
+else
+  if [ ! -c /dev/urandom ]; then
+    BUSYBOX mknod -m 666 /dev/urandom c 1 9
+    sleep 2
+  fi
+fi
+
+if [ ! -f /dev/random.MOD ]; then  
+  touch /dev/random.MOD
+  BUSYBOX rm /dev/random && BUSYBOX ln /dev/$RANDOMDEVICE /dev/random
+fi
+
+WRITE_WAKEUP_THRESHOLD=16
+OS=`getprop ro.build.version.release | BUSYBOX awk -F\. '{ print $1$2 }'`
+if [ "$OS" -lt 40 ]; then 
+  WRITE_WAKEUP_THRESHOLD=0; 
+fi
+
+if [ ! -f /system/etc/CrossBreeder/ENTROPY_FEED_FREQUENCY_SECS ]; then
+  if [ "$OS" -lt 41 ]; then
+    BUSYBOX mount -o rw,remount /system
+    ECHO 0.5 > /system/etc/CrossBreeder/ENTROPY_FEED_FREQUENCY_SECS
+  fi
+fi
+
+#if [ -c /dev/hw_random ]; then
+#  WRITE_WAKEUP_THRESHOLD=16
+#fi
+
+P_WRITE_WAKEUP_THRESHOLD=""
+if [ -f /system/etc/CrossBreeder/WRITE_WAKEUP_THRESHOLD ]; then 
+  P_WRITE_WAKEUP_THRESHOLD=`cat /system/etc/CrossBreeder/WRITE_WAKEUP_THRESHOLD 2>/dev/null`
+fi
+ 
+if [ ""$P_WRITE_WAKEUP_THRESHOLD"" != """" ]; then
+      P_WRITE_WAKEUP_THRESHOLD_NEW=$(($P_WRITE_WAKEUP_THRESHOLD + 0)) 2>/dev/null;
+      if [ "$P_WRITE_WAKEUP_THRESHOLD_NEW" = "" ]; then P_WRITE_WAKEUP_THRESHOLD_NEW=-1; fi
+      if [ "$P_WRITE_WAKEUP_THRESHOLD_NEW" -ge 0 ]; then
+        WRITE_WAKEUP_THRESHOLD=$P_WRITE_WAKEUP_THRESHOLD_NEW
+        ECHO $WRITE_WAKEUP_THRESHOLD > /proc/sys/kernel/random/write_wakeup_threshold
+      fi
+fi
+
+( BUSYBOX nice -n +20 CB_RunHaveged $URANDOMDEVICE $WRITE_WAKEUP_THRESHOLD 0<&- &>/dev/null 2>&1 ) &
+
+#IRQ_FLUSH_FREQUENCY=60
+#P_IRQ_FLUSH_FREQUENCY=""
+#if [ -f /system/etc/CrossBreeder/IRQ_FLUSH_FREQUENCY_MINUTES ]; then
+#  P_IRQ_FLUSH_FREQUENCY=`cat /system/etc/CrossBreeder/IRQ_FLUSH_FREQUENCY_MINUTES 2>/dev/null`
+#fi
+
+#if [ ""$P_IRQ_FLUSH_FREQUENCY"" != """" ]; then
+#      P_IRQ_FLUSH_FREQUENCY_NEW=$(($P_IRQ_FLUSH_FREQUENCY + 0)) 2>/dev/null;
+#      if [ "$P_IRQ_FLUSH_FREQUENCY_NEW" = "" ]; then P_IRQ_FLUSH_FREQUENCY_NEW=-1; fi
+#      if [ "$P_IRQ_FLUSH_FREQUENCY_NEW" -ge 0 ]; then
+#        IRQ_FLUSH_FREQUENCY=$P_IRQ_FLUSH_FREQUENCY_NEW
+#      fi
+#fi
+
+if [ ! -f /system/etc/CrossBreeder/STOP_DNS ]; then
+#  ( BUSYBOX start-stop-daemon -o -S -b -N 20 -x /system/etc/CrossBreeder/CB_WakeWait -- $WRITE_WAKEUP_THRESHOLD 0<&- &>/dev/null 2>&1 ) &
+  ( BUSYBOX start-stop-daemon -o -S -b -x /system/etc/CrossBreeder/zzCHECK_NET_DNS -- RUN $WRITE_WAKEUP_THRESHOLD 0<&- &>/dev/null 2>&1 ) &
+fi
+
+for i in `BUSYBOX timeout -t 15 -s KILL /system/etc/CrossBreeder/busybox find /sys -name add_random -print 2>/dev/null`; do ECHO 0 > $i; done 
+
+ECHO $WRITE_WAKEUP_THRESHOLD > /proc/sys/kernel/random/write_wakeup_threshold
+ECHO 64 > /proc/sys/kernel/random/read_wakeup_threshold
+
+if [ "$OS" -lt 41 ]; then 
+  setprop persist.sys.scrollingcache 3
+else
+  setprop persist.sys.scrollingcache 2
+fi
+setprop windowsmgr.max_events_per_sec 300
+setprop ro.max.fling_velocity 12000
+setprop ro.min.fling_velocity 8000
+setprop persist.sys.purgeable_assets 1
+
+sys_pid=`BUSYBOX pgrep system_server 2>/dev/null`
+
+BUSYBOX renice -10 $sys_pid 2>/dev/null
+
+for i in $(BUSYBOX pgrep haveged 2>/dev/null); do 
+# ECHO -8 > /proc/$i/oom_adj 2>/dev/null
+  BUSYBOX renice +20 $i 2>/dev/null
+done
+
+BUSYBOX timeout -t 3 -s KILL /system/etc/CrossBreeder/busybox sysctl -e -w net.ipv4.tcp_tw_recycle=1;
+BUSYBOX timeout -t 3 -s KILL /system/etc/CrossBreeder/busybox sysctl -e -w net.ipv4.tcp_tw_reuse=1;
+BUSYBOX timeout -t 3 -s KILL /system/etc/CrossBreeder/busybox sysctl -e -w net.ipv4.tcp_fin_timeout=15;
+BUSYBOX timeout -t 3 -s KILL /system/etc/CrossBreeder/busybox sysctl -e -w net.ipv4.tcp_keepalive_intvl=30;
+BUSYBOX timeout -t 3 -s KILL /system/etc/CrossBreeder/busybox sysctl -e -w net.ipv4.tcp_keepalive_probes=5;
+BUSYBOX timeout -t 3 -s KILL /system/etc/CrossBreeder/busybox sysctl -e -w net.ipv4.tcp_keepalive_time=1800;
+BUSYBOX timeout -t 3 -s KILL /system/etc/CrossBreeder/busybox sysctl -e -w net.ipv4.tcp_moderate_rcvbuf=1;
+#BUSYBOX timeout -t 3 -s KILL /system/etc/CrossBreeder/busybox sysctl -e -w net.ipv4.tcp_sack=1;
+#BUSYBOX timeout -t 3 -s KILL /system/etc/CrossBreeder/busybox sysctl -e -w net.ipv4.tcp_dsack=1;
+BUSYBOX timeout -t 3 -s KILL /system/etc/CrossBreeder/busybox sysctl -e -w net.ipv4.tcp_window_scaling=1;
+
+BUSYBOX mount -t debugfs none /sys/kernel/debug 2>/dev/null
+
+ECHO NO_NORMALIZED_SLEEPER > /sys/kernel/debug/sched_features 2>/dev/null
+ECHO NO_GENTLE_FAIR_SLEEPERS > /sys/kernel/debug/sched_features 2>/dev/null
+ECHO NO_NEW_FAIR_SLEEPERS > /sys/kernel/debug/sched_features 2>/dev/null
+
+if [ -f /data/STOP_TWEAKING_ME ]; then return 0; fi
+
+if [ -f /system/etc/CrossBreeder/START_TWEAKING_IO ]; then 
+  ( BUSYBOX start-stop-daemon -o -S -p /dev/null -b -N 20 -x /system/etc/CrossBreeder/busybox -- timeout -t 20 -s KILL /system/etc/CrossBreeder/Thunderbolt_Tweaks_IO.sh 0<&- &>/dev/null 2>&1 ) &
+fi
+
+# Define TCP buffer sizes for various networks
+# ReadMin, ReadInitial, ReadMax, WriteMin, WriteInitial, WriteMax
+
+# Thunderbolt settings
+
+#setprop net.tcp.buffersize.wifi 524288,1048576,2097152,262144,524288,1048576;
+#setprop net.tcp.buffersize.default 4096,87380,704512,4096,16384,110208;
+#setprop net.tcp.buffersize.hspa 4094,87380,704512,4096,16384,262144
+#setprop net.tcp.buffersize.umts 4094,87380,563200,4096,16384,110208
+#setprop net.tcp.buffersize.gprs 4094,87380,256960,4096,16384,110208;
+#setprop net.tcp.buffersize.edge 4094,87380,256960,4096,16384,110208;
+
+#V6 Supercharger settings
+
+setprop net.tcp.buffersize.default 6144,87380,110208,6144,16384,110208
+setprop net.tcp.buffersize.wifi 262144,524288,1048576,262144,524288,1048576
+setprop net.tcp.buffersize.lte 262144,524288,3145728,262144,524288,3145728
+setprop net.tcp.buffersize.hsdpa 6144,262144,1048576,6144,262144,1048576
+setprop net.tcp.buffersize.evdo_b 6144,262144,1048576,6144,262144,1048576
+setprop net.tcp.buffersize.umts 6144,87380,110208,6144,16384,110208
+setprop net.tcp.buffersize.hspa 6144,87380,262144,6144,16384,262144
+setprop net.tcp.buffersize.gprs 6144,8760,11680,6144,8760,11680
+setprop net.tcp.buffersize.edge 6144,26280,35040,6144,16384,35040
+
+BUSYBOX timeout -t 3 -s KILL /system/etc/CrossBreeder/busybox sysctl -e -w vm.oom_kill_allocating_task=0;
+BUSYBOX timeout -t 3 -s KILL /system/etc/CrossBreeder/busybox sysctl -e -w vm.panic_on_oom=0;
+BUSYBOX timeout -t 3 -s KILL /system/etc/CrossBreeder/busybox sysctl -e -w vm.overcommit_memory=1;
+#BUSYBOX timeout -t 3 -s KILL /system/etc/CrossBreeder/busybox sysctl -e -w vm.page-cluster=3;
+#BUSYBOX timeout -t 3 -s KILL /system/etc/CrossBreeder/busybox sysctl -e -w vm.laptop_mode=0;
+#BUSYBOX timeout -t 3 -s KILL /system/etc/CrossBreeder/busybox sysctl -e -w vm.vfs_cache_pressure=50;
+BUSYBOX timeout -t 3 -s KILL /system/etc/CrossBreeder/busybox sysctl -e -w vm.dirty_expire_centisecs=1000;
+BUSYBOX timeout -t 3 -s KILL /system/etc/CrossBreeder/busybox sysctl -e -w vm.dirty_writeback_centisecs=500;
+
+total_ram=$((`BUSYBOX free | BUSYBOX grep Mem | BUSYBOX head -1 | BUSYBOX awk '{ print $2 }'`/1024))
+
+if [ "$total_ram" -lt 512 ]; then
+  read_ahead=512
+else
+  read_ahead=1024
+fi
+
+ECHO 512 > /sys/block/mmcblk0/bdi/read_ahead_kb
+ECHO 512 > /sys/block/mmcblk0/queue/read_ahead_kb
+ECHO 256 > /sys/devices/virtual/bdi/default/read_ahead_kb
+for i in `BUSYBOX ls /sys/devices/virtual/bdi/179*/read_ahead_kb`; do ECHO $read_ahead > $i; done
+for i in `BUSYBOX ls /sys/devices/virtual/bdi/7:*/read_ahead_kb`; do ECHO 128 > $i; done
+ECHO 97 > /sys/devices/virtual/bdi/179:0/max_ratio
+ECHO 97 > /sys/devices/virtual/bdi/default/max_ratio
+
+( BUSYBOX start-stop-daemon -o -S -p /dev/null -b -N 20 -x /system/etc/CrossBreeder/busybox -- timeout -t 30 -s KILL /system/etc/CrossBreeder/CB_Governor_Tweaks.sh 0<&- &>/dev/null 2>&1 ) &
+
+if [ "x$1" != "xFORCE" ]; then return 0; fi
+
+for i in `BUSYBOX mount | BUSYBOX grep ext[3-4] | BUSYBOX awk '{ print $1 }' | BUSYBOX sort | BUSYBOX uniq`; do tune2fs -o journal_data_writeback $i >/dev/null 2>&1; done
+
+for i in `BUSYBOX mount | BUSYBOX grep ext[3-4] | BUSYBOX awk '{ print $3 }' | BUSYBOX sort | BUSYBOX uniq`; do
+  mount -o remount,data=writeback $i >/dev/null 2>&1;
+done
+
+for j in $(BUSYBOX mount | BUSYBOX awk '{ print $3 }');
+do
+  BUSYBOX mount -o remount,noatime,nodiratime $j 2>/dev/null;
+done;
+
+BUSYBOX mount -o remount,noatime,nodiratime / 2>/dev/null
+

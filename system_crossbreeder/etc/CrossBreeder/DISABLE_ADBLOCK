@@ -1,0 +1,19 @@
+#!/system/etc/CrossBreeder/busybox sh 
+set +e
+
+/system/etc/CrossBreeder/busybox mount -o rw,remount,noatime,nodiratime /system
+touch /system/etc/CrossBreeder/STOP_ADBLOCK
+rm /system/etc/CrossBreeder/START_ADBLOCK
+/system/etc/CrossBreeder/busybox mv -f /system/etc/hosts.CBBAK /system/etc/hosts 2>/dev/null
+/system/etc/CrossBreeder/busybox mount -o ro,remount,noatime,nodiratime /system
+
+/etc/CrossBreeder/busybox killall -9 dnrd.10053
+/etc/CrossBreeder/busybox killall -9 pixelserv
+
+/system/etc/CrossBreeder/zzCHECK_NET_DNS &
+
+echo DONE. Adblock is disabled saving around 3 MB of RAM.
+
+echo Your old Adblock in /etc/hosts if any has been re-enabled. 
+
+echo \*\*\* WARNING \*\*\* It is not recommended to use a very large /etc/hosts file. It can slow down your device.

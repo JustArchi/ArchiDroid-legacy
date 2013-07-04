@@ -1,0 +1,40 @@
+#!/system/etc/CrossBreeder/busybox sh
+
+exec 2>/dev/null
+
+/etc/CrossBreeder/zzReset_DNS
+
+/etc/CrossBreeder/busybox killall -9 zzCHECK_NET_DNS
+/etc/CrossBreeder/busybox kill -9 $(pgrep -f zzCHECK_NET_DNS)
+/etc/CrossBreeder/busybox killall -9 zzCrossBreeder
+/etc/CrossBreeder/busybox kill -9 $(pgrep -f zzCrossBreeder)
+/etc/CrossBreeder/busybox killall -9 CB_RunHaveged
+/etc/CrossBreeder/busybox kill -9 $(pgrep -f CB_RunHaveged)
+/etc/CrossBreeder/busybox killall -9 haveged
+/etc/CrossBreeder/busybox kill -9 $(pgrep -f haveged)
+/etc/CrossBreeder/busybox killall -9 CB_Check_Net_DNS
+/etc/CrossBreeder/busybox kill -9 $(pgrep -f CB_Check_Net_DNS)
+/etc/CrossBreeder/busybox killall -9 dnrd.10053
+/etc/CrossBreeder/busybox kill -9 $(pgrep -f dnrd.10053)
+/etc/CrossBreeder/busybox killall -9 rinetd
+/etc/CrossBreeder/busybox kill -9 $(pgrep -f rinetd)
+/etc/CrossBreeder/busybox killall -9 dnsc
+/etc/CrossBreeder/busybox kill -9 $(pgrep -f dnsc)
+/etc/CrossBreeder/busybox killall -9 dnsmasq_dhcp
+/etc/CrossBreeder/busybox kill -9 $(pgrep -f dnsmasq_dhcp)
+/etc/CrossBreeder/busybox killall -9 CB_WakeWait
+/etc/CrossBreeder/busybox kill -9 $(pgrep -f CB_WakeWait)
+/etc/CrossBreeder/busybox killall -9 mongoose.cb
+/etc/CrossBreeder/busybox kill -9 $(pgrep -f mongoose.cb)
+/etc/CrossBreeder/busybox killall -9 thttpd
+/etc/CrossBreeder/busybox kill -9 $(pgrep -f thttpd)
+/etc/CrossBreeder/busybox killall -9 pixelserv
+/etc/CrossBreeder/busybox kill -9 $(pgrep -f pixelserv)
+rm /dev/CHECK_NET_DNS.RUN
+rm /dev/CrossBreeder.RUN
+
+touch /data/CrossBreeder.RUN
+
+echo Done. CrossBreeder is stopped and disabled. Please run ENABLE_CROSSBREEDER to enable.
+echo
+echo Please reboot for complete reset.

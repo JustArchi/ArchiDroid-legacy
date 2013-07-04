@@ -1,0 +1,25 @@
+#!/system/etc/CrossBreeder/busybox sh
+set +e
+
+trap '/system/etc/CrossBreeder/busybox kill -9 $pid; /system/etc/CrossBreeder/busybox echo CAUGHT ERR >> /data/dnsmasq.log; exit 0' ERR
+trap '/system/etc/CrossBreeder/busybox kill -9 $pid; /system/etc/CrossBreeder/busybox echo CAUGHT EXIT >> /data/dnsmasq.log; exit 0' EXIT
+trap '/system/etc/CrossBreeder/busybox kill -9 $pid; /system/etc/CrossBreeder/busybox echo CAUGHT TERM >> /data/dnsmasq.log; exit 0' TERM
+trap '/system/etc/CrossBreeder/busybox kill -9 $pid; /system/etc/CrossBreeder/busybox echo CAUGHT QUIT >> /data/dnsmasq.log; exit 0' QUIT
+
+date > /data/dnsmasq.log
+echo $* >> /data/dnsmasq.log
+
+/system/etc/CrossBreeder/busybox kill -9 $(/system/etc/CrossBreeder/busybox pgrep -f "dnsmasq_dhcp -d \-p 10054") 
+/system/etc/CrossBreeder/busybox kill -9 $(/system/etc/CrossBreeder/busybox pgrep -f dnsmasq.CBBAK) 
+
+/system/bin/dnsmasq_dhcp -d -p 0 --dhcp-option=252,\"\\n\" --no-ping --dhcp-authoritative $* >> /data/dnsmasq.log 2>>/data/dnsmasq.log &
+pid=$!
+echo "PID: " $pid >> /data/dnsmasq.log
+wait $pid
+
+echo "Trying dnsmasq.CBBAK" >> /data/dnsmasq.log
+
+/system/bin/dnsmasq.CBBAK -d -p 10054 $* >/dev/null 2>&1 &
+pid=$!
+echo "PID: " $pid >> /data/dnsmasq.log
+wait $pid

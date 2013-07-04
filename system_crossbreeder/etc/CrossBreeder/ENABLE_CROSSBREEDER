@@ -1,0 +1,13 @@
+#!/system/etc/CrossBreeder/busybox sh
+
+/system/etc/CrossBreeder/DISABLE_CROSSBREEDER >/dev/null 2>&1
+
+rm /data/CrossBreeder.RUN 2>/dev/null
+
+/system/etc/CrossBreeder/busybox sh -x /system/etc/CrossBreeder/zzCrossBreeder RUN > /data/cb_CHECK_PROCS.log 2>&1 &
+
+#sleep 5
+
+#/system/etc/CrossBreeder/CHECK_PROCS
+
+echo DONE. CrossBreeder has been enabled and started. If you still get problems. Please reboot once. 

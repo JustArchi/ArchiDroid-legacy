@@ -1,0 +1,10 @@
+#!/system/etc/CrossBreeder/busybox sh 
+set +e
+
+/system/etc/CrossBreeder/busybox mount -o rw,remount,noatime,nodiratime /system
+
+rm /system/etc/CrossBreeder/START_TWEAKING_IO 2>/dev/null
+
+/system/etc/CrossBreeder/busybox mount -o ro,remount,noatime,nodiratime /system
+
+echo DONE. IO tweaks are disabled. Please reboot for default values to take effect.

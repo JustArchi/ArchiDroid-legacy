@@ -1,0 +1,175 @@
+#!/system/etc/CrossBreeder/busybox sh
+set +e
+export PATH=/system/etc/CrossBreeder:/system/bin:/system/xbin:/sbin:/vendor/bin:/system/sbin
+alias BUSYBOX='/system/etc/CrossBreeder/busybox'
+
+exec 0>&1
+alias [='BUSYBOX ['
+alias [[='BUSYBOX [['
+
+FILL_RESOLV() {
+  CHANGE=0
+  if [ "$1" = "" ]; then 
+    dns1=$(getprop net.dns1 2>/dev/null)
+  else
+    dns1=$1
+  fi
+  if ! BUSYBOX grep -q $dns1 /dev/resolv-local.conf 2>/dev/null; then 
+    if [ "x0.0.0.0" != "x$dns1" ]; then
+	  if BUSYBOX echo $dns1 | BUSYBOX grep -q "\..*\..*\..*"; then
+        BUSYBOX echo "nameserver $dns1" >> /dev/resolv-local.conf
+        CHANGE=1
+      fi
+	fi
+  fi
+  
+  if [ "$2" = "" ]; then 
+    dns2=$(getprop net.dns2 2>/dev/null)
+  else
+    dns2=$2
+  fi
+  if ! BUSYBOX grep -q $dns2 /dev/resolv-local.conf 2>/dev/null; then 
+    if [ "x0.0.0.0" != "x$dns2" ]; then
+	  if BUSYBOX echo $dns2 | BUSYBOX grep -q "\..*\..*\..*"; then
+        BUSYBOX echo "nameserver $dns2" >> /dev/resolv-local.conf
+        CHANGE=1
+      fi
+	fi
+  fi  
+  if [ `BUSYBOX wc -l /dev/resolv-local.conf | BUSYBOX awk '{ print $1 }'` -gt 4 ]; then
+   cat /dev/resolv-local.conf
+    BUSYBOX grep "nameserver.*\..*\..*\..*" /dev/resolv-local.conf | BUSYBOX tail -4 > /dev/resolv-local.conf.tmp
+	BUSYBOX mv -f /dev/resolv-local.conf.tmp /dev/resolv-local.conf
+        CHANGE=1
+  fi
+
+  if [ $CHANGE -eq 1 ]; then 
+    killall -HUP dnsmasq_dhcp
+  fi
+}
+
+SET_NET_DNS() {
+count=1
+while [ $count -le 5 ]; do 
+while [ "x$(getprop net.dns1 2>/dev/null)" != "x0.0.0.0" ]; do
+ FILL_RESOLV
+ if dnsc 0.0.0.0 >/dev/null 2>&1;  then
+  if dnsc 127.0.0.3 www.microsoft.com 10053 >/dev/null 2>&1; then
+    dns1=$(getprop net.dns1 2>/dev/null)
+    setprop net.dns1 0.0.0.0
+    dns2=$(getprop net.dns2 2>/dev/null)
+    if [ "x0.0.0.0" != "x$dns1" ]; then
+	  if BUSYBOX echo $dns1 | BUSYBOX grep -q "\..*\..*\..*"; then
+        setprop net.dns2 $dns1
+	  fi
+    fi
+    setprop net.change net.dnschange
+    setprop ro.kernel.android.ndns 2
+    setprop net.dnschange $(($(getprop net.dnschange) + 1));
+	FILL_RESOLV $dns1 $dns2
+	count=1;
+  fi
+ fi
+ if [ "x$(getprop net.dns1 2>/dev/null)" != "x0.0.0.0" ]; then
+    count=1;
+    ipcount=`BUSYBOX ip route 2>/dev/null| BUSYBOX wc -l 2>/dev/null`
+    if [ "x$ipcount" = "x0" ]; then
+      setprop net.dns1 0.0.0.0
+    fi
+ fi
+ if [ -f /dev/resolv-local.conf.TOUCH ]; then rm /dev/resolv-local.conf.TOUCH; count=1; fi
+done
+ sleep 3
+ count=$(($count+1))
+ if [ -f /dev/resolv-local.conf.TOUCH ]; then rm /dev/resolv-local.conf.TOUCH; count=1; fi
+done
+}
+
+RUN_DNS() {
+  CB_Check_Net_DNS >/dev/null 2>&1 &
+  pid=$!
+  BUSYBOX renice +20 $pid >/dev/null 2>&1
+  if [ -f /system/etc/CrossBreeder/STOP_DNS ]; then return 0; fi
+if [ ! -f /system/etc/CrossBreeder/STOP_ADBLOCK ]; then 
+  BUSYBOX nice -n +20 pixelserv 127.0.0.1 -f /system/etc/CrossBreeder/null.bin -g /system/etc/CrossBreeder/null.gif >/dev/null 2>&1 &
+fi
+    BUSYBOX nice -n +20 rinetd -c /system/etc/CrossBreeder/rinetd.conf >/dev/null 2>&1 &
+    LOCALDNS=" -r /dev/resolv-local.conf "
+    if [ -f /system/etc/CrossBreeder/BYPASS_ISP ]; then LOCALDNS=; fi 
+    REMOTE_DNS=" -S 8.8.8.8 -S 8.8.4.4 -S 209.244.0.4 -S 209.244.0.3 "
+    if [ -f /system/etc/CrossBreeder/REMOTE_DNS ]; then 
+      REMOTE_DNS=" "
+      for i in `cat /system/etc/CrossBreeder/REMOTE_DNS 2>/dev/null`; do
+        j=`BUSYBOX echo $i | BUSYBOX cut -d\. -f4`
+        if [ "$j" != "" ]; then 
+         if [ "$j" -ge 0 ]; then REMOTE_DNS=" $REMOTE_DNS -S $i "; fi
+        fi
+      done
+      #if [ "$REMOTE_DNS" = " " ]; then REMOTE_DNS=" -S 209.244.0.4 -S 209.244.0.3 "; fi 
+    fi
+    dnsmasq_dhcp -d --all-servers -C /system/etc/CrossBreeder/dnsmasq.conf -n --user=root -x /dev/dnsmasq.pid $LOCALDNS -a 127.0.0.3 -z -p 10053 -c 0 -N -h $REMOTE_DNS >/dev/null 2>&1 &
+    pid=$!
+    BUSYBOX renice +5 $pid >/dev/null 2>&1
+  MASTER=" -m master "
+#  total_ram=$((`BUSYBOX free | BUSYBOX grep Mem | BUSYBOX head -1 | BUSYBOX awk '{ print $2 }'`/1024))
+
+#  if [ "$total_ram" -lt 512 ]; then
+#    if [ ! -f /system/etc/CrossBreeder/START_ADBLOCK ]; then 
+#      MASTER=" -m off ";
+#    fi
+#  fi
+
+  if [ -f /system/etc/CrossBreeder/STOP_ADBLOCK ]; then 
+    MASTER=" -m off "; 
+  else
+    if ! BUSYBOX sort -c /system/etc/CrossBreeder/dnrd_root/master >/dev/null 2>&1; then 
+      BUSYBOX egrep -v "^#|^$|^\ |localhost" /system/etc/CrossBreeder/dnrd_root/master 2>/dev/null | BUSYBOX grep -v $'^\t' 2>/dev/null | BUSYBOX sort -u -o /data/local/tmp/master.tmp 2>/dev/null
+      if [ $? -eq 0 ]; then 
+        BUSYBOX mount -o rw,remount /system
+        BUSYBOX mv -f /data/local/tmp/master.tmp /system/etc/CrossBreeder/dnrd_root/master
+        ret=$?
+        BUSYBOX chmod 644 /system/etc/CrossBreeder/dnrd_root/master
+        BUSYBOX chown 0.0 /system/etc/CrossBreeder/dnrd_root/master
+        if [ $ret -eq 0 ]; then  
+          BUSYBOX killall -9 dnrd.10053
+        fi 
+        BUSYBOX rm -f /data/local/tmp/master.tmp 2>/dev/null
+      fi
+    fi
+  fi
+  
+  dnrd.10053 -u 0 -r 0 -M 65535 -d 1 $1 $MASTER -s 127.0.0.3 -R /system/etc/CrossBreeder/dnrd_root >/dev/null 2>&1 &
+  pid=$!
+  BUSYBOX renice +5 $pid >/dev/null 2>&1
+}
+
+if [ ! -f /system/etc/CrossBreeder/STOP_ADBLOCK ]; then 
+  if [ "`BUSYBOX md5sum /system/etc/hosts 2>/dev/null| BUSYBOX awk '{ print $1 }'`" != "b4b71da0b1bfb14086d3ef5edb2e903c" ]; then
+    BUSYBOX mount -o rw,remount,noatime,nodiratime /system
+    BUSYBOX cp -a -f /system/etc/CrossBreeder/hosts /system/etc/hosts
+#    BUSYBOX mount -o ro,remount,noatime,nodiratime /system
+  fi
+fi
+
+#if [ -f /system/etc/resolv.conf ]; then
+# if [ ! -f /system/etc/resolv.conf.CBBAK ]; then
+#  BUSYBOX mount -o rw,remount,noatime,nodiratime /system
+#  BUSYBOX mv -f /system/etc/resolv.conf /system/etc/resolv.conf.CBBAK
+#  BUSYBOX mount -o ro,remount,noatime,nodiratime /system
+# else
+#  BUSYBOX mount -o rw,remount,noatime,nodiratime /system
+#  rm /system/etc/resolv.conf
+#  BUSYBOX mount -o ro,remount,noatime,nodiratime /system
+# fi
+#fi
+
+if [[ -f /system/etc/CrossBreeder/STOP_DNS && "$1" != "FORCE" ]]; then return 0; fi
+
+rm /dev/resolv-local.conf.TOUCH 2>/dev/null
+
+RUN_DNS &
+
+if [ "$1" = "RUN" ]; then return 0; fi
+
+SET_NET_DNS "$2"
+

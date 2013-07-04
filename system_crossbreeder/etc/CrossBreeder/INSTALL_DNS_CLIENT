@@ -1,0 +1,26 @@
+#!/system/bin/sh
+export PATH=/system/etc/CrossBreeder:$PATH
+ 
+busybox mount -o rw,remount,noatime,nodiratime /system 2>/dev/null
+ 
+rm /system/etc/CrossBreeder/STOP_DNS 2>/dev/null
+
+if [ -f /system/etc/CrossBreeder/dnsmasq.txt ]; then
+ if [ ! -f /system/bin/dnsmasq.CBBAK ]; then 
+  if [ "`dd if=/system/bin/dnsmasq skip=1 bs=1 count=3 2>/dev/null`" = "ELF" ]; then
+    busybox cp -f /system/bin/dnsmasq /system/bin/dnsmasq.CBBAK
+  else 
+    busybox cp -f /system/bin/dnsmasq_dhcp /system/bin/dnsmasq.CBBAK
+  fi
+ fi
+ busybox cp -f /system/etc/CrossBreeder/dnsmasq.txt /system/bin/dnsmasq
+ chmod 755 /system/bin/dnsmasq
+fi
+
+rm /dev/CHECK_NET_DNS.RUN 2>/dev/null
+ 
+busybox mount -o ro,remount,noatime,nodiratime /system 2>/dev/null
+
+busybox setsid /system/etc/CrossBreeder/zzCHECK_NET_DNS RUN 0<&- &>/dev/null 2>&1
+ 
+echo DONE. Please reboot your device now.

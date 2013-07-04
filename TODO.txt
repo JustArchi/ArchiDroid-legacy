@@ -1,0 +1,121 @@
+permfix z uzyciem yankowego waita
+common/system w zwiazku z kernel paniciem
+appka na led
+xposed oddzielic
+
+
+
+
+SHOW ROM INFO
+
+
+
+if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "1" then
+viewbox(
+  #-- Title
+    "Welcome!",
+  
+  #-- Text
+    "You are about to install <b>"+
+      #-- Get Config Value
+      ini_get("rom_name")+
+    "</b> for <b>"+ini_get("rom_device")+"</b>.\n\n"+
+
+      "  VERSION\t: <b><#selectbg_g>"+ini_get("rom_version")+"</#></b>\n"+
+      "  UPDATED\t: <b><#selectbg_g>"+ini_get("rom_date")+"</#></b>\n\n\n"+
+
+    "Press <b>Next</b> to continue the installation.",
+
+  #-- Icon
+    "@welcome"
+);
+endif;
+
+textbox(
+  #-- Title
+    "Changelog",
+  
+  #-- Subtitle
+    "",
+  
+  #-- Icon
+    "@info",
+  
+  #-- Arg 4
+    resread("_changelog.txt")
+);
+
+###################################################################################################################
+#
+# STEP 2 - TERMS OF USE
+#
+
+if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "1" then
+textbox(
+  #-- Title
+    "ArchiDroid",
+  
+  #-- Subtitle
+    "",
+  
+  #-- Icon
+    "@info",
+  
+  #-- Arg 4
+    resread("_version.txt")
+);
+
+agreebox(
+  #-- Title
+    "Important notes!",
+  
+  #-- Subtitle / Description
+    "",
+  
+  #-- Icon
+    "@alert",
+  
+  #-- Text Content ( Read from <AROMA Resource Dir>/read_me.txt )
+    resread("read_me.txt"),
+  
+  #-- Checkbox Text
+    "I agree with these Terms of Use.",
+  
+  #-- Unchecked Alert Message
+    "You need to agree with the Terms of Use..."
+);
+
+agreebox(
+  #-- Title
+    "Important notes!",
+  
+  #-- Subtitle / Description
+    "",
+  
+  #-- Icon
+    "@alert",
+  
+  #-- Text Content ( Read from <AROMA Resource Dir>/read_me2.txt )
+    resread("read_me2.txt"),
+  
+  #-- Checkbox Text
+    "I totally respect that",
+  
+  #-- Unchecked Alert Message
+    "Respect the devs!"
+);
+
+textbox(
+  #-- Title
+    "ArchiDroid",
+  
+  #-- Subtitle
+    "",
+  
+  #-- Icon
+    "@alert",
+  
+  #-- Arg 4
+    resread("warning.txt")
+);
+endif;

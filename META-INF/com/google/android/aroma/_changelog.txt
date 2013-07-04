@@ -1,0 +1,19 @@
+RELEASE CANDIDATE CHANGELOG
+RC 2.1
+
+- Kilka kosmetycznych fixow do aktualizacji sqlite. Dodalem wstepnie zdefiniowana date i zegar (z procentami) oraz naprawilem malutki blad, ktory nie wprowadzal mozliwosci screenshota, dzieki @mrtur :)
+- RunOnce zostal ulepszony o komende killall system_server
+# Jest to nieco brudny lecz w pelni profesjonalny sposob na przeladowanie ustawien sqlite po ich wprowadzeniu. Android podczas tworzenia bazy danych laduje do niej domyslne ustawienia - jakakolwiek zmiana tego co laduje "na twardo" jest widoczna dopiero po restarcie. Dlatego tez zmiany sqlite ArchiDroida przez RunOnce wykonywane sa podczas wstepnego ladowania (first boot), a po skonczonym ladowaniu dodatkowo jest wykonywana komenda killall system_server, ktora dokonuje restartu calego interfejsu i przeladowuje ustawienia. Pierwszy boot jest "dluzszy" o ok. 5 sekund. Oczywiscie nie jest to nic innego niz znany juz "hot reboot".
+
+- Update Google Play do 4.1.10 Inverted z wersji 3.x.
+- Update kernela Temasek'a do 3.0.85
+- Update moich configów do Temasek'a
+- Update Source'ów CM do V104 Temaseka (z fixami na lockscreena)
+
+TODO
+1. Dodac aplikacje
+Y. Wyczyscic build z nieuzywanych pozostalosci
+Z. Zaktualizowac arome i polski jezyk + to co jest nizej
+
+2.0.0 based on Temasek Unofficial Build
+- [!] COMPLETE rewrite basing on latest CM Sources

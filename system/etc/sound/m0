@@ -1,0 +1,344 @@
+<!-- TinyHAL configuration file for Samsung Galaxy S III -->
+<tinyhal>
+<!--
+We are able to have most of our routing static so do that
+-->
+<path>
+    <!-- AIF1->DAC1 -->
+    <ctl name="DAC1 Switch" val="1"/>
+
+    <ctl name="IN1L ZC Switch" val="0"/>
+    <ctl name="IN1R ZC Switch" val="0"/>
+    <ctl name="IN2L ZC Switch" val="0"/>
+    <ctl name="IN2R ZC Switch" val="0"/>
+    <ctl name="Output ZC Switch" val="0"/>
+    <ctl name="Speaker ZC Switch" val="0"/>
+    <ctl name="Headphone ZC Switch" val="0"/>
+
+    <!-- AIF1->DAC1 -->
+    <ctl name="DAC1L Mixer AIF1.1 Switch" val="1"/>
+    <ctl name="DAC1R Mixer AIF1.1 Switch" val="1"/>
+    <ctl name="DAC1 Switch" val="1"/>
+
+    <!-- ADC->AIF2 -->
+    <ctl name="AIF2DAC2L Mixer Left Sidetone Switch" val="1"/>
+    <ctl name="AIF2DAC2L Mixer Right Sidetone Switch" val="0"/>
+    <ctl name="AIF2DAC2R Mixer Left Sidetone Switch" val="0"/>
+    <ctl name="AIF2DAC2R Mixer Right Sidetone Switch" val="1"/>
+    <ctl name="DAC2 Left Sidetone Volume" val="12"/>
+    <ctl name="DAC2 Right Sidetone Volume" val="12"/>
+    <ctl name="DAC2 Switch" val="1"/>
+
+    <!-- DAC1->HP -->
+    <ctl name="Left Headphone Mux" val="Mixer"/>
+    <ctl name="Right Headphone Mux" val="Mixer"/>
+
+    <!-- DAC1->SPKL/R->SPKL/R Boost->SPK -->
+    <ctl name="SPKL DAC1 Switch" val="1"/>
+    <ctl name="SPKR DAC1 Switch" val="1"/>
+    <ctl name="SPKL Boost SPKL Switch" val="1"/>
+    <ctl name="SPKL Boost SPKR Switch" val="1"/>
+    <ctl name="SPKR Boost SPKL Switch" val="0"/>
+    <ctl name="SPKR Boost SPKR Switch" val="1"/>
+    <ctl name="Speaker Mixer Volume" val="3"/>
+
+    <!-- DAC->Output mixer->Earpiece -->
+    <ctl name="Left Output Mixer DAC Switch" val="1"/>
+    <ctl name="Right Output Mixer DAC Switch" val="1"/>
+    <ctl name="Earpiece Mixer Left Output Switch" val="1"/>
+    <ctl name="Earpiece Mixer Right Output Switch" val="1"/>
+    <ctl name="Earpiece Switch" val="1"/>
+
+    <!-- LINEOUT -->
+    <ctl name="LINEOUT2N Mixer Left Output Switch" val="1"/>
+    <ctl name="LINEOUT2P Mixer Right Output Switch" val="1"/>
+    <ctl name="LINEOUT1N Mixer Right Output Switch" val="1"/>
+    <ctl name="LINEOUT1P Mixer Left Output Switch" val="1"/>
+
+    <!-- Input mixer->ADC->AIF1.1 -->
+    <ctl name="AIF1ADC1L Mixer ADC/DMIC Switch" val="1"/>
+    <ctl name="AIF1ADC1R Mixer ADC/DMIC Switch" val="1"/>
+
+    <!-- Main Mic->IN1LP/N->Input Mixer with +30dB at mixer -->
+    <ctl name="IN1L PGA IN1LP Switch" val="1"/>
+    <ctl name="IN1L PGA IN1LN Switch" val="1"/>
+    <ctl name="MIXINL IN1L Volume" val="1"/>
+    <ctl name="IN1L Switch" val="1"/>
+
+    <!-- Sub Mic->IN1RP/N->Input Mixer with +30dB at mixer -->
+    <ctl name="IN1R PGA IN1RP Switch" val="1"/>
+    <ctl name="IN1R PGA IN1RN Switch" val="1"/>
+    <ctl name="MIXINR IN1R Volume" val="1"/>
+    <ctl name="IN1R Switch" val="1"/>
+
+    <!-- FM Radio->IN2RP/N->Input Mixer with +30dB at mixer -->
+    <ctl name="IN2R PGA IN2RP Switch" val="1"/>
+    <ctl name="IN2R PGA IN2RN Switch" val="1"/>
+    <ctl name="MIXINR IN2R Volume" val="1"/>
+    <ctl name="IN2R Switch" val="1"/>
+
+    <!-- Ear Mic->IN2LP/N->Input Mixer with +30dB at mixer -->
+    <ctl name="IN2L PGA IN2LP Switch" val="1"/>
+    <ctl name="IN2L PGA IN2LN Switch" val="1"/>
+    <ctl name="MIXINL IN2L Volume" val="1"/>
+    <ctl name="IN2L Switch" val="1"/>
+
+    <!-- Input mixer->ADC->AIF1 -->
+    <ctl name="AIF1ADC1L Mixer ADC/DMIC Switch" val="1"/>
+    <ctl name="AIF1ADC1R Mixer ADC/DMIC Switch" val="1"/>
+    <ctl name="ADCL Mux" val="ADC"/>
+
+    <!-- HPF on to take out some bounce -->
+    <ctl name="Sidetone HPF Switch" val="0"/>
+
+    <!-- Work around core issue -->
+    <ctl name="ADCL Mux" val="DMIC"/>
+    <ctl name="ADCL Mux" val="ADC"/>
+    <ctl name="ADCR Mux" val="DMIC"/>
+    <ctl name="ADCR Mux" val="ADC"/>
+
+    <!-- AIF2ADCDAT to AIF3ADC mux -->
+    <ctl name="AIF3ADC Mux" val="1"/>
+
+    <!-- Default all outputs off -->
+    <ctl name="HP Switch" val="0"/>
+    <ctl name="SPK Switch" val="0"/>
+    <ctl name="RCV Switch" val="0"/>
+    <ctl name="LINE Switch" val="0"/>
+    <ctl name="HDMI Switch" val="1"/>
+
+    <!-- Default all inputs off -->
+    <ctl name="Main Mic Switch" val="0"/>
+    <ctl name="Sub Mic Switch" val="0"/>
+    <ctl name="Headset Mic Switch" val="0"/>
+    <ctl name="FM In Switch" val="0"/>
+
+</path>
+<device name="speaker">
+    <path name="on">
+        <ctl name="SPK Switch" val="1"/>
+        <ctl name="AIF1DAC1 Volume" val="96"/>
+        <ctl name="AIF1 Boost Volume" val="0"/>
+        <ctl name="DAC1 Volume" val="96"/>
+        <ctl name="Left Output Mixer DAC Volume" val="7"/>
+        <ctl name="Right Output Mixer DAC Volume" val="7"/>
+        <ctl name="SPKL DAC1 Volume" val="1"/>
+        <ctl name="SPKR DAC1 Volume" val="1"/>
+        <ctl name="Speaker Mixer Volume" val="3"/>
+        <ctl name="Speaker Boost Volume" val="4"/>
+        <ctl name="Speaker Volume" val="57"/>
+        <ctl name="AIF1DAC1 EQ Switch" val="1"/>
+        <ctl name="AIF1DAC1 EQ1 Volume" val="9"/>
+        <ctl name="AIF1DAC1 EQ2 Volume" val="7"/>
+        <ctl name="AIF1DAC1 EQ3 Volume" val="10"/>
+        <ctl name="AIF1DAC1 EQ4 Volume" val="13"/>
+        <ctl name="AIF1DAC1 EQ5 Volume" val="12"/>
+    </path>
+    <path name="off">
+        <ctl name="SPK Switch" val="0"/>
+        <ctl name="AIF1DAC1 Volume" val="96"/>
+        <ctl name="AIF1 Boost Volume" val="0"/>
+        <ctl name="DAC1 Volume" val="96"/>
+        <ctl name="SPKL DAC1 Volume" val="1"/>
+        <ctl name="SPKR DAC1 Volume" val="1"/>
+        <ctl name="Speaker Mixer Volume" val="0"/>
+        <ctl name="Speaker Volume" val="0"/>
+        <ctl name="Speaker Boost Volume" val="0"/>
+        <ctl name="AIF1DAC1 EQ Switch" val="0"/>
+    </path>
+</device>
+<device name="earpiece">
+    <path name="on">
+        <ctl name="RCV Switch" val="1"/>
+        <ctl name="AIF1DAC1 Volume" val="96"/>
+        <ctl name="AIF1 Boost Volume" val="0"/>
+        <ctl name="DAC1 Volume" val="96"/>
+        <ctl name="Left Output Mixer DAC Volume" val="7"/>
+        <ctl name="Right Output Mixer DAC Volume" val="7"/>
+        <ctl name="Output Volume" val="57"/>
+        <ctl name="Earpiece Volume" val="1"/>
+        <ctl name="Speaker Mixer Volume" val="1"/>
+    </path>
+    <path name="off">
+        <ctl name="RCV Switch" val="0"/>
+        <ctl name="AIF1DAC1 Volume" val="96"/>
+        <ctl name="AIF1 Boost Volume" val="0"/>
+        <ctl name="DAC1 Volume" val="96"/>
+        <ctl name="Left Output Mixer DAC Volume" val="7"/>
+        <ctl name="Right Output Mixer DAC Volume" val="7"/>
+        <ctl name="Output Volume" val="57"/>
+        <ctl name="Earpiece Volume" val="1"/>
+    </path>
+</device>
+<device name="headphone">
+    <path name="on">
+        <ctl name="HP Switch" val="1"/>
+        <ctl name="Headphone Volume" val="60"/>
+        <ctl name="Headphone ZC Switch" val="0"/>
+        <ctl name="AIF1DAC1 Volume" val="96"/>
+        <ctl name="AIF1 Boost Volume" val="0"/>
+        <ctl name="DAC1 Volume" val="96"/>
+        <ctl name="Left Output Mixer DAC Volume" val="7"/>
+        <ctl name="Right Output Mixer DAC Volume" val="7"/>
+        <ctl name="AIF1DAC1 EQ Switch" val="1"/>
+        <ctl name="AIF1DAC1 EQ1 Volume" val="16"/>
+        <ctl name="AIF1DAC1 EQ2 Volume" val="14"/>
+        <ctl name="AIF1DAC1 EQ3 Volume" val="12"/>
+        <ctl name="AIF1DAC1 EQ4 Volume" val="14"/>
+        <ctl name="AIF1DAC1 EQ5 Volume" val="16"/>
+    </path>
+    <path name="off">
+        <ctl name="HP Switch" val="0"/>
+        <ctl name="AIF1DAC1 EQ Switch" val="0"/>
+    </path>
+</device>
+<device name="sco-out">
+    <path name="on">
+        <ctl name="AIF3ADC Mux" val="1"/>
+        <ctl name="AIF2DAC2L Mixer AIF1.1 Switch" val="1"/>
+        <ctl name="AIF2DAC2R Mixer AIF1.1 Switch" val="1"/>
+        <ctl name="AIF2ADCL Source" val="0"/>
+        <ctl name="AIF2ADCR Source" val="0"/>
+        <ctl name="AIF2DAC Volume" val="96"/>
+        <ctl name="DAC2 Volume" val="96"/>
+        <ctl name="AIF2ADC Volume" val="96"/>
+        <ctl name="Speaker Mixer Volume" val="1"/>
+    </path>
+    <path name="off">
+        <ctl name="AIF2DAC2L Mixer AIF1.1 Switch" val="0"/>
+        <ctl name="AIF2DAC2R Mixer AIF1.1 Switch" val="0"/>
+    </path>
+</device>
+<device name="dock">
+    <path name="on">
+        <ctl name="LINEOUT2N Switch" val="1"/>
+        <ctl name="LINEOUT2P Switch" val="1"/>
+        <ctl name="LINEOUT2N Mixer Left Output Switch" val="1"/>
+        <ctl name="LINEOUT2P Mixer Right Output Switch" val="1"/>
+        <ctl name="LINE Switch" val="1"/>
+        <ctl name="AIF1DAC1 Volume" val="96"/>
+        <ctl name="AIF1 Boost Volume" val="0"/>
+        <ctl name="DAC1 Volume" val="96"/>
+        <ctl name="Left Output Mixer DAC Volume" val="7"/>
+        <ctl name="Right Output Mixer DAC Volume" val="7"/>
+        <ctl name="Output Volume" val="55"/>
+        <ctl name="Earpiece Volume" val="1"/>
+    </path>
+    <path name="off">
+        <ctl name="LINEOUT2N Switch" val="0"/>
+        <ctl name="LINEOUT2P Switch" val="0"/>
+        <ctl name="LINE Switch" val="0"/>
+        <ctl name="AIF1DAC1 Volume" val="96"/>
+        <ctl name="AIF1 Boost Volume" val="0"/>
+        <ctl name="DAC1 Volume" val="96"/>
+        <ctl name="Left Output Mixer DAC Volume" val="7"/>
+        <ctl name="Right Output Mixer DAC Volume" val="7"/>
+        <ctl name="Output Volume" val="57"/>
+        <ctl name="LINEOUT2 Volume" val="1"/>
+    </path>
+</device>
+<device name="aux-digital">
+    <path name="on">
+        <ctl name="LINEOUT1N Switch" val="1"/>
+        <ctl name="LINEOUT1P Switch" val="1"/>
+        <ctl name="HDMI Switch" val="1"/>
+    </path>
+    <path name="off">
+        <ctl name="LINEOUT1N Switch" val="0"/>
+        <ctl name="LINEOUT1P Switch" val="0"/>
+        <ctl name="HDMI Switch" val="0"/>
+    </path>
+</device>
+<device name="builtin-mic">
+    <path name="on">
+        <ctl name="Main Mic Switch" val="1"/>
+        <ctl name="IN1L Volume" val="22"/>
+        <ctl name="MIXINL IN1L Switch" val="1"/>
+        <ctl name="MIXINL IN1L Volume" val="1"/>
+        <ctl name="AIF1ADCL Source" val="0"/>
+        <ctl name="AIF2ADCL Source" val="0"/>
+        <ctl name="AIF1ADC1 HPF Mode" val="0"/>
+        <ctl name="AIF1ADC1 HPF Switch" val="1"/>
+        <ctl name="AIF1ADC1 Volume" val="96"/>
+    </path>
+    <path name="off">
+        <ctl name="Main Mic Switch" val="0"/>
+        <ctl name="MIXINL IN1L Switch" val="0"/>
+        <ctl name="MIXINL IN1L Volume" val="0"/>
+        <ctl name="IN1L Volume" val="10"/>
+    </path>
+</device>
+<device name="back-mic">
+    <path name="on">
+        <ctl name="Sub Mic Switch" val="1"/>
+        <ctl name="IN1R Volume" val="22"/>
+        <ctl name="MIXINR IN1R Switch" val="1"/>
+        <ctl name="MIXINR IN1R Volume" val="1"/>
+        <ctl name="AIF1ADCR Source" val="1"/>
+        <ctl name="AIF2ADCR Source" val="1"/>
+        <ctl name="AIF1ADC1 HPF Mode" val="1"/>
+        <ctl name="AIF1ADC1 HPF Switch" val="1"/>
+        <ctl name="AIF1ADC1 Volume" val="96"/>
+    </path>
+    <path name="off">
+        <ctl name="Sub Mic Switch" val="0"/>
+        <ctl name="MIXINR IN1R Switch" val="0"/>
+        <ctl name="IN1R Volume" val="10"/>
+    </path>
+</device>
+<device name="headset-in">
+    <path name="on">
+        <ctl name="MIXINL IN1L Switch" val="0"/>
+        <ctl name="MIXINR IN1R Switch" val="0"/>
+        <ctl name="Headset Mic Switch" val="1"/>
+        <ctl name="IN2L Volume" val="22"/>
+        <ctl name="MIXINL IN2L Switch" val="1"/>
+        <ctl name="MIXINL IN2L Volume" val="1"/>
+        <ctl name="AIF1ADC1 HPF Mode" val="1"/>
+        <ctl name="AIF1ADC1 HPF Switch" val="1"/>
+        <ctl name="AIF1ADC1 Volume" val="96"/>
+        <ctl name="AIF1ADCL Source" val="0"/>
+        <ctl name="AIF1ADCR Source" val="0"/>
+        <ctl name="AIF2ADCL Source" val="0"/>
+    </path>
+    <path name="off">
+        <ctl name="Headset Mic Switch" val="0"/>
+        <ctl name="IN2L Volume" val="10"/>
+        <ctl name="MIXINL IN2L Switch" val="0"/>
+        <ctl name="MIXINL IN2L Volume" val="1"/>
+        <ctl name="AIF1ADC1 HPF Mode" val="0"/>
+        <ctl name="AIF1ADC1 HPF Switch" val="0"/>
+        <ctl name="AIF1ADC1 Volume" val="96"/>
+    </path>
+</device>
+<device name="sco-in">
+    <path name="on">
+        <ctl name="AIF2ADC Mux" val="1"/>
+        <ctl name="AIF1ADCL Source" val="0"/>
+        <ctl name="AIF1ADCR Source" val="1"/>
+        <ctl name="AIF2ADCL Source" val="0"/>
+        <ctl name="AIF2ADCR Source" val="1"/>
+        <ctl name="AIF1ADC1R Mixer AIF2 Switch" val="1"/>
+        <ctl name="AIF1ADC1L Mixer AIF2 Switch" val="1"/>
+        <ctl name="AIF1ADC1 Volume" val="96"/>
+        <ctl name="AIF2DAC Volume" val="96"/>
+    </path>
+    <path name="off">
+        <ctl name="AIF2ADC Mux" val="0"/>
+        <ctl name="AIF1ADC1R Mixer AIF2 Switch" val="0"/>
+        <ctl name="AIF1ADC1L Mixer AIF2 Switch" val="0"/>
+        <ctl name="AIF1ADC1 Volume" val="96"/>
+        <ctl name="AIF2DAC Volume" val="96"/>
+    </path>
+</device>
+<device name="fmradio">
+    <path name="on">
+        <ctl name="DAC1L Mixer AIF1.1 Switch" val="1"/>
+        <ctl name="DAC1L Mixer AIF1.1 Switch" val="1"/>
+    </path>
+    <path name="off">
+        <ctl name="MIXINL Output Record Volume" val="0"/>
+        <ctl name="MIXINR Output Record Volume" val="0"/>
+    </path>
+</device>
+</tinyhal>

@@ -79,7 +79,7 @@ viewbox(
     "Welcome!",
   
   #-- Text
-    "You are about to install <b>"+
+    "Hello master, root@ArchiDroid here. Welcome to AROMA. You are about to install <b>"+
 	  #-- Get Config Value
 	  ini_get("rom_name")+
 	"</b> for <b>"+ini_get("rom_device")+"</b>.\n\n"+
@@ -116,20 +116,6 @@ selectbox(
   "English","English",1,
   "Polski","Polish",0
 #  "English","English",1
-);
-
-textbox(
-  #-- Title
-    "ArchiDroid",
-  
-  #-- Subtitle
-    "",
-  
-  #-- Icon
-    "@info",
-  
-  #-- Arg 4
-    resread("_version.txt")
 );
 
 ### ENGLISH ###

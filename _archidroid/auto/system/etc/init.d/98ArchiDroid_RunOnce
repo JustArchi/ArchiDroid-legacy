@@ -20,7 +20,7 @@ if [ -d /data/media/0/archidroid/firstboot/settings ]; then
 fi
 
 # And we want some sqlite3 updates too, but only if database doesn't exist
-if [ -e /data/data/com.android.providers.settings/databases/settings.db ]; then
+if [ ! -e /data/data/com.android.providers.settings/databases/settings.db ]; then
 	DBUPDATE=1
 else
 	DBUPDATE=0

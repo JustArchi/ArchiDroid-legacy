@@ -1,4 +1,4 @@
-<@center><b><#selectbg_g>Third-Party</#></b>
+<@center><b><#selectbg_g>THIRD-PARTY</#></b>
 
 This Rom is based on many third-party roms, modifications, tweaks and other scripts. 
 Please respect that this is NOT my work and all credits for these awesome things go to appropriate developers.

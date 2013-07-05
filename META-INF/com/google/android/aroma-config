@@ -373,27 +373,9 @@ selectbox(
   "dpi.prop",
 
   "240 DPI","Everything will be smaller, it includes buttons, icons, texts etc. Suggested for best experience with ArchiDroid!",1,
-  "280 DPI [WARNING]","A nice balance between stock and 240 dpi mode",0,
+  "280 DPI","A nice balance between stock and 240 DPI mode",0,
   "320 DPI","Stock value",0
 );
-
-if file_getprop("/tmp/aroma-data/dpi.prop","selected.0") == "2" then
-textbox(
-  #-- Title
-    "Information",
-  
-  #-- Subtitle
-    "",
-  
-  #-- Icon
-    "@info",
-  
-  #-- Arg 4
-    resread("280dpi.txt")
-);
-endif;
-
-### IMPORTANT ###
 
 selectbox(
   "Launcher Selection",

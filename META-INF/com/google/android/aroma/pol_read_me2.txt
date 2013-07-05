@@ -1,4 +1,4 @@
-<@center><b><#selectbg_g>Third-Party</#></b>
+<@center><b><#selectbg_g>THIRD-PARTY</#></b>
 
 Ten rom bazuje na bardzo wielu third-party modyfikacjach, które nie są w pełni mojego autorstwa.
 Wszystkie prawa autorskie i podziękowania należą się odpowiednim developerom.

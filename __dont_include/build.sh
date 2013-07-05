@@ -38,6 +38,7 @@ ILE=`expr $ILE - $GDZIE`
 GDZIE=`expr $GDZIE - 1`
 cat $FILE | head -${GDZIE} > $FILEO
 echo $OTA >> $FILEO
+ILE=`expr $ILE + 1`
 cat $FILE | tail -${ILE} >> $FILEO
 cp $FILEO $FILE
 rm $FILEO

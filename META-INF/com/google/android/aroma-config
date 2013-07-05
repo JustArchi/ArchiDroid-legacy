@@ -113,12 +113,11 @@ selectbox(
   "icons/apps",
   "lang.prop",
   
-#  "English","English",1,
-#  "Polski","Polish",0
-  "English","English",1
+  "English","English",1,
+  "Polski","Polish",0
+#  "English","English",1
 );
 
-if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "1" then
 textbox(
   #-- Title
     "ArchiDroid",
@@ -133,6 +132,8 @@ textbox(
     resread("_version.txt")
 );
 
+### ENGLISH ###
+if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "1" then
 agreebox(
   #-- Title
     "Important notes!",
@@ -185,6 +186,67 @@ textbox(
   
   #-- Arg 4
     resread("warning.txt")
+);
+endif;
+
+### POLISH ###
+if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "2" then
+
+ini_set("text_next", "Dalej");
+ini_set("text_back", "Wstecz");
+
+agreebox(
+  #-- Title
+    "Ważne!",
+  
+  #-- Subtitle / Description
+    "",
+  
+  #-- Icon
+    "@alert",
+  
+  #-- Text Content ( Read from <AROMA Resource Dir>/read_me.txt )
+    resread("pol_read_me.txt"),
+  
+  #-- Checkbox Text
+    "Zgadzam się z tymi zasadami",
+  
+  #-- Unchecked Alert Message
+    "Musisz zgodzić się z zasadami, aby kontynuować..."
+);
+
+agreebox(
+  #-- Title
+    "Ważne!",
+  
+  #-- Subtitle / Description
+    "",
+  
+  #-- Icon
+    "@alert",
+  
+  #-- Text Content ( Read from <AROMA Resource Dir>/read_me2.txt )
+    resread("pol_read_me2.txt"),
+  
+  #-- Checkbox Text
+    "Całkowicie to rozumiem",
+  
+  #-- Unchecked Alert Message
+    "Trochę szacunku!"
+);
+
+textbox(
+  #-- Title
+    "ArchiDroid",
+  
+  #-- Subtitle
+    "",
+  
+  #-- Icon
+    "@alert",
+  
+  #-- Arg 4
+    resread("pol_warning.txt")
 );
 endif;
 

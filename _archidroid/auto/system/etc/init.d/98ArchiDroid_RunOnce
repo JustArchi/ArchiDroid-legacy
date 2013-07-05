@@ -6,6 +6,9 @@
 # Not Disabled
 #exit 0
 
+# We don't need to reload anything for now
+ADRELOAD=0
+
 # Cool ArchiDroid Banner
 if [ -e /system/bin/boot-dmesg ]; then
 	ADBANNER=1
@@ -22,6 +25,7 @@ fi
 # And we want some sqlite3 updates too, but only if database doesn't exist
 if [ ! -e /data/data/com.android.providers.settings/databases/settings.db ]; then
 	DBUPDATE=1
+	ADRELOAD=1
 else
 	DBUPDATE=0
 fi
@@ -142,8 +146,10 @@ sleep 5
 
 # If we have any more runonce scripts then it's the right place for that
 
-# Hot Reboot, we need to apply database changes instantly
-killall system_server
+# Execute hot reboot if we need it
+if [ $ADRELOAD -eq 1 ]; then
+	killall system_server
+fi
 
 # I'm runonce script so let's clean everything and delete myself
 

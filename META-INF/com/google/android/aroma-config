@@ -113,23 +113,9 @@ selectbox(
   "icons/apps",
   "lang.prop",
   
-  "English","English",1,
-  "Polski","Polish TEST ąćźżółę",0
-#  "English","English",1
-);
-
-fontresload( "0", "ttf/Roboto-Regular.ttf;ttf/DroidSansFallback.ttf;", "12" ); #-- Use sets of font (Font Family)
-fontresload( "1", "ttf/Roboto-Regular.ttf;ttf/DroidSansFallback.ttf;", "14" ); #-- Use sets of font (Font Family)
-
-selectbox(
-  "Language Selection",
-  "Please choose your language:",
-  "icons/apps",
-  "lang.prop",
-  
-  "English","English",1,
-  "Polski","Polish TEST ąćźżółę",0
-#  "English","English",1
+#  "English","English",1,
+#  "Polski","Polish",0
+  "English","English",1
 );
 
 if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "1" then

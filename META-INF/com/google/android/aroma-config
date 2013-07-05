@@ -200,8 +200,8 @@ selectbox(
   "icons/apps",
   "wipe.prop",
   
-  "ArchiDroid Install","If you want to start from scratch or flash ArchiDroid for the first time",0,
-  "ArchiDroid Update","If you want to upgrade ArchiDroid to newer version and keep data",1
+  "ArchiDroid Install","If you want to start from scratch or flash ArchiDroid for the first time",1,
+  "ArchiDroid Update","If you want to upgrade ArchiDroid to newer version and keep data",0
 );
 endif;
 

@@ -1,0 +1,23 @@
+Version,0.2,Shakira,
+
+# Headset AUDPP settings
+headset,post_adrc,1,2900,ffff,a3d,1,1,7fe7,fa9b,30,
+headset,post_vol,2400,0800,
+
+# Headphone AUDPP settings
+headphone,post_adrc,1,2900,ffff,a3d,1,1,7fe7,fa9b,30,
+headphone,post_vol,2400,0800,
+
+# Dhvh AUDPP settings
+dhvh,post_adrc,1,2900,ffff,a3d,1,1,7fe7,fa9b,30,
+dhvh,post_vol,2400,0800,
+
+# None AUDPP settings
+none,post_iir,1,3E81,FD18,84AB,27B1,3D03,AC87,3E81,FD18,87EA,05CD,3C0E,607D,3E81,FD18,8DCB,49E1,3890,C7EF,3E81,FD18,B6E3,018D,1200,877D,82A9,E8DD,3D93,8B95,8650,1387,3C0A,2990,8BC6,6C2E,39F8,33E9,BA5C,5DE0,115A,14B3,1,1,1,1,0,0,0,0,1,4,
+none,post_adrc,1,1c80,ffff,42,58b5,8e17,7ff3,fcbd,30,
+none,post_vol,2400,0800,
+none,pre_iir,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+none,pre_agc,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+none,pre_ns,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+# The End

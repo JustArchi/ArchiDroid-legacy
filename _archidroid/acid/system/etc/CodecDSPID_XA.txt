@@ -1,0 +1,55 @@
+Header, ENRC2_XA_soundeffet_2012_0531
+## Group for phone ##
+Phone_Default,/system/etc/soundimage/Sound_BT_CarMode.txt
+Phone_Receiver_Dualmic,/system/etc/soundimage/Sound_Phone_Original_REC.txt
+Phone_Speaker_Dualmic,/system/etc/soundimage/Sound_Phone_Original_SPK_XA.txt
+Phone_Headset,/system/etc/soundimage/Sound_Phone_Original_HP.txt
+Phone_HAC,/system/etc/soundimage/Sound_Phone_Original_REC.txt
+Phone_TTY,/system/etc/soundimage/Sound_Phone_Original_HP.txt
+Phone_BT,/system/etc/soundimage/Sound_Phone_Original_BT.txt
+Phone_Handset_Dualmic_WB,
+Phone_Speaker_Dualmic_WB,
+Phone_Headset_WB,
+Phone_Dock,/system/etc/soundimage/Sound_Phone_Original_DOCK.txt
+
+## Group for playback ## 
+Playback_Default,/system/etc/soundimage/Sound_Original_HP_XA.txt
+Playback_Speaker_Default,/system/etc/soundimage/Sound_Original_SPK_XA.txt
+Playback_Headset_Generic,/system/etc/soundimage/Sound_Original_HP_Generic.txt
+Playback_Headset_urBeats,/system/etc/soundimage/Sound_Original_HP_urBeats.txt
+Playback_Headset_Solo,/system/etc/soundimage/Sound_Original_HP_Solo.txt
+Playback_Headset_Pro,/system/etc/soundimage/Sound_Original_HP_Pro.txt
+Playback_Headset_Studio,/system/etc/soundimage/Sound_Original_HP_Studio.txt
+Playback_SPK_Beats,/system/etc/soundimage/Sound_Original_SPK_Beats.txt
+Playback_Dock,/system/etc/soundimage/Sound_Original_DOCK.txt
+Playback_SPK_Ring,/system/etc/soundimage/Sound_Original_SPK_RING_XA.txt
+
+## Group for recording ##
+Record_Default,/system/etc/soundimage/Sound_Original.txt
+Record_V_Mono,/system/etc/soundimage/Sound_Original_Recording.txt
+Record_V_IMIC_Landscape_Stereo,/system/etc/soundimage/Sound_Rec_Landscape.txt
+Record_V_IMIC_Portrait_Stereo,/system/etc/soundimage/Sound_Rec_Portrait.txt
+Record_A_VoiceRecoder_AMR,/system/etc/soundimage/Sound_Voice_Recording_AMR.txt
+Record_A_VoiceRecoder_AAC,/system/etc/soundimage/Sound_Original_Recording.txt
+Record_A_Note_Recording,/system/etc/soundimage/Sound_Note_Recording.txt
+Record_A_Speaker_VR,/system/etc/soundimage/Sound_SpeakerVR_Recording.txt
+
+## Group for FM ##
+FM_Headset,/system/etc/soundimage/Sound_FM_HP_XA.txt
+FM_Speaker,/system/etc/soundimage/Sound_FM_SPK_XA.txt
+
+## Group for VOIP ##
+VOIP_Receiver,/system/etc/soundimage/Sound_Voip_Original_REC.txt
+VOIP_Speaker,/system/etc/soundimage/Sound_Voip_Original_SPK_XA.txt
+VOIP_Headset,/system/etc/soundimage/Sound_Voip_Original_HP.txt
+VOIP_BT,/system/etc/soundimage/Sound_Voip_Original_BT.txt
+VOIP_Receiver_HW_AEC,/system/etc/soundimage/Sound_Voip_Original_REC_AEC.txt
+VOIP_Speaker_HW_AEC,/system/etc/soundimage/Sound_Voip_Original_SPK_AEC_XA.txt
+VOIP_Headset_HW_AEC,/system/etc/soundimage/Sound_Voip_Original_HP_AEC.txt
+VOIP_BT_HW_AEC,/system/etc/soundimage/Sound_Voip_Original_BT_AEC.txt
+
+#################
+SKYPE_Receiver,
+SKYPE_Speaker,
+SPYPE_Headset,
+

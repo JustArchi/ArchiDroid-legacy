@@ -1,0 +1,57 @@
+#!/system/bin/sh
+
+# ArchiDroid SQLite VACUUM
+# JustArchi@JustArchi.net
+
+# Not Disabled
+#exit 0
+
+# Log file location
+LOG_FILE=/data/sqlite.log
+
+#Interval between SQLite3 runs, in seconds, 604800=1 week
+#RUN_EVERY=604800
+
+# Get the last modify date of the Log file, if the file does not exist, set value to 0
+#if [ -e $LOG_FILE ]; then
+#    LASTRUN=`stat -t $LOG_FILE | awk '{print $14}'`
+#else
+#    LASTRUN=0
+#fi;
+
+# Get current date in epoch format
+#CURRDATE=`date +%s`
+
+# Check the interval
+#INTERVAL=$(expr $CURRDATE - $LASTRUN)
+
+# If interval is more than the set one, then run the main script
+#if [ $INTERVAL -gt $RUN_EVERY ];
+#then
+    if [ -e $LOG_FILE ]; then
+        rm $LOG_FILE;
+    fi;
+        
+    echo "SQLite database VACUUM and REINDEX started at $( date +"%m-%d-%Y %H:%M:%S" )" | tee -a $LOG_FILE;
+
+    for i in `busybox find /d* -iname "*.db"`; do
+        /system/xbin/sqlite3 $i 'VACUUM;';
+        resVac=$?
+        if [ $resVac == 0 ]; then
+            resVac="SUCCESS";
+        else
+            resVac="ERRCODE-$resVac";
+        fi;
+        
+        /system/xbin/sqlite3 $i 'REINDEX;';
+        resIndex=$?
+        if [ $resIndex == 0 ]; then
+            resIndex="SUCCESS";
+        else
+            resIndex="ERRCODE-$resIndex";
+        fi;
+        echo "Database $i:  VACUUM=$resVac  REINDEX=$resIndex" | tee -a $LOG_FILE;
+    done
+      
+    echo "SQLite database VACUUM and REINDEX finished at $( date +"%m-%d-%Y %H:%M:%S" )" | tee -a $LOG_FILE;
+#fi;

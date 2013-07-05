@@ -1,0 +1,31 @@
+Header, PYD_soundeffet_2011_0328
+## Group for phone ##
+Phone_Default,/system/etc/soundimage/Sound_Phone_Original_HP.txt
+Phone_Handset_Dualmic,/system/etc/soundimage/Sound_Phone_Original_REC.txt
+Phone_Speaker_Dualmic,/system/etc/soundimage/Sound_Phone_Original_SPK.txt
+Phone_Headset,/system/etc/soundimage/Sound_Phone_Original_HP.txt
+Phone_HAC,/system/etc/soundimage/Sound_Phone_Original_REC.txt
+Phone_TTY,/system/etc/soundimage/Sound_Phone_Original_HP.txt
+
+## Group for playback ## 
+Playback_Default,/system/etc/soundimage/Sound_Original.txt
+Playback_Speaker_Default,/system/etc/soundimage/Sound_Original_SPK.txt
+Playback_Headset_Beats,/system/etc/soundimage/Sound_Beats.txt
+
+## Group for recording ##
+Record_Default,/system/etc/soundimage/Sound_Original_Recording.txt
+Record_V_Mono,/system/etc/soundimage/Sound_Recording.txt
+Record_V_IMIC_Landscape_Stereo,/system/etc/soundimage/Sound_Rec_Landscape.txt
+Record_V_IMIC_Protrait_Stereo,/system/etc/soundimage/Sound_Rec_Portrait.txt
+Record_A_IMIC_Mono,/system/etc/soundimage/Sound_Recording.txt
+Record_A_EMIC_Mono,/system/etc/soundimage/Sound_Recording.txt
+
+## Group for FM ##
+FM_Headset,
+FM_Speaker,
+
+#################
+SKYPE_Handset,
+SKYPE_Speaker,
+SPYPE_Headset,
+

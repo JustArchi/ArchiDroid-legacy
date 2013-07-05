@@ -1,0 +1,51 @@
+#!/system/bin/sh
+
+# ArchiDroid Init Script
+# JustArchi@JustArchi.net
+
+# Not Disabled
+#exit 0
+
+
+if [ -e /system/bin/boot-dmesg ]; then
+	ADBANNER=1
+else
+	ADBANNER=0
+fi
+
+# ArchiDroid Semaphore
+# Wait until we see some android processes to consider boot is more or less complete (credits to AndiP71)
+while ! pgrep com.android ; do
+	if [ $ADBANNER -eq 1 ]; then
+		echo ""
+		echo "*******************************************************************************"
+		echo "*             _                _      _  ____               _      _          *"
+		echo "*            / \    _ __  ___ | |__  (_)|  _ \  _ __  ___  (_)  __| |         *"
+		echo "*           / _ \  | '__|/ __|| '_ \ | || | | || '__|/ _ \ | | / _\` |         *"
+		echo "*          / ___ \ | |  | (__ | | | || || |_| || |  | (_) || || (_| |         *"
+		echo "*         /_/   \_\|_|   \___||_| |_||_||____/ |_|   \___/ |_| \__,_|         *"
+		echo "*                                                                             *"
+		echo "*******************************************************************************"
+		echo "*                  _                       _  _                               *"
+		echo "*                 | |     ___    __ _   __| |(_) _ __    __ _                 *"
+		echo "*                 | |    / _ \  / _\` | / _\` || || '_ \  / _\` |                *"
+		echo "*                 | |___| (_) || (_| || (_| || || | | || (_| |                *"
+		echo "*                 |_____|\___/  \__,_| \__,_||_||_| |_| \__, |                *"
+		echo "*                                                       |___/                 *"
+		echo "*******************************************************************************"
+		echo "*            root@ArchiDroid:~# Waiting for ArchiDroid to load...             *"
+		echo "*******************************************************************************"
+		echo ""
+	fi
+	sleep 2
+done
+
+# Now that is checked, let's just wait another tiny little bit
+sleep 10
+
+# If we have any more init scripts then it's the right place for that
+
+
+
+# Finish
+exit 0

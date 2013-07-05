@@ -1,0 +1,26 @@
+#!/sbin/busybox sh
+
+SETTING=GPU_`echo $2`
+
+read trash1 UP trash2 DIFF < /sys/devices/system/gpu/thresholds
+
+if [ -z $3 ]; then
+	evalcmd='eval echo \$$SETTING'
+	if [ "a`eval $evalcmd`" == "a" ]; then
+
+		case "$2" in
+			UP)	VAL=$UP		;;
+			DIFF)	VAL=$DIFF	;;
+		esac
+
+		eval $SETTING=$VAL
+		echo $SETTING=$VAL >> $DEFAULT_PROFILE
+	fi
+else
+	eval $SETTING=$3
+	if [ "$CONTROLSWITCH_GPU" == "on" -o "$CONFIG_BOOTED" == "true" ]; then
+		echo $GPU_UP $GPU_DIFF > /sys/devices/system/gpu/thresholds
+	fi
+fi
+
+eval echo \$$SETTING

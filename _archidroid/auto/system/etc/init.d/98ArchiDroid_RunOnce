@@ -1,0 +1,154 @@
+#!/system/bin/sh
+
+# ArchiDroid FirstBoot Script
+# JustArchi@JustArchi.net
+
+# Not Disabled
+#exit 0
+
+# Cool ArchiDroid Banner
+if [ -e /system/bin/boot-dmesg ]; then
+	ADBANNER=1
+else
+	ADBANNER=0
+fi
+
+# How many elements should be applied
+if [ -d /data/media/0/archidroid/firstboot/settings ]; then
+	cd /data/media/0/archidroid/firstboot/settings
+	ADMANY=`ls | wc -l`
+fi
+
+# And we want some sqlite3 updates too
+DBUPDATE=1
+
+# ArchiDroid Semaphore
+# Wait until we see some android processes to consider boot is more or less complete (credits to AndiP71)
+while ! pgrep com.android ; do
+
+	if [ $ADBANNER -eq 1 ]; then
+		echo ""
+		echo "*******************************************************************************"
+		echo "*             _                _      _  ____               _      _          *"
+		echo "*            / \    _ __  ___ | |__  (_)|  _ \  _ __  ___  (_)  __| |         *"
+		echo "*           / _ \  | '__|/ __|| '_ \ | || | | || '__|/ _ \ | | / _\` |         *"
+		echo "*          / ___ \ | |  | (__ | | | || || |_| || |  | (_) || || (_| |         *"
+		echo "*         /_/   \_\|_|   \___||_| |_||_||____/ |_|   \___/ |_| \__,_|         *"
+		echo "*                                                                             *"
+		echo "*******************************************************************************"
+		echo "*                  _                       _  _                               *"
+		echo "*                 | |     ___    __ _   __| |(_) _ __    __ _                 *"
+		echo "*                 | |    / _ \  / _\` | / _\` || || '_ \  / _\` |                *"
+		echo "*                 | |___| (_) || (_| || (_| || || | | || (_| |                *"
+		echo "*                 |_____|\___/  \__,_| \__,_||_||_| |_| \__, |                *"
+		echo "*                                                       |___/                 *"
+		echo "*******************************************************************************"
+		echo "*            root@ArchiDroid:~# Waiting for ArchiDroid to load...             *"
+		echo "*******************************************************************************"
+		echo ""
+	fi
+	
+	if [ $DBUPDATE -eq 1 ]; then
+		if [ -e /data/data/com.android.providers.settings/databases/settings.db ]; then
+			MAKESURE=1
+			while [ $MAKESURE -eq 1 ]; do
+				MAKESURE=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "insert into secure values(null, 'advanced_reboot', '1');" 2>&1 1>/dev/null | wc -l`
+				sleep $MAKESURE
+			done
+			MAKESURE=1
+			while [ $MAKESURE -eq 1 ]; do
+				MAKESURE=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "insert into global values(null, 'transition_animation_scale', '0.5');" 2>&1 1>/dev/null | wc -l`
+				sleep $MAKESURE
+			done
+			MAKESURE=1
+			while [ $MAKESURE -eq 1 ]; do
+				MAKESURE=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "insert into global values(null, 'animator_duration_scale', '0.5');" 2>&1 1>/dev/null | wc -l`
+				sleep $MAKESURE
+			done
+			MAKESURE=1
+			while [ $MAKESURE -eq 1 ]; do
+				MAKESURE=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "insert into global values(null, 'window_animation_scale', '0.5');" 2>&1 1>/dev/null | wc -l`
+				sleep $MAKESURE
+			done
+			MAKESURE=1
+			while [ $MAKESURE -eq 1 ]; do
+				MAKESURE=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "insert into system values(null, 'power_menu_screenshot_enabled', '1');" 2>&1 1>/dev/null | wc -l`
+				sleep $MAKESURE
+			done
+			MAKESURE=1
+			while [ $MAKESURE -eq 1 ]; do
+				MAKESURE=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "insert into global values(null, 'install_non_market_apps', '1');" 2>&1 1>/dev/null | wc -l`
+				sleep $MAKESURE
+			done
+				MAKESURE=1
+			while [ $MAKESURE -eq 1 ]; do
+				MAKESURE=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "insert into system values(null, 'status_bar_battery', '3');" 2>&1 1>/dev/null | wc -l`
+				sleep $MAKESURE
+			done
+				MAKESURE=1
+			while [ $MAKESURE -eq 1 ]; do
+				MAKESURE=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "insert into system values(null, 'statusbar_clock_date_display', '2');" 2>&1 1>/dev/null | wc -l`
+				sleep $MAKESURE
+			done
+				MAKESURE=1
+			while [ $MAKESURE -eq 1 ]; do
+				MAKESURE=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "insert into system values(null, 'statusbar_clock_date_format', 'MMM dd');" 2>&1 1>/dev/null | wc -l`
+				sleep $MAKESURE
+			done
+			
+			# And don't execute twice
+			DBUPDATE=0
+		fi
+	fi
+	
+	# Now let's MAKE SURE that our settings are in fact applied, only if we don't have shared_prefs already (prevent non-clean override)
+	if [ -d /data/media/0/archidroid/firstboot/settings ]; then
+		if [ $ADMANY -gt 0 ]; then
+			for FOLDER in * ; do
+				if [ -d /data/data/$FOLDER ]; then
+					if [ ! -d /data/data/$FOLDER/shared_prefs ]; then
+						mv $FOLDER/* /data/data/$FOLDER
+						
+						# Let's set basic permissions because ArchiDroid_Permfix will fix it anyway really soon
+						ADOWNER=`ls -ld /data/data/$FOLDER | awk '{print $3}'`
+						chown -hR $ADOWNER.$ADOWNER /data/data/$FOLDER
+						chmod -R 755 /data/data/$FOLDER
+						
+						# And we're done!
+						rm -Rf $FOLDER
+						ADOWNER=""
+						((ADMANY--))
+					else
+						rm -Rf $FOLDER
+						ADOWNER=""
+						((ADMANY--))
+					fi
+				fi
+			done
+			#ADMANY=`ls | wc -l`
+		fi
+	fi
+
+	# Sleeping time
+	sleep 2
+done
+
+# Now that is checked, let's just wait another tiny little bit
+sleep 5
+
+# If we have any more runonce scripts then it's the right place for that
+
+# Hot Reboot, we need to apply database changes instantly
+killall system_server
+
+# I'm runonce script so let's clean everything and delete myself
+
+# NOTICE
+# ArchiDroid has sysro/sysrw support, change that to remount system rw if needed
+rm -Rf /data/media/0/archidroid/firstboot
+sysrw
+rm -f $0
+sysro
+
+# Finish
+exit 0

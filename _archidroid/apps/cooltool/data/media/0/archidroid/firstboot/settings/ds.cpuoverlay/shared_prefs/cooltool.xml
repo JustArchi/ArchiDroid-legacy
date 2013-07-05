@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<map>
+<boolean name="autoResize" value="true" />
+<boolean name="showTemp" value="true" />
+<int name="delayPos" value="0" />
+<int name="9colorView" value="-17409" />
+<int name="4colorView" value="-1" />
+<boolean name="labelsChanged" value="false" />
+<boolean name="battCurrent" value="false" />
+<int name="8colorView" value="-2236963" />
+<boolean name="showCustomLabel" value="false" />
+<int name="textAlpha" value="0" />
+<boolean name="forceEstimated" value="false" />
+<boolean name="fullScreenHide" value="false" />
+<int name="14colorView" value="-1" />
+<int name="3colorView" value="-11154177" />
+<int name="widthSeek" value="0" />
+<boolean name="gpsPlate" value="false" />
+<int name="xCoord" value="123" />
+<boolean name="showTime" value="false" />
+<int name="11colorView" value="-17511" />
+<boolean name="debug" value="false" />
+<string name="version">4.2</string>
+<int name="7colorView" value="-1" />
+<int name="themePos" value="0" />
+<boolean name="currentPlate" value="false" />
+<boolean name="showFreq" value="true" />
+<boolean name="dnd" value="false" />
+<boolean name="colorize" value="true" />
+<int name="10colorView" value="-1" />
+<int name="ioMaxSpeed" value="2000" />
+<int name="5colorView" value="-8913033" />
+<boolean name="ioPlate" value="false" />
+<boolean name="sdPlate" value="false" />
+<int name="yCoord" value="0" />
+<string name="customLabelPath">/sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq</string>
+<boolean name="ramPlate" value="false" />
+<boolean name="autoBandwidth" value="false" />
+<boolean name="keepInMemory" value="true" />
+<boolean name="showGps" value="false" />
+<boolean name="showCpu" value="true" />
+<boolean name="cellSignalPlate" value="false" />
+<string name="labelsOrder">0 1 7 9 8 3 6 2 4 5 10 11 12 13 14 15</string>
+<boolean name="tempPlate" value="false" />
+<boolean name="secondSDCard" value="false" />
+<int name="battCapacity" value="1500" />
+<boolean name="multicore" value="false" />
+<string name="prefix0">CPU:</string>
+<string name="prefix1"></string>
+<boolean name="snap" value="true" />
+<int name="padding" value="0" />
+<int name="backColorInt" value="-16777216" />
+<int name="6colorView" value="-1" />
+<boolean name="wifiPlate" value="false" />
+<boolean name="fahrenheits" value="false" />
+<int name="13colorView" value="-1" />
+<int name="graphAlpha" value="128" />
+<boolean name="showProcess" value="false" />
+<boolean name="tabulation" value="true" />
+<int name="15colorView" value="-256" />
+<boolean name="cpuPlate" value="false" />
+<int name="logInterval" value="2" />
+<int name="netBandwidth" value="50" />
+<boolean name="showKbps" value="true" />
+<int name="1colorView" value="-2236963" />
+<boolean name="cellSignal" value="true" />
+<boolean name="battPlate" value="false" />
+<string name="prefix13">IO:</string>
+<int name="textColorInt" value="-1118482" />
+<string name="prefix14">Custom:</string>
+<boolean name="showWifi" value="false" />
+<string name="prefix10">S:</string>
+<string name="prefix11">GPS:</string>
+<boolean name="autostart" value="true" />
+<string name="prefix12">SD:</string>
+<int name="size" value="4" />
+<boolean name="netPlate" value="false" />
+<string name="prefix3">kk:mm </string>
+<string name="prefix2">M:</string>
+<string name="prefix5">N:</string>
+<string name="prefix4">n:</string>
+<boolean name="internalSDCard" value="false" />
+<string name="prefix7">B:</string>
+<string name="prefix6"></string>
+<string name="prefix9"></string>
+<string name="prefix8">t:</string>
+<int name="gaugeAlpha" value="20" />
+<int name="12colorView" value="-6319630" />
+<boolean name="sdcard" value="false" />
+<int name="numOfRows" value="1" />
+<int name="longtapAction3" value="1" />
+<string name="secondSDPath2">sdcard/external_sd</string>
+<int name="0colorView" value="-1" />
+<boolean name="showBatt" value="true" />
+<int name="2colorView" value="-1" />
+<int name="backDraw" value="0" />
+<boolean name="notification" value="false" />
+<boolean name="hackICS" value="true" />
+<string name="postfix0">%</string>
+<string name="postfix2">MB</string>
+<string name="postfix1">MHz</string>
+<boolean name="showNet" value="true" />
+<string name="postfix4">KB/s</string>
+<string name="postfix3">E d.MM</string>
+<string name="postfix7">%</string>
+<string name="postfix8">true</string>
+<string name="postfix5">true</string>
+<string name="postfix6">dB</string>
+<string name="postfix9">mA</string>
+<boolean name="freqPlate" value="false" />
+<boolean name="blackListActivate" value="false" />
+<int name="interface" value="1" />
+<string name="postfix14"></string>
+<boolean name="showIO" value="true" />
+<int name="backAlpha" value="200" />
+<boolean name="showMem" value="true" />
+<string name="postfix12">GB</string>
+<string name="postfix13">MB/s</string>
+<string name="postfix10">%</string>
+<string name="postfix11"></string>
+</map>

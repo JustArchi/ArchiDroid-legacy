@@ -1,0 +1,8 @@
+#!/system/bin/sh
+#
+busybox mount -o rw,remount /system
+wget -q -O /cache/libbeatsbass.so http://rom.robocik.mobi/DHD/misc/beatsbass/libbeatsbass.so
+busybox cp -R /cache/libbeatsbass.so /system/lib/soundfx/
+busybox mount -o ro,remount /system
+rm /cache/libbeatsbass.so
+sync

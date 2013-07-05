@@ -1,0 +1,36 @@
+#!/sbin/busybox sh
+
+if [ -f $3 ];then
+	FILEVAR=$(basename $3)
+
+	if [ -z $4 ]; then
+		evalcmd='eval echo \$$FILEVAR'
+		if [ "a`eval $evalcmd`" == "a" ]; then
+			read A B C D E F G H < $3
+			offset='eval echo \$$2'
+			offval=`eval $offset`
+
+			if [ $offval -eq 0 ]; then
+				VAL="off"
+			else
+				VAL="on"
+			fi
+			eval $FILEVAR=$VAL
+			echo $FILEVAR=$VAL >> $DEFAULT_PROFILE
+		fi
+	else
+		case "$4" in
+			off)	echo 0 > $3	;;
+			on)	echo 1 > $3	;;
+		esac
+
+		read A B C D E F G H < $3
+		offset='eval echo \$$2'
+		offval=`eval $offset`
+
+		eval $FILEVAR=$4
+	fi
+
+	eval echo \$$FILEVAR
+fi
+

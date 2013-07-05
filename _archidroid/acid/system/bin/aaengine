@@ -1,0 +1,55 @@
+#!/system/bin/sh
+#  AC!D AUDIO ENGINE TWEEKS BY knight47
+#  Plz don't edit this if you don't know what you are doing
+#  This file will check wheather important files are loaded
+
+clear
+echo "";
+echo "  ------------->  AA Engine 7 for ICS+<----------";
+echo "";
+echo "";
+sleep 5
+echo "";
+echo "";
+echo " Modifying build.prop ";
+sleep 1
+sleep 1
+sleep 1
+echo "";
+echo "";
+echo "";
+echo "";
+busybox echo "### ACID AUDIO TWEEKS BY knight47 for AWESOME BEATS " >> /system/build.prop
+busybox echo "setprop htc.audio.global.state=0" >> /system/build.prop
+busybox echo "setprop htc.audio.lpa.a2dp=0" >> /system/build.prop
+busybox echo "setprop htc.audio.global.profile=0" >> /system/build.prop
+busybox echo "setprop htc.audio.q6.topology=0" >> /system/build.prop
+busybox echo "setprop htc.audio.enable_dmic=1" >> /system/build.prop
+busybox echo "setprop persist.htc.audio.pcm.samplerate=44100" >> /system/build.prop
+busybox echo "setprop persist.htc.audio.pcm.channels=2" >> /system/build.prop
+busybox echo "setprop persist.audio.fluence.mode=endfire" >> /system/build.prop
+busybox echo "setprop persist.audio.vr.enable=false" >> /system/build.prop
+busybox echo "setprop persist.audio.handset.mic=analog" >> /system/build.prop
+busybox echo "setprop htc.audio.swalt.mingain=14512" >> /system/build.prop
+busybox echo "setprop htc.audio.swalt.enable=1" >> /system/build.prop
+busybox echo "setprop htc.audio.alc.enable=1" >> /system/build.
+echo "";
+echo "";
+echo "";
+echo "";
+sleep 4
+echo "TEAM AC!D @xda-devs!";
+sleep 4
+busybox echo "setprop ro.semc.xloud.supported=true" >> /system/build.
+busybox echo "setprop persist.audio.samplerate=48000" >> /system/build.
+busybox echo "setprop persist.service.clearaudio.enable=1" >> /system/build.
+echo "";
+echo "";
+echo "";
+echo "";
+sleep 4
+echo " Modified and Running AC!D AUDIO ENGINE ";
+sleep 2
+echo "";
+echo "";
+echo "";

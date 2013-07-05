@@ -1,0 +1,33 @@
+#!/system/bin/sh
+
+# ArchiDroid Zipalign Script
+# JustArchi@JustArchi.net
+
+# Not Disabled
+#exit 0
+
+LOG_FILE=/data/zipalign.log
+    if [ -e $LOG_FILE ]; then
+        rm $LOG_FILE;
+    fi;
+
+    echo "Starting Automatic ZipAlign $( date +"%m-%d-%Y %H:%M:%S" )" | tee -a $LOG_FILE;
+    for apk in /data/app/*.apk ; do
+        zipalign -c 4 $apk;
+        ZIPCHECK=$?;
+        if [ $ZIPCHECK -eq 1 ]; then
+            echo ZipAligning $(basename $apk)  | tee -a $LOG_FILE;
+            zipalign -f 4 $apk /cache/$(basename $apk);
+            if [ -e /cache/$(basename $apk) ]; then
+                cp -f -p /cache/$(basename $apk) $apk  | tee -a $LOG_FILE;
+                rm /cache/$(basename $apk);
+            else
+                echo ZipAligning $(basename $apk) Failed  | tee -a $LOG_FILE;
+            fi;
+        else
+            echo ZipAlign already completed on $apk  | tee -a $LOG_FILE;
+        fi;
+    done;
+    echo "Automatic ZipAlign finished at $( date +"%m-%d-%Y %H:%M:%S" )" | tee -a $LOG_FILE;
+
+

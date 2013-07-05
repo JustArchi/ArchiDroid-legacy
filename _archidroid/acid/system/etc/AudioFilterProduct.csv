@@ -1,0 +1,31 @@
+Version,0.2,Shakira,
+
+# Headphone AUDPP settings
+headphone,post_adrc,1,2900,ffff,a3d,1,1,7fe7,fa9b,30,
+headphone,post_vol,2400,0800,
+
+# Handset AUDPP settings
+handset,post_iir,1,4000,0,0,0,0,0,4000,0,0,0,0,0,4000,0,0,0,0,0,4000,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2,2,0,0,0,0,1,4,
+handset,post_adrc,1,2600,b333,106,7f7d,3096,7ff7,4356,16,
+handset,post_vol,2400,0800,
+handset,pre_iir,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+handset,pre_agc,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+handset,pre_ns,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+# Farfield closed AUDPP settings
+farfield_cl,post_iir,1,3B54,0,BEA0,0,864,0,4000,0,FEF8,0,3E,0,4000,0,87B8,0,39A0,0,4000,0,8614,0,3A18,0,BEDD,0,744,0,FE2E,0,A1,0,88B6,0,38EA,0,8338,0,3CE3,0,2,2,2,2,0,0,0,0,1,4,;;;;;;
+farfield_cl,post_adrc,1,2100,ffff,42,58b5,8e17,7ffb,fec9,30,
+farfield_cl,post_vol,2400,0800,
+farfield_cl,pre_iir,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+farfield_cl,pre_agc,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+farfield_cl,pre_ns,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+# Farfield opened AUDPP settings
+farfield_op,post_iir,1,3E81,FD18,84AB,27B1,3D03,AC87,3E81,FD18,87EA,05CD,3C0E,607D,3E81,FD18,8DCB,49E1,3890,C7EF,3E81,FD18,B6E3,018D,1200,877D,82A9,E8DD,3D93,8B95,8650,1387,3C0A,2990,8BC6,6C2E,39F8,33E9,BA5C,5DE0,115A,14B3,1,1,1,1,0,0,0,0,1,4,
+farfield_op,post_adrc,1,1c80,ffff,42,58b5,8e17,7ff3,fcbd,30,
+farfield_op,post_vol,2400,0800,;;;;;;
+farfield_op,pre_iir,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+farfield_op,pre_agc,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+farfield_op,pre_ns,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+# The End

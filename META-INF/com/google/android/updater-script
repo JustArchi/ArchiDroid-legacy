@@ -760,8 +760,6 @@ run_program("/tmp/busybox","chown","-R","0.0","/system/etc/CrossBreeder/dnrd_roo
 run_program("/tmp/busybox","chmod","-R","0644","/system/etc/CrossBreeder/dnrd_root");
 run_program("/tmp/busybox","chmod","0755","/system/etc/CrossBreeder/dnrd_root");
 
-ui_print("Setting correct permissions...");
-ui_print(" ");
 #set_perm(0, 0, 0755, "/system/etc/init.d/zzCrossBreeder_initd");
 set_perm(0, 2000, 0755, "/system/xbin/haveged");
 delete("/system/xbin/CB_FileLock");

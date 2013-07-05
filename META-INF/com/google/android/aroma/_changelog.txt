@@ -6,6 +6,7 @@ RC 2.1
 # Jest to nieco brudny lecz w pelni profesjonalny sposob na przeladowanie ustawien sqlite po ich wprowadzeniu. Android podczas tworzenia bazy danych laduje do niej domyslne ustawienia - jakakolwiek zmiana tego co laduje "na twardo" jest widoczna dopiero po restarcie. Dlatego tez zmiany sqlite ArchiDroida przez RunOnce wykonywane sa podczas wstepnego ladowania (first boot), a po skonczonym ladowaniu dodatkowo jest wykonywana komenda killall system_server, ktora dokonuje restartu calego interfejsu i przeladowuje ustawienia. Pierwszy boot jest "dluzszy" o ok. 5 sekund. Oczywiscie nie jest to nic innego niz znany juz "hot reboot".
 
 - Update Google Play do 4.1.10 Inverted z wersji 3.x.
+- Dodane Inverted Google Apps do wyboru w aromie
 - Update kernela Temasek'a do 3.0.85
 - Update moich configów do Temasek'a
 - Update Source'ów CM do V104 Temaseka (z fixami na lockscreena)

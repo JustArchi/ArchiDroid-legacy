@@ -628,6 +628,36 @@ if file_getprop("/tmp/aroma-data/gapps.prop","item.0.2") == "0" then
 	delete("/system/app/QuickSearchBox.apk");
 endif;
 
+if file_getprop("/tmp/aroma-data/gapps.prop","item.0.3") == "1" then
+	ui_print("root@ArchiDroid:~# Installing Google Calendar");
+	package_extract_dir("_archidroid/apps/gcalendar", "/");
+endif;
+
+if file_getprop("/tmp/aroma-data/gapps.prop","item.0.4") == "1" then
+	ui_print("root@ArchiDroid:~# Installing Google Chrome");
+	package_extract_dir("_archidroid/apps/gchrome", "/");
+endif;
+
+if file_getprop("/tmp/aroma-data/gapps.prop","item.0.5") == "1" then
+	ui_print("root@ArchiDroid:~# Installing Google Ears");
+	package_extract_dir("_archidroid/apps/gears", "/");
+endif;
+
+if file_getprop("/tmp/aroma-data/gapps.prop","item.0.6") == "1" then
+	ui_print("root@ArchiDroid:~# Installing Google Keep");
+	package_extract_dir("_archidroid/apps/gkeep", "/");
+endif;
+
+if file_getprop("/tmp/aroma-data/gapps.prop","item.0.7") == "1" then
+	ui_print("root@ArchiDroid:~# Installing Google Mail");
+	package_extract_dir("_archidroid/apps/gmail", "/");
+endif;
+
+if file_getprop("/tmp/aroma-data/gapps.prop","item.0.8") == "1" then
+	ui_print("root@ArchiDroid:~# Installing Google Maps");
+	package_extract_dir("_archidroid/apps/gmaps", "/");
+endif;
+
 
 ###############
 ### TWEAKS2 ###

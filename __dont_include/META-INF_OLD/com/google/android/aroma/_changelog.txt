@@ -1,0 +1,21 @@
+ALPHA CHANGELOG
+A4
+- [!] Release skupiony na fixowaniu kernel panica z zygote
+- WSZYSTKIE APLIKACJE (RAZEM Z GOOGLE CORE), TWEAKI I WIELE INNYCH OPCJI JEST TERAZ STANDARDOWO WYLACZONE. MA TO ULATWIC ZNALEZIENIE PROBLEMU.
+- Dodalem opcje calkowitego wyrzucenia moich auto skryptow (uwaga, nie bedzie logcata)
+- Zaktualizowalem source i kernela
+- Dodalem ponownie czyszczenie /data w opcji install, ktora jest defaultowa.
+- Aktualizacja CrossBreedera do 6.11.13 V2
+- Dodalem pare syncow w aromie, aby sie upewnic ze recovery odpowiednio realizuje zadania flashowania.
+
+TODO
+1. ---DONE---Dodac wybor gappsow (auto wszystkich)
+2. Dodac wybor xposed (auto wszystko)
+3. Dodac tweak nowego loadscreena (auto poki co)
+4. Ogarnac bloatware
+X. ---TODO-DONE---Dodac opcje update do aromy, co by nie ruszac wszystkiego co wrzucam do /data
+Y. Wyczyscic build z nieuzywanych pozostalosci
+Z. Zaktualizowac arome i polski jezyk + to co jest nizej
+
+2.0.0 based on Temasek Unofficial Build
+- [!] COMPLETE rewrite basing on latest CM Sources

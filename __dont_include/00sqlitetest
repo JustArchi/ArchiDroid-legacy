@@ -1,0 +1,83 @@
+#!/system/bin/sh
+
+# ArchiDroid FirstBoot Script
+# JustArchi@JustArchi.net
+
+# Not Disabled
+#exit 0
+
+# Cool ArchiDroid Banner
+if [ -e /system/bin/boot-dmesg ]; then
+	ADBANNER=1
+else
+	ADBANNER=0
+fi
+
+# And we want some sqlite3 updates too
+DBUPDATE=1
+touch /sdcard/adsql.txt
+
+# ArchiDroid Semaphore
+# Wait until we see some android processes to consider boot is more or less complete (credits to AndiP71)
+while ! pgrep com.android ; do
+
+	if [ $ADBANNER -eq 1 ]; then
+		echo ""
+		echo "*******************************************************************************"
+		echo "*             _                _      _  ____               _      _          *"
+		echo "*            / \    _ __  ___ | |__  (_)|  _ \  _ __  ___  (_)  __| |         *"
+		echo "*           / _ \  | '__|/ __|| '_ \ | || | | || '__|/ _ \ | | / _\` |         *"
+		echo "*          / ___ \ | |  | (__ | | | || || |_| || |  | (_) || || (_| |         *"
+		echo "*         /_/   \_\|_|   \___||_| |_||_||____/ |_|   \___/ |_| \__,_|         *"
+		echo "*                                                                             *"
+		echo "*******************************************************************************"
+		echo "*                  _                       _  _                               *"
+		echo "*                 | |     ___    __ _   __| |(_) _ __    __ _                 *"
+		echo "*                 | |    / _ \  / _\` | / _\` || || '_ \  / _\` |                *"
+		echo "*                 | |___| (_) || (_| || (_| || || | | || (_| |                *"
+		echo "*                 |_____|\___/  \__,_| \__,_||_||_| |_| \__, |                *"
+		echo "*                                                       |___/                 *"
+		echo "*******************************************************************************"
+		echo "*            root@ArchiDroid:~# Waiting for ArchiDroid to load...             *"
+		echo "*******************************************************************************"
+		echo ""
+	fi
+
+	# Now let's MAKE SURE that our settings are in fact applied, only if we don't have shared_prefs already (prevent non-clean override)
+	
+	echo "probuje" >> /sdcard/adsql.txt
+	if [ $DBUPDATE -eq 1 ]; then
+		if [ -e /data/data/com.android.providers.settings/databases/settings.db ]; then
+			sqlite3 /data/data/com.android.providers.settings/databases/settings.db "insert into global values(null, 'transition_animation_scale', '0.5');"
+			sqlite3 /data/data/com.android.providers.settings/databases/settings.db "insert into global values(null, 'animator_duration_scale', '0.5');"
+			sqlite3 /data/data/com.android.providers.settings/databases/settings.db "insert into global values(null, 'window_animation_scale', '0.5');"
+			
+			# Success?
+			if [ $? -eq 0 ]; then
+			DBUPDATE=0
+			echo "udalo sie" >> /sdcard/adsql.txt
+			fi
+		fi
+	fi
+	
+	# Sleeping time
+	sleep 2
+done
+
+# Now that is checked, let's just wait another tiny little bit
+sleep 10
+
+# If we have any more runonce scripts then it's the right place for that
+
+
+
+# I'm runonce script so let's clean everything and delete myself
+
+# NOTICE
+# ArchiDroid has sysro/sysrw support, change that to remount system rw if needed
+sysrw
+rm -f $0
+sysro
+
+# Finish
+exit 0

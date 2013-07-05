@@ -1,0 +1,3 @@
+@echo off
+@echo Optimizing APKs...
+FOR %%F IN (%~dp0*.apk) DO apkopt %%F

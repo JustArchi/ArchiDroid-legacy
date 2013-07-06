@@ -500,7 +500,7 @@ endif;
 ### POLISH ###
 if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "2" then
 selectbox(
-  "Kernel Sselection",
+  "Kernel Selection",
   "Please select your kernel:",
   "icons/apps",
   "kernels.prop",

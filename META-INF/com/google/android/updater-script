@@ -776,9 +776,9 @@ set_progress(0.90);
 
 # One more fix to logcat
 ui_print("root@ArchiDroid:~# Syncing System");
-set_perm(1000, 1000, 0771, "/data");
-set_perm_recursive(1000, 1000, 0771, 0644, "/data/app");
-set_perm_recursive(0, 0, 0771, 0660, "/data/data");
+#set_perm(1000, 1000, 0771, "/data");
+#set_perm_recursive(1000, 1000, 0771, 0644, "/data/app");
+#set_perm_recursive(0, 0, 0771, 0660, "/data/data");
 run_program("/sbin/sync");
 
 set_progress(0.92);

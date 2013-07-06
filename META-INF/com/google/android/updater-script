@@ -453,23 +453,6 @@ if file_getprop("/tmp/aroma-data/architweaks.prop","item.0.2") == "1" then
 endif;
 
 if file_getprop("/tmp/aroma-data/architweaks.prop","item.0.3") == "1" then
-	ui_print("root@ArchiDroid:~# Applying Zero WakeUp Delay Tweak");
-	if file_getprop("/tmp/aroma-data/jkay.prop","selected.0") == "1" then
-		ui_print("root@ArchiDroid:~# JKay Version");
-	package_extract_dir("_archidroid/tweaks/zerowakeup/jkay", "/");
-	endif;
-	if file_getprop("/tmp/aroma-data/jkay.prop","selected.0") == "2" then
-		ui_print("root@ArchiDroid:~# Stock Version");
-	package_extract_dir("_archidroid/tweaks/zerowakeup/stock", "/");
-	endif;
-endif;
-
-if file_getprop("/tmp/aroma-data/architweaks.prop","item.0.4") == "1" then
-	ui_print("root@ArchiDroid:~# Applying CSC Tweak");
-	package_extract_dir("_archidroid/tweaks/csc", "/");
-endif;
-
-if file_getprop("/tmp/aroma-data/architweaks.prop","item.0.5") == "1" then
 	ui_print("root@ArchiDroid:~# Applying exFAT Support");
 	package_extract_dir("_archidroid/tweaks/exfat", "/");
 	set_perm(0, 2000, 0755, "/system/etc/init.d/50fuse-mountsd");
@@ -480,7 +463,7 @@ if file_getprop("/tmp/aroma-data/architweaks.prop","item.0.5") == "1" then
 	set_perm(0, 2000, 0755, "/system/xbin/ntfsfix");
 endif;
 
-if file_getprop("/tmp/aroma-data/architweaks.prop","item.0.6") == "1" then
+if file_getprop("/tmp/aroma-data/architweaks.prop","item.0.4") == "1" then
 	ui_print("root@ArchiDroid:~# Applying build.prop Tweaks");
 	package_extract_file("_archidroid/tweaks/build.prop/tweaks.sh", "/tmp/tweaks.sh");
 	set_perm(0, 0, 0777, "/tmp/tweaks.sh");

@@ -241,6 +241,7 @@ endif;
 # STEP 4 - WIPE USERDATA PARTITION
 #
 
+### ENGLISH ###
 if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "1" then
 selectbox(
   "Install Mode",
@@ -253,10 +254,25 @@ selectbox(
 );
 endif;
 
+### POLISH ###
+if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "2" then
+selectbox(
+  "Tryb Instalacyjny",
+  "Wybierz tryb instalacyjny:",
+  "icons/apps",
+  "wipe.prop",
+  
+  "ArchiDroid Instalacja","Jeśli flashujesz ArchiDroid'a po raz pierwszy lub chcesz dokładnie wyczyścić ustawienia",1,
+  "ArchiDroid Aktualizacja","Jeśli chcesz zaktualizować ArchiDroid'a do nowszej wersji i zachować aktualne ustawienia",0
+);
+endif;
+
 ###################################################################################################################
 #
 # STEP 5 - BACKUP EFS PARTITION
 #
+
+### ENGLISH ###
 if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "1" then
 selectbox(
   "EFS Backup",
@@ -264,8 +280,21 @@ selectbox(
   "icons/apps",
   "efs.prop",
 
-  "Don't backup my /efs partition","Not recommended. Select if you don't have external SD Card",1,
-  "Backup my /efs partition","Recommended, but external SD Card is required",0
+  "Don't Backup /EFS","Not recommended. Select if you don't have external SD Card",1,
+  "Backup /EFS","Recommended, but external SD Card is required",0
+);
+endif;
+
+### POLISH ###
+if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "2" then
+selectbox(
+  "Kopia Zapasowa EFS",
+  "Wybierz kopię zapasową EFS:",
+  "icons/apps",
+  "efs.prop",
+
+  "Nie Twórz Kopii /EFS","Niezalecane. Wybierz tą opcję jeśli nie masz zewnętrznej karty SD",1,
+  "Stwórz Kopię /EFS","Wysoce zalecane. Zewnętrzna karta SD jest wymagana",0
 );
 endif;
 
@@ -469,6 +498,7 @@ endif;
 # STEP 6 - SELECT GOOGLE APPLICATIONS
 #
 
+### ENGLISH ###
 if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "1" then
 checkbox(
   "Google Apps",
@@ -478,6 +508,25 @@ checkbox(
 
   "Google Apps","Core functions and apps from Google. DON'T DESELECT THIS",1,
   "Google QuickSearchBox","May break Google Voice!",0,
+  "Google Calendar","",1,
+  "Google Chrome","",1,
+  "Google Ears","",1,
+  "Google Keep","",1,
+  "Google Mail","",1,
+  "Google Maps","",1
+);
+endif;
+
+### POLISH ###
+if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "1" then
+checkbox(
+  "Aplikacje Google",
+  "Wybierz aplikacje Google, które chciałbyś zainstalować:",
+  "icons/apps",
+  "gapps.prop",
+
+  "Google Apps","Główne aplikacje i funkcje Google. NIE ODZNACZAJ TEGO",1,
+  "Google QuickSearchBox","Może popsuć Google Voice!",0,
   "Google Calendar","",1,
   "Google Chrome","",1,
   "Google Ears","",1,
@@ -497,6 +546,7 @@ endif;
 # STEP 8 - SELECT ARCHIDROID APPLICATIONS
 #
 
+### ENGLISH ###
 if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "1" then
 checkbox(
   "ArchiDroid Apps",
@@ -519,11 +569,35 @@ checkbox(
 );
 endif;
 
+### POLISH ###
+if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "2" then
+checkbox(
+  "Aplikacje ArchiDroid",
+  "Wybierz aplikacje ArchiDroid'a, które chciałbyś zainstalować:",
+  "icons/apps",
+  "archiapps.prop",
+
+  "Titanium Backup","Świetne narzędzie do zarządzania kopami zapasowymi pomiędzy flashami romów",1,
+  "ZRAM Status","Użyteczne w celu kontroli ramu oraz zramu (wymaga kernela ze wsparciem dla zram)",0,
+  "Greenify","Użyteczne w celu zamrażania zbędnych aplikacji",0,
+  "LMT","Użyteczne narzędzie znane jako [pie] z Androida 4.2",1,
+  "MXPlayer","Prawdopodobnie najlepszy odtwarzacz wideo dla Androida",1,
+  "Ultimate Rotation Control","Zapewnia o wiele większa kontrolę nad rotacją ekranu",0,
+  "Spirit FM","Darmowe radio działające na CyanogenMod",1,
+  "BetterBatteryStats","Dostarcza o wiele bardziej szczegółowych statystyk dotyczących baterii",1,
+  "CoolTool","Wyświetla wiele użytecznych informacji na górnym pasku powiadomień",1,
+  "Root Browser","Jeden z najlepszych menadżerów plików, wspomagany opcjonalnie dostępem root",1,
+  "Adobe Flash Player","Zapewnia wsparcie dla technologii flash. Nie działa z Google Chrome,1,
+  "YouTube","Ciemny odtwarzacz YouTube",1
+);
+endif;
+
 ###################################################################################################################
 #
 # STEP 9 - SELECT MODS
 #
 
+### ENGLISH ###
 if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "1" then
 ini_set("text_next", "Next");
 checkbox(
@@ -534,10 +608,24 @@ checkbox(
 
   "Logcat Bootanimation","Changes default bootaimation to logcat output - powered by logcat lite",1,
   "HD Voice","Enables HD Voice if available",1,
-  "Zero WakeUp Delay [NOT WORKING EXPERIMENTAL]","It cuts down wakeup delay to the minimum but drains 2x more battery, use at your own risk",0,
-  "CSC Tweak [NOT WORKING EXPERIMENTAL]","Allow having up to 999 joining contacts and enables call button directly in contacts",0,
   "exFAT Support","Enhances ArchiDroid by exFAT support. Needed for exFAT External SD Cards to work peroperly",0,
   "Add build.prop Tweaks","Deeper sleep and disable debug to improve performance",1
+);
+endif;
+
+### POLISH ###
+if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "2" then
+ini_set("text_next", "Dalej");
+checkbox(
+  "ArchiDroid Tweaks",
+  "Wybierz tweaki ArchiDroid'a, które chcesz włączyć:",
+  "icons/apps",
+  "architweaks.prop",
+
+  "Bootanimacja Logcat","Zamienia domyślną bootanimację na logcata",1,
+  "HD Voice","Włącza HD Voice o ile dostępne",1,
+  "exFAT Support","Zapewnia wsparcie dla exFAT. Wymagane w celu używania kart SD w tej technologii",0,
+  "build.prop Tweaks","Głębszy sen oraz wyłączenie zbędnych logów w celu lepszej wydajności",1
 );
 endif;
 
@@ -546,6 +634,7 @@ endif;
 # STEP 11 - INSTALLING
 #
 
+### ENGLISH ###
 if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "1" then
 ini_set("text_next", "Flash");
 
@@ -566,28 +655,16 @@ ini_set("text_next", "Finish");
 	#-- Installation Process message
 	  "<b>"+ini_get("rom_name")+"</b> is being installed.\n\n"+
       "Please wait while installation wizard installs <b>"+ini_get("rom_name")+
-	  "</b>. This may take several minutes. Thank you for choosing <b>"+ini_get("rom_name")+"</b>.",
+	  "</b>This may take several minutes. Thank you for choosing <b>"+ini_get("rom_name")+"</b>.",
 	
 	#-- Installation Icon
       "@install",
 	
 	#-- Installation Finish Message
       "The installation wizard has successfully installed <b>"+ini_get("rom_name")+
-	  "</b>. Press <b>Finish</b> to continue."
+	  "</b>Press <b>Finish</b> to continue."
 );
 
-ini_set("text_next", "Finish");
-
-###################################################################################################################
-#
-# FINISH MESSAGE, Add Checkbox to Reboot or No. Save in "reboot_it" variable
-#
-# You can use return value or "reboot_it" variable to retrive checkbox value
-# Example:
-# if (checkviewbox(....)=="1" then
-#    ... checked ...
-# endif;
-#
 checkviewbox(
   #-- Title
     "Installation Completed",
@@ -611,6 +688,62 @@ checkviewbox(
 );
 endif;
 
+### POLISH ###
+if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "2" then
+ini_set("text_next", "Flash");
+
+viewbox(
+    "Gotowe",
+    "Jesteś teraz gotowy do rozpoczęcia flashowania\n\n"+
+    "Wciśnij <b>Flash</b>, aby rozpocząć.\n\n"+
+    "Jeśli chcesz przejrzeć lub zmienić jakiekolwiek ustawienia wciśnij <b>Wstecz</b>.",
+    "@install"
+);
+
+ini_set("text_next", "Zakończ");
+
+  install(
+	#-- Title
+      "Instalacja",
+	
+	#-- Installation Process message
+	  "<b>"+ini_get("rom_name")+"</b> właśnie jest instalowany.\n\n"+
+      "Poczekaj cierpliwie na koniec instalacji <b>"+ini_get("rom_name")+
+	  "</b>To może zająć kilka minut. Dziękuje za wybranie <b>"+ini_get("rom_name")+"</b>.",
+	
+	#-- Installation Icon
+      "@install",
+	
+	#-- Installation Finish Message
+      "Instalator pomyślnie zainstalował <b>"+ini_get("rom_name")+
+	  "</b>Naciśnij <b>Zakończ</b>, aby kontynuować."
+);
+
+checkviewbox(
+  #-- Title
+    "Instalacja Zakończona",
+  
+  #-- Text
+    "<#selectbg_g><b>Gratulacje...</b></#>\n\n"+
+    "<b>"+ini_get("rom_name")+"</b> został pomyślnie zainstalowany na twoim urządzeniu.\n\n"+
+    "Status Instalatora: "+getvar("retstatus")+"\n\n",
+	
+  #-- Icon
+    "@welcome",
+
+  #-- Checkbox Text
+    "Zrestartuj Automatycznie",
+
+  #-- Initial Checkbox value ( 0=unchecked, 1=checked ) -  (Optional, default:0)
+    "1",
+
+  #-- Save checked value in variable "reboot_it" (Optional)
+    "reboot_it"
+);
+endif;
+
+
+
 exec("/sbin/cp","/tmp/aroma/.install.log","/sdcard/ArchiDroid.log");
 
 ###
@@ -625,4 +758,3 @@ if getvar("reboot_it")=="1" then
 	reboot("onfinish");
 
 endif;
-# End of ENG Lang

@@ -16,18 +16,20 @@ else
 	ADBANNER=0
 fi
 
-# How many elements should be applied
-if [ -d /data/media/0/archidroid/firstboot/settings ]; then
-	cd /data/media/0/archidroid/firstboot/settings
-	ADMANY=`ls | wc -l`
-fi
-
-# And we want some sqlite3 updates too, but only if database doesn't exist
-if [ ! -e /data/data/com.android.providers.settings/databases/settings.db ]; then
+# We want some sqlite3 updates and settings but only if INSTALL mode is enabled
+if [ -e /data/media/0/archidroid/INSTALL ]; then
+	if [ -d /data/media/0/archidroid/firstboot/settings ]; then
+		cd /data/media/0/archidroid/firstboot/settings
+		ADMANY=`ls | wc -l`
+	fi
 	DBUPDATE=1
 	ADRELOAD=1
-else
+elif [ -e /data/media/0/archidroid/UPDATE ]; then
 	DBUPDATE=0
+	ADMANY=0
+else
+	# Panic
+	exit 1
 fi
 
 # ArchiDroid Semaphore
@@ -110,31 +112,29 @@ while ! pgrep com.android ; do
 	fi
 	
 	# Now let's MAKE SURE that our settings are in fact applied, only if we don't have shared_prefs already (prevent non-clean override)
-	if [ -d /data/media/0/archidroid/firstboot/settings ]; then
-		if [ $ADMANY -gt 0 ]; then
-			for FOLDER in * ; do
-				if [ -d /data/data/$FOLDER ]; then
-					if [ ! -d /data/data/$FOLDER/shared_prefs ]; then
-						mv $FOLDER/* /data/data/$FOLDER
-						
-						# Let's set basic permissions because ArchiDroid_Permfix will fix it anyway really soon
-						ADOWNER=`ls -ld /data/data/$FOLDER | awk '{print $3}'`
-						chown -hR $ADOWNER.$ADOWNER /data/data/$FOLDER
-						chmod -R 755 /data/data/$FOLDER
-						
-						# And we're done!
-						rm -Rf $FOLDER
-						ADOWNER=""
-						((ADMANY--))
-					else
-						rm -Rf $FOLDER
-						ADOWNER=""
-						((ADMANY--))
-					fi
+	if [ $ADMANY -gt 0 ]; then
+		for FOLDER in * ; do
+			if [ -d /data/data/$FOLDER ]; then
+				if [ ! -d /data/data/$FOLDER/shared_prefs ]; then
+					mv $FOLDER/* /data/data/$FOLDER
+					
+					# Let's set basic permissions because ArchiDroid_Permfix will fix it anyway really soon
+					ADOWNER=`ls -ld /data/data/$FOLDER | awk '{print $3}'`
+					chown -hR $ADOWNER.$ADOWNER /data/data/$FOLDER
+					chmod -R 755 /data/data/$FOLDER
+					
+					# And we're done!
+					rm -Rf $FOLDER
+					ADOWNER=""
+					((ADMANY--))
+				else
+					rm -Rf $FOLDER
+					ADOWNER=""
+					((ADMANY--))
 				fi
-			done
-			#ADMANY=`ls | wc -l`
-		fi
+			fi
+		done
+		#ADMANY=`ls | wc -l`
 	fi
 
 	# Sleeping time
@@ -157,6 +157,8 @@ fi
 # ArchiDroid has sysro/sysrw support, change that to remount system rw if needed
 rm -Rf /data/media/0/archidroid/firstboot
 sysrw
+rm -f /data/media/0/archidroid/INSTALL
+rm -f /data/media/0/archidroid/UPDATE
 rm -f $0
 sysro
 

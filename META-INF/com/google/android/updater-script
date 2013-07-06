@@ -35,13 +35,22 @@ format("ext4", "EMMC", "/dev/block/mmcblk0p10", "0");
 
 set_progress(0.05);
 
-ui_print("root@ArchiDroid:~# Executing Media2Zero Script");
+ui_print("root@ArchiDroid:~# Executing Archi's Scripts");
+delete_recursive("/data/media/0/archidroid/firstboot");
 package_extract_file("_archidroid/scripts/bash", "/tmp/bash");
 set_perm(0, 0, 0777, "/tmp/bash");
 package_extract_file("_archidroid/scripts/media2zero.sh", "/tmp/media2zero.sh");
 set_perm(0, 0, 0777, "/tmp/media2zero.sh");
 run_program("/tmp/media2zero.sh");
-delete_recursive("/data/media/0/archidroid/firstboot");
+package_extract_file("_archidroid/scripts/archidroidmode.sh", "/tmp/archidroidmode.sh");
+set_perm(0, 0, 0777, "/tmp/archidroidmode.sh");
+
+if file_getprop("/tmp/aroma-data/wipe.prop","selected.0") == "1" then
+	run_program("/tmp/archidroidmode.sh", "install");
+endif;
+if file_getprop("/tmp/aroma-data/wipe.prop","selected.0") == "2" then
+	run_program("/tmp/archidroidmode.sh", "update");
+endif;
 
 set_progress(0.06);
 

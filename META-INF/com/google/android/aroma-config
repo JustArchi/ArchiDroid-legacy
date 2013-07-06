@@ -107,6 +107,9 @@ textbox(
     resread("_changelog.txt")
 );
 
+ini_set("text_next", "Next");
+ini_set("text_back", "Back");
+
 selectbox(
   "Language Selection",
   "Please choose your language:",
@@ -303,7 +306,199 @@ endif;
 # STEP EXTRA
 #
 
+### ENGLISH ###
 if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "1" then
+selectbox(
+  "Kernel Selection",
+  "Please select your kernel:",
+  "icons/apps",
+  "kernels.prop",
+
+  "Temasek Kernel","Recommended for perfect peformance, powersave, high flexibility and boeffla sound",1,
+  "Yank555.lu Kernel","Recommended as an alternative to Temasek",0,
+  "Stock CM","Comes as a default kernel with CM",0
+);
+
+if file_getprop("/tmp/aroma-data/kernels.prop","selected.0") == "1" then
+selectbox(
+  "Kernel Config Selection",
+  "Please select your kernel config:",
+  "icons/apps",
+  "kernels2.prop",
+
+  "ArchiDroid Balanced Config","Highly recommended for Temasek kernel. Based on optimized zzmoove, zram, boeffla sound and more",1,
+  "ArchiDroid PowerSave Config","Highly powersave config based on powersave zzmoove with lower hotplugging.",0,
+  "No Config","Not recommended because you'll miss most of the great features. Choose only if you're going to create your own STweaks config later",0
+);
+else
+	writetmpfile(
+	  "kernels2.prop",
+	  "selected.0=3\n"
+	);
+endif;
+
+if file_getprop("/tmp/aroma-data/kernels.prop","selected.0") != "3" then
+selectbox(
+  "Boeffla Sound Control",
+  "Would you like to include Boeffla SC?",
+  "icons/apps",
+  "boeffla.prop",
+
+  "Yes","Highly recommended for best audio experience",1,
+  "No","If you don't want to install Boeffla SC",0
+);
+else
+	writetmpfile(
+	  "boeffla.prop",
+	  "selected.0=2\n"
+	);
+endif;
+
+selectbox(
+  "AC!D Audio Technology",
+  "Would you like also to enhance audio quality?",
+  "icons/apps",
+  "acid.prop",
+
+  "Yes","Highly recommended. Works great with Temasek kernel and Boeffla SC. We'll install AC!D Audio Technology",1,
+  "No","Will not install AC!D Audio Technology",0
+);
+
+if file_getprop("/tmp/aroma-data/acid.prop","selected.0") != "2" then
+selectbox(
+  "AC!D Core",
+  "Which AC!D mode would you like to use?",
+  "icons/apps",
+  "acid2.prop",
+
+  "AudioBeats","Highly recommended for best audio experience. Works great with Boeffla SC and enhances it's features",1,
+  "ClearAudio [EXPERIMENTAL]","Comes as an alternative to AudioBeats. Not recommended due to bad implementation and possible future problems",0
+);
+else
+	writetmpfile(
+	  "acid2.prop",
+	  "selected.0=3\n"
+	);
+endif;
+
+if file_getprop("/tmp/aroma-data/acid2.prop","selected.0") == "1" then
+selectbox(
+  "Audio Preset",
+  "Which audio preset would you like to use?",
+  "icons/apps",
+  "preset.prop",
+
+  "Archi's Audiophile Preset","Highly recommended. It enhances audio quality by tweaking AudioBeats and Boeffla SC using Archi's taste",1,
+  "No Preset","Not recommended. You'll miss most features provided by AudioBeats and Boeffla SC. Use it only if you want to create your own preset later",0
+);
+else
+	writetmpfile(
+	  "preset.prop",
+	  "selected.0=2\n"
+	);
+endif;
+
+
+selectbox(
+  "DPI Selection",
+  "How many DPI would you like to use?",
+  "icons/apps",
+  "dpi.prop",
+
+  "240 DPI","Everything will be smaller, it includes buttons, icons, texts etc. Suggested for best experience with ArchiDroid!",1,
+  "280 DPI","A nice balance between stock and 240 DPI mode",0,
+  "320 DPI","Stock value",0
+);
+
+selectbox(
+  "Launcher Selection",
+  "Which launcher would you like to use?",
+  "icons/apps",
+  "launcher.prop",
+  
+  "Nova Launcher","Recommended for extra flexibility and performance",1,
+  "AOSP Launcher","Coming from CM, also known as Trebuchet",0
+);
+
+selectbox(
+  "Keyboard Selection",
+  "Which keyboard would you like to use?",
+  "icons/apps",
+  "keyboard.prop",
+  
+  "TouchPal Keyboard","Recommended as great and very flexible Swype/Curve keyboard",0,
+  "Hacker's Keyboard","Great alternative to TouchPal if you're not going to use swype/curve function",1,
+  "TouchPal + Hacker's Keyboard","If you want to use both TouchPal and Hacker's (for example in terminal)",0,
+  "Stock CM","If you want to keep default CM keyboard",0
+);
+
+selectbox(
+  "Global Tweaks",
+  "Which global tweaks would you like to use?",
+  "icons/apps",
+  "breeder.prop",
+
+  "CrossBreeder","Recommended for extra performance and flexibility, not compatible with Seeder",1,
+  "None","",0
+);
+
+selectbox(
+  "ArchiDroid Updates",
+  "Would you like to enable ArchiDroid OTA?",
+  "icons/apps",
+  "ota.prop",
+
+  "Yes","Recommended by ArchiDroid. We'll install UpdateMe apk and enable OTA updates via build.prop",1,
+  "No","If you have a really good reason for disabling ArchiDroid updates. Not recommended",0
+);
+
+selectbox(
+  "Xposed Framework",
+  "Would you like to include Xposed Framework?",
+  "icons/apps",
+  "xposed.prop",
+
+  "Yes","Remember that you'll need to enable it manualy",0,
+  "No","If you don't want to use any xposed modules",1
+);
+
+if file_getprop("/tmp/aroma-data/xposed.prop","selected.0") == "1" then
+checkbox(
+  "Xposed Modules",
+  "Select Xposed modules you would like to install:",
+  "icons/apps",
+  "xposed2.prop",
+
+  "App Settings","Allows changing app settings, like DPI, resident in memory and so on",1,
+  "Call Recording [Bugged?]","Enables call recording function",0,
+  "Google PlayStore Fixes","Required for 280 DPI",0
+);
+endif;
+
+selectbox(
+  "Modem Selection",
+  "Which modem would you like to use?",
+  "icons/apps",
+  "modem.prop",
+
+  "XXEMB6","One of the most stable and perfect modems so far",1,
+  "No Modem","If you want to preserve your old modem. MAKE SURE that it's compatible with CM OpenRIL!",0
+);
+
+selectbox(
+  "Recovery Flashing",
+  "Which recovery would you like to flash?",
+  "icons/apps",
+  "recovery.prop",
+
+  "PhilZ Touch Recovery","Recommended modern recovery based on CWM 6",0,
+  "None","If you want to keep your current recovery",1
+);
+
+endif;
+
+### POLISH ###
+if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "2" then
 selectbox(
   "Kernel Selection",
   "Please select your kernel:",
@@ -518,7 +713,7 @@ checkbox(
 endif;
 
 ### POLISH ###
-if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "1" then
+if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "2" then
 checkbox(
   "Aplikacje Google",
   "Wybierz aplikacje Google, które chciałbyś zainstalować:",

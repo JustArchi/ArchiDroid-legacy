@@ -89,7 +89,7 @@ endif;
 set_progress(0.1);
 
 ui_print("root@ArchiDroid:~# Flashing ArchiDroid Core");
-show_progress(0.5, 20);
+show_progress(0.4, 1000);
 package_extract_dir("system", "/system");
 
 run_program("/sbin/sync");

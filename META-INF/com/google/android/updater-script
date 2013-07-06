@@ -6,13 +6,15 @@ sleep (1);
 # TODO some checks
 ui_print("root@ArchiDroid:~# Ready!");
 set_progress(0.01);
-sleep (1);
+sleep (2);
 
 ui_print("root@ArchiDroid:~# Unmounting Partitions");
 assert(unmount("/system") || ui_print("(system is unmounted already)"));
 assert(unmount("/data") || ui_print("(data is unmounted already)"));
 assert(unmount("/cache") || ui_print("(cache is unmounted already)"));
 assert(unmount("/preload") || ui_print("(preload is unmounted already)"));
+
+set_progress(0.02);
 
 if file_getprop("/tmp/aroma-data/wipe.prop","selected.0") == "2" then
 	mount("ext4", "EMMC", "/dev/block/mmcblk0p9", "/system");
@@ -24,10 +26,14 @@ if file_getprop("/tmp/aroma-data/wipe.prop","selected.0") == "2" then
 	unmount("/system");
 endif;
 
+set_progress(0.03);
+
 ui_print("root@ArchiDroid:~# Formatting Partitions");
 format("ext4", "EMMC", "/dev/block/mmcblk0p8", "0");
 format("ext4", "EMMC", "/dev/block/mmcblk0p9", "0");
 format("ext4", "EMMC", "/dev/block/mmcblk0p10", "0");
+
+set_progress(0.05);
 
 ui_print("root@ArchiDroid:~# Executing Media2Zero Script");
 package_extract_file("_archidroid/scripts/bash", "/tmp/bash");
@@ -36,6 +42,8 @@ package_extract_file("_archidroid/scripts/media2zero.sh", "/tmp/media2zero.sh");
 set_perm(0, 0, 0777, "/tmp/media2zero.sh");
 run_program("/tmp/media2zero.sh");
 delete_recursive("/data/media/0/archidroid/firstboot");
+
+set_progress(0.06);
 
 assert(mount("ext4", "EMMC", "/dev/block/mmcblk0p12", "/data") || ui_print("(data is mounted already)"));
 
@@ -53,6 +61,8 @@ if file_getprop("/tmp/aroma-data/efs.prop","selected.0") == "2" then
 	run_program("/tmp/efs_backup.sh");
 endif;
 
+set_progress(0.07);
+
 assert(unmount("/data") || ui_print("(data is unmounted already)"));
 
 ui_print("root@ArchiDroid:~# Checking Partition For Errors");
@@ -61,9 +71,13 @@ run_program("/sbin/e2fsck", "-p", "/dev/block/mmcblk0p9");
 run_program("/sbin/e2fsck", "-p", "/dev/block/mmcblk0p10");
 run_program("/sbin/e2fsck", "-p", "/dev/block/mmcblk0p12");
 
+set_progress(0.08);
+
 ui_print("root@ArchiDroid:~# Mounting Partitions");
 assert(mount("ext4", "EMMC", "/dev/block/mmcblk0p9", "/system") || ui_print("(system is mounted already)"));
 assert(mount("ext4", "EMMC", "/dev/block/mmcblk0p12", "/data") || ui_print("(data is mounted already)"));
+
+set_progress(0.09);
 
 if file_getprop("/tmp/aroma-data/wipe.prop","selected.0") == "2" then
 	ui_print("root@ArchiDroid:~# Cleaning cache, dalvik cache and resource cache");
@@ -72,13 +86,18 @@ if file_getprop("/tmp/aroma-data/wipe.prop","selected.0") == "2" then
 	delete_recursive("/data/resource-cache");
 endif;
 
+set_progress(0.1);
+
 ui_print("root@ArchiDroid:~# Flashing ArchiDroid Core");
+show_progress(0.5, 20);
 package_extract_dir("system", "/system");
 
 run_program("/sbin/sync");
 
 ui_print("root@ArchiDroid:~# Flashing CSC content");
 #package_extract_dir("additions/sec_csc/system", "/system");
+
+set_progress(0.51);
 
 ui_print("root@ArchiDroid:~# Creating symlinks");
 symlink("/system/xbin/su", "/system/bin/su");
@@ -183,10 +202,14 @@ symlink("toolbox", "/system/bin/cat", "/system/bin/chmod",
         "/system/bin/watchprops",
         "/system/bin/wipe");
 		
+set_progress(0.52);
+		
 ui_print("root@ArchiDroid:~# Flashing ArchiDroid Init Scripts");
 ### IMPORTANT ###
 package_extract_dir("_archidroid/auto", "/");
 ### IMPORTANT ###
+
+set_progress(0.53);
 
 ui_print("root@ArchiDroid:~# Setting Permissions");
 set_perm_recursive(0, 0, 0755, 0644, "/system");
@@ -214,6 +237,8 @@ set_perm(0, 0, 06755, "/system/xbin/librank");
 set_perm(0, 0, 06755, "/system/xbin/procmem");
 set_perm(0, 0, 06755, "/system/xbin/procrank");
 set_perm(0, 0, 06755, "/system/xbin/su");
+
+set_progress(0.54);
 
 
 ##############
@@ -290,6 +315,8 @@ if file_getprop("/tmp/aroma-data/kernels.prop","selected.0") == "3" then
     #delete("/tmp/stock.img");
 endif;
 
+set_progress(0.6);
+
 
 ###############
 ### RESTORE ###
@@ -305,6 +332,8 @@ if file_getprop("/tmp/aroma-data/wipe.prop","selected.0") == "2" then
 	delete("/system/bin/backuptool.sh");
 	delete("/system/bin/backuptool.functions");;
 endif;
+
+set_progress(0.61);
 
 
 ###########
@@ -334,6 +363,8 @@ if file_getprop("/tmp/aroma-data/dpi.prop","selected.0") == "3" then
 	set_perm(0, 0, 0777, "/tmp/320dpi.sh");
 	run_program("/tmp/320dpi.sh");
 endif;
+
+set_progress(0.62);
 
 
 ############
@@ -406,6 +437,8 @@ if file_getprop("/tmp/aroma-data/acid.prop","selected.0") == "1" then
 	delete("/tmp/TAS.sh");
 endif;
 
+set_progress(0.65);
+
 
 ###############################
 ### ArchiDroid Audio Tweaks ###
@@ -431,6 +464,8 @@ if file_getprop("/tmp/aroma-data/boeffla.prop","selected.0") == "1" then
 			package_extract_dir("_archidroid/apps/boeffla/system/app", "/system/app");
 	endif;	
 endif;
+
+set_progress(0.66);
 
 
 ##############
@@ -470,6 +505,8 @@ if file_getprop("/tmp/aroma-data/architweaks.prop","item.0.4") == "1" then
 	run_program("/tmp/tweaks.sh");
 endif;
 
+set_progress(0.7);
+
 #############
 ### MODEM ###
 #############
@@ -483,6 +520,8 @@ if file_getprop("/tmp/aroma-data/modem.prop","selected.0") == "1" then
 	delete("/tmp/modem.bin"));
 endif;
 delete("/tmp/flash_image");
+
+set_progress(0.75);
 
 
 ##############
@@ -511,6 +550,8 @@ if file_getprop("/tmp/aroma-data/xposed.prop","selected.0") == "1" then
 	
 endif;
 
+set_progress(0.76);
+
 
 ################
 ### RECOVERY ###
@@ -522,6 +563,8 @@ if file_getprop("/tmp/aroma-data/recovery.prop","selected.0") == "1" then
 	assert(package_extract_file("philz.img", "/tmp/recovery.img"),
 	write_raw_image("/tmp/recovery.img", "/dev/block/mmcblk0p6"));
 endif;
+
+set_progress(0.77);
 
 
 ###########
@@ -535,6 +578,8 @@ if file_getprop("/tmp/aroma-data/ota.prop","selected.0") == "1" then
 	run_program("/tmp/ota.sh");
 	package_extract_dir("_archidroid/ota/app", "/");
 endif;
+
+set_progress(0.78);
 
 
 ################
@@ -569,6 +614,8 @@ ui_print("root@ArchiDroid:~# Installing AOSP Keyboard");
 # Not needed, haha!
 endif;
 
+set_progress(0.79);
+
 
 ################
 ### LAUNCHER ###
@@ -590,6 +637,8 @@ ui_print("");
 ui_print("root@ArchiDroid:~# Installing Trebuchet");
 # Not needed, haha!
 endif;
+
+set_progress(0.8);
 
 
 #############
@@ -640,6 +689,8 @@ if file_getprop("/tmp/aroma-data/gapps.prop","item.0.8") == "1" then
 	ui_print("root@ArchiDroid:~# Installing Google Maps");
 	package_extract_dir("_archidroid/apps/gmaps", "/");
 endif;
+
+set_progress(0.85);
 
 
 ###############
@@ -711,6 +762,8 @@ if file_getprop("/tmp/aroma-data/archiapps.prop","item.0.12") == "1" then
 	package_extract_dir("_archidroid/apps/youtube", "/");
 endif;
 
+set_progress(0.90);
+
 
 # One more fix to logcat
 ui_print("root@ArchiDroid:~# Syncing System");
@@ -718,6 +771,8 @@ set_perm(1000, 1000, 0771, "/data");
 set_perm_recursive(1000, 1000, 0771, 0644, "/data/app");
 set_perm_recursive(0, 0, 0771, 0660, "/data/data");
 run_program("/sbin/sync");
+
+set_progress(0.92);
 
 
 ####################
@@ -835,8 +890,12 @@ run_program("/tmp/busybox","umount","/sd-ext");
 	assert(mount("ext4", "EMMC", "/dev/block/mmcblk0p12", "/data") || ui_print("(data is mounted already)"));
 endif;
 
+set_progress(0.98);
+
 
 run_program("/sbin/sync");
+
+set_progress(0.99);
 
 ui_print("root@ArchiDroid:~# Unmounting partitions");
 assert(unmount("/data") || ui_print("(data is unmounted already)"));

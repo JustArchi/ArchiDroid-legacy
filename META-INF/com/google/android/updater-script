@@ -187,6 +187,7 @@ symlink("busybox", "/system/xbin/[", "/system/xbin/[[",
         "/system/xbin/xargs", "/system/xbin/xz", "/system/xbin/xzcat",
         "/system/xbin/yes",
         "/system/xbin/zcat");
+symlink("logcat", "/system/bin/lolcat");
 symlink("mksh", "/system/bin/sh");
 symlink("toolbox", "/system/bin/cat", "/system/bin/chmod",
         "/system/bin/chown", "/system/bin/cmp", "/system/bin/cp",

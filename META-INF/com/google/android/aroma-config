@@ -47,7 +47,7 @@ ini_set("rom_name",             "ArchiDroid");
 ini_set("rom_version",          "2.0.0");
 ini_set("rom_author",           "JustArchi");
 ini_set("rom_device",           "Samsung Galaxy S3");
-ini_set("rom_date",             "July XXth, 2013");
+ini_set("rom_date",             "July 8th, 2013");
 
 ##
 # Show Simple Splash
@@ -309,19 +309,19 @@ endif;
 ### ENGLISH ###
 if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "1" then
 selectbox(
-  "Kernel Selection",
+  "Kernel",
   "Please select your kernel:",
   "icons/apps",
   "kernels.prop",
 
-  "Temasek Kernel","Recommended for perfect peformance, powersave, high flexibility and boeffla sound",1,
+  "Temasek Kernel [Boeffla/No ABB]","Recommended for perfect peformance, powersave, high flexibility and boeffla sound",1,
   "Yank555.lu Kernel","Recommended as an alternative to Temasek",0,
   "Stock CM","Comes as a default kernel with CM",0
 );
 
 if file_getprop("/tmp/aroma-data/kernels.prop","selected.0") == "1" then
 selectbox(
-  "Kernel Config Selection",
+  "Kernel Config",
   "Please select your kernel config:",
   "icons/apps",
   "kernels2.prop",
@@ -400,7 +400,7 @@ endif;
 
 
 selectbox(
-  "DPI Selection",
+  "DPI",
   "How many DPI would you like to use?",
   "icons/personalize",
   "dpi.prop",
@@ -411,7 +411,7 @@ selectbox(
 );
 
 selectbox(
-  "Launcher Selection",
+  "Launcher",
   "Which launcher would you like to use?",
   "icons/apps",
   "launcher.prop",
@@ -421,7 +421,7 @@ selectbox(
 );
 
 selectbox(
-  "Keyboard Selection",
+  "Keyboard",
   "Which keyboard would you like to use?",
   "icons/apps",
   "keyboard.prop",
@@ -470,23 +470,22 @@ checkbox(
   "xposed2.prop",
 
   "App Settings","Allows changing app settings, like DPI, resident in memory and so on",1,
-  "Call Recording [Bugged?]","Enables call recording function",0,
-  "Google PlayStore Fixes","Required for 280 DPI",0
+  "Call Recording [Bugged?]","Enables call recording function",0
 );
 endif;
 
 selectbox(
-  "Modem Selection",
+  "Modem",
   "Which modem would you like to use?",
   "icons/modem",
   "modem.prop",
 
   "XXEMB6","One of the most stable and perfect modems so far",1,
-  "No Modem","If you want to preserve your old modem. MAKE SURE that it's compatible with CM OpenRIL!",0
+  "No Modem","If you want to preserve your old modem",0
 );
 
 selectbox(
-  "Recovery Flashing",
+  "Recovery",
   "Which recovery would you like to flash?",
   "icons/apps",
   "recovery.prop",
@@ -500,26 +499,26 @@ endif;
 ### POLISH ###
 if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "2" then
 selectbox(
-  "Kernel Selection",
-  "Please select your kernel:",
+  "Kernel",
+  "Którego kernela chciałbyś użyć?",
   "icons/apps",
   "kernels.prop",
 
-  "Temasek Kernel","Recommended for perfect peformance, powersave, high flexibility and boeffla sound",1,
-  "Yank555.lu Kernel","Recommended as an alternative to Temasek",0,
-  "Stock CM","Comes as a default kernel with CM",0
+  "Temasek Kernel [Boeffla/No ABB]","Wysoce zalecany dla najlepszej wydajności, elastyczności, oszczędności baterii i jakości audio",1,
+  "Yank555.lu Kernel","Zalecany jako alternatywa dla temaseka",0,
+  "CyanogenMod","Pochodzący prosto z CyanogenMod",0
 );
 
 if file_getprop("/tmp/aroma-data/kernels.prop","selected.0") == "1" then
 selectbox(
-  "Kernel Config Selection",
-  "Please select your kernel config:",
+  "Ustawienia Kernela",
+  "Którego configu kernel'a chciałbyś użyć?",
   "icons/apps",
   "kernels2.prop",
 
-  "ArchiDroid Balanced Config","Highly recommended for Temasek kernel. Based on optimized zzmoove, zram, boeffla sound and more",1,
-  "ArchiDroid PowerSave Config","Highly powersave config based on powersave zzmoove with lower hotplugging.",0,
-  "No Config","Not recommended because you'll miss most of the great features. Choose only if you're going to create your own STweaks config later",0
+  "Zbalansowane Ustawienia ArchiDroid","Wysoce zalecane dla kernela Temaseka. Bazowany na optimized zzmoove, zram, boeffla sound i więcej",1,
+  "Oszczędne Ustawienia ArchiDroid","Wysoce oszczędne dla baterii ustawienia bazowane na powersave zzmoove z mniejszym hotpluggingiem",0,
+  "Brak","Niezalecane z powodu utraty wielu funkcji. Wybierz wyłącznie jeśli zamierzasz stworzyć swoje własne ustawienia po instalacji",0
 );
 else
 	writetmpfile(
@@ -531,12 +530,12 @@ endif;
 if file_getprop("/tmp/aroma-data/kernels.prop","selected.0") != "3" then
 selectbox(
   "Boeffla Sound Control",
-  "Would you like to include Boeffla SC?",
+  "Czy chciałbyś zainstalować Boeffla SC?",
   "icons/apps",
   "boeffla.prop",
 
-  "Yes","Highly recommended for best audio experience",1,
-  "No","If you don't want to install Boeffla SC",0
+  "Tak","Wysoce zalecane dla najlepszych doznań audio",1,
+  "Nie","Jeśli nie chcesz instalować Boeffla SC",0
 );
 else
 	writetmpfile(
@@ -547,23 +546,23 @@ endif;
 
 selectbox(
   "AC!D Audio Technology",
-  "Would you like also to enhance audio quality?",
+  "Czy chciałbyś poprawić jakość audio?",
   "icons/apps",
   "acid.prop",
 
-  "Yes","Highly recommended. Works great with Temasek kernel and Boeffla SC. We'll install AC!D Audio Technology",1,
-  "No","Will not install AC!D Audio Technology",0
+  "Tak","Wysoce zalecane. Działa świetnie z kernelem Temasek oraz Boeffla SC. Zainstaluję AC!D Audio Technology",1,
+  "Nie","Nie zainstaluję AC!D Audio Technology",0
 );
 
 if file_getprop("/tmp/aroma-data/acid.prop","selected.0") != "2" then
 selectbox(
   "AC!D Core",
-  "Which AC!D mode would you like to use?",
+  "Którego trybu AC!D chciałbyś użyć?",
   "icons/apps",
   "acid2.prop",
 
-  "AudioBeats","Highly recommended for best audio experience. Works great with Boeffla SC and enhances it's features",1,
-  "ClearAudio [EXPERIMENTAL]","Comes as an alternative to AudioBeats. Not recommended due to bad implementation and possible future problems",0
+  "AudioBeats","Wysoce zalecane dla najlepszych doznań audio. Działa świetnie z Boeffla SC i znacznie poprawia dostarczaną jakość",1,
+  "ClearAudio [EXPERIMENTAL]","Alternatywa dla AudioBeats. Niezalecane z powodu złej implementacji i możliwych problemów",0
 );
 else
 	writetmpfile(
@@ -575,12 +574,12 @@ endif;
 if file_getprop("/tmp/aroma-data/acid2.prop","selected.0") == "1" then
 selectbox(
   "Audio Preset",
-  "Which audio preset would you like to use?",
+  "Którego presetu audio chciałbyś użyć?",
   "icons/apps",
   "preset.prop",
 
-  "Archi's Audiophile Preset","Highly recommended. It enhances audio quality by tweaking AudioBeats and Boeffla SC using Archi's taste",1,
-  "No Preset","Not recommended. You'll miss most features provided by AudioBeats and Boeffla SC. Use it only if you want to create your own preset later",0
+  "Preset Archi's Audiophile","Wysoce zalecany. Poprawia jakość dźwięku poprzez ustawienia AudioBeats oraz Boeffla SC wg. gustu Archiego",1,
+  "Brak Presetu","Niezalecane z powodu utraty wielu funkcji. Wybierz wyłącznie jeśli chcesz stworzyć swój własny preset później",0
 );
 else
 	writetmpfile(
@@ -591,99 +590,98 @@ endif;
 
 
 selectbox(
-  "DPI Selection",
-  "How many DPI would you like to use?",
+  "DPI",
+  "Ile DPI chciałbyś ustawić?",
   "icons/personalize",
   "dpi.prop",
 
-  "240 DPI","Everything will be smaller, it includes buttons, icons, texts etc. Suggested for best experience with ArchiDroid!",1,
-  "280 DPI","A nice balance between stock and 240 DPI mode",0,
-  "320 DPI","Stock value",0
+  "240 DPI","Wszystko będzie o wiele mniejsze niż standardowo. Wysoce zalecane",1,
+  "280 DPI","Dobry kompromis pomiędzy 320, a 240 DPI",0,
+  "320 DPI","Wartość domyślna dla stocków i CyanogenMod",0
 );
 
 selectbox(
-  "Launcher Selection",
-  "Which launcher would you like to use?",
+  "Launcher",
+  "Którego launchera chciałbyś użyć?",
   "icons/apps",
   "launcher.prop",
   
-  "Nova Launcher","Recommended for extra flexibility and performance",1,
-  "AOSP Launcher","Coming from CM, also known as Trebuchet",0
+  "Launcher Nova","Zalecany dla o wiele większej wydajności i elastyczności",1,
+  "Launcher AOSP","Pochodzący prosto z CyanogenMod. Znany także jako Trebuchet",0
 );
 
 selectbox(
-  "Keyboard Selection",
-  "Which keyboard would you like to use?",
+  "Klawiatura",
+  "Której klawiatury chciałbyś użyć?",
   "icons/apps",
   "keyboard.prop",
   
-  "TouchPal Keyboard","Recommended as great and very flexible Swype/Curve keyboard",0,
-  "Hacker's Keyboard","Great alternative to TouchPal if you're not going to use swype/curve function",1,
-  "TouchPal + Hacker's Keyboard","If you want to use both TouchPal and Hacker's (for example in terminal)",0,
-  "Stock CM","If you want to keep default CM keyboard",0
+  "Klawiatura TouchPal","Zalecana jako świetna i bardzo elastyczna klawiatura Swype/Curve",1,
+  "Klawiatura Hacker's","Świetna alternatywa dla TouchPal'a jeśli nie potrzebujemy Swype/Curve",1,
+  "Klawiatury TouchPal + Hacker's","Jeśli z jakiegoś powodu chciałbyś zainstalować obydwie te klawiatury",0,
+  "Stock CM","Jeśli chciałbyś pozostać przy klawiaturze prosto z CyanogenMod",0
 );
 
 selectbox(
-  "Global Tweaks",
-  "Which global tweaks would you like to use?",
+  "Globalne Tweaki",
+  "Którego globalnego tweaka chciałbyś użyć?",
   "icons/apps",
   "breeder.prop",
 
-  "CrossBreeder","Recommended for extra performance and flexibility, not compatible with Seeder",1,
-  "None","",0
+  "CrossBreeder","Wysoce zalecany dla lepszej wydajności, blokowania reklam i wielu innych tweaków",1,
+  "Żadnego","",0
 );
 
 selectbox(
-  "ArchiDroid Updates",
+  "Aktualizacje ArchiDroid",
   "Would you like to enable ArchiDroid OTA?",
   "icons/update",
   "ota.prop",
 
-  "Yes","Recommended by ArchiDroid. We'll install UpdateMe apk and enable OTA updates via build.prop",1,
-  "No","If you have a really good reason for disabling ArchiDroid updates. Not recommended",0
+  "Tak","Wysoce zalecane. Zainstaluję aplikację UpdateMe oraz włączę aktualizacje OTA via build.prop",1,
+  "Nie","Jeśli masz dobry powód dla wyłączenia powiadomień o aktualizacjach. Niezalecane",0
 );
 
 selectbox(
   "Xposed Framework",
-  "Would you like to include Xposed Framework?",
+  "Czy chciałbyś zainstalować Xposed Framework?",
   "icons/apps",
   "xposed.prop",
 
-  "Yes","Remember that you'll need to enable it manualy",0,
-  "No","If you don't want to use any xposed modules",1
+  "Tak","Pamiętaj, że musisz go włączyć po instalacji",0,
+  "Nie","Jeśli nie masz potrzeby instalowania Xposed ani żadnych jego modułów",1
 );
 
 if file_getprop("/tmp/aroma-data/xposed.prop","selected.0") == "1" then
 checkbox(
-  "Xposed Modules",
-  "Select Xposed modules you would like to install:",
+  "Moduły Xposed",
+  "Wybierz moduły Xposed, które chciałbyś zainstalować:",
   "icons/customize",
   "xposed2.prop",
 
-  "App Settings","Allows changing app settings, like DPI, resident in memory and so on",1,
-  "Call Recording [Bugged?]","Enables call recording function",0,
-  "Google PlayStore Fixes","Required for 280 DPI",0
+  "App Settings","Pozwala na zarządzanie ustawieniami specyficznymi dla danych aplikacji, zmianę DPI, rezydowanie w pamięci i więcej",1,
+  "Call Recording [Bugged?]","Włącza możliwość nagrywania rozmów",0
 );
 endif;
 
 selectbox(
-  "Modem Selection",
-  "Which modem would you like to use?",
+  "Modem",
+  "Który modem chciałbyś sflashować?",
   "icons/modem",
   "modem.prop",
 
-  "XXEMB6","One of the most stable and perfect modems so far",1,
-  "No Modem","If you want to preserve your old modem. MAKE SURE that it's compatible with CM OpenRIL!",0
+  "XXEMB6","Jeden z najbardziej stabilnych i perfekcyjnych modemów do tej pory",1,
+  "Żaden","Jeśli chcesz pozostać przy swoim aktualnym modemie",0
 );
 
 selectbox(
-  "Recovery Flashing",
-  "Which recovery would you like to flash?",
+  "Recovery",
+  "Które recovery chciałbyś sflashować?",
   "icons/apps",
   "recovery.prop",
 
-  "PhilZ Touch Recovery","Recommended modern recovery based on CWM 6",0,
-  "None","If you want to keep your current recovery",1
+  "PhilZ Touch Recovery","Zalecane nowoczesne recovery bazujące na CWM 6",0,
+  "Żadne","Jeśli chcesz pozostać przy swoim aktualnym recovery",1
 );
 
 endif;
@@ -889,7 +887,7 @@ ini_set("text_next", "Flash");
 
 viewbox(
     "Gotowe",
-    "Jesteś teraz gotowy do rozpoczęcia flashowania\n\n"+
+    "Jesteś teraz gotowy do rozpoczęcia flashowania.\n\n"+
     "Wciśnij <b>Flash</b>, aby rozpocząć.\n\n"+
     "Jeśli chcesz przejrzeć lub zmienić jakiekolwiek ustawienia wciśnij <b>Wstecz</b>.",
     "@alert"

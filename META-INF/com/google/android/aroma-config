@@ -113,7 +113,7 @@ ini_set("text_back", "Back");
 selectbox(
   "Language Selection",
   "Please choose your language:",
-  "icons/apps",
+  "icons/confirm",
   "lang.prop",
   
   "English","English",1,
@@ -131,7 +131,7 @@ agreebox(
     "",
   
   #-- Icon
-    "@alert",
+    "@license",
   
   #-- Text Content ( Read from <AROMA Resource Dir>/read_me.txt )
     resread("read_me.txt"),
@@ -151,7 +151,7 @@ agreebox(
     "",
   
   #-- Icon
-    "@alert",
+    "@info",
   
   #-- Text Content ( Read from <AROMA Resource Dir>/read_me2.txt )
     resread("read_me2.txt"),
@@ -192,7 +192,7 @@ agreebox(
     "",
   
   #-- Icon
-    "@alert",
+    "@license",
   
   #-- Text Content ( Read from <AROMA Resource Dir>/read_me.txt )
     resread("pol_read_me.txt"),
@@ -212,7 +212,7 @@ agreebox(
     "",
   
   #-- Icon
-    "@alert",
+    "@info",
   
   #-- Text Content ( Read from <AROMA Resource Dir>/read_me2.txt )
     resread("pol_read_me2.txt"),
@@ -249,7 +249,7 @@ if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "1" then
 selectbox(
   "Install Mode",
   "Please select install mode:",
-  "icons/apps",
+  "icons/confirm",
   "wipe.prop",
   
   "ArchiDroid Install","If you want to start from scratch or flash ArchiDroid for the first time",1,
@@ -262,7 +262,7 @@ if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "2" then
 selectbox(
   "Tryb Instalacyjny",
   "Wybierz tryb instalacyjny:",
-  "icons/apps",
+  "icons/confirm",
   "wipe.prop",
   
   "ArchiDroid Instalacja","Jeśli flashujesz ArchiDroid'a po raz pierwszy lub chcesz dokładnie wyczyścić ustawienia",1,
@@ -402,7 +402,7 @@ endif;
 selectbox(
   "DPI Selection",
   "How many DPI would you like to use?",
-  "icons/apps",
+  "icons/personalize",
   "dpi.prop",
 
   "240 DPI","Everything will be smaller, it includes buttons, icons, texts etc. Suggested for best experience with ArchiDroid!",1,
@@ -445,7 +445,7 @@ selectbox(
 selectbox(
   "ArchiDroid Updates",
   "Would you like to enable ArchiDroid OTA?",
-  "icons/apps",
+  "icons/update",
   "ota.prop",
 
   "Yes","Recommended by ArchiDroid. We'll install UpdateMe apk and enable OTA updates via build.prop",1,
@@ -466,7 +466,7 @@ if file_getprop("/tmp/aroma-data/xposed.prop","selected.0") == "1" then
 checkbox(
   "Xposed Modules",
   "Select Xposed modules you would like to install:",
-  "icons/apps",
+  "icons/customize",
   "xposed2.prop",
 
   "App Settings","Allows changing app settings, like DPI, resident in memory and so on",1,
@@ -478,7 +478,7 @@ endif;
 selectbox(
   "Modem Selection",
   "Which modem would you like to use?",
-  "icons/apps",
+  "icons/modem",
   "modem.prop",
 
   "XXEMB6","One of the most stable and perfect modems so far",1,
@@ -593,7 +593,7 @@ endif;
 selectbox(
   "DPI Selection",
   "How many DPI would you like to use?",
-  "icons/apps",
+  "icons/personalize",
   "dpi.prop",
 
   "240 DPI","Everything will be smaller, it includes buttons, icons, texts etc. Suggested for best experience with ArchiDroid!",1,
@@ -636,7 +636,7 @@ selectbox(
 selectbox(
   "ArchiDroid Updates",
   "Would you like to enable ArchiDroid OTA?",
-  "icons/apps",
+  "icons/update",
   "ota.prop",
 
   "Yes","Recommended by ArchiDroid. We'll install UpdateMe apk and enable OTA updates via build.prop",1,
@@ -657,7 +657,7 @@ if file_getprop("/tmp/aroma-data/xposed.prop","selected.0") == "1" then
 checkbox(
   "Xposed Modules",
   "Select Xposed modules you would like to install:",
-  "icons/apps",
+  "icons/customize",
   "xposed2.prop",
 
   "App Settings","Allows changing app settings, like DPI, resident in memory and so on",1,
@@ -669,7 +669,7 @@ endif;
 selectbox(
   "Modem Selection",
   "Which modem would you like to use?",
-  "icons/apps",
+  "icons/modem",
   "modem.prop",
 
   "XXEMB6","One of the most stable and perfect modems so far",1,
@@ -838,7 +838,7 @@ viewbox(
     "You are now ready to begin installation.\n\n"+
     "Press <b>Flash</b> to start.\n\n"+
     "If you want to review or change any of your installation settings, press <b>Back</b>.",
-    "@install"
+    "@alert"
 );
 
 ini_set("text_next", "Finish");
@@ -870,7 +870,7 @@ checkviewbox(
     "Installer Status: "+getvar("retstatus")+"\n\n",
 	
   #-- Icon
-    "@welcome",
+    "@exit",
 
   #-- Checkbox Text
     "Reboot Automatically",
@@ -892,7 +892,7 @@ viewbox(
     "Jesteś teraz gotowy do rozpoczęcia flashowania\n\n"+
     "Wciśnij <b>Flash</b>, aby rozpocząć.\n\n"+
     "Jeśli chcesz przejrzeć lub zmienić jakiekolwiek ustawienia wciśnij <b>Wstecz</b>.",
-    "@install"
+    "@alert"
 );
 
 ini_set("text_next", "Zakończ");
@@ -924,7 +924,7 @@ checkviewbox(
     "Status Instalatora: "+getvar("retstatus")+"\n\n",
 	
   #-- Icon
-    "@welcome",
+    "@exit",
 
   #-- Checkbox Text
     "Zrestartuj Automatycznie",

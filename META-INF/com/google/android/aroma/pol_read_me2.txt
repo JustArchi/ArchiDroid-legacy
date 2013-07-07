@@ -9,6 +9,7 @@ Wszystkie prawa autorskie i podziękowania należą się odpowiednim developerom
 - CrossBreeder | idcrisis
 - PhilZ Touch Recovery | Phil3759
 - AC!D Audio Technology | AC!D Team 
+- Xposed Framework | rovo89
 
 @yank555-lu.net
 - Yank555 Kernel | Yank555

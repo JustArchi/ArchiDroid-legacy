@@ -9,6 +9,7 @@ Please respect that this is NOT my work and all credits for these awesome things
 - CrossBreeder | idcrisis
 - PhilZ Touch Recovery | Phil3759
 - AC!D Audio Technology | AC!D Team 
+- Xposed Framework | rovo89
 
 @yank555-lu.net
 - Yank555 Kernel | Yank555

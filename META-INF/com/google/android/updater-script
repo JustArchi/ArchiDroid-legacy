@@ -29,9 +29,10 @@ endif;
 set_progress(0.03);
 
 ui_print("root@ArchiDroid:~# Formatting Partitions");
-format("ext4", "EMMC", "/dev/block/mmcblk0p8", "0");
+#format("ext4", "EMMC", "/dev/block/mmcblk0p8", "0");
+#format("ext4", "EMMC", "/dev/block/mmcblk0p9", "0", "/system");
 format("ext4", "EMMC", "/dev/block/mmcblk0p9", "0");
-format("ext4", "EMMC", "/dev/block/mmcblk0p10", "0");
+#format("ext4", "EMMC", "/dev/block/mmcblk0p10", "0");
 
 set_progress(0.05);
 
@@ -225,7 +226,6 @@ ui_print("root@ArchiDroid:~# Setting Permissions");
 set_perm_recursive(0, 0, 0755, 0644, "/system");
 set_perm_recursive(0, 0, 0755, 0755, "/system/addon.d");
 set_perm_recursive(0, 2000, 0755, 0755, "/system/bin");
-set_perm_recursive(0, 0, 0755, 0644, "/system/app");
 set_perm(0, 3003, 02750, "/system/bin/netcfg");
 set_perm(0, 3004, 02755, "/system/bin/ping");
 set_perm(0, 2000, 06750, "/system/bin/run-as");
@@ -257,9 +257,7 @@ set_progress(0.54);
 
 # We need to make sure that current kernel is CM-based to prevent random zygote kernel panics
 ui_print("root@ArchiDroid:~# Cleaning Old Kernel");
-package_extract_file("boot.img", "/tmp/stock.img");
-write_raw_image("/tmp/stock.img", "/dev/block/mmcblk0p5");
-delete("/tmp/stock.img");
+package_extract_file("boot.img", "/dev/block/mmcblk0p5");
 
 ### TEMASEK ###
 if file_getprop("/tmp/aroma-data/kernels.prop","selected.0") == "1" then
@@ -340,7 +338,7 @@ if file_getprop("/tmp/aroma-data/wipe.prop","selected.0") == "2" then
 	set_perm(0, 0, 0644, "/tmp/backuptool.functions");
 	run_program("/tmp/backuptool.sh", "restore");
 	delete("/system/bin/backuptool.sh");
-	delete("/system/bin/backuptool.functions");;
+	delete("/system/bin/backuptool.functions");
 endif;
 
 set_progress(0.61);

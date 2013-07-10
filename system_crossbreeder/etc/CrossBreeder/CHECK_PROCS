@@ -107,5 +107,3 @@ echo 25
 cat /data/recovery_cb.log 
 echo 26
 cat /cache/recovery/last_log
-echo 27
-cat /proc/last_kmsg

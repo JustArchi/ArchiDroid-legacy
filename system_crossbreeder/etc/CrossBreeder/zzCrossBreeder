@@ -97,18 +97,18 @@ if [ ! -f /dev/random.MOD ]; then
   BUSYBOX rm /dev/random && BUSYBOX ln /dev/$RANDOMDEVICE /dev/random
 fi
 
-WRITE_WAKEUP_THRESHOLD=0
-#OS=`getprop ro.build.version.release | BUSYBOX awk -F\. '{ print $1$2 }'`
-#if [ "$OS" -lt 40 ]; then 
-#  WRITE_WAKEUP_THRESHOLD=0; 
-#fi
+WRITE_WAKEUP_THRESHOLD=16
+OS=`getprop ro.build.version.release | BUSYBOX awk -F\. '{ print $1$2 }'`
+if [ "$OS" -lt 40 ]; then 
+  WRITE_WAKEUP_THRESHOLD=0; 
+fi
 
-#if [ ! -f /system/etc/CrossBreeder/ENTROPY_FEED_FREQUENCY_SECS ]; then
-#  if [ "$OS" -lt 41 ]; then
-#    BUSYBOX mount -o rw,remount /system
-#    ECHO 0.5 > /system/etc/CrossBreeder/ENTROPY_FEED_FREQUENCY_SECS
-#  fi
-#fi
+if [ ! -f /system/etc/CrossBreeder/ENTROPY_FEED_FREQUENCY_SECS ]; then
+  if [ "$OS" -lt 41 ]; then
+    BUSYBOX mount -o rw,remount /system
+    ECHO 0.5 > /system/etc/CrossBreeder/ENTROPY_FEED_FREQUENCY_SECS
+  fi
+fi
 
 #if [ -c /dev/hw_random ]; then
 #  WRITE_WAKEUP_THRESHOLD=16
@@ -124,8 +124,7 @@ if [ ""$P_WRITE_WAKEUP_THRESHOLD"" != """" ]; then
       if [ "$P_WRITE_WAKEUP_THRESHOLD_NEW" = "" ]; then P_WRITE_WAKEUP_THRESHOLD_NEW=-1; fi
       if [ "$P_WRITE_WAKEUP_THRESHOLD_NEW" -ge 0 ]; then
         WRITE_WAKEUP_THRESHOLD=$P_WRITE_WAKEUP_THRESHOLD_NEW
-#        ECHO $WRITE_WAKEUP_THRESHOLD > /proc/sys/kernel/random/write_wakeup_threshold
-#         BUSYBOX timeout -t 3 -s KILL /system/etc/CrossBreeder/busybox sysctl -e -w kernel.random.write_wakeup_threshold=$WRITE_WAKEUP_THRESHOLD;
+        ECHO $WRITE_WAKEUP_THRESHOLD > /proc/sys/kernel/random/write_wakeup_threshold
       fi
 fi
 
@@ -152,14 +151,8 @@ fi
 
 for i in `BUSYBOX timeout -t 15 -s KILL /system/etc/CrossBreeder/busybox find /sys -name add_random -print 2>/dev/null`; do ECHO 0 > $i; done 
 
-#ECHO $WRITE_WAKEUP_THRESHOLD > /proc/sys/kernel/random/write_wakeup_threshold
-BUSYBOX timeout -t 3 -s KILL /system/etc/CrossBreeder/busybox sysctl -e -w kernel.random.write_wakeup_threshold=$WRITE_WAKEUP_THRESHOLD;
-BUSYBOX timeout -t 3 -s KILL /system/etc/CrossBreeder/busybox sysctl -e -w kernel.random.read_wakeup_threshold=8;
-
-if [ "$(cat /proc/sys/kernel/random/read_wakeup_threshold)" != "8" ]; then 
-   BUSYBOX timeout -t 3 -s KILL /system/etc/CrossBreeder/busybox sysctl -e -w kernel.random.read_wakeup_threshold=64;
-#  ECHO 64 > /proc/sys/kernel/random/read_wakeup_threshold
-fi
+ECHO $WRITE_WAKEUP_THRESHOLD > /proc/sys/kernel/random/write_wakeup_threshold
+ECHO 64 > /proc/sys/kernel/random/read_wakeup_threshold
 
 if [ "$OS" -lt 41 ]; then 
   setprop persist.sys.scrollingcache 3
@@ -180,8 +173,6 @@ for i in $(BUSYBOX pgrep haveged 2>/dev/null); do
   BUSYBOX renice +20 $i 2>/dev/null
 done
 
-if [ "x$1" != "xFORCE" ]; then return 0; fi
-
 BUSYBOX timeout -t 3 -s KILL /system/etc/CrossBreeder/busybox sysctl -e -w net.ipv4.tcp_tw_recycle=1;
 BUSYBOX timeout -t 3 -s KILL /system/etc/CrossBreeder/busybox sysctl -e -w net.ipv4.tcp_tw_reuse=1;
 BUSYBOX timeout -t 3 -s KILL /system/etc/CrossBreeder/busybox sysctl -e -w net.ipv4.tcp_fin_timeout=15;
@@ -193,15 +184,11 @@ BUSYBOX timeout -t 3 -s KILL /system/etc/CrossBreeder/busybox sysctl -e -w net.i
 #BUSYBOX timeout -t 3 -s KILL /system/etc/CrossBreeder/busybox sysctl -e -w net.ipv4.tcp_dsack=1;
 BUSYBOX timeout -t 3 -s KILL /system/etc/CrossBreeder/busybox sysctl -e -w net.ipv4.tcp_window_scaling=1;
 
-BUSYBOX mount -t debugfs -o rw none /sys/kernel/debug 2>/dev/null
+BUSYBOX mount -t debugfs none /sys/kernel/debug 2>/dev/null
 
-if [ -e /sys/kernel/debug/sched_features ]; then
-  ECHO NO_NORMALIZED_SLEEPER > /sys/kernel/debug/sched_features 2>/dev/null
-  ECHO NO_GENTLE_FAIR_SLEEPERS > /sys/kernel/debug/sched_features 2>/dev/null
-  ECHO NO_NEW_FAIR_SLEEPERS > /sys/kernel/debug/sched_features 2>/dev/null
-fi
-
-#BUSYBOX umount /sys/kernel/debug 2>/dev/null
+ECHO NO_NORMALIZED_SLEEPER > /sys/kernel/debug/sched_features 2>/dev/null
+ECHO NO_GENTLE_FAIR_SLEEPERS > /sys/kernel/debug/sched_features 2>/dev/null
+ECHO NO_NEW_FAIR_SLEEPERS > /sys/kernel/debug/sched_features 2>/dev/null
 
 if [ -f /data/STOP_TWEAKING_ME ]; then return 0; fi
 
@@ -259,6 +246,8 @@ ECHO 97 > /sys/devices/virtual/bdi/179:0/max_ratio
 ECHO 97 > /sys/devices/virtual/bdi/default/max_ratio
 
 ( BUSYBOX start-stop-daemon -o -S -p /dev/null -b -N 20 -x /system/etc/CrossBreeder/busybox -- timeout -t 30 -s KILL /system/etc/CrossBreeder/CB_Governor_Tweaks.sh 0<&- &>/dev/null 2>&1 ) &
+
+if [ "x$1" != "xFORCE" ]; then return 0; fi
 
 for i in `BUSYBOX mount | BUSYBOX grep ext[3-4] | BUSYBOX awk '{ print $1 }' | BUSYBOX sort | BUSYBOX uniq`; do tune2fs -o journal_data_writeback $i >/dev/null 2>&1; done
 

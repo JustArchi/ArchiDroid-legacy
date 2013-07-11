@@ -326,8 +326,8 @@ selectbox(
   "icons/apps",
   "kernels2.prop",
 
-  "ArchiDroid Balanced Config","Highly recommended for Temasek kernel. Based on optimized zzmoove, zram, boeffla sound and more",1,
-  "ArchiDroid PowerSave Config","Highly powersave config based on powersave zzmoove with lower hotplugging.",0,
+  "ArchiDroid Balanced Config","Highly recommended for Temasek kernel. Based on optimized zzmoove, zram, boeffla sound and more",0,
+  "ArchiDroid PowerSave Config","Highly powersave config based on powersave zzmoove with lower hotplugging.",1,
   "No Config","Not recommended because you'll miss most of the great features. Choose only if you're going to create your own STweaks config later",0
 );
 else
@@ -516,8 +516,8 @@ selectbox(
   "icons/apps",
   "kernels2.prop",
 
-  "Zbalansowane Ustawienia ArchiDroid","Wysoce zalecane dla kernela Temaseka. Bazowany na optimized zzmoove, zram, boeffla sound i więcej",1,
-  "Oszczędne Ustawienia ArchiDroid","Wysoce oszczędne dla baterii ustawienia bazowane na powersave zzmoove z mniejszym hotpluggingiem",0,
+  "Zbalansowane Ustawienia ArchiDroid","Wysoce zalecane dla kernela Temaseka. Bazowany na optimized zzmoove, zram, boeffla sound i więcej",0,
+  "Oszczędne Ustawienia ArchiDroid","Wysoce oszczędne dla baterii ustawienia bazowane na powersave zzmoove z mniejszym hotpluggingiem",1,
   "Brak","Niezalecane z powodu utraty wielu funkcji. Wybierz wyłącznie jeśli zamierzasz stworzyć swoje własne ustawienia po instalacji",0
 );
 else

@@ -5,7 +5,7 @@
 cd /data
 
 # Added by JustArchi
-find /data -iname ".*" -maxdepth1 -delete
+find /data -iname ".*" -maxdepth 1 -delete
 
 FILES=(*)
 

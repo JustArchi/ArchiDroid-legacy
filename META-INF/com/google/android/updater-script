@@ -35,6 +35,20 @@ format("ext4", "EMMC", "/dev/block/mmcblk0p10", "0");
 
 set_progress(0.05);
 
+ui_print("root@ArchiDroid:~# Checking Partitions For Errors");
+run_program("/sbin/e2fsck", "-p", "/dev/block/mmcblk0p8");
+run_program("/sbin/e2fsck", "-p", "/dev/block/mmcblk0p9");
+run_program("/sbin/e2fsck", "-p", "/dev/block/mmcblk0p10");
+run_program("/sbin/e2fsck", "-p", "/dev/block/mmcblk0p12");
+
+set_progress(0.06);
+
+ui_print("root@ArchiDroid:~# Mounting Partitions");
+assert(mount("ext4", "EMMC", "/dev/block/mmcblk0p9", "/system") || ui_print("(system is mounted already)"));
+assert(mount("ext4", "EMMC", "/dev/block/mmcblk0p12", "/data") || ui_print("(data is mounted already)"));
+
+set_progress(0.07);
+
 ui_print("root@ArchiDroid:~# Executing Archi's Scripts");
 delete_recursive("/data/media/0/archidroid/firstboot");
 package_extract_file("_archidroid/scripts/bash", "/tmp/bash");
@@ -52,9 +66,7 @@ if file_getprop("/tmp/aroma-data/wipe.prop","selected.0") == "2" then
 	run_program("/tmp/archidroidmode.sh", "update");
 endif;
 
-set_progress(0.06);
-
-assert(mount("ext4", "EMMC", "/dev/block/mmcblk0p12", "/data") || ui_print("(data is mounted already)"));
+set_progress(0.08);
 
 if file_getprop("/tmp/aroma-data/wipe.prop","selected.0") == "1" then
 	ui_print("root@ArchiDroid:~# Formatting /data excluding /data/media");
@@ -70,22 +82,6 @@ if file_getprop("/tmp/aroma-data/efs.prop","selected.0") == "2" then
 	run_program("/tmp/efs_backup.sh");
 endif;
 
-set_progress(0.07);
-
-assert(unmount("/data") || ui_print("(data is unmounted already)"));
-
-ui_print("root@ArchiDroid:~# Checking Partition For Errors");
-run_program("/sbin/e2fsck", "-p", "/dev/block/mmcblk0p8");
-run_program("/sbin/e2fsck", "-p", "/dev/block/mmcblk0p9");
-run_program("/sbin/e2fsck", "-p", "/dev/block/mmcblk0p10");
-run_program("/sbin/e2fsck", "-p", "/dev/block/mmcblk0p12");
-
-set_progress(0.08);
-
-ui_print("root@ArchiDroid:~# Mounting Partitions");
-assert(mount("ext4", "EMMC", "/dev/block/mmcblk0p9", "/system") || ui_print("(system is mounted already)"));
-assert(mount("ext4", "EMMC", "/dev/block/mmcblk0p12", "/data") || ui_print("(data is mounted already)"));
-
 set_progress(0.09);
 
 if file_getprop("/tmp/aroma-data/wipe.prop","selected.0") == "2" then
@@ -98,7 +94,7 @@ endif;
 set_progress(0.1);
 
 ui_print("root@ArchiDroid:~# Flashing ArchiDroid Core");
-show_progress(0.4, 1000);
+show_progress(0.4, 1139);
 package_extract_dir("system", "/system");
 
 run_program("/sbin/sync");

@@ -691,6 +691,11 @@ if file_getprop("/tmp/aroma-data/gapps.prop","item.0.8") == "1" then
 	package_extract_dir("_archidroid/apps/gmaps", "/");
 endif;
 
+if file_getprop("/tmp/aroma-data/gapps.prop","item.0.9") == "1" then
+	ui_print("root@ArchiDroid:~# Installing Google Voice");
+	package_extract_dir("_archidroid/apps/gvoice", "/");
+endif;
+
 set_progress(0.85);
 
 

@@ -772,7 +772,7 @@ checkbox(
   "icons/apps",
   "archiapps.prop",
 
-  "Titanium Backup","Świetne narzędzie do zarządzania kopami zapasowymi pomiędzy flashami romów",1,
+  "Titanium Backup","Świetne narzędzie do zarządzania kopiami zapasowymi pomiędzy flashami romów",1,
   "ZRAM Status","Użyteczne w celu kontroli ramu oraz zramu (wymaga kernela ze wsparciem dla zram)",0,
   "Greenify","Użyteczne w celu zamrażania zbędnych aplikacji",0,
   "LMT","Użyteczne narzędzie znane jako [pie] z Androida 4.2",1,
@@ -850,14 +850,14 @@ ini_set("text_next", "Finish");
 	#-- Installation Process message
 	  "<b>"+ini_get("rom_name")+"</b> is being installed.\n\n"+
       "Please wait while installation wizard installs <b>"+ini_get("rom_name")+
-	  "</b>This may take several minutes. Thank you for choosing <b>"+ini_get("rom_name")+"</b>.",
+	  "</b>. This may take several minutes. Thank you for choosing <b>"+ini_get("rom_name")+"</b>.",
 	
 	#-- Installation Icon
       "@install",
 	
 	#-- Installation Finish Message
       "The installation wizard has successfully installed <b>"+ini_get("rom_name")+
-	  "</b>Press <b>Finish</b> to continue."
+	  "</b>. Press <b>Finish</b> to continue."
 );
 
 checkviewbox(
@@ -904,14 +904,14 @@ ini_set("text_next", "Zakończ");
 	#-- Installation Process message
 	  "<b>"+ini_get("rom_name")+"</b> właśnie jest instalowany.\n\n"+
       "Poczekaj cierpliwie na koniec instalacji <b>"+ini_get("rom_name")+
-	  "</b>To może zająć kilka minut. Dziękuje za wybranie <b>"+ini_get("rom_name")+"</b>.",
+	  "</b>. To może zająć kilka minut. Dziękuje za wybranie <b>"+ini_get("rom_name")+"</b>.",
 	
 	#-- Installation Icon
       "@install",
 	
 	#-- Installation Finish Message
       "Instalator pomyślnie zainstalował <b>"+ini_get("rom_name")+
-	  "</b>Naciśnij <b>Zakończ</b>, aby kontynuować."
+	  "</b>. Naciśnij <b>Zakończ</b>, aby kontynuować."
 );
 
 checkviewbox(

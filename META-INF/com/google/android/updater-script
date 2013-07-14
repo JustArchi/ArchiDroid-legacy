@@ -628,7 +628,7 @@ ui_print("");
 ui_print("");
 ui_print("root@ArchiDroid:~# Installing Nova Launcher");
 delete("/system/app/Trebuchet.apk");
-package_extract_dir("launcher/nova", "/data/app");
+package_extract_dir("_archidroid/apps/nova", "/");
 endif;
 
 ### STOCK ###

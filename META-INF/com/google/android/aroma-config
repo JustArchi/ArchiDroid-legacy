@@ -803,7 +803,6 @@ checkbox(
 
   "Logcat Bootanimation","Changes default bootaimation to logcat output - powered by logcat lite",1,
   "HD Voice","Enables HD Voice if available",1,
-  "exFAT Support","Enhances ArchiDroid by exFAT support. Needed for exFAT External SD Cards to work peroperly",0,
   "Add build.prop Tweaks","Deeper sleep and disable debug to improve performance",1
 );
 endif;
@@ -819,7 +818,6 @@ checkbox(
 
   "Bootanimacja Logcat","Zamienia domyślną bootanimację na logcata",1,
   "HD Voice","Włącza HD Voice o ile dostępne",1,
-  "exFAT Support","Zapewnia wsparcie dla exFAT. Wymagane w celu używania kart SD w tej technologii",0,
   "build.prop Tweaks","Głębszy sen oraz wyłączenie zbędnych logów w celu lepszej wydajności",1
 );
 endif;

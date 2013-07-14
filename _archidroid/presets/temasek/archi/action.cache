@@ -124,6 +124,7 @@ generic /sys/devices/platform/samsung-battery/batt_chrg_hard_volt
 generic /sys/devices/platform/samsung-battery/batt_chrg_soft_volt
 generic /sys/power/fb_delay
 generic01 /sys/class/misc/touchboost_switch/touchboost_switch
+generic /sys/class/misc/touchboost_switch/touchboost_freq
 generic01 /sys/class/misc/touchwake/enabled
 generic /sys/class/misc/touchwake/delay
 generic01 /sys/class/misc/mdnie/hook_intercept

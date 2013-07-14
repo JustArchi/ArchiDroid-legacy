@@ -990,12 +990,17 @@ echo '
 
     </settingsPane>
     <settingsPane description="" 
-                  name="Touch Boost Switch">
+                  name="Touch Boost">
     
-     <checkbox  description="Enable touch boost at 800mhz step or disable it for variable steps" 
+     <checkbox  description="Enable touch boost at FIXED freq mhz step or disable it for variable steps." 
                 name="Touch Boost Switch" 
                 action="generic01 /sys/class/misc/touchboost_switch/touchboost_switch"
                 label="Enable touch boost"/>
+
+     <seekBar  description="The frequency step at which Touch Boost will be used. Default 800000hz" 
+		name="Touch Boost Frequency" 
+                action="generic /sys/class/misc/touchboost_switch/touchboost_freq" 
+                unit=" hz" min="200000" reversed="false" step="50000" max="1400000"/>
 
     </settingsPane>
     <settingsPane description="" 

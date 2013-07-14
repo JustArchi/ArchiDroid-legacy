@@ -16,6 +16,18 @@ assert(unmount("/preload") || ui_print("(preload is unmounted already)"));
 
 set_progress(0.02);
 
+if file_getprop("/tmp/aroma-data/wipe.prop","selected.0") == "2" then
+	mount("ext4", "EMMC", "/dev/block/mmcblk0p9", "/system");
+	package_extract_file("system/bin/backuptool.sh", "/tmp/backuptool.sh");
+	package_extract_file("system/bin/backuptool.functions", "/tmp/backuptool.functions");
+	set_perm(0, 0, 0777, "/tmp/backuptool.sh");
+	set_perm(0, 0, 0644, "/tmp/backuptool.functions");
+	run_program("/tmp/backuptool.sh", "backup");
+	unmount("/system");
+endif;
+
+set_progress(0.03);
+
 ui_print("root@ArchiDroid:~# Formatting Partitions");
 format("ext4", "EMMC", "/dev/block/mmcblk0p8", "0");
 format("ext4", "EMMC", "/dev/block/mmcblk0p9", "0");
@@ -85,132 +97,152 @@ ui_print("root@ArchiDroid:~# Flashing ArchiDroid Core");
 show_progress(0.4, 1139);
 package_extract_dir("system", "/system");
 
+run_program("/sbin/sync");
+
+ui_print("root@ArchiDroid:~# Flashing CSC content");
+#package_extract_dir("additions/sec_csc/system", "/system");
+
+set_progress(0.51);
+
+ui_print("root@ArchiDroid:~# Creating symlinks");
+symlink("/system/xbin/su", "/system/bin/su");
+symlink("Roboto-Bold.ttf", "/system/fonts/DroidSans-Bold.ttf");
+symlink("Roboto-Regular.ttf", "/system/fonts/DroidSans.ttf");
+symlink("busybox", "/system/xbin/[", "/system/xbin/[[",
+        "/system/xbin/adjtimex", "/system/xbin/arp", "/system/xbin/ash",
+        "/system/xbin/awk", "/system/xbin/base64", "/system/xbin/basename",
+        "/system/xbin/bbconfig", "/system/xbin/blkid", "/system/xbin/blockdev",
+        "/system/xbin/brctl", "/system/xbin/bunzip2", "/system/xbin/bzcat",
+        "/system/xbin/bzip2", "/system/xbin/cal", "/system/xbin/cat",
+        "/system/xbin/catv", "/system/xbin/chattr", "/system/xbin/chgrp",
+        "/system/xbin/chmod", "/system/xbin/chown", "/system/xbin/chroot",
+        "/system/xbin/clear", "/system/xbin/cmp", "/system/xbin/comm",
+        "/system/xbin/cp", "/system/xbin/cpio", "/system/xbin/crond",
+        "/system/xbin/crontab", "/system/xbin/cut", "/system/xbin/date",
+        "/system/xbin/dc", "/system/xbin/dd", "/system/xbin/depmod",
+        "/system/xbin/devmem", "/system/xbin/df", "/system/xbin/diff",
+        "/system/xbin/dirname", "/system/xbin/dmesg", "/system/xbin/dnsd",
+        "/system/xbin/dos2unix", "/system/xbin/du", "/system/xbin/echo",
+        "/system/xbin/ed", "/system/xbin/egrep", "/system/xbin/env",
+        "/system/xbin/expand", "/system/xbin/expr", "/system/xbin/false",
+        "/system/xbin/fbsplash", "/system/xbin/fdisk", "/system/xbin/fgrep",
+        "/system/xbin/find", "/system/xbin/flash_lock",
+        "/system/xbin/flash_unlock", "/system/xbin/flashcp",
+        "/system/xbin/flock", "/system/xbin/fold", "/system/xbin/free",
+        "/system/xbin/freeramdisk", "/system/xbin/fstrim", "/system/xbin/fsync",
+        "/system/xbin/ftpget", "/system/xbin/ftpput", "/system/xbin/fuser",
+        "/system/xbin/getopt", "/system/xbin/grep", "/system/xbin/groups",
+        "/system/xbin/gunzip", "/system/xbin/gzip", "/system/xbin/halt",
+        "/system/xbin/head", "/system/xbin/hexdump", "/system/xbin/id",
+        "/system/xbin/ifconfig", "/system/xbin/inetd", "/system/xbin/insmod",
+        "/system/xbin/install", "/system/xbin/ionice", "/system/xbin/iostat",
+        "/system/xbin/ip", "/system/xbin/kill", "/system/xbin/killall",
+        "/system/xbin/killall5", "/system/xbin/less", "/system/xbin/ln",
+        "/system/xbin/losetup", "/system/xbin/ls", "/system/xbin/lsattr",
+        "/system/xbin/lsmod", "/system/xbin/lsusb", "/system/xbin/lzcat",
+        "/system/xbin/lzma", "/system/xbin/lzop", "/system/xbin/lzopcat",
+        "/system/xbin/man", "/system/xbin/md5sum", "/system/xbin/mesg",
+        "/system/xbin/mkdir", "/system/xbin/mke2fs", "/system/xbin/mkfifo",
+        "/system/xbin/mkfs.ext2", "/system/xbin/mkfs.vfat",
+        "/system/xbin/mknod", "/system/xbin/mkswap", "/system/xbin/mktemp",
+        "/system/xbin/modinfo", "/system/xbin/modprobe", "/system/xbin/more",
+        "/system/xbin/mount", "/system/xbin/mountpoint", "/system/xbin/mpstat",
+        "/system/xbin/mv", "/system/xbin/nanddump", "/system/xbin/nandwrite",
+        "/system/xbin/nbd-client", "/system/xbin/netstat", "/system/xbin/nice",
+        "/system/xbin/nohup", "/system/xbin/nslookup", "/system/xbin/ntpd",
+        "/system/xbin/od", "/system/xbin/patch", "/system/xbin/pgrep",
+        "/system/xbin/pidof", "/system/xbin/ping", "/system/xbin/pipe_progress",
+        "/system/xbin/pkill", "/system/xbin/pmap", "/system/xbin/poweroff",
+        "/system/xbin/printenv", "/system/xbin/printf", "/system/xbin/ps",
+        "/system/xbin/pstree", "/system/xbin/pwd", "/system/xbin/pwdx",
+        "/system/xbin/rdev", "/system/xbin/readlink", "/system/xbin/realpath",
+        "/system/xbin/renice", "/system/xbin/reset", "/system/xbin/resize",
+        "/system/xbin/rev", "/system/xbin/rm", "/system/xbin/rmdir",
+        "/system/xbin/rmmod", "/system/xbin/route", "/system/xbin/run-parts",
+        "/system/xbin/rx", "/system/xbin/sed", "/system/xbin/seq",
+        "/system/xbin/setconsole", "/system/xbin/setserial",
+        "/system/xbin/setsid", "/system/xbin/sh", "/system/xbin/sha1sum",
+        "/system/xbin/sha256sum", "/system/xbin/sha3sum",
+        "/system/xbin/sha512sum", "/system/xbin/sleep", "/system/xbin/sort",
+        "/system/xbin/split", "/system/xbin/stat", "/system/xbin/strings",
+        "/system/xbin/stty", "/system/xbin/sum", "/system/xbin/swapoff",
+        "/system/xbin/swapon", "/system/xbin/sync", "/system/xbin/sysctl",
+        "/system/xbin/tac", "/system/xbin/tail", "/system/xbin/tar",
+        "/system/xbin/taskset", "/system/xbin/tee", "/system/xbin/telnet",
+        "/system/xbin/telnetd", "/system/xbin/test", "/system/xbin/tftp",
+        "/system/xbin/tftpd", "/system/xbin/time", "/system/xbin/timeout",
+        "/system/xbin/top", "/system/xbin/touch", "/system/xbin/tr",
+        "/system/xbin/traceroute", "/system/xbin/true", "/system/xbin/ttysize",
+        "/system/xbin/tune2fs", "/system/xbin/umount", "/system/xbin/uname",
+        "/system/xbin/uncompress", "/system/xbin/unexpand", "/system/xbin/uniq",
+        "/system/xbin/unix2dos", "/system/xbin/unlzma", "/system/xbin/unlzop",
+        "/system/xbin/unxz", "/system/xbin/unzip", "/system/xbin/uptime",
+        "/system/xbin/usleep", "/system/xbin/uudecode", "/system/xbin/uuencode",
+        "/system/xbin/vi", "/system/xbin/watch", "/system/xbin/wc",
+        "/system/xbin/wget", "/system/xbin/which", "/system/xbin/whoami",
+        "/system/xbin/xargs", "/system/xbin/xz", "/system/xbin/xzcat",
+        "/system/xbin/yes",
+        "/system/xbin/zcat");
+symlink("logcat", "/system/bin/lolcat");
+symlink("mksh", "/system/bin/sh");
+symlink("toolbox", "/system/bin/cat", "/system/bin/chmod",
+        "/system/bin/chown", "/system/bin/cmp", "/system/bin/cp",
+        "/system/bin/date", "/system/bin/dd", "/system/bin/df",
+        "/system/bin/dmesg", "/system/bin/du", "/system/bin/getevent",
+        "/system/bin/getprop", "/system/bin/grep", "/system/bin/hd",
+        "/system/bin/id", "/system/bin/ifconfig", "/system/bin/iftop",
+        "/system/bin/insmod", "/system/bin/ioctl", "/system/bin/ionice",
+        "/system/bin/kill", "/system/bin/ln", "/system/bin/log",
+        "/system/bin/ls", "/system/bin/lsmod", "/system/bin/lsof",
+        "/system/bin/md5", "/system/bin/mkdir", "/system/bin/mount",
+        "/system/bin/mv", "/system/bin/nandread", "/system/bin/netstat",
+        "/system/bin/newfs_msdos", "/system/bin/notify", "/system/bin/printenv",
+        "/system/bin/ps", "/system/bin/r", "/system/bin/reboot",
+        "/system/bin/renice", "/system/bin/restart", "/system/bin/rm",
+        "/system/bin/rmdir", "/system/bin/rmmod", "/system/bin/route",
+        "/system/bin/schedtop", "/system/bin/sendevent",
+        "/system/bin/setconsole", "/system/bin/setprop", "/system/bin/sleep",
+        "/system/bin/smd", "/system/bin/start", "/system/bin/stop",
+        "/system/bin/sync", "/system/bin/top", "/system/bin/touch",
+        "/system/bin/umount", "/system/bin/uptime", "/system/bin/vmstat",
+        "/system/bin/watchprops",
+        "/system/bin/wipe");
+		
+set_progress(0.52);
+		
 ui_print("root@ArchiDroid:~# Flashing ArchiDroid Init Scripts");
 ### IMPORTANT ###
 package_extract_dir("_archidroid/auto", "/");
 ### IMPORTANT ###
 
-run_program("/sbin/sync");
-
-set_progress(0.51);
-
-if file_getprop("/tmp/aroma-data/superuser.prop","selected.0") == "2" then
-	ui_print("root@ArchiDroid:~# Flashing SuperSU instead of SuperUser");
-	package_extract_dir("_archidroid/apps/supersu", "/");
-endif;
-
-ui_print("root@ArchiDroid:~# Creating symlinks");
-symlink("toolbox", "/system/bin/cat");
-symlink("toolbox", "/system/bin/chmod");
-symlink("toolbox", "/system/bin/chown");
-symlink("toolbox", "/system/bin/cmp");
-symlink("toolbox", "/system/bin/date");
-symlink("toolbox", "/system/bin/dd");
-symlink("toolbox", "/system/bin/df");
-symlink("toolbox", "/system/bin/dmesg");
-symlink("toolbox", "/system/bin/getevent");
-symlink("toolbox", "/system/bin/getprop");
-symlink("toolbox", "/system/bin/hd");
-symlink("toolbox", "/system/bin/id");
-symlink("toolbox", "/system/bin/ifconfig");
-symlink("toolbox", "/system/bin/iftop");
-symlink("toolbox", "/system/bin/insmod");
-symlink("toolbox", "/system/bin/ioctl");
-symlink("toolbox", "/system/bin/ionice");
-symlink("toolbox", "/system/bin/kill");
-symlink("toolbox", "/system/bin/ln");
-symlink("toolbox", "/system/bin/log");
-symlink("toolbox", "/system/bin/ls");
-symlink("toolbox", "/system/bin/lsmod");
-symlink("toolbox", "/system/bin/lsof");
-symlink("toolbox", "/system/bin/md5");
-symlink("toolbox", "/system/bin/mkdir");
-symlink("toolbox", "/system/bin/mount");
-symlink("toolbox", "/system/bin/mv");
-symlink("toolbox", "/system/bin/nandread");
-symlink("toolbox", "/system/bin/netstat");
-symlink("toolbox", "/system/bin/newfs_msdos");
-symlink("toolbox", "/system/bin/notify");
-symlink("toolbox", "/system/bin/playback");
-symlink("toolbox", "/system/bin/printenv");
-symlink("toolbox", "/system/bin/ps");
-symlink("toolbox", "/system/bin/reboot");
-symlink("toolbox", "/system/bin/renice");
-symlink("toolbox", "/system/bin/rm");
-symlink("toolbox", "/system/bin/rmdir");
-symlink("toolbox", "/system/bin/rmmod");
-symlink("toolbox", "/system/bin/route");
-symlink("toolbox", "/system/bin/schedtop");
-symlink("toolbox", "/system/bin/sendevent");
-symlink("toolbox", "/system/bin/setconsole");
-symlink("toolbox", "/system/bin/setprop");
-symlink("toolbox", "/system/bin/sleep");
-symlink("toolbox", "/system/bin/smd");
-symlink("toolbox", "/system/bin/start");
-symlink("toolbox", "/system/bin/stop");
-symlink("toolbox", "/system/bin/sync");
-symlink("toolbox", "/system/bin/top");
-symlink("toolbox", "/system/bin/touch");
-symlink("toolbox", "/system/bin/touchinput");
-symlink("toolbox", "/system/bin/umount");
-symlink("toolbox", "/system/bin/uptime");
-symlink("toolbox", "/system/bin/vmstat");
-symlink("toolbox", "/system/bin/watchprops");
-symlink("toolbox", "/system/bin/wipe");
-symlink("/system/bin/mksh", "/system/bin/sh");
-symlink("/system/fonts/Roboto-Regular.ttf","/system/fonts/DroidSans.ttf");
-symlink("/system/fonts/Roboto-Bold.ttf","/system/fonts/DroidSans-Bold.ttf");
-		
-set_progress(0.52);
-
-ui_print("root@ArchiDroid:~# Installing BusyBox");
-set_perm(0, 1000, 0755, "/system/xbin/busybox");
-run_program("/system/xbin/busybox", "--install", "-s", "/system/xbin");
-
-ui_print("root@ArchiDroid:~# Flashing CSC Content");
-package_extract_dir("_archidroid/csc", "/");
-
 set_progress(0.53);
 
 ui_print("root@ArchiDroid:~# Setting Permissions");
 set_perm_recursive(0, 0, 0755, 0644, "/system");
+set_perm_recursive(0, 0, 0755, 0755, "/system/addon.d");
 set_perm_recursive(0, 2000, 0755, 0755, "/system/bin");
+set_perm_recursive(0, 0, 0755, 0644, "/system/app");
 set_perm(0, 3003, 02750, "/system/bin/netcfg");
 set_perm(0, 3004, 02755, "/system/bin/ping");
 set_perm(0, 2000, 06750, "/system/bin/run-as");
-set_perm(1000, 1000, 0755, "/system/bin/sysro");
-set_perm(1000, 1000, 0755, "/system/bin/sysrw");
-set_perm_recursive(1002, 1002, 0755, 0440, "/system/etc/bluetooth");
-set_perm(0, 0, 0755, "/system/etc/bluetooth");
-set_perm(1000, 1000, 0640, "/system/etc/bluetooth/auto_pairing.conf");
-set_perm(3002, 3002, 0444, "/system/etc/bluetooth/blacklist.conf");
 set_perm(1002, 1002, 0440, "/system/etc/dbus.conf");
 set_perm(1014, 2000, 0550, "/system/etc/dhcpcd/dhcpcd-run-hooks");
-set_perm(0, 0, 0555, "/system/etc/init.post_boot.sh");
+set_perm_recursive(0, 2000, 0755, 0755, "/system/etc/init.d");
+set_perm(0, 0, 0755, "/system/etc/init.d");
+set_perm(0, 2000, 0550, "/system/etc/init.goldfish.sh");
 set_perm_recursive(0, 0, 0755, 0555, "/system/etc/ppp");
 set_perm(0, 2000, 0755, "/system/vendor");
-set_perm(0, 2000, 0755, "/system/vendor/etc");
-set_perm(0, 2000, 0755, "/system/vendor/etc/nxp");
-set_perm(0, 2000, 0755, "/system/vendor/etc/nxp/BargeIn");
-set_perm(0, 2000, 0755, "/system/vendor/etc/nxp/mVoIP");
-set_perm(0, 2000, 0755, "/system/vendor/etc/nxp/mVoIPSec");
+set_perm_recursive(0, 2000, 0755, 0644, "/system/vendor/etc");
+set_perm(0, 0, 0644, "/system/vendor/etc/audio_effects.conf");
 set_perm(0, 2000, 0755, "/system/vendor/firmware");
 set_perm(0, 2000, 0755, "/system/vendor/lib");
 set_perm_recursive(0, 2000, 0755, 0644, "/system/vendor/lib/drm");
 set_perm(0, 0, 0644, "/system/vendor/lib/drm/libdrmwvmplugin.so");
-set_perm_recursive(0, 2000, 0755, 0644, "/system/vendor/pittpatt");
-set_perm(0, 0, 0644, "/system/vendor/pittpatt/models/detection/multi_pose_face_landmark_detectors.7/left_eye-y0-yi45-p0-pi45-r0-ri20.lg_32/full_model.bin");
-set_perm(0, 0, 0644, "/system/vendor/pittpatt/models/detection/multi_pose_face_landmark_detectors.7/nose_base-y0-yi45-p0-pi45-r0-ri20.lg_32/full_model.bin");
-set_perm(0, 0, 0644, "/system/vendor/pittpatt/models/detection/multi_pose_face_landmark_detectors.7/right_eye-y0-yi45-p0-pi45-r0-ri20.lg_32-2/full_model.bin");
-set_perm(0, 0, 0644, "/system/vendor/pittpatt/models/detection/yaw_roll_face_detectors.6/head-y0-yi45-p0-pi45-r0-ri30.4a-v24/full_model.bin");
-set_perm(0, 0, 0644, "/system/vendor/pittpatt/models/detection/yaw_roll_face_detectors.6/head-y0-yi45-p0-pi45-rn30-ri30.5-v24/full_model.bin");
-set_perm(0, 0, 0644, "/system/vendor/pittpatt/models/detection/yaw_roll_face_detectors.6/head-y0-yi45-p0-pi45-rp30-ri30.5-v24/full_model.bin");
-set_perm(0, 0, 0644, "/system/vendor/pittpatt/models/recognition/face.face.y0-y0-22-b-N/full_model.bin");
 set_perm_recursive(0, 2000, 0755, 0755, "/system/xbin");
+set_perm(0, 0, 06755, "/system/xbin/librank");
+set_perm(0, 0, 06755, "/system/xbin/procmem");
+set_perm(0, 0, 06755, "/system/xbin/procrank");
 set_perm(0, 0, 06755, "/system/xbin/su");
-set_perm(1000, 1000, 0771, "/data");
-set_perm_recursive(1000, 1000, 0771, 0644, "/data/app");
-set_perm_recursive(0, 0, 0755, 0755, "/system/etc/init.d");
 
 set_progress(0.54);
 
@@ -221,14 +253,90 @@ set_progress(0.54);
 
 # We need to make sure that current kernel is CM-based to prevent random zygote kernel panics
 ui_print("root@ArchiDroid:~# Cleaning Old Kernel");
-assert(package_extract_file("boot.img", "/tmp/boot.img"),
-write_raw_image("/tmp/boot.img", "/dev/block/mmcblk0p5"));
+package_extract_file("boot.img", "/tmp/stock.img");
+write_raw_image("/tmp/stock.img", "/dev/block/mmcblk0p5");
+delete("/tmp/stock.img");
+
+### TEMASEK ###
+if file_getprop("/tmp/aroma-data/kernels.prop","selected.0") == "1" then
+	ui_print("root@ArchiDroid:~# Flashing Temasek Kernel");
+	delete_recursive("/system/lib/modules");
+	package_extract_dir("_archidroid/temasek/system", "/system");
+	set_perm_recursive(0, 0, 0755, 0755, "/system/lib/modules/");
+	set_perm(0, 0, 0755, "/system/bin/hostapd");
+	package_extract_dir("_archidroid/temasek/kernel", "/tmp");
+	set_perm(0, 0, 0777, "/tmp/dump_image");
+	set_perm(0, 0, 0777, "/tmp/mkbootimg.sh");
+	set_perm(0, 0, 0777, "/tmp/mkbootimg");
+	set_perm(0, 0, 0777, "/tmp/unpackbootimg");
+	set_perm(0, 0, 0777, "/tmp/cpio");
+	set_perm(0, 0, 0777, "/tmp/res/uci.sh");
+	set_perm(0, 0, 0777, "/tmp/sbin/temasek.sh");
+	run_program("/tmp/dump_image", "/dev/block/mmcblk0p5", "/tmp/boot.img");
+	run_program("/tmp/unpackbootimg", "-i", "/tmp/boot.img", "-o", "/tmp/");
+	run_program("/tmp/mkbootimg.sh");
+	run_program("/sbin/busybox", "dd", "if=/tmp/newboot.img", "of=/dev/block/mmcblk0p5");
+	
+	if file_getprop("/tmp/aroma-data/kernels2.prop","selected.0") == "1" then
+		ui_print("root@ArchiDroid:~# Applying ArchiDroid Balanced kernel config");
+		package_extract_dir("_archidroid/presets/temasek/archi", "/data/.temasek");
+	endif;
+	if file_getprop("/tmp/aroma-data/kernels2.prop","selected.0") == "2" then
+		ui_print("root@ArchiDroid:~# Applying ArchiDroid PowerSave kernel config");
+		package_extract_dir("_archidroid/presets/temasek/archi_powersave", "/data/.temasek");
+	endif;
+	
+	package_extract_dir("_archidroid/apps/stweaks", "/");
+	
+endif;
+
+### YANK ###
+if file_getprop("/tmp/aroma-data/kernels.prop","selected.0") == "2" then
+	ui_print("root@ArchiDroid:~# Flashing Yank555.lu Kernel");
+	delete_recursive("/system/lib/modules");
+	delete("/system/etc/init.kernel.sh");
+	delete("/system/etc/init.hardswap.sh");
+	delete("/data/kernel-script.log");
+	delete("/data/hardswap.log");
+	delete("/data/swap.0.log");
+	delete("/data/swap.1.log");
+	delete("/data/swap.2.log");
+	delete("/data/swap.3.log");
+	delete("/data/swap.4.log");
+
+    package_extract_dir("_archidroid/yank/system", "/system");
+	set_perm_recursive(0, 0, 0755, 0755, "/system/lib/modules/");
+	package_extract_file("_archidroid/yank/boot.img", "/tmp/yank.img");
+    write_raw_image("/tmp/yank.img", "/dev/block/mmcblk0p5");
+    delete("/tmp/yank.img");
+endif;
 
 ### STOCK CM ###
-if file_getprop("/tmp/aroma-data/kernels.prop","selected.0") == "1" then
-	ui_print("root@ArchiDroid:~# Flashing Stock Kernel");
+if file_getprop("/tmp/aroma-data/kernels.prop","selected.0") == "3" then
+	ui_print("root@ArchiDroid:~# Flashing CM Kernel");
 	
 	# Not needed since zygote kernel panic fix
+    #package_extract_file("boot.img", "/tmp/stock.img");
+    #write_raw_image("/tmp/stock.img", "/dev/block/mmcblk0p5");
+    #delete("/tmp/stock.img");
+endif;
+
+set_progress(0.6);
+
+
+###############
+### RESTORE ###
+###############
+
+if file_getprop("/tmp/aroma-data/wipe.prop","selected.0") == "2" then
+	ui_print("root@ArchiDroid:~# Restoring Addons");
+	package_extract_file("system/bin/backuptool.sh", "/tmp/backuptool.sh");
+	package_extract_file("system/bin/backuptool.functions", "/tmp/backuptool.functions");
+	set_perm(0, 0, 0777, "/tmp/backuptool.sh");
+	set_perm(0, 0, 0644, "/tmp/backuptool.functions");
+	run_program("/tmp/backuptool.sh", "restore");
+	delete("/system/bin/backuptool.sh");
+	delete("/system/bin/backuptool.functions");;
 endif;
 
 set_progress(0.61);
@@ -349,6 +457,20 @@ if file_getprop("/tmp/aroma-data/acid2.prop","selected.0") == "1" then
 	endif;
 endif;
 
+if file_getprop("/tmp/aroma-data/boeffla.prop","selected.0") == "1" then
+	if file_getprop("/tmp/aroma-data/preset.prop","selected.0") == "1" then
+			ui_print("root@ArchiDroid:~# Installing Boeffla SC with Archi's Audiophile preset");
+			package_extract_dir("_archidroid/apps/boeffla", "/");
+			package_extract_dir("_archidroid/presets/boeffla", "/");
+			#symlink("/data/data/com.near.boefflasound/lib", "data/app-lib/com.near.boefflasound");
+	endif;
+	
+	if file_getprop("/tmp/aroma-data/preset.prop","selected.0") == "2" then
+			ui_print("root@ArchiDroid:~# Installing Boeffla SC");
+			package_extract_dir("_archidroid/apps/boeffla/system/app", "/system/app");
+	endif;	
+endif;
+
 set_progress(0.66);
 
 
@@ -360,11 +482,29 @@ set_progress(0.66);
 ui_print("root@ArchiDroid:~# Applying ArchiDroid Tweaks");
 
 if file_getprop("/tmp/aroma-data/architweaks.prop","item.0.1") == "1" then
+	ui_print("root@ArchiDroid:~# Applying Logcat Bootscreen");
+	package_extract_dir("_archidroid/logcat", "/");
+	set_perm_recursive(0, 2000, 0755, 0755, "/system/bin");
+	set_perm(0, 0, 06755, "/system/bin/boot-dmesg");
+endif;
+
+if file_getprop("/tmp/aroma-data/architweaks.prop","item.0.2") == "1" then
 	ui_print("root@ArchiDroid:~# Applying HD Voice Tweak");
 	package_extract_dir("_archidroid/tweaks/hdvoice", "/");
 endif;
 
-if file_getprop("/tmp/aroma-data/architweaks.prop","item.0.2") == "1" then
+if file_getprop("/tmp/aroma-data/architweaks.prop","item.0.3") == "1" then
+	ui_print("root@ArchiDroid:~# Applying exFAT Support");
+	package_extract_dir("_archidroid/tweaks/exfat", "/");
+	set_perm(0, 2000, 0755, "/system/etc/init.d/50fuse-mountsd");
+	set_perm(0, 2000, 0755, "/system/xbin/fixmyexfat.sh");
+	set_perm(0, 2000, 0755, "/system/xbin/fuse-mountsd.sh");
+	set_perm(0, 2000, 0755, "/system/xbin/mount.exfat-fuse");
+	set_perm(0, 2000, 0755, "/system/xbin/mount.ntfs-3g");
+	set_perm(0, 2000, 0755, "/system/xbin/ntfsfix");
+endif;
+
+if file_getprop("/tmp/aroma-data/architweaks.prop","item.0.4") == "1" then
 	ui_print("root@ArchiDroid:~# Applying build.prop Tweaks");
 	package_extract_file("_archidroid/tweaks/build.prop/tweaks.sh", "/tmp/tweaks.sh");
 	set_perm(0, 0, 0777, "/tmp/tweaks.sh");
@@ -380,9 +520,11 @@ set_progress(0.7);
 ui_print("root@ArchiDroid:~# Flashing Modem");
 package_extract_file("_archidroid/modem/flash_image", "/tmp/flash_image");
 set_perm(0, 0, 0777, "/tmp/flash_image");
-assert(package_extract_file("_archidroid/modem/modem.bin", "/tmp/modem.bin"),
-run_program("/tmp/flash_image", "/dev/block/mmcblk0p7", "/tmp/modem.bin"),
-delete("/tmp/modem.bin"));
+if file_getprop("/tmp/aroma-data/modem.prop","selected.0") == "1" then
+	assert(package_extract_file("_archidroid/modem/xxemb6.bin", "/tmp/modem.bin"),
+	run_program("/tmp/flash_image", "/dev/block/mmcblk0p7", "/tmp/modem.bin"),
+	delete("/tmp/modem.bin"));
+endif;
 delete("/tmp/flash_image");
 
 set_progress(0.75);
@@ -469,7 +611,7 @@ endif;
 
 ### STOCK ###
 if file_getprop("/tmp/aroma-data/keyboard.prop","selected.0") == "4" then
-ui_print("root@ArchiDroid:~# Installing Stock Keyboard");
+ui_print("root@ArchiDroid:~# Installing AOSP Keyboard");
 # Not needed, haha!
 endif;
 
@@ -486,14 +628,14 @@ ui_print("");
 ui_print("");
 ui_print("root@ArchiDroid:~# Installing Nova Launcher");
 delete("/system/app/Trebuchet.apk");
-package_extract_dir("_archidroid/apps/nova", "/");
+package_extract_dir("launcher/nova", "/data/app");
 endif;
 
 ### STOCK ###
 if file_getprop("/tmp/aroma-data/launcher.prop","selected.0") == "2" then
 ui_print("");
 ui_print("");
-ui_print("root@ArchiDroid:~# Installing Stock Launcher");
+ui_print("root@ArchiDroid:~# Installing Trebuchet");
 # Not needed, haha!
 endif;
 
@@ -505,36 +647,51 @@ set_progress(0.8);
 #############
 
 if file_getprop("/tmp/aroma-data/gapps.prop","item.0.1") == "1" then
+	ui_print("root@ArchiDroid:~# Installing Google Apps");	delete("/system/app/Provision.apk","/system/app/QuickSearchBox.apk","/system/app/SetupWizard.apk","/system/app/Velvet.apk","/system/app/Vending.apk","/system/app/BrowserProviderProxy.apk","/system/app/PartnerBookmarksProvider.apk","/system/app/Gmail2.apk","/system/app/GoogleEars.apk");
+	package_extract_dir("_archidroid/gapps/system", "/system");
+	set_perm(0, 0, 0755, "/system/addon.d/70-gapps.sh");
+	package_extract_dir("_archidroid/gapps/optional", "/tmp");
+	package_extract_file("_archidroid/gapps/install-optional.sh", "/tmp/install-optional.sh");
+	set_perm(0, 0, 0777, "/tmp/install-optional.sh");
+	run_program("/tmp/install-optional.sh", "");
+	set_perm_recursive(0, 0, 0755, 0644, "/system/app");
+endif;
+
+if file_getprop("/tmp/aroma-data/gapps.prop","item.0.2") == "0" then
+	delete("/system/app/QuickSearchBox.apk");
+endif;
+
+if file_getprop("/tmp/aroma-data/gapps.prop","item.0.3") == "1" then
 	ui_print("root@ArchiDroid:~# Installing Google Calendar");
 	package_extract_dir("_archidroid/apps/gcalendar", "/");
 endif;
 
-if file_getprop("/tmp/aroma-data/gapps.prop","item.0.2") == "1" then
+if file_getprop("/tmp/aroma-data/gapps.prop","item.0.4") == "1" then
 	ui_print("root@ArchiDroid:~# Installing Google Chrome");
 	package_extract_dir("_archidroid/apps/gchrome", "/");
 endif;
 
-if file_getprop("/tmp/aroma-data/gapps.prop","item.0.3") == "1" then
+if file_getprop("/tmp/aroma-data/gapps.prop","item.0.5") == "1" then
 	ui_print("root@ArchiDroid:~# Installing Google Ears");
 	package_extract_dir("_archidroid/apps/gears", "/");
 endif;
 
-if file_getprop("/tmp/aroma-data/gapps.prop","item.0.4") == "1" then
+if file_getprop("/tmp/aroma-data/gapps.prop","item.0.6") == "1" then
 	ui_print("root@ArchiDroid:~# Installing Google Keep");
 	package_extract_dir("_archidroid/apps/gkeep", "/");
 endif;
 
-if file_getprop("/tmp/aroma-data/gapps.prop","item.0.5") == "1" then
+if file_getprop("/tmp/aroma-data/gapps.prop","item.0.7") == "1" then
 	ui_print("root@ArchiDroid:~# Installing Google Mail");
 	package_extract_dir("_archidroid/apps/gmail", "/");
 endif;
 
-if file_getprop("/tmp/aroma-data/gapps.prop","item.0.6") == "1" then
+if file_getprop("/tmp/aroma-data/gapps.prop","item.0.8") == "1" then
 	ui_print("root@ArchiDroid:~# Installing Google Maps");
 	package_extract_dir("_archidroid/apps/gmaps", "/");
 endif;
 
-if file_getprop("/tmp/aroma-data/gapps.prop","item.0.7") == "1" then
+if file_getprop("/tmp/aroma-data/gapps.prop","item.0.9") == "1" then
 	ui_print("root@ArchiDroid:~# Installing Google Voice");
 	package_extract_dir("_archidroid/apps/gvoice", "/");
 endif;
@@ -577,26 +734,36 @@ if file_getprop("/tmp/aroma-data/archiapps.prop","item.0.5") == "1" then
 endif;
 
 if file_getprop("/tmp/aroma-data/archiapps.prop","item.0.6") == "1" then
+	ui_print("root@ArchiDroid:~# Installing Rotate");
+	package_extract_dir("_archidroid/apps/rotate", "/");
+endif;
+
+if file_getprop("/tmp/aroma-data/archiapps.prop","item.0.7") == "1" then
+	ui_print("root@ArchiDroid:~# Installing Spirit FM");
+	package_extract_dir("_archidroid/apps/spiritfm", "/");
+endif;
+
+if file_getprop("/tmp/aroma-data/archiapps.prop","item.0.8") == "1" then
 	ui_print("root@ArchiDroid:~# Installing BetterBatteryStats");
 	package_extract_dir("_archidroid/apps/betterbatterystats", "/");
 endif;
 
-if file_getprop("/tmp/aroma-data/archiapps.prop","item.0.7") == "1" then
+if file_getprop("/tmp/aroma-data/archiapps.prop","item.0.9") == "1" then
 	ui_print("root@ArchiDroid:~# Installing CoolTool");
 	package_extract_dir("_archidroid/apps/cooltool", "/");
 endif;
 
-if file_getprop("/tmp/aroma-data/archiapps.prop","item.0.8") == "1" then
+if file_getprop("/tmp/aroma-data/archiapps.prop","item.0.10") == "1" then
 	ui_print("root@ArchiDroid:~# Installing Root Browser");
 	package_extract_dir("_archidroid/apps/rootbrowser", "/");
 endif;
 
-if file_getprop("/tmp/aroma-data/archiapps.prop","item.0.9") == "1" then
+if file_getprop("/tmp/aroma-data/archiapps.prop","item.0.11") == "1" then
 	ui_print("root@ArchiDroid:~# Installing Adobe Flash Player");
 	package_extract_dir("_archidroid/apps/adobeflash", "/");
 endif;
 
-if file_getprop("/tmp/aroma-data/archiapps.prop","item.0.10") == "1" then
+if file_getprop("/tmp/aroma-data/archiapps.prop","item.0.12") == "1" then
 	ui_print("root@ArchiDroid:~# Installing YouTube");
 	package_extract_dir("_archidroid/apps/youtube", "/");
 endif;

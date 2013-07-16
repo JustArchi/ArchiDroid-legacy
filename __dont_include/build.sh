@@ -84,4 +84,9 @@ rm $FILE
 ### BUILD.PROP UPDATE ###
 #########################
 
+#################
+### BLOATWARE ###
+rm ../system/app/CMUpdater.apk
+### BLOATWARE ###
+#################
 exit 0

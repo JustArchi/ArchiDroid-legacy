@@ -90,19 +90,24 @@ while ! pgrep com.android ; do
 				MAKESURE=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "insert into global values(null, 'install_non_market_apps', '1');" 2>&1 1>/dev/null | wc -l`
 				sleep $MAKESURE
 			done
-				MAKESURE=1
+			MAKESURE=1
 			while [ $MAKESURE -eq 1 ]; do
 				MAKESURE=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "insert into system values(null, 'status_bar_battery', '3');" 2>&1 1>/dev/null | wc -l`
 				sleep $MAKESURE
 			done
-				MAKESURE=1
+			MAKESURE=1
 			while [ $MAKESURE -eq 1 ]; do
 				MAKESURE=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "insert into system values(null, 'statusbar_clock_date_display', '2');" 2>&1 1>/dev/null | wc -l`
 				sleep $MAKESURE
 			done
-				MAKESURE=1
+			MAKESURE=1
 			while [ $MAKESURE -eq 1 ]; do
 				MAKESURE=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "insert into system values(null, 'statusbar_clock_date_format', 'MMM dd');" 2>&1 1>/dev/null | wc -l`
+				sleep $MAKESURE
+			done
+			MAKESURE=1
+			while [ $MAKESURE -eq 1 ]; do
+				MAKESURE=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "insert into system values(null, 'status_bar_traffic', '0');" 2>&1 1>/dev/null | wc -l`
 				sleep $MAKESURE
 			done
 			

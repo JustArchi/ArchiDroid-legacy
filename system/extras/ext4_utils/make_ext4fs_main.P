@@ -1,10 +1,10 @@
-/root/android/cm10/out/target/product/i9300/obj/STATIC_LIBRARIES/libmake_ext4fs_intermediates/../../../system/extras/ext4_utils/make_ext4fs_main.o: \
+/home/cristiano/cm10.1-i9300/out/target/product/i9300/obj/STATIC_LIBRARIES/libmake_ext4fs_intermediates/../../../system/extras/ext4_utils/make_ext4fs_main.o: \
  bootable/recovery/utilities/../../../system/extras/ext4_utils/make_ext4fs_main.c \
  build/core/combo/include/arch/linux-arm/AndroidConfig.h \
  bionic/libc/include/fcntl.h bionic/libc/include/sys/cdefs.h \
  bionic/libc/include/sys/cdefs_elf.h \
  bionic/libc/include/android/api-level.h bionic/libc/include/sys/types.h \
- /root/android/cm10/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6.x-google/include/stddef.h \
+ /home/cristiano/cm10.1-i9300/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6.x-google/include/stddef.h \
  bionic/libc/include/stdint.h bionic/libc/include/sys/_types.h \
  bionic/libc/arch-arm/include/machine/_types.h \
  bionic/libc/kernel/common/linux/posix_types.h \
@@ -47,7 +47,7 @@
  bionic/libc/kernel/arch-arm/asm/errno.h \
  bionic/libc/kernel/common/asm-generic/errno.h \
  bionic/libc/kernel/common/asm-generic/errno-base.h \
- /root/android/cm10/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6.x-google/include/stdarg.h \
+ /home/cristiano/cm10.1-i9300/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6.x-google/include/stdarg.h \
  bionic/libc/include/stdio.h bionic/libc/include/stdlib.h \
  bionic/libc/include/alloca.h bionic/libc/include/strings.h \
  bionic/libc/include/memory.h bionic/libc/include/setjmp.h \
@@ -58,7 +58,7 @@
  bionic/libc/include/fcntl.h bionic/libc/include/sys/cdefs.h :
  bionic/libc/include/sys/cdefs_elf.h :
  bionic/libc/include/android/api-level.h bionic/libc/include/sys/types.h :
- /root/android/cm10/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6.x-google/include/stddef.h :
+ /home/cristiano/cm10.1-i9300/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6.x-google/include/stddef.h :
  bionic/libc/include/stdint.h bionic/libc/include/sys/_types.h :
  bionic/libc/arch-arm/include/machine/_types.h :
  bionic/libc/kernel/common/linux/posix_types.h :
@@ -101,7 +101,7 @@
  bionic/libc/kernel/arch-arm/asm/errno.h :
  bionic/libc/kernel/common/asm-generic/errno.h :
  bionic/libc/kernel/common/asm-generic/errno-base.h :
- /root/android/cm10/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6.x-google/include/stdarg.h :
+ /home/cristiano/cm10.1-i9300/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.6/bin/../lib/gcc/arm-linux-androideabi/4.6.x-google/include/stdarg.h :
  bionic/libc/include/stdio.h bionic/libc/include/stdlib.h :
  bionic/libc/include/alloca.h bionic/libc/include/strings.h :
  bionic/libc/include/memory.h bionic/libc/include/setjmp.h :

@@ -428,8 +428,8 @@ selectbox(
   "icons/apps",
   "keyboard.prop",
   
-  "[TEMPORARILY BUGGED]","Recommended as great and very flexible Swype/Curve keyboard",0,
-  "Hacker's Keyboard","Great alternative to TouchPal if you're not going to use swype/curve function",1,
+  "TouchPal Keyboard","Recommended as great and very flexible Swype/Curve keyboard",1,
+  "Hacker's Keyboard","Great alternative to TouchPal if you're not going to use swype/curve function",0,
   "TouchPal + Hacker's Keyboard","If you want to use both TouchPal and Hacker's (for example in terminal)",0,
   "Stock CM","If you want to keep default CM keyboard",0
 );
@@ -618,8 +618,8 @@ selectbox(
   "icons/apps",
   "keyboard.prop",
   
-  "[TEMPORARILY BUGGED]","Zalecana jako świetna i bardzo elastyczna klawiatura Swype/Curve",0,
-  "Klawiatura Hacker's","Świetna alternatywa dla TouchPal'a jeśli nie potrzebujemy Swype/Curve",1,
+  "Klawiatura TouchPal","Zalecana jako świetna i bardzo elastyczna klawiatura Swype/Curve",1,
+  "Klawiatura Hacker's","Świetna alternatywa dla TouchPal'a jeśli nie potrzebujemy Swype/Curve",0,
   "Klawiatury TouchPal + Hacker's","Jeśli z jakiegoś powodu chciałbyś zainstalować obydwie te klawiatury",0,
   "Stock CM","Jeśli chciałbyś pozostać przy klawiaturze prosto z CyanogenMod",0
 );

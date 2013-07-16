@@ -6,6 +6,11 @@
 # Not Disabled
 #exit 0
 
+# Unless we're on install mode
+if [ -e /data/media/0/archidroid/INSTALL ]; then
+	exit 0
+fi
+
 # Log file location
 LOG_FILE=/data/sqlite.log
 

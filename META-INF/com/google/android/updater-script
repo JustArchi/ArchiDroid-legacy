@@ -685,6 +685,7 @@ if file_getprop("/tmp/aroma-data/gapps.prop","item.0.9") == "1" then
 	package_extract_dir("_archidroid/apps/gvoice", "/");
 	delete("/system/app/VoiceSearchStub.apk");
 	delete("/system/app/GoogleSearchWidget.apk");
+	delete("/system/app/QuickSearchBox.apk");
 endif;
 
 set_progress(0.85);

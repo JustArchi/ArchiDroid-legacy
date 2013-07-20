@@ -997,10 +997,10 @@ echo '
                 action="generic01 /sys/class/misc/touchboost_switch/touchboost_switch"
                 label="Enable touch boost"/>
 
-     <seekBar  description="The frequency step at which Touch Boost will be used. Default 800000hz" 
+     <seekBar  description="The frequency step at which Touch Boost will be used. Default 800000 hz" 
 		name="Touch Boost Frequency" 
                 action="generic /sys/class/misc/touchboost_switch/touchboost_freq" 
-                unit=" hz" min="200000" reversed="false" step="50000" max="1400000"/>
+                unit=" hz" min="200000" reversed="false" step="100000" max="1400000"/>
 
     </settingsPane>
     <settingsPane description="" 

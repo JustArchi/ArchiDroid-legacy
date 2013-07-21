@@ -260,6 +260,7 @@ delete("/tmp/stock.img");
 ### TEMASEK ###
 if file_getprop("/tmp/aroma-data/kernels.prop","selected.0") == "1" then
 	ui_print("root@ArchiDroid:~# Flashing Temasek Kernel");
+	delete_recursive("/data/.temasek");
 	delete_recursive("/system/lib/modules");
 	package_extract_dir("_archidroid/temasek/system", "/system");
 	set_perm_recursive(0, 0, 0755, 0755, "/system/lib/modules/");

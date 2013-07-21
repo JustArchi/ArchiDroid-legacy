@@ -1,8 +1,13 @@
 ArchiDroid 2.0.1
-- [!] All user apps are TEMPORARILY moved to system apps. I've needed to do so because of awkward bug in Temasek build V105+. Because of such change full wipe is REQUIRED, and that's the main reason why ArchiDroid 2.0.1 ISN'T CONSIDERED AS STABLE. I'll revert this commit as soon as possible when temasek could fix this bug, until then I'd suggest staying on 2.0.0 or if you don't mind frequent full wipes like me then you can flash 2.0.1 with full wipe
-- Added Google Voice Search to AROMA
-- Updated (fixed) Archi's Powersave preset. It's now a default preset to provide maximum battery life. Balanced still available
+- [!] Temasek base has been changed to crDroid build 11 due to /data/app bugs, no full wipe required
+- Updated Temasek Kernel to 210713-0736
+- Added Google Voice (Search) to AROMA. It's now possible to get voice working instantly after a flash
+- Updated (fixed) Archi's Powersave preset. It's now a default preset to provide maximum battery life. Balanced still available but I highly suggest staying with battery profile
+- Many fixes to ArchiDroid init.d
 - Updated Spirit FM Radio to 29-06 version
 - Updated CrossBreeder to 7.2.13
-- Updated to Temasek V108
+- Updated PhilZ Touch Recovery to 5.08.5
 - Removed exfat tweak, as it's available in CyanogenMod natively now
+- Updated sources (crDroid build 11)
+
+For full commits history you can check github of course.

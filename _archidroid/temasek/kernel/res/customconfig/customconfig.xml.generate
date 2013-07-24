@@ -24,6 +24,21 @@ done
 echo '
       </spinner>
     </settingsPane>
+	<settingsPane description="These settings control CFS (Complete Fair Scheduler) Task Scheduler Settings" name="CFS Settings">
+      <checkbox description="Disabling GENTLE_FAIR_SLEEPERS may give you better UI responsiveness." name="GENTLE_FAIR_SLEEPERS" action="schedfeat GENTLE_FAIR_SLEEPERS" label="GENTLE_FAIR_SLEEPERS"/>
+    </settingsPane>
+	<settingsPane description="" 
+		name="CPU Idle and Power Settings">
+      <spinner description="Sets the CPU Idle Mode. Idle+LPA is the default and recommended for S3." name="CPU Idle Mode" action="generic /sys/module/cpuidle_exynos4/parameters/enable_mask">
+             <spinnerItem name="Idle + LPA (default)" value="2"/> 
+             <spinnerItem name="AFTR + LPA" value="3"/> 
+             <spinnerItem name="AFTR only" value="1"/> 
+             <spinnerItem name="Idle only" value="0"/> 
+      </spinner>
+      <seekBar description="Sets the sched_mc value which changes the cpu scheduler behaviour for multi-cpu systems. 0 is kernel default value which turns sched_mc off. Setting it to 1 means that the first core will be tried to be loaded more and setting it to 2 will bias task wake-ups to semi-idle cpu package for power savings. Default: 0"
+            name="sched_mc" action="generic /sys/devices/system/cpu/sched_mc_power_savings" unit="" min="0" reversed="false" step="1" max="2"/>
+    </settingsPane>
+	 
     <settingsPane description="Apply the settings on boot only if the desired settings prove to be stable, else the device ends up in a boot-loop. If turned off, the displayed values do not correspond the current live values but the saved profile values, some inconsistencies may occur on applying." 
                   name="CPU control switch">
       <checkbox description="If enabled, the below settings will be applied at boot." 
@@ -352,6 +367,9 @@ echo "
              <spinnerItem name=\"Battery\" value=\"1\"/> 
              <spinnerItem name=\"Optimized\" value=\"2\"/> 
              <spinnerItem name=\"Performance\" value=\"3\"/>
+             <spinnerItem name=\"Archi's Ultra Battery V1 with LCDFreq\" value=\"4\"/>
+             <spinnerItem name=\"Yank's Battery\" value=\"5\"/>
+             <spinnerItem name=\"Yankzzmoove\" value=\"6\"/>
       </spinner>
     </settingsPane>
     <settingsPane description=\"Parameters governing the dynamic voltage frequency scaling policy on the CPU.\" 
@@ -696,8 +714,99 @@ else
     <settingsPane description="Currently not configurable." name="GPU Settings"/> 
   </settingsTab>' >> $XML
 fi
-echo '
 
+if [ -e /sys/devices/system/abb/abb_info ]; then
+
+echo '
+  <settingsTab name="ABB">
+  <settingsPane description="ABB Info: ' >> $XML
+  cat /sys/devices/system/abb/abb_info >> $XML
+echo ' Adaptive Body Bias is a secondary voltage applied onto the body of the transistor, where as the normal voltage is the gate voltage. Adjusting the body voltage in a differential to the gate voltage changes the characteristics of the transistor in how it switches. The body bias is the delta of the body voltage to the gate voltage, or difference between gate voltage minus body voltage. A positive body bias results in a Forward Body Bias (FBB) which lowers the transistor switching threshold and allows for higher clocks at the same voltage, or lower voltage at the same clocks. A negative body bias, or Reverse Body Bias (RBB) raises the switching threshold and can drastically improve leakage, but with the reverse effects of FBB in terms of voltage and clocks. WARNING: For advanced users only who understand the electrical physics behind it."  
+                  name="Adaptive Body Bias">
+    </settingsPane>' >> $XML
+
+echo "
+    <settingsPane description=\"ARM (CPU) body bias voltages.\"
+                  name=\"CPU\">
+     <seekBar  description=\"Slice 1 frequencies: ..`cat /sys/devices/system/abb/arm/arm_slice_1_freq`].\"
+               name=\"Slice 1 voltage\"
+               action=\"generic /sys/devices/system/abb/arm/arm_slice_1_volt\" 
+               unit=\"mV\" min=\"600\" reversed=\"false\" step=\"50\" max=\"1600\"/>
+
+     <seekBar  description=\"Slice 2 frequencies: ..`cat /sys/devices/system/abb/arm/arm_slice_2_freq`].\"
+               name=\"Slice 2 voltage\"
+               action=\"generic /sys/devices/system/abb/arm/arm_slice_2_volt\" 
+               unit=\"mV\" min=\"600\" reversed=\"false\" step=\"50\" max=\"1600\"/>
+
+     <seekBar  description=\"Slice 3 frequencies: ..`cat /sys/devices/system/abb/arm/arm_slice_3_freq`].\"
+               name=\"Slice 3 voltage\"
+               action=\"generic /sys/devices/system/abb/arm/arm_slice_3_volt\" 
+               unit=\"mV\" min=\"600\" reversed=\"false\" step=\"50\" max=\"1600\"/>
+
+     <seekBar  description=\"Slice 4 frequencies: ]`cat /sys/devices/system/abb/arm/arm_slice_3_freq`.. .\"
+               name=\"Slice 4 voltage\"
+               action=\"generic /sys/devices/system/abb/arm/arm_slice_4_volt\" 
+               unit=\"mV\" min=\"600\" reversed=\"false\" step=\"50\" max=\"1600\"/>
+
+    </settingsPane>
+
+    <settingsPane description=\"G3D (GPU) body bias voltages.\"
+                  name=\"GPU\">
+     <seekBar  description=\"Slice 1 frequencies: ..`cat /sys/devices/system/abb/g3d/g3d_slice_1_freq`].\"
+               name=\"Slice 1 voltage\"
+               action=\"generic /sys/devices/system/abb/g3d/g3d_slice_1_volt\" 
+               unit=\"mV\" min=\"600\" reversed=\"false\" step=\"50\" max=\"1600\"/>
+
+     <seekBar  description=\"Slice 2 frequencies: ..`cat /sys/devices/system/abb/g3d/g3d_slice_2_freq`].\"
+               name=\"Slice 2 voltage\"
+               action=\"generic /sys/devices/system/abb/g3d/g3d_slice_2_volt\" 
+               unit=\"mV\" min=\"600\" reversed=\"false\" step=\"50\" max=\"1600\"/>
+
+     <seekBar  description=\"Slice 3 frequencies: ]`cat /sys/devices/system/abb/g3d/g3d_slice_2_freq`.. .\"
+               name=\"Slice 3 voltage\"
+               action=\"generic /sys/devices/system/abb/g3d/g3d_slice_3_volt\" 
+               unit=\"mV\" min=\"600\" reversed=\"false\" step=\"50\" max=\"1600\"/>
+
+    </settingsPane>
+
+    <settingsPane description=\"MIF (Memory interface) body bias voltages.\"
+                  name=\"MIF\">
+     <seekBar  description=\"Slice 1 frequencies: ..`cat /sys/devices/system/abb/mif/mif_slice_1_freq`].\"
+               name=\"Slice 1 voltage\"
+               action=\"generic /sys/devices/system/abb/mif/mif_slice_1_volt\" 
+               unit=\"mV\" min=\"600\" reversed=\"false\" step=\"50\" max=\"1600\"/>
+
+     <seekBar  description=\"Slice 2 frequencies: ]`cat /sys/devices/system/abb/mif/mif_slice_1_freq`.. .\"
+               name=\"Slice 2 voltage\"
+               action=\"generic /sys/devices/system/abb/mif/mif_slice_2_volt\" 
+               unit=\"mV\" min=\"600\" reversed=\"false\" step=\"50\" max=\"1600\"/>
+
+    </settingsPane>
+
+    <settingsPane description=\"INT (Internal SoC) body bias voltages.\"
+                  name=\"INT\">
+     <seekBar  description=\"Slice 1 frequencies: ..`cat /sys/devices/system/abb/int/int_slice_1_freq`].\"
+               name=\"Slice 1 voltage\"
+               action=\"generic /sys/devices/system/abb/int/int_slice_1_volt\" 
+               unit=\"mV\" min=\"600\" reversed=\"false\" step=\"50\" max=\"1600\"/>
+
+     <seekBar  description=\"Slice 2 frequencies: ]`cat /sys/devices/system/abb/int/int_slice_1_freq`.. .\"
+               name=\"Slice 2 voltage\"
+               action=\"generic /sys/devices/system/abb/int/int_slice_2_volt\" 
+               unit=\"mV\" min=\"600\" reversed=\"false\" step=\"50\" max=\"1600\"/>
+
+    </settingsPane>
+	</settingsTab>
+" >> $XML
+
+else
+	  echo '
+<settingsTab name="ABB">
+    <settingsPane description="This kernel has been compiled without ABB support. Please flash ABB version if you want to use it" name="Adaptive Body Bias"/>
+</settingsTab>' >> $XML
+fi
+
+echo '
   <settingsTab name="I/O">
     <settingsPane description="Set the active I/O elevator algorithm. The scheduler decides how to handle I/O requests and how to handle them. FIOPS is the everyday recommended default scheduler."  
                   name="I/O schedulers">' >> $XML

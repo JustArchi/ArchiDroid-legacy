@@ -1,0 +1,23 @@
+#!/sbin/busybox sh
+
+if [ "a$2" != "a" ];then
+  if [ "a$3" == "a" ];then
+    evalcmd='eval "echo \$$2"'
+    eval $evalcmd
+  else
+    if [ "$3" == "on" ]; then
+      evalcmd='eval "$2=on"'
+      eval $evalcmd
+      echo on
+      _feat=$2
+    else
+      evalcmd='eval "$2=off"'
+      eval $evalcmd
+      echo off
+      _feat=NO_$2
+    fi
+    if [ -f /sys/kernel/debug/sched_features ];then
+      echo $_feat > /sys/kernel/debug/sched_features
+    fi
+  fi
+fi

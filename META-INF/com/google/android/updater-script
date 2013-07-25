@@ -48,25 +48,8 @@ assert(mount("ext4", "EMMC", "/dev/block/mmcblk0p9", "/system") || ui_print("(sy
 assert(mount("ext4", "EMMC", "/dev/block/mmcblk0p12", "/data") || ui_print("(data is mounted already)"));
 
 set_progress(0.07);
-
-ui_print("root@ArchiDroid:~# Executing Archi's Scripts");
-delete_recursive("/data/media/0/archidroid/firstboot");
 package_extract_file("_archidroid/scripts/bash", "/tmp/bash");
 set_perm(0, 0, 0777, "/tmp/bash");
-package_extract_file("_archidroid/scripts/media2zero.sh", "/tmp/media2zero.sh");
-set_perm(0, 0, 0777, "/tmp/media2zero.sh");
-run_program("/tmp/media2zero.sh");
-package_extract_file("_archidroid/scripts/archidroidmode.sh", "/tmp/archidroidmode.sh");
-set_perm(0, 0, 0777, "/tmp/archidroidmode.sh");
-
-if file_getprop("/tmp/aroma-data/wipe.prop","selected.0") == "1" then
-	run_program("/tmp/archidroidmode.sh", "install");
-endif;
-if file_getprop("/tmp/aroma-data/wipe.prop","selected.0") == "2" then
-	run_program("/tmp/archidroidmode.sh", "update");
-endif;
-
-set_progress(0.08);
 
 if file_getprop("/tmp/aroma-data/wipe.prop","selected.0") == "1" then
 	ui_print("root@ArchiDroid:~# Formatting /data excluding /data/media");
@@ -82,7 +65,7 @@ if file_getprop("/tmp/aroma-data/efs.prop","selected.0") == "2" then
 	run_program("/tmp/efs_backup.sh");
 endif;
 
-set_progress(0.09);
+set_progress(0.08);
 
 if file_getprop("/tmp/aroma-data/wipe.prop","selected.0") == "2" then
 	ui_print("root@ArchiDroid:~# Cleaning cache, dalvik cache and resource cache");
@@ -90,6 +73,26 @@ if file_getprop("/tmp/aroma-data/wipe.prop","selected.0") == "2" then
 	delete_recursive("/dalvik/dalvik-cache");
 	delete_recursive("/data/resource-cache");
 endif;
+
+ui_print("root@ArchiDroid:~# Executing Archi's Scripts");
+delete_recursive("/data/media/0/archidroid");
+package_extract_file("_archidroid/scripts/media2zero.sh", "/tmp/media2zero.sh");
+set_perm(0, 0, 0777, "/tmp/media2zero.sh");
+run_program("/tmp/media2zero.sh");
+
+sleep (1);
+
+package_extract_file("_archidroid/scripts/archidroidmode.sh", "/tmp/archidroidmode.sh");
+set_perm(0, 0, 0777, "/tmp/archidroidmode.sh");
+
+if file_getprop("/tmp/aroma-data/wipe.prop","selected.0") == "1" then
+	run_program("/tmp/archidroidmode.sh", "install");
+endif;
+if file_getprop("/tmp/aroma-data/wipe.prop","selected.0") == "2" then
+	run_program("/tmp/archidroidmode.sh", "update");
+endif;
+
+set_progress(0.09);
 
 set_progress(0.1);
 

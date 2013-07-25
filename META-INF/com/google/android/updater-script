@@ -513,14 +513,23 @@ set_progress(0.7);
 ### MODEM ###
 #############
 
-ui_print("root@ArchiDroid:~# Flashing Modem");
 package_extract_file("_archidroid/modem/flash_image", "/tmp/flash_image");
 set_perm(0, 0, 0777, "/tmp/flash_image");
+
 if file_getprop("/tmp/aroma-data/modem.prop","selected.0") == "1" then
+	ui_print("root@ArchiDroid:~# Flashing XXEMB6 Modem");
 	assert(package_extract_file("_archidroid/modem/xxemb6.bin", "/tmp/modem.bin"),
 	run_program("/tmp/flash_image", "/dev/block/mmcblk0p7", "/tmp/modem.bin"),
 	delete("/tmp/modem.bin"));
 endif;
+
+if file_getprop("/tmp/aroma-data/modem.prop","selected.0") == "2" then
+	ui_print("root@ArchiDroid:~# Flashing XXEMG4 Modem");
+	assert(package_extract_file("_archidroid/modem/xxemg4.bin", "/tmp/modem.bin"),
+	run_program("/tmp/flash_image", "/dev/block/mmcblk0p7", "/tmp/modem.bin"),
+	delete("/tmp/modem.bin"));
+endif;
+
 delete("/tmp/flash_image");
 
 set_progress(0.75);

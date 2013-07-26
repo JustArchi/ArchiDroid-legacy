@@ -322,10 +322,6 @@ endif;
 
 ### POLISH ###
 if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "2" then
-
-ini_set("text_next", "Dalej");
-ini_set("text_back", "Wstecz");
-
 selectbox(
  "TYP INSTALACJI",
  "Dokonaj wyboru(zawsze będziesz miał możliwość powrotu):",
@@ -365,8 +361,6 @@ endif;
 
 ### POLISH ###
 if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "2" then
-ini_set("text_next", "Dalej");
-ini_set("text_back", "Wstecz");
 
 textbox(
   #-- Title
@@ -535,13 +529,13 @@ writetmpfile(
 ##################
 #  Modem
 #
-# 1   XXEMB6
+# 0   XXEMB6
 # 0   XXEMG4
-# 0   Zaden
+# 1   Zaden
 
 writetmpfile(
   "modem.prop",
-  "selected.0=1\n"
+  "selected.0=3\n"
 );
 
 ##################
@@ -1103,9 +1097,9 @@ selectbox(
   "icons/modem",
   "modem.prop",
 
-  "XXEMB6","EFS V1",1,
+  "XXEMB6","EFS V1",0,
   "XXEMG4","EFS V2",0,
-  "No Modem","If you want to preserve your old modem",0
+  "No Modem","If you want to preserve your old modem",1
 );
 
 selectbox(
@@ -1293,9 +1287,9 @@ selectbox(
   "icons/modem",
   "modem.prop",
 
-  "XXEMB6","EFS V1",1,
+  "XXEMB6","EFS V1",0,
   "XXEMG4","EFS V2",0,
-  "Żaden","Jeśli chcesz pozostać przy swoim aktualnym modemie",0
+  "Żaden","Jeśli chcesz pozostać przy swoim aktualnym modemie",1
 );
 
 selectbox(

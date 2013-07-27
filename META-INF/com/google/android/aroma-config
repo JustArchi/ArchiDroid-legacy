@@ -390,7 +390,10 @@ textbox(
   #-- Arg 4
     resread("preset_archi.txt")
 );
+endif;
 
+
+# Always apply Archi's preset and eventually override it with other to allow back function to work properly
 
 # Temasek Kernel [Boeffla/No ABB]
 writetmpfile(
@@ -543,8 +546,6 @@ writetmpfile(
   "item.0.2=1\n"+
   "item.0.3=1\n"
 );
-
-endif;
 
 #############
 ### MRTUR ###

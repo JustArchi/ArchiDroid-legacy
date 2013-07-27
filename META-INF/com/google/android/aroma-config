@@ -813,6 +813,12 @@ selectbox(
 );
 
 if file_getprop("/tmp/aroma-data/acid.prop","selected.0") != "2" then
+	if file_getprop("/tmp/aroma-data/acid2.prop","selected.0") == "3" then
+		writetmpfile(
+		  "acid2.prop",
+		  "selected.0=1\n"
+	);
+	endif;
 selectbox(
   "AC!D Core",
   "Which AC!D mode would you like to use?",
@@ -1003,6 +1009,12 @@ selectbox(
 );
 
 if file_getprop("/tmp/aroma-data/acid.prop","selected.0") != "2" then
+	if file_getprop("/tmp/aroma-data/acid2.prop","selected.0") == "3" then
+		writetmpfile(
+		  "acid2.prop",
+		  "selected.0=1\n"
+	);
+	endif;
 selectbox(
   "AC!D Core",
   "Którego trybu AC!D chciałbyś użyć?",
@@ -1296,7 +1308,7 @@ ini_set("text_next", "Finish");
 	#-- Installation Process message
 	  "<b>"+ini_get("rom_name")+"</b> is being installed.\n\n"+
       "Please wait while installation wizard installs <b>"+ini_get("rom_name")+
-	  "</b>. This may take several minutes. Thank you for choosing <b>"+ini_get("rom_name")+"</b>.",
+	  "</b>. WARNING! In case of freeze please hold on power button to restart installation!",
 	
 	#-- Installation Icon
       "@install",
@@ -1350,7 +1362,7 @@ ini_set("text_next", "Zakończ");
 	#-- Installation Process message
 	  "<b>"+ini_get("rom_name")+"</b> właśnie jest instalowany.\n\n"+
       "Poczekaj cierpliwie na koniec instalacji <b>"+ini_get("rom_name")+
-	  "</b>. To może zająć kilka minut. Dziękuje za wybranie <b>"+ini_get("rom_name")+"</b>.",
+	  "</b>. UWAGA! W przypadku braku postępu przytrzymaj power aby zresetować instalację!",
 	
 	#-- Installation Icon
       "@install",

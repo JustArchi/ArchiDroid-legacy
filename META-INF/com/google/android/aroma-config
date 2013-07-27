@@ -305,268 +305,199 @@ endif;
 # STEP 5(b) - SELECT TYPE INSTALATION
 #
 
-### ENGLISH ###->PRZETLUMACZYC
+### ENGLISH ###
 if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "1" then
 selectbox(
- "INSTALLATION METHOD",
- "Make your choice (you will always have the opportunity to return):",
+ "Installation Preset",
+ "Please select installation preset:",
  "icons/confirm",
- "typeinstall.prop",
+ "installmode.prop",
 
- "Custom","You will go through the installation process step by step",1,
- "Defauld","You decide on the default author ROM",0,
- "mrtur","You decide on the default by mrtur",0
+ "Custom","You'll be able to customize every aspect of the installation",0,
+ "ArchiDroid Default","You'll flash ArchiDroid with default settings",1,
+ "User Preset","Special reward for various user contributions",0
 
 );
+
+if file_getprop("/tmp/aroma-data/installmode.prop","selected.0") == "3" then
+selectbox(
+ "Installation Preset",
+ "Please select installation preset:",
+ "icons/confirm",
+ "installmode2.prop",
+
+ "Archi","Same as ArchiDroid Default",1,
+ "mrtur","mrtur's preset",1
+
+);
+endif;
+
 endif;
 
 ### POLISH ###
 if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "2" then
 selectbox(
- "TYP INSTALACJI",
- "Dokonaj wyboru(zawsze będziesz miał możliwość powrotu):",
+ "Preset Instalacyjny",
+ "Wybierz preset, którego chciałbyś użyć:",
  "icons/confirm",
- "typeinstall.prop",
+ "installmode.prop",
 
- "Custom","Przejdziesz przez proces instalacji krok po kroku",1,
- "Defauld","Decydujesz się na domyślne ustawienia autora ROM'u",0,
- "mrtur","Decydujesz się na domyślne ustawienia mrtur'a",0
+ "Własny","Będziesz mógł dostosować każdy aspekt instalacji",0,
+ "Domyślny ArchiDroid","Domyślne ustawienia ArchiDroid",1,
+ "Preset Użytkownika","Nagroda dla zasłużonych userów",0
+
+);
+
+if file_getprop("/tmp/aroma-data/installmode.prop","selected.0") == "3" then
+selectbox(
+ "Preset Instalacyjny",
+ "Wybierz preset, którego chciałbyś użyć:",
+ "icons/confirm",
+ "installmode2.prop",
+
+ "Archi","Identyczny jak Domyślny ArchiDroid",1,
+ "mrtur","Preset mrtur'a",1
 
 );
 endif;
 
+endif;
+
+
+### Fix ###
+if file_getprop("/tmp/aroma-data/installmode2.prop","selected.0") == "1" then
+writetmpfile(
+  "installmode.prop",
+  "selected.0=2\n"
+);
+endif;
+
 #############
-### AUTOR ###
+### Archi ###
 #############
 
-if file_getprop("/tmp/aroma-data/typeinstall.prop","selected.0") == "2" then
-
-### ENGLISH ###->PRZETLUMACZYC
-if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "1" then
-
+if file_getprop("/tmp/aroma-data/installmode.prop","selected.0") == "2" then
 textbox(
   #-- Title
-    "The selected configuration",
+    "Preset",
   
   #-- Subtitle
-    "READ CAREFULLY!!",
+    "Preset",
   
   #-- Icon
     "@welcome",
   
   #-- Arg 4
-    resread("en_set_archi.txt")
+    resread("preset_archi.txt")
 );
-endif;
 
-### POLISH ###
-if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "2" then
 
-textbox(
-  #-- Title
-    "Wybrana Konfiguracja",
-  
-  #-- Subtitle
-    "PRZECZYTAJ UWAŻNIE!!",
-  
-  #-- Icon
-    "@welcome",
-  
-  #-- Arg 4
-    resread("pol_set_archi.txt")
-);
-endif;
-
-#################
-#  Kernel
-#
-# 1   Temasek Kernel [Boeffla/No ABB]
-# 0   Yank555.lu Kernel
-# 0   CyanogenMod
-
+# Temasek Kernel [Boeffla/No ABB]
 writetmpfile(
   "kernels.prop",
   "selected.0=1\n"
 );
 
-##################
-#  Ustawienia Kernela
-#
-# 0   Zbalansowane Ustawienia ArchiDroid
-# 1   Oszczędne Ustawienia ArchiDroid
-# 0   Brak
-
+# PowerSave Config
 writetmpfile(
   "kernels2.prop",
   "selected.0=2\n"
 );
 
-##################  
-#  Boeffla Sound Control
-#
-# 1   Tak
-# 0   Nie
-
+# Boeffla Sound Control
 writetmpfile(
   "boeffla.prop",
   "selected.0=1\n"
 );
 
-##################  
-#  AC!D Audio Technology
-#
-# 1   Tak
-# 0   Nie
-
+# AC!D
 writetmpfile(
   "acid.prop",
   "selected.0=1\n"
 );
 
-##################
-#  AC!D Core
-#
-# 1   AudioBeats
-# 0   ClearAudio [EXPERIMENTAL]
-
+# AudioBeats
 writetmpfile(
   "acid2.prop",
   "selected.0=1\n"
 );
 
-##################
-#  Audio Preset
-#
-# 1   Preset Archi's Audiophile
-# 0   Brak Presetu
-
+# Archi's Audiophile
 writetmpfile(
   "preset.prop",
   "selected.0=1\n"
 );
 
-##################
-#  DPI
-#
-# 1   240 DPI
-# 0   280 DPI
-# 0   320 DPI
-
+# 240 DPI
 writetmpfile(
   "dpi.prop",
   "selected.0=1\n"
 );
 
-##################
-#  Launcher
-#  
-# 1   Launcher Nova
-# 0   Launcher AOSP
-
+# Nova
 writetmpfile(
   "launcher.prop",
   "selected.0=1\n"
 );
 
-##################  
-#  Klawiatura
-#  
-# 1   Klawiatura TouchPal
-# 0   Klawiatura Hacker's
-# 0   Klawiatury TouchPal + Hacker's
-# 0   Stock CM
-
+# TouchPal
 writetmpfile(
   "keyboard.prop",
   "selected.0=1\n"
 );
 
-##################
-#  Globalne Tweaki
-#
-# 1   CrossBreeder
-# 0   Zadnego
-
+# CrossBreeder
 writetmpfile(
   "breeder.prop",
   "selected.0=1\n"
 );
 
-##################
-#  Aktualizacje ArchiDroid
-#
-# 1   Tak
-# 0   Nie
-
+# OTA
 writetmpfile(
   "ota.prop",
   "selected.0=1\n"
 );
 
-##################  
-#  Xposed Framework
-#
-# 0   Tak
-# 1   Nie
-
+# No Xposed
 writetmpfile(
   "xposed.prop",
   "selected.0=2\n"
 );
 
-##################  
-#  Moduly Xposed
-#
-# 1   App Settings
-# 0   Call Recording [Bugged?]
-
+# No modules
 writetmpfile(
   "xposed2.prop",
   "item.0.1=0\n"+
   "item.0.2=0\n"
 );
 
-##################
-#  Modem
-#
-# 0   XXEMB6
-# 0   XXEMG4
-# 1   Zaden
-
+# No modem
 writetmpfile(
   "modem.prop",
   "selected.0=3\n"
 );
 
-##################
-#  Recovery
-#
-# 0   PhilZ Touch Recovery
-# 1   Zadne
-
+# No recovery
 writetmpfile(
   "recovery.prop",
   "selected.0=2\n"
 );
 
-##################
-#  Aplikacje Google
-#
-# 1   Google Apps
-# 0   Google QuickSearchBox
-# 1   Google Calendar
-# 1   Google Chrome
-# 1   Google Ears
-# 1   Google Keep
-# 1   Google Mail
-# 1   Google Maps
-# 1   Google Voice
 
+# 1 Google Apps
+# 0 Google QuickSearchBox
+# 0 Google Calendar
+# 1 Google Chrome
+# 1 Google Ears
+# 1 Google Keep
+# 1 Google Mail
+# 1 Google Maps
+#   Google Voice
 writetmpfile(
   "gapps.prop",
   "item.0.1=1\n"+
   "item.0.2=0\n"+
-  "item.0.3=1\n"+
+  "item.0.3=0\n"+
   "item.0.4=1\n"+
   "item.0.5=1\n"+
   "item.0.6=1\n"+
@@ -575,22 +506,18 @@ writetmpfile(
   "item.0.9=1\n"
 );
 
-##################
-#  Aplikacje ArchiDroid
-#
-# 1   Titanium Backup
-# 0   ZRAM Status
-# 0   Greenify
-# 1   LMT
-# 1   MXPlayer
-# 0   Ultimate Rotation Control
-# 1   Spirit FM
-# 1   BetterBatteryStats
-# 1   CoolTool
-# 1   Root Browser
-# 1   Adobe Flash Player
-# 1   YouTube
-
+# 1 Titanium Backup
+# 0 ZRAM Status
+# 0 Greenify
+# 1 LMT
+# 1 MXPlayer
+# 0 Ultimate Rotation Control
+# 1 Spirit FM
+# 1 BetterBatteryStats
+# 1 CoolTool
+# 1 Root Browser
+# 1 Adobe Flash Player
+# 1 YouTube
 writetmpfile(
   "archiapps.prop",
   "item.0.1=1\n"+
@@ -607,13 +534,9 @@ writetmpfile(
   "item.0.12=1\n"
 );
 
-##################
-#  ArchiDroid Tweaks
-#
-# 1   Bootanimacja Logcat
-# 1   HD Voice
-# 1   build.prop Tweaks
-
+# 1 Bootanimacja Logcat
+# 1 HD Voice
+# 1 build.prop Tweaks
 writetmpfile(
 "architweaks.prop",
   "item.0.1=1\n"+
@@ -627,231 +550,124 @@ endif;
 ### MRTUR ###
 #############
 
-if file_getprop("/tmp/aroma-data/typeinstall.prop","selected.0") == "3" then
-
-### ENGLISH ###->PRZETLUMACZYC
-if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "1" then
+if file_getprop("/tmp/aroma-data/installmode2.prop","selected.0") == "2" then
 
 textbox(
   #-- Title
-    "The selected configuration",
+    "Preset",
   
   #-- Subtitle
-    "READ CAREFULLY!!",
+    "Preset",
   
   #-- Icon
-    "@mrtur",
+    "@welcome",
   
   #-- Arg 4
-    resread("en_set_mrtur.txt")
+    resread("preset_mrtur.txt")
 );
-endif;
 
-### POLISH ###
-if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "2" then
-ini_set("text_next", "Dalej");
-ini_set("text_back", "Wstecz");
 
-textbox(
-  #-- Title
-    "Wybrana Konfiguracja",
-  
-  #-- Subtitle
-    "PRZECZYTAJ UWAŻNIE!!",
-  
-  #-- Icon
-    "@mrtur",
-  
-  #-- Arg 4
-    resread("pol_set_mrtur.txt")
-);
-endif;
-
-#################
-#  Kernel
-#
-# 1   Temasek Kernel [Boeffla/No ABB]
-# 0   Yank555.lu Kernel
-# 0   CyanogenMod
-
+# Temasek Kernel [Boeffla/No ABB]
 writetmpfile(
   "kernels.prop",
   "selected.0=1\n"
 );
 
-##################
-#  Ustawienia Kernela
-#
-# 1   Zbalansowane Ustawienia ArchiDroid
-# 0   Oszczędne Ustawienia ArchiDroid
-# 0   Brak
-
+# Balanced Config
 writetmpfile(
   "kernels2.prop",
   "selected.0=1\n"
 );
 
-##################  
-#  Boeffla Sound Control
-#
-# 1   Tak
-# 0   Nie
-
+# Boeffla Sound Control
 writetmpfile(
   "boeffla.prop",
   "selected.0=1\n"
 );
 
-##################  
-#  AC!D Audio Technology
-#
-# 1   Tak
-# 0   Nie
-
+# AC!D
 writetmpfile(
   "acid.prop",
   "selected.0=1\n"
 );
 
-##################
-#  AC!D Core
-#
-# 1   AudioBeats
-# 0   ClearAudio [EXPERIMENTAL]
-
+# AudioBeats
 writetmpfile(
   "acid2.prop",
   "selected.0=1\n"
 );
 
-##################
-#  Audio Preset
-#
-# 1   Preset Archi's Audiophile
-# 0   Brak Presetu
-
+# Archi's Audiophile
 writetmpfile(
   "preset.prop",
   "selected.0=1\n"
 );
 
-##################
-#  DPI
-#
-# 0   240 DPI
-# 1   280 DPI
-# 0   320 DPI
-
+# 280 DPI
 writetmpfile(
   "dpi.prop",
   "selected.0=2\n"
 );
 
-##################
-#  Launcher
-#  
-# 1   Launcher Nova
-# 0   Launcher AOSP
-
+# Nova
 writetmpfile(
   "launcher.prop",
   "selected.0=1\n"
 );
 
-##################  
-#  Klawiatura
-#  
-# 1   Klawiatura TouchPal
-# 0   Klawiatura Hacker's
-# 0   Klawiatury TouchPal + Hacker's
-# 0   Stock CM
-
+# TouchPal
 writetmpfile(
   "keyboard.prop",
   "selected.0=1\n"
 );
 
-##################
-#  Globalne Tweaki
-#
-# 1   CrossBreeder
-# 0   Zadnego
-
+# CrossBreeder
 writetmpfile(
   "breeder.prop",
   "selected.0=1\n"
 );
 
-##################
-#  Aktualizacje ArchiDroid
-#
-# 1   Tak
-# 0   Nie
-
+# OTA
 writetmpfile(
   "ota.prop",
   "selected.0=1\n"
 );
 
-##################  
-#  Xposed Framework
-#
-# 1   Tak
-# 0   Nie
-
+# Xposed
 writetmpfile(
   "xposed.prop",
   "selected.0=1\n"
 );
 
-##################  
-#  Moduly Xposed
-#
-# 1   App Settings
-# 0   Call Recording [Bugged?]
-
+# 1 App Settings
+# 0 Call Recording [Bugged?]
 writetmpfile(
   "xposed2.prop",
   "item.0.1=1\n"+
   "item.0.2=0\n"
 );
 
-##################
-#  Modem
-#
-# 1   XXEMB6
-# 0   XXEMG4  
-# 0   Zaden
-
+# XXEMB6
 writetmpfile(
   "modem.prop",
   "selected.0=1\n"
 );
 
-##################
-#  Recovery
-#
-# 0   PhilZ Touch Recovery
-# 1   Zadne
-
+# No recovery
 writetmpfile(
   "recovery.prop",
   "selected.0=2\n"
 );
 
-##################
-#  Aplikacje Google
-#
-# 1   Google Apps
-# 0   Google QuickSearchBox
-# 1   Google Calendar
-# 0   Google Chrome
-# 0   Google Ears
-# 0   Google Keep
-# 0   Google Mail
-# 0   Google Maps
-# 1   Google Voice
-
+# 1 Google Apps
+# 0 Google QuickSearchBox
+# 1 Google Calendar
+# 0 Google Chrome
+# 0 Google Ears
+# 0 Google Keep
+# 0 Google Mail
+# 0 Google Maps
+# 1 Google Voice
 writetmpfile(
   "gapps.prop",
   "item.0.1=1\n"+
@@ -865,22 +681,18 @@ writetmpfile(
   "item.0.9=1\n"
 );
 
-##################
-#  Aplikacje ArchiDroid
-#
-# 1   Titanium Backup
-# 0   ZRAM Status
-# 0   Greenify
-# 0   LMT
-# 0   MXPlayer
-# 0   Ultimate Rotation Control
-# 1   Spirit FM
-# 0   BetterBatteryStats
-# 0   CoolTool
-# 0   Root Browser
-# 1   Adobe Flash Player
-# 1   YouTube
-
+# 1 Titanium Backup
+# 0 ZRAM Status
+# 0 Greenify
+# 0 LMT
+# 0 MXPlayer
+# 0 Ultimate Rotation Control
+# 1 Spirit FM
+# 0 BetterBatteryStats
+# 0 CoolTool
+# 0 Root Browser
+# 1 Adobe Flash Player
+# 1 YouTube
 writetmpfile(
   "archiapps.prop",
   "item.0.1=1\n"+
@@ -897,12 +709,9 @@ writetmpfile(
   "item.0.12=1\n"
 );
 
-##################
-#  ArchiDroid Tweaks
-#
-# 0   Bootanimacja Logcat
-# 1   HD Voice
-# 1   build.prop Tweaks
+# 0 Bootanimacja Logcat
+# 1 HD Voice
+# 1 build.prop Tweaks
 
 writetmpfile(
   "architweaks.prop",
@@ -917,7 +726,7 @@ endif;
 ### CUSTOM TYPE INSTALATION ###
 ###############################
 
-if file_getprop("/tmp/aroma-data/typeinstall.prop","selected.0") == "1" then
+if file_getprop("/tmp/aroma-data/installmode.prop","selected.0") == "1" then
 
 ###################################################################################################################
 #

@@ -320,6 +320,12 @@ selectbox(
 );
 
 if file_getprop("/tmp/aroma-data/installmode.prop","selected.0") == "3" then
+	if file_getprop("/tmp/aroma-data/installmode2.prop","selected.0") == "0" then
+	writetmpfile(
+	  "installmode2.prop",
+	  "selected.0=1\n"
+	);
+	endif;
 selectbox(
  "Installation Preset",
  "Please select installation preset:",
@@ -349,6 +355,12 @@ selectbox(
 );
 
 if file_getprop("/tmp/aroma-data/installmode.prop","selected.0") == "3" then
+	if file_getprop("/tmp/aroma-data/installmode2.prop","selected.0") == "0" then
+	writetmpfile(
+	  "installmode2.prop",
+	  "selected.0=1\n"
+	);
+	endif;
 selectbox(
  "Preset Instalacyjny",
  "Wybierz preset, którego chciałbyś użyć:",
@@ -364,11 +376,19 @@ endif;
 endif;
 
 
-### Fix ###
-if file_getprop("/tmp/aroma-data/installmode2.prop","selected.0") == "1" then
+# If user selected custom install then make sure no preset is active
+if file_getprop("/tmp/aroma-data/installmode.prop","selected.0") == "1" then
 writetmpfile(
-  "installmode.prop",
-  "selected.0=2\n"
+  "installmode2.prop",
+  "selected.0=0\n"
+);
+endif;
+
+# Make sure that ArchiDroid Default and Archi's Preset is the same
+if file_getprop("/tmp/aroma-data/installmode.prop","selected.0") == "2" then
+writetmpfile(
+  "installmode2.prop",
+  "selected.0=1\n"
 );
 endif;
 
@@ -376,7 +396,7 @@ endif;
 ### Archi ###
 #############
 
-if file_getprop("/tmp/aroma-data/installmode.prop","selected.0") == "2" then
+if file_getprop("/tmp/aroma-data/installmode2.prop","selected.0") == "1" then
 textbox(
   #-- Title
     "Preset",

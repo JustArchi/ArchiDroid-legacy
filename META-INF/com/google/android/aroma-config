@@ -327,7 +327,7 @@ selectbox(
  "installmode2.prop",
 
  "Archi","Same as ArchiDroid Default",1,
- "mrtur","mrtur's preset",1
+ "mrtur","mrtur's preset",0
 
 );
 endif;
@@ -356,7 +356,7 @@ selectbox(
  "installmode2.prop",
 
  "Archi","Identyczny jak Domyślny ArchiDroid",1,
- "mrtur","Preset mrtur'a",1
+ "mrtur","Preset mrtur'a",0
 
 );
 endif;

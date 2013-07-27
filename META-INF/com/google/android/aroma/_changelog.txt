@@ -1,6 +1,24 @@
 ArchiDroid 2.0.2
+- [NEW] Aroma presets!
+# You can now flash ArchiDroid with default settings within only one tap. This is extremely useful if you don't want to change my settings because you don't need anymore to browse through all aroma pages.
+# It's still possible to select "Custom" preset and customize your installation of course.
+# Idea and implementation thanks to @mrtur, with dedicated preset specially for him.
+
+- [!] New modem: XXEMG4
+# IMPORTANT! From this release ArchiDroid will preserve your old modem on default installation preset. This is because Samsung developed a new lane of modems, from XXEMG4 onwards.
+# Modems pre-XXEMG4 and XXEMG4+ aren't compatible with each other! Applying modem XXEMG4 for the first time will cause permanent EFS changes from V1 to V2. This means you won't be able to use older modems that XXEMG4 from that time.
+# This may sounds scary but in fact new modem is way better than old ones and EFS change is required for that to function properly. But it includes changes to /efs and because of that I strongly recommend doing an /efs backup if you don't have such already. Then you can easily select custom preset and XXEMG4 modem to apply, without risking anything.
+# It will be ALWAYS possible to select "No Modem" in ArchiDroid to keep your current modem. But I can't assure you that this option will remain default one. Because of that keep in mind to get familiar with new modem in meantime to avoid getting frustrated :).
+
 - Small changes to Media2Zero ArchiDroid Script
-- Updated Temasek Kernel to 250713-0201
-- Updated sources (crDroid build 13)
+- Updated Temasek Kernel to 260713-1415
+
+- Updated Archi's Presets for Temasek Kernel.
+# Nothing much but I've implemented also 3 additional zzmoove presets available in STweaks in zzmoove lab. These are: Yankzzmoove, Yank's Battery and Archi's Ultra Battery.
+# In terms of battery - Better > Worse
+# Archi's Ultra Battery > Yankzzmoove > Yank's Battery > Battery (ArchiDroid Powersave) > Optimized (ArchiDroid Balanaced) > Default > Performance
+# But keep in mind that my ultra battery preset is REALLY ultra battery, expect laggs, I mean it. That's the reason why it's not in aroma (yet). Still in beta.
+
+- Updated sources (crDroid build 14)
 
 For full commits history you can always check github of course.

@@ -44,10 +44,10 @@
 #
 ini_set("dp","3");
 ini_set("rom_name",             "ArchiDroid");
-ini_set("rom_version",          "2.0.2");
+ini_set("rom_version",          "2.0.3");
 ini_set("rom_author",           "JustArchi");
 ini_set("rom_device",           "Samsung Galaxy S3");
-ini_set("rom_date",             "July 28th, 2013");
+ini_set("rom_date",             "August XXth, 2013");
 
 ##
 # Show Simple Splash
@@ -490,8 +490,7 @@ writetmpfile(
 # App Settings
 writetmpfile(
   "xposed2.prop",
-  "item.0.1=1\n"+
-  "item.0.2=0\n"
+  "item.0.1=0\n"
 );
 
 # No modem
@@ -661,11 +660,9 @@ writetmpfile(
 );
 
 # 1 App Settings
-# 0 Call Recording [Bugged?]
 writetmpfile(
   "xposed2.prop",
-  "item.0.1=1\n"+
-  "item.0.2=0\n"
+  "item.0.1=1\n"
 );
 
 # XXEMB6
@@ -922,8 +919,7 @@ checkbox(
   "icons/customize",
   "xposed2.prop",
 
-  "App Settings","Allows changing app settings, like DPI, resident in memory and so on",1,
-  "Call Recording [Bugged?]","Enables call recording function",0
+  "App Settings","Allows changing app settings, like DPI, resident in memory and so on",1
 );
 endif;
 
@@ -1118,8 +1114,7 @@ checkbox(
   "icons/customize",
   "xposed2.prop",
 
-  "App Settings","Pozwala na zarządzanie ustawieniami specyficznymi dla danych aplikacji, zmianę DPI, rezydowanie w pamięci i więcej",1,
-  "Call Recording [Bugged?]","Włącza możliwość nagrywania rozmów",0
+  "App Settings","Pozwala na zarządzanie ustawieniami specyficznymi dla danych aplikacji, zmianę DPI, rezydowanie w pamięci i więcej",1
 );
 endif;
 

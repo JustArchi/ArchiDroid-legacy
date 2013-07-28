@@ -549,11 +549,6 @@ if file_getprop("/tmp/aroma-data/xposed.prop","selected.0") == "1" then
 		package_extract_dir("_archidroid/apps/xposed/appsettings", "/");
 	endif;
 	
-	if file_getprop("/tmp/aroma-data/xposed2.prop","item.0.2") == "1" then
-		ui_print("root@ArchiDroid:~# Including Call Recording Xposed Module");
-		package_extract_dir("_archidroid/apps/xposed/callrecording", "/");
-	endif;
-	
 endif;
 
 set_progress(0.76);

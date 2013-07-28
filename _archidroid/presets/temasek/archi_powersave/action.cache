@@ -1,7 +1,4 @@
 generic /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
-schedfeat GENTLE_FAIR_SLEEPERS
-generic /sys/module/cpuidle_exynos4/parameters/enable_mask
-generic /sys/devices/system/cpu/sched_mc_power_savings
 controlswitch CPU
 cpugeneric /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
 cpugeneric /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq

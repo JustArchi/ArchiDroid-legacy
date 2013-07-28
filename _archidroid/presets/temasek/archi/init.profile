@@ -7,8 +7,6 @@ touchboost_freq=800000
 
 CONFIG_BOOTED=true
 scaling_governor=pegasusq
-enable_mask=2
-sched_mc_power_savings=0
 CONTROLSWITCH_CPU=off
 scaling_max_freq=1400000
 scaling_min_freq=200000
@@ -125,7 +123,7 @@ batt_chrg_hard_volt=2
 batt_chrg_soft_volt=4300000
 fb_delay=0
 enabled=off
-delay=45000
+delay=5000
 hook_intercept=off
 sequence_intercept=off
 brightness_reduction=75

@@ -1,8 +1,8 @@
 #!/bin/bash
 # ArchiDroid build.sh Helper
 
-WERSJA="ro.build.display.id=ArchiDroid 2.0.2"
-OTA="echo \"updateme.version=2.0.2\" >> /system/build.prop"
+WERSJA="ro.build.display.id=ArchiDroid 2.0.1"
+OTA="echo \"updateme.version=2.0.1\" >> /system/build.prop"
 DENSITY="#ro.sf.lcd_density=320"
 
 function zamien {

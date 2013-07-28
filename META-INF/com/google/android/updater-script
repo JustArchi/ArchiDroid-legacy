@@ -48,25 +48,8 @@ assert(mount("ext4", "EMMC", "/dev/block/mmcblk0p9", "/system") || ui_print("(sy
 assert(mount("ext4", "EMMC", "/dev/block/mmcblk0p12", "/data") || ui_print("(data is mounted already)"));
 
 set_progress(0.07);
-
-ui_print("root@ArchiDroid:~# Executing Archi's Scripts");
-delete_recursive("/data/media/0/archidroid/firstboot");
 package_extract_file("_archidroid/scripts/bash", "/tmp/bash");
 set_perm(0, 0, 0777, "/tmp/bash");
-package_extract_file("_archidroid/scripts/media2zero.sh", "/tmp/media2zero.sh");
-set_perm(0, 0, 0777, "/tmp/media2zero.sh");
-run_program("/tmp/media2zero.sh");
-package_extract_file("_archidroid/scripts/archidroidmode.sh", "/tmp/archidroidmode.sh");
-set_perm(0, 0, 0777, "/tmp/archidroidmode.sh");
-
-if file_getprop("/tmp/aroma-data/wipe.prop","selected.0") == "1" then
-	run_program("/tmp/archidroidmode.sh", "install");
-endif;
-if file_getprop("/tmp/aroma-data/wipe.prop","selected.0") == "2" then
-	run_program("/tmp/archidroidmode.sh", "update");
-endif;
-
-set_progress(0.08);
 
 if file_getprop("/tmp/aroma-data/wipe.prop","selected.0") == "1" then
 	ui_print("root@ArchiDroid:~# Formatting /data excluding /data/media");
@@ -82,7 +65,7 @@ if file_getprop("/tmp/aroma-data/efs.prop","selected.0") == "2" then
 	run_program("/tmp/efs_backup.sh");
 endif;
 
-set_progress(0.09);
+set_progress(0.08);
 
 if file_getprop("/tmp/aroma-data/wipe.prop","selected.0") == "2" then
 	ui_print("root@ArchiDroid:~# Cleaning cache, dalvik cache and resource cache");
@@ -90,6 +73,26 @@ if file_getprop("/tmp/aroma-data/wipe.prop","selected.0") == "2" then
 	delete_recursive("/dalvik/dalvik-cache");
 	delete_recursive("/data/resource-cache");
 endif;
+
+ui_print("root@ArchiDroid:~# Executing Archi's Scripts");
+delete_recursive("/data/media/0/archidroid");
+package_extract_file("_archidroid/scripts/media2zero.sh", "/tmp/media2zero.sh");
+set_perm(0, 0, 0777, "/tmp/media2zero.sh");
+run_program("/tmp/media2zero.sh");
+
+sleep (1);
+
+package_extract_file("_archidroid/scripts/archidroidmode.sh", "/tmp/archidroidmode.sh");
+set_perm(0, 0, 0777, "/tmp/archidroidmode.sh");
+
+if file_getprop("/tmp/aroma-data/wipe.prop","selected.0") == "1" then
+	run_program("/tmp/archidroidmode.sh", "install");
+endif;
+if file_getprop("/tmp/aroma-data/wipe.prop","selected.0") == "2" then
+	run_program("/tmp/archidroidmode.sh", "update");
+endif;
+
+set_progress(0.09);
 
 set_progress(0.1);
 
@@ -185,23 +188,26 @@ symlink("busybox", "/system/xbin/[", "/system/xbin/[[",
         "/system/xbin/zcat");
 symlink("logcat", "/system/bin/lolcat");
 symlink("mksh", "/system/bin/sh");
-symlink("toolbox", "/system/bin/cat", "/system/bin/chmod",
-        "/system/bin/chown", "/system/bin/cmp", "/system/bin/cp",
-        "/system/bin/date", "/system/bin/dd", "/system/bin/df",
-        "/system/bin/dmesg", "/system/bin/du", "/system/bin/getevent",
-        "/system/bin/getprop", "/system/bin/grep", "/system/bin/hd",
+symlink("toolbox", "/system/bin/cat", "/system/bin/chcon",
+        "/system/bin/chmod", "/system/bin/chown", "/system/bin/cmp",
+        "/system/bin/cp", "/system/bin/date", "/system/bin/dd",
+        "/system/bin/df", "/system/bin/dmesg", "/system/bin/du",
+        "/system/bin/getenforce", "/system/bin/getevent", "/system/bin/getprop",
+        "/system/bin/getsebool", "/system/bin/grep", "/system/bin/hd",
         "/system/bin/id", "/system/bin/ifconfig", "/system/bin/iftop",
         "/system/bin/insmod", "/system/bin/ioctl", "/system/bin/ionice",
-        "/system/bin/kill", "/system/bin/ln", "/system/bin/log",
-        "/system/bin/ls", "/system/bin/lsmod", "/system/bin/lsof",
-        "/system/bin/md5", "/system/bin/mkdir", "/system/bin/mount",
-        "/system/bin/mv", "/system/bin/nandread", "/system/bin/netstat",
-        "/system/bin/newfs_msdos", "/system/bin/notify", "/system/bin/printenv",
-        "/system/bin/ps", "/system/bin/r", "/system/bin/reboot",
-        "/system/bin/renice", "/system/bin/restart", "/system/bin/rm",
-        "/system/bin/rmdir", "/system/bin/rmmod", "/system/bin/route",
+        "/system/bin/kill", "/system/bin/ln", "/system/bin/load_policy",
+        "/system/bin/log", "/system/bin/ls", "/system/bin/lsmod",
+        "/system/bin/lsof", "/system/bin/md5", "/system/bin/mkdir",
+        "/system/bin/mount", "/system/bin/mv", "/system/bin/nandread",
+        "/system/bin/netstat", "/system/bin/newfs_msdos", "/system/bin/notify",
+        "/system/bin/printenv", "/system/bin/ps", "/system/bin/r",
+        "/system/bin/reboot", "/system/bin/renice", "/system/bin/restart",
+        "/system/bin/restorecon", "/system/bin/rm", "/system/bin/rmdir",
+        "/system/bin/rmmod", "/system/bin/route", "/system/bin/runcon",
         "/system/bin/schedtop", "/system/bin/sendevent",
-        "/system/bin/setconsole", "/system/bin/setprop", "/system/bin/sleep",
+        "/system/bin/setconsole", "/system/bin/setenforce",
+        "/system/bin/setprop", "/system/bin/setsebool", "/system/bin/sleep",
         "/system/bin/smd", "/system/bin/start", "/system/bin/stop",
         "/system/bin/sync", "/system/bin/top", "/system/bin/touch",
         "/system/bin/umount", "/system/bin/uptime", "/system/bin/vmstat",
@@ -260,6 +266,7 @@ delete("/tmp/stock.img");
 ### TEMASEK ###
 if file_getprop("/tmp/aroma-data/kernels.prop","selected.0") == "1" then
 	ui_print("root@ArchiDroid:~# Flashing Temasek Kernel");
+	delete_recursive("/data/.temasek");
 	delete_recursive("/system/lib/modules");
 	package_extract_dir("_archidroid/temasek/system", "/system");
 	set_perm_recursive(0, 0, 0755, 0755, "/system/lib/modules/");
@@ -506,14 +513,23 @@ set_progress(0.7);
 ### MODEM ###
 #############
 
-ui_print("root@ArchiDroid:~# Flashing Modem");
 package_extract_file("_archidroid/modem/flash_image", "/tmp/flash_image");
 set_perm(0, 0, 0777, "/tmp/flash_image");
+
 if file_getprop("/tmp/aroma-data/modem.prop","selected.0") == "1" then
+	ui_print("root@ArchiDroid:~# Flashing XXEMB6 Modem");
 	assert(package_extract_file("_archidroid/modem/xxemb6.bin", "/tmp/modem.bin"),
 	run_program("/tmp/flash_image", "/dev/block/mmcblk0p7", "/tmp/modem.bin"),
 	delete("/tmp/modem.bin"));
 endif;
+
+if file_getprop("/tmp/aroma-data/modem.prop","selected.0") == "2" then
+	ui_print("root@ArchiDroid:~# Flashing XXEMG4 Modem");
+	assert(package_extract_file("_archidroid/modem/xxemg4.bin", "/tmp/modem.bin"),
+	run_program("/tmp/flash_image", "/dev/block/mmcblk0p7", "/tmp/modem.bin"),
+	delete("/tmp/modem.bin"));
+endif;
+
 delete("/tmp/flash_image");
 
 set_progress(0.75);

@@ -360,9 +360,17 @@ if file_getprop("/tmp/aroma-data/dpi.prop","selected.0") == "1" then
 	set_perm(0, 0, 0777, "/tmp/240dpi.sh");
 	run_program("/tmp/240dpi.sh");
 endif;
+
+### 241 ###
+if file_getprop("/tmp/aroma-data/dpi.prop","selected.0") == "2" then
+	ui_print("root@ArchiDroid:~# Applying 241 DPI Fixes");
+	package_extract_file("_archidroid/dpi/241dpi.sh", "/tmp/241dpi.sh");
+	set_perm(0, 0, 0777, "/tmp/241dpi.sh");
+	run_program("/tmp/241dpi.sh");
+endif;
 	
 ### 280 ###
-if file_getprop("/tmp/aroma-data/dpi.prop","selected.0") == "2" then
+if file_getprop("/tmp/aroma-data/dpi.prop","selected.0") == "3" then
 	ui_print("root@ArchiDroid:~# Applying 280 DPI Fixes");
 	package_extract_file("_archidroid/dpi/280dpi.sh", "/tmp/280dpi.sh");
 	set_perm(0, 0, 0777, "/tmp/280dpi.sh");
@@ -370,7 +378,7 @@ if file_getprop("/tmp/aroma-data/dpi.prop","selected.0") == "2" then
 endif;
 
 ### 320 ###
-if file_getprop("/tmp/aroma-data/dpi.prop","selected.0") == "3" then
+if file_getprop("/tmp/aroma-data/dpi.prop","selected.0") == "4" then
 	ui_print("root@ArchiDroid:~# Applying 320 DPI Fixes");
 	package_extract_file("_archidroid/dpi/320dpi.sh", "/tmp/320dpi.sh");
 	set_perm(0, 0, 0777, "/tmp/320dpi.sh");

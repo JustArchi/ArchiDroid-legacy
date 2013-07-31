@@ -451,10 +451,10 @@ writetmpfile(
   "selected.0=1\n"
 );
 
-# 240 DPI
+# 241 DPI
 writetmpfile(
   "dpi.prop",
-  "selected.0=1\n"
+  "selected.0=2\n"
 );
 
 # Nova
@@ -626,7 +626,7 @@ writetmpfile(
 # 280 DPI
 writetmpfile(
   "dpi.prop",
-  "selected.0=2\n"
+  "selected.0=3\n"
 );
 
 # Nova
@@ -855,7 +855,8 @@ selectbox(
   "icons/personalize",
   "dpi.prop",
 
-  "240 DPI","Everything will be smaller, it includes buttons, icons, texts etc. Suggested for best experience with ArchiDroid!",1,
+  "240 DPI","Everything will be smaller, it includes buttons, icons, texts etc.",0,
+  "241 DPI","Everything will be smaller, it includes buttons, icons, texts etc. Fixes some overlapping graphical objects at 240 dpi. Suggested for best experience with ArchiDroid!",1,
   "280 DPI","A nice balance between stock and 240 DPI mode",0,
   "320 DPI","Stock value",0
 );
@@ -1050,7 +1051,8 @@ selectbox(
   "icons/personalize",
   "dpi.prop",
 
-  "240 DPI","Wszystko będzie o wiele mniejsze niż standardowo. Wysoce zalecane",1,
+  "240 DPI","Wszystko będzie o wiele mniejsze niż standardowo. ",0,
+  "241 DPI","Jak wyżej lecz naprawia nakładanie się niektórych obiektów graficznych przy 240 DPI. Wysoce zalecane",1,
   "280 DPI","Dobry kompromis pomiędzy 320, a 240 DPI",0,
   "320 DPI","Wartość domyślna dla stocków i CyanogenMod",0
 );

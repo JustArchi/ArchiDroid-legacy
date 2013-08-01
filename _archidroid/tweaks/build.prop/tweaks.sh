@@ -1,7 +1,7 @@
 #!/sbin/sh
 
 echo "
-####################################
+############################
 ### ArchiDroid build.prop Tweaks ###
 
 # Feel free to experiment with these tweaks if you know what you're doing
@@ -48,5 +48,5 @@ wifi.supplicant_scan_interval=180
 
 
 ### ArchiDroid build.prop Tweaks ###
-####################################
+############################
 " >> /system/build.prop

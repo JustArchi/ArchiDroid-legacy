@@ -2,3 +2,4 @@ ArchiDroid 2.0.3
 - Improved ArchiDroid Update mode. Full Wipe recommended. Now ArchiDroid will overwrite apps with new versions instead of duplicating them (bug)
 - Removed Call Recording Xposed module, as it was not working
 - Rewrited build.prop tweaks for less battery drain and better stability. Please take look at /system/build.prop after flashing, you can find very interesting tweaks there.
+- Updated Nova to 2.2beta2 (it's a really nice update)

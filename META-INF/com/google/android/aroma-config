@@ -47,7 +47,7 @@ ini_set("rom_name",             "ArchiDroid");
 ini_set("rom_version",          "2.0.3");
 ini_set("rom_author",           "JustArchi");
 ini_set("rom_device",           "Samsung Galaxy S3");
-ini_set("rom_date",             "August XXth, 2013");
+ini_set("rom_date",             "August 5th, 2013");
 
 ##
 # Show Simple Splash
@@ -855,8 +855,8 @@ selectbox(
   "icons/personalize",
   "dpi.prop",
 
-  "240 DPI","Everything will be smaller, it includes buttons, icons, texts etc.",0,
-  "241 DPI","Everything will be smaller, it includes buttons, icons, texts etc. Fixes some overlapping graphical objects at 240 dpi. Suggested for best experience with ArchiDroid!",1,
+  "240 DPI","WARNING! Keep in mind some minor graphic glitches on this DPI",0,
+  "241 DPI","Everything will be smaller, it includes buttons, icons, texts etc. Suggested for best experience with ArchiDroid!",1,
   "280 DPI","A nice balance between stock and 240 DPI mode",0,
   "320 DPI","Stock value",0
 );
@@ -1051,8 +1051,8 @@ selectbox(
   "icons/personalize",
   "dpi.prop",
 
-  "240 DPI","Wszystko będzie o wiele mniejsze niż standardowo. ",0,
-  "241 DPI","Jak wyżej lecz naprawia nakładanie się niektórych obiektów graficznych przy 240 DPI. Wysoce zalecane",1,
+  "240 DPI","UWAGA! Możliwe niewielkie bugi graficzne",0,
+  "241 DPI","Wszystko będzie o wiele mniejsze niż standardowo. Wysoce zalecane",1,
   "280 DPI","Dobry kompromis pomiędzy 320, a 240 DPI",0,
   "320 DPI","Wartość domyślna dla stocków i CyanogenMod",0
 );

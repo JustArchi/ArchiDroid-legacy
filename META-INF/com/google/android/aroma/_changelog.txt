@@ -1,19 +1,2 @@
-ArchiDroid 2.0.3
-FULL WIPE REQUIRED
-
-- [!] Improved ArchiDroid Update mode. FULL WIPE REQUIRED. Now ArchiDroid will overwrite apps with new versions instead of duplicating them (bug)
-- [!] Added requested 241 DPI, it's now default DPI for ArchiDroid preset and custom installation. Thanks to @mrtur
-# This is due to some minor graphic glitches on all DPIs <= 240. DPI 240 is still available, with a little warning.
-
-- Updated and rewrited Archi's presets for temasek kernel. I got rid of useless files and made it more universal. Also I disabled backlight of hardware keys on screen touch (new temasek's kernel feature). Stock sammy's feature
-- Removed Call Recording Xposed module, as it was not working
-- Rewrited build.prop tweaks for less battery drain and better stability. Please take look at /system/build.prop after flashing, you can find very interesting tweaks there
-- Updated Temasek Kernel to 010813 with GPU STweaks support (my own commits). Feel free to experiment with that
-- Updayed Yank Kernel to 1.6e-beta7 and Archi's preset for Yank Kernel
-- Updated Nova to 2.2beta4 (it's a really nice update)
-- Updated Spirit FM to 0805 version
-- Updated Google Play Store to 4.2.9 (Multi DPI Patched, Inverted)
-- Updated Boeffla Sound Control to 1.7.1
-- Updated Titanium Backup to 6.1.0
-- Updated MXPlayer to 1.7.16
-- Updated LMT to 1.912
+ArchiDroid 2.1
+- Fixed a bug introduced in 2.0.3 which caused reset of stweaks preset after reboot

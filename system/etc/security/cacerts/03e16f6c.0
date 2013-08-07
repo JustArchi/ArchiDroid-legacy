@@ -27,7 +27,7 @@ Certificate:
         Version: 3 (0x2)
         Serial Number:
             c1:00:8b:3c:3c:88:11:d1:3e:f6:63:ec:df:40
-        Signature Algorithm: md5WithRSAEncryption
+    Signature Algorithm: md5WithRSAEncryption
         Issuer: OU=Copyright (c) 1997 Microsoft Corp., OU=Microsoft Corporation, CN=Microsoft Root Authority
         Validity
             Not Before: Jan 10 07:00:00 1997 GMT
@@ -35,8 +35,8 @@ Certificate:
         Subject: OU=Copyright (c) 1997 Microsoft Corp., OU=Microsoft Corporation, CN=Microsoft Root Authority
         Subject Public Key Info:
             Public Key Algorithm: rsaEncryption
-            RSA Public Key: (2048 bit)
-                Modulus (2048 bit):
+                Public-Key: (2048 bit)
+                Modulus:
                     00:a9:02:bd:c1:70:e6:3b:f2:4e:1b:28:9f:97:78:
                     5e:30:ea:a2:a9:8d:25:5f:f8:fe:95:4c:a3:b7:fe:
                     9d:a2:20:3e:7c:51:a2:9b:a2:8f:60:32:6b:d1:42:
@@ -60,19 +60,19 @@ Certificate:
             2.5.29.1: 
                 0....[.p.ir.#Q~..M....r0p1+0)..U..."Copyright (c) 1997 Microsoft Corp.1.0...U....Microsoft Corporation1!0...U....Microsoft Root Authority......<<...>.c..@
     Signature Algorithm: md5WithRSAEncryption
-        95:e8:0b:c0:8d:f3:97:18:35:ed:b8:01:24:d8:77:11:f3:5c:
-        60:32:9f:9e:0b:cb:3e:05:91:88:8f:c9:3a:e6:21:f2:f0:57:
-        93:2c:b5:a0:47:c8:62:ef:fc:d7:cc:3b:3b:5a:a9:36:54:69:
-        fe:24:6d:3f:c9:cc:aa:de:05:7c:dd:31:8d:3d:9f:10:70:6a:
-        bb:fe:12:4f:18:69:c0:fc:d0:43:e3:11:5a:20:4f:ea:62:7b:
-        af:aa:19:c8:2b:37:25:2d:be:65:a1:12:8a:25:0f:63:a3:f7:
-        54:1c:f9:21:c9:d6:15:f3:52:ac:6e:43:32:07:fd:82:17:f8:
-        e5:67:6c:0d:51:f6:bd:f1:52:c7:bd:e7:c4:30:fc:20:31:09:
-        88:1d:95:29:1a:4d:d5:1d:02:a5:f1:80:e0:03:b4:5b:f4:b1:
-        dd:c8:57:ee:65:49:c7:52:54:b6:b4:03:28:12:ff:90:d6:f0:
-        08:8f:7e:b8:97:c5:ab:37:2c:e4:7a:e4:a8:77:e3:76:a0:00:
-        d0:6a:3f:c1:d2:36:8a:e0:41:12:a8:35:6a:1b:6a:db:35:e1:
-        d4:1c:04:e4:a8:45:04:c8:5a:33:38:6e:4d:1c:0d:62:b7:0a:
-        a2:8c:d3:d5:54:3f:46:cd:1c:55:a6:70:db:12:3a:87:93:75:
-        9f:a7:d2:a0
+         95:e8:0b:c0:8d:f3:97:18:35:ed:b8:01:24:d8:77:11:f3:5c:
+         60:32:9f:9e:0b:cb:3e:05:91:88:8f:c9:3a:e6:21:f2:f0:57:
+         93:2c:b5:a0:47:c8:62:ef:fc:d7:cc:3b:3b:5a:a9:36:54:69:
+         fe:24:6d:3f:c9:cc:aa:de:05:7c:dd:31:8d:3d:9f:10:70:6a:
+         bb:fe:12:4f:18:69:c0:fc:d0:43:e3:11:5a:20:4f:ea:62:7b:
+         af:aa:19:c8:2b:37:25:2d:be:65:a1:12:8a:25:0f:63:a3:f7:
+         54:1c:f9:21:c9:d6:15:f3:52:ac:6e:43:32:07:fd:82:17:f8:
+         e5:67:6c:0d:51:f6:bd:f1:52:c7:bd:e7:c4:30:fc:20:31:09:
+         88:1d:95:29:1a:4d:d5:1d:02:a5:f1:80:e0:03:b4:5b:f4:b1:
+         dd:c8:57:ee:65:49:c7:52:54:b6:b4:03:28:12:ff:90:d6:f0:
+         08:8f:7e:b8:97:c5:ab:37:2c:e4:7a:e4:a8:77:e3:76:a0:00:
+         d0:6a:3f:c1:d2:36:8a:e0:41:12:a8:35:6a:1b:6a:db:35:e1:
+         d4:1c:04:e4:a8:45:04:c8:5a:33:38:6e:4d:1c:0d:62:b7:0a:
+         a2:8c:d3:d5:54:3f:46:cd:1c:55:a6:70:db:12:3a:87:93:75:
+         9f:a7:d2:a0
 SHA1 Fingerprint=A4:34:89:15:9A:52:0F:0D:93:D0:32:CC:AF:37:E7:FE:20:A8:B4:19

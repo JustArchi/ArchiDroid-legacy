@@ -22,7 +22,7 @@ Certificate:
     Data:
         Version: 3 (0x2)
         Serial Number: 2 (0x2)
-        Signature Algorithm: sha1WithRSAEncryption
+    Signature Algorithm: sha1WithRSAEncryption
         Issuer: C=NO, O=Buypass AS-983163327, CN=Buypass Class 3 CA 1
         Validity
             Not Before: May  9 14:13:03 2005 GMT
@@ -30,8 +30,8 @@ Certificate:
         Subject: C=NO, O=Buypass AS-983163327, CN=Buypass Class 3 CA 1
         Subject Public Key Info:
             Public Key Algorithm: rsaEncryption
-            RSA Public Key: (2048 bit)
-                Modulus (2048 bit):
+                Public-Key: (2048 bit)
+                Modulus:
                     00:a4:8e:d7:74:d9:29:64:de:5f:1f:87:80:91:ea:
                     4e:39:e6:19:c6:44:0b:80:d5:0b:af:53:07:8b:12:
                     bd:e6:67:f0:02:b1:89:f6:60:8a:c4:5b:b0:42:d1:
@@ -59,19 +59,19 @@ Certificate:
             X509v3 Key Usage: critical
                 Certificate Sign, CRL Sign
     Signature Algorithm: sha1WithRSAEncryption
-        01:67:a3:8c:c9:25:3d:13:63:5d:16:6f:ec:a1:3e:09:5c:91:
-        15:2a:2a:d9:80:21:4f:05:dc:bb:a5:89:ab:13:33:2a:9e:38:
-        b7:8c:6f:02:72:63:c7:73:77:1e:09:06:ba:3b:28:7b:a4:47:
-        c9:61:6b:08:08:20:fc:8a:05:8a:1f:bc:ba:c6:c2:fe:cf:6e:
-        ec:13:33:71:67:2e:69:fa:a9:2c:3f:66:c0:12:59:4d:0b:54:
-        02:92:84:bb:db:12:ef:83:70:70:78:c8:53:fa:df:c6:c6:ff:
-        dc:88:2f:07:c0:49:9d:32:57:60:d3:f2:f6:99:29:5f:e7:aa:
-        01:cc:ac:33:a8:1c:0a:bb:91:c4:03:a0:6f:b6:34:f9:86:d3:
-        b3:76:54:98:f4:4a:81:b3:53:9d:4d:40:ec:e5:77:13:45:af:
-        5b:aa:1f:d8:2f:4c:82:7b:fe:2a:c4:58:bb:4f:fc:9e:fd:03:
-        65:1a:2a:0e:c3:a5:20:16:94:6b:79:a6:a2:12:b4:bb:1a:a4:
-        23:7a:5f:f0:ae:84:24:e4:f3:2b:fb:8a:24:a3:27:98:65:da:
-        30:75:76:fc:19:91:e8:db:eb:9b:3f:32:bf:40:97:07:26:ba:
-        cc:f3:94:85:4a:7a:27:93:cf:90:42:d4:b8:5b:16:a6:e7:cb:
-        40:03:dd:79
+         01:67:a3:8c:c9:25:3d:13:63:5d:16:6f:ec:a1:3e:09:5c:91:
+         15:2a:2a:d9:80:21:4f:05:dc:bb:a5:89:ab:13:33:2a:9e:38:
+         b7:8c:6f:02:72:63:c7:73:77:1e:09:06:ba:3b:28:7b:a4:47:
+         c9:61:6b:08:08:20:fc:8a:05:8a:1f:bc:ba:c6:c2:fe:cf:6e:
+         ec:13:33:71:67:2e:69:fa:a9:2c:3f:66:c0:12:59:4d:0b:54:
+         02:92:84:bb:db:12:ef:83:70:70:78:c8:53:fa:df:c6:c6:ff:
+         dc:88:2f:07:c0:49:9d:32:57:60:d3:f2:f6:99:29:5f:e7:aa:
+         01:cc:ac:33:a8:1c:0a:bb:91:c4:03:a0:6f:b6:34:f9:86:d3:
+         b3:76:54:98:f4:4a:81:b3:53:9d:4d:40:ec:e5:77:13:45:af:
+         5b:aa:1f:d8:2f:4c:82:7b:fe:2a:c4:58:bb:4f:fc:9e:fd:03:
+         65:1a:2a:0e:c3:a5:20:16:94:6b:79:a6:a2:12:b4:bb:1a:a4:
+         23:7a:5f:f0:ae:84:24:e4:f3:2b:fb:8a:24:a3:27:98:65:da:
+         30:75:76:fc:19:91:e8:db:eb:9b:3f:32:bf:40:97:07:26:ba:
+         cc:f3:94:85:4a:7a:27:93:cf:90:42:d4:b8:5b:16:a6:e7:cb:
+         40:03:dd:79
 SHA1 Fingerprint=61:57:3A:11:DF:0E:D8:7E:D5:92:65:22:EA:D0:56:D7:44:B3:23:71

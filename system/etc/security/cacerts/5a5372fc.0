@@ -33,7 +33,7 @@ Certificate:
     Data:
         Version: 3 (0x2)
         Serial Number: 105 (0x69)
-        Signature Algorithm: md5WithRSAEncryption
+    Signature Algorithm: md5WithRSAEncryption
         Issuer: C=HU, L=Budapest, O=NetLock Halozatbiztonsagi Kft., OU=Tanusitvanykiadok, CN=NetLock Uzleti (Class B) Tanusitvanykiado
         Validity
             Not Before: Feb 25 14:10:22 1999 GMT
@@ -41,8 +41,8 @@ Certificate:
         Subject: C=HU, L=Budapest, O=NetLock Halozatbiztonsagi Kft., OU=Tanusitvanykiadok, CN=NetLock Uzleti (Class B) Tanusitvanykiado
         Subject Public Key Info:
             Public Key Algorithm: rsaEncryption
-            RSA Public Key: (1024 bit)
-                Modulus (1024 bit):
+                Public-Key: (1024 bit)
+                Modulus:
                     00:b1:ea:04:ec:20:a0:23:c2:8f:38:60:cf:c7:46:
                     b3:d5:1b:fe:fb:b9:99:9e:04:dc:1c:7f:8c:4a:81:
                     98:ee:a4:d4:ca:8a:17:b9:22:7f:83:0a:75:4c:9b:
@@ -63,12 +63,12 @@ Certificate:
             Netscape Comment: 
                 FIGYELEM! Ezen tanusitvany a NetLock Kft. Altalanos Szolgaltatasi Felteteleiben leirt eljarasok alapjan keszult. A hitelesites folyamatat a NetLock Kft. termekfelelosseg-biztositasa vedi. A digitalis alairas elfogadasanak feltetele az eloirt ellenorzesi eljaras megtetele. Az eljaras leirasa megtalalhato a NetLock Kft. Internet honlapjan a https://www.netlock.net/docs cimen vagy kerheto az ellenorzes@netlock.net e-mail cimen. IMPORTANT! The issuance and the use of this certificate is subject to the NetLock CPS available at https://www.netlock.net/docs or by e-mail at cps@netlock.net.
     Signature Algorithm: md5WithRSAEncryption
-        04:db:ae:8c:17:af:f8:0e:90:31:4e:cd:3e:09:c0:6d:3a:b0:
-        f8:33:4c:47:4c:e3:75:88:10:97:ac:b0:38:15:91:c6:29:96:
-        cc:21:c0:6d:3c:a5:74:cf:d8:82:a5:39:c3:65:e3:42:70:bb:
-        22:90:e3:7d:db:35:76:e1:a0:b5:da:9f:70:6e:93:1a:30:39:
-        1d:30:db:2e:e3:7c:b2:91:b2:d1:37:29:fa:b9:d6:17:5c:47:
-        4f:e3:1d:38:eb:9f:d5:7b:95:a8:28:9e:15:4a:d1:d1:d0:2b:
-        00:97:a0:e2:92:36:2b:63:ac:58:01:6b:33:29:50:86:83:f1:
-        01:48
+         04:db:ae:8c:17:af:f8:0e:90:31:4e:cd:3e:09:c0:6d:3a:b0:
+         f8:33:4c:47:4c:e3:75:88:10:97:ac:b0:38:15:91:c6:29:96:
+         cc:21:c0:6d:3c:a5:74:cf:d8:82:a5:39:c3:65:e3:42:70:bb:
+         22:90:e3:7d:db:35:76:e1:a0:b5:da:9f:70:6e:93:1a:30:39:
+         1d:30:db:2e:e3:7c:b2:91:b2:d1:37:29:fa:b9:d6:17:5c:47:
+         4f:e3:1d:38:eb:9f:d5:7b:95:a8:28:9e:15:4a:d1:d1:d0:2b:
+         00:97:a0:e2:92:36:2b:63:ac:58:01:6b:33:29:50:86:83:f1:
+         01:48
 SHA1 Fingerprint=87:9F:4B:EE:05:DF:98:58:3B:E3:60:D6:33:E7:0D:3F:FE:98:71:AF

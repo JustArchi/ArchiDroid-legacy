@@ -27,7 +27,7 @@ Certificate:
         Version: 3 (0x2)
         Serial Number:
             0d:5e:99:0a:d6:9d:b7:78:ec:d8:07:56:3b:86:15:d9
-        Signature Algorithm: sha1WithRSAEncryption
+    Signature Algorithm: sha1WithRSAEncryption
         Issuer: C=US, O=Digital Signature Trust, OU=DST ACES, CN=DST ACES CA X6
         Validity
             Not Before: Nov 20 21:19:58 2003 GMT
@@ -35,8 +35,8 @@ Certificate:
         Subject: C=US, O=Digital Signature Trust, OU=DST ACES, CN=DST ACES CA X6
         Subject Public Key Info:
             Public Key Algorithm: rsaEncryption
-            RSA Public Key: (2048 bit)
-                Modulus (2048 bit):
+                Public-Key: (2048 bit)
+                Modulus:
                     00:b9:3d:f5:2c:c9:94:dc:75:8a:95:5d:63:e8:84:
                     77:76:66:b9:59:91:5c:46:dd:92:3e:9f:f9:0e:03:
                     b4:3d:61:92:bd:23:26:b5:63:ee:92:d2:9e:d6:3c:
@@ -70,19 +70,19 @@ Certificate:
             X509v3 Subject Key Identifier: 
                 09:72:06:4E:18:43:0F:E5:D6:CC:C3:6A:8B:31:7B:78:8F:A8:83:B8
     Signature Algorithm: sha1WithRSAEncryption
-        a3:d8:8e:d6:b2:db:ce:05:e7:32:cd:01:d3:04:03:e5:76:e4:
-        56:2b:9c:99:90:e8:08:30:6c:df:7d:3d:ee:e5:bf:b5:24:40:
-        84:49:e1:d1:28:ae:c4:c2:3a:53:30:88:f1:f5:77:6e:51:ca:
-        fa:ff:99:af:24:5f:1b:a0:fd:f2:ac:84:ca:df:a9:f0:5f:04:
-        2e:ad:16:bf:21:97:10:81:3d:e3:ff:87:8d:32:dc:94:e5:47:
-        8a:5e:6a:13:c9:94:95:3d:d2:ee:c8:34:95:d0:80:d4:ad:32:
-        08:80:54:3c:e0:bd:52:53:d7:52:7c:b2:69:3f:7f:7a:cf:6a:
-        74:ca:fa:04:2a:9c:4c:5a:06:a5:e9:20:ad:45:66:0f:69:f1:
-        dd:bf:e9:e3:32:8b:fa:e0:c1:86:4d:72:3c:2e:d8:93:78:0a:
-        2a:f8:d8:d2:27:3d:19:89:5f:5a:7b:8a:3b:cc:0c:da:51:ae:
-        c7:0b:f7:2b:b0:37:05:ec:bc:57:23:e2:38:d2:9b:68:f3:56:
-        12:88:4f:42:7c:b8:31:c4:b5:db:e4:c8:21:34:e9:48:11:35:
-        ee:fa:c7:92:57:c5:9f:34:e4:c7:f6:f7:0e:0b:4c:9c:68:78:
-        7b:71:31:c7:eb:1e:e0:67:41:f3:b7:a0:a7:cd:e5:7a:33:36:
-        6a:fa:9a:2b
+         a3:d8:8e:d6:b2:db:ce:05:e7:32:cd:01:d3:04:03:e5:76:e4:
+         56:2b:9c:99:90:e8:08:30:6c:df:7d:3d:ee:e5:bf:b5:24:40:
+         84:49:e1:d1:28:ae:c4:c2:3a:53:30:88:f1:f5:77:6e:51:ca:
+         fa:ff:99:af:24:5f:1b:a0:fd:f2:ac:84:ca:df:a9:f0:5f:04:
+         2e:ad:16:bf:21:97:10:81:3d:e3:ff:87:8d:32:dc:94:e5:47:
+         8a:5e:6a:13:c9:94:95:3d:d2:ee:c8:34:95:d0:80:d4:ad:32:
+         08:80:54:3c:e0:bd:52:53:d7:52:7c:b2:69:3f:7f:7a:cf:6a:
+         74:ca:fa:04:2a:9c:4c:5a:06:a5:e9:20:ad:45:66:0f:69:f1:
+         dd:bf:e9:e3:32:8b:fa:e0:c1:86:4d:72:3c:2e:d8:93:78:0a:
+         2a:f8:d8:d2:27:3d:19:89:5f:5a:7b:8a:3b:cc:0c:da:51:ae:
+         c7:0b:f7:2b:b0:37:05:ec:bc:57:23:e2:38:d2:9b:68:f3:56:
+         12:88:4f:42:7c:b8:31:c4:b5:db:e4:c8:21:34:e9:48:11:35:
+         ee:fa:c7:92:57:c5:9f:34:e4:c7:f6:f7:0e:0b:4c:9c:68:78:
+         7b:71:31:c7:eb:1e:e0:67:41:f3:b7:a0:a7:cd:e5:7a:33:36:
+         6a:fa:9a:2b
 SHA1 Fingerprint=40:54:DA:6F:1C:3F:40:74:AC:ED:0F:EC:CD:DB:79:D1:53:FB:90:1D

@@ -25,7 +25,7 @@ Certificate:
         Version: 3 (0x2)
         Serial Number:
             c7:28:47:09:b3:b8:6c:45:8c:1d:fa:24:f5:36:4e:e9
-        Signature Algorithm: sha1WithRSAEncryption
+    Signature Algorithm: sha1WithRSAEncryption
         Issuer: CN=ComSign Secured CA, O=ComSign, C=IL
         Validity
             Not Before: Mar 24 11:37:20 2004 GMT
@@ -33,8 +33,8 @@ Certificate:
         Subject: CN=ComSign Secured CA, O=ComSign, C=IL
         Subject Public Key Info:
             Public Key Algorithm: rsaEncryption
-            RSA Public Key: (2048 bit)
-                Modulus (2048 bit):
+                Public-Key: (2048 bit)
+                Modulus:
                     00:c6:b5:68:5f:1d:94:15:c3:a4:08:55:2d:e3:a0:
                     57:7a:ef:e9:74:2a:bb:b9:7c:57:49:1a:11:5e:4f:
                     29:87:0c:48:d6:6a:e7:8f:d4:7e:57:24:b9:06:89:
@@ -58,7 +58,9 @@ Certificate:
             X509v3 Basic Constraints: 
                 CA:TRUE
             X509v3 CRL Distribution Points: 
-                URI:http://fedir.comsign.co.il/crl/ComSignSecuredCA.crl
+
+                Full Name:
+                  URI:http://fedir.comsign.co.il/crl/ComSignSecuredCA.crl
 
             X509v3 Key Usage: critical
                 Digital Signature, Certificate Sign, CRL Sign
@@ -68,19 +70,19 @@ Certificate:
             X509v3 Subject Key Identifier: 
                 C1:4B:ED:70:B6:F7:3E:7C:00:3B:00:8F:C7:3E:0E:45:9F:1E:5D:EC
     Signature Algorithm: sha1WithRSAEncryption
-        16:cf:ee:92:13:50:ab:7b:14:9e:33:b6:42:20:6a:d4:15:bd:
-        09:ab:fc:72:e8:ef:47:7a:90:ac:51:c1:64:4e:e9:88:bd:43:
-        45:81:e3:66:23:3f:12:86:4d:19:e4:05:b0:e6:37:c2:8d:da:
-        06:28:c9:0f:89:a4:53:a9:75:3f:b0:96:fb:ab:4c:33:55:f9:
-        78:26:46:6f:1b:36:98:fb:42:76:c1:82:b9:8e:de:fb:45:f9:
-        63:1b:62:3b:39:06:ca:77:7a:a8:3c:09:cf:6c:36:3d:0f:0a:
-        45:4b:69:16:1a:45:7d:33:03:65:f9:52:71:90:26:95:ac:4c:
-        0c:f5:8b:93:3f:cc:75:74:85:98:ba:ff:62:7a:4d:1f:89:fe:
-        ae:bd:94:00:99:bf:11:a5:dc:e0:79:c5:16:0b:7d:02:61:1d:
-        ea:85:f9:02:15:4f:e7:5a:89:4e:14:6f:e3:37:4b:85:f5:c1:
-        3c:61:e0:fd:05:41:b2:92:7f:c3:1d:a0:d0:ae:52:64:60:6b:
-        18:c6:26:9c:d8:f5:64:e4:36:1a:62:9f:8a:0f:3e:ff:6d:4e:
-        19:56:4e:20:91:6c:9f:34:33:3a:34:57:50:3a:6f:81:5e:06:
-        c6:f5:3e:7c:4e:8e:2b:ce:65:06:2e:5d:d2:2a:53:74:5e:d3:
-        6e:27:9e:8f
+         16:cf:ee:92:13:50:ab:7b:14:9e:33:b6:42:20:6a:d4:15:bd:
+         09:ab:fc:72:e8:ef:47:7a:90:ac:51:c1:64:4e:e9:88:bd:43:
+         45:81:e3:66:23:3f:12:86:4d:19:e4:05:b0:e6:37:c2:8d:da:
+         06:28:c9:0f:89:a4:53:a9:75:3f:b0:96:fb:ab:4c:33:55:f9:
+         78:26:46:6f:1b:36:98:fb:42:76:c1:82:b9:8e:de:fb:45:f9:
+         63:1b:62:3b:39:06:ca:77:7a:a8:3c:09:cf:6c:36:3d:0f:0a:
+         45:4b:69:16:1a:45:7d:33:03:65:f9:52:71:90:26:95:ac:4c:
+         0c:f5:8b:93:3f:cc:75:74:85:98:ba:ff:62:7a:4d:1f:89:fe:
+         ae:bd:94:00:99:bf:11:a5:dc:e0:79:c5:16:0b:7d:02:61:1d:
+         ea:85:f9:02:15:4f:e7:5a:89:4e:14:6f:e3:37:4b:85:f5:c1:
+         3c:61:e0:fd:05:41:b2:92:7f:c3:1d:a0:d0:ae:52:64:60:6b:
+         18:c6:26:9c:d8:f5:64:e4:36:1a:62:9f:8a:0f:3e:ff:6d:4e:
+         19:56:4e:20:91:6c:9f:34:33:3a:34:57:50:3a:6f:81:5e:06:
+         c6:f5:3e:7c:4e:8e:2b:ce:65:06:2e:5d:d2:2a:53:74:5e:d3:
+         6e:27:9e:8f
 SHA1 Fingerprint=F9:CD:0E:2C:DA:76:24:C1:8F:BD:F0:F0:AB:B6:45:B8:F7:FE:D5:7A

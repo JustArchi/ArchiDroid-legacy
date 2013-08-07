@@ -23,7 +23,7 @@ Certificate:
     Data:
         Version: 3 (0x2)
         Serial Number: 0 (0x0)
-        Signature Algorithm: sha1WithRSAEncryption
+    Signature Algorithm: sha1WithRSAEncryption
         Issuer: C=JP, O=SECOM Trust Systems CO.,LTD., OU=Security Communication EV RootCA1
         Validity
             Not Before: Jun  6 02:12:32 2007 GMT
@@ -31,8 +31,8 @@ Certificate:
         Subject: C=JP, O=SECOM Trust Systems CO.,LTD., OU=Security Communication EV RootCA1
         Subject Public Key Info:
             Public Key Algorithm: rsaEncryption
-            RSA Public Key: (2048 bit)
-                Modulus (2048 bit):
+                Public-Key: (2048 bit)
+                Modulus:
                     00:bc:7f:ec:57:9b:24:e0:fe:9c:ba:42:79:a9:88:
                     8a:fa:80:e0:f5:07:29:43:ea:8e:0a:34:36:8d:1c:
                     fa:a7:b5:39:78:ff:97:75:f7:2f:e4:aa:6b:04:84:
@@ -60,19 +60,19 @@ Certificate:
             X509v3 Basic Constraints: critical
                 CA:TRUE
     Signature Algorithm: sha1WithRSAEncryption
-        a8:87:e9:ec:f8:40:67:5d:c3:c1:66:c7:40:4b:97:fc:87:13:
-        90:5a:c4:ef:a0:ca:5f:8b:b7:a7:b7:f1:d6:b5:64:b7:8a:b3:
-        b8:1b:cc:da:fb:ac:66:88:41:ce:e8:fc:e4:db:1e:88:a6:ed:
-        27:50:1b:02:30:24:46:79:fe:04:87:70:97:40:73:d1:c0:c1:
-        57:19:9a:69:a5:27:99:ab:9d:62:84:f6:51:c1:2c:c9:23:15:
-        d8:28:b7:ab:25:13:b5:46:e1:86:02:ff:26:8c:c4:88:92:1d:
-        56:fe:19:67:f2:55:e4:80:a3:6b:9c:ab:77:e1:51:71:0d:20:
-        db:10:9a:db:bd:76:79:07:77:99:28:ad:9a:5e:da:b1:4f:44:
-        2c:35:8e:a5:96:c7:fd:83:f0:58:c6:79:d6:98:7c:a8:8d:fe:
-        86:3e:07:16:92:e1:7b:e7:1d:ec:33:76:7e:42:2e:4a:85:f9:
-        91:89:68:84:03:81:a5:9b:9a:be:e3:37:c5:54:ab:56:3b:18:
-        2d:41:a4:0c:f8:42:db:99:a0:e0:72:6f:bb:5d:e1:16:4f:53:
-        0a:64:f9:4e:f4:bf:4e:54:bd:78:6c:88:ea:bf:9c:13:24:c2:
-        70:69:a2:7f:0f:c8:3c:ad:08:c9:b0:98:40:a3:2a:e7:88:83:
-        ed:77:8f:74
+         a8:87:e9:ec:f8:40:67:5d:c3:c1:66:c7:40:4b:97:fc:87:13:
+         90:5a:c4:ef:a0:ca:5f:8b:b7:a7:b7:f1:d6:b5:64:b7:8a:b3:
+         b8:1b:cc:da:fb:ac:66:88:41:ce:e8:fc:e4:db:1e:88:a6:ed:
+         27:50:1b:02:30:24:46:79:fe:04:87:70:97:40:73:d1:c0:c1:
+         57:19:9a:69:a5:27:99:ab:9d:62:84:f6:51:c1:2c:c9:23:15:
+         d8:28:b7:ab:25:13:b5:46:e1:86:02:ff:26:8c:c4:88:92:1d:
+         56:fe:19:67:f2:55:e4:80:a3:6b:9c:ab:77:e1:51:71:0d:20:
+         db:10:9a:db:bd:76:79:07:77:99:28:ad:9a:5e:da:b1:4f:44:
+         2c:35:8e:a5:96:c7:fd:83:f0:58:c6:79:d6:98:7c:a8:8d:fe:
+         86:3e:07:16:92:e1:7b:e7:1d:ec:33:76:7e:42:2e:4a:85:f9:
+         91:89:68:84:03:81:a5:9b:9a:be:e3:37:c5:54:ab:56:3b:18:
+         2d:41:a4:0c:f8:42:db:99:a0:e0:72:6f:bb:5d:e1:16:4f:53:
+         0a:64:f9:4e:f4:bf:4e:54:bd:78:6c:88:ea:bf:9c:13:24:c2:
+         70:69:a2:7f:0f:c8:3c:ad:08:c9:b0:98:40:a3:2a:e7:88:83:
+         ed:77:8f:74
 SHA1 Fingerprint=FE:B8:C4:32:DC:F9:76:9A:CE:AE:3D:D8:90:8F:FD:28:86:65:64:7D

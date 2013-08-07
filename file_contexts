@@ -45,6 +45,7 @@
 /dev/console		u:object_r:console_device:s0
 /dev/cpuctl(/.*)?	u:object_r:cpuctl_device:s0
 /dev/device-mapper	u:object_r:dm_device:s0
+/dev/eac		u:object_r:audio_device:s0
 /dev/full		u:object_r:full_device:s0
 /dev/fuse		u:object_r:fuse_device:s0
 /dev/graphics(/.*)?	u:object_r:graphics_device:s0
@@ -106,6 +107,7 @@
 /dev/watchdog		u:object_r:watchdog_device:s0
 /dev/xt_qtaguid	u:object_r:qtaguid_device:s0
 /dev/zero		u:object_r:zero_device:s0
+/dev/__properties__ u:object_r:properties_device:s0
 #############################
 # System files
 #
@@ -142,6 +144,7 @@
 /system/etc/dhcpcd(/.*)? u:object_r:dhcp_system_file:s0
 /system/xbin/su		u:object_r:su_exec:s0
 /system/vendor/bin/gpsd u:object_r:gpsd_exec:s0
+/system/bin/ping    u:object_r:ping_exec:s0
 #############################
 # Data files
 #

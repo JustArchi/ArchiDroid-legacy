@@ -46,7 +46,7 @@ Certificate:
     Data:
         Version: 3 (0x2)
         Serial Number: 1 (0x1)
-        Signature Algorithm: sha1WithRSAEncryption
+    Signature Algorithm: sha1WithRSAEncryption
         Issuer: C=IL, O=StartCom Ltd., OU=Secure Digital Certificate Signing, CN=StartCom Certification Authority
         Validity
             Not Before: Sep 17 19:46:36 2006 GMT
@@ -54,8 +54,8 @@ Certificate:
         Subject: C=IL, O=StartCom Ltd., OU=Secure Digital Certificate Signing, CN=StartCom Certification Authority
         Subject Public Key Info:
             Public Key Algorithm: rsaEncryption
-            RSA Public Key: (4096 bit)
-                Modulus (4096 bit):
+                Public-Key: (4096 bit)
+                Modulus:
                     00:c1:88:db:09:bc:6c:46:7c:78:9f:95:7b:b5:33:
                     90:f2:72:62:d6:c1:36:20:22:24:5e:ce:e9:77:f2:
                     43:0a:a2:06:64:a4:cc:8e:36:f8:38:e6:23:f0:6e:
@@ -100,8 +100,12 @@ Certificate:
             X509v3 Subject Key Identifier: 
                 4E:0B:EF:1A:A4:40:5B:A5:17:69:87:30:CA:34:68:43:D0:41:AE:F2
             X509v3 CRL Distribution Points: 
-                URI:http://cert.startcom.org/sfsca-crl.crl
-                URI:http://crl.startcom.org/sfsca-crl.crl
+
+                Full Name:
+                  URI:http://cert.startcom.org/sfsca-crl.crl
+
+                Full Name:
+                  URI:http://crl.startcom.org/sfsca-crl.crl
 
             X509v3 Certificate Policies: 
                 Policy: 1.3.6.1.4.1.23223.1.1.1
@@ -117,33 +121,33 @@ Certificate:
             Netscape Comment: 
                 StartCom Free SSL Certification Authority
     Signature Algorithm: sha1WithRSAEncryption
-        16:6c:99:f4:66:0c:34:f5:d0:85:5e:7d:0a:ec:da:10:4e:38:
-        1c:5e:df:a6:25:05:4b:91:32:c1:e8:3b:f1:3d:dd:44:09:5b:
-        07:49:8a:29:cb:66:02:b7:b1:9a:f7:25:98:09:3c:8e:1b:e1:
-        dd:36:87:2b:4b:bb:68:d3:39:66:3d:a0:26:c7:f2:39:91:1d:
-        51:ab:82:7b:7e:d5:ce:5a:e4:e2:03:57:70:69:97:08:f9:5e:
-        58:a6:0a:df:8c:06:9a:45:16:16:38:0a:5e:57:f6:62:c7:7a:
-        02:05:e6:bc:1e:b5:f2:9e:f4:a9:29:83:f8:b2:14:e3:6e:28:
-        87:44:c3:90:1a:de:38:a9:3c:ac:43:4d:64:45:ce:dd:28:a9:
-        5c:f2:73:7b:04:f8:17:e8:ab:b1:f3:2e:5c:64:6e:73:31:3a:
-        12:b8:bc:b3:11:e4:7d:8f:81:51:9a:3b:8d:89:f4:4d:93:66:
-        7b:3c:03:ed:d3:9a:1d:9a:f3:65:50:f5:a0:d0:75:9f:2f:af:
-        f0:ea:82:43:98:f8:69:9c:89:79:c4:43:8e:46:72:e3:64:36:
-        12:af:f7:25:1e:38:89:90:77:7e:c3:6b:6a:b9:c3:cb:44:4b:
-        ac:78:90:8b:e7:c7:2c:1e:4b:11:44:c8:34:52:27:cd:0a:5d:
-        9f:85:c1:89:d5:1a:78:f2:95:10:53:32:dd:80:84:66:75:d9:
-        b5:68:28:fb:61:2e:be:84:a8:38:c0:99:12:86:a5:1e:67:64:
-        ad:06:2e:2f:a9:70:85:c7:96:0f:7c:89:65:f5:8e:43:54:0e:
-        ab:dd:a5:80:39:94:60:c0:34:c9:96:70:2c:a3:12:f5:1f:48:
-        7b:bd:1c:7e:6b:b7:9d:90:f4:22:3b:ae:f8:fc:2a:ca:fa:82:
-        52:a0:ef:af:4b:55:93:eb:c1:b5:f0:22:8b:ac:34:4e:26:22:
-        04:a1:87:2c:75:4a:b7:e5:7d:13:d7:b8:0c:64:c0:36:d2:c9:
-        2f:86:12:8c:23:09:c1:1b:82:3b:73:49:a3:6a:57:87:94:e5:
-        d6:78:c5:99:43:63:e3:4d:e0:77:2d:e1:65:99:72:69:04:1a:
-        47:09:e6:0f:01:56:24:fb:1f:bf:0e:79:a9:58:2e:b9:c4:09:
-        01:7e:95:ba:6d:00:06:3e:b2:ea:4a:10:39:d8:d0:2b:f5:bf:
-        ec:75:bf:97:02:c5:09:1b:08:dc:55:37:e2:81:fb:37:84:43:
-        62:20:ca:e7:56:4b:65:ea:fe:6c:c1:24:93:24:a1:34:eb:05:
-        ff:9a:22:ae:9b:7d:3f:f1:65:51:0a:a6:30:6a:b3:f4:88:1c:
-        80:0d:fc:72:8a:e8:83:5e
+         16:6c:99:f4:66:0c:34:f5:d0:85:5e:7d:0a:ec:da:10:4e:38:
+         1c:5e:df:a6:25:05:4b:91:32:c1:e8:3b:f1:3d:dd:44:09:5b:
+         07:49:8a:29:cb:66:02:b7:b1:9a:f7:25:98:09:3c:8e:1b:e1:
+         dd:36:87:2b:4b:bb:68:d3:39:66:3d:a0:26:c7:f2:39:91:1d:
+         51:ab:82:7b:7e:d5:ce:5a:e4:e2:03:57:70:69:97:08:f9:5e:
+         58:a6:0a:df:8c:06:9a:45:16:16:38:0a:5e:57:f6:62:c7:7a:
+         02:05:e6:bc:1e:b5:f2:9e:f4:a9:29:83:f8:b2:14:e3:6e:28:
+         87:44:c3:90:1a:de:38:a9:3c:ac:43:4d:64:45:ce:dd:28:a9:
+         5c:f2:73:7b:04:f8:17:e8:ab:b1:f3:2e:5c:64:6e:73:31:3a:
+         12:b8:bc:b3:11:e4:7d:8f:81:51:9a:3b:8d:89:f4:4d:93:66:
+         7b:3c:03:ed:d3:9a:1d:9a:f3:65:50:f5:a0:d0:75:9f:2f:af:
+         f0:ea:82:43:98:f8:69:9c:89:79:c4:43:8e:46:72:e3:64:36:
+         12:af:f7:25:1e:38:89:90:77:7e:c3:6b:6a:b9:c3:cb:44:4b:
+         ac:78:90:8b:e7:c7:2c:1e:4b:11:44:c8:34:52:27:cd:0a:5d:
+         9f:85:c1:89:d5:1a:78:f2:95:10:53:32:dd:80:84:66:75:d9:
+         b5:68:28:fb:61:2e:be:84:a8:38:c0:99:12:86:a5:1e:67:64:
+         ad:06:2e:2f:a9:70:85:c7:96:0f:7c:89:65:f5:8e:43:54:0e:
+         ab:dd:a5:80:39:94:60:c0:34:c9:96:70:2c:a3:12:f5:1f:48:
+         7b:bd:1c:7e:6b:b7:9d:90:f4:22:3b:ae:f8:fc:2a:ca:fa:82:
+         52:a0:ef:af:4b:55:93:eb:c1:b5:f0:22:8b:ac:34:4e:26:22:
+         04:a1:87:2c:75:4a:b7:e5:7d:13:d7:b8:0c:64:c0:36:d2:c9:
+         2f:86:12:8c:23:09:c1:1b:82:3b:73:49:a3:6a:57:87:94:e5:
+         d6:78:c5:99:43:63:e3:4d:e0:77:2d:e1:65:99:72:69:04:1a:
+         47:09:e6:0f:01:56:24:fb:1f:bf:0e:79:a9:58:2e:b9:c4:09:
+         01:7e:95:ba:6d:00:06:3e:b2:ea:4a:10:39:d8:d0:2b:f5:bf:
+         ec:75:bf:97:02:c5:09:1b:08:dc:55:37:e2:81:fb:37:84:43:
+         62:20:ca:e7:56:4b:65:ea:fe:6c:c1:24:93:24:a1:34:eb:05:
+         ff:9a:22:ae:9b:7d:3f:f1:65:51:0a:a6:30:6a:b3:f4:88:1c:
+         80:0d:fc:72:8a:e8:83:5e
 SHA1 Fingerprint=3E:2B:F7:F2:03:1B:96:F3:8C:E6:C4:D8:A8:5D:3E:2D:58:47:6A:0F

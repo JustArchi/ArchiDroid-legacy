@@ -32,7 +32,7 @@ Certificate:
     Data:
         Version: 3 (0x2)
         Serial Number: 1044954564 (0x3e48bdc4)
-        Signature Algorithm: sha1WithRSAEncryption
+    Signature Algorithm: sha1WithRSAEncryption
         Issuer: C=DK, O=TDC, CN=TDC OCES CA
         Validity
             Not Before: Feb 11 08:39:30 2003 GMT
@@ -40,8 +40,8 @@ Certificate:
         Subject: C=DK, O=TDC, CN=TDC OCES CA
         Subject Public Key Info:
             Public Key Algorithm: rsaEncryption
-            RSA Public Key: (2048 bit)
-                Modulus (2048 bit):
+                Public-Key: (2048 bit)
+                Modulus:
                     00:ac:62:f6:61:20:b2:cf:c0:c6:85:d7:e3:79:e6:
                     cc:ed:f2:39:92:a4:97:2e:64:a3:84:5b:87:9c:4c:
                     fd:a4:f3:c4:5f:21:bd:56:10:eb:db:2e:61:ec:93:
@@ -77,8 +77,12 @@ Certificate:
             Netscape Cert Type: 
                 SSL CA, S/MIME CA, Object Signing CA
             X509v3 CRL Distribution Points: 
-                DirName:/C=DK/O=TDC/CN=TDC OCES CA/CN=CRL1
-                URI:http://crl.oces.certifikat.dk/oces.crl
+
+                Full Name:
+                  DirName: C = DK, O = TDC, CN = TDC OCES CA, CN = CRL1
+
+                Full Name:
+                  URI:http://crl.oces.certifikat.dk/oces.crl
 
             X509v3 Private Key Usage Period: 
                 Not Before: Feb 11 08:39:30 2003 GMT, Not After: Feb 11 09:09:30 2037 GMT
@@ -90,19 +94,19 @@ Certificate:
             1.2.840.113533.7.65.0: 
                 0...V6.0:4.0....
     Signature Algorithm: sha1WithRSAEncryption
-        0a:ba:26:26:46:d3:73:a8:09:f3:6b:0b:30:99:fd:8a:e1:57:
-        7a:11:d3:b8:94:d7:09:10:6e:a3:b1:38:03:d1:b6:f2:43:41:
-        29:62:a7:72:d8:fb:7c:05:e6:31:70:27:54:18:4e:8a:7c:4e:
-        e5:d1:ca:8c:78:88:cf:1b:d3:90:8b:e6:23:f8:0b:0e:33:43:
-        7d:9c:e2:0a:19:8f:c9:01:3e:74:5d:74:c9:8b:1c:03:e5:18:
-        c8:01:4c:3f:cb:97:05:5d:98:71:a6:98:6f:b6:7c:bd:37:7f:
-        be:e1:93:25:6d:6f:f0:0a:ad:17:18:e1:03:bc:07:29:c8:ad:
-        26:e8:f8:61:f0:fd:21:09:7e:9a:8e:a9:68:7d:48:62:72:bd:
-        00:ea:01:99:b8:06:82:51:81:4e:f1:f5:b4:91:54:b9:23:7a:
-        00:9a:9f:5d:8d:e0:3c:64:b9:1a:12:92:2a:c7:82:44:72:39:
-        dc:e2:3c:c6:d8:55:f5:15:4e:c8:05:0e:db:c6:d0:62:a6:ec:
-        15:b4:b5:02:82:db:ac:8c:a2:81:f0:9b:99:31:f5:20:20:a8:
-        88:61:0a:07:9f:94:fc:d0:d7:1b:cc:2e:17:f3:04:27:76:67:
-        eb:54:83:fd:a4:90:7e:06:3d:04:a3:43:2d:da:fc:0b:62:ea:
-        2f:5f:62:53
+         0a:ba:26:26:46:d3:73:a8:09:f3:6b:0b:30:99:fd:8a:e1:57:
+         7a:11:d3:b8:94:d7:09:10:6e:a3:b1:38:03:d1:b6:f2:43:41:
+         29:62:a7:72:d8:fb:7c:05:e6:31:70:27:54:18:4e:8a:7c:4e:
+         e5:d1:ca:8c:78:88:cf:1b:d3:90:8b:e6:23:f8:0b:0e:33:43:
+         7d:9c:e2:0a:19:8f:c9:01:3e:74:5d:74:c9:8b:1c:03:e5:18:
+         c8:01:4c:3f:cb:97:05:5d:98:71:a6:98:6f:b6:7c:bd:37:7f:
+         be:e1:93:25:6d:6f:f0:0a:ad:17:18:e1:03:bc:07:29:c8:ad:
+         26:e8:f8:61:f0:fd:21:09:7e:9a:8e:a9:68:7d:48:62:72:bd:
+         00:ea:01:99:b8:06:82:51:81:4e:f1:f5:b4:91:54:b9:23:7a:
+         00:9a:9f:5d:8d:e0:3c:64:b9:1a:12:92:2a:c7:82:44:72:39:
+         dc:e2:3c:c6:d8:55:f5:15:4e:c8:05:0e:db:c6:d0:62:a6:ec:
+         15:b4:b5:02:82:db:ac:8c:a2:81:f0:9b:99:31:f5:20:20:a8:
+         88:61:0a:07:9f:94:fc:d0:d7:1b:cc:2e:17:f3:04:27:76:67:
+         eb:54:83:fd:a4:90:7e:06:3d:04:a3:43:2d:da:fc:0b:62:ea:
+         2f:5f:62:53
 SHA1 Fingerprint=87:81:C2:5A:96:BD:C2:FB:4C:65:06:4F:F9:39:0B:26:04:8A:0E:01

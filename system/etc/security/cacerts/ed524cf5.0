@@ -30,7 +30,7 @@ Certificate:
     Data:
         Version: 3 (0x2)
         Serial Number: 927650371 (0x374ad243)
-        Signature Algorithm: sha1WithRSAEncryption
+    Signature Algorithm: sha1WithRSAEncryption
         Issuer: C=US, O=Entrust.net, OU=www.entrust.net/CPS incorp. by ref. (limits liab.), OU=(c) 1999 Entrust.net Limited, CN=Entrust.net Secure Server Certification Authority
         Validity
             Not Before: May 25 16:09:40 1999 GMT
@@ -38,8 +38,8 @@ Certificate:
         Subject: C=US, O=Entrust.net, OU=www.entrust.net/CPS incorp. by ref. (limits liab.), OU=(c) 1999 Entrust.net Limited, CN=Entrust.net Secure Server Certification Authority
         Subject Public Key Info:
             Public Key Algorithm: rsaEncryption
-            RSA Public Key: (1024 bit)
-                Modulus (1024 bit):
+                Public-Key: (1024 bit)
+                Modulus:
                     00:cd:28:83:34:54:1b:89:f3:0f:af:37:91:31:ff:
                     af:31:60:c9:a8:e8:b2:10:68:ed:9f:e7:93:36:f1:
                     0a:64:bb:47:f5:04:17:3f:23:47:4d:c5:27:19:81:
@@ -54,8 +54,12 @@ Certificate:
             Netscape Cert Type: 
                 SSL CA, S/MIME CA, Object Signing CA
             X509v3 CRL Distribution Points: 
-                DirName:/C=US/O=Entrust.net/OU=www.entrust.net/CPS incorp. by ref. (limits liab.)/OU=(c) 1999 Entrust.net Limited/CN=Entrust.net Secure Server Certification Authority/CN=CRL1
-                URI:http://www.entrust.net/CRL/net1.crl
+
+                Full Name:
+                  DirName: C = US, O = Entrust.net, OU = www.entrust.net/CPS incorp. by ref. (limits liab.), OU = (c) 1999 Entrust.net Limited, CN = Entrust.net Secure Server Certification Authority, CN = CRL1
+
+                Full Name:
+                  URI:http://www.entrust.net/CRL/net1.crl
 
             X509v3 Private Key Usage Period: 
                 Not Before: May 25 16:09:40 1999 GMT, Not After: May 25 16:09:40 2019 GMT
@@ -72,12 +76,12 @@ Certificate:
                 0
 ..V4.0....
     Signature Algorithm: sha1WithRSAEncryption
-        90:dc:30:02:fa:64:74:c2:a7:0a:a5:7c:21:8d:34:17:a8:fb:
-        47:0e:ff:25:7c:8d:13:0a:fb:e4:98:b5:ef:8c:f8:c5:10:0d:
-        f7:92:be:f1:c3:d5:d5:95:6a:04:bb:2c:ce:26:36:65:c8:31:
-        c6:e7:ee:3f:e3:57:75:84:7a:11:ef:46:4f:18:f4:d3:98:bb:
-        a8:87:32:ba:72:f6:3c:e2:3d:9f:d7:1d:d9:c3:60:43:8c:58:
-        0e:22:96:2f:62:a3:2c:1f:ba:ad:05:ef:ab:32:78:87:a0:54:
-        73:19:b5:5c:05:f9:52:3e:6d:2d:45:0b:f7:0a:93:ea:ed:06:
-        f9:b2
+         90:dc:30:02:fa:64:74:c2:a7:0a:a5:7c:21:8d:34:17:a8:fb:
+         47:0e:ff:25:7c:8d:13:0a:fb:e4:98:b5:ef:8c:f8:c5:10:0d:
+         f7:92:be:f1:c3:d5:d5:95:6a:04:bb:2c:ce:26:36:65:c8:31:
+         c6:e7:ee:3f:e3:57:75:84:7a:11:ef:46:4f:18:f4:d3:98:bb:
+         a8:87:32:ba:72:f6:3c:e2:3d:9f:d7:1d:d9:c3:60:43:8c:58:
+         0e:22:96:2f:62:a3:2c:1f:ba:ad:05:ef:ab:32:78:87:a0:54:
+         73:19:b5:5c:05:f9:52:3e:6d:2d:45:0b:f7:0a:93:ea:ed:06:
+         f9:b2
 SHA1 Fingerprint=99:A6:9B:E6:1A:FE:88:6B:4D:2B:82:00:7C:B8:54:FC:31:7E:15:39

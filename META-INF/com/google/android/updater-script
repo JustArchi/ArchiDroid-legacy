@@ -188,32 +188,33 @@ symlink("busybox", "/system/xbin/[", "/system/xbin/[[",
         "/system/xbin/xargs", "/system/xbin/xz", "/system/xbin/xzcat",
         "/system/xbin/yes",
         "/system/xbin/zcat");
+symlink("libGLESv2.so", "/system/lib/libGLESv3.so");
 symlink("logcat", "/system/bin/lolcat");
 symlink("mksh", "/system/bin/sh");
 symlink("toolbox", "/system/bin/cat", "/system/bin/chcon",
-        "/system/bin/chmod", "/system/bin/chown", "/system/bin/cmp",
-        "/system/bin/cp", "/system/bin/date", "/system/bin/dd",
-        "/system/bin/df", "/system/bin/dmesg", "/system/bin/du",
-        "/system/bin/getenforce", "/system/bin/getevent", "/system/bin/getprop",
-        "/system/bin/getsebool", "/system/bin/grep", "/system/bin/hd",
-        "/system/bin/id", "/system/bin/ifconfig", "/system/bin/iftop",
-        "/system/bin/insmod", "/system/bin/ioctl", "/system/bin/ionice",
-        "/system/bin/kill", "/system/bin/ln", "/system/bin/load_policy",
-        "/system/bin/log", "/system/bin/ls", "/system/bin/lsmod",
-        "/system/bin/lsof", "/system/bin/md5", "/system/bin/mkdir",
-        "/system/bin/mount", "/system/bin/mv", "/system/bin/nandread",
-        "/system/bin/netstat", "/system/bin/newfs_msdos", "/system/bin/notify",
-        "/system/bin/printenv", "/system/bin/ps", "/system/bin/r",
-        "/system/bin/reboot", "/system/bin/renice", "/system/bin/restart",
-        "/system/bin/restorecon", "/system/bin/rm", "/system/bin/rmdir",
-        "/system/bin/rmmod", "/system/bin/route", "/system/bin/runcon",
-        "/system/bin/schedtop", "/system/bin/sendevent",
-        "/system/bin/setconsole", "/system/bin/setenforce",
-        "/system/bin/setprop", "/system/bin/setsebool", "/system/bin/sleep",
-        "/system/bin/smd", "/system/bin/start", "/system/bin/stop",
-        "/system/bin/sync", "/system/bin/top", "/system/bin/touch",
-        "/system/bin/umount", "/system/bin/uptime", "/system/bin/vmstat",
-        "/system/bin/watchprops",
+        "/system/bin/chmod", "/system/bin/chown", "/system/bin/clear",
+        "/system/bin/cmp", "/system/bin/cp", "/system/bin/date",
+        "/system/bin/dd", "/system/bin/df", "/system/bin/dmesg",
+        "/system/bin/du", "/system/bin/getenforce", "/system/bin/getevent",
+        "/system/bin/getprop", "/system/bin/getsebool", "/system/bin/grep",
+        "/system/bin/hd", "/system/bin/id", "/system/bin/ifconfig",
+        "/system/bin/iftop", "/system/bin/insmod", "/system/bin/ioctl",
+        "/system/bin/ionice", "/system/bin/kill", "/system/bin/ln",
+        "/system/bin/load_policy", "/system/bin/log", "/system/bin/ls",
+        "/system/bin/lsmod", "/system/bin/lsof", "/system/bin/md5",
+        "/system/bin/mkdir", "/system/bin/mount", "/system/bin/mv",
+        "/system/bin/nandread", "/system/bin/netstat",
+        "/system/bin/newfs_msdos", "/system/bin/notify", "/system/bin/printenv",
+        "/system/bin/ps", "/system/bin/r", "/system/bin/reboot",
+        "/system/bin/renice", "/system/bin/restart", "/system/bin/restorecon",
+        "/system/bin/rm", "/system/bin/rmdir", "/system/bin/rmmod",
+        "/system/bin/route", "/system/bin/runcon", "/system/bin/schedtop",
+        "/system/bin/sendevent", "/system/bin/setconsole",
+        "/system/bin/setenforce", "/system/bin/setprop",
+        "/system/bin/setsebool", "/system/bin/sleep", "/system/bin/smd",
+        "/system/bin/start", "/system/bin/stop", "/system/bin/sync",
+        "/system/bin/top", "/system/bin/touch", "/system/bin/umount",
+        "/system/bin/uptime", "/system/bin/vmstat", "/system/bin/watchprops",
         "/system/bin/wipe");
 		
 set_progress(0.52);
@@ -229,11 +230,9 @@ ui_print("root@ArchiDroid:~# Setting Permissions");
 set_perm_recursive(0, 0, 0755, 0644, "/system");
 set_perm_recursive(0, 0, 0755, 0755, "/system/addon.d");
 set_perm_recursive(0, 2000, 0755, 0755, "/system/bin");
-set_perm_recursive(0, 0, 0755, 0644, "/system/app");
 set_perm(0, 3003, 02750, "/system/bin/netcfg");
-set_perm(0, 3004, 02755, "/system/bin/ping");
-set_perm(0, 2000, 06750, "/system/bin/run-as");
-set_perm(1002, 1002, 0440, "/system/etc/dbus.conf");
+set_perm(0, 0, 0755, "/system/bin/ping");
+set_perm(0, 2000, 0750, "/system/bin/run-as");
 set_perm(1014, 2000, 0550, "/system/etc/dhcpcd/dhcpcd-run-hooks");
 set_perm_recursive(0, 2000, 0755, 0755, "/system/etc/init.d");
 set_perm(0, 0, 0755, "/system/etc/init.d");

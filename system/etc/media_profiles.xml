@@ -99,7 +99,7 @@
       <Audio codec="aac"
              bitRate="128000"
              sampleRate="48000"
-             channels="1" />
+             channels="2" />
     </EncoderProfile>
 
     <EncoderProfile quality="qcif" fileFormat="mp4" duration="30">
@@ -112,7 +112,7 @@
       <Audio codec="aac"
              bitRate="128000"
              sampleRate="48000"
-             channels="1" />
+             channels="2" />
     </EncoderProfile>
 
     <EncoderProfile quality="480p" fileFormat="mp4" duration="30">

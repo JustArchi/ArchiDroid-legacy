@@ -30,7 +30,7 @@ Certificate:
         Version: 3 (0x2)
         Serial Number:
             2e:6a:00:01:00:02:1f:d7:52:21:2c:11:5c:3b
-        Signature Algorithm: sha1WithRSAEncryption
+    Signature Algorithm: sha1WithRSAEncryption
         Issuer: C=DE, O=TC TrustCenter GmbH, OU=TC TrustCenter Class 2 CA, CN=TC TrustCenter Class 2 CA II
         Validity
             Not Before: Jan 12 14:38:43 2006 GMT
@@ -38,8 +38,8 @@ Certificate:
         Subject: C=DE, O=TC TrustCenter GmbH, OU=TC TrustCenter Class 2 CA, CN=TC TrustCenter Class 2 CA II
         Subject Public Key Info:
             Public Key Algorithm: rsaEncryption
-            RSA Public Key: (2048 bit)
-                Modulus (2048 bit):
+                Public-Key: (2048 bit)
+                Modulus:
                     00:ab:80:87:9b:8e:f0:c3:7c:87:d7:e8:24:82:11:
                     b3:3c:dd:43:62:ee:f8:c3:45:da:e8:e1:a0:5f:d1:
                     2a:b2:ea:93:68:df:b4:c8:d6:43:e9:c4:75:59:7f:
@@ -67,23 +67,25 @@ Certificate:
             X509v3 Subject Key Identifier: 
                 E3:AB:54:4C:80:A1:DB:56:43:B7:91:4A:CB:F3:82:7A:13:5C:08:AB
             X509v3 CRL Distribution Points: 
-                URI:http://www.trustcenter.de/crl/v2/tc_class_2_ca_II.crl
-                URI:ldap://www.trustcenter.de/CN=TC%20TrustCenter%20Class%202%20CA%20II,O=TC%20TrustCenter%20GmbH,OU=rootcerts,DC=trustcenter,DC=de?certificateRevocationList?base?
+
+                Full Name:
+                  URI:http://www.trustcenter.de/crl/v2/tc_class_2_ca_II.crl
+                  URI:ldap://www.trustcenter.de/CN=TC%20TrustCenter%20Class%202%20CA%20II,O=TC%20TrustCenter%20GmbH,OU=rootcerts,DC=trustcenter,DC=de?certificateRevocationList?base?
 
     Signature Algorithm: sha1WithRSAEncryption
-        8c:d7:df:7e:ee:1b:80:10:b3:83:f5:db:11:ea:6b:4b:a8:92:
-        18:d9:f7:07:39:f5:2c:be:06:75:7a:68:53:15:1c:ea:4a:ed:
-        5e:fc:23:b2:13:a0:d3:09:ff:f6:f6:2e:6b:41:71:79:cd:e2:
-        6d:fd:ae:59:6b:85:1d:b8:4e:22:9a:ed:66:39:6e:4b:94:e6:
-        55:fc:0b:1b:8b:77:c1:53:13:66:89:d9:28:d6:8b:f3:45:4a:
-        63:b7:fd:7b:0b:61:5d:b8:6d:be:c3:dc:5b:79:d2:ed:86:e5:
-        a2:4d:be:5e:74:7c:6a:ed:16:38:1f:7f:58:81:5a:1a:eb:32:
-        88:2d:b2:f3:39:77:80:af:5e:b6:61:75:29:db:23:4d:88:ca:
-        50:28:cb:85:d2:d3:10:a2:59:6e:d3:93:54:00:7a:a2:46:95:
-        86:05:9c:a9:19:98:e5:31:72:0c:00:e2:67:d9:40:e0:24:33:
-        7b:6f:2c:b9:5c:ab:65:9d:2c:ac:76:ea:35:99:f5:97:b9:0f:
-        24:ec:c7:76:21:28:65:ae:57:e8:07:88:75:4a:56:a0:d2:05:
-        3a:a4:e6:8d:92:88:2c:f3:f2:e1:c1:c6:61:db:41:c5:c7:9b:
-        f7:0e:1a:51:45:c2:61:6b:dc:64:27:17:8c:5a:b7:da:74:28:
-        cd:97:e4:bd
+         8c:d7:df:7e:ee:1b:80:10:b3:83:f5:db:11:ea:6b:4b:a8:92:
+         18:d9:f7:07:39:f5:2c:be:06:75:7a:68:53:15:1c:ea:4a:ed:
+         5e:fc:23:b2:13:a0:d3:09:ff:f6:f6:2e:6b:41:71:79:cd:e2:
+         6d:fd:ae:59:6b:85:1d:b8:4e:22:9a:ed:66:39:6e:4b:94:e6:
+         55:fc:0b:1b:8b:77:c1:53:13:66:89:d9:28:d6:8b:f3:45:4a:
+         63:b7:fd:7b:0b:61:5d:b8:6d:be:c3:dc:5b:79:d2:ed:86:e5:
+         a2:4d:be:5e:74:7c:6a:ed:16:38:1f:7f:58:81:5a:1a:eb:32:
+         88:2d:b2:f3:39:77:80:af:5e:b6:61:75:29:db:23:4d:88:ca:
+         50:28:cb:85:d2:d3:10:a2:59:6e:d3:93:54:00:7a:a2:46:95:
+         86:05:9c:a9:19:98:e5:31:72:0c:00:e2:67:d9:40:e0:24:33:
+         7b:6f:2c:b9:5c:ab:65:9d:2c:ac:76:ea:35:99:f5:97:b9:0f:
+         24:ec:c7:76:21:28:65:ae:57:e8:07:88:75:4a:56:a0:d2:05:
+         3a:a4:e6:8d:92:88:2c:f3:f2:e1:c1:c6:61:db:41:c5:c7:9b:
+         f7:0e:1a:51:45:c2:61:6b:dc:64:27:17:8c:5a:b7:da:74:28:
+         cd:97:e4:bd
 SHA1 Fingerprint=AE:50:83:ED:7C:F4:5C:BC:8F:61:C6:21:FE:68:5D:79:42:21:15:6E

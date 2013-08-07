@@ -3,7 +3,7 @@ assert(getprop("ro.product.device") == "m0" || getprop("ro.build.product") == "m
        getprop("ro.product.device") == "GT-I9300" || getprop("ro.build.product") == "GT-I9300");
 ui_print("");
 ui_print("");
-ui_print("temasek's CM10.1 Kernel for SGS3 - i9300");
+ui_print("temasek's CM10.1/2 Kernel for SGS3 - i9300");
 ui_print("");
 ui_print("");
 ui_print("Installing Kernel");

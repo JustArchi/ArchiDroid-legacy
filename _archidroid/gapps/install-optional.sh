@@ -28,26 +28,9 @@ elif  [ -d /system/vendor/pittpatt/ ]; then
 fi
 rm -rf /tmp/face
 
-if (grep -qi "mako" /proc/cpuinfo ); then
-  echo "Installing Mako-specific google bits"
-  rm -f /system/app/Gallery2.apk
-  cp -a /tmp/photosphere/mako/* /system/
-  cp -a /tmp/photosphere/lib/* /system/lib/
-  chmod 755 /system/addon.d/73-gapps-mako.sh
-fi
+#if ( ! grep -q "neon" /proc/cpuinfo ); then
+#  echo "Installing support for non-NEON target"
+#  cp -a /tmp/noneon/* /system/
+#fi
+#rm -rf /tmp/noneon
 
-if (grep -qi "tuna" /proc/cpuinfo ); then
-  echo "Installing Tuna-specific google bits"
-  rm -f /system/app/Gallery2.apk
-  cp -a /tmp/photosphere/tuna/* /system/
-  cp -a /tmp/photosphere/lib/* /system/lib/
-  chmod 755 /system/addon.d/74-gapps-tuna.sh
-fi
-
-if (grep -qi "manta" /proc/cpuinfo ); then
-  echo "Installing Manta-specific google bits"
-  rm -f /system/app/Gallery2.apk
-  cp -a /tmp/photosphere/manta/* /system/
-  cp -a /tmp/photosphere/lib/* /system/lib/
-  chmod 755 /system/addon.d/75-gapps-manta.sh
-fi

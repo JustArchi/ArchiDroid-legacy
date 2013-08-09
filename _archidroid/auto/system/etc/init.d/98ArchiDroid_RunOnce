@@ -151,6 +151,13 @@ sleep 5
 
 # If we have any more runonce scripts then it's the right place for that
 
+# IMPORTANT, CrossBreeder's Adblock doesn't work properly with Android 4.3 for now, fall back to AdAway version until it's fixed.
+if [ -d /system/etc/CrossBreeder ]; then
+	sh /system/etc/CrossBreeder/DISABLE_ADBLOCK
+	cat /system/etc/ahosts > /system/etc/hosts
+	ADRELOAD=1
+fi
+
 # Execute hot reboot if we need it
 if [ $ADRELOAD -eq 1 ]; then
 	killall system_server

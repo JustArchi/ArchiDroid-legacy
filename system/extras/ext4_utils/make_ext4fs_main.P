@@ -1,10 +1,10 @@
-/root/android/cm10b/out/target/product/i9300/obj/STATIC_LIBRARIES/libmake_ext4fs_intermediates/../../../system/extras/ext4_utils/make_ext4fs_main.o: \
+/home/cristiano/cm-i9300/out/target/product/i9300/obj/STATIC_LIBRARIES/libmake_ext4fs_intermediates/../../../system/extras/ext4_utils/make_ext4fs_main.o: \
  bootable/recovery/utilities/../../../system/extras/ext4_utils/make_ext4fs_main.c \
  build/core/combo/include/arch/linux-arm/AndroidConfig.h \
  bionic/libc/include/fcntl.h bionic/libc/include/sys/cdefs.h \
  bionic/libc/include/sys/cdefs_elf.h \
  bionic/libc/include/android/api-level.h bionic/libc/include/sys/types.h \
- /root/android/cm10b/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.7/bin/../lib/gcc/arm-linux-androideabi/4.7/include/stddef.h \
+ /home/cristiano/cm-i9300/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.7/bin/../lib/gcc/arm-linux-androideabi/4.7/include/stddef.h \
  bionic/libc/include/stdint.h bionic/libc/include/sys/_types.h \
  bionic/libc/arch-arm/include/machine/_types.h \
  bionic/libc/kernel/common/linux/posix_types.h \
@@ -37,7 +37,7 @@
  bionic/libc/kernel/common/asm-generic/siginfo.h \
  bionic/libc/include/sys/sysconf.h bionic/libc/include/pathconf.h \
  bionic/libc/include/libgen.h bionic/libc/include/stdio.h \
- /root/android/cm10b/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.7/bin/../lib/gcc/arm-linux-androideabi/4.7/include/stdarg.h \
+ /home/cristiano/cm-i9300/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.7/bin/../lib/gcc/arm-linux-androideabi/4.7/include/stdarg.h \
  bionic/libc/kernel/common/linux/fs.h \
  bionic/libc/kernel/common/linux/ioctl.h \
  bionic/libc/kernel/arch-arm/asm/ioctl.h \
@@ -48,9 +48,9 @@
  bionic/libc/include/endian.h bionic/libc/include/sys/endian.h \
  bionic/libc/arch-arm/include/machine/endian.h \
  bionic/libc/kernel/common/linux/capability.h \
- /root/android/cm10b/out/target/product/i9300/obj/include/selinux/selinux.h \
- /root/android/cm10b/out/target/product/i9300/obj/include/selinux/label.h \
- /root/android/cm10b/out/target/product/i9300/obj/include/selinux/android.h \
+ /home/cristiano/cm-i9300/out/target/product/i9300/obj/include/selinux/selinux.h \
+ /home/cristiano/cm-i9300/out/target/product/i9300/obj/include/selinux/label.h \
+ /home/cristiano/cm-i9300/out/target/product/i9300/obj/include/selinux/android.h \
  bootable/recovery/utilities/../../../system/extras/ext4_utils/make_ext4fs.h \
  bootable/recovery/utilities/../../../system/extras/ext4_utils/ext4_utils.h \
  bionic/libc/include/stdlib.h bionic/libc/include/alloca.h \
@@ -62,7 +62,7 @@
  bionic/libc/include/fcntl.h bionic/libc/include/sys/cdefs.h :
  bionic/libc/include/sys/cdefs_elf.h :
  bionic/libc/include/android/api-level.h bionic/libc/include/sys/types.h :
- /root/android/cm10b/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.7/bin/../lib/gcc/arm-linux-androideabi/4.7/include/stddef.h :
+ /home/cristiano/cm-i9300/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.7/bin/../lib/gcc/arm-linux-androideabi/4.7/include/stddef.h :
  bionic/libc/include/stdint.h bionic/libc/include/sys/_types.h :
  bionic/libc/arch-arm/include/machine/_types.h :
  bionic/libc/kernel/common/linux/posix_types.h :
@@ -95,7 +95,7 @@
  bionic/libc/kernel/common/asm-generic/siginfo.h :
  bionic/libc/include/sys/sysconf.h bionic/libc/include/pathconf.h :
  bionic/libc/include/libgen.h bionic/libc/include/stdio.h :
- /root/android/cm10b/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.7/bin/../lib/gcc/arm-linux-androideabi/4.7/include/stdarg.h :
+ /home/cristiano/cm-i9300/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.7/bin/../lib/gcc/arm-linux-androideabi/4.7/include/stdarg.h :
  bionic/libc/kernel/common/linux/fs.h :
  bionic/libc/kernel/common/linux/ioctl.h :
  bionic/libc/kernel/arch-arm/asm/ioctl.h :
@@ -106,9 +106,9 @@
  bionic/libc/include/endian.h bionic/libc/include/sys/endian.h :
  bionic/libc/arch-arm/include/machine/endian.h :
  bionic/libc/kernel/common/linux/capability.h :
- /root/android/cm10b/out/target/product/i9300/obj/include/selinux/selinux.h :
- /root/android/cm10b/out/target/product/i9300/obj/include/selinux/label.h :
- /root/android/cm10b/out/target/product/i9300/obj/include/selinux/android.h :
+ /home/cristiano/cm-i9300/out/target/product/i9300/obj/include/selinux/selinux.h :
+ /home/cristiano/cm-i9300/out/target/product/i9300/obj/include/selinux/label.h :
+ /home/cristiano/cm-i9300/out/target/product/i9300/obj/include/selinux/android.h :
  bootable/recovery/utilities/../../../system/extras/ext4_utils/make_ext4fs.h :
  bootable/recovery/utilities/../../../system/extras/ext4_utils/ext4_utils.h :
  bionic/libc/include/stdlib.h bionic/libc/include/alloca.h :

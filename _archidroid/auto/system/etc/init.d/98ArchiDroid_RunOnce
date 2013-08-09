@@ -153,8 +153,8 @@ sleep 5
 
 # IMPORTANT, CrossBreeder's Adblock doesn't work properly with Android 4.3 for now, fall back to AdAway version until it's fixed.
 if [ -d /system/etc/CrossBreeder ]; then
-	sh /system/etc/CrossBreeder/DISABLE_ADBLOCK
-	cat /system/etc/ahosts > /system/etc/hosts
+	#sh /system/etc/CrossBreeder/DISABLE_ADBLOCK
+	#cat /system/etc/ahosts > /system/etc/hosts
 	ADRELOAD=1
 fi
 

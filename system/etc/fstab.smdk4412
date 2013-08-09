@@ -1,0 +1,3 @@
+# external sdcard
+/devices/platform/s3c-sdhci.2/mmc_host/mmc1 /storage/sdcard1 auto defaults voldmanaged=sdcard1:auto
+/devices/platform/s5p-ehci /storage/usbdisk0 auto defaults voldmanaged=usbdisk0:auto

@@ -1,0 +1,33 @@
+assert(getprop("ro.product.device") == "m0" || getprop("ro.build.product") == "m0" || 
+       getprop("ro.product.device") == "i9300" || getprop("ro.build.product") == "i9300" || 
+       getprop("ro.product.device") == "GT-I9300" || getprop("ro.build.product") == "GT-I9300");
+ui_print("");
+ui_print("");
+ui_print("temasek's CM10.1/2 Kernel for SGS3 - i9300");
+ui_print("");
+ui_print("");
+ui_print("Installing Kernel");
+ui_print("Extracting System Files...");
+set_progress(1.000000);
+run_program("/sbin/busybox", "mount", "/system");
+delete_recursive("/system/lib/modules");
+package_extract_dir("system", "/system");
+set_perm_recursive(0, 0, 0755, 0755, "/system/lib/modules/");
+set_perm(0, 0, 0755, "/system/bin/hostapd");
+ui_print("Extracting Kernel files...");
+unmount("/system");
+ui_print("Extracting Kernel files...");
+package_extract_dir("kernel", "/tmp");
+ui_print("Installing kernel...");
+set_perm(0, 0, 0777, "/tmp/dump_image");
+set_perm(0, 0, 0777, "/tmp/mkbootimg.sh");
+set_perm(0, 0, 0777, "/tmp/mkbootimg");
+set_perm(0, 0, 0777, "/tmp/unpackbootimg");
+set_perm(0, 0, 0777, "/tmp/cpio");
+set_perm(0, 0, 0777, "/tmp/res/uci.sh");
+set_perm(0, 0, 0777, "/tmp/sbin/temasek.sh");
+run_program("/tmp/dump_image", "/dev/block/mmcblk0p5", "/tmp/boot.img");
+run_program("/tmp/unpackbootimg", "-i", "/tmp/boot.img", "-o", "/tmp/");
+run_program("/tmp/mkbootimg.sh");
+run_program("/sbin/busybox", "dd", "if=/tmp/newboot.img", "of=/dev/block/mmcblk0p5");
+ui_print("All done. Enjoy!");

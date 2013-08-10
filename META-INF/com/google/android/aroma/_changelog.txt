@@ -1,10 +1,11 @@
 ArchiDroid 2.1
 Full Wipe recommended, NOT required
 
-- [!] Merged crDroid build2 based on CM10.2 / Android 4.3
+- [!] ArchiDroid is now based again on temasek's unofficial cm build due to fixed /data/app bug
 - [!] CrossBreeder's AdBlock doesn't work correctly with Android 4.3 yet. Temporary it's disabled and replaced with standard AdAway hosts
 - Added/Converted inverted Google Hangouts to Google Apps (from old Google Core), disabled in default preset
 - Fixed a bug introduced in 2.0.3 which caused reset of stweaks preset after reboot. Also presets are now even more universal and touch only things which need to be changes instead of all values
 - Updated Temasek Kernel to 050813
-- Updated Google Store to 4.3.10
+- Updated Google Store to 4.3.10 (Multi-DPI patched, inverted)
 - Updated Nova to 2.2
+- Updated to temasek V6

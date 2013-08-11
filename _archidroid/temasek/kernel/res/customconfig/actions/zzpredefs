@@ -336,7 +336,7 @@ case "$zzpredef" in
     write_values
     ;;
   4)
-    # ARCHI'S ULTRA BATTERY based on ZZmoove 0.7 and Yank's Extended Battery
+    # ARCHI'S ULTRA BATTERY based on ZZmoove 0.7 and Yank's Extreme Battery
     zzmoove_predef="4"
     sampling_rate="60000"
     sampling_down_factor="1"
@@ -438,7 +438,7 @@ case "$zzpredef" in
     write_values
     ;;
   6)
-    # YANK'S EXTENDED BATTERY (Yankzzmoove) based on ZZmoove 0.7 and Yank's Kernel 1.6e
+    # YANK'S EXTREME BATTERY (Yankzzmoove) based on ZZmoove 0.7 and Yank's Kernel 1.6e
     zzmoove_predef="6"
     sampling_rate="60000"
     sampling_down_factor="1"

@@ -369,7 +369,7 @@ echo "
              <spinnerItem name=\"Performance [NOT 0.7 OPTIMIZED]\" value=\"3\"/>
              <spinnerItem name=\"Archi's Ultra Battery V2 with LCDFreq\" value=\"4\"/>
              <spinnerItem name=\"Yank's Battery\" value=\"5\"/>
-             <spinnerItem name=\"Yankzzmoove (Yank's Extended Battery)\" value=\"6\"/>
+             <spinnerItem name=\"Yankzzmoove (Yank's Extreme Battery)\" value=\"6\"/>
       </spinner>
     </settingsPane>
     <settingsPane description=\"Parameters governing the dynamic voltage frequency scaling policy on the CPU.\" 
@@ -506,13 +506,13 @@ echo "
                unit=\"\" min=\"0\" reversed=\"false\" step=\"1\" max=\"3\"/>
 
       <seekBar description=\"Amount of load under which hotplugging should be disabled at idle times. Default: 0.\" 
-               name=\"Hotplug idle sleep\" 
-               action=\"generic /sys/devices/system/cpu/cpufreq/hotplug_idle_sleep\"
+               name=\"Hotplug idle threshold\" 
+               action=\"generic /sys/devices/system/cpu/cpufreq/zzmoove/hotplug_idle_threshold\"
                unit=\"\" min=\"0\" reversed=\"false\" step=\"1\" max=\"100\"/>
 
       <seekBar description=\"Slow down hotplugging by waiting a given amount of cycles before plugging. 0 disables delay. Default: 0.\" 
                name=\"Hotplug block cycles\" 
-               action=\"generic /sys/devices/system/cpu/cpufreq/hotplug_block_cycles\"
+               action=\"generic /sys/devices/system/cpu/cpufreq/zzmoove/hotplug_block_cycles\"
                unit=\"\" min=\"0\" reversed=\"false\" step=\"1\" max=\"100\"/>
 
       <seekBar description=\"This describes what percentage steps the CPU freq should be increased and decreased smoothly by. By default the CPU frequency will increase in 5% chunks of your maximum CPU frequency. You can change this value to anywhere between 0 and 100 where 0 will effectively lock your CPU at a speed regardless of its load whilst 100 will, in theory, make it behave identically to the ondemand governor. Default: 5%.\"

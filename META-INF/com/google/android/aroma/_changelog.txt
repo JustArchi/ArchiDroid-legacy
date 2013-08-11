@@ -23,3 +23,4 @@ ZZmoove Lab
 * HUGE updates to ZZmoove predefined profiles. Total rewrite of Yank's and Archi's profiles (0.7 zzmoove optimized). ZaneZam's profiles are still available but they're not 0.7 optimized (waiting for update from ZaneZam). I've only converted them to new available tunables. This is a really HUGE updates guys, over 80% of values got recalculated, it's nothing similar to old ones.
 * zzpredefs STweaks code cleaning for flexibility and performance.
 * Added a placeholder for *maybe* a bit better implementation for presets in the future. Awaiting for Yank to implement needed zzmoove kernel features.
+* [Not merged yet by temasek] Renamed Yank's Extended Batter to Yank's Extreme Battery and fixed a small derp causing some values not working/sticking

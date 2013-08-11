@@ -47,7 +47,7 @@ ini_set("rom_name",             "ArchiDroid");
 ini_set("rom_version",          "2.1");
 ini_set("rom_author",           "JustArchi");
 ini_set("rom_device",           "Samsung Galaxy S3");
-ini_set("rom_date",             "August XXth, 2013");
+ini_set("rom_date",             "August 12th, 2013");
 
 ##
 # Show Simple Splash
@@ -778,7 +778,7 @@ selectbox(
   "ArchiDroid Balanced Config","Based on Optimized zzmoove, zram, boeffla sound and more",0,
   "ArchiDroid PowerSave Config","Highly powersave config based on Yank's Battery zzmoove with lower hotplugging",1,
   "ArchiDroid ULTRA PowerSave Config","ULTRA powersave config based on Archi's Ultra Battery zzmoove with LCDFreq",0,
-  "No Config","Not recommended because you'll miss most of the great features. Choose only if you're going to create your own STweaks config later",0
+  "No Config","Not recommended because you'll miss most of the great features. Choose only if you're going to create your own STweaks config",0
 );
 else
 	writetmpfile(

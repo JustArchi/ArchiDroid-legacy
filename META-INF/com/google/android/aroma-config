@@ -493,10 +493,10 @@ writetmpfile(
   "item.0.1=0\n"
 );
 
-# No modem
+# XXEMG4 Modem
 writetmpfile(
   "modem.prop",
-  "selected.0=3\n"
+  "selected.0=2\n"
 );
 
 # No recovery
@@ -936,8 +936,8 @@ selectbox(
   "modem.prop",
 
   "XXEMB6","EFS V1",0,
-  "XXEMG4","EFS V2",0,
-  "No Modem","If you want to preserve your old modem",1
+  "XXEMG4","EFS V2",1,
+  "No Modem","If you want to preserve your old modem",0
 );
 
 selectbox(
@@ -1133,8 +1133,8 @@ selectbox(
   "modem.prop",
 
   "XXEMB6","EFS V1",0,
-  "XXEMG4","EFS V2",0,
-  "Żaden","Jeśli chcesz pozostać przy swoim aktualnym modemie",1
+  "XXEMG4","EFS V2",1,
+  "Żaden","Jeśli chcesz pozostać przy swoim aktualnym modemie",0
 );
 
 selectbox(

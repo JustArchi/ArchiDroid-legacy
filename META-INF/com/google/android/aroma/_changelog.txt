@@ -1,12 +1,24 @@
-ArchiDroid 2.1
-Full Wipe recommended, NOT required
+ArchiDroid 2.1 [CM10.2 / Android 4.3]
+Full Wipe recommended, NOT required if you did full wipe during AD 2.0.3
 
-- [!] ArchiDroid is now based on Temasek's Unofficial CM10.2 Build (once again) due to fixed /data/app bug
-- [!] CrossBreeder's AdBlock doesn't work correctly with Android 4.3 yet. Temporary it's disabled and replaced with standard AdAway hosts file
+- [!] ArchiDroid is now based on Temasek's Unofficial CM10.2 Build (once again) due to fixed /data/app bug.
+- [!] CrossBreeder's AdBlock doesn't work correctly with Android 4.3 yet. Temporary it's disabled and replaced with standard AdAway hosts file (provided by 98ArchiDroid_RunOnce init.d script, which disables CB's AdBlock and replaces hosts file with AdAway one)
+- [!] As stated in previous changelog now ArchiDroid flashes XXEMG4 modem in default presets. You can still choose exactly what you want in custom preset but as for now XXEMG4 is fully compatible with AOSP/CM and DOES NOT modify /efs even if you have old-style format. Because of that avoiding XXEMG4 modem on AOSP/CM is pointless now.
 - Added/Converted inverted Google Hangouts to Google Apps (from old Google Core), disabled in default preset
 - Fixed a bug introduced in 2.0.3 which caused reset of stweaks preset after reboot. Also presets are now even more universal and touch only things which need to be changed instead of all values
-- Added new STweaks preset "ArchiDroid Ultra Battery Preset", it is based on Archi's Ultra Battery V2 with LCDFreq zzmoove profile and literally gives you MAXIMUM of battery life for a cost of performance. Use with caution, laggs will appear.
-- Updated Temasek Kernel to 110813
+- Added new STweaks preset "ArchiDroid Ultra Battery Preset", it is based on Archi's Ultra Battery V2 with LCDFreq zzmoove profile and literally gives you MAXIMUM of battery life for a cost of performance. Use with caution, laggs will appear but you'll in fact get MAXIMUM battery life.
 - Updated Google Store to 4.3.10 (Multi-DPI patched, inverted)
 - Updated Nova to 2.2
-- Updated to temasek V6
+- Updated CoolTool to 5.0 with a few nice modifications to ArchiDroid preset
+- Updated sources to temasek V7.1
+- Updated Temasek Kernel to 110813. This includes also my commits for temasek's STweaks:
+
+ZZmoove Lab
++ hotplug_idle_threshold -> amount of load under which hotplugging should be disabled at idle times (respectively at scaling minimum). possible values 0 disable, from 1 to 100 (default is 0)
++ hotplug_block_cycles -> slow down hotplugging by waiting a given amount of cycles before plugging. possible values 0 disbale, any values above 0 (default is 0)
++ disable_hotplug_sleep -> same as disable_hotplug but will only take effect at suspend. possible values 0 disable, any values above 0 to enable (default is 0)
++ up_threshold_hotplug_freq1..3 -> hotplug up frequency threshold for core1..3. possible values 0 disable and range from over down_threshold_hotplug_freq1..3 to max scaling freqency (default is 0)
++ down_threshold_hotplug_freq1..3 -> hotplug down frequency threshold for core1..3. possible values 0 disable and range from min saling to under up_threshold_hotplug_freq1..3 freqency (default is 0) 
+* HUGE updates to ZZmoove predefined profiles. Total rewrite of Yank's and Archi's profiles (0.7 zzmoove optimized). ZaneZam's profiles are still available but they're not 0.7 optimized (waiting for update from ZaneZam). I've only converted them to new available tunables. This is a really HUGE updates guys, over 80% of values got recalculated, it's nothing similar to old ones.
+* zzpredefs STweaks code cleaning for flexibility and performance.
+* Added a placeholder for *maybe* a bit better implementation for presets in the future. Awaiting for Yank to implement needed zzmoove kernel features.

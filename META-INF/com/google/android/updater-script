@@ -293,6 +293,10 @@ if file_getprop("/tmp/aroma-data/kernels.prop","selected.0") == "1" then
 		ui_print("root@ArchiDroid:~# Applying ArchiDroid PowerSave kernel config");
 		package_extract_dir("_archidroid/presets/temasek/archi_powersave", "/data/.temasek");
 	endif;
+	if file_getprop("/tmp/aroma-data/kernels2.prop","selected.0") == "3" then
+		ui_print("root@ArchiDroid:~# Applying ArchiDroid ULTRA PowerSave kernel config");
+		package_extract_dir("_archidroid/presets/temasek/archi_ultra_powersave", "/data/.temasek");
+	endif;
 	
 	package_extract_dir("_archidroid/apps/stweaks", "/");
 	

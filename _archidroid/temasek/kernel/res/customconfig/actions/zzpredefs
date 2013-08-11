@@ -1,5 +1,7 @@
 #!/sbin/busybox sh
 
+ZZPATH='/sys/devices/system/cpu/cpufreq/zzmoove'
+
 if [[ ! -z $2 ]]; then
     filename=$(basename $2)
 fi
@@ -17,16 +19,29 @@ write_value() {
 }
 
 edit_value() {
+
+  # Archi's Pro Implementation
+  # Not being used yet
+  WEHAVE="$2"
+  
+  ##if [ $WEHAVE == "X" ]; then
+    # We got X, thats means we want to get current variable
+    ##WECHANGE="$1"
+        ##WEHAVE=`cat $ZZPATH/$WECHANGE`
+        ##eval $WECHANGE="$WEHAVE"
+        # Voila, we got new variable
+  ##fi
+  
   g_find=`grep $1=.* $DEFAULT_PROFILE`
     
   if [[ -z $g_find ]]; then
-    write_value $1 $2
+    write_value $1 $WEHAVE
   else
-    sed -i "s/$1=[^ ]*/$1=$2/" $DEFAULT_PROFILE 
+    sed -i "s/$1=[^ ]*/$1=$WEHAVE/" $DEFAULT_PROFILE 
   fi
 }
 
-write_values(){
+write_values(){  
   edit_value sampling_rate $sampling_rate
   edit_value sampling_rate_sleep_multiplier $sampling_rate_sleep_multiplier
   edit_value sampling_down_factor $sampling_down_factor
@@ -36,15 +51,24 @@ write_values(){
   edit_value up_threshold_sleep $up_threshold_sleep
   edit_value smooth_up $smooth_up
   edit_value smooth_up_sleep $smooth_up_sleep
+  edit_value up_threshold_hotplug_freq1 $up_threshold_hotplug_freq1
+  edit_value up_threshold_hotplug_freq2 $up_threshold_hotplug_freq2
+  edit_value up_threshold_hotplug_freq3 $up_threshold_hotplug_freq3
   edit_value up_threshold_hotplug1 $up_threshold_hotplug1
   edit_value up_threshold_hotplug2 $up_threshold_hotplug2
   edit_value up_threshold_hotplug3 $up_threshold_hotplug3
   edit_value down_threshold $down_threshold
   edit_value down_threshold_sleep $down_threshold_sleep
+  edit_value down_threshold_hotplug_freq1 $down_threshold_hotplug_freq1
+  edit_value down_threshold_hotplug_freq2 $down_threshold_hotplug_freq2
+  edit_value down_threshold_hotplug_freq3 $down_threshold_hotplug_freq3
   edit_value down_threshold_hotplug1 $down_threshold_hotplug1
   edit_value down_threshold_hotplug2 $down_threshold_hotplug2
   edit_value down_threshold_hotplug3 $down_threshold_hotplug3
   edit_value disable_hotplug $disable_hotplug
+  edit_value disable_hotplug_sleep $disable_hotplug_sleep
+  edit_value hotplug_block_cycles $hotplug_block_cycles
+  edit_value hotplug_idle_threshold $hotplug_idle_threshold
   edit_value hotplug_sleep $hotplug_sleep
   edit_value freq_step $freq_step
   edit_value freq_step_sleep $freq_step_sleep
@@ -62,299 +86,406 @@ write_values(){
   edit_value lcdfreq_kick_in_freq $lcdfreq_kick_in_freq
   edit_value zzmoove_predef $zzmoove_predef 
 
-  echo $sampling_rate >/sys/devices/system/cpu/cpufreq/zzmoove/sampling_rate
-  echo $sampling_rate_sleep_multiplier >/sys/devices/system/cpu/cpufreq/zzmoove/sampling_rate_sleep_multiplier
-  echo $sampling_down_factor >/sys/devices/system/cpu/cpufreq/zzmoove/sampling_down_factor
-  echo $sampling_down_max_momentum >/sys/devices/system/cpu/cpufreq/zzmoove/sampling_down_max_momentum
-  echo $sampling_down_momentum_sensitivity >/sys/devices/system/cpu/cpufreq/zzmoove/sampling_down_momentum_sensitivity
-  echo $up_threshold >/sys/devices/system/cpu/cpufreq/zzmoove/up_threshold
-  echo $up_threshold_sleep >/sys/devices/system/cpu/cpufreq/zzmoove/up_threshold_sleep
-  echo $smooth_up >/sys/devices/system/cpu/cpufreq/zzmoove/smooth_up
-  echo $smooth_up_sleep >/sys/devices/system/cpu/cpufreq/zzmoove/smooth_up_sleep
-  echo $up_threshold_hotplug1 >/sys/devices/system/cpu/cpufreq/zzmoove/up_threshold_hotplug1
-  echo $up_threshold_hotplug2 >/sys/devices/system/cpu/cpufreq/zzmoove/up_threshold_hotplug2
-  echo $up_threshold_hotplug3 >/sys/devices/system/cpu/cpufreq/zzmoove/up_threshold_hotplug3
-  echo $down_threshold >/sys/devices/system/cpu/cpufreq/zzmoove/down_threshold
-  echo $down_threshold_sleep >/sys/devices/system/cpu/cpufreq/zzmoove/down_threshold_sleep
-  echo $down_threshold_hotplug1 >/sys/devices/system/cpu/cpufreq/zzmoove/down_threshold_hotplug1
-  echo $down_threshold_hotplug2 >/sys/devices/system/cpu/cpufreq/zzmoove/down_threshold_hotplug2
-  echo $down_threshold_hotplug3 >/sys/devices/system/cpu/cpufreq/zzmoove/down_threshold_hotplug3
-  echo $disable_hotplug >/sys/devices/system/cpu/cpufreq/zzmoove/disable_hotplug
-  echo $hotplug_sleep >/sys/devices/system/cpu/cpufreq/zzmoove/hotplug_sleep
-  echo $freq_step >/sys/devices/system/cpu/cpufreq/zzmoove/freq_step
-  echo $freq_step_sleep >/sys/devices/system/cpu/cpufreq/zzmoove/freq_step_sleep
-  echo $freq_limit >/sys/devices/system/cpu/cpufreq/zzmoove/freq_limit
-  echo $freq_limit_sleep >/sys/devices/system/cpu/cpufreq/zzmoove/freq_limit_sleep
-  echo $fast_scaling >/sys/devices/system/cpu/cpufreq/zzmoove/fast_scaling
-  echo $fast_scaling_sleep >/sys/devices/system/cpu/cpufreq/zzmoove/fast_scaling_sleep
-  echo $early_demand >/sys/devices/system/cpu/cpufreq/zzmoove/early_demand
-  echo $grad_up_threshold >/sys/devices/system/cpu/cpufreq/zzmoove/grad_up_threshold
-  echo $ignore_nice_load >/sys/devices/system/cpu/cpufreq/zzmoove/ignore_nice_load
-  echo $lcdfreq_enable >/sys/devices/system/cpu/cpufreq/zzmoove/lcdfreq_enable
-  echo $lcdfreq_kick_in_cores >/sys/devices/system/cpu/cpufreq/zzmoove/lcdfreq_kick_in_cores
-  echo $lcdfreq_kick_in_up_delay >/sys/devices/system/cpu/cpufreq/zzmoove/lcdfreq_kick_in_up_delay
-  echo $lcdfreq_kick_in_down_delay >/sys/devices/system/cpu/cpufreq/zzmoove/lcdfreq_kick_in_down_delay
-  echo $lcdfreq_kick_in_freq >/sys/devices/system/cpu/cpufreq/zzmoove/lcdfreq_kick_in_freq
+  # Some cleaning maybe?
+  
+  echo $sampling_rate >$ZZPATH/sampling_rate
+  echo $sampling_rate_sleep_multiplier >$ZZPATH/sampling_rate_sleep_multiplier
+  echo $sampling_down_factor >$ZZPATH/sampling_down_factor
+  echo $sampling_down_max_momentum >$ZZPATH/sampling_down_max_momentum
+  echo $sampling_down_momentum_sensitivity >$ZZPATH/sampling_down_momentum_sensitivity
+  echo $up_threshold >$ZZPATH/up_threshold
+  echo $up_threshold_sleep >$ZZPATH/up_threshold_sleep
+  echo $smooth_up >$ZZPATH/smooth_up
+  echo $smooth_up_sleep >$ZZPATH/smooth_up_sleep
+  echo $up_threshold_hotplug_freq1 >$ZZPATH/up_threshold_hotplug_freq1
+  echo $up_threshold_hotplug_freq2 >$ZZPATH/up_threshold_hotplug_freq2
+  echo $up_threshold_hotplug_freq3 >$ZZPATH/up_threshold_hotplug_freq3
+  echo $up_threshold_hotplug1 >$ZZPATH/up_threshold_hotplug1
+  echo $up_threshold_hotplug2 >$ZZPATH/up_threshold_hotplug2
+  echo $up_threshold_hotplug3 >$ZZPATH/up_threshold_hotplug3
+  echo $down_threshold >$ZZPATH/down_threshold
+  echo $down_threshold_sleep >$ZZPATH/down_threshold_sleep
+  echo $down_threshold_hotplug_freq1 >$ZZPATH/down_threshold_hotplug_freq1
+  echo $down_threshold_hotplug_freq2 >$ZZPATH/down_threshold_hotplug_freq2
+  echo $down_threshold_hotplug_freq3 >$ZZPATH/down_threshold_hotplug_freq3
+  echo $down_threshold_hotplug1 >$ZZPATH/down_threshold_hotplug1
+  echo $down_threshold_hotplug2 >$ZZPATH/down_threshold_hotplug2
+  echo $down_threshold_hotplug3 >$ZZPATH/down_threshold_hotplug3
+  echo $disable_hotplug >$ZZPATH/disable_hotplug
+  echo $disable_hotplug_sleep >$ZZPATH/disable_hotplug_sleep
+  echo $hotplug_block_cycles >$ZZPATH/hotplug_block_cycles
+  echo $hotplug_idle_threshold >$ZZPATH/hotplug_idle_threshold
+  echo $hotplug_sleep >$ZZPATH/hotplug_sleep
+  echo $freq_step >$ZZPATH/freq_step
+  echo $freq_step_sleep >$ZZPATH/freq_step_sleep
+  echo $freq_limit >$ZZPATH/freq_limit
+  echo $freq_limit_sleep >$ZZPATH/freq_limit_sleep
+  echo $fast_scaling >$ZZPATH/fast_scaling
+  echo $fast_scaling_sleep >$ZZPATH/fast_scaling_sleep
+  echo $early_demand >$ZZPATH/early_demand
+  echo $grad_up_threshold >$ZZPATH/grad_up_threshold
+  echo $ignore_nice_load >$ZZPATH/ignore_nice_load
+  echo $lcdfreq_enable >$ZZPATH/lcdfreq_enable
+  echo $lcdfreq_kick_in_cores >$ZZPATH/lcdfreq_kick_in_cores
+  echo $lcdfreq_kick_in_up_delay >$ZZPATH/lcdfreq_kick_in_up_delay
+  echo $lcdfreq_kick_in_down_delay >$ZZPATH/lcdfreq_kick_in_down_delay
+  echo $lcdfreq_kick_in_freq >$ZZPATH/lcdfreq_kick_in_freq
 }
 
 case "$zzpredef" in
   0)
-    sampling_rate="100000"
-    sampling_rate_sleep_multiplier="4"
-    sampling_down_factor="1"
-    sampling_down_max_momentum="0"
-    sampling_down_momentum_sensitivity="50"
-    up_threshold="70"
-    up_threshold_sleep="100"
-    smooth_up="75"
-    smooth_up_sleep="100"
-    up_threshold_hotplug1="68"
-    up_threshold_hotplug2="68"
-    up_threshold_hotplug3="68"
+    # DEFAULT
+    zzmoove_predef="0"
+    disable_hotplug="0"
+    disable_hotplug_sleep="0"
     down_threshold="52"
-    down_threshold_sleep="60"
     down_threshold_hotplug1="55"
     down_threshold_hotplug2="55"
     down_threshold_hotplug3="55"
-    disable_hotplug="0"
-    hotplug_sleep="1"
-    freq_step="5"
-    freq_step_sleep="1"
-    freq_limit="0"
-    freq_limit_sleep="700000"
+    down_threshold_hotplug_freq1="0"
+    down_threshold_hotplug_freq2="0"
+    down_threshold_hotplug_freq3="0"
+    down_threshold_sleep="44"
+    early_demand="1"
     fast_scaling="0"
     fast_scaling_sleep="0"
-    early_demand="0"
+    freq_limit="0"
+    freq_limit_sleep="0"
+    freq_step="5"
+    freq_step_sleep="5"
     grad_up_threshold="25"
+    hotplug_sleep="0"
+    hotplug_idle_threshold="0"
+    hotplug_block_cycles="0"
     ignore_nice_load="0"
     lcdfreq_enable="0"
     lcdfreq_kick_in_cores="0"
     lcdfreq_kick_in_up_delay="50"
     lcdfreq_kick_in_down_delay="20"
     lcdfreq_kick_in_freq="500000"
-    zzmoove_predef="0"
-    write_values
-    ;;
-  1)
-    sampling_rate="180000"
-    sampling_rate_sleep_multiplier="4"
     sampling_down_factor="1"
     sampling_down_max_momentum="0"
     sampling_down_momentum_sensitivity="50"
-    up_threshold="95"
-    up_threshold_sleep="100"
+    sampling_rate="100000"
+    sampling_rate_min="30000"
+    sampling_rate_sleep_multiplier="2"
     smooth_up="75"
     smooth_up_sleep="100"
+    up_threshold="70"
+    up_threshold_hotplug1="68"
+    up_threshold_hotplug2="68"
+    up_threshold_hotplug3="68"
+    up_threshold_hotplug_freq1="0"
+    up_threshold_hotplug_freq2="0"
+    up_threshold_hotplug_freq3="0"
+    up_threshold_sleep="100"
+
+    write_values
+    ;;
+  1)
+    # BATTERY [NOT OPTIMIZED FOR ZZMOOVE 0.7]
+    zzmoove_predef="1"
+    sampling_rate="180000"
+    sampling_down_factor="1"
+    up_threshold="95"
+    down_threshold="40"
+    ignore_nice_load="0"
+    freq_step="10"
+    smooth_up="75"
     up_threshold_hotplug1="60"
     up_threshold_hotplug2="80"
     up_threshold_hotplug3="98"
-    down_threshold="40"
-    down_threshold_sleep="60"
     down_threshold_hotplug1="45"
     down_threshold_hotplug2="55"
     down_threshold_hotplug3="65"
-    disable_hotplug="0"
-    hotplug_sleep="1"
-    freq_step="10"
+    sampling_rate_sleep_multiplier="4"
+    up_threshold_sleep="100"
+    down_threshold_sleep="55"
     freq_step_sleep="1"
-    freq_limit="0"
-    freq_limit_sleep="800000"
-    fast_scaling="0"
-    fast_scaling_sleep="2"
-    early_demand="0"
+    smooth_up_sleep="100"
+    hotplug_sleep="1"
+    freq_limit_sleep="600000"
+    fast_scaling="5"
+    fast_scaling_sleep="0"
+    early_demand="1"
     grad_up_threshold="50"
-    ignore_nice_load="0"
+	
+    # These are not defined, falling back to defaults
+    disable_hotplug="0"
+    disable_hotplug_sleep="0"
+    down_threshold_hotplug_freq1="0"
+    down_threshold_hotplug_freq2="0"
+    down_threshold_hotplug_freq3="0"
+    freq_limit="0"
+    hotplug_block_cycles="0"
+    hotplug_idle_threshold="0"
     lcdfreq_enable="0"
     lcdfreq_kick_in_cores="0"
-    lcdfreq_kick_in_up_delay="1"
-    lcdfreq_kick_in_down_delay="5"
+    lcdfreq_kick_in_up_delay="50"
+    lcdfreq_kick_in_down_delay="20"
     lcdfreq_kick_in_freq="500000"
-    zzmoove_predef="1"
+    up_threshold_hotplug_freq1="0"
+    up_threshold_hotplug_freq2="0"
+    up_threshold_hotplug_freq3="0"
+    sampling_down_max_momentum="0"
+    sampling_down_momentum_sensitivity="50"
+    sampling_rate_min="30000"
+	
     write_values
     ;;
   2)
+    # OPTIMIZED [NOT OPTIMIZED FOR ZZMOOVE 0.7]
+    zzmoove_predef="2"
     sampling_rate="45000"
-    sampling_rate_sleep_multiplier="4"
     sampling_down_factor="4"
     sampling_down_max_momentum="20"
     sampling_down_momentum_sensitivity="50"
     up_threshold="67"
-    up_threshold_sleep="100"
+    down_threshold="52"
+    ignore_nice_load="0"
+    freq_step="5"
     smooth_up="75"
-    smooth_up_sleep="100"
     up_threshold_hotplug1="68"
     up_threshold_hotplug2="78"
     up_threshold_hotplug3="88"
-    down_threshold="52"
-    down_threshold_sleep="60"
     down_threshold_hotplug1="45"
     down_threshold_hotplug2="55"
     down_threshold_hotplug3="65"
-    disable_hotplug="0"
-    hotplug_sleep="1"
-    freq_step="5"
+    sampling_rate_sleep_multiplier="4"
+    up_threshold_sleep="100"
+    down_threshold_sleep="55"
     freq_step_sleep="1"
-    freq_limit="0"
-    freq_limit_sleep="800000"
-    fast_scaling="1"
-    fast_scaling_sleep="2"
+    smooth_up_sleep="100"
+    hotplug_sleep="1"
+    freq_limit_sleep="600000"
+    fast_scaling="5"
+    fast_scaling_sleep="0"
     early_demand="1"
-    grad_up_threshold="25"
-    ignore_nice_load="0"
+    grad_up_threshold="50"
+	
+    # These are not defined, falling back to defaults
+    disable_hotplug="0"
+    disable_hotplug_sleep="0"
+    down_threshold_hotplug_freq1="0"
+    down_threshold_hotplug_freq2="0"
+    down_threshold_hotplug_freq3="0"
+    freq_limit="0"
+    hotplug_block_cycles="0"
+    hotplug_idle_threshold="0"
     lcdfreq_enable="0"
     lcdfreq_kick_in_cores="0"
-    lcdfreq_kick_in_up_delay="1"
-    lcdfreq_kick_in_down_delay="5"
+    lcdfreq_kick_in_up_delay="50"
+    lcdfreq_kick_in_down_delay="20"
     lcdfreq_kick_in_freq="500000"
-    zzmoove_predef="2"
+    up_threshold_hotplug_freq1="0"
+    up_threshold_hotplug_freq2="0"
+    up_threshold_hotplug_freq3="0"
+    sampling_rate_min="30000"
+	
     write_values
     ;;
   3)
+    # PERFORMANCE [NOT OPTIMIZED FOR ZZMOOVE 0.7]
+    zzmoove_predef="3"
     sampling_rate="40000"
-    sampling_rate_sleep_multiplier="4"
-    sampling_down_factor="4"
+    sampling_down_factor="1"
     sampling_down_max_momentum="50"
     sampling_down_momentum_sensitivity="25"
     up_threshold="60"
-    up_threshold_sleep="100"
+    down_threshold="20"
+    ignore_nice_load="0"
+    freq_step="25"
     smooth_up="70"
-    smooth_up_sleep="100"
     up_threshold_hotplug1="65"
     up_threshold_hotplug2="75"
     up_threshold_hotplug3="85"
-    down_threshold="20"
-    down_threshold_sleep="60"
     down_threshold_hotplug1="25"
     down_threshold_hotplug2="35"
     down_threshold_hotplug3="45"
-    disable_hotplug="0"
-    hotplug_sleep="1"
-    freq_step="25"
+    sampling_rate_sleep_multiplier="4"
+    up_threshold_sleep="100"
+    down_threshold_sleep="55"
     freq_step_sleep="1"
-    freq_limit="0"
-    freq_limit_sleep="800000"
-    fast_scaling="2"
-    fast_scaling_sleep="2"
+    smooth_up_sleep="100"
+    hotplug_sleep="1"
+    freq_limit_sleep="600000"
+    fast_scaling="5"
+    fast_scaling_sleep="0"
     early_demand="1"
-    grad_up_threshold="15"
-    ignore_nice_load="0"
+    grad_up_threshold="50"
+	
+    # These are not defined, falling back to defaults
+    disable_hotplug="0"
+    disable_hotplug_sleep="0"
+    down_threshold_hotplug_freq1="0"
+    down_threshold_hotplug_freq2="0"
+    down_threshold_hotplug_freq3="0"
+    freq_limit="0"
+    hotplug_block_cycles="0"
+    hotplug_idle_threshold="0"
     lcdfreq_enable="0"
     lcdfreq_kick_in_cores="0"
-    lcdfreq_kick_in_up_delay="1"
-    lcdfreq_kick_in_down_delay="5"
+    lcdfreq_kick_in_up_delay="50"
+    lcdfreq_kick_in_down_delay="20"
     lcdfreq_kick_in_freq="500000"
-    zzmoove_predef="3"
+    up_threshold_hotplug_freq1="0"
+    up_threshold_hotplug_freq2="0"
+    up_threshold_hotplug_freq3="0"
+    sampling_rate_min="30000"
+	
     write_values
     ;;
   4)
-    sampling_rate="180000"
-    sampling_rate_sleep_multiplier="4"
+    # ARCHI'S ULTRA BATTERY based on ZZmoove 0.7 and Yank's Extended Battery
+    zzmoove_predef="4"
+    sampling_rate="60000"
     sampling_down_factor="1"
-    up_threshold="95"
-    up_threshold_sleep="98"
-    smooth_up="90"
-    smooth_up_sleep="100"
-    up_threshold_hotplug1="75"
-    up_threshold_hotplug2="85"
-    up_threshold_hotplug3="98"
-    down_threshold="55"
-    down_threshold_sleep="55"
-    down_threshold_hotplug1="65"
-    down_threshold_hotplug2="75"
-    down_threshold_hotplug3="85"
-    hotplug_sleep="1"
+    up_threshold="70"
+    down_threshold="50"
+    ignore_nice_load="0"
     freq_step="10"
+    smooth_up="75"
+    up_threshold_hotplug1="90"
+    up_threshold_hotplug2="95"
+    up_threshold_hotplug3="98"
+    up_threshold_hotplug_freq1="900000"
+    up_threshold_hotplug_freq2="1100000"
+    up_threshold_hotplug_freq3="1300000"
+    down_threshold_hotplug1="70"
+    down_threshold_hotplug2="80"
+    down_threshold_hotplug3="90"
+    down_threshold_hotplug_freq1="800000"
+    down_threshold_hotplug_freq2="900000"
+    down_threshold_hotplug_freq3="1100000"
+    hotplug_block_cycles="0"
+    sampling_rate_sleep_multiplier="4"
+    up_threshold_sleep="85"
+    down_threshold_sleep="75"
     freq_step_sleep="1"
+    smooth_up_sleep="90"
+    hotplug_sleep="1"
     freq_limit_sleep="600000"
     fast_scaling="5"
-    fast_scaling_sleep="8"
+    fast_scaling_sleep="0"
     early_demand="1"
     grad_up_threshold="50"
-    ignore_nice_load="0"
-	sampling_down_max_momentum="0"
-    sampling_down_momentum_sensitivity="50"
-	disable_hotplug="0"
-	freq_limit="0"
-	lcdfreq_enable="1"
+    lcdfreq_enable="1"
     lcdfreq_kick_in_cores="0"
-    lcdfreq_kick_in_up_delay="1"
-    lcdfreq_kick_in_down_delay="5"
+    lcdfreq_kick_in_up_delay="50"
+    lcdfreq_kick_in_down_delay="20"
     lcdfreq_kick_in_freq="500000"
-	zzmoove_predef="4"
+	
+    # These are not defined, falling back to defaults
+    disable_hotplug="0"
+    disable_hotplug_sleep="0"
+    freq_limit="0"
+    hotplug_idle_threshold="0"
+    sampling_down_max_momentum="0"
+    sampling_down_momentum_sensitivity="50"
+    sampling_rate_min="30000"
+	
     write_values
     ;;
   5)
-    sampling_rate="180000"
-    sampling_rate_sleep_multiplier="4"
+    # YANK'S BATTERY based on ZZmoove 0.7 and Yank's Kernel 1.6e
+    zzmoove_predef="5"
+    sampling_rate="75000"
     sampling_down_factor="1"
-    up_threshold="80"
-    up_threshold_sleep="98"
-    smooth_up="65"
-    smooth_up_sleep="100"
-    up_threshold_hotplug1="70"
-    up_threshold_hotplug2="80"
-    up_threshold_hotplug3="98"
+    up_threshold="60"
     down_threshold="40"
-    down_threshold_sleep="55"
-    down_threshold_hotplug1="55"
-    down_threshold_hotplug2="65"
-    down_threshold_hotplug3="75"
-    hotplug_sleep="1"
-    freq_step="10"
-    freq_step_sleep="1"
-    freq_limit_sleep="600000"
-    fast_scaling="5"
-    fast_scaling_sleep="8"
-    early_demand="1"
-    grad_up_threshold="50"
     ignore_nice_load="0"
-	sampling_down_max_momentum="0"
-    sampling_down_momentum_sensitivity="50"
-	disable_hotplug="0"
-	freq_limit="0"
-	lcdfreq_enable="0"
-    lcdfreq_kick_in_cores="0"
-    lcdfreq_kick_in_up_delay="1"
-    lcdfreq_kick_in_down_delay="5"
-    lcdfreq_kick_in_freq="500000"
-	zzmoove_predef="5"
-    write_values
-    ;;
-  6)
-    sampling_rate="180000"
-    sampling_rate_sleep_multiplier="4"
-    sampling_down_factor="1"
-    up_threshold="95"
-    up_threshold_sleep="98"
-    smooth_up="90"
-    smooth_up_sleep="100"
-    up_threshold_hotplug1="75"
-    up_threshold_hotplug2="85"
+    freq_step="10"
+    smooth_up="65"
+    up_threshold_hotplug1="85"
+    up_threshold_hotplug2="90"
     up_threshold_hotplug3="98"
-    down_threshold="55"
-    down_threshold_sleep="55"
+    up_threshold_hotplug_freq1="700000"
+    up_threshold_hotplug_freq2="1000000"
+    up_threshold_hotplug_freq3="1200000"
     down_threshold_hotplug1="65"
     down_threshold_hotplug2="75"
     down_threshold_hotplug3="85"
-    hotplug_sleep="1"
-    freq_step="10"
+    down_threshold_hotplug_freq1="600000"
+    down_threshold_hotplug_freq2="800000"
+    down_threshold_hotplug_freq3="1000000"
+    hotplug_block_cycles="0"
+    sampling_rate_sleep_multiplier="4"
+    up_threshold_sleep="85"
+    down_threshold_sleep="75"
     freq_step_sleep="1"
+    smooth_up_sleep="90"
+    hotplug_sleep="1"
     freq_limit_sleep="600000"
     fast_scaling="5"
-    fast_scaling_sleep="8"
+    fast_scaling_sleep="0"
     early_demand="1"
     grad_up_threshold="50"
-    ignore_nice_load="0"
-	sampling_down_max_momentum="0"
-    sampling_down_momentum_sensitivity="50"
-	disable_hotplug="0"
-	freq_limit="0"
-	lcdfreq_enable="0"
+	
+    # These are not defined, falling back to defaults
+    disable_hotplug="0"
+    disable_hotplug_sleep="0"
+    freq_limit="0"
+    hotplug_idle_threshold="0"
+    lcdfreq_enable="0"
     lcdfreq_kick_in_cores="0"
-    lcdfreq_kick_in_up_delay="1"
-    lcdfreq_kick_in_down_delay="5"
+    lcdfreq_kick_in_up_delay="50"
+    lcdfreq_kick_in_down_delay="20"
     lcdfreq_kick_in_freq="500000"
-	zzmoove_predef="6"
+    sampling_down_max_momentum="0"
+    sampling_down_momentum_sensitivity="50"
+    sampling_rate_min="30000"
+	
+    write_values
+    ;;
+  6)
+    # YANK'S EXTENDED BATTERY (Yankzzmoove) based on ZZmoove 0.7 and Yank's Kernel 1.6e
+    zzmoove_predef="6"
+    sampling_rate="60000"
+    sampling_down_factor="1"
+    up_threshold="70"
+    down_threshold="50"
+    ignore_nice_load="0"
+    freq_step="10"
+    smooth_up="75"
+    up_threshold_hotplug1="90"
+    up_threshold_hotplug2="95"
+    up_threshold_hotplug3="98"
+    up_threshold_hotplug_freq1="900000"
+    up_threshold_hotplug_freq2="1100000"
+    up_threshold_hotplug_freq3="1300000"
+    down_threshold_hotplug1="70"
+    down_threshold_hotplug2="80"
+    down_threshold_hotplug3="90"
+    down_threshold_hotplug_freq1="800000"
+    down_threshold_hotplug_freq2="900000"
+    down_threshold_hotplug_freq3="1100000"
+    hotplug_block_cycles="0"
+    sampling_rate_sleep_multiplier="4"
+    up_threshold_sleep="85"
+    down_threshold_sleep="75"
+    freq_step_sleep="1"
+    smooth_up_sleep="90"
+    hotplug_sleep="1"
+    freq_limit_sleep="600000"
+    fast_scaling="5"
+    fast_scaling_sleep="0"
+    early_demand="1"
+    grad_up_threshold="50"
+	
+    # These are not defined, falling back to defaults
+    disable_hotplug="0"
+    disable_hotplug_sleep="0"
+    freq_limit="0"
+    hotplug_idle_threshold="0"
+    lcdfreq_enable="0"
+    lcdfreq_kick_in_cores="0"
+    lcdfreq_kick_in_up_delay="50"
+    lcdfreq_kick_in_down_delay="20"
+    lcdfreq_kick_in_freq="500000"
+    sampling_down_max_momentum="0"
+    sampling_down_momentum_sensitivity="50"
+    sampling_rate_min="30000"
+	
     write_values
     ;;
   *)

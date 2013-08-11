@@ -364,12 +364,12 @@ echo "
     <settingsPane description=\"Zzmoove predefined profiles\" name=\"Zzmoove predefined profiles\">
       <spinner description=\"Zzmoove predefined profiles\" name=\"Zzmoove predefined profiles\" action=\"zzpredefs zzpredef\">
              <spinnerItem name=\"Default\" value=\"0\"/> 
-             <spinnerItem name=\"Battery\" value=\"1\"/> 
-             <spinnerItem name=\"Optimized\" value=\"2\"/> 
-             <spinnerItem name=\"Performance\" value=\"3\"/>
-             <spinnerItem name=\"Archi's Ultra Battery V1 with LCDFreq\" value=\"4\"/>
+             <spinnerItem name=\"Battery [NOT 0.7 OPTIMIZED]\" value=\"1\"/> 
+             <spinnerItem name=\"Optimized [NOT 0.7 OPTIMIZED]\" value=\"2\"/> 
+             <spinnerItem name=\"Performance [NOT 0.7 OPTIMIZED]\" value=\"3\"/>
+             <spinnerItem name=\"Archi's Ultra Battery V2 with LCDFreq\" value=\"4\"/>
              <spinnerItem name=\"Yank's Battery\" value=\"5\"/>
-             <spinnerItem name=\"Yankzzmoove\" value=\"6\"/>
+             <spinnerItem name=\"Yankzzmoove (Yank's Extended Battery)\" value=\"6\"/>
       </spinner>
     </settingsPane>
     <settingsPane description=\"Parameters governing the dynamic voltage frequency scaling policy on the CPU.\" 
@@ -435,6 +435,21 @@ echo "
                action=\"generic /sys/devices/system/cpu/cpufreq/zzmoove/up_threshold_hotplug3\"
                unit=\"%\" min=\"0\" reversed=\"false\" step=\"1\" max=\"100\"/>
 
+      <seekBar description=\"Hotplug up freq threshold for cpu1. 0 disables freq threshold. Default: 0.\"
+               name=\"Hotplug up freq threshold CPU1\" 
+               action=\"generic /sys/devices/system/cpu/cpufreq/zzmoove/up_threshold_hotplug_freq1\"
+               unit=\"\" min=\"0\" reversed=\"false\" step=\"100000\" max=\"1400000\"/>
+
+      <seekBar description=\"Hotplug up freq threshold for cpu2. 0 disables freq threshold. Default: 0.\"
+               name=\"Hotplug up freq threshold CPU2\" 
+               action=\"generic /sys/devices/system/cpu/cpufreq/zzmoove/up_threshold_hotplug_freq2\"
+               unit=\"\" min=\"0\" reversed=\"false\" step=\"100000\" max=\"1400000\"/>
+
+      <seekBar description=\"Hotplug up freq threshold for cpu3. 0 disables freq threshold. Default: 0.\"
+               name=\"Hotplug up freq threshold CPU3\" 
+               action=\"generic /sys/devices/system/cpu/cpufreq/zzmoove/up_threshold_hotplug_freq3\"
+               unit=\"\" min=\"0\" reversed=\"false\" step=\"100000\" max=\"1400000\"/>
+
       <seekBar description=\"This is same as the up_threshold but for the opposite direction. For example when set to its default value of 52 it means that if the CPU usage needs to be below 52 between samples to have the frequency decreased. Default: 52%.\" 
                name=\"Down threshold\" 
                action=\"generic /sys/devices/system/cpu/cpufreq/zzmoove/down_threshold\"
@@ -460,9 +475,29 @@ echo "
                action=\"generic /sys/devices/system/cpu/cpufreq/zzmoove/down_threshold_hotplug3\"
                unit=\"%\" min=\"11\" reversed=\"false\" step=\"1\" max=\"100\"/>
 
+      <seekBar description=\"Hotplug down freq threshold for cpu1. 0 disables freq threshold. Default: 0.\"
+               name=\"Hotplug down freq threshold CPU1\" 
+               action=\"generic /sys/devices/system/cpu/cpufreq/zzmoove/down_threshold_hotplug_freq1\"
+               unit=\"\" min=\"0\" reversed=\"false\" step=\"100000\" max=\"1400000\"/>
+
+      <seekBar description=\"Hotplug down freq threshold for cpu2. 0 disables freq threshold. Default: 0.\"
+               name=\"Hotplug down freq threshold CPU2\" 
+               action=\"generic /sys/devices/system/cpu/cpufreq/zzmoove/down_threshold_hotplug_freq2\"
+               unit=\"\" min=\"0\" reversed=\"false\" step=\"100000\" max=\"1400000\"/>
+
+      <seekBar description=\"Hotplug down freq threshold for cpu3. 0 disables freq threshold. Default: 0.\"
+               name=\"Hotplug down freq threshold CPU3\" 
+               action=\"generic /sys/devices/system/cpu/cpufreq/zzmoove/down_threshold_hotplug_freq3\"
+               unit=\"\" min=\"0\" reversed=\"false\" step=\"100000\" max=\"1400000\"/>
+
       <seekBar description=\"Hotplug switch for debugging and testing purposes -> possible values: 0 to disable, 1 to enable. Default: 0.\"
                name=\"Disable hotplug\" 
                action=\"generic /sys/devices/system/cpu/cpufreq/zzmoove/disable_hotplug\"
+               unit=\"\" min=\"0\" reversed=\"false\" step=\"1\" max=\"1\"/>
+
+      <seekBar description=\"Hotplug sleep switch for debugging and testing purposes -> possible values: 0 to disable, 1 to enable. Affects only suspend state. Default: 0.\"
+               name=\"Disable hotplug sleep\" 
+               action=\"generic /sys/devices/system/cpu/cpufreq/zzmoove/disable_hotplug_sleep\"
                unit=\"\" min=\"0\" reversed=\"false\" step=\"1\" max=\"1\"/>
 
       <seekBar description=\"Possible values 0 do not touch hotplug-settings on early suspend, values 1, 2 or 3 are equivalent to cores which should be online at early suspend. Default: 1.\" 
@@ -470,11 +505,20 @@ echo "
                action=\"generic /sys/devices/system/cpu/cpufreq/zzmoove/hotplug_sleep\"
                unit=\"\" min=\"0\" reversed=\"false\" step=\"1\" max=\"3\"/>
 
+      <seekBar description=\"Amount of load under which hotplugging should be disabled at idle times. Default: 0.\" 
+               name=\"Hotplug idle sleep\" 
+               action=\"generic /sys/devices/system/cpu/cpufreq/hotplug_idle_sleep\"
+               unit=\"\" min=\"0\" reversed=\"false\" step=\"1\" max=\"100\"/>
+
+      <seekBar description=\"Slow down hotplugging by waiting a given amount of cycles before plugging. 0 disables delay. Default: 0.\" 
+               name=\"Hotplug block cycles\" 
+               action=\"generic /sys/devices/system/cpu/cpufreq/hotplug_block_cycles\"
+               unit=\"\" min=\"0\" reversed=\"false\" step=\"1\" max=\"100\"/>
+
       <seekBar description=\"This describes what percentage steps the CPU freq should be increased and decreased smoothly by. By default the CPU frequency will increase in 5% chunks of your maximum CPU frequency. You can change this value to anywhere between 0 and 100 where 0 will effectively lock your CPU at a speed regardless of its load whilst 100 will, in theory, make it behave identically to the ondemand governor. Default: 5%.\"
                name=\"Frequency step\" 
                action=\"generic /sys/devices/system/cpu/cpufreq/zzmoove/freq_step\"
                unit=\"%\" min=\"0\" reversed=\"false\" step=\"1\" max=\"100\"/>
-
 
       <seekBar description=\"Possible values: range from 0 to 100, if not set default is 5, value 0 will stop freq scaling and hold on actual freq. Value 100 will directly jump up or down to limits like ondemand governor. Default: 1.\" 
                name=\"Frequency step sleep\" 

@@ -1,9 +1,10 @@
 ArchiDroid 2.1 [CM10.2 / Android 4.3]
 Full Wipe recommended, NOT required if you did full wipe during AD 2.0.3
 
-- [!] ArchiDroid is now based on Temasek's Unofficial CM10.2 Build (once again) due to fixed /data/app bug.
+- [!] ArchiDroid is now based on Temasek's Unofficial CM10.2 Build (once again) due to fixed /data/app bug
 - [!] CrossBreeder's AdBlock doesn't work correctly with Android 4.3 yet. Temporary it's disabled and replaced with standard AdAway hosts file (provided by 98ArchiDroid_RunOnce init.d script, which disables CB's AdBlock and replaces hosts file with AdAway one)
-- [!] As stated in previous changelog now ArchiDroid flashes XXEMG4 modem in default presets. You can still choose exactly what you want in custom preset but as for now XXEMG4 is fully compatible with AOSP/CM and DOES NOT modify /efs even if you have old-style format. Because of that avoiding XXEMG4 modem on AOSP/CM is pointless now.
+- [!] As stated in previous changelog now ArchiDroid flashes XXEMG4 modem in default presets. You can still choose exactly what you want in custom preset but as for now XXEMG4 is fully compatible with AOSP/CM and DOES NOT modify /efs even if you have old-style format. Because of that avoiding XXEMG4 modem on AOSP/CM is pointless now
+- Added requested Googy-Max Kernel, stweaks included
 - Added/Converted inverted Google Hangouts to Google Apps (from old Google Core), disabled in default preset
 - Fixed a bug introduced in 2.0.3 which caused reset of stweaks preset after reboot. Also presets are now even more universal and touch only things which need to be changed instead of all values
 - Added new STweaks preset "ArchiDroid Ultra Battery Preset", it is based on Archi's Ultra Battery V2 with LCDFreq zzmoove profile and literally gives you MAXIMUM of battery life for a cost of performance. Use with caution, laggs will appear but you'll in fact get MAXIMUM battery life.
@@ -13,6 +14,7 @@ Full Wipe recommended, NOT required if you did full wipe during AD 2.0.3
 - Updated CoolTool to 5.0 with a few nice modifications to ArchiDroid preset
 - Updated Android Terminal Emulator bundled with CM to 1.0.53 in non-conflicting way (overwrite /system/app/Term.apk with newest version)
 - Updated sources to temasek V7.1
+- Other not-mentioned fixes and improvements
 - Updated Temasek Kernel to 110813. This includes also my commits for temasek's STweaks:
 
 ZZmoove Lab

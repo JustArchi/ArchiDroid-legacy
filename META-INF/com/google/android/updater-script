@@ -269,10 +269,10 @@ if file_getprop("/tmp/aroma-data/kernels.prop","selected.0") == "1" then
 	ui_print("root@ArchiDroid:~# Flashing Temasek Kernel");
 	delete_recursive("/data/.temasek");
 	delete_recursive("/system/lib/modules");
-	package_extract_dir("_archidroid/temasek/system", "/system");
+	package_extract_dir("_archidroid/kernels/temasek/system", "/system");
 	set_perm_recursive(0, 0, 0755, 0755, "/system/lib/modules/");
 	set_perm(0, 0, 0755, "/system/bin/hostapd");
-	package_extract_dir("_archidroid/temasek/kernel", "/tmp");
+	package_extract_dir("_archidroid/kernels/temasek/kernel", "/tmp");
 	set_perm(0, 0, 0777, "/tmp/dump_image");
 	set_perm(0, 0, 0777, "/tmp/mkbootimg.sh");
 	set_perm(0, 0, 0777, "/tmp/mkbootimg");
@@ -316,15 +316,24 @@ if file_getprop("/tmp/aroma-data/kernels.prop","selected.0") == "2" then
 	delete("/data/swap.3.log");
 	delete("/data/swap.4.log");
 
-    package_extract_dir("_archidroid/yank/system", "/system");
+    package_extract_dir("_archidroid/kernels/yank/system", "/system");
 	set_perm_recursive(0, 0, 0755, 0755, "/system/lib/modules/");
-	package_extract_file("_archidroid/yank/boot.img", "/tmp/yank.img");
+	package_extract_file("_archidroid/kernels/yank/boot.img", "/tmp/yank.img");
     write_raw_image("/tmp/yank.img", "/dev/block/mmcblk0p5");
     delete("/tmp/yank.img");
 endif;
 
-### STOCK CM ###
+### GOOGY-MAX ###
 if file_getprop("/tmp/aroma-data/kernels.prop","selected.0") == "3" then
+	ui_print("root@ArchiDroid:~# Flashing Googy-Max Kernel");
+	package_extract_file("_archidroid/kernels/googymax/boot.img", "/tmp/googymax.img");
+    write_raw_image("/tmp/googymax.img", "/dev/block/mmcblk0p5");
+    delete("/tmp/googymax.img");
+	package_extract_dir("_archidroid/apps/stweaks", "/");
+endif;
+
+### STOCK CM ###
+if file_getprop("/tmp/aroma-data/kernels.prop","selected.0") == "4" then
 	ui_print("root@ArchiDroid:~# Flashing CM Kernel");
 	
 	# Not needed since zygote kernel panic fix

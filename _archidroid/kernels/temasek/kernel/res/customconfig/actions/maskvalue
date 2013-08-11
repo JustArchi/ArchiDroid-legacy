@@ -1,0 +1,36 @@
+#!/sbin/busybox sh
+
+if [ -f $3 ];then
+	FILEVAR=$(basename $3)_mask_$2
+
+	sysval=`cat $3`
+
+	if [ -z $4 ]; then
+		rawval="eval echo \$(($sysval & $2))"
+		evalcmd='eval echo \$$FILEVAR'
+		if [ "a`eval $evalcmd`" == "a" ]; then
+			if [ "`eval $rawval`" -eq 0 ]; then
+				VAL="off"
+			else
+				VAL="on"
+			fi
+
+			eval $FILEVAR=$VAL
+			echo $FILEVAR=$VAL >> $DEFAULT_PROFILE
+		fi
+	else
+		case "$4" in
+			on)	rawval="eval echo \$(($sysval | $2))" ;;
+			off)	rawval="eval echo \$(($sysval & ~$2))"	;;
+		esac
+
+		rawval=`eval $rawval`
+
+		echo $rawval > $3
+
+		eval $FILEVAR=$4
+	fi
+
+	eval echo \$$FILEVAR
+fi
+

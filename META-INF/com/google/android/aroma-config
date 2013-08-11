@@ -765,6 +765,7 @@ selectbox(
 
   "Temasek Kernel [Boeffla/No ABB]","Recommended for perfect peformance, powersave, high flexibility and boeffla sound",1,
   "Yank555.lu Kernel","Recommended as an alternative to Temasek",0,
+  "Googy-Max Kernel","Based on Siyah sources. Unique for dual-boot feature",0,
   "Stock CM","Comes as a default kernel with CM",0
 );
 
@@ -787,7 +788,8 @@ else
 	);
 endif;
 
-if file_getprop("/tmp/aroma-data/kernels.prop","selected.0") != "3" then
+# If boeffla-kernel
+if file_getprop("/tmp/aroma-data/kernels.prop","selected.0") == "1" || file_getprop("/tmp/aroma-data/kernels.prop","selected.0") == "2" then
 selectbox(
   "Boeffla Sound Control",
   "Would you like to include Boeffla SC?",
@@ -837,7 +839,7 @@ else
 	);
 endif;
 
-if file_getprop("/tmp/aroma-data/acid2.prop","selected.0") == "1" then
+if file_getprop("/tmp/aroma-data/acid2.prop","selected.0") == "1" || file_getprop("/tmp/aroma-data/boeffla.prop","selected.0") == "1" then
 selectbox(
   "Audio Preset",
   "Which audio preset would you like to use?",
@@ -962,6 +964,7 @@ selectbox(
 
   "Temasek Kernel [Boeffla/No ABB]","Wysoce zalecany dla najlepszej wydajności, elastyczności, oszczędności baterii i jakości audio",1,
   "Yank555.lu Kernel","Zalecany jako alternatywa dla temaseka",0,
+  "Googy-Max Kernel","Bazowany na źródłach Siyah. Unikalny z powodu funkcji dual-boot",0,
   "CyanogenMod","Pochodzący prosto z CyanogenMod",0
 );
 

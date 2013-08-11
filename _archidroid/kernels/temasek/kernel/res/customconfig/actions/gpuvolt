@@ -1,0 +1,31 @@
+#!/sbin/busybox sh
+
+STEP=GPU_VOLT_`echo $2`
+
+if [ -z $3 ]; then
+	evalcmd='eval echo \$$STEP'
+	if [ "a`eval $evalcmd`" == "a" ]; then
+
+		while read FREQ VOLT; do
+			if [ ${FREQ%???} -eq $2 ]; then
+				eval $STEP=${VOLT%??}
+				echo $STEP=${VOLT%??} >> $DEFAULT_PROFILE
+				break
+			fi
+		done < /sys/devices/system/gpu/volt_table
+	fi
+else
+	eval $STEP=$3
+
+	if [ "$CONTROLSWITCH_GPU" == "on" -o "$CONFIG_BOOTED" == true ]; then
+		VOLTAGES=""
+		while read FREQ VOLT; do
+			evalcmd='eval echo \$GPU_VOLT_${FREQ%???}'
+			VOLTAGES="$VOLTAGES `eval $evalcmd`"
+		done < /sys/devices/system/gpu/volt_table
+
+		echo `echo $VOLTAGES` > /sys/devices/system/gpu/volt_table
+	fi
+fi
+
+eval echo \$$STEP

@@ -11,6 +11,7 @@ Full Wipe recommended, NOT required if you did full wipe during AD 2.0.3
 - Updated Nova to 2.2
 - Updated MXPlayer to 1.7.17
 - Updated CoolTool to 5.0 with a few nice modifications to ArchiDroid preset
+- Updated Android Terminal Emulator bundled with CM to 1.0.53 in non-conflicting way (overwrite /system/app/Term.apk with newest version)
 - Updated sources to temasek V7.1
 - Updated Temasek Kernel to 110813. This includes also my commits for temasek's STweaks:
 

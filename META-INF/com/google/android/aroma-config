@@ -667,10 +667,10 @@ writetmpfile(
   "item.0.1=1\n"
 );
 
-# XXEMB6
+# XXEMG4 Modem
 writetmpfile(
   "modem.prop",
-  "selected.0=1\n"
+  "selected.0=2\n"
 );
 
 # No recovery

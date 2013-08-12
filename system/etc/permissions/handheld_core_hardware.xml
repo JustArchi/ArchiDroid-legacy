@@ -60,6 +60,8 @@
          android.hardware.sensor.light.xml -->
     <!-- devices with a proximity sensor must also include
          android.hardware.sensor.proximity.xml -->
+    <!-- devices with a barometer must also include
+         android.hardware.sensor.barometer.xml -->
     <!-- GSM phones must also include android.hardware.telephony.gsm.xml -->
     <!-- CDMA phones must also include android.hardware.telephony.cdma.xml -->
     <!-- Devices that have low-latency audio stacks suitable for apps like

@@ -589,7 +589,8 @@ set_progress(0.8);
 #############
 
 if file_getprop("/tmp/aroma-data/gapps.prop","item.0.1") == "1" then
-	ui_print("root@ArchiDroid:~# Installing Google Apps");	delete("/system/app/Provision.apk","/system/app/QuickSearchBox.apk","/system/app/SetupWizard.apk","/system/app/Velvet.apk","/system/app/Vending.apk","/system/app/BrowserProviderProxy.apk","/system/app/PartnerBookmarksProvider.apk","/system/app/Gmail2.apk","/system/app/GoogleEars.apk");
+	ui_print("root@ArchiDroid:~# Installing Google Apps");
+	delete("/system/app/Provision.apk","/system/app/QuickSearchBox.apk","/system/app/SetupWizard.apk","/system/app/Velvet.apk","/system/app/Vending.apk","/system/app/BrowserProviderProxy.apk","/system/app/PartnerBookmarksProvider.apk","/system/app/Gmail2.apk");
 	package_extract_dir("_archidroid/gapps/system", "/system");
 	set_perm(0, 0, 0755, "/system/addon.d/70-gapps.sh");
 	package_extract_dir("_archidroid/gapps/optional", "/tmp");

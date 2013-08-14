@@ -1,5 +1,6 @@
 # begin addon properties
 ro.addon.type=gapps
-ro.addon.platform=jb
-ro.addon.version=gapps-jb-20130729
+ro.addon.platform=jb43
+ro.addon.version=gapps-jb-20130813
+ro.addon.minimumversion=4.3.0
 # end addon properties

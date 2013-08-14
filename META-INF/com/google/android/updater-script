@@ -399,92 +399,12 @@ if file_getprop("/tmp/aroma-data/dpi.prop","selected.0") == "4" then
 	run_program("/tmp/320dpi.sh");
 endif;
 
-set_progress(0.62);
-
-
-############
-### AC!D ###
-############
-
-if file_getprop("/tmp/aroma-data/acid.prop","selected.0") == "1" then
-	ui_print("root@ArchiDroid:~# Installing AC!D Audio Technology");
-
-	### IMPORTANT ###
-	package_extract_dir("_archidroid/acid/system", "/system");
-	### IMPORTANT ###
-
-	delete("/system/app/DSPManager.apk");
-
-	package_extract_file("_archidroid/acid/TAS.sh", "/tmp/TAS.sh");
-	set_perm(0, 0, 0777, "/tmp/TAS.sh");
-	run_program("/tmp/TAS.sh");
-
-	set_perm(0, 2000, 0755, "/system/bin/aaengine");
-	set_perm_recursive(0, 2000, 0755, 0755, "/system/bin/beatsbass");
-	set_perm_recursive(0, 2000, 0755, 0755, "/system/bin/beatsnormal");
-	set_perm_recursive(0, 2000, 0755, 0755, "/system/bin/basimage_gec");
-	set_perm_recursive(0, 2000, 0755, 0755, "/system/bin/basimage_gec_bt");
-	set_perm_recursive(0, 2000, 0755, 0755, "/system/bin/basimage_gec_x");
-	set_perm_recursive(0, 2000, 0755, 0755, "/system/bin/basimage_ibeats");
-	set_perm_recursive(0, 2000, 0755, 0755, "/system/bin/basimage_ibeats_solo");
-	set_perm_recursive(0, 2000, 0755, 0755, "/system/bin/basimage_ibeats_solo_x");
-	set_perm_recursive(0, 2000, 0755, 0755, "/system/bin/basimage_ibeats_studio");
-	set_perm_recursive(0, 2000, 0755, 0755, "/system/bin/basimage_ibeats_x");
-	set_perm_recursive(0, 2000, 0755, 0755, "/system/bin/dynimage_gec");
-	set_perm_recursive(0, 2000, 0755, 0755, "/system/bin/dynimage_gec_bt");
-	set_perm_recursive(0, 2000, 0755, 0755, "/system/bin/dynimage_gec_x");
-	set_perm_recursive(0, 2000, 0755, 0755, "/system/bin/dynimage_ibeats");
-	set_perm_recursive(0, 2000, 0755, 0755, "/system/bin/dynimage_ibeats_solo");
-	set_perm_recursive(0, 2000, 0755, 0755, "/system/bin/dynimage_ibeats_solo_x");
-	set_perm_recursive(0, 2000, 0755, 0755, "/system/bin/dynimage_ibeats_studio");
-	set_perm_recursive(0, 2000, 0755, 0755, "/system/bin/dynimage_ibeats_x");
-	set_perm_recursive(0, 2000, 0755, 0755, "/system/bin/image_beatbox_bt");
-	set_perm_recursive(0, 2000, 0755, 0755, "/system/bin/image_beats_wireless_bt");
-	set_perm_recursive(0, 2000, 0755, 0755, "/system/bin/image_gec");
-	set_perm_recursive(0, 2000, 0755, 0755, "/system/bin/image_gec_bt");
-	set_perm_recursive(0, 2000, 0755, 0755, "/system/bin/image_htc_earbud");
-	set_perm_recursive(0, 2000, 0755, 0755, "/system/bin/image_htc_midtier");
-	set_perm_recursive(0, 2000, 0755, 0755, "/system/bin/image_ibeats");
-	set_perm_recursive(0, 2000, 0755, 0755, "/system/bin/image_ibeats_solo");
-	set_perm_recursive(0, 2000, 0755, 0755, "/system/bin/image_ibeats_solo_v2");
-	set_perm_recursive(0, 2000, 0755, 0755, "/system/bin/image_ibeats_v2");
-	set_perm_recursive(0, 2000, 0755, 0755, "/system/bin/load_mg_driver");
-	set_perm_recursive(0, 2000, 0755, 0755, "/system/bin/load_sony_driver");
-	set_perm_recursive(0, 2000, 0755, 0755, "/system/bin/mm-audio-acdb-test");
-	set_perm_recursive(0, 2000, 0755, 0755, "/system/bin/mm-audio-native-test");
-	set_perm_recursive(0, 2000, 0755, 0755, "/system/bin/pm_snd");
-	set_perm_recursive(0, 2000, 0755, 0755, "/system/bin/snd");
-	set_perm_recursive(0, 2000, 0755, 0755, "/system/bin/snd8k");
-	set_perm_recursive(0, 2000, 0755, 0755, "/system/bin/snd3008");
-	set_perm_recursive(0, 2000, 0755, 0755, "/system/bin/sony_sysd");
-	set_perm_recursive(0, 2000, 0755, 0755, "/system/bin/sound");
-	set_perm_recursive(0, 2000, 0755, 0755, "/system/bin/sound7x30");
-	set_perm_recursive(0, 2000, 0755, 0755, "/system/bin/sound8x60");
-	set_perm_recursive(0, 2000, 0755, 0755, "/system/bin/sound8960");
-	set_perm_recursive(0, 2000, 0755, 0755, "/system/bin/spkamp");
-	set_perm_recursive(0, 2000, 0755, 0755, "/system/bin/xaplay");
-
-	#package_extract_file("_archidroid/acid/fix_permissions.sh", "/tmp/fix_permissions.sh");
-	#set_perm(0, 0, 0755, "/tmp/fix_permissions.sh");
-	#run_program("/tmp/fix_permissions.sh");
-	#delete("/tmp/fix_permissions.sh");
-
-	delete("/tmp/TAS.sh");
-endif;
-
 set_progress(0.65);
 
 
 ###############################
 ### ArchiDroid Audio Tweaks ###
 ###############################
-
-if file_getprop("/tmp/aroma-data/acid2.prop","selected.0") == "1" then
-	if file_getprop("/tmp/aroma-data/preset.prop","selected.0") == "1" then
-		ui_print("root@ArchiDroid:~# Installing Archi's Audiophile preset for AwesomeBeats");
-		package_extract_dir("_archidroid/presets/awesomebeats", "/");
-	endif;
-endif;
 
 if file_getprop("/tmp/aroma-data/boeffla.prop","selected.0") == "1" then
 	if file_getprop("/tmp/aroma-data/preset.prop","selected.0") == "1" then

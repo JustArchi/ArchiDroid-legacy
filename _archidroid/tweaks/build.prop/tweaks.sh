@@ -30,7 +30,7 @@ ro.config.nocheckin=1
 
 # Less battery drain in deep sleep. WARNING! sleep_mode=1 is called deeper sleep and may cause more battery drain during wakelocks!
 #pm.sleep_mode=1
-ro.ril.power_collapse=1
+#ro.ril.power_collapse=1
 wifi.supplicant_scan_interval=180
 #ro.mot.eri.losalert.delay=1000
 
@@ -46,6 +46,66 @@ wifi.supplicant_scan_interval=180
 #ro.com.google.locationfeatures=0
 #ro.com.google.networklocation=0
 
+
+# Usually you don't want to change values below
+
+
+# Audio tweaks, gathered by me from the entire internet. Most credits to AC!D Team, AwesomeBeats and many more
+af.resample=52000
+af.resampler.quality=255
+
+alsa.mixer.capture.bt.sco=BTHeadset
+alsa.mixer.capture.earpiece=Mic
+alsa.mixer.capture.headset=Mic
+alsa.mixer.capture.master=Mic
+alsa.mixer.capture.speaker=Mic
+alsa.mixer.playback.bt.sco=BTHeadset
+alsa.mixer.playback.earpiece=Earpiece
+alsa.mixer.playback.headset=Headset
+alsa.mixer.playback.master=Speaker
+alsa.mixer.playback.speaker=Speaker
+
+# Probably not needed but who knows...
+htc.audio.alc.enable=1
+htc.audio.enable_dmic=1
+htc.audio.global.profile=0
+htc.audio.global.state=0
+htc.audio.lpa.a2dp=0
+htc.audio.q6.topology=0
+htc.audio.swalt.enable=1
+htc.audio.swalt.mingain=14512
+
+mpq.audio.decode=true
+
+persist.af.resample=52000
+persist.af.resampler.quality=255
+persist.audio.fluence.mode=endfire
+persist.audio.handset.mic=analog
+persist.audio.hp=true
+persist.audio.samplerate=48000
+persist.audio.vr.enable=false
+persist.audio.SupportHTCHWAEC=1
+persist.dev.pm.dyn_samplingrate=1
+persist.htc.audio.pcm.channels=2
+persist.htc.audio.pcm.samplerate=48000
+persist.service.swiqi2.enable=1
+persist.service.xloud.enable=1
+persist.service.enhance.enable=1
+persist.service.clearaudio.enable=1
+persist.service.walkman.enable=1
+persist.service.clearphase.enable=1
+
+ro.audio.pcm.samplerate=48000
+ro.audio.samplerate=48000
+ro.semc.clearaudio.supported=true
+ro.semc.enhance.supported=true
+ro.semc.sound_effects_enabled=true
+ro.semc.xloud.supported=true
+ro.service.swiqi2.supported=true
+ro.somc.clearphase.supported=true
+ro.sony.walkman.logger=1
+ro.sound.alsa=snd_pcm
+ro.sound.driver=alsa
 
 ### ArchiDroid build.prop Tweaks ###
 ############################

@@ -433,18 +433,6 @@ writetmpfile(
   "selected.0=1\n"
 );
 
-# AC!D
-writetmpfile(
-  "acid.prop",
-  "selected.0=1\n"
-);
-
-# AudioBeats
-writetmpfile(
-  "acid2.prop",
-  "selected.0=1\n"
-);
-
 # Archi's Audiophile
 writetmpfile(
   "preset.prop",
@@ -604,18 +592,6 @@ writetmpfile(
 # Boeffla Sound Control
 writetmpfile(
   "boeffla.prop",
-  "selected.0=1\n"
-);
-
-# AC!D
-writetmpfile(
-  "acid.prop",
-  "selected.0=1\n"
-);
-
-# AudioBeats
-writetmpfile(
-  "acid2.prop",
   "selected.0=1\n"
 );
 
@@ -806,40 +782,7 @@ else
 	);
 endif;
 
-selectbox(
-  "AC!D Audio Technology",
-  "Would you like also to enhance audio quality?",
-  "icons/apps",
-  "acid.prop",
-
-  "Yes","Highly recommended. Works great with Temasek kernel and Boeffla SC. We'll install AC!D Audio Technology",1,
-  "No","Will not install AC!D Audio Technology",0
-);
-
-if file_getprop("/tmp/aroma-data/acid.prop","selected.0") != "2" then
-	if file_getprop("/tmp/aroma-data/acid2.prop","selected.0") == "3" then
-		writetmpfile(
-		  "acid2.prop",
-		  "selected.0=1\n"
-	);
-	endif;
-selectbox(
-  "AC!D Core",
-  "Which AC!D mode would you like to use?",
-  "icons/apps",
-  "acid2.prop",
-
-  "AudioBeats","Highly recommended for best audio experience. Works great with Boeffla SC and enhances it's features",1,
-  "ClearAudio [EXPERIMENTAL]","Comes as an alternative to AudioBeats. Not recommended due to bad implementation and possible future problems",0
-);
-else
-	writetmpfile(
-	  "acid2.prop",
-	  "selected.0=3\n"
-	);
-endif;
-
-if file_getprop("/tmp/aroma-data/acid2.prop","selected.0") == "1" || file_getprop("/tmp/aroma-data/boeffla.prop","selected.0") == "1" then
+if file_getprop("/tmp/aroma-data/boeffla.prop","selected.0") == "1" then
 selectbox(
   "Audio Preset",
   "Which audio preset would you like to use?",
@@ -987,7 +930,7 @@ else
 	);
 endif;
 
-if file_getprop("/tmp/aroma-data/kernels.prop","selected.0") != "3" then
+if file_getprop("/tmp/aroma-data/kernels.prop","selected.0") == "1" || file_getprop("/tmp/aroma-data/kernels.prop","selected.0") == "2" then
 selectbox(
   "Boeffla Sound Control",
   "Czy chciałbyś zainstalować Boeffla SC?",
@@ -1004,40 +947,7 @@ else
 	);
 endif;
 
-selectbox(
-  "AC!D Audio Technology",
-  "Czy chciałbyś poprawić jakość audio?",
-  "icons/apps",
-  "acid.prop",
-
-  "Tak","Wysoce zalecane. Działa świetnie z kernelem Temasek oraz Boeffla SC. Zainstaluję AC!D Audio Technology",1,
-  "Nie","Nie zainstaluję AC!D Audio Technology",0
-);
-
-if file_getprop("/tmp/aroma-data/acid.prop","selected.0") != "2" then
-	if file_getprop("/tmp/aroma-data/acid2.prop","selected.0") == "3" then
-		writetmpfile(
-		  "acid2.prop",
-		  "selected.0=1\n"
-	);
-	endif;
-selectbox(
-  "AC!D Core",
-  "Którego trybu AC!D chciałbyś użyć?",
-  "icons/apps",
-  "acid2.prop",
-
-  "AudioBeats","Wysoce zalecane dla najlepszych doznań audio. Działa świetnie z Boeffla SC i znacznie poprawia dostarczaną jakość",1,
-  "ClearAudio [EXPERIMENTAL]","Alternatywa dla AudioBeats. Niezalecane z powodu złej implementacji i możliwych problemów",0
-);
-else
-	writetmpfile(
-	  "acid2.prop",
-	  "selected.0=3\n"
-	);
-endif;
-
-if file_getprop("/tmp/aroma-data/acid2.prop","selected.0") == "1" then
+if file_getprop("/tmp/aroma-data/boeffla.prop","selected.0") == "1" then
 selectbox(
   "Audio Preset",
   "Którego presetu audio chciałbyś użyć?",

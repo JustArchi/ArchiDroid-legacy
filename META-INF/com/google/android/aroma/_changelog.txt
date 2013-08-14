@@ -4,7 +4,6 @@ ArchiDroid 2.1.1
 # Let's make it clear. AC!D was cool back to froyo and GB times when simply flashing it made a difference. It was cool also on stock roms because of cm-based sound system with many improvements.
 # For now AC!D contains basicly two things. Build.prop audio tweaks and AwesomeBeats. AwesomeBeats are really awesome and this is the only thing why I wanted to keep this implemented into my rom.
 # Unfortunately Android 4.3 destroyed any DSP-Managers, not only AwesomeBeats. To be honest AC!D no longer makes sense to be implemented, there is no point in having broken package which doesn't make any difference in sound quality because of that.
-# Because of that there is no longer a point of using it with CM10.2. Only strange issues would appear because of broken components.
 # However this doesn't mean that I totally abandoned AC!D/AwesomeBeats.
 # I've remastered, rewrited and ported all build.prop tweaks to ArchiDroid build.prop tweaks, gave proper credits and removed AC!D completely.
 # I'm looking forward to any updates regarding CM10.2 support and if such thing happen then I'll be happy to implement this once again, but as for now I don't know if it's even possible, and if it is then still it needs a lot of time to be done.

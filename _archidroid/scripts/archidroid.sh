@@ -31,10 +31,10 @@ mount /dev/block/mmcblk0p3 /efs
 busybox tar zcvf /data/media/0/ArchiDroid/Backups/efs.tar.gz /efs
 unmount /efs
 
-DATE1=`stat /data/media/0/ArchiDroid/Backups/efs.tar.gz | tail -2 | head -1`
+DATE1=`stat /data/media/0/ArchiDroid/Backups/efs.tar.gz | tail -n 2 | head -n 1`
 echo "efs.tar.gz $DATE1" >  /data/media/0/ArchiDroid/Backups/efs.txt
 if [ -e /data/media/0/ArchiDroid/Backups/efs_OLD.tar.gz ]; then
-	DATE2=`stat /data/media/0/ArchiDroid/Backups/efs_OLD.tar.gz | tail -2 | head -1`
+	DATE2=`stat /data/media/0/ArchiDroid/Backups/efs_OLD.tar.gz | tail -n 2 | head -n 1`
 	echo "efs_OLD.tar.gz $DATE2" >>  /data/media/0/ArchiDroid/Backups/efs.txt
 fi
 echo "

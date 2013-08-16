@@ -8,10 +8,23 @@
 # Not Disabled
 #exit 0
 
+# Now we need to make sure that this is background process to prevent slowing down bootup
+if [ ! -e /data/media/0/archidroid/PERMFIX_BACKGROUND ]; then
+	# We're not running in background, let's start a child and tell him that he's running in background
+	touch /data/media/0/archidroid/PERMFIX_BACKGROUND
+	sh $0 &
+	
+	# Nothing to do here anymore, exit call
+	exit 1
+else
+	# We're running in background so let's proceed
+	rm -f /data/media/0/archidroid/PERMFIX_BACKGROUND
+fi
+
+
 # ArchiDroid Semaphore
 # Wait until we see some android processes to consider boot is more or less complete (credits to AndiP71)
 
-# NOTICE: We've already finished runonce and init scripts so it shouldn't be needed anyway but let's make sure
 while ! pgrep com.android ; do
   sleep 1
 done

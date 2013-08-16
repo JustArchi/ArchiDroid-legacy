@@ -271,37 +271,6 @@ endif;
 
 ###################################################################################################################
 #
-# STEP 5 - BACKUP EFS PARTITION
-#
-
-### ENGLISH ###
-if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "1" then
-selectbox(
-  "EFS Backup",
-  "Please select EFS backup option:",
-  "icons/apps",
-  "efs.prop",
-
-  "Don't Backup /EFS","Not recommended. Select if you don't have external SD Card",1,
-  "Backup /EFS","Recommended, but external SD Card is required",0
-);
-endif;
-
-### POLISH ###
-if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "2" then
-selectbox(
-  "Kopia Zapasowa EFS",
-  "Wybierz kopię zapasową EFS:",
-  "icons/apps",
-  "efs.prop",
-
-  "Nie Twórz Kopii /EFS","Niezalecane. Wybierz tą opcję jeśli nie masz zewnętrznej karty SD",1,
-  "Stwórz Kopię /EFS","Wysoce zalecane. Zewnętrzna karta SD jest wymagana",0
-);
-endif;
-
-###################################################################################################################
-#
 # STEP 5(b) - SELECT TYPE INSTALATION
 #
 

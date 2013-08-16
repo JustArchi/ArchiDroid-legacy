@@ -60,13 +60,6 @@ if file_getprop("/tmp/aroma-data/wipe.prop","selected.0") == "1" then
 	run_program("/tmp/wipe.sh");
 endif;
 
-if file_getprop("/tmp/aroma-data/efs.prop","selected.0") == "2" then
-	ui_print("root@ArchiDroid:~# Backing Up /efs");
-	package_extract_file("_archidroid/scripts/efs_backup.sh", "/tmp/efs_backup.sh");
-	set_perm(0, 0, 0777, "/tmp/efs_backup.sh");
-	run_program("/tmp/efs_backup.sh");
-endif;
-
 set_progress(0.08);
 
 if file_getprop("/tmp/aroma-data/wipe.prop","selected.0") == "2" then

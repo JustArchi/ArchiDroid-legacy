@@ -11,6 +11,13 @@ ArchiDroid 2.1.1
 
 * This also includes fixed "AwesomeBeats stopped working" on Apollo screen
 
+- [!] Implemented background function to ArchiDroid init.d scripts
+* Now every ArchiDroid init.d script will check if it's running in the background and if not it'll fork itself with in-background.
+* This is because kernel with init.d support executes init.d script and waits with the next script/action for previous one to finish. System and all further scripts were in fact slowed down because ArchiDroid init.d finishes execution after full boot, especially RunOnce.
+* Now every script forks an independant child in background and exits with error code 1 to allow kernel execute further scripts without needing to wait for ArchiDroid to complete.
+* If you're fast enough you can notice on logcat bootscreen that on the first boot ArchiDroid_RunOnce exits with code 1 (child spawned) and Init exits with code 2 (RunOnce activated, halt). On every further boot ArchiDroid_Init with exit code 1 (child spawned)
+* And lastly please notice, this isn't any major change or bugfix, it's more like cosmetic bugfix and improvement to ensure everything is working correctly. You won't see any real difference.
+
 - Updated Googy Max kernel to 1.6.8
 - Updayed Yank's Kernel to 1.6e
 - Updated Temasek kernel to 120813
@@ -21,5 +28,5 @@ ArchiDroid 2.1.1
 - Updated Google Apps to 20130813 version (official)
 - Updated Google Play to 4.3.11 (Multi-DPI Patched, Inverted)
 - Updated Aroma to 2.70 RC1
-- Updated Temasek sources to V11.1
+- Updated Temasek sources to V12 + Update
 * This includes f.e. fixed root issue from 2.1

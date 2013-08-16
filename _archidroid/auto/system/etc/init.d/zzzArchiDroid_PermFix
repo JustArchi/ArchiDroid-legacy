@@ -30,14 +30,14 @@ while ! pgrep com.android ; do
 done
 
 # Now that is checked, let's just wait another tiny little bit
-sleep 10
+sleep 30
 
 VERSION="2.04"
 
 # Defaults
 DEBUG=0 # Debug off by default
-LOGGING=1 # Logging on by default
-VERBOSE=1 # Verbose on by default
+LOGGING=0 # Logging on by default
+VERBOSE=0 # Verbose on by default
 
 # Messages
 UID_MSG="Changing user ownership for:"

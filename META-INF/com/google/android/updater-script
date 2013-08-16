@@ -84,14 +84,14 @@ run_program("/tmp/media2zero.sh");
 
 sleep (1);
 
-package_extract_file("_archidroid/scripts/archidroidmode.sh", "/tmp/archidroidmode.sh");
-set_perm(0, 0, 0777, "/tmp/archidroidmode.sh");
+package_extract_file("_archidroid/scripts/archidroid.sh", "/tmp/archidroid.sh");
+set_perm(0, 0, 0777, "/tmp/archidroid.sh");
 
 if file_getprop("/tmp/aroma-data/wipe.prop","selected.0") == "1" then
-	run_program("/tmp/archidroidmode.sh", "install");
+	run_program("/tmp/archidroid.sh", "install");
 endif;
 if file_getprop("/tmp/aroma-data/wipe.prop","selected.0") == "2" then
-	run_program("/tmp/archidroidmode.sh", "update");
+	run_program("/tmp/archidroid.sh", "update");
 endif;
 
 set_progress(0.09);

@@ -1,14 +1,15 @@
 #!/tmp/bash
 
-rm -Rf /data/media/0/archidroid
-mkdir -p /data/media/0/archidroid
+if [ ! -d /data/media/0/ArchiDroid ]; then
+	mkdir -p /data/media/0/ArchiDroid
+fi
 
 case "$1" in
   install)
-	touch /data/media/0/archidroid/INSTALL
+	touch /data/media/0/ArchiDroid/INSTALL
   ;;
   update)
-    touch /data/media/0/archidroid/UPDATE
+    touch /data/media/0/ArchiDroid/UPDATE
   ;;
   *)
     echo "Error 1"

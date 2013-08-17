@@ -14,6 +14,12 @@ echo "
 #sys.keep_app_1=com.android.your.app
 #sys.keep_app_2=com.nonandroid.other.app
 
+# Force using HW/GPU Acceleration even if apps don't support it
+# Warning! It may NOT be a good idea to enable this, use with caution
+#debug.composition.type=gpu
+#debug.performance.tuning=1
+#video.accelerate.hw=1
+
 # Allow purging of assets
 persist.sys.purgeable_assets=1
 
@@ -28,15 +34,22 @@ ro.ril.enable.amr.wideband=1
 # Disable Sending Usage Data
 ro.config.nocheckin=1
 
-# Less battery drain in deep sleep. WARNING! sleep_mode=1 is called deeper sleep and may cause more battery drain during wakelocks!
-#pm.sleep_mode=1
-#ro.ril.power_collapse=1
+# Less battery drain in deep sleep. WARNING! These tweaks enable so-called deeper sleep and may cause more battery drain during wakelocks!
+# If you're using your device often and it doesn't sleep at all it may be better for you to comment these lines
+pm.sleep_mode=1
+ro.ril.power.collapse=1
+ro.ril.disable.power.collapse=0
+
+# Scan Wi-Fi less often
 wifi.supplicant_scan_interval=180
 #ro.mot.eri.losalert.delay=1000
 
 # Disable Error Checking, may improve performance for cost of stability
-#ro.kernel.android.checkjni=0
-#ro.kernel.checkjni=0
+# Kernel Side
+ro.kernel.android.checkjni=0
+ro.kernel.checkjni=0
+# Android Side
+dalvik.vm.checkjni=false
 #profiler.force_disable_err_rpt=1
 #profiler.force_disable_ulog=1
 #logcat.live=disable

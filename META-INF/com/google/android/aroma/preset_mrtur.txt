@@ -55,22 +55,21 @@
 #
 # <#selectbg_g>Yes</#>   CrossBreeder
 # No   None
-#
+
 ##################
 #  ArchiDroid Updates
 #
-# <#selectbg_g>Yes</#> 
-# No 
+# No
 
 ##################
 #  Xposed Framework
 #
-# <#selectbg_g>Yes</#> 
+# No 
 
 ##################
 #  Xposed Modules
 #
-# <#selectbg_g>Yes</#>   App Settings
+# No   App Settings
 
 ##################
 #  Modem
@@ -78,7 +77,6 @@
 # No   XXEMB6
 # <#selectbg_g>Yes</#>   XXEMG4
 # No   None
-
 ##################
 #  Recovery
 #
@@ -104,7 +102,7 @@
 #
 # <#selectbg_g>Yes</#>   Titanium Backup
 # No   ZRAM Status
-# No   Greenify
+<#selectbg_g>Yes</#>   Greenify
 # No   LMT
 # No   MXPlayer
 # No   Ultimate Rotation Control

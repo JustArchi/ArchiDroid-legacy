@@ -11,12 +11,23 @@ ArchiDroid 2.1.1
 
 * This also includes fixed "AwesomeBeats stopped working" on Apollo screen
 
-- [!] [Backport] Implemented background function to ArchiDroid init.d scripts
-* Now every ArchiDroid init.d script will check if it's running in the background and if not it'll fork itself with in-background.
-* This is because kernel with init.d support executes init.d script and waits with the next script/action for previous one to finish. System and all further scripts were in fact slowed down because ArchiDroid init.d finishes execution after full boot, especially RunOnce.
-* Now every script forks an independant child in background and exits with error code 1 to allow kernel execute further scripts without needing to wait for ArchiDroid to complete.
-* If you're fast enough you can notice on logcat bootscreen that on the first boot ArchiDroid_RunOnce exits with code 1 (child spawned), ArchiDroid_PermFix exits with code 1 (child spawned) and Init exits with code 2 (RunOnce activated, halt). On every further boot ArchiDroid_Init with exit code 1 (child spawned)
-* And lastly please notice, this isn't any major change or bugfix, it's more like cosmetic bugfix and improvement to ensure everything is working correctly. You won't see any real difference.
+- [!] Implemented background function to ArchiDroid init.d scripts
+# Now every ArchiDroid init.d script will check if it's running in the background and if not it'll fork itself with in-background.
+# This is because kernel with init.d support executes init.d script and waits with the next script/action for previous one to finish. System and all further scripts were in fact slowed down because ArchiDroid init.d finishes execution after full boot, especially RunOnce.
+# Now every script forks an independant child in background and exits with error code 1 to allow kernel execute further scripts without needing to wait for ArchiDroid to complete.
+# If you're fast enough you can notice on logcat bootscreen that on the first boot ArchiDroid_RunOnce exits with code 1 (child spawned), ArchiDroid_PermFix exits with code 1 (child spawned) and Init exits with code 2 (RunOnce activated, halt). On every further boot ArchiDroid_Init with exit code 1 (child spawned)
+# And lastly please notice, this isn't any major change or bugfix, it's more like cosmetic bugfix and improvement to ensure everything is working correctly. You won't see any real difference.
+
+- [!] Added (forced) ArchiDroid /EFS backup
+# ArchiDroid now during flashing performs automatically a backup of your /efs.
+# This is completely transparent process being executed during "Executing Archi's Scripts".
+# I want to make sure that even if something goes wrong you'll still have a working backup of /efs "just in case".
+# ArchiDroid stores maximum of 2 backups in /data/media/0/ArchiDroid/Backups. You can also find efs.txt there with more detailed information, backups date and how to restore them.
+# Please note that such backups have a few kilobytes and I've implemented it only to ensure your safety, so maybe someday you'll say "ArchiDroid saved my Galaxy S3!" ;)
+# I strongly suggest keeping these backups even if someday you decide to delete ArchiDroid completely.
+
+# This includes also removing of option /efs backup from aroma because it's pointless now. 
+
 
 - Updated Googy Max kernel to 1.6.8
 - Updayed Yank's Kernel to 1.6e

@@ -100,9 +100,6 @@ We are able to have most of our routing static so do that
     <!-- AIF2ADCDAT to AIF3ADC mux -->
     <ctl name="AIF3ADC Mux" val="1"/>
 
-    <!-- Voicecall bit -->
-    <ctl name="AIF2DACR Source" val="1"/>
-
     <!-- Default all outputs off -->
     <ctl name="HP Switch" val="0"/>
     <ctl name="SPK Switch" val="0"/>

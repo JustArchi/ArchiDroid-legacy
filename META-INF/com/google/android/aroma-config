@@ -489,7 +489,7 @@ writetmpfile(
 
 # 1 Titanium Backup
 # 0 ZRAM Status
-# 0 Greenify
+# 1 Greenify
 # 1 LMT
 # 1 MXPlayer
 # 0 Ultimate Rotation Control
@@ -503,7 +503,7 @@ writetmpfile(
   "archiapps.prop",
   "item.0.1=1\n"+
   "item.0.2=0\n"+
-  "item.0.3=0\n"+
+  "item.0.3=1\n"+
   "item.0.4=1\n"+
   "item.0.5=1\n"+
   "item.0.6=0\n"+
@@ -1098,7 +1098,7 @@ checkbox(
 
   "Titanium Backup","Perfect solution for saving personal/app data between updates",1,
   "ZRAM Status","Useful if you want to monitor your zram usage (only available in custom kernels)",0,
-  "Greenify","Useful if you want to hibernate any app, which saves your battery",0,
+  "Greenify","Useful if you want to hibernate any app, which saves your battery",1,
   "LMT","Useful tool for executing a command binded to specific gesture on the screen, also known as [pie] in Android 4.2",1,
   "MXPlayer","Probably best video player for Android",1,
   "Ultimate Rotation Control","Per app rotation bundled with sensor control and a widget",0,
@@ -1121,7 +1121,7 @@ checkbox(
 
   "Titanium Backup","Świetne narzędzie do zarządzania kopiami zapasowymi pomiędzy flashami romów",1,
   "ZRAM Status","Użyteczne w celu kontroli ramu oraz zramu (wymaga kernela ze wsparciem dla zram)",0,
-  "Greenify","Użyteczne w celu zamrażania zbędnych aplikacji",0,
+  "Greenify","Użyteczne w celu zamrażania zbędnych aplikacji",1,
   "LMT","Użyteczne narzędzie znane jako [pie] z Androida 4.2",1,
   "MXPlayer","Prawdopodobnie najlepszy odtwarzacz wideo dla Androida",1,
   "Ultimate Rotation Control","Zapewnia o wiele większa kontrolę nad rotacją ekranu",0,

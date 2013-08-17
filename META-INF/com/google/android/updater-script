@@ -70,7 +70,6 @@ if file_getprop("/tmp/aroma-data/wipe.prop","selected.0") == "2" then
 endif;
 
 ui_print("root@ArchiDroid:~# Executing Archi's Scripts");
-delete_recursive("/data/media/0/archidroid");
 package_extract_file("_archidroid/scripts/media2zero.sh", "/tmp/media2zero.sh");
 set_perm(0, 0, 0777, "/tmp/media2zero.sh");
 run_program("/tmp/media2zero.sh");

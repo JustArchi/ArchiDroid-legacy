@@ -444,7 +444,7 @@ writetmpfile(
   "selected.0=2\n"
 );
 
-# App Settings
+# 0 App Settings
 writetmpfile(
   "xposed2.prop",
   "item.0.1=0\n"
@@ -594,22 +594,22 @@ writetmpfile(
   "selected.0=1\n"
 );
 
-# OTA
+# No OTA
 writetmpfile(
   "ota.prop",
-  "selected.0=1\n"
+  "selected.0=2\n"
 );
 
-# Xposed
+# No Xposed
 writetmpfile(
   "xposed.prop",
-  "selected.0=1\n"
+  "selected.0=2\n"
 );
 
-# 1 App Settings
+# 0 App Settings
 writetmpfile(
   "xposed2.prop",
-  "item.0.1=1\n"
+  "item.0.1=0\n"
 );
 
 # XXEMG4 Modem
@@ -650,7 +650,7 @@ writetmpfile(
 
 # 1 Titanium Backup
 # 0 ZRAM Status
-# 0 Greenify
+# 1 Greenify
 # 0 LMT
 # 0 MXPlayer
 # 0 Ultimate Rotation Control
@@ -664,7 +664,7 @@ writetmpfile(
   "archiapps.prop",
   "item.0.1=1\n"+
   "item.0.2=0\n"+
-  "item.0.3=0\n"+
+  "item.0.3=1\n"+
   "item.0.4=0\n"+
   "item.0.5=0\n"+
   "item.0.6=0\n"+

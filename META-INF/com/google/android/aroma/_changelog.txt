@@ -26,7 +26,7 @@ ArchiDroid 2.1.1
 # Please note that such backups have a few kilobytes and I've implemented it only to ensure your safety, so maybe someday you'll say "ArchiDroid saved my Galaxy S3!" ;)
 # I strongly suggest keeping these backups even if someday you decide to delete ArchiDroid completely.
 
-# This includes also removing of option /efs backup from aroma because it's pointless now. 
+* This includes also removing of option /efs backup from aroma because it's pointless now. 
 
 - Added wifi_scan_always_enabled=0 to DBUPDATE (ArchiDroid_RunOnce)
 # Please remember that DBUPDATE is performed only once on ArchiDroid Install Mode (not update mode). If you don't want to do so I'd suggest changing such setting in Wi-Fi => Advanced => Untick Always Scan

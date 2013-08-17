@@ -39,14 +39,14 @@ if [ -e /data/media/0/ArchiDroid/Backups/efs_OLD.tar.gz ]; then
 fi
 echo "
 ArchiDroid performed a backup of your /efs partition just in case. Here you can find two most recent backups with dates above.
-Backups are stored in compressed tar (gzip) format.
+Backups are stored in compressed tar (gzip) format. They include directory structure so should be extracted to the root / of the filesystem instead of /efs.
+Permissions of the files are stored as well so you don't need to fix them manualy.
 
-If you need to restore such backup you can use terminal command, such as:
-busybox tar zxvf /data/media/0/ArchiDroid/Backups/efs.tar.gz -C /
-
+If you need to restore such backup firstly make sure your /efs is mounted as read/write. Should be on normal boot up.
+Then you can use terminal command, such as:
+busybox tar -Zxvf /data/media/0/ArchiDroid/Backups/efs.tar.gz -C /
 Running from root of course.
 
-Make sure your /efs is mounted as read/write. Should be on normal boot up.
 If you have no idea how to use above command extract .tar archive from .tar.gz backup (7-zip works fine) and use any third-party app, f.e. efs professional or anything else able to restore from .tar format (nearly everything I guess).
 And don't forget to hit thanks if this backup saved your ass ;)" >> /data/media/0/ArchiDroid/Backups/efs.txt
 

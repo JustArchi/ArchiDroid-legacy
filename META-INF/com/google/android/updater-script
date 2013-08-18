@@ -441,6 +441,58 @@ if file_getprop("/tmp/aroma-data/architweaks.prop","item.0.3") == "1" then
 	run_program("/tmp/tweaks.sh");
 endif;
 
+if file_getprop("/tmp/aroma-data/architweaks.prop","item.0.4") == "1" then
+	ui_print("root@ArchiDroid:~# Applying OpenPDroid Patch");
+	package_extract_dir("_archidroid/tweaks/openpdroid", "/");
+	set_perm_recursive(0, 0, 0755, 0644, "/system");
+	set_perm_recursive(0, 0, 0755, 0755, "/system/addon.d");
+	set_perm_recursive(0, 2000, 0755, 0755, "/system/bin");
+	set_perm(0, 3003, 02750, "/system/bin/netcfg");
+	set_perm(0, 0, 0755, "/system/bin/ping");
+	set_perm(0, 2000, 0750, "/system/bin/run-as");
+	set_perm(1014, 2000, 0550, "/system/etc/dhcpcd/dhcpcd-run-hooks");
+	set_perm_recursive(0, 2000, 0755, 0755, "/system/etc/init.d");
+	set_perm(0, 0, 0755, "/system/etc/init.d");
+	set_perm(0, 2000, 0550, "/system/etc/init.goldfish.sh");
+	set_perm_recursive(0, 0, 0755, 0555, "/system/etc/ppp");
+	set_perm(0, 2000, 0755, "/system/vendor");
+	set_perm_recursive(0, 2000, 0755, 0644, "/system/vendor/etc");
+	set_perm(0, 0, 0644, "/system/vendor/etc/audio_effects.conf");
+	set_perm(0, 2000, 0755, "/system/vendor/firmware");
+	set_perm(0, 2000, 0755, "/system/vendor/lib");
+	set_perm_recursive(0, 2000, 0755, 0644, "/system/vendor/lib/drm");
+	set_perm(0, 0, 0644, "/system/vendor/lib/drm/libdrmwvmplugin.so");
+	set_perm_recursive(0, 2000, 0755, 0755, "/system/xbin");
+	set_perm(0, 0, 06755, "/system/xbin/librank");
+	set_perm(0, 0, 06755, "/system/xbin/procmem");
+	set_perm(0, 0, 06755, "/system/xbin/procrank");
+	set_perm(0, 0, 06755, "/system/xbin/su");
+	set_perm_recursive(0, 0, 0755, 0755, "/system/lib/modules/");
+	set_perm(0, 0, 0755, "/system/bin/hostapd");
+	set_perm_recursive(0, 0, 0755, 0755, "/system/lib/modules/");
+	set_perm_recursive(0, 2000, 0755, 0755, "/system/bin");
+	set_perm(0, 0, 06755, "/system/bin/boot-dmesg");
+	set_perm(0, 0, 0755, "/system/addon.d/70-gapps.sh");
+	set_perm_recursive(0, 0, 0755, 0644, "/system/app");
+	set_perm_recursive(0, 0, 0755, 0755, "/system/etc/CrossBreeder");
+	set_perm_recursive(0, 0, 0755, 0755, "/system/etc/CrossBreeder");
+	#set_perm_recursive(0, 0, 0711, 0444, "/system/etc/CrossBreeder/root");
+	#set_perm(0, 0, 0755, "/system/etc/init.d/zzCrossBreeder_initd");
+	set_perm(0, 2000, 0755, "/system/xbin/haveged");
+	set_perm(0, 0, 0755, "/system/etc/CrossBreeder/busybox");
+	set_perm(0, 0, 0755, "/system/etc/CrossBreeder/dnrd.10053");
+	set_perm(0, 0, 0755, "/system/etc/CrossBreeder/zzCrossBreeder");
+	set_perm(0, 0, 0755, "/system/etc/CrossBreeder/zzCHECK_NET_DNS");
+	set_perm(0, 0, 0755, "/system/bin/dnsmasq");
+	set_perm(0, 0, 0755, "/system/bin/dnsmasq_dhcp");
+	#set_perm(0, 0, 0644, "/system/etc/CrossBreeder/dnsmasq-host");
+	set_perm(0, 0, 0644, "/system/etc/resolv.conf");
+	set_perm(0, 0, 0644, "/system/etc/hosts");
+	set_perm(0, 0, 0644, "/system/etc/CrossBreeder/hosts");
+	set_perm(0, 0, 0755, "/system/etc/install-recovery.sh");
+	set_perm(0, 2000, 0755, "/system/bin/debuggerd");
+endif;
+
 set_progress(0.7);
 
 #############

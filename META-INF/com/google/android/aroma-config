@@ -518,11 +518,13 @@ writetmpfile(
 # 1 Bootanimacja Logcat
 # 1 HD Voice
 # 1 build.prop Tweaks
+# 0 OpenPDroid
 writetmpfile(
 "architweaks.prop",
   "item.0.1=1\n"+
   "item.0.2=1\n"+
-  "item.0.3=1\n"
+  "item.0.3=1\n"+
+  "item.0.4=0\n"
 );
 
 #############
@@ -679,12 +681,14 @@ writetmpfile(
 # 0 Bootanimacja Logcat
 # 1 HD Voice
 # 1 build.prop Tweaks
+# 0 OpenPDroid
 
 writetmpfile(
   "architweaks.prop",
-  "item.0.1=0\n"+
+  "item.0.1=1\n"+
   "item.0.2=1\n"+
-  "item.0.3=1\n"
+  "item.0.3=1\n"+
+  "item.0.4=0\n"
 );
 
 endif;
@@ -1150,7 +1154,8 @@ checkbox(
 
   "Logcat Bootanimation","Changes default bootaimation to logcat output - powered by logcat lite",1,
   "HD Voice","Enables HD Voice if available",1,
-  "Add build.prop Tweaks","Deeper sleep and disable debug to improve performance",1
+  "Add build.prop Tweaks","Deeper sleep and disable debug to improve performance",1,
+  "OpenPDroid [EXPERIMENTAL]","Apply OpenPDroid Patch",0
 );
 endif;
 
@@ -1165,7 +1170,8 @@ checkbox(
 
   "Bootanimacja Logcat","Zamienia domyślną bootanimację na logcata",1,
   "HD Voice","Włącza HD Voice o ile dostępne",1,
-  "build.prop Tweaks","Głębszy sen oraz wyłączenie zbędnych logów w celu lepszej wydajności",1
+  "build.prop Tweaks","Głębszy sen oraz wyłączenie zbędnych logów w celu lepszej wydajności",1,
+  "OpenPDroid [EXPERIMENTAL]","Spatchuj ROM ze wsparciem dla OpenPDroid",0
 );
 endif;
 endif;

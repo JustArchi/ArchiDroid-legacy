@@ -29,7 +29,7 @@ if [ -e /data/media/0/ArchiDroid/Backups/efs.tar.gz ]; then
 fi
 mount /dev/block/mmcblk0p3 /efs
 busybox tar zcvf /data/media/0/ArchiDroid/Backups/efs.tar.gz /efs
-unmount /efs
+umount /efs
 
 DATE1=`stat /data/media/0/ArchiDroid/Backups/efs.tar.gz | tail -n 2 | head -n 1`
 echo "efs.tar.gz $DATE1" >  /data/media/0/ArchiDroid/Backups/efs.txt

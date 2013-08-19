@@ -1,6 +1,6 @@
 ArchiDroid 2.1.1
 
-- [!] [EXPERIMENTAL] Added OpenPDroid patch available on ArchiDroid Tweaks page, disabled by default. Huge thanks to @Shidapu @DJ.Cock @BillG24 for introducing me to this cool thing!
+- [!] [EXPERIMENTAL] Added OpenPDroid patch available on ArchiDroid Tweaks page, disabled by default. Huge thanks to @Shidapu @TheKonqa @BillG24 for introducing me to this cool thing!
 # OpenPDroid is a set of modifications to the Android framework and libraries which allows fine-tuning of the data which applications are able to retrieve about your device, your account, your messages, and more.
 # Specifically, it is a Privacy service provider (using the PDroid 1.51 interface) forked from CollegeDev's PDroid 2.0, which is itself an extension of Syvat's PDroid.
 # Check OpenPDroid thread on xda for more info.
@@ -51,7 +51,7 @@ ArchiDroid 2.1.1
 
 - Updated (rest of) Google Apps to 20130813 version (official)
 - Updated Googy Max kernel to 1.6.8
-- Updayed Yank's Kernel to 1.6e
+- Updated Yank's Kernel to 1.6e-beta6 and Archi's config for Yank's Kernel
 - Updated Temasek kernel to 190813
 - Updated Nova to 2.2.1beta1
 - Updated SpiritFM to 0812

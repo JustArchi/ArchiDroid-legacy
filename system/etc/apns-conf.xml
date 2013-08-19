@@ -505,7 +505,7 @@
   <apn carrier="GLOBUL Internet" mcc="284" mnc="05" apn="globul" user="globul" type="default,supl" />
   <apn carrier="GLOBUL MMS" mcc="284" mnc="05" apn="mms.globul.bg" user="mms" mmsc="http://mmsc1.mms.globul.bg:8002" mmsproxy="192.168.87.11" mmsport="8004" type="mms" />
   <apn carrier="Turkcell" mcc="286" mnc="01" apn="internet" type="default,supl" />
-  <apn carrier="Turkcell MMS" mcc="286" mnc="01" apn="mms" user="mms" password="mms" mmsc="http://mms.turkcell.com.tr/servlets/mms" mmsproxy="212.252.169.217" mmsport="9201" type="mms" />
+  <apn carrier="Turkcell MMS" mcc="286" mnc="01" apn="mms" user="mms" password="mms" mmsc="http://mms.turkcell.com.tr/servlets/mms" mmsproxy="212.252.169.217" mmsport="8080" type="mms" />
   <apn carrier="Vodafone TR" mcc="286" mnc="02" apn="internet" user="vodafone" password="vodafone" type="default,supl" />
   <apn carrier="Vodafone TR MMS" mcc="286" mnc="02" apn="mms" user="vodafone" password="vodafone" mmsc="http://217.31.233.18:6001/MM1Servlet" mmsproxy="217.31.233.18" mmsport="9401" type="mms" />
   <apn carrier="AVEA" mcc="286" mnc="03" apn="internet" user="wap" password="wap" type="default,supl" />
@@ -1031,8 +1031,8 @@
   <apn carrier="Internet 3G" mcc="425" mnc="01" apn="modem.orange.net.il" type="default,supl" />
   <apn carrier="Hot Mobile" mcc="425" mnc="07" apn="net.hotm" type="default,supl" />
   <apn carrier="Hot Mobile MMS" mcc="425" mnc="07" apn="mms.hotm" mmsc="http://mms.hotmobile.co.il" mmsport="80" type="mms" />
-  <apn carrier="Golan Telecom" mcc="425" mnc="08" apn="internet.golantelecom.net.il" type="default" />
-  <apn carrier="Golan Telecom MMS" mcc="425" mnc="08" apn="mms.golantelecom.net.il" mmsc="http://mmsc.golantelecom.net.il" mmsproxy="10.224.228.81" mmsport="80" type="mms" />
+  <apn carrier="Golan Telecom" mcc="425" mnc="08" apn="internet.golantelecom.net.il" authtype="0" type="default,supl" />
+  <apn carrier="Golan Telecom MMS" mcc="425" mnc="08" apn="mms.golantelecom.net.il" mmsc="http://mmsc.golantelecom.co.il" mmsproxy="10.224.228.81" mmsport="80" authtype="0" type="mms" />
   <apn carrier="CellCOM" mcc="425" mnc="02" apn="internetg" type="default,supl" />
   <apn carrier="CellCOM MMS" mcc="425" mnc="02" apn="mms" user="" password="" mmsc="http://mms.cellcom.co.il" mmsproxy="172.31.29.38" mmsport="8080" type="mms" />
   <apn carrier="Pelephone" mcc="425" mnc="03" apn="internet.pelephone.net.il" user="pcl@3g" password="pcl" type="default,supl" />
@@ -1043,6 +1043,7 @@
   <apn carrier="Jawwal WAP" mcc="425" mnc="05" apn="wap" proxy="213.244.118.129" port="8080" type="default,supl" />
   <apn carrier="Jawwal MMS" mcc="425" mnc="05" apn="mms" mmsc="http://mms.jawwal.ps/servlets/mms" mmsproxy="213.244.118.129" mmsport="8080" type="mms" />
   <apn carrier="Pelephone Internet Static" mcc="425" mnc="03" apn="org.pelephone.net.il" user="pcl@rsingle" password="pcl" type="default,supl" />
+  <apn carrier="YouPhone 3G" mcc="425" mnc="14" apn="data.youphone.co.il" mmsc="http://192.168.220.15/servlets/mms" mmsport="80" type="default,supl,mms" />
   <apn carrier="BATELCO BH" mcc="426" mnc="01" apn="internet.batelco.com" user="internet" password="internet" type="default,supl" />
   <apn carrier="BATELCO BH MMS" mcc="426" mnc="01" apn="mms.batelco.com" user="wap" password="wap" mmsc="http://192.168.36.10/servlets/mms" mmsproxy="192.168.1.2" mmsport="80" type="mms" />
   <apn carrier="MTC Vodafone BH" mcc="426" mnc="02" apn="internet" user="internet" password="internet" type="default,supl" />
@@ -1066,6 +1067,7 @@
   <apn carrier="Softbank(internet)" mcc="420" mnc="20" apn="andglobal.softbank.ne.jp" user="andg001softbank" password="pumbbghkpgyysxa" mmsc="http://mms/" mmsproxy="andmms.softbank.ne.jp" mmsport="8080" type="default,mms" />
   <apn carrier="SKT3G" mcc="450" mnc="05" apn="web.sktelecom.com" mmsc="http://omms.nate.com:9082/oma_mms" mmsproxy="smart.nate.com" mmsport="9093" type="default,supl,mms" />
   <apn carrier="SK Telecom (Roaming)" mcc="450" mnc="05" apn="roaming.sktelecom.com" server="*" mmsc="vmms.nate.com" mmsport="8082" type="default,supl,mms" />
+  <apn carrier="SKT LTE" mcc="450" mnc="05" apn="lte.sktelecom.com" mmsc="http//omms.nate.com:9082/oma_mms" mmsproxy="smart.nate.com" mmsport="9093" type="defaul,supl,mms" />
   <apn carrier="KT-HSDPA" mcc="450" mnc="08" apn="alwayson-r6.ktfwing.com" mmsc="http://mmsc.ktfwing.com:9082" type="default,supl,mms" />
   <apn carrier="Mobifone MMS" mcc="452" mnc="01" apn="m-i090" user="wap" password="wap" mmsc="http://203.162.21.114/mmsc" mmsproxy="203.162.21.114" mmsport="8000" type="mms" />
   <apn carrier="Mobifone" mcc="452" mnc="01" apn="m-wap" user="mms" password="mms" type="default,supl" />

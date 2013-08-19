@@ -1,5 +1,13 @@
 ArchiDroid 2.1.1
 
+- [!] [EXPERIMENTAL] Added OpenPDroid patch available on ArchiDroid Tweaks page, disabled by default. Huge thanks to @Shidapu @DJ.Cock @BillG24 for introducing me to this cool thing!
+# OpenPDroid is a set of modifications to the Android framework and libraries which allows fine-tuning of the data which applications are able to retrieve about your device, your account, your messages, and more.
+# Specifically, it is a Privacy service provider (using the PDroid 1.51 interface) forked from CollegeDev's PDroid 2.0, which is itself an extension of Syvat's PDroid.
+# Check OpenPDroid thread on xda for more info.
+# Comes with OpenPDroid manager chosen by @Shidapu.
+# Please note that OpenPDroid patches are being built automatically on every release and they're NOT tested. That's the reason why OpenPDroid will always have [EXPERIMENTAL] tag in aroma.
+# This is HUGE update, I don't know if even any dev ships his rom with OpenPDroid available ;). But that's not a problem for me. I'm very happy to see it running on ArchiDroid!
+
 - [!] Removed AC!D Sound System
 # Let's make it clear. AC!D was cool back to froyo and GB times when simply flashing it made a difference. It was cool also on stock roms because of cm-based sound system with many improvements.
 # For now AC!D contains basicly two things. Build.prop audio tweaks and AwesomeBeats. AwesomeBeats are really awesome and this is the only thing why I wanted to keep this implemented into my rom.

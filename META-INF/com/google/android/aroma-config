@@ -1155,7 +1155,7 @@ checkbox(
   "Logcat Bootanimation","Changes default bootaimation to logcat output - powered by logcat lite",1,
   "HD Voice","Enables HD Voice if available",1,
   "Add build.prop Tweaks","Deeper sleep and disable debug to improve performance",1,
-  "OpenPDroid [EXPERIMENTAL]","Apply OpenPDroid Patch",0
+  "OpenPDroid [EXPERIMENTAL]","Apply OpenPDroid patch after install",0
 );
 endif;
 

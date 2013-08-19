@@ -6,6 +6,50 @@
 # Not Disabled
 #exit 0
 
+DBUPDATE() {
+	# Thanks to idcrisis, modified by JustArchi
+	WHAT=$1
+	VARIABLE=$2
+	VAL=$3
+	DONE=0
+
+	while [ $DONE -ne 1 ] ; do
+		# Try to update value first if exists
+		busybox sync
+		CHECK=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "update $WHAT set value='$VAL' where name='$VARIABLE';" 2>/dev/null`
+		busybox sync
+		
+		# See if it worked
+		VAL1=""
+		VAL1=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "select value from $WHAT where name='$VARIABLE';" 2>/dev/null`
+		
+		# If not create it
+		if [ "$VAL1" != "" ]; then
+			# Looks good
+			DONE=1
+			return 0
+		else
+			#ID=""
+			#ID=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "select max(_id)+100 from $WHAT;"`
+			#if [ "$ID" == "" ]; then 
+			#	ID='null'
+			#fi
+			ID='null'
+
+			CHECK=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "insert into $WHAT values($ID, '$VARIABLE', '$VAL');" 2>/dev/null`
+			busybox sync
+		fi
+		
+		# Check if in fact we modified that
+		VAL1=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "select value from $WHAT where name='$VARIABLE';" 2>/dev/null`
+		if [ "$VAL1" != "" ]; then
+			# Looks good
+			DONE=1
+			return 0
+		fi
+	done
+}
+
 # Make sure that our folder is still here
 if [ ! -d /data/media/0/ArchiDroid ]; then
 	mkdir -p /data/media/0/ArchiDroid
@@ -78,61 +122,17 @@ while ! pgrep com.android ; do
 	
 	if [ $DBUPDATE -eq 1 ]; then
 		if [ -e /data/data/com.android.providers.settings/databases/settings.db ]; then
-			MAKESURE=1
-			while [ $MAKESURE -eq 1 ]; do
-				MAKESURE=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "insert into secure values(null, 'advanced_reboot', '1');" 2>&1 1>/dev/null | wc -l`
-				sleep $MAKESURE
-			done
-			MAKESURE=1
-			while [ $MAKESURE -eq 1 ]; do
-				MAKESURE=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "insert into global values(null, 'transition_animation_scale', '0.5');" 2>&1 1>/dev/null | wc -l`
-				sleep $MAKESURE
-			done
-			MAKESURE=1
-			while [ $MAKESURE -eq 1 ]; do
-				MAKESURE=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "insert into global values(null, 'animator_duration_scale', '0.5');" 2>&1 1>/dev/null | wc -l`
-				sleep $MAKESURE
-			done
-			MAKESURE=1
-			while [ $MAKESURE -eq 1 ]; do
-				MAKESURE=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "insert into global values(null, 'window_animation_scale', '0.5');" 2>&1 1>/dev/null | wc -l`
-				sleep $MAKESURE
-			done
-			MAKESURE=1
-			while [ $MAKESURE -eq 1 ]; do
-				MAKESURE=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "insert into global values(null, 'wifi_scan_always_enabled', '0');" 2>&1 1>/dev/null | wc -l`
-				sleep $MAKESURE
-			done
-			MAKESURE=1
-			while [ $MAKESURE -eq 1 ]; do
-				MAKESURE=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "insert into system values(null, 'power_menu_screenshot_enabled', '1');" 2>&1 1>/dev/null | wc -l`
-				sleep $MAKESURE
-			done
-			MAKESURE=1
-			while [ $MAKESURE -eq 1 ]; do
-				MAKESURE=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "insert into global values(null, 'install_non_market_apps', '1');" 2>&1 1>/dev/null | wc -l`
-				sleep $MAKESURE
-			done
-			MAKESURE=1
-			while [ $MAKESURE -eq 1 ]; do
-				MAKESURE=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "insert into system values(null, 'status_bar_battery', '3');" 2>&1 1>/dev/null | wc -l`
-				sleep $MAKESURE
-			done
-			MAKESURE=1
-			while [ $MAKESURE -eq 1 ]; do
-				MAKESURE=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "insert into system values(null, 'statusbar_clock_date_display', '2');" 2>&1 1>/dev/null | wc -l`
-				sleep $MAKESURE
-			done
-			MAKESURE=1
-			while [ $MAKESURE -eq 1 ]; do
-				MAKESURE=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "insert into system values(null, 'statusbar_clock_date_format', 'MMM dd');" 2>&1 1>/dev/null | wc -l`
-				sleep $MAKESURE
-			done
-			MAKESURE=1
-			while [ $MAKESURE -eq 1 ]; do
-				MAKESURE=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "insert into system values(null, 'status_bar_traffic', '0');" 2>&1 1>/dev/null | wc -l`
-				sleep $MAKESURE
-			done
+			DBUPDATE secure advanced_reboot 1
+			DBUPDATE global transition_animation_scale 0.5
+			DBUPDATE global animator_duration_scale 0.5
+			DBUPDATE global window_animation_scale 0.5
+			DBUPDATE global wifi_scan_always_enabled 0
+			DBUPDATE global install_non_market_apps 1
+			DBUPDATE system power_menu_screenshot_enabled 1
+			DBUPDATE system status_bar_battery 3
+			DBUPDATE system statusbar_clock_date_display 2
+			DBUPDATE system statusbar_clock_date_format 'MMM dd'
+			DBUPDATE system status_bar_traffic 0
 			
 			# And don't execute twice
 			DBUPDATE=0

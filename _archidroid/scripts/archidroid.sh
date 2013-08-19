@@ -44,7 +44,7 @@ Permissions of the files are stored as well so you don't need to fix them manual
 
 If you need to restore such backup firstly make sure your /efs is mounted as read/write. Should be on normal boot up.
 Then you can use terminal command, such as:
-busybox tar -Zxvf /data/media/0/ArchiDroid/Backups/efs.tar.gz -C /
+busybox tar -zxvf /data/media/0/ArchiDroid/Backups/efs.tar.gz -C /
 Running from root of course.
 
 If you have no idea how to use above command extract .tar archive from .tar.gz backup (7-zip works fine) and use any third-party app, f.e. efs professional or anything else able to restore from .tar format (nearly everything I guess).

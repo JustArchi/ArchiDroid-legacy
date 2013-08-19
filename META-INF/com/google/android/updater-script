@@ -652,6 +652,11 @@ if file_getprop("/tmp/aroma-data/gapps.prop","item.0.11") == "1" then
 	package_extract_dir("_archidroid/apps/gnow", "/");
 endif;
 
+if file_getprop("/tmp/aroma-data/gapps.prop","item.0.12") == "1" then
+	ui_print("root@ArchiDroid:~# Installing Google Plus");
+	package_extract_dir("_archidroid/apps/gplus", "/");
+endif;
+
 set_progress(0.85);
 
 

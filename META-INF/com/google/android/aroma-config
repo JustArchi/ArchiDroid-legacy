@@ -474,6 +474,7 @@ writetmpfile(
 # 1 Google Voice
 # 0 Google Hangouts
 # 0 Google Now
+# 0 Google Plus
 writetmpfile(
   "gapps.prop",
   "item.0.1=1\n"+
@@ -486,7 +487,8 @@ writetmpfile(
   "item.0.8=1\n"+
   "item.0.9=1\n"+
   "item.0.10=0\n"+
-  "item.0.11=0\n"
+  "item.0.11=0\n"+
+  "item.0.12=0\n"
 );
 
 # 1 Titanium Backup
@@ -639,6 +641,7 @@ writetmpfile(
 # 1 Google Voice
 # 0 Google Hangouts
 # 0 Google Now
+# 0 Google Plus
 writetmpfile(
   "gapps.prop",
   "item.0.1=1\n"+
@@ -651,7 +654,8 @@ writetmpfile(
   "item.0.8=0\n"+
   "item.0.9=1\n"+
   "item.0.10=0\n"+
-  "item.0.11=0\n"
+  "item.0.11=0\n"+
+  "item.0.12=0\n"
 );
 
 # 1 Titanium Backup
@@ -1062,7 +1066,8 @@ checkbox(
   "Google Maps","",1,
   "Google Voice","",1,
   "Google Hangouts","",0,
-  "Google Now","",0
+  "Google Now","",0,
+  "Google Plus","",0
 );
 endif;
 
@@ -1084,7 +1089,8 @@ checkbox(
   "Google Maps","",1,
   "Google Voice","",1,
   "Google Hangouts","",0,
-  "Google Now","",0
+  "Google Now","",0,
+  "Google Plus","",0
 );
 endif;
 

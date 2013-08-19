@@ -36,6 +36,7 @@ ArchiDroid 2.1.1
 
 * This includes also removing of option /efs backup from aroma because it's pointless now. 
 
+- Implemented new DBUPDATE handling into ArchiDroid_RunOnce, which updates database faster and in optimized way during ArchiDroid Install. Initial idea by @idcrisis
 - Added wifi_scan_always_enabled=0 to DBUPDATE (ArchiDroid_RunOnce)
 # Please remember that DBUPDATE is performed only once on ArchiDroid Install Mode (not update mode). If you don't want to do so I'd suggest changing such setting in Wi-Fi => Advanced => Untick Always Scan
 # I have no idea why google enabled it in Android 4.3 but it cause wifi always being on, even if you turn it off. So yeah it's now disabled by default in ArchiDroid.
@@ -60,6 +61,6 @@ ArchiDroid 2.1.1
 - Updated Greenify to 1.92
 - Greenify is now enabled in default preset
 - Updated Aroma to 2.70 RC1
-- Updated Temasek sources to V15
+- Updated Temasek sources to V16
 * This includes f.e. fixed root issue from 2.1
 * And many other changes from temasek, f.e. HALO 2.0

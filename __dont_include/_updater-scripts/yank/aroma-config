@@ -1,0 +1,1109 @@
+﻿### LICENSE:
+#
+# Copyright (C) 2011 Ahmad Amarullah ( http://amarullz.com/ )
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+### FILE INFO:
+#
+# AROMA Installer 2.00 - AROMA Installer Test Script Configuration
+#       (c) 2011-2012 by Ahmad Amarullah
+#           amarullz - xda-developers
+#           http://www.amarullz.com/
+#
+#       Binary Version  : 2.56
+#       Binary Codename : Edelweis
+#
+### INFO:
+#
+# * AROMA Resource Dir  = META-INF/com/google/android/aroma
+#
+# * AROMA Temporary Dir = /tmp/aroma/
+#
+# * About Icon          = @alert - show <AROMA Resource Dir>/icons/alert.png
+#                         or if theme used it will find <themedir>/icon.alert.png
+#                         you can still access it via "icons/alert"
+#
+# * dp                  = Device Pixelate. WVGA/QHD = 3, HVGA = 2.
+#                         dp calculated with = round(min(width,height) / 160)
+#
+###
+
+##
+# Fix Colorspace Issue
+#
+# For device which have a problem with color ( not display the correct color )
+# try to set "force_colorspace" with ini_set. It may caused by wrong framebuffer
+# information that passed by kernel into framebuffer device.
+#
+# You can use one of following values:
+#   "rgba", "abgr", "argb", "bgra"
+#
+# NOTE: It must be in top most script, or you will got the color flicker
+#
+# ini_set("force_colorspace","rgba");
+#
+
+##
+# Set device pixel density
+#
+ini_set("dp","3");
+
+##
+# Initializing Kernel Information
+#
+ini_set("rom_name",             "Yank555.lu CM10.2 Kernel");
+ini_set("rom_version",          "v1.6e");
+ini_set("rom_author",           "Yank555.lu");
+ini_set("rom_device",           "i9300 CM10.2");
+ini_set("rom_date",             "11/08/2013");
+
+##
+# Show Simple Splash
+#
+splash(
+  #-- Duration 2000ms / 2 seconds
+    5000,
+  
+  #-- <AROMA Resource Dir>/yank555.lu.png
+    "yank555.lu"
+);
+
+#
+# Set Small Font to Support all fonts
+#
+fontresload( "0", "ttf/Roboto-Regular.ttf;ttf/DroidSansArabic.ttf;ttf/DroidSansFallback.ttf;", "12" ); #-- Use sets of font (Font Family)
+
+###################################################################################################################
+#
+# LANGUAGE SELECTION
+#
+loadlang("langs/en.lang");
+fontresload( "0", "ttf/Roboto-Regular.ttf", "12" ); #-- "0" = Small Font ( Look at Fonts & UNICODE Demo Below )
+fontresload( "1", "ttf/Roboto-Regular.ttf", "18" ); #-- "1" = Big Font
+
+###################################################################################################################
+#
+# THEME SELECTION
+#
+theme("ics");
+
+###################################################################################################################
+#
+# LICENSE
+#
+agreebox(
+  #-- Title
+    "<~terms.title>",
+  
+  #-- Subtitle / Description
+    "<~terms.desc>",
+  
+  #-- Icon
+    "@license",
+  
+  #-- Text Content ( Read from <AROMA Resource Dir>/license.txt )
+    resread("license.txt"),
+  
+  #-- Checkbox Text
+    "<~terms.check>",
+  
+  #-- Unchecked Alert Message
+    "<~terms.confirm>"
+);
+
+###################################################################################################################
+#
+# DISPLAY CHANGELOG
+#
+textbox(
+  #-- Title
+    ini_get("rom_name")+" "+ini_get("rom_version")+" ("+ini_get("rom_date")+")",
+  
+  #-- Subtitle
+    "<~changelog.desc>",
+  
+  #-- Icon
+    "@update",
+  
+  #-- Arg 4
+    resread("changelog.txt")
+);
+
+###################################################################################################################
+#
+# Installation Mode
+#
+selectbox(
+  #-- Title
+    ini_get("rom_name")+" "+ini_get("rom_version")+" Installer",
+  
+  #-- Sub Title
+    "Installation mode",
+  
+  #-- Icon
+    "@customize",
+    
+  #-- Will be saved in /tmp/aroma/
+    "install.prop",
+    
+  #---------------------------------[ Selectbox Without Group ]----------------------------------#
+  #--------[ Initial Value = 0: Unselected, 1: Selected, 2: Group Item, 3: Not Visible ]---------#
+  #----------------------------------------------------------------------------------------------#
+  # TITLE            |  SUBTITLE                                                 | Initial Value #
+  #----------------------------------------------------------------------------------------------#
+
+  																																															 #-- selected.0
+    "Full Stock",			"Defaults are stock compliant (you'll miss most benefits)",							0, #-- 1
+    "Yank555.lu",			"My personal settings, so I can flash faster ;)",												1, #-- 2
+    "Only Kernel",		"Flash without changing settings (don't use when changing version !)",	0  #-- 3
+);
+
+###################################################################################################################
+#
+# Reset presets in case we've come back from further down
+#
+
+exec("/sbin/rm", "/tmp/aroma/cpugov.prop");
+exec("/sbin/rm", "/tmp/aroma/cpufreq.prop");
+exec("/sbin/rm", "/tmp/aroma/yankfreq.prop");
+exec("/sbin/rm", "/tmp/aroma/gpu.prop");
+exec("/sbin/rm", "/tmp/aroma/io.prop");
+exec("/sbin/rm", "/tmp/aroma/lmk.prop");
+exec("/sbin/rm", "/tmp/aroma/swap.prop");
+exec("/sbin/rm", "/tmp/aroma/charge.prop");
+exec("/sbin/rm", "/tmp/aroma/delay.prop");
+exec("/sbin/rm", "/tmp/aroma/fsync.prop");
+exec("/sbin/rm", "/tmp/aroma/boeffla.prop");
+exec("/sbin/rm", "/tmp/aroma/LED.prop");
+exec("/sbin/rm", "/tmp/aroma/modules.prop");
+exec("/sbin/rm", "/tmp/aroma/initd.prop");
+
+###################################################################################################################
+#
+# Preset installation modes
+#
+
+###################################################################################################################
+#
+# Full Stock Settings
+#
+if file_getprop("/tmp/aroma/install.prop", "selected.0") == "1" then
+
+		writetmpfile(	"cpugov.prop",
+										"selected.1=1\n"		# PegasusQ governor
+									+	"selected.2=7\n"		# Enable touchboost at 800MHz
+		);
+
+		writetmpfile(	"cpufreq.prop",
+										"selected.1=5\n"		# 1.4GHz
+		);
+
+		writetmpfile(	"gpu.prop",
+										"selected.1=7\n"		# Don't change GPU Freq.
+									+	"selected.2=1\n"		# GPU Freq. threshold manual
+									+	"selected.3=1\n"		# GPU Freq. staycount manual
+									+	"selected.4=1\n"		# GPU voltage manual
+		);
+
+		writetmpfile(	"io.prop",
+										"selected.1=1\n"		# Internal 128Kb readahead
+									+	"selected.2=3\n"		# Internal CFQ scheduler
+									+	"selected.3=1\n"		# External 128Kb readahead
+									+	"selected.4=3\n"		# External CFQ scheduler
+		);
+
+		writetmpfile(	"lmk.prop",
+										"selected.1=1\n"		# Stock LMK
+		);
+
+		writetmpfile(	"swap.prop",
+										"selected.1=1\n"		# No Hardswap
+									+	"selected.2=1\n"		# No zram
+									+	"selected.3=6\n"		# Swappiness not set
+		);
+
+		writetmpfile(	"charge.prop",
+										"selected.1=1\n"		# Fast charge disabled
+									+	"selected.2=1\n"		# 475mA USB charge current
+									+	"selected.3=1\n"		# 1000mA AC charge current
+									+	"selected.4=1\n"		# 475mA wireless charge current
+		);
+
+		writetmpfile(	"features.prop",
+										"selected.1=2\n"		# Dynamic fsync disabled
+									+	"selected.2=1\n"		# Touch Wake disabled
+									+	"selected.3=2\n"		# Hardwarekeys light on screen touch disabled
+		);
+
+		writetmpfile(	"LED.prop",
+										"selected.1=1\n"		# Notification LED is fading
+									+	"selected.2=3\n"		# Notification LED with high intensity
+									+	"selected.3=1\n"		# Notification LED blinking/fading normal speed
+									+	"selected.4=1\n"		# Notification LED fading in/out only
+		);
+
+		writetmpfile(	"boeffla.prop",
+										"selected.1=2\n"		# Master switch OFF
+									+	"selected.2=1\n"		# Speaker output level 0
+									+	"selected.3=1\n"		# Headphones output level 0
+									+	"selected.4=3\n"		# Equalizer OFF
+									+	"selected.5=1\n"		# No Equalizer Settings
+									+	"selected.6=2\n"		# Privacy Mode OFF
+									+	"selected.7=2\n"		# DAC direct OFF
+									+	"selected.8=2\n"		# DAC 128bit oversampling OFF
+									+	"selected.9=2\n"		# FLL clock tuning OFF
+									+	"selected.10=2\n"		# Speaker Tuning OFF
+		);
+
+		writetmpfile(	"modules.prop",
+										"selected.1=1\n"		# Do not load cifs modules on boot
+									+	"selected.2=1\n"		# Do not load nfs modules on boot
+									+	"selected.3=2\n"		# Do not load ntfs modules on boot
+									+	"selected.4=2\n"		# Do not load isofs modules on boot
+									+	"selected.5=2\n"		# Do not load udf modules on boot
+									+	"selected.6=2\n"		# Do not load xpad modules on boot
+		);
+
+		writetmpfile(	"initd.prop",
+										"selected.1=1\n"		# No init.d support
+		);
+
+endif;
+
+###################################################################################################################
+#
+# Yank555.lu Settings
+#
+#   These are now the default settings in normal Aroma operation
+
+###################################################################################################################
+#
+# Skip Aroma menus if we're just flashing the kernel
+#
+if file_getprop("/tmp/aroma/install.prop", "selected.0") != "3" then
+
+		###################################################################################################################
+		#
+		# CPU Governor
+		#
+		selectbox(
+		  #-- Title
+		    ini_get("rom_name")+" "+ini_get("rom_version")+" Installer",
+		  
+		  #-- Sub Title
+		    "CPU governor settings",
+		  
+		  #-- Icon
+		    "@customize",
+		    
+		  #-- Will be saved in /tmp/aroma/
+		    "cpugov.prop",
+		    
+		  #---------------------------------[ Selectbox Without Group ]----------------------------------#
+		  #--------[ Initial Value = 0: Unselected, 1: Selected, 2: Group Item, 3: Not Visible ]---------#
+		  #----------------------------------------------------------------------------------------------#
+		  # TITLE            |  SUBTITLE                                                 | Initial Value #
+		  #----------------------------------------------------------------------------------------------#
+		
+		  "CPU Governor",		"",																														2, #-- selected.1
+		    "PegasusQ", 		"Stock SGS3",																									0, #-- 1
+		    "PegasusQ-IO", 	"Consider I/O as CPU load",																		0, #-- 2
+		    "YankasusQ",	 	"Based on PegasusQ, more battery friendly on light use",			0, #-- 3
+		    "LulzactiveQ", 	"",																														0, #-- 4
+		    "zzmoove", 			"(Thanx and credits to ZaneZam)",															1, #-- 5
+		  "Touchboost",			"",																														2, #-- selected.2
+		    "disabled",			"Do not boost CPU freq. on touchscreen events",								0, #-- 1
+		    "300MHz",				"Boost CPU freq. to 300MHz on touchscreen events",						0, #-- 2
+		    "400MHz",				"Boost CPU freq. to 400MHz on touchscreen events",						0, #-- 3
+		    "500MHz",				"Boost CPU freq. to 500MHz on touchscreen events",						1, #-- 4
+		    "600MHz",				"Boost CPU freq. to 600MHz on touchscreen events",						0, #-- 5
+		    "700MHz",				"Boost CPU freq. to 700MHz on touchscreen events",						0, #-- 6
+		    "800MHz",				"Boost CPU freq. to 800MHz on touchscreen events",						0, #-- 7
+		    "900MHz",				"Boost CPU freq. to 900MHz on touchscreen events",						0, #-- 8
+		    "1.0GHz",				"Boost CPU freq. to 1.0GHz on touchscreen events",						0, #-- 9
+		    "1.1GHz",				"Boost CPU freq. to 1.1GHz on touchscreen events",						0, #-- 10
+		    "1.2GHz",				"Boost CPU freq. to 1.2GHz on touchscreen events",						0, #-- 11
+		    "1.3GHz",				"Boost CPU freq. to 1.3GHz on touchscreen events",						0, #-- 12
+		    "1.4GHz",				"Boost CPU freq. to 1.4GHz on touchscreen events",						0, #-- 13
+		    "1.5GHz",				"Boost CPU freq. to 1.5GHz on touchscreen events",						0, #-- 14
+		    "1.6GHz",				"Boost CPU freq. to 1.6GHz on touchscreen events",						0  #-- 15
+		);
+		
+		###################################################################################################################
+		#
+		# CPU Frequencies
+		#
+		if file_getprop("/tmp/aroma/cpugov.prop", "selected.1") == "3" then
+		
+				selectbox(
+				  #-- Title
+				    ini_get("rom_name")+" "+ini_get("rom_version")+" Installer",
+				  
+				  #-- Sub Title
+				    "CPU frequency settings",
+				  
+				  #-- Icon
+				    "@customize",
+				    
+				  #-- Will be saved in /tmp/aroma/
+				    "yankfreq.prop",
+				    
+				  #---------------------------------[ Selectbox Without Group ]----------------------------------#
+				  #--------[ Initial Value = 0: Unselected, 1: Selected, 2: Group Item, 3: Not Visible ]---------#
+				  #----------------------------------------------------------------------------------------------#
+				  # TITLE            |  SUBTITLE                                                 | Initial Value #
+				  #----------------------------------------------------------------------------------------------#
+				
+				  "CPU maximum frequency for YankasusQ", 		"",																		2, #-- selected.1
+				    "1.3GHz low",		"1.0, 1.1, 1.2, 1.3GHz - Light UC SGS3 (saves more battery)",	0, #-- 1
+					  "1.3GHz high",	"1.3, 1.1, 1.2, 1.3GHz - Light UC SGS3 (snappier on 1 core)",	0, #-- 2
+				    "1.4GHz low",		"1.0, 1.1, 1.2, 1.4GHz - Stocklike SGS3 (saves more battery)",0, #-- 3
+					  "1.4GHz high",	"1.4, 1.1, 1.2, 1.4GHz - Stocklike SGS3 (snappier on 1 core)",0, #-- 4
+				    "1.5GHz low",		"1.0, 1.1, 1.3, 1.5GHz - Light OC (saves more battery)",			0, #-- 5
+				    "1.5GHz high",	"1.5, 1.1, 1.3, 1.5GHz - Light OC (snappier on 1 core)",			0, #-- 6
+				    "1.6GHz low",		"1.0, 1.2, 1.4, 1.6GHz - Full OC (saves more battery)",				0, #-- 7
+				    "1.6GHz high",	"1.6, 1.2, 1.4, 1.6GHz - Full OC (snappier on 1 core)",				1, #-- 8
+				  "Screen off CPU maximum frequency for YankasusQ", 	"",													2, #-- selected.2
+				    "300MHz",				"Limit maximum CPU frequency in standby to 300MHz",						0, #-- 1
+				    "400MHz",				"Limit maximum CPU frequency in standby to 400MHz",						0, #-- 2
+				    "500MHz",				"Limit maximum CPU frequency in standby to 500MHz",						0, #-- 3
+				    "600MHz",				"Limit maximum CPU frequency in standby to 600MHz",						1, #-- 4
+				    "700MHz",				"Limit maximum CPU frequency in standby to 700MHz",						0, #-- 5
+				    "800MHz",				"Limit maximum CPU frequency in standby to 800MHz",						0, #-- 6
+				    "900MHz",				"Limit maximum CPU frequency in standby to 900MHz",						0, #-- 7
+				    "1000MHz",			"Limit maximum CPU frequency in standby to 1000MHz",					0, #-- 8
+				    "1100MHz",			"Limit maximum CPU frequency in standby to 1100MHz",					0, #-- 9
+				    "1200MHz",			"Limit maximum CPU frequency in standby to 1200MHz",					0, #-- 10
+				    "1300MHz",			"Limit maximum CPU frequency in standby to 1300MHz",					0, #-- 11
+				    "1400MHz",			"Limit maximum CPU frequency in standby to 1400MHz",					0, #-- 12
+				    "1500MHz",			"Limit maximum CPU frequency in standby to 1500MHz",					0, #-- 13
+				    "1600MHz",			"Limit maximum CPU frequency in standby to 1600MHz",					0  #-- 14
+				);
+		
+		else
+		
+				if file_getprop("/tmp/aroma/cpugov.prop", "selected.1") == "5" then
+		
+						selectbox(
+						  #-- Title
+						    ini_get("rom_name")+" "+ini_get("rom_version")+" Installer",
+						  
+						  #-- Sub Title
+						    "CPU frequency settings",
+						  
+						  #-- Icon
+						    "@customize",
+						    
+						  #-- Will be saved in /tmp/aroma/
+						    "cpufreq.prop",
+						    
+						  #---------------------------------[ Selectbox Without Group ]----------------------------------#
+						  #--------[ Initial Value = 0: Unselected, 1: Selected, 2: Group Item, 3: Not Visible ]---------#
+						  #----------------------------------------------------------------------------------------------#
+						  # TITLE            |  SUBTITLE                                                 | Initial Value #
+						  #----------------------------------------------------------------------------------------------#
+						
+						  "CPU maximum frequency", 			"",																								2, #-- selected.1
+						    "1.0GHz",				"",																														0, #-- 1
+							  "1.1GHz",				"",																														0, #-- 2
+						    "1.2GHz",				"",																														0, #-- 3
+						    "1.3GHz",				"",																														0, #-- 4
+						    "1.4GHz",				"Stock SGS3",																									0, #-- 5
+						    "1.5GHz",				"",																														0, #-- 6
+						    "1.6GHz",				"",																														1, #-- 7
+						  "zzmoove profile by ZaneZam", "",																								2, #-- selected.2
+						    "yank-batt-ext","Most battery saving, lowest hotplugging (0.7 optimized)",		0, #-- 1
+						    "yank-batt.",		"Battery saving, lower hotplugging (0.7 optimized)",					1, #-- 2
+							  "battery",			"Battery saving (very similar, not 0.7 optimized !)",					0, #-- 3
+						    "optimized",		"Between battery saving and perf. (not 0.7 optimized !)",			0, #-- 4
+						    "performance",	"Rather perform than save battery (not 0.7 optimized !)",			0, #-- 5
+						    "default",			"Don't touch governor settings",															0, #-- 6
+						  "Screen off CPU maximum frequency for zzmoove", 		"",													2, #-- selected.3
+						    "300MHz",				"Limit maximum CPU frequency in standby to 300MHz",						0, #-- 1
+						    "400MHz",				"Limit maximum CPU frequency in standby to 400MHz",						0, #-- 2
+						    "500MHz",				"Limit maximum CPU frequency in standby to 500MHz",						0, #-- 3
+						    "600MHz",				"Limit maximum CPU frequency in standby to 600MHz",						1, #-- 4
+						    "700MHz",				"Limit maximum CPU frequency in standby to 700MHz",						0, #-- 5
+						    "800MHz",				"Limit maximum CPU frequency in standby to 800MHz",						0, #-- 6
+						    "900MHz",				"Limit maximum CPU frequency in standby to 900MHz",						0, #-- 7
+						    "1000MHz",			"Limit maximum CPU frequency in standby to 1000MHz",					0, #-- 8
+						    "1100MHz",			"Limit maximum CPU frequency in standby to 1100MHz",					0, #-- 9
+						    "1200MHz",			"Limit maximum CPU frequency in standby to 1200MHz",					0, #-- 10
+						    "1300MHz",			"Limit maximum CPU frequency in standby to 1300MHz",					0, #-- 11
+						    "1400MHz",			"Limit maximum CPU frequency in standby to 1400MHz",					0, #-- 12
+						    "1500MHz",			"Limit maximum CPU frequency in standby to 1500MHz",					0, #-- 13
+						    "1600MHz",			"Limit maximum CPU frequency in standby to 1600MHz",					0, #-- 14
+						    "no limit",			"Don't apply any CPU frequency limit in standby",							0, #-- 15
+						  "Fast scaling when screen on for zzmoove", 		"",																2, #-- selected.4
+						    "disabled",			"Use all frequency step when scaling up",											0, #-- 1
+						    "1x up",				"Skip 1 step when scaling up",																0, #-- 2
+						    "2x up",				"Skip 2 steps when scaling up",																0, #-- 3
+						    "3x up",				"Skip 3 steps when scaling up",																0, #-- 4
+						    "4x up",				"Skip 4 steps when scaling up",																0, #-- 5
+						    "1x up/down",		"Skip 1 step when scaling up and down",												1, #-- 6
+						    "2x up/down",		"Skip 2 steps when scaling up and down",											0, #-- 7
+						    "3x up/down",		"Skip 3 steps when scaling up and down",											0, #-- 8
+						    "4x up/down",		"Skip 4 steps when scaling up and down",											0, #-- 9
+						  "Fast scaling when screen off for zzmoove", 		"",															2, #-- selected.5
+						    "disabled",			"Use all frequency step when scaling up",											1, #-- 1
+						    "1x up",				"Skip 1 step when scaling up",																0, #-- 2
+						    "2x up",				"Skip 2 steps when scaling up",																0, #-- 3
+						    "3x up",				"Skip 3 steps when scaling up",																0, #-- 4
+						    "4x up",				"Skip 4 steps when scaling up",																0, #-- 5
+						    "1x up/down",		"Skip 1 step when scaling up and down",												0, #-- 6
+						    "2x up/down",		"Skip 2 steps when scaling up and down",											0, #-- 7
+						    "3x up/down",		"Skip 3 steps when scaling up and down",											0, #-- 8
+						    "4x up/down",		"Skip 4 steps when scaling up and down",											0, #-- 9
+						  "Early demand for zzmoove", 		"",																							2, #-- selected.6
+						    "enabled",			"Use early demand to scale up faster on big load increase",		1, #-- 1
+						    "disabled",			"Scale up normally (as on prior versions of zzmoove)",				0, #-- 2
+						  "Early demand threshold for zzmoove", 		"",																		2, #-- selected.7
+						    "15%",					"Scale up faster on a sudden 15% load increase",							0, #-- 1
+						    "25%",					"Scale up faster on a sudden 25% load increase",							0, #-- 2
+						    "35%",					"Scale up faster on a sudden 35% load increase",							0, #-- 3
+						    "50%",					"Scale up faster on a sudden 50% load increase",							1, #-- 4
+						    "65%",					"Scale up faster on a sudden 65% load increase",							0, #-- 5
+						    "75%",					"Scale up faster on a sudden 75% load increase",							0, #-- 6
+						    "90%",					"Scale up faster on a sudden 90% load increase",							0, #-- 7
+						    "100%",					"Scale up faster on a sudden 100% load increase",							0  #-- 8
+						);
+		
+				else
+				
+						selectbox(
+						  #-- Title
+						    ini_get("rom_name")+" "+ini_get("rom_version")+" Installer",
+						  
+						  #-- Sub Title
+						    "CPU frequency settings",
+						  
+						  #-- Icon
+						    "@customize",
+						    
+						  #-- Will be saved in /tmp/aroma/
+						    "cpufreq.prop",
+						    
+						  #---------------------------------[ Selectbox Without Group ]----------------------------------#
+						  #--------[ Initial Value = 0: Unselected, 1: Selected, 2: Group Item, 3: Not Visible ]---------#
+						  #----------------------------------------------------------------------------------------------#
+						  # TITLE            |  SUBTITLE                                                 | Initial Value #
+						  #----------------------------------------------------------------------------------------------#
+						
+						  "CPU maximum frequency", 			"",																								2, #-- selected.1
+						    "1.0GHz",				"",																														0, #-- 1
+							  "1.1GHz",				"",																														0, #-- 2
+						    "1.2GHz",				"",																														0, #-- 3
+						    "1.3GHz",				"",																														0, #-- 4
+						    "1.4GHz",				"Stock SGS3",																									0, #-- 5
+						    "1.5GHz",				"",																														0, #-- 6
+						    "1.6GHz",				"",																														1  #-- 7
+						);
+		
+				endif;
+		
+		endif;
+		
+		###################################################################################################################
+		#
+		# GPU settings
+		#
+		selectbox(
+		  #-- Title
+		    ini_get("rom_name")+" "+ini_get("rom_version")+" Installer",
+		  
+		  #-- Sub Title
+		    "GPU Settings",
+		  
+		  #-- Icon
+		    "@customize",
+		    
+		  #-- Will be saved in /tmp/aroma/
+		    "gpu.prop",
+		    
+		  #---------------------------------[ Selectbox Without Group ]----------------------------------#
+		  #--------[ Initial Value = 0: Unselected, 1: Selected, 2: Group Item, 3: Not Visible ]---------#
+		  #----------------------------------------------------------------------------------------------#
+		  # TITLE            |  SUBTITLE                                                 | Initial Value #
+		  #----------------------------------------------------------------------------------------------#
+		
+		  "GPU frequency control", 											"",																2, #-- selected.1
+		    "low", 						"108MHz, 160MHz, 200MHz, 266MHz, 300MHz",										0, #-- 1
+		    "medium",					"108MHz, 160MHz, 266MHz, 350MHz, 400MHz",										0, #-- 2
+		    "stock", 					"160MHz, 266MHz, 333MHz, 400MHz, 440MHz - SGS3 stocklike",	0, #-- 3
+		    "high", 					"160MHz, 266MHz, 350MHz, 440MHz, 533MHz - Careful !",				0, #-- 4
+		    "extreme", 				"200MHz, 300MHz, 400MHz, 500MHz, 600MHz - Careful !",				0, #-- 5
+		    "Yank", 					"108MHz, 200MHz, 333MHz, 440MHz, 533MHz",										1, #-- 6
+		    "Don't set",			"Leave GPU untouched (when using scripts/apps)",						0, #-- 7
+		  "GPU frequency threshold control (no Aroma support)", 	"",											2, #-- selected.2
+		    "manual", 				"Use /sys/class/misc/gpu_clock_control/...",								1, #-- 1
+		  "GPU frequency staycount control (no Aroma support)", 	"",											2, #-- selected.3
+		    "manual", 				"Use /sys/class/misc/gpu_clock_control/...",								1, #-- 1
+		  "GPU voltage control (no Aroma support)", 							"",											2, #-- selected.4
+		    "manual", 				"Use /sys/class/misc/gpu_voltage_control/...",							1  #-- 1
+		);
+		
+		###################################################################################################################
+		#
+		# I/O settings
+		#
+		selectbox(
+		  #-- Title
+		    ini_get("rom_name")+" "+ini_get("rom_version")+" Installer",
+		  
+		  #-- Sub Title
+		    "MMC I/O Settings",
+		  
+		  #-- Icon
+		    "@customize",
+		    
+		  #-- Will be saved in /tmp/aroma/
+		    "io.prop",
+		    
+		  #---------------------------------[ Selectbox Without Group ]----------------------------------#
+		  #--------[ Initial Value = 0: Unselected, 1: Selected, 2: Group Item, 3: Not Visible ]---------#
+		  #----------------------------------------------------------------------------------------------#
+		  # TITLE            |  SUBTITLE                                                 | Initial Value #
+		  #----------------------------------------------------------------------------------------------#
+		
+		  "Internal MMC ReadAhead buffer size\n(more is not always better!)", 	"",				2, #-- selected.1
+		    "128kB", 					"Stock SGS3",																								0, #-- 1
+		    "256kB", 					"",																													0, #-- 2
+		    "512kB", 					"",																													1, #-- 3
+		    "1024kB", 				"",																													0, #-- 4
+		    "2048kB", 				"",																													0, #-- 5
+		    "3072kB", 				"",																													0, #-- 6
+		    "4096kB", 				"",																													0, #-- 7
+		  "Internal MMC I/O scheduler", 								"",																2, #-- selected.2
+		    "noop", 					"",																													0, #-- 1
+		    "deadline", 			"",																													0, #-- 2
+		    "cfq", 						"Stock SGS3",																								0, #-- 3
+		    "sio", 						"",																													0, #-- 4
+		    "row", 						"",																													1, #-- 5
+		  "External MMC ReadAhead buffer size\n(more is not always better!)", 	"",				2, #-- selected.3
+		    "128kB", 					"Stock SGS3",																								0, #-- 1
+		    "256kB", 					"",																													0, #-- 2
+		    "512kB", 					"",																													0, #-- 3
+		    "1024kB", 				"",																													1, #-- 4
+		    "2048kB", 				"",																													0, #-- 5
+		    "3072kB", 				"",																													0, #-- 6
+		    "4096kB", 				"",																													0, #-- 7
+		  "External MMC I/O scheduler", 								"",																2, #-- selected.4
+		    "noop", 					"",																													0, #-- 1
+		    "deadline", 			"",																													0, #-- 2
+		    "cfq", 						"Stock SGS3",																								1, #-- 3
+		    "sio", 						"",																													0, #-- 4
+		    "row", 						"",																													0  #-- 5
+		);
+		
+		###################################################################################################################
+		#
+		# Android Low Memory Killer settings
+		#
+		selectbox(
+		  #-- Title
+		    ini_get("rom_name")+" "+ini_get("rom_version")+" Installer",
+		  
+		  #-- Sub Title
+		    "Android Low Memory Killer settings",
+		  
+		  #-- Icon
+		    "@customize",
+		    
+		  #-- Will be saved in /tmp/aroma/
+		    "lmk.prop",
+		    
+		  #---------------------------------[ Selectbox Without Group ]----------------------------------#
+		  #--------[ Initial Value = 0: Unselected, 1: Selected, 2: Group Item, 3: Not Visible ]---------#
+		  #----------------------------------------------------------------------------------------------#
+		  # TITLE            |  SUBTITLE                                                 | Initial Value #
+		  #----------------------------------------------------------------------------------------------#
+
+		  "Low Memory Killer Presets", 								"",																	2, #-- selected.1
+		    "Stock SGS3", 			"32/40/48/ 56/ 64/ 72 Mb",																1, #-- 1
+		    "Very light", 			" 2/ 4/ 5/  8/ 12/ 16 Mb (least free RAM)",								0, #-- 2
+		    "Light", 						" 4/ 8/10/ 16/ 24/ 32 Mb (less free RAM)",								0, #-- 3
+		    "Medium", 					" 4/ 8/16/ 32/ 48/ 64 Mb (medium free RAM)",							0, #-- 4
+		    "Aggressive", 			" 8/16/32/ 64/ 96/128 Mb (more free RAM)",								0, #-- 5
+		    "Very aggressive", 	"16/32/64/128/192/256 Mb (most free RAM)",								0, #-- 6
+		    "Don't set here", 	"Leave LMK settings untouched",														0  #-- 7
+		);
+		
+		###################################################################################################################
+		#
+		# Virtual memory
+		#
+		selectbox(
+		  #-- Title
+		    ini_get("rom_name")+" "+ini_get("rom_version")+" Installer",
+		  
+		  #-- Sub Title
+		    "Virtual memory",
+		  
+		  #-- Icon
+		    "@customize",
+		    
+		  #-- Will be saved in /tmp/aroma/
+		    "swap.prop",
+		    
+		  #---------------------------------[ Selectbox Without Group ]----------------------------------#
+		  #--------[ Initial Value = 0: Unselected, 1: Selected, 2: Group Item, 3: Not Visible ]---------#
+		  #----------------------------------------------------------------------------------------------#
+		  # TITLE            |  SUBTITLE                                                 | Initial Value #
+		  #----------------------------------------------------------------------------------------------#
+		
+		  "Hardswap by Yank555.lu\n(swap partition on SD card needed !)", "",							2, #-- selected.1
+		    "no", 						"Stock SGS3",																								1, #-- 1
+		    "yes",					 	"",																													0, #-- 2
+		  "zRam support", 															"",																2, #-- selected.2
+		    "no", 						"Stock SGS3",																								0, #-- 1
+		    "100Mb",				 	"",																													0, #-- 2
+		    "150Mb",				 	"",																													0, #-- 3
+		    "200Mb",				 	"",																													0, #-- 4
+		    "250Mb",				 	"",																													0, #-- 5
+		    "300Mb",				 	"",																													0, #-- 6
+		    "350Mb",				 	"",																													0, #-- 7
+		    "400Mb",				 	"",																													0, #-- 8
+		    "450Mb",				 	"",																													0, #-- 9
+		    "500Mb",				 	"",																													0, #-- 10
+		    "550Mb",				 	"",																													0, #-- 11
+		    "600Mb",				 	"",																													1, #-- 12
+		    "650Mb",				 	"",																													0, #-- 13
+		    "700Mb",				 	"",																													0, #-- 14
+		  "Swappiness", 																"",																2, #-- selected.3
+		    "60", 						"Standard Linux",																						0, #-- 1
+		    "70",						 	"",																													0, #-- 2
+		    "80",						 	"",																													1, #-- 3
+		    "90",						 	"",																													0, #-- 4
+		    "100",					 	"Stock hardswap",																						0, #-- 5
+		    "Don't set here",	"Leave swappiness untouched",																0  #-- 6
+		);
+		
+		###################################################################################################################
+		#
+		# Fast charge
+		#
+		selectbox(
+		  #-- Title
+		    ini_get("rom_name")+" "+ini_get("rom_version")+" Installer",
+		  
+		  #-- Sub Title
+		    "Fast charge",
+		  
+		  #-- Icon
+		    "@customize",
+		    
+		  #-- Will be saved in /tmp/aroma/
+		    "charge.prop",
+		    
+		  #---------------------------------[ Selectbox Without Group ]----------------------------------#
+		  #--------[ Initial Value = 0: Unselected, 1: Selected, 2: Group Item, 3: Not Visible ]---------#
+		  #----------------------------------------------------------------------------------------------#
+		  # TITLE            |  SUBTITLE                                                 | Initial Value #
+		  #----------------------------------------------------------------------------------------------#
+		
+		  "USB forced fast charge", 										"",																2, #-- selected.1
+		    "disabled", 			"Don't use USB fast charge (Stock SGS3)",										0, #-- 1
+		    "substitute", 		"Use AC current when USB charger detected",									0, #-- 2
+		    "custom current",	"Use custom current for AC and USB, choose below",					1, #-- 3
+		  "USB current", 																"",																2, #-- selected.2
+		    "475mA", 					"Stock SGS3 / standard USB 2.0",														0, #-- 1
+		    "600mA", 					"",																													0, #-- 2
+		    "700mA", 					"",																													0, #-- 3
+		    "800mA", 					"",																													0, #-- 4
+		    "900mA", 					"Standard USB 3.0",																					0, #-- 5
+		    "1000mA", 				"",																													1, #-- 6
+		  "AC current", 																"",																2, #-- selected.3
+		    "1000mA", 				"Stock SGS3 / standard wall charger",												1, #-- 1
+		    "1100mA", 				"",																													0, #-- 2
+		    "1200mA", 				"",																													0, #-- 3
+		    "1300mA", 				"",																													0, #-- 4
+		    "1400mA", 				"",																													0, #-- 5
+		    "1500mA", 				"",																													0, #-- 6
+		  "Wireless current", 													"",																2, #-- selected.4
+		    "475mA", 					"Stock SGS3 / standard USB 2.0",														1, #-- 1
+		    "600mA", 					"",																													0, #-- 2
+		    "700mA", 					"",																													0, #-- 3
+		    "800mA", 					"",																													0, #-- 4
+		    "900mA", 					"Standard USB 3.0",																					0, #-- 5
+		    "1000mA", 				"",																													0  #-- 6
+		);
+		
+		###################################################################################################################
+		#
+		# Features
+		#
+		selectbox(
+		  #-- Title
+		    ini_get("rom_name")+" "+ini_get("rom_version")+" Installer",
+		  
+		  #-- Sub Title
+		    "Features",
+		  
+		  #-- Icon
+		    "@customize",
+		    
+		  #-- Will be saved in /tmp/aroma/
+		    "features.prop",
+		    
+		  #---------------------------------[ Selectbox Without Group ]----------------------------------#
+		  #--------[ Initial Value = 0: Unselected, 1: Selected, 2: Group Item, 3: Not Visible ]---------#
+		  #----------------------------------------------------------------------------------------------#
+		  # TITLE            |  SUBTITLE                                                 | Initial Value #
+		  #----------------------------------------------------------------------------------------------#
+		
+		  "Dynamic fsync by faux123", 						"",																						2, #-- selected.1
+		    "enabled",	"screen on = fsync deferred, screen off = flush outstanding writes",		1, #-- 1
+		    "disabled", "fsync synchronises writes normally (slower, but safer) - Stock SGS3",	0, #-- 2
+		  "Touch Wake by Ezekeel", 								"",																						2, #-- selected.1
+		    "disabled",	"Don't use Touch Wake feature - Stock SGS3",														0, #-- 1
+		    "1 second", "Activate Touch Wake during 1 second after screen off",									0, #-- 2
+		    "2 second", "Activate Touch Wake during 2 second after screen off",									0, #-- 3
+		    "3 second", "Activate Touch Wake during 3 second after screen off",									0, #-- 4
+		    "4 second", "Activate Touch Wake during 4 second after screen off",									0, #-- 5
+		    "5 second", "Activate Touch Wake during 5 second after screen off",									1, #-- 6
+		    "6 second", "Activate Touch Wake during 6 second after screen off",									0, #-- 7
+		    "7 second", "Activate Touch Wake during 7 second after screen off",									0, #-- 8
+		    "8 second", "Activate Touch Wake during 8 second after screen off",									0, #-- 9
+		    "9 second", "Activate Touch Wake during 9 second after screen off",									0, #-- 10
+		    "10 second","Activate Touch Wake during 10 second after screen off",								0, #-- 11
+		    "15 second","Activate Touch Wake during 15 second after screen off",								0, #-- 12
+		    "20 second","Activate Touch Wake during 20 second after screen off",								0, #-- 13
+		    "30 second","Activate Touch Wake during 30 second after screen off",								0, #-- 14
+		    "45 second","Activate Touch Wake during 45 second after screen off",								0, #-- 15
+		    "60 second","Activate Touch Wake during 60 second after screen off",								0, #-- 16
+		    "infinite",	"Activate Touch Wake all the time (battery drain possible !!)",					0, #-- 17
+		  "Hardwarekeys light on screen touch ", 	"",																						2, #-- selected.3
+		    "enabled",	"h/w keys will be lit on screen touch - Stock SGS3",										0, #-- 1
+		    "disabled", "h/w keys will stay unlit on screen touch",															1  #-- 2
+		);
+		
+		###################################################################################################################
+		#
+		# Notification LED
+		#
+		selectbox(
+		  #-- Title
+		    ini_get("rom_name")+" "+ini_get("rom_version")+" Installer",
+		  
+		  #-- Sub Title
+		    "Notification LED",
+		  
+		  #-- Icon
+		    "@customize",
+		    
+		  #-- Will be saved in /tmp/aroma/
+		    "LED.prop",
+		    
+		  #---------------------------------[ Selectbox Without Group ]----------------------------------#
+		  #--------[ Initial Value = 0: Unselected, 1: Selected, 2: Group Item, 3: Not Visible ]---------#
+		  #----------------------------------------------------------------------------------------------#
+		  # TITLE            |  SUBTITLE                                                 | Initial Value #
+		  #----------------------------------------------------------------------------------------------#
+		
+		  "Notification LED mode", 								"",																						2, #-- selected.1
+		    "fading",		"Fading notification LED - Stock CM",																		1, #-- 1
+		    "blinking", "Blinking notification LED - Stock Samsung",														0, #-- 2
+		  "Notification LED intensity", 					"",																						2, #-- selected.2
+		    "maximum",	"Maxumimun brightness notification LED",																0, #-- 1
+		    "very high","Very bright notification LED",																					1, #-- 2
+		    "high",			"Bright notification LED - Stock CM",																		0, #-- 3
+		    "normal",		"Normal notification LED - Stock Samsung",															0, #-- 4
+		  "Notification LED speed", 							"",																						2, #-- selected.3
+		    "normal",		"Notification LED blinking/fading at normal speed - Stock CM, Samsung",	0, #-- 1
+		    "x2",				"Notification LED blinking/fading twice as fast",												1, #-- 2
+		    "x3",				"Notification LED blinking/fading 3x as fast",													0, #-- 3
+		    "x4",				"Notification LED blinking/fading 4x as fast",													0, #-- 4
+		    "x5",				"Notification LED blinking/fading 5x as fast",													0, #-- 5
+		  "Notification LED fading style", 				"",																						2, #-- selected.4
+		    "in/out",		"Notification LED fading in and out - Stock CM",												0, #-- 1
+		    "out only",	"Notification LED fading out only",																			1, #-- 2
+		    "in only",	"Notification LED fading in only",																			0  #-- 3
+		);
+		
+		###################################################################################################################
+		#
+		# Boeffla Sound Engine by AndiP71
+		#
+		selectbox(
+		  #-- Title
+		    ini_get("rom_name")+" "+ini_get("rom_version")+" Installer",
+		  
+		  #-- Sub Title
+		    "Boeffla Sound Engine by AndiP71",
+		  
+		  #-- Icon
+		    "@customize",
+		    
+		  #-- Will be saved in /tmp/aroma/
+		    "boeffla.prop",
+		    
+		  #---------------------------------[ Selectbox Without Group ]----------------------------------#
+		  #--------[ Initial Value = 0: Unselected, 1: Selected, 2: Group Item, 3: Not Visible ]---------#
+		  #----------------------------------------------------------------------------------------------#
+		  # TITLE            |  SUBTITLE                                                 | Initial Value #
+		  #----------------------------------------------------------------------------------------------#
+		
+		  "Master switch",															"",																2, #-- selected.1
+		    "enabled", 				"Turn on the Boeffla Sound Engine",													1, #-- 1
+		    "disabled", 			"Stock SGS3",																								0, #-- 2
+		    "don't set", 			"Nothing here, allow Boeffla Sound App or init.d script",		0, #-- 3
+		  "Speaker - Output level", 										"",																2, #-- selected.2
+		    "standard", 			"Stock SGS3",																								0, #-- 1
+		    "+1", 						"",																													0, #-- 2
+		    "+2", 						"",																													0, #-- 3
+		    "+3", 						"",																													1, #-- 4
+		    "+4", 						"Careful !",																								0, #-- 5
+		    "+5", 						"Careful !",																								0, #-- 6
+		    "+6", 						"Careful !",																								0, #-- 7
+		  "Headphones - Output level",									"",																2, #-- selected.3
+		    "standard", 			"Stock SGS3",																								1, #-- 1
+		    "+1", 						"",																													0, #-- 2
+		    "+2", 						"",																													0, #-- 3
+		    "+3", 						"",																													0, #-- 4
+		    "+4", 						"Careful !",																								0, #-- 5
+		    "+5", 						"Careful !",																								0, #-- 6
+		    "+6", 						"Careful !",																								0, #-- 7
+		  "Headphones - Equalizer Mode",								"",																2, #-- selected.4
+		    "sat.prev.", 			"Enabled with saturation prevention",												0, #-- 1
+		    "enabled", 				"Enabled without saturation prevention",										1, #-- 2
+		    "disabled", 			"Stock SGS3",																								0, #-- 3
+		  "Headphones - Equalizer Setting",							"",																2, #-- selected.5
+		    "standard", 			"No change to equalizer",																		0, #-- 1
+		    "eargasm", 				"",																													0, #-- 2
+		    "pleasant4ears", 	"",																													0, #-- 3
+		    "bass-extreme", 	"",																													0, #-- 4
+		    "Yankgasm", 			"Eargasm revisited by Yank",																1, #-- 5
+		  "Headphones - Privacy Mode",									"",																2, #-- selected.6
+		    "enabled", 				"No notification on speaker when headphones connected",			1, #-- 1
+		    "disabled", 			"Stock SGS3",																								0, #-- 2
+		  "Headphones - DAC direct",										"",																2, #-- selected.7
+		    "enabled", 				"Bypass output mixer & connect DAC to headphone amplifier",	1, #-- 1
+		    "disabled", 			"Stock SGS3",																								0, #-- 2
+		  "Headphones - DAC 128bit oversampling",				"",																2, #-- selected.8
+		    "enabled", 				"Changes the oversampling rate from 64 to 128 bit",					1, #-- 1
+		    "disabled", 			"Stock SGS3",																								0, #-- 2
+		  "Headphones - FLL clock tuning",							"",																2, #-- selected.9
+		    "enabled", 				"Changes FLL configuration of Wolfson WM1811 audio hub",		1, #-- 1
+		    "disabled", 			"Stock SGS3",																								0, #-- 2
+		  "Speaker - Tuning",														"",																2, #-- selected.10
+		    "enabled", 				"Enabled speaker tuning",																		0, #-- 1
+		    "disabled", 			"Stock SGS3",																								1  #-- 2
+		);
+		
+		###################################################################################################################
+		#
+		# Kernel modules
+		#
+		selectbox(
+		  #-- Title
+		    ini_get("rom_name")+" "+ini_get("rom_version")+" Installer",
+		  
+		  #-- Sub Title
+		    "Kernel modules",
+		  
+		  #-- Icon
+		    "@customize",
+		    
+		  #-- Will be saved in /tmp/aroma/
+		    "modules.prop",
+		    
+		  #---------------------------------[ Selectbox Without Group ]----------------------------------#
+		  #--------[ Initial Value = 0: Unselected, 1: Selected, 2: Group Item, 3: Not Visible ]---------#
+		  #----------------------------------------------------------------------------------------------#
+		  # TITLE            |  SUBTITLE                                                 | Initial Value #
+		  #----------------------------------------------------------------------------------------------#
+		
+		  "CIFS network filesystem support", 						"",																			2, #-- selected.1
+		    "enabled",	"Load dns_resolver, md4 and cifs kernel modules on boot",								1, #-- 1
+		    "disabled", "Don't load cifs supporting modules on boot - Stock SGS3",							0, #-- 2
+		  "NFS network filesystem support", 						"",																			2, #-- selected.2
+		    "enabled",	"Load sunrpc, lockd, nfs_acl and nfs kernel modules on boot",						1, #-- 1
+		    "disabled", "Don't load nfs supporting modules on boot - Stock SGS3",								0, #-- 2
+		  "NTFS filesystem support", 										"",																			2, #-- selected.3
+		    "enabled",	"Load ntfs module on boot",																							0, #-- 1
+		    "disabled", "Don't load ntfs module on boot - Stock SGS3",													1, #-- 2
+		  "ISO 9660 (& Joliet) filesystem support (CD/DVD)", 		"",															2, #-- selected.4
+		    "enabled",	"Load isofs kernel module on boot",																			0, #-- 1
+		    "disabled", "Don't load isofs module on boot - Stock SGS3",													1, #-- 2
+		  "UDF filesystem support", 										"",																			2, #-- selected.5
+		    "enabled",	"Load udf kernel module on boot",																				0, #-- 1
+		    "disabled", "Don't load udf module on boot - Stock SGS3",														1, #-- 2
+		  "XBOX 360 gamepad support", 									"",																			2, #-- selected.6
+		    "enabled",	"Load xpad kernel module on boot",																			0, #-- 1
+		    "disabled", "Don't load XBOX 360 gamepad supporting modules on boot - Stock SGS3",	1  #-- 2
+		);
+		
+		###################################################################################################################
+		#
+		# init.d script support out of ramdisk
+		#
+		# NB: Except if Yank555.lu settings
+		#
+		selectbox(
+		  #-- Title
+		    ini_get("rom_name")+" "+ini_get("rom_version")+" Installer",
+		  
+		  #-- Sub Title
+		    "init.d script support",
+		  
+		  #-- Icon
+		    "@customize",
+		    
+		  #-- Will be saved in /tmp/aroma/
+		    "initd.prop",
+		    
+		  #---------------------------------[ Selectbox Without Group ]----------------------------------#
+		  #--------[ Initial Value = 0: Unselected, 1: Selected, 2: Group Item, 3: Not Visible ]---------#
+		  #----------------------------------------------------------------------------------------------#
+		  # TITLE            |  SUBTITLE                                                 | Initial Value #
+		  #----------------------------------------------------------------------------------------------#
+		
+		  "init.d script execution support from ramdisk", 						"",									2, #-- selected.1
+		    "no",				 			"ROM takes care of this",																		1, #-- 1
+		    "yes", 						"ramfs takes care of this (careful not to run them twice)",	0  #-- 2
+		);
+		
+		###################################################################################################################
+		#
+		# DISPLAY WARNING
+		#
+		# NB: Except if Yank555.lu settings
+		#
+		textbox(
+		  #-- Title
+		    ini_get("rom_name")+" "+ini_get("rom_version"),
+		  
+		  #-- Subtitle
+		    "Warning !!",
+		  
+		  #-- Icon
+		    "@alert",
+		  
+		  #-- Arg 4
+		    resread("warning.txt")
+		);
+		
+		###################################################################################################################
+		#
+		# What to do now ?
+		#
+		selectbox(
+		  #-- Title
+		    ini_get("rom_name")+" "+ini_get("rom_version")+" Installer",
+		  
+		  #-- Sub Title
+		    "What do you want to do now ?",
+		  
+		  #-- Icon
+		    "@confirm",
+		    
+		  #-- Will be saved in /tmp/aroma/
+		    "flash.prop",
+		    
+		  #---------------------------------[ Selectbox Without Group ]----------------------------------#
+		  #--------[ Initial Value = 0: Unselected, 1: Selected, 2: Group Item, 3: Not Visible ]---------#
+		  #----------------------------------------------------------------------------------------------#
+		  # TITLE            |  SUBTITLE                                                 | Initial Value #
+		  #----------------------------------------------------------------------------------------------#
+		
+		  																																									 #-- selected.0
+		    "Kernel & Config","Flash the kernel & generate config scripts",								1, #-- 1
+		    "Config only", 		"Regenerate config scripts only (don't reflash the kernel)",0  #-- 2
+		);
+
+endif;
+
+if file_getprop("/tmp/aroma/install.prop", "selected.0") == "3" then
+
+		writetmpfile(	"flash.prop",
+										"selected.0=1\n"		# Flash kernel only in this case
+		);
+
+endif;
+
+###################################################################################################################
+#
+# Kernel flashing
+#
+setvar("retstatus",
+  install(
+	#-- Title
+      ini_get("rom_name")+" "+ini_get("rom_version")+" Installer",
+	
+	#-- Installation Process message
+	  "Please wait while flashing <b>"+ini_get("rom_name")+
+	  "</b>. This should be done quickly.",
+	
+	#-- Installation Icon
+      "@install",
+	
+	#-- Installation Finish Message
+    "The installation wizard has successfully installed <b>"+ini_get("rom_name")+
+	  "</b>. Press Next to continue."
+  )
+);
+
+##
+#
+# Next Button is "Finish"
+#
+ini_set("text_next", "Finish");
+
+###################################################################################################################
+#
+# FINISH MESSAGE, Add Checkbox to Reboot or No. Save in "reboot_it" variable
+#
+# You can use return value or "reboot_it" variable to retrive checkbox value
+# Example:
+# if (checkviewbox(....)=="1" then
+#    ... checked ...
+# endif;
+#
+checkviewbox(
+  #-- Title
+    "Installation Completed",
+  
+  #-- Text
+    "<#selectbg_g><b>Congratulation...</b></#>\n\n"+
+    "<b>"+ini_get("rom_name")+"</b> has been flashed onto your device.\n\n"+
+    "Installer Status: "+getvar("retstatus")+"\n\n",
+	
+  #-- Icon
+    "@welcome",
+
+  #-- Checkbox Text
+    "Reboot your device now.",
+
+  #-- Initial Checkbox value ( 0=unchecked, 1=checked ) -  (Optional, default:0)
+    "0",
+
+  #-- Save checked value in variable "reboot_it" (Optional)
+    "reboot_it"
+);
+
+###
+#
+# Check if reboot checkbox was checked
+if
+  getvar("reboot_it")=="1"
+then
+  #
+  # reboot("onfinish");   - Reboot if anything finished
+  # reboot("now");        - Reboot Directly
+  # reboot("disable");    - If you set reboot("onfinish") before, use this command to revert it.
+  #
+  reboot("onfinish");
+endif;
+
+#---- FINISH

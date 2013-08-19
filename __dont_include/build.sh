@@ -89,4 +89,6 @@ rm $FILE
 rm ../system/app/CMUpdater.apk
 ### BLOATWARE ###
 #################
+
+bash openpdroid.sh
 exit 0

@@ -1,6 +1,9 @@
 #!/bin/bash
 # ArchiDroid build.sh Helper
 
+# Not Disabled
+#exit 1
+
 WERSJA="ro.build.display.id=ArchiDroid 2.1.2"
 OTA="echo \"updateme.version=2.1.2\" >> /system/build.prop"
 DENSITY="#ro.sf.lcd_density=320"
@@ -34,7 +37,7 @@ cd ..
 OLD=`md5sum __dont_include/_updater-scripts/temasek/updater-script | awk '{print $1}'`
 NEW=`md5sum __newtemasek/META-INF/com/google/android/updater-script | awk '{print $1}'`
 
-if [ $OLD -ne $NEW ]; then
+if [ $OLD != $NEW ]; then
 	echo "Warning! New $NEW does not equal old $OLD."
 	echo "Probably just symlink or permissions stuff"
 	diff __dont_include/_updater-scripts/temasek/updater-script __newtemasek/META-INF/com/google/android/updater-script
@@ -43,7 +46,9 @@ if [ $OLD -ne $NEW ]; then
 else
 	echo "MD5 Sums matches, no further action required, automatic mode goes on..."
 fi
-sleep 5
+sleep 3
+rm -Rf __newtemasek
+rm -f cm-*.zip
 
 cd __dont_include/
 # Bo CM tez ma syf...
@@ -111,7 +116,7 @@ rm $FILE
 
 #################
 ### BLOATWARE ###
-#rm ../system/app/CMUpdater.apk
+#rm -f ../system/app/CMUpdater.apk
 ### BLOATWARE ###
 #################
 

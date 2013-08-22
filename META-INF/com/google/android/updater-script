@@ -503,7 +503,7 @@ set_progress(0.76);
 ### PHILZ ###
 if file_getprop("/tmp/aroma-data/recovery.prop","selected.0") == "1" then
 	ui_print("root@ArchiDroid:~# Flashing PhilZ Recovery");
-	assert(package_extract_file("philz.img", "/tmp/recovery.img"),
+	assert(package_extract_file("recovery.img", "/tmp/recovery.img"),
 	write_raw_image("/tmp/recovery.img", "/dev/block/mmcblk0p6"));
 endif;
 

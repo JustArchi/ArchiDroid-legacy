@@ -1176,7 +1176,7 @@ checkbox(
   "HD Voice","Enables HD Voice if available",1,
   "Add build.prop Tweaks","Deeper sleep and disable debug to improve performance",1,
   "OpenPDroid [EXPERIMENTAL]","Apply OpenPDroid patch after install",0,
-  "Remove Cell Broadcasts","In general considered as bloatware, uncheck if you want to keep this",1
+  "Remove Cell Broadcasts","In general considered as bloatware. Uncheck if you want to keep this",1
 );
 endif;
 

@@ -1,5 +1,8 @@
 ArchiDroid 2.1.2
 
+- Added new ArchiDroid Tweak - Remove Cell Broadcasts. Activated by default
+# In general Cell Broadcasts are considered as bloatware. Thing which should be useful but instead is only spamming users. If you for whatever reason want to keep it then remember that you can always select custom preset and make your own choice.
+
 - Updated Xposed to unofficial version which natively supports Android 4.3. Still waiting for official update from rovo89
 - Updated YouTube to 5.0.21 (inverted)
 - Updated Nova to 2.2.1

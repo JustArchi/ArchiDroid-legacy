@@ -3,8 +3,12 @@ ArchiDroid 2.1.2
 - Added new ArchiDroid Tweak - Remove Cell Broadcasts. Activated by default
 # In general Cell Broadcasts are considered as bloatware. Thing which should be useful but instead is only spamming users. If you for whatever reason want to keep it then remember that you can always select custom preset and make your own choice.
 
+- Removed XXEMB6 modem. ArchiDroid now doesn't flash any modem in default presets
+# It causes more problems that I thought. You still have a possibility to flash xxemg4 but in default preset AD won't touch your modem anymore.
+# Because of that it's also pointless to keep xxemb6 modem anymore. You can either stick with your current one or flash newest one, that should be nice.
+
 - Updated Xposed to unofficial version which natively supports Android 4.3. Still waiting for official update from rovo89
-- Updated YouTube to 5.0.21 (inverted)
+- Updated YouTube to 5.0.21 (inverted), thanks to @kopicha
 - Updated Nova to 2.2.1
 - Updated MX Player to 1.7.18
 - Updated PhilZ Touch Recovery to 5.11.2

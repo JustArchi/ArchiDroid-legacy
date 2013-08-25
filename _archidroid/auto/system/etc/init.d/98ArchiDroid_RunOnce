@@ -193,10 +193,11 @@ fi
 
 # NOTICE
 # ArchiDroid has sysro/sysrw support, change that to remount system rw if needed
-rm -Rf /data/media/0/ArchiDroid/FIRSTBOOT
-sysrw
 rm -f /data/media/0/ArchiDroid/INSTALL
 rm -f /data/media/0/ArchiDroid/UPDATE
+rm -Rf /data/media/0/ArchiDroid/FIRSTBOOT
+rm -Rf /data/media/0/vrtheme-backup
+sysrw
 rm -f $0
 sysro
 

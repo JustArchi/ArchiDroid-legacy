@@ -18,6 +18,14 @@ git pull origin master
 ./batch.sh
 ./auto_patcher rom.zip openpdroid cm
 
+# Not a good way to check that but we can have maximum of 1 file so it's acceptable
+if [ ! -e update-cm* ]; then
+	echo "Patch Failed"
+	rm -rf tmp* adpatch*
+	rm -f rom.zip log*.txt restore-cm*.zip update-cm*.zip autopatcher.zip
+	exit 1
+fi
+
 # Let's keep flashable zips for temasek's users
 rm -f ../temasek-openpdroid/update-cm*.zip ../temasek-openpdroid/restore-cm*.zip
 cp update-cm*.zip restore-cm*.zip ../temasek-openpdroid/

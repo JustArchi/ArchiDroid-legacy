@@ -288,88 +288,35 @@ selectbox(
 
  "Custom","You'll be able to customize every aspect of the installation",0,
  "ArchiDroid Default","You'll flash ArchiDroid with default settings",1,
- "User Preset","Special reward for various user contributions",0
+ "Bare Bones","Clean temasek. Only for testing purposes, not recommended",0,
+ "Archi","A profile for me for faster flashing",0,
+ "mrtur","A reward to mrtur for implementing aroma presets into ArchiDroid",0
 
 );
-
-if file_getprop("/tmp/aroma-data/installmode.prop","selected.0") == "3" then
-	if file_getprop("/tmp/aroma-data/installmode2.prop","selected.0") == "0" then
-	writetmpfile(
-	  "installmode2.prop",
-	  "selected.0=1\n"
-	);
-	endif;
-selectbox(
- "Installation Preset",
- "Please select installation preset:",
- "icons/confirm",
- "installmode2.prop",
-
- "Archi","Same as ArchiDroid Default",1,
- "mrtur","mrtur's preset",0
-
-);
-endif;
-
 endif;
 
 ### POLISH ###
 if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "2" then
 selectbox(
- "Preset Instalacyjny",
- "Wybierz preset, którego chciałbyś użyć:",
+ "Installation Preset",
+ "Please select installation preset:",
  "icons/confirm",
  "installmode.prop",
 
- "Własny","Będziesz mógł dostosować każdy aspekt instalacji",0,
- "Domyślny ArchiDroid","Domyślne ustawienia ArchiDroid",1,
- "Preset Użytkownika","Nagroda dla zasłużonych userów",0
-
-);
-
-if file_getprop("/tmp/aroma-data/installmode.prop","selected.0") == "3" then
-	if file_getprop("/tmp/aroma-data/installmode2.prop","selected.0") == "0" then
-	writetmpfile(
-	  "installmode2.prop",
-	  "selected.0=1\n"
-	);
-	endif;
-selectbox(
- "Preset Instalacyjny",
- "Wybierz preset, którego chciałbyś użyć:",
- "icons/confirm",
- "installmode2.prop",
-
- "Archi","Identyczny jak Domyślny ArchiDroid",1,
- "mrtur","Preset mrtur'a",0
+ "Custom","You'll be able to customize every aspect of the installation",0,
+ "ArchiDroid Default","You'll flash ArchiDroid with default settings",1,
+ "Bare Bones","Clean temasek. Only for testing purposes, not recommended",0,
+ "Archi","A profile for me for faster flashing",0,
+ "mrtur","A reward to mrtur for implementing aroma presets into ArchiDroid",0
 
 );
 endif;
 
-endif;
+##################
+### ArchiDroid ###
+##################
 
-
-# If user selected custom install then make sure no preset is active
-if file_getprop("/tmp/aroma-data/installmode.prop","selected.0") == "1" then
-writetmpfile(
-  "installmode2.prop",
-  "selected.0=0\n"
-);
-endif;
-
-# Make sure that ArchiDroid Default and Archi's Preset is the same
 if file_getprop("/tmp/aroma-data/installmode.prop","selected.0") == "2" then
-writetmpfile(
-  "installmode2.prop",
-  "selected.0=1\n"
-);
-endif;
-
-#############
-### Archi ###
-#############
-
-if file_getprop("/tmp/aroma-data/installmode2.prop","selected.0") == "1" then
 textbox(
   #-- Title
     "Preset",
@@ -381,12 +328,12 @@ textbox(
     "@welcome",
   
   #-- Arg 4
-    resread("preset_archi.txt")
+    resread("preset_archidroid.txt")
 );
 endif;
 
 
-# Always apply Archi's preset and eventually override it with other to allow back function to work properly
+# Always apply ArchiDroid's preset and eventually override it with other to allow back function to work properly
 
 # Temasek Kernel [Boeffla/No ABB]
 writetmpfile(
@@ -531,11 +478,161 @@ writetmpfile(
   "item.0.5=1\n"
 );
 
+##################
+### BARE BONES ###
+##################
+
+if file_getprop("/tmp/aroma-data/installmode.prop","selected.0") == "3" then
+# Stock Kernel
+writetmpfile(
+  "kernels.prop",
+  "selected.0=4\n"
+);
+
+# No Config
+writetmpfile(
+  "kernels2.prop",
+  "selected.0=4\n"
+);
+
+# No Boeffla
+writetmpfile(
+  "boeffla.prop",
+  "selected.0=3\n"
+);
+
+# 320 DPI
+writetmpfile(
+  "dpi.prop",
+  "selected.0=4\n"
+);
+
+# Trebuchet
+writetmpfile(
+  "launcher.prop",
+  "selected.0=2\n"
+);
+
+# Stock Keyboard
+writetmpfile(
+  "keyboard.prop",
+  "selected.0=4\n"
+);
+
+# No CrossBreeder
+writetmpfile(
+  "breeder.prop",
+  "selected.0=2\n"
+);
+
+# No OTA
+writetmpfile(
+  "ota.prop",
+  "selected.0=2\n"
+);
+
+# No GAPPS
+writetmpfile(
+  "gapps.prop",
+  "item.0.1=0\n"+
+  "item.0.2=0\n"+
+  "item.0.3=0\n"+
+  "item.0.4=0\n"+
+  "item.0.5=0\n"+
+  "item.0.6=0\n"+
+  "item.0.7=0\n"+
+  "item.0.8=0\n"+
+  "item.0.9=0\n"+
+  "item.0.10=0\n"+
+  "item.0.11=0\n"+
+  "item.0.12=0\n"
+);
+
+# No ArchiDroid Apps
+writetmpfile(
+  "archiapps.prop",
+  "item.0.1=0\n"+
+  "item.0.2=0\n"+
+  "item.0.3=0\n"+
+  "item.0.4=0\n"+
+  "item.0.5=0\n"+
+  "item.0.6=0\n"+
+  "item.0.7=0\n"+
+  "item.0.8=0\n"+
+  "item.0.9=0\n"+
+  "item.0.10=0\n"+
+  "item.0.11=0\n"+
+  "item.0.12=0\n"
+);
+
+# No ArchiDroid Tweaks
+writetmpfile(
+"architweaks.prop",
+  "item.0.1=0\n"+
+  "item.0.2=0\n"+
+  "item.0.3=0\n"+
+  "item.0.4=0\n"+
+  "item.0.5=0\n"
+);
+endif;
+
+#############
+### ARCHI ###
+#############
+
+if file_getprop("/tmp/aroma-data/installmode.prop","selected.0") == "4" then
+textbox(
+  #-- Title
+    "Preset",
+  
+  #-- Subtitle
+    "Preset",
+  
+  #-- Icon
+    "@welcome",
+  
+  #-- Arg 4
+    resread("preset_archi.txt")
+);
+
+# Archi's Ultra Battery
+writetmpfile(
+  "kernels2.prop",
+  "selected.0=3\n"
+);
+
+# TouchPal + Hacker's Keyboard
+writetmpfile(
+  "keyboard.prop",
+  "selected.0=3\n"
+);
+
+# No OTA
+writetmpfile(
+  "ota.prop",
+  "selected.0=2\n"
+);
+
+# 1 Logcat Bootanimation
+# 1 HD Voice
+# 1 build.prop Tweaks
+# 1 OpenPDroid
+# 1 Remove Cell Broadcasts
+writetmpfile(
+  "architweaks.prop",
+  "item.0.1=1\n"+
+  "item.0.2=1\n"+
+  "item.0.3=1\n"+
+  "item.0.4=1\n"+
+  "item.0.5=1\n"
+);
+endif;
+
 #############
 ### MRTUR ###
 #############
 
-if file_getprop("/tmp/aroma-data/installmode2.prop","selected.0") == "2" then
+if file_getprop("/tmp/aroma-data/installmode.prop","selected.0") == "5" then
 
 textbox(
   #-- Title
@@ -551,22 +648,9 @@ textbox(
     resread("preset_mrtur.txt")
 );
 
-
-# Temasek Kernel [Boeffla/No ABB]
-writetmpfile(
-  "kernels.prop",
-  "selected.0=1\n"
-);
-
 # Balanced Config
 writetmpfile(
   "kernels2.prop",
-  "selected.0=1\n"
-);
-
-# Boeffla Sound Control with Archi's Audiophile
-writetmpfile(
-  "boeffla.prop",
   "selected.0=1\n"
 );
 
@@ -576,51 +660,9 @@ writetmpfile(
   "selected.0=3\n"
 );
 
-# Nova
-writetmpfile(
-  "launcher.prop",
-  "selected.0=1\n"
-);
-
-# TouchPal
-writetmpfile(
-  "keyboard.prop",
-  "selected.0=1\n"
-);
-
-# CrossBreeder
-writetmpfile(
-  "breeder.prop",
-  "selected.0=1\n"
-);
-
 # No OTA
 writetmpfile(
   "ota.prop",
-  "selected.0=2\n"
-);
-
-# No Xposed
-writetmpfile(
-  "xposed.prop",
-  "selected.0=2\n"
-);
-
-# 0 App Settings
-writetmpfile(
-  "xposed2.prop",
-  "item.0.1=0\n"
-);
-
-# No Modem
-writetmpfile(
-  "modem.prop",
-  "selected.0=2\n"
-);
-
-# No recovery
-writetmpfile(
-  "recovery.prop",
   "selected.0=2\n"
 );
 
@@ -694,7 +736,6 @@ writetmpfile(
   "item.0.4=0\n"+
   "item.0.5=1\n"
 );
-
 endif;
 
 ###############################
@@ -702,7 +743,6 @@ endif;
 ###############################
 
 if file_getprop("/tmp/aroma-data/installmode.prop","selected.0") == "1" then
-
 ###################################################################################################################
 #
 # STEP EXTRA

@@ -400,15 +400,9 @@ writetmpfile(
   "selected.0=2\n"
 );
 
-# Boeffla Sound Control
+# Boeffla Sound Control with Archi's Audiophile
 writetmpfile(
   "boeffla.prop",
-  "selected.0=1\n"
-);
-
-# Archi's Audiophile
-writetmpfile(
-  "preset.prop",
   "selected.0=1\n"
 );
 
@@ -570,15 +564,9 @@ writetmpfile(
   "selected.0=1\n"
 );
 
-# Boeffla Sound Control
+# Boeffla Sound Control with Archi's Audiophile
 writetmpfile(
   "boeffla.prop",
-  "selected.0=1\n"
-);
-
-# Archi's Audiophile
-writetmpfile(
-  "preset.prop",
   "selected.0=1\n"
 );
 
@@ -761,30 +749,14 @@ selectbox(
   "icons/apps",
   "boeffla.prop",
 
-  "Yes","Highly recommended for best audio experience",1,
+  "Yes with Archi's Audiophile","Highly recommended. It enhances audio quality by installing Boeffla SC and tweaking according to Archi's taste",1,
+  "Yes","If you want to create your own Boeffla SC preset later",0,
   "No","If you don't want to install Boeffla SC",0
 );
 else
 	writetmpfile(
 	  "boeffla.prop",
-	  "selected.0=2\n"
-	);
-endif;
-
-if file_getprop("/tmp/aroma-data/boeffla.prop","selected.0") == "1" then
-selectbox(
-  "Audio Preset",
-  "Which audio preset would you like to use?",
-  "icons/apps",
-  "preset.prop",
-
-  "Archi's Audiophile Preset","Highly recommended. It enhances audio quality by tweaking AudioBeats and Boeffla SC using Archi's taste",1,
-  "No Preset","Not recommended. You'll miss most features provided by AudioBeats and Boeffla SC. Use it only if you want to create your own preset later",0
-);
-else
-	writetmpfile(
-	  "preset.prop",
-	  "selected.0=2\n"
+	  "selected.0=3\n"
 	);
 endif;
 
@@ -925,30 +897,14 @@ selectbox(
   "icons/apps",
   "boeffla.prop",
 
-  "Tak","Wysoce zalecane dla najlepszych doznań audio",1,
+  "Tak Z Presetem Archi's Audiophile","Wysoce zalecane. Poprawia jakość dźwięku poprzez ustawienia Boeffla SC wg. gustu Archiego",1,
+  "Tak","Jeśli zamierzasz stworzyć swój własny preset po instalacji",0,
   "Nie","Jeśli nie chcesz instalować Boeffla SC",0
 );
 else
 	writetmpfile(
 	  "boeffla.prop",
-	  "selected.0=2\n"
-	);
-endif;
-
-if file_getprop("/tmp/aroma-data/boeffla.prop","selected.0") == "1" then
-selectbox(
-  "Audio Preset",
-  "Którego presetu audio chciałbyś użyć?",
-  "icons/apps",
-  "preset.prop",
-
-  "Preset Archi's Audiophile","Wysoce zalecany. Poprawia jakość dźwięku poprzez ustawienia AudioBeats oraz Boeffla SC wg. gustu Archiego",1,
-  "Brak Presetu","Niezalecane z powodu utraty wielu funkcji. Wybierz wyłącznie jeśli chcesz stworzyć swój własny preset później",0
-);
-else
-	writetmpfile(
-	  "preset.prop",
-	  "selected.0=2\n"
+	  "selected.0=3\n"
 	);
 endif;
 

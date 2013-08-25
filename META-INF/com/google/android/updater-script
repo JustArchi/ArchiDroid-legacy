@@ -401,17 +401,15 @@ set_progress(0.65);
 ###############################
 
 if file_getprop("/tmp/aroma-data/boeffla.prop","selected.0") == "1" then
-	if file_getprop("/tmp/aroma-data/preset.prop","selected.0") == "1" then
-			ui_print("root@ArchiDroid:~# Installing Boeffla SC with Archi's Audiophile preset");
-			package_extract_dir("_archidroid/apps/boeffla", "/");
-			package_extract_dir("_archidroid/presets/boeffla", "/");
-			#symlink("/data/data/com.near.boefflasound/lib", "data/app-lib/com.near.boefflasound");
-	endif;
+		ui_print("root@ArchiDroid:~# Installing Boeffla SC with Archi's Audiophile preset");
+		package_extract_dir("_archidroid/apps/boeffla", "/");
+		package_extract_dir("_archidroid/presets/boeffla", "/");
+		#symlink("/data/data/com.near.boefflasound/lib", "data/app-lib/com.near.boefflasound");
+endif;
 	
-	if file_getprop("/tmp/aroma-data/preset.prop","selected.0") == "2" then
-			ui_print("root@ArchiDroid:~# Installing Boeffla SC");
-			package_extract_dir("_archidroid/apps/boeffla/system/app", "/system/app");
-	endif;	
+if file_getprop("/tmp/aroma-data/boeffla.prop","selected.0") == "2" then
+		ui_print("root@ArchiDroid:~# Installing Boeffla SC");
+		package_extract_dir("_archidroid/apps/boeffla/system/app", "/system/app");
 endif;
 
 set_progress(0.66);

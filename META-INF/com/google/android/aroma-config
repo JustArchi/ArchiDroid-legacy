@@ -287,7 +287,7 @@ selectbox(
  "installmode.prop",
 
  "Custom","You'll be able to customize every aspect of the installation",0,
- "ArchiDroid Default","You'll flash ArchiDroid with default settings",1,
+ "ArchiDroid Default","You'll flash ArchiDroid with default optimized settings",1,
  "Bare Bones","Clean temasek. Only for testing purposes, not recommended",0,
  "Archi","A profile for me for faster flashing",0,
  "mrtur","A reward to mrtur for implementing aroma presets into ArchiDroid",0
@@ -303,11 +303,11 @@ selectbox(
  "icons/confirm",
  "installmode.prop",
 
- "Custom","You'll be able to customize every aspect of the installation",0,
- "ArchiDroid Default","You'll flash ArchiDroid with default settings",1,
- "Bare Bones","Clean temasek. Only for testing purposes, not recommended",0,
- "Archi","A profile for me for faster flashing",0,
- "mrtur","A reward to mrtur for implementing aroma presets into ArchiDroid",0
+ "Własny","Będziesz mógł dostosować każdy aspekt instalacji",0,
+ "Domyślny ArchiDroid","Domyślne zoptymalizowane ustawienia ArchiDroid",1,
+ "Sam Szkielet","Czysty temasek. Tylko dla testów ewentualnych błędów, niezalecane",0,
+ "Archi","Profil dla mnie dla szybszego reflashu",0,
+ "mrtur","Nagroda dla mrtura za implementacje presetów do ArchiDroida",0
 
 );
 endif;

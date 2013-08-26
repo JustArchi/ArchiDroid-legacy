@@ -393,19 +393,7 @@ if file_getprop("/tmp/aroma-data/dpi.prop","selected.0") == "4" then
 	run_program("/tmp/320dpi.sh");
 endif;
 
-############
-### LANG ###
-############
-
-### PL ###
-if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "2" then
-	package_extract_file("_archidroid/lang/pl.sh", "/tmp/pl.sh");
-	set_perm(0, 0, 0777, "/tmp/pl.sh");
-	run_program("/tmp/pl.sh");
-endif;
-
 set_progress(0.65);
-
 
 ###############################
 ### ArchiDroid Audio Tweaks ###

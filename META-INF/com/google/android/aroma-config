@@ -674,9 +674,9 @@ writetmpfile(
 # 0 Google Keep
 # 0 Google Mail
 # 0 Google Maps
-# 1 Google Voice
+# 0 Google Voice
 # 0 Google Hangouts
-# 0 Google Now
+# 1 Google Now
 # 0 Google Plus
 writetmpfile(
   "gapps.prop",
@@ -688,9 +688,9 @@ writetmpfile(
   "item.0.6=0\n"+
   "item.0.7=0\n"+
   "item.0.8=0\n"+
-  "item.0.9=1\n"+
+  "item.0.9=0\n"+
   "item.0.10=0\n"+
-  "item.0.11=0\n"+
+  "item.0.11=1\n"+
   "item.0.12=0\n"
 );
 
@@ -700,7 +700,7 @@ writetmpfile(
 # 0 LMT
 # 0 MXPlayer
 # 0 Ultimate Rotation Control
-# 1 Spirit FM
+# 0 Spirit FM
 # 0 BetterBatteryStats
 # 0 CoolTool
 # 0 Root Browser
@@ -714,7 +714,7 @@ writetmpfile(
   "item.0.4=0\n"+
   "item.0.5=0\n"+
   "item.0.6=0\n"+
-  "item.0.7=1\n"+
+  "item.0.7=0\n"+
   "item.0.8=0\n"+
   "item.0.9=0\n"+
   "item.0.10=0\n"+

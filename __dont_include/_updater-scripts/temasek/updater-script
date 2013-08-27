@@ -95,6 +95,7 @@ symlink("logcat", "/system/bin/lolcat");
 symlink("mksh", "/system/bin/sh");
 symlink("mount.exfat", "/system/bin/fsck.exfat",
         "/system/bin/mkfs.exfat");
+symlink("pigz", "/system/xbin/unpigz");
 symlink("toolbox", "/system/bin/cat", "/system/bin/chcon",
         "/system/bin/chmod", "/system/bin/chown", "/system/bin/clear",
         "/system/bin/cmp", "/system/bin/cp", "/system/bin/date",

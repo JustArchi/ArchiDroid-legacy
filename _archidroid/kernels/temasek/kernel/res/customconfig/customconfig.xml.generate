@@ -1200,6 +1200,15 @@ echo '
 
     </settingsPane>
 
+    <settingsPane description="Misc Settings" name="Misc Settings">
+
+    <seekBar  description="Vibration intensity" 
+                name="Vibration intensity" 
+                action="generic /sys/vibrator/pwm_val"
+                unit="" min="0" reversed="false" step="1" max="100"/>
+
+    </settingsPane>
+
   </settingsTab>
 
   <settingsTab name="Screen">

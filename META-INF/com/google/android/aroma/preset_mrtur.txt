@@ -3,18 +3,18 @@
 ##################
 #  Kernel
 #
-# <#selectbg_g>Yes</#>   Temasek Kernel [Boeffla/No ABB]
-# No   Yank555.lu Kernel
-# No   Googy-Max Kernel
-# No   Stock CM
+# <#selectbg_g>Temasek Kernel [Boeffla/No ABB]</#>
+# Yank555.lu Kernel
+# Googy-Max Kernel
+# Stock CM
 
 ##################
 #  Kernel Config
 #
-# <#selectbg_g>Yes</#>   ArchiDroid Balanced Config
-# No   ArchiDroid PowerSave Config
-# No   ArchiDroid ULTRA PowerSave Config
-# No   Config
+# <#selectbg_g>ArchiDroid Balanced Config</#>
+# ArchiDroid PowerSave Config
+# ArchiDroid ULTRA PowerSave Config
+# No Config
 
 ##################  
 #  Boeffla Sound Control
@@ -26,98 +26,95 @@
 ##################
 #  DPI
 #
-# No   240 DPI
-# No   241 DPI
-# <#selectbg_g>Yes</#>   280 DPI
-# No   320 DPI
+# 240 DPI
+# 241 DPI
+# <#selectbg_g>280 DPI</#>
+# 320 DPI
 
 ##################
 #  Launcher
 #  
-# <#selectbg_g>Yes</#>   Nova Launcher
-# No   AOSP Launcher
+# <#selectbg_g>Nova Launcher</#>
+# AOSP Launcher
 
 ##################
 #  Keyboard
 #  
-# <#selectbg_g>Yes</#>   TouchPal Keyboard
-# No   Hacker's Keyboard
-# No   TouchPal + Hacker's Keyboard
-# No   Stock CM
+# <#selectbg_g>TouchPal Keyboard</#>
+# Hacker's Keyboard
+# TouchPal + Hacker's Keyboard
+# Stock CM
 
 ##################
 #  Global Tweaks
 #
 # <#selectbg_g>Yes</#>   CrossBreeder
-# No   None
+# None
 
 ##################
 #  ArchiDroid Updates
 #
-# No
+# Yes
+# <#selectbg_g>No</#>
 
 ##################
 #  Xposed Framework
 #
-# No 
-
-##################
-#  Xposed Modules
-#
-# No   App Settings
+# Yes
+# <#selectbg_g>No</#> 
 
 ##################
 #  Modem
 #
-# No   XXEMG4
-# <#selectbg_g>Yes</#>   None
+# XXEMG4
+# <#selectbg_g>None</#>
 
 ##################
 #  Recovery
 #
-# No   PhilZ Touch Recovery
-# <#selectbg_g>Yes</#>   None
+# PhilZ Touch Recovery
+# <#selectbg_g>None</#>
 
 ##################
 #  Google Apps
 #
-# <#selectbg_g>Yes</#>   Google Apps
-# No   Google QuickSearchBox
-# <#selectbg_g>Yes</#>   Google Calendar
-# No   Google Chrome
-# No   Google Ears
-# No   Google Keep
-# No   Google Mail
-# No   Google Maps
-# <#selectbg_g>Yes</#>   Google Voice
-# No   Google Hangouts
-# No   Google Now
-# No   Google Plus
+# <#selectbg_g>Google Apps</#>
+# Google QuickSearchBox
+# <#selectbg_g>Google Calendar</#>
+# Google Chrome
+# Google Ears
+# Google Keep
+# Google Mail
+# Google Maps
+# Google Voice
+# Google Hangouts
+# <#selectbg_g>Google Now</#>
+# Google Plus
 
 ##################
 #  ArchiDroid Apps
 #
-# <#selectbg_g>Yes</#>   Titanium Backup
-# No   ZRAM Status
-# <#selectbg_g>Yes</#>   Greenify
-# No   LMT
-# No   MXPlayer
-# No   Ultimate Rotation Control
-# <#selectbg_g>Yes</#>   Spirit FM
-# No   BetterBatteryStats
-# No   CoolTool
-# No   Root Browser
-# <#selectbg_g>Yes</#>   Adobe Flash Player
-# <#selectbg_g>Yes</#>   YouTube
+# <#selectbg_g>Titanium Backup</#>
+# ZRAM Status
+# <#selectbg_g>Greenify</#>
+# LMT
+# MXPlayer
+# Ultimate Rotation Control
+# Spirit FM
+# BetterBatteryStats
+# CoolTool
+# Root Browser
+# <#selectbg_g>Adobe Flash Player</#>
+# <#selectbg_g>YouTube</#>
 
 ##################
 #  ArchiDroid Tweaks
 #
-# No   Logcat Bootanimation
-# <#selectbg_g>Yes</#>   HD Voice
-# <#selectbg_g>Yes</#>   Add build.prop Tweaks
-# No   OpenPDroid
-# <#selectbg_g>Yes</#>   Remove Cell Broadcasts
+# Logcat Bootanimation
+# <#selectbg_g>HD Voice</#>
+# <#selectbg_g>Build.prop Tweaks</#>
+# OpenPDroid
+# <#selectbg_g>Remove Cell Broadcasts</#>
 
 
 If you agree, press <b><#selectbg_g>"Next"</#></b> and if you do not, press <b><#selectbg_g>"Back"</#></b>

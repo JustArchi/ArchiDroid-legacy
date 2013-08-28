@@ -12,6 +12,7 @@ DBUPDATE() {
 	VARIABLE=$2
 	VAL=$3
 	DONE=0
+	FAILCOUNT=0
 
 	while [ $DONE -ne 1 ] ; do
 		# Try to update value first if exists
@@ -46,6 +47,16 @@ DBUPDATE() {
 			# Looks good
 			DONE=1
 			return 0
+		else
+			# We failed, let's try maximum of 5 times before giving up
+			((FAILCOUNT++))
+			if [ $FAILCOUNT -ge 5 ]; then
+				# Okay, I give up
+				DEBUG=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "select value from $WHAT where name='$VARIABLE';" 2>&1`
+				echo "ArchiDroid_RunOnce: DBUPDATE() FAILED with $WHAT $VARIABLE $VAL. Check returned $DEBUG" >> /data/media/0/ArchiDroid/err.log
+				DONE=1
+				return 1
+			fi
 		fi
 	done
 }
@@ -96,7 +107,9 @@ fi
 
 # ArchiDroid Semaphore
 # Wait until we see some android processes to consider boot is more or less complete (credits to AndiP71)
-while ! pgrep com.android ; do
+# Also respect number of loops, maybe something went wrong
+LOOP=0
+while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 
 	if [ $ADBANNER -eq 1 ]; then
 		echo ""
@@ -167,8 +180,13 @@ while ! pgrep com.android ; do
 	fi
 
 	# Sleeping time
+	((LOOP++))
 	sleep 2
 done
+
+if [ $LOOP -ge 150 ]; then
+	echo "ArchiDroid_RunOnce: LOOP() FAILED. I looped $LOOP times and needed to exit from infinite loop, not good" >> /data/media/0/ArchiDroid/err.log
+fi
 
 # Now that is checked, let's just wait another tiny little bit
 sleep 5

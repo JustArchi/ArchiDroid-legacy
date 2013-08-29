@@ -2,6 +2,10 @@ ArchiDroid 2.1.3
 [ NO OPENPDROID, DON'T USE IT UNTIL IT'S FIXED ]
 [ OpenPDroid Tweak coming from Temasek V20 ]
 
+- [!] ArchiDroid_RunOnce improvements and critical bugfix
+# Googy Max kernel uses incompatible sqlite3 binary which caused RunOnce to enter infinite loop on every boot, causing battery drain and deep sleep prevention.
+# It is now fixed and additionally I've implemented some important checks to prevent similar problems in the future.
+
 - Updated Xposed to 2.2 beta1
 - Updated Nova to 2.2.2beta2
 - Updated Temasek kernel to 280813

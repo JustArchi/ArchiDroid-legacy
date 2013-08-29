@@ -13,6 +13,7 @@ rm -f updater-script-archi
 cd __dont_include/auto-patcher
 rm -rf tmp* adpatch*
 rm -f rom.zip log*.txt restore-cm*.zip update-cm*.zip autopatcher.zip
+rm -f *.tgz
 mv ../../rom.zip rom.zip
 git pull origin master
 ./batch.sh
@@ -20,10 +21,26 @@ git pull origin master
 
 # Not a good way to check that but we can have maximum of 1 file so it's acceptable
 if [ ! -e update-cm* ]; then
-	echo "Patch Failed"
+	echo "Patch Failed, trying alternative method"
 	rm -rf tmp* adpatch*
-	rm -f rom.zip log*.txt restore-cm*.zip update-cm*.zip autopatcher.zip
-	exit 1
+	rm -f *.tgz
+	#rm -f rom.zip log*.txt restore-cm*.zip update-cm*.zip autopatcher.zip
+	#exit 1
+	
+	# Alternative method
+	mv patches patchesORG
+	cp -R ../temp/patchesFIX patches
+	./batch.sh
+	./auto_patcher rom.zip openpdroid cm
+	rm -rf patches
+	mv patchesORG patches
+	if [ ! -e update-cm* ]; then
+		echo "Patch Failed even with alternative method"
+		rm -rf tmp* adpatch*
+		rm -f *.tgz
+		rm -f rom.zip log*.txt restore-cm*.zip update-cm*.zip autopatcher.zip
+		exit 1
+	fi
 fi
 
 # Let's keep flashable zips for temasek's users
@@ -38,4 +55,5 @@ cp -R adpatch/system ../../_archidroid/tweaks/openpdroid
 # Cleanup
 rm -rf tmp* adpatch*
 rm -f rom.zip log*.txt restore-cm*.zip update-cm*.zip autopatcher.zip
+rm -f *.tgz
 exit 0

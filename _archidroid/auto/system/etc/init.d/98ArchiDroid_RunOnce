@@ -12,17 +12,17 @@ DBUPDATE() {
 	VARIABLE=$2
 	VAL=$3
 	DONE=0
-	FAILCOUNT=0
+	SQLITE3='/system/xbin/sqlite3'
 
 	while [ $DONE -ne 1 ] ; do
 		# Try to update value first if exists
 		busybox sync
-		CHECK=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "update $WHAT set value='$VAL' where name='$VARIABLE';" 2>/dev/null`
+		CHECK=`$SQLITE3 /data/data/com.android.providers.settings/databases/settings.db "update $WHAT set value='$VAL' where name='$VARIABLE';" 2>/dev/null`
 		busybox sync
 		
 		# See if it worked
 		VAL1=""
-		VAL1=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "select value from $WHAT where name='$VARIABLE';" 2>/dev/null`
+		VAL1=`$SQLITE3 /data/data/com.android.providers.settings/databases/settings.db "select value from $WHAT where name='$VARIABLE';" 2>/dev/null`
 		
 		# If not create it
 		if [ "$VAL1" != "" ]; then
@@ -37,26 +37,22 @@ DBUPDATE() {
 			#fi
 			ID='null'
 
-			CHECK=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "insert into $WHAT values($ID, '$VARIABLE', '$VAL');" 2>/dev/null`
+			CHECK=`$SQLITE3 /data/data/com.android.providers.settings/databases/settings.db "insert into $WHAT values($ID, '$VARIABLE', '$VAL');" 2>/dev/null`
 			busybox sync
 		fi
 		
 		# Check if in fact we modified that
-		VAL1=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "select value from $WHAT where name='$VARIABLE';" 2>/dev/null`
+		VAL1=`$SQLITE3 /data/data/com.android.providers.settings/databases/settings.db "select value from $WHAT where name='$VARIABLE';" 2>/dev/null`
 		if [ "$VAL1" != "" ]; then
 			# Looks good
 			DONE=1
 			return 0
 		else
-			# We failed, let's try maximum of 5 times before giving up
-			((FAILCOUNT++))
-			if [ $FAILCOUNT -ge 5 ]; then
-				# Okay, I give up
-				DEBUG=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "select value from $WHAT where name='$VARIABLE';" 2>&1`
-				echo "ArchiDroid_RunOnce: DBUPDATE() FAILED with $WHAT $VARIABLE $VAL. Check returned $DEBUG" >> /data/media/0/ArchiDroid/err.log
-				DONE=1
-				return 1
-			fi
+			# We failed
+			DEBUG=`$SQLITE3 /data/data/com.android.providers.settings/databases/settings.db "select value from $WHAT where name='$VARIABLE';" 2>&1`
+			echo "ArchiDroid_RunOnce: DBUPDATE() FAILED with $WHAT $VARIABLE $VAL. Check returned $DEBUG" >> /data/media/0/ArchiDroid/err.log
+			DONE=1
+			return 1
 		fi
 	done
 }
@@ -168,11 +164,11 @@ while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 					# And we're done!
 					rm -Rf $FOLDER
 					ADOWNER=""
-					((ADMANY--))
+					ADMANY=`ls | wc -l`
 				else
 					rm -Rf $FOLDER
 					ADOWNER=""
-					((ADMANY--))
+					ADMANY=`ls | wc -l`
 				fi
 			fi
 		done

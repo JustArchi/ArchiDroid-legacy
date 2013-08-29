@@ -29,7 +29,7 @@ if [ ! -e update-cm* ]; then
 	
 	# Alternative method
 	mv patches patchesORG
-	cp ../temp/patchesFIX patches
+	cp -R ../temp/patchesFIX patches
 	./batch.sh
 	./auto_patcher rom.zip openpdroid cm
 	rm -rf patches

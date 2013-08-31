@@ -10,50 +10,36 @@ rm -f updater-script-archi
 # That was easy, eh? ;)
 
 # Cleanup, updates and patching
-cd __dont_include/auto-patcher
+cd /root/git/auto-patcher
 rm -rf tmp* adpatch*
-rm -f rom.zip log*.txt restore-cm*.zip update-cm*.zip autopatcher.zip
+rm -f log*.txt *.zip
 rm -f *.tgz
-mv ../../rom.zip rom.zip
-git pull origin master
+mv ../../shared/git/ArchiDroid/rom.zip rom.zip
+git pull origin 3.1
 ./batch.sh
 ./auto_patcher rom.zip openpdroid cm
 
 # Not a good way to check that but we can have maximum of 1 file so it's acceptable
-if [ ! -e update-cm* ]; then
-	echo "Patch Failed, trying alternative method"
+if [ ! `ls | grep "update-openpdroid" | wc -l` -eq 1 ]; then
+	echo "Patch Failed"
 	rm -rf tmp* adpatch*
 	rm -f *.tgz
-	#rm -f rom.zip log*.txt restore-cm*.zip update-cm*.zip autopatcher.zip
-	#exit 1
-	
-	# Alternative method
-	mv patches patchesORG
-	cp -R ../temp/patchesFIX patches
-	./batch.sh
-	./auto_patcher rom.zip openpdroid cm
-	rm -rf patches
-	mv patchesORG patches
-	if [ ! -e update-cm* ]; then
-		echo "Patch Failed even with alternative method"
-		rm -rf tmp* adpatch*
-		rm -f *.tgz
-		rm -f rom.zip log*.txt restore-cm*.zip update-cm*.zip autopatcher.zip
-		exit 1
-	fi
+	rm -f log*.txt *.zip
+	sleep 30
+	exit 1
 fi
 
 # Let's keep flashable zips for temasek's users
-rm -f ../temasek-openpdroid/update-cm*.zip ../temasek-openpdroid/restore-cm*.zip
-cp update-cm*.zip restore-cm*.zip ../temasek-openpdroid/
+rm -f ../../shared/git/ArchiDroid/__dont_include/temasek-openpdroid/*.zip
+cp update-openpdroid*.zip restore-from-openpdroid*.zip ../../shared/git/ArchiDroid/__dont_include/temasek-openpdroid/
 
 # And let's finally patch ArchiDroid
-unzip update-cm*.zip -d adpatch
-rm -rf ../../_archidroid/tweaks/openpdroid/system
-cp -R adpatch/system ../../_archidroid/tweaks/openpdroid
+unzip update-openpdroid*.zip -d adpatch
+rm -rf ../../shared/git/ArchiDroid/_archidroid/tweaks/openpdroid/system
+cp -R adpatch/system ../../shared/git/ArchiDroid/_archidroid/tweaks/openpdroid
 
 # Cleanup
 rm -rf tmp* adpatch*
-rm -f rom.zip log*.txt restore-cm*.zip update-cm*.zip autopatcher.zip
+rm -f log*.txt *.zip
 rm -f *.tgz
 exit 0

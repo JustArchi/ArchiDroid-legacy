@@ -85,6 +85,9 @@ do
 	fi
 
 	7za a -tzip "./_work/temp.zip" ./_work/original/* -mx9
+	if [ -e ./_work/original/resources.arsc ]; then
+		7za a -tzip "./_work/temp.zip" ./_work/original/resources.arsc -mx0
+	fi
 	mv -f ./_work/temp.zip ./_work/temp.apk
 	zipalign -v -c 4 ./_work/temp.apk
 	ZIPCHECK=$?;
@@ -96,3 +99,4 @@ do
 	mv -f ./_work/temp.apk $APK_FILE
 	rm -rf ./_work/original/*
 done;
+rm -rf ./_work/

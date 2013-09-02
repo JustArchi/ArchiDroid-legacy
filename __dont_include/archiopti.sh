@@ -84,7 +84,7 @@ do
 		done
 	fi
 
-	7za a -tzip "./_work/temp.zip" ./_work/original/* -mx9
+	7za a -tzip "./_work/temp.zip" ./_work/original/* -mx9 '-x!resources.arsc'
 	if [ -e ./_work/original/resources.arsc ]; then
 		7za a -tzip "./_work/temp.zip" ./_work/original/resources.arsc -mx0
 	fi

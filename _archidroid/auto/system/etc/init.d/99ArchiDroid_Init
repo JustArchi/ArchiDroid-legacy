@@ -69,12 +69,13 @@ sleep 5
 # If we have any more init scripts then it's the right place for that
 
 # Execute a reboot if we need it
-if [ -e /data/media/0/ArchiDroid/SOFT_REBOOT_REQUIRED ]; then
+if [ -e /data/media/0/ArchiDroid/HARD_REBOOT_REQUIRED ]; then
 	rm -f /data/media/0/ArchiDroid/SOFT_REBOOT_REQUIRED
-	killall system_server
-elif [ -e /data/media/0/ArchiDroid/HARD_REBOOT_REQUIRED ]; then
 	rm -f /data/media/0/ArchiDroid/HARD_REBOOT_REQUIRED
 	reboot
+elif [ -e /data/media/0/ArchiDroid/SOFT_REBOOT_REQUIRED ]; then
+	rm -f /data/media/0/ArchiDroid/SOFT_REBOOT_REQUIRED
+	killall system_server
 fi
 
 

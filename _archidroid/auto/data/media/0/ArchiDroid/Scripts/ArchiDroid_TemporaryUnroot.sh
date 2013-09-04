@@ -16,12 +16,13 @@ sysrw
 mv /system/bin/su /system/bin/ArchiDroid_r00t
 mv /system/xbin/su /system/xbin/ArchiDroid_r00t
 echo "#!/system/bin/sh
+touch /data/media/0/ArchiDroid/REBOOT_REQUIRED
 sysrw
 mv /system/bin/ArchiDroid_r00t /system/bin/su
 mv /system/xbin/ArchiDroid_r00t /system/xbin/su
 rm -f \$0
 sysro
-exit 0" >> /system/etc/init.d/91ArchiDroid_RestoreRoot
+exit 0" > /system/etc/init.d/91ArchiDroid_RestoreRoot
 chmod 755 /system/etc/init.d/91ArchiDroid_RestoreRoot
 sysro
 echo "Done, ArchiDroid is now fully unrooted till next reboot"

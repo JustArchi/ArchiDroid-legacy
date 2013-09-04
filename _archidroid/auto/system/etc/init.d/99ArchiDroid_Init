@@ -68,6 +68,12 @@ sleep 10
 
 # If we have any more init scripts then it's the right place for that
 
+# Execute hot reboot if we need it
+if [ -e /data/media/0/ArchiDroid/REBOOT_REQUIRED ]; then
+	rm -f /data/media/0/ArchiDroid/REBOOT_REQUIRED
+	killall system_server
+fi
+
 
 
 # Finish

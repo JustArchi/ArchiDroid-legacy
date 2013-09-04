@@ -4,6 +4,15 @@ ArchiDroid 2.1.3
 # Googy Max kernel uses incompatible sqlite3 binary which caused RunOnce to enter infinite loop on every boot, causing battery drain and deep sleep prevention.
 # It is now fixed and additionally I've implemented some important checks to prevent similar problems in the future.
 
+- Added/Implemented first ArchiDroid script - ArchiDroid_TemporaryUnroot
+# ArchiDroid scripts are located in /data/media/0/ArchiDroid/Scripts and overwrited every flash with newest versions.
+# The idea is simple - allow user to perform some tasks with just one click. So it's now simple, fast and reliable.
+# ArchiDroid_TemporaryUnroot performs temporary unrooting "on the fly". This allows opening/using some apps which require the device to be unrooted.
+# This is the very first version which is "working" by renaming /system/xbin/su and /system/bin/su so in fact system reports su command as not found.
+# It's not universal and actually will work only with poorly-designed security of such anti-root apps. I'll try to implement something better in the future but as for now I'm out of ideas.
+# Additionally root is automatically restored on reboot through 91ArchiDroid_RestoreRoot init.d script (which acts same as RunOnce). This process requires hard reboot which is also performed once through ArchiDroid_Init, fully automatically of course.
+# More scripts will probably be implemented soon. Hope you'll enjoy this idea same as I do :)
+
 - Updated Xposed to 2.2 (official, native Android 4.3 support)
 - Updated Nova to 2.2.2beta2
 - Updated Temasek kernel to 010913

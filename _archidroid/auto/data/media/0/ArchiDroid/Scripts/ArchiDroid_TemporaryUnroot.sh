@@ -18,9 +18,9 @@ mv /system/xbin/su /system/xbin/ArchiDroid_r00t
 echo "#!/system/bin/sh
 sysrw
 mv /system/bin/ArchiDroid_r00t /system/bin/su
-mv /system/xbin/ArchiDroid_r00t /system/xbin/su" > /system/etc/init.d/91ArchiDroid_RestoreRoot
-echo 'rm -f $0' >> /system/etc/init.d/91ArchiDroid_RestoreRoot
-echo "sysro
+mv /system/xbin/ArchiDroid_r00t /system/xbin/su
+rm -f \$0
+sysro
 exit 0" >> /system/etc/init.d/91ArchiDroid_RestoreRoot
 chmod 755 /system/etc/init.d/91ArchiDroid_RestoreRoot
 sysro

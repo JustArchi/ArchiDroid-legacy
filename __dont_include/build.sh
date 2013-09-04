@@ -48,7 +48,7 @@ else
 fi
 sleep 3
 rm -Rf __newtemasek
-rm -f cm-*.zip
+#rm -f cm-*.zip
 
 cd __dont_include/
 # Bo CM tez ma syf...
@@ -121,4 +121,8 @@ rm $FILE
 #################
 
 bash openpdroid.sh
-exit 0
+if [ $? -ne 0 ]; then
+	exit 1
+else
+	exit 0
+fi

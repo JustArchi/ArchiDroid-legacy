@@ -2,19 +2,12 @@
 cd ..
 
 # Let's make it more universal (also benefit temasek's users) because I'm not using updater-script anyway
-cp META-INF/com/google/android/updater-script updater-script-archi
-cp __dont_include/_updater-scripts/temasek/updater-script META-INF/com/google/android/updater-script
-zip -0 -r rom.zip system META-INF
-cp updater-script-archi META-INF/com/google/android/updater-script
-rm -f updater-script-archi
-# That was easy, eh? ;)
-
 # Cleanup, updates and patching
 cd /root/git/auto-patcher
 rm -rf tmp* adpatch*
 rm -f log*.txt *.zip
 rm -f *.tgz
-mv ../../shared/git/ArchiDroid/rom.zip rom.zip
+mv ../../shared/git/ArchiDroid/cm-*.zip rom.zip
 git pull origin 3.1
 ./batch.sh
 ./auto_patcher rom.zip openpdroid cm
@@ -22,9 +15,8 @@ git pull origin 3.1
 # Not a good way to check that but we can have maximum of 1 file so it's acceptable
 if [ ! `ls | grep "update-openpdroid" | wc -l` -eq 1 ]; then
 	echo "Patch Failed"
-	rm -rf tmp* adpatch*
 	rm -f *.tgz
-	rm -f log*.txt *.zip
+	rm -f *.zip
 	sleep 30
 	exit 1
 fi

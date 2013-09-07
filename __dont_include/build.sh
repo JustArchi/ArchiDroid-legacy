@@ -4,8 +4,8 @@
 # Not Disabled
 #exit 1
 
-WERSJA="ro.build.display.id=ArchiDroid 2.1.3"
-OTA="echo \"updateme.version=2.1.3\" >> /system/build.prop"
+WERSJA="ro.build.display.id=ArchiDroid 2.1.4"
+OTA="echo \"updateme.version=2.1.4\" >> /system/build.prop"
 DENSITY="#ro.sf.lcd_density=320"
 
 function zamien {

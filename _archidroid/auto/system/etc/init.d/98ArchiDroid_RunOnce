@@ -198,11 +198,6 @@ if [ -d /system/etc/CrossBreeder ]; then
 	ADRELOAD=1
 fi
 
-# Execute hot reboot if we need it
-if [ $ADRELOAD -eq 1 ]; then
-	killall system_server
-fi
-
 # I'm runonce script so let's clean everything and delete myself
 
 # NOTICE
@@ -214,6 +209,11 @@ rm -Rf /data/media/0/vrtheme-backup
 sysrw
 rm -f $0
 sysro
+
+# Execute hot reboot if we need it
+if [ $ADRELOAD -eq 1 ]; then
+	killall system_server
+fi
 
 # Finish
 exit 0

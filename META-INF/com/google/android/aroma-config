@@ -616,7 +616,7 @@ writetmpfile(
 # 1 Logcat Bootanimation
 # 1 HD Voice
 # 1 build.prop Tweaks
-# 1 OpenPDroid
+# 1 OpenPDroid (if available)
 # 1 Remove Cell Broadcasts
 writetmpfile(
   "architweaks.prop",

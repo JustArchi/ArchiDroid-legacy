@@ -289,8 +289,7 @@ selectbox(
  "Custom","You'll be able to customize every aspect of the installation",0,
  "ArchiDroid Default","You'll flash ArchiDroid with default optimized settings",1,
  "Bare Bones","Clean temasek. Only for testing purposes, not recommended",0,
- "Archi","A profile for me for faster flashing",0,
- "mrtur","A reward to mrtur for implementing aroma presets into ArchiDroid",0
+ "Archi","A profile for me for faster flashing",0
 
 );
 endif;
@@ -306,8 +305,7 @@ selectbox(
  "Własny","Będziesz mógł dostosować każdy aspekt instalacji",0,
  "Domyślny ArchiDroid","Domyślne zoptymalizowane ustawienia ArchiDroid",1,
  "Sam Szkielet","Czysty temasek. Tylko dla testów ewentualnych błędów, niezalecane",0,
- "Archi","Profil dla mnie dla szybszego reflashu",0,
- "mrtur","Nagroda dla mrtura za implementacje presetów do ArchiDroida",0
+ "Archi","Profil dla mnie dla szybszego reflashu",0
 
 );
 endif;
@@ -624,116 +622,6 @@ writetmpfile(
   "item.0.2=1\n"+
   "item.0.3=1\n"+
   "item.0.4=1\n"+
-  "item.0.5=1\n"
-);
-endif;
-
-#############
-### MRTUR ###
-#############
-
-if file_getprop("/tmp/aroma-data/installmode.prop","selected.0") == "5" then
-
-textbox(
-  #-- Title
-    "Preset",
-  
-  #-- Subtitle
-    "Preset",
-  
-  #-- Icon
-    "@welcome",
-  
-  #-- Arg 4
-    resread("preset_mrtur.txt")
-);
-
-# Balanced Config
-writetmpfile(
-  "kernels2.prop",
-  "selected.0=1\n"
-);
-
-# 280 DPI
-writetmpfile(
-  "dpi.prop",
-  "selected.0=3\n"
-);
-
-# No OTA
-writetmpfile(
-  "ota.prop",
-  "selected.0=2\n"
-);
-
-# 1 Google Apps
-# 0 Google QuickSearchBox
-# 1 Google Calendar
-# 0 Google Chrome
-# 0 Google Ears
-# 0 Google Keep
-# 0 Google Mail
-# 0 Google Maps
-# 0 Google Voice
-# 0 Google Hangouts
-# 1 Google Now
-# 0 Google Plus
-writetmpfile(
-  "gapps.prop",
-  "item.0.1=1\n"+
-  "item.0.2=0\n"+
-  "item.0.3=1\n"+
-  "item.0.4=0\n"+
-  "item.0.5=0\n"+
-  "item.0.6=0\n"+
-  "item.0.7=0\n"+
-  "item.0.8=0\n"+
-  "item.0.9=0\n"+
-  "item.0.10=0\n"+
-  "item.0.11=1\n"+
-  "item.0.12=0\n"
-);
-
-# 1 Titanium Backup
-# 0 ZRAM Status
-# 1 Greenify
-# 0 LMT
-# 0 MXPlayer
-# 0 Ultimate Rotation Control
-# 0 Spirit FM
-# 0 BetterBatteryStats
-# 0 CoolTool
-# 0 Root Browser
-# 1 Adobe Flash Player
-# 1 YouTube
-writetmpfile(
-  "archiapps.prop",
-  "item.0.1=1\n"+
-  "item.0.2=0\n"+
-  "item.0.3=1\n"+
-  "item.0.4=0\n"+
-  "item.0.5=0\n"+
-  "item.0.6=0\n"+
-  "item.0.7=0\n"+
-  "item.0.8=0\n"+
-  "item.0.9=0\n"+
-  "item.0.10=0\n"+
-  "item.0.11=1\n"+
-  "item.0.12=1\n"
-);
-
-# 0 Bootanimacja Logcat
-# 1 HD Voice
-# 1 build.prop Tweaks
-# 0 OpenPDroid
-# 1 Remove Cell Broadcasts
-
-writetmpfile(
-  "architweaks.prop",
-  "item.0.1=0\n"+
-  "item.0.2=1\n"+
-  "item.0.3=1\n"+
-  "item.0.4=0\n"+
   "item.0.5=1\n"
 );
 endif;

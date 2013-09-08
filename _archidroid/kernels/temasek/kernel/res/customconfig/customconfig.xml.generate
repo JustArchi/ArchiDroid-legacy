@@ -1240,15 +1240,6 @@ echo '
                 unit=" ms" min="0" reversed="false" step="1000" max="60000"/>
 
     </settingsPane>
-    <settingsPane description="" 
-                  name="Hardware Key backlight on screen touch">
-
-     <checkbox  description="Hardware Key backlight on screen touch" name="Hardware Key backlight on screen touch"
-                name="Touch-led-on-screen-touch" 
-                action="generic01 /sys/class/sec/sec_touchkey/touch_led_on_screen_touch"
-                label="Enable Touch-led-on-screen-touch"/>
-
-    </settingsPane>
     <settingsPane description="mobile Digital Natural Image engine control. Samsungs hardware image post-processor controls virtually any image manipulation. All control master switches, if left as delta controls, will negate the sequence setting if checked. Master sequence has SCR and CS enabled by default."
 		  name="Global controls">
 

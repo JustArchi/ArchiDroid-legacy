@@ -262,7 +262,7 @@ delete("/tmp/stock.img");
 ### TEMASEK ###
 if file_getprop("/tmp/aroma-data/kernels.prop","selected.0") == "1" then
 	ui_print("root@ArchiDroid:~# Flashing Temasek Kernel");
-	delete_recursive("/data/.temasek");
+	#delete_recursive("/data/.temasek");
 	delete_recursive("/system/lib/modules");
 	package_extract_dir("_archidroid/kernels/temasek/system", "/system");
 	set_perm_recursive(0, 0, 0755, 0755, "/system/lib/modules/");
@@ -443,10 +443,14 @@ endif;
 
 if file_getprop("/tmp/aroma-data/architweaks.prop","item.0.4") == "1" then
 	ui_print("root@ArchiDroid:~# Applying OpenPDroid Patch");
-	package_extract_dir("_archidroid/tweaks/openpdroid", "/");
-	set_perm_recursive(0, 0, 0755, 0644, "/system/app");
-	set_perm_recursive(0, 0, 0755, 0644, "/system/framework");
-	set_perm_recursive(0, 0, 0755, 0644, "/system/media");
+	
+	ui_print("root@ArchiDroid:~# WARNING! ArchiDroid is NOT COMPATIBLE with OpenPDroid at this moment");
+	ui_print("root@ArchiDroid:~# Skipping OpenPDroid Tweak!");
+	sleep (5);
+	#package_extract_dir("_archidroid/tweaks/openpdroid", "/");
+	#set_perm_recursive(0, 0, 0755, 0644, "/system/app");
+	#set_perm_recursive(0, 0, 0755, 0644, "/system/framework");
+	#set_perm_recursive(0, 0, 0755, 0644, "/system/media");
 endif;
 
 if file_getprop("/tmp/aroma-data/architweaks.prop","item.0.5") == "1" then

@@ -44,7 +44,7 @@
 #
 ini_set("dp","3");
 ini_set("rom_name",             "ArchiDroid");
-ini_set("rom_version",          "2.1.3");
+ini_set("rom_version",          "2.1.4");
 ini_set("rom_author",           "JustArchi");
 ini_set("rom_device",           "Samsung Galaxy S3");
 ini_set("rom_date",             "September XXth, 2013");
@@ -616,7 +616,7 @@ writetmpfile(
 # 1 Logcat Bootanimation
 # 1 HD Voice
 # 1 build.prop Tweaks
-# 1 OpenPDroid
+# 1 OpenPDroid (if available)
 # 1 Remove Cell Broadcasts
 writetmpfile(
   "architweaks.prop",

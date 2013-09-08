@@ -158,7 +158,7 @@ while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 					
 					# Let's set basic permissions because ArchiDroid_Permfix will fix it anyway really soon
 					ADOWNER=`ls -ld /data/data/$FOLDER | awk '{print $3}'`
-					chown -hR $ADOWNER.$ADOWNER /data/data/$FOLDER
+					chown -R $ADOWNER.$ADOWNER /data/data/$FOLDER
 					chmod -R 755 /data/data/$FOLDER
 					
 					# And we're done!
@@ -198,11 +198,6 @@ if [ -d /system/etc/CrossBreeder ]; then
 	ADRELOAD=1
 fi
 
-# Execute hot reboot if we need it
-if [ $ADRELOAD -eq 1 ]; then
-	killall system_server
-fi
-
 # I'm runonce script so let's clean everything and delete myself
 
 # NOTICE
@@ -214,6 +209,11 @@ rm -Rf /data/media/0/vrtheme-backup
 sysrw
 rm -f $0
 sysro
+
+# Execute hot reboot if we need it
+if [ $ADRELOAD -eq 1 ]; then
+	killall system_server
+fi
 
 # Finish
 exit 0

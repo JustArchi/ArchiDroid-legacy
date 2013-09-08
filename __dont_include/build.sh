@@ -4,8 +4,8 @@
 # Not Disabled
 #exit 1
 
-WERSJA="ro.build.display.id=ArchiDroid 2.1.3"
-OTA="echo \"updateme.version=2.1.3\" >> /system/build.prop"
+WERSJA="ro.build.display.id=ArchiDroid 2.1.4"
+OTA="echo \"updateme.version=2.1.4\" >> /system/build.prop"
 DENSITY="#ro.sf.lcd_density=320"
 
 function zamien {
@@ -48,7 +48,7 @@ else
 fi
 sleep 3
 rm -Rf __newtemasek
-rm -f cm-*.zip
+#rm -f cm-*.zip
 
 cd __dont_include/
 # Bo CM tez ma syf...
@@ -121,4 +121,8 @@ rm $FILE
 #################
 
 bash openpdroid.sh
-exit 0
+if [ $? -ne 0 ]; then
+	exit 1
+else
+	exit 0
+fi

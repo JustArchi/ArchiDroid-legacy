@@ -25,6 +25,11 @@ function zamien {
 }
 
 cd ..
+
+if [ ! -e cm-*.zip ]; then
+	exit 1
+fi
+
 unzip cm-*.zip -d __newtemasek
 rm -Rf system/
 cd __newtemasek

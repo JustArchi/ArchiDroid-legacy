@@ -62,8 +62,7 @@ if [ $SOURCE -eq 1 ]; then
 	cp cm-10.2-*.zip /root/shared/git/ArchiDroid
 fi
 
-cd `dirname $0`
-cd ..
+cd /root/shared/git/ArchiDroid
 
 if [ ! -e cm-*.zip ]; then
 	exit 1

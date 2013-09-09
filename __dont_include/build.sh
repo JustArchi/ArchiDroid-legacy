@@ -4,7 +4,11 @@
 # Not Disabled
 #exit 1
 
+# From source? Not yet... soon!
+SOURCE=0
+
 WERSJA="ro.build.display.id=ArchiDroid 2.1.4"
+WERSJA2="ro.archidroid.version=2.2 ALPHA"
 OTA="echo \"updateme.version=2.1.4\" >> /system/build.prop"
 DENSITY="#ro.sf.lcd_density=320"
 
@@ -24,6 +28,41 @@ function zamien {
 	rm $FILEO
 }
 
+if [ $SOURCE -eq 1 ]; then
+	export PATH=${PATH}:~/bin
+	export USE_CCACHE=1
+	cd /root/git/android_packages_apps_Settings
+	git pull upstream cr-main-10.2
+	git merge cr-main-10.2
+	if [ $? -ne 0 ]; then
+		read -p "Something went wrong, please check and tell me when you're done, master!" -n1 -s
+	fi
+	cd ~/android/system
+	OLD=`md5sum ~/android/system/device/samsung/i9300/proprietary-files.txt | awk '{print $1}'`
+	OLD2=`md5sum ~/android/system/device/samsung/smdk4412-common/proprietary-files.txt | awk '{print $1}'`
+	#repo selfupdate
+	repo sync
+	if [ $? -ne 0 ]; then
+		read -p "Something went wrong, please check and tell me when you're done, master!" -n1 -s
+	fi
+	cd ~/android/system/vendor/cm
+	./get-prebuilts
+	cd ~/android/system
+	source build/envsetup.sh
+	breakfast i9300
+	NEW=`md5sum ~/android/system/device/samsung/i9300/proprietary-files.txt | awk '{print $1}'`
+	NEW2=`md5sum ~/android/system/device/samsung/smdk4412-common/proprietary-files.txt | awk '{print $1}'`
+	if [ $OLD != $NEW ] || [ $OLD2 != $NEW2 ]; then
+		echo "~/android/system/device/samsung/i9300/proprietary-files.txt" $OLD $NEW
+		echo "~/android/system/device/samsung/smdk4412-common/proprietary-files.txt" $OLD2 $NEW2
+		read -p "Something went wrong, please check and tell me when you're done, master!" -n1 -s
+	fi
+	brunch i9300
+	cd $OUT
+	cp cm-10.2-*.zip /root/shared/git/ArchiDroid
+fi
+
+cd `dirname $0`
 cd ..
 
 if [ ! -e cm-*.zip ]; then
@@ -102,6 +141,18 @@ echo $DENSITY >> $FILEO
 cat $FILE | tail -${ILE} >> $FILEO
 cp $FILEO $FILE
 rm $FILEO
+
+if [ $SOURCE -eq 1 ]; then
+	GDZIE=`grep -n "ro.modversion" $FILE | cut -f1 -d:`
+	ILE=`cat $FILE | wc -l`
+	ILE=`expr $ILE - $GDZIE`
+	#GDZIE=`expr $GDZIE - 1`
+	cat $FILE | head -${GDZIE} > $FILEO
+	echo $WERSJA2 >> $FILEO
+	cat $FILE | tail -${ILE} >> $FILEO
+	cp $FILEO $FILE
+	rm $FILEO
+fi
 
 GDZIE=`grep -n "ro.build.display.id=" $FILE | cut -f1 -d:`
 ILE=`cat $FILE | wc -l`

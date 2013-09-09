@@ -388,9 +388,11 @@ writetmpfile(
 );
 
 # 0 App Settings
+# 0 XPrivacy
 writetmpfile(
   "xposed2.prop",
-  "item.0.1=0\n"
+  "item.0.1=0\n"+
+  "item.0.2=0\n"
 );
 
 # No Modem
@@ -759,7 +761,8 @@ checkbox(
   "icons/customize",
   "xposed2.prop",
 
-  "App Settings","Allows changing app settings, like DPI, resident in memory and so on",1
+  "App Settings","Allows changing app settings, like DPI, resident in memory and so on",1,
+  "XPrivacy","Perfect module which prevents leaking of private data, restricts access and more",1
 );
 endif;
 
@@ -907,7 +910,8 @@ checkbox(
   "icons/customize",
   "xposed2.prop",
 
-  "App Settings","Pozwala na zarządzanie ustawieniami specyficznymi dla danych aplikacji, zmianę DPI, rezydowanie w pamięci i więcej",1
+  "App Settings","Pozwala na zarządzanie ustawieniami specyficznymi dla danych aplikacji, zmianę DPI, rezydowanie w pamięci i więcej",1,
+  "XPrivacy","Perfekcyjne narzędzie oferujące kontrolę aplikacji i ich uprawnień oraz wiele innych funkcji związanych z bezpieczeństwem",1
 );
 endif;
 

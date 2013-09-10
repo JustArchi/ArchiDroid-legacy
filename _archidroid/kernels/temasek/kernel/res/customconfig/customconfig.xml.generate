@@ -971,12 +971,12 @@ echo '
       <seekBar  description="The disk size represents the amount of non-compressed data allowed to fit into the compressed ramdisk. The actual memory used by the ramdisk varies depending on compression ratio." 
                 name="ZRAM disk size" 
                 action="zram"
-                unit="mB" min="0" reversed="false" step="8" max="2040"/>      
+                unit="mB" min="0" reversed="false" step="100" max="500"/>      
 
       <seekBar  description="A low value means the kernel will try to avoid swapping as much as possible where a higher value instead will make the kernel aggressively try to use swap space." 
                 name="Virtual machine swappiness" 
                 action="generic /proc/sys/vm/swappiness"
-                unit="%" min="0" reversed="false" step="1" max="100"/>
+                unit="%" min="0" reversed="false" step="5" max="100"/>
 
     </settingsPane>
 

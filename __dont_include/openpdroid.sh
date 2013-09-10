@@ -8,7 +8,7 @@ rm -rf tmp* adpatch*
 rm -f log*.txt *.zip
 rm -f *.tgz
 mv ../../shared/git/ArchiDroid/cm-*.zip rom.zip
-git pull origin 3.1
+git pull origin master
 ./batch.sh
 ./auto_patcher rom.zip openpdroid cm
 

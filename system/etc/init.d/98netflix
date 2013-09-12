@@ -1,0 +1,6 @@
+#!/system/bin/sh
+
+if [ -f /data/data/com.netflix.mediaclient/shared_prefs/nfxpref.xml ]; then
+  grep -q nflx_player_type.*6 /data/data/com.netflix.mediaclient/shared_prefs/nfxpref.xml && exit 0
+  cp /data/data/com.netflix.mediaclient/shared_prefs/nfxpref.xml /data/data/com.netflix.mediaclient/shared_prefs/nfxpref.xml.orig && sed -e 's|<int name="nflx_player_type".*||g; s|</map>|<int name="nflx_player_type" value="6" />\n</map>|g' /data/data/com.netflix.mediaclient/shared_prefs/nfxpref.xml.orig > /data/data/com.netflix.mediaclient/shared_prefs/nfxpref.xml && rm /data/data/com.netflix.mediaclient/shared_prefs/nfxpref.xml.orig
+fi

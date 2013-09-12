@@ -6,6 +6,9 @@
 # Not Disabled
 #exit 0
 
+# We don't want to force anything in update mode
+FORCE=0
+
 DBUPDATE() {
 	# Thanks to idcrisis, modified by JustArchi
 	WHAT=$1
@@ -86,7 +89,7 @@ else
 fi
 
 # We want some sqlite3 updates and settings but only if INSTALL mode is enabled
-if [ -e /data/media/0/ArchiDroid/INSTALL ]; then
+if [ -e /data/media/0/ArchiDroid/INSTALL ] || [ $FORCE -eq 1 ]; then
 	if [ -d /data/media/0/ArchiDroid/FIRSTBOOT/DATA ]; then
 		cd /data/media/0/ArchiDroid/FIRSTBOOT/DATA
 		ADMANY=`ls | wc -l`

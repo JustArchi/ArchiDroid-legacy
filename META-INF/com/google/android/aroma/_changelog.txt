@@ -2,7 +2,9 @@ ArchiDroid 2.1.4
 - ArchiDroid doesn't delete /data/.temasek during flashing now
 # Your own preset is preserved as long as you stick with the right choice in aroma's custom preset
 
+- Implemented ArchiDroid_RemoveArchiDroid script, which removes everything attached to ArchiDroid and reboots to recovery allowing you to flash other rom (how dare you! ;)
 - Added requested XPrivacy Xposed module
+- Updated BetterBatteryStats to 1.14.0.0
 - Updated Googy Max kernel to 1.7.1
 - Updated Temasek kernel to 100913
 - Updated Temasek sources to V37

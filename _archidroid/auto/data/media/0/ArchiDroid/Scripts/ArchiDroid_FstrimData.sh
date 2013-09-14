@@ -12,4 +12,5 @@ if [ -z `which fstrim` ]; then
 fi
 
 fstrim -v /data
+echo "Fstrim() of /data done"
 exit 0

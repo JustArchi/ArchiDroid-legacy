@@ -17,4 +17,7 @@ fstrim -v /preload
 sysrw
 fstrim -v /system
 sysro
+fstrim -v /efs
+
+echo "Fstrim() of /data /cache /preload /system /efs done"
 exit 0

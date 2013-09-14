@@ -75,7 +75,6 @@ lcdfreq_kick_in_up_delay=50
 lcdfreq_kick_in_down_delay=20
 lcdfreq_kick_in_freq=500000
 zzmoove_predef=4
-touch_led_on_screen_touch=off
 hook_intercept=on
 sequence_intercept=on
 s_digital_noise_reduction=on

@@ -6,7 +6,7 @@ if [ `id -u | grep 'root' | wc -l` -lt 1 ]; then
 	exit 1
 fi
 
-if [ -z `which fstrim` ] || [ -z `which sysrw` ] || [ -z `which sysro` ]; then
+if [ -z `which fstrim` ]; then
 	echo "Sorry but it looks like you don't have required components. Are you using ArchiDroid?"
 	exit 1
 fi
@@ -14,9 +14,7 @@ fi
 fstrim -v /data
 fstrim -v /cache
 fstrim -v /preload
-sysrw
 fstrim -v /system
-sysro
 fstrim -v /efs
 
 echo "Fstrim() of /data /cache /preload /system /efs done"

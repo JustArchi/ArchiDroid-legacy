@@ -1059,12 +1059,14 @@
   <apn carrier="Q-tel" mcc="427" mnc="01" apn="web.qtel" user="gprs" password="gprs" type="default,supl" />
   <apn carrier="Vodafone QA MMS" mcc="427" mnc="02" apn="vodafone.com.qa" mmsc="http://mms.vodafone.com.qa/mmsc" mmsproxy="10.101.97.102" mmsport="80" type="mms" />
   <apn carrier="Vodafone QA" mcc="427" mnc="02" apn="web.vodafone.com.qa" type="default,supl" />
-  <apn carrier="MTS UZ" mcc="434" mnc="07" apn="net.mts.uz" user="mts" password="mts" type="default,supl" />
+  <apn carrier="Beeline UZ" mcc="434" mnc="04" apn="internet.beeline.uz" user="beeline" password="beeline" type="default,supl" />
+  <apn carrier="Beeline UZ MMS" mcc="434" mnc="04" apn="mms.beeline.uz" user="beeline" password="beeline" mmsc="http://mms" mmsproxy="172.30.30.166" mmsport="8080" type="mms" />
   <apn carrier="NTT Docomo(bizho)" mcc="440" mnc="10" apn="mpr2.bizho.net" type="default,supl,mms" />
   <apn carrier="NTT Docomo(mopera)" mcc="440" mnc="10" apn="mopera.net" type="default,supl,mms" />
   <apn carrier="NTT Docomo(flat)" mcc="440" mnc="10" apn="mopera.flat.foma.ne.jp" type="default,supl,mms" />
   <apn carrier="NTT Docomo(128k)" mcc="440" mnc="10" apn="mpr.ex-pkt.net" type="default,supl,mms" />
   <apn carrier="NTT Docomo(mopera ff)" mcc="440" mnc="10" apn="open.mopera.net" type="default,supl,mms" />
+  <apn carrier="NTT Docomo(spmode)" mcc="440" mnc="10" apn="spmode.ne.jp" type="default,supl" />
   <apn carrier="Softbank(open)" mcc="440" mnc="20" apn="open.softbank.ne.jp" user="opensoftbank" password="ebMNuX1FIHg9d3DA" mmsc="http://mms/" mmsproxy="mmsopen.softbank.ne.jp" mmsport="8080" type="default,supl,mms" />
   <apn carrier="Softbank(smile.world)" mcc="440" mnc="20" apn="smile.world" user="dna1trop" password="so2t3k3m2a" mmsc="http://mms/" mmsproxy="smilemms.softbank.ne.jp" mmsport="8080" type="default,supl,mms" />
   <apn carrier="Softbank(desire)" mcc="440" mnc="20" apn="open.softbank.ne.jp" user="softbankX06HT" password="KfNSDrQQs2AtFQ9M" mmsc="http://mms/" mmsproxy="andmms.softbank.ne.jp" mmsport="8080" type="default,supl,mms" />
@@ -1401,13 +1403,13 @@
   <apn carrier="CTBC MMS" mcc="724" mnc="34" apn="mms.ctbc.br" user="ctbc" password="1212" mmsc="http://mms.ctbccelular.com.br/was" mmsproxy="172.29.7.70" mmsport="8080" type="mms" />
   <apn carrier="Entel PCS" mcc="730" mnc="01" apn="bam.entelpcs.cl" user="entelpcs" password="entelpcs" proxy="10.99.0.10" port="8080" type="default,supl" />
   <apn carrier="Entel MMS" mcc="730" mnc="01" apn="mms.entelpcs.cl" user="entelmms" password="entelpcs" mmsc="http://mmsc.entelpcs.cl" mmsproxy="10.99.0.10" mmsport="8080" type="mms" />
+  <apn carrier="Movistar CL" mcc="730" mnc="02" apn="web.tmovil.cl" user="web" password="web" type="default,supl" />
+  <apn carrier="Movistar CL MMS" mcc="730" mnc="02" apn="mms.tmovil.cl" user="mms" password="mms" mmsc="http://mms.tmovil.cl" mmsproxy="172.017.008.011" mmsport="9201" type="mms" />
   <apn carrier="Claro CL" mcc="730" mnc="03" apn="bam.clarochile.cl" user="clarochile" password="clarochile" type="default,supl" />
   <apn carrier="MMS CLARO" mcc="730" mnc="03" apn="mms.clarochile.cl" user="clarochile" password="clarochile" mmsc="http://mms.clarochile.cl" mmsproxy="172.23.200.200" mmsport="8080" type="mms" />
   <apn carrier="Internet Movil" mcc="730" mnc="10" apn="bam.entelpcs.cl" user="entelpcs" password="entelpcs" proxy="10.99.0.10" port="8080" type="default,supl" />
   <apn carrier="WEB EPCS" mcc="730" mnc="10" apn="imovil.entelpcs.cl" user="entelpcs" password="entelpcs" type="default,supl" />
   <apn carrier="MMS EPCS" mcc="730" mnc="10" apn="mms.entelpcs.cl" user="entelmms" password="entelpcs" mmsc="http://mmsc.entelpcs.cl" mmsproxy="10.99.0.10" mmsport="8080" type="mms" />
-  <apn carrier="Movistar CL MMS" mcc="730" mnc="10" apn="mms.tmovil.cl" user="mms" password="mms" mmsc="http://mms.tmovil.cl" mmsproxy="172.017.008.011" mmsport="9201" type="mms" />
-  <apn carrier="Movistar CL" mcc="730" mnc="10" apn="web.tmovil.cl" user="web" password="web" type="default,supl" />
   <apn carrier="COMCEL" mcc="732" mnc="101" apn="internet.comcel.com.co" user="COMCELWEB" password="COMCELWEB" type="default,supl" />
   <apn carrier="COMCEL MMS" mcc="732" mnc="101" apn="mms.comcel.com.co" user="COMCELMMS" password="*********" mmsc="http://mms.comcel.com.co/mms/" mmsproxy="198.228.90.225" mmsport="9201" type="mms" />
   <apn carrier="Movistar CO" mcc="732" mnc="102" apn="internet.movistar.com.co" user="movistar" password="movistar" type="default,supl" />

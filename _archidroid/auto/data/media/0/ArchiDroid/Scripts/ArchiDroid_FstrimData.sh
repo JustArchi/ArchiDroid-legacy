@@ -6,17 +6,10 @@ if [ `id -u | grep 'root' | wc -l` -lt 1 ]; then
 	exit 1
 fi
 
-if [ -z `which sysrw` ] || [ -z `which sysro` ]; then
+if [ -z `which fstrim` ]; then
 	echo "Sorry but it looks like you don't have required components. Are you using ArchiDroid?"
 	exit 1
 fi
 
-sysrw
-cd /system/etc/init.d
-for FILE in `find . -name "*ArchiDroid*"` ; do
-	rm -f $FILE
-done
-sysro
-rm -rf /data/media/0/ArchiDroid
-reboot recovery
+#fstrim -v /data
 exit 0

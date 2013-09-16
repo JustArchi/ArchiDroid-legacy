@@ -16,6 +16,16 @@ ArchiDroid 2.1.4
 * ArchiDroid_RestoreEFS - Restores /efs from backup made during flashing of ArchiDroid and reboots the system. Many people wanted to have such feature so here it is.
 * ArchiDroid_RemoveArchiDroid - Removes ArchiDroid folder completely and reboots into recovery, allowing you to flash other ROM without any junk left by ArchiDroid. Please don't use this script during updates and cleaning, as ArchiDroid needs this folder.
 
+- Added inverted facebook (and messenger) to ArchiDroid apps.
+# It was in .zip since at least 3 versions, I totally forgot to add it. Lawl =)
+
+- Reworked Google Apps and inverted policy
+# First of all every Google App has been updated to latest version.
+# Secondly all inverted apps are now installed as /system/app, NOT /data/app. This is because not every inverted app works as user app (f.e. YouTube or Google Keep). Also there's no point of having inverted apps installed as user app because they're not compatible with google play.
+# Lastly I've added [Inverted] tag in aroma to all inverted google apps and archidroid apps. As for now it's... Google Calendar/Chrome/Ears/Keep/Mail/Maps/Hangouts/Now/Plus, Adobe Flash, Youtube, Facebook.
+# Please remember that if you don't want to flash inverted version of selected app then don't choose it. The main point of having *that much* of google apps is to install inverted versions of them, as inverted versions are not available on google play.
+# Also remember that inverted version saves your eyes and up to 3x more battery in terms of screen. This is how AMOLED works - black pixel requires up to 3x less energy than white one.
+
 - Added requested XPrivacy Xposed module
 - Updated BetterBatteryStats to 1.14.0.0
 - Updated XPrivacy to 1.9.22

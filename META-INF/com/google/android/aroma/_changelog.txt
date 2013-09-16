@@ -26,6 +26,9 @@ ArchiDroid 2.1.4
 # Please remember that if you don't want to flash inverted version of selected app then don't choose it. The main point of having *that much* of google apps is to install inverted versions of them, as inverted versions are not available on google play.
 # Also remember that inverted version saves your eyes and up to 3x more battery in terms of screen. This is how AMOLED works - black pixel requires up to 3x less energy than white one.
 
+- Minor fixes to ArchiDroid_RunOnce
+# Configs created through presets (f.e. cooltool) were owned by root and that prevented user to change them later. This is now fixed
+
 - Added requested XPrivacy Xposed module
 - Updated BetterBatteryStats to 1.14.0.0
 - Updated XPrivacy to 1.9.22

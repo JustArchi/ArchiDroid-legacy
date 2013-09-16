@@ -47,7 +47,7 @@ ini_set("rom_name",             "ArchiDroid");
 ini_set("rom_version",          "2.1.4");
 ini_set("rom_author",           "JustArchi");
 ini_set("rom_device",           "Samsung Galaxy S3");
-ini_set("rom_date",             "September 15th, 2013");
+ini_set("rom_date",             "September 16th, 2013");
 
 ##
 # Show Simple Splash
@@ -448,6 +448,7 @@ writetmpfile(
 # 1 Root Browser
 # 1 Adobe Flash Player
 # 1 YouTube
+# 1 Facebook
 writetmpfile(
   "archiapps.prop",
   "item.0.1=1\n"+
@@ -461,7 +462,8 @@ writetmpfile(
   "item.0.9=1\n"+
   "item.0.10=1\n"+
   "item.0.11=1\n"+
-  "item.0.12=1\n"
+  "item.0.12=1\n"+
+  "item.0.13=1\n"
 );
 
 # 1 Bootanimacja Logcat
@@ -562,7 +564,8 @@ writetmpfile(
   "item.0.9=0\n"+
   "item.0.10=0\n"+
   "item.0.11=0\n"+
-  "item.0.12=0\n"
+  "item.0.12=0\n"+
+  "item.0.13=0\n"
 );
 
 # No ArchiDroid Tweaks
@@ -952,16 +955,16 @@ checkbox(
 
   "Google Apps","Core functions and apps from Google. DON'T DESELECT THIS",1,
   "Google QuickSearchBox","May break Google Voice!",0,
-  "Google Calendar","",0,
-  "Google Chrome","",1,
-  "Google Ears","",1,
-  "Google Keep","",1,
-  "Google Mail","",1,
-  "Google Maps","",1,
+  "Google Calendar [Inverted]","",0,
+  "Google Chrome [Inverted]","",1,
+  "Google Ears [Inverted]","",1,
+  "Google Keep [Inverted]","",1,
+  "Google Mail [Inverted]","",1,
+  "Google Maps [Inverted]","",1,
   "Google Voice","",1,
-  "Google Hangouts","",0,
-  "Google Now","",0,
-  "Google Plus","",0
+  "Google Hangouts [Inverted]","",0,
+  "Google Now [Inverted]","",0,
+  "Google Plus [Inverted]","",0
 );
 endif;
 
@@ -975,16 +978,16 @@ checkbox(
 
   "Google Apps","Główne aplikacje i funkcje Google. NIE ODZNACZAJ TEGO",1,
   "Google QuickSearchBox","Może popsuć Google Voice!",0,
-  "Google Calendar","",0,
-  "Google Chrome","",1,
-  "Google Ears","",1,
-  "Google Keep","",1,
-  "Google Mail","",1,
-  "Google Maps","",1,
+  "Google Calendar [Inverted]","",0,
+  "Google Chrome [Inverted]","",1,
+  "Google Ears [Inverted]","",1,
+  "Google Keep [Inverted]","",1,
+  "Google Mail [Inverted]","",1,
+  "Google Maps [Inverted]","",1,
   "Google Voice","",1,
-  "Google Hangouts","",0,
-  "Google Now","",0,
-  "Google Plus","",0
+  "Google Hangouts [Inverted]","",0,
+  "Google Now [Inverted]","",0,
+  "Google Plus [Inverted]","",0
 );
 endif;
 
@@ -1016,8 +1019,9 @@ checkbox(
   "BetterBatteryStats","Gives you power to view more specific battery stats - especially wakelocks",1,
   "CoolTool","Shows some useful statistics on the top bar",1,
   "Root Browser","Very cool browser extended by optional root access",1,
-  "Adobe Flash Player","Adds flash content support. Does not work with Google Chrome",1,
-  "YouTube","Nice inverted player for YouTube",1
+  "Adobe Flash Player [Inverted]","Adds flash content support. Does not work with Google Chrome",1,
+  "YouTube [Inverted]","Inverted version of YouTube app",1,
+  "Facebook [Inverted]","Inverted version of Facebook and Messenger",1
 );
 endif;
 
@@ -1039,8 +1043,9 @@ checkbox(
   "BetterBatteryStats","Dostarcza o wiele bardziej szczegółowych statystyk dotyczących baterii",1,
   "CoolTool","Wyświetla wiele użytecznych informacji na górnym pasku powiadomień",1,
   "Root Browser","Jeden z najlepszych menadżerów plików, wspomagany opcjonalnie dostępem root",1,
-  "Adobe Flash Player","Zapewnia wsparcie dla technologii flash. Nie działa z Google Chrome",1,
-  "YouTube","Ciemny odtwarzacz YouTube",1
+  "Adobe Flash Player [Inverted]","Zapewnia wsparcie dla technologii flash. Nie działa z Google Chrome",1,
+  "YouTube [Inverted]","Ciemny odtwarzacz YouTube",1,
+  "Facebook [Inverted]","Ciemna wersja Facebooka i Messengera",1
 );
 endif;
 
@@ -1061,7 +1066,7 @@ checkbox(
   "Logcat Bootanimation","Changes default bootaimation to logcat output - powered by logcat lite",1,
   "HD Voice","Enables HD Voice if available",1,
   "Add build.prop Tweaks","Deeper sleep and disable debug to improve performance",1,
-  "OpenPDroid [EXPERIMENTAL]","Apply OpenPDroid patch after install",0,
+  "OpenPDroid [EXPERIMENTAL]","Apply OpenPDroid patch after install if available",0,
   "Remove Cell Broadcasts","In general considered as bloatware. Uncheck if you want to keep this",1
 );
 endif;
@@ -1078,7 +1083,7 @@ checkbox(
   "Bootanimacja Logcat","Zamienia domyślną bootanimację na logcata",1,
   "HD Voice","Włącza HD Voice o ile dostępne",1,
   "build.prop Tweaks","Głębszy sen oraz wyłączenie zbędnych logów w celu lepszej wydajności",1,
-  "OpenPDroid [EXPERIMENTAL]","Spatchuj ROM ze wsparciem dla OpenPDroid",0,
+  "OpenPDroid [EXPERIMENTAL]","Spatchuj ROM ze wsparciem dla OpenPDroid o ile dostępny",0,
   "Usuń Transmisje Komórkowe","Generalnie uważane za bloatware. Odznacz jeśli chcesz je zachować",1
 );
 endif;

@@ -735,6 +735,11 @@ if file_getprop("/tmp/aroma-data/archiapps.prop","item.0.12") == "1" then
 	package_extract_dir("_archidroid/apps/youtube", "/");
 endif;
 
+if file_getprop("/tmp/aroma-data/archiapps.prop","item.0.13") == "1" then
+	ui_print("root@ArchiDroid:~# Installing Facebook");
+	package_extract_dir("_archidroid/apps/facebook", "/");
+endif;
+
 set_progress(0.90);
 
 

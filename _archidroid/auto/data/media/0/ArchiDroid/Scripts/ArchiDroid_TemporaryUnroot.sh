@@ -7,7 +7,7 @@ if [ -e /system/etc/init.d/91ArchiDroid_RestoreRoot ] || [ -z `which su` ]; then
 fi
 
 # Check if we're running as root
-if [ `id -u | grep 'root' | wc -l` -lt 1 ]; then
+if [ `whoami` != "root" ]; then
 	echo "Sorry but you need to execute this script as root"
 	exit 1
 fi

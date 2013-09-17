@@ -3,7 +3,9 @@
 # Check if we're running as root
 if [ `whoami` != "root" ]; then
 	echo "Sorry but you need to execute this script as root"
-	exit 1
+	echo "Trying to execute this script as root... Below is the output (if no output then I failed)"
+	su -c "sh $0" &
+	exit 0
 fi
 
 if [ -z `which sysrw` ] || [ -z `which sysro` ]; then

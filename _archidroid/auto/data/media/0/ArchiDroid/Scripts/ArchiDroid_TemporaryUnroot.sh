@@ -1,9 +1,11 @@
 #!/system/bin/sh
 
 # Check if we're not being executed twice
-if [ -e /system/etc/init.d/91ArchiDroid_RestoreRoot ] || [ -z `which su` ]; then
-	echo "Sorry but it looks like you're already unrooted till next reboot"
-	exit 1
+if [ `whoami` != "root" ]; then
+	echo "Sorry but you need to execute this script as root"
+	echo "Trying to execute this script as root... Below is the output (if no output then I failed)"
+	su -c "sh $0" &
+	exit 0
 fi
 
 # Check if we're running as root

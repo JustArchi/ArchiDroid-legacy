@@ -15,9 +15,11 @@ DBUPDATE() {
 	VARIABLE=$2
 	VAL=$3
 	DONE=0
+	TRY=0
 	SQLITE3='/system/xbin/sqlite3'
 
 	while [ $DONE -ne 1 ] ; do
+		((TRY++))
 		# Try to update value first if exists
 		busybox sync
 		CHECK=`$SQLITE3 /data/data/com.android.providers.settings/databases/settings.db "update $WHAT set value='$VAL' where name='$VARIABLE';" 2>/dev/null`
@@ -51,11 +53,14 @@ DBUPDATE() {
 			DONE=1
 			return 0
 		else
-			# We failed
-			DEBUG=`$SQLITE3 /data/data/com.android.providers.settings/databases/settings.db "select value from $WHAT where name='$VARIABLE';" 2>&1`
-			echo "ArchiDroid_RunOnce: DBUPDATE() FAILED with $WHAT $VARIABLE $VAL. Check returned $DEBUG" >> /data/media/0/ArchiDroid/err.log
-			DONE=1
-			return 1
+			# We failed, let's try maximum of 3 times before giving up
+			echo "ArchiDroid_RunOnce: DBUPDATE() FAILED with $WHAT $VARIABLE $VAL. Check returned $CHECK. This is our $TRY try" >> /data/media/0/ArchiDroid/err.log
+			sleep 1
+			if [ $TRY -ge 3 ]; then
+				echo "ArchiDroid_RunOnce: Sorry master, I'm giving up. Something is definitely broken here!" >> /data/media/0/ArchiDroid/err.log
+				DONE=1
+				return 1
+			fi
 		fi
 	done
 }

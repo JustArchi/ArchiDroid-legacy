@@ -156,23 +156,17 @@ while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 		cd /data/media/0/ArchiDroid/FIRSTBOOT/DATA
 		for FOLDER in * ; do
 			if [ -d /data/data/$FOLDER ]; then
-				if [ ! -d /data/data/$FOLDER/shared_prefs ]; then
-					mv $FOLDER/* /data/data/$FOLDER
-					
-					# Let's set basic permissions because ArchiDroid_Permfix will fix it anyway really soon
-					ADOWNER=`ls -ld /data/data/$FOLDER | awk '{print $3}'`
-					busybox chown -hR $ADOWNER.$ADOWNER /data/data/$FOLDER
-					busybox chmod -R 755 /data/data/$FOLDER
-					
-					# And we're done!
-					rm -Rf $FOLDER
-					ADOWNER=""
-					ADMANY=`ls | wc -l`
-				else
-					rm -Rf $FOLDER
-					ADOWNER=""
-					ADMANY=`ls | wc -l`
-				fi
+				mv $FOLDER/* /data/data/$FOLDER
+
+				# Let's set basic permissions because ArchiDroid_Permfix will fix it anyway really soon
+				ADOWNER=`ls -ld /data/data/$FOLDER | awk '{print $3}'`
+				busybox chown -hR $ADOWNER.$ADOWNER /data/data/$FOLDER
+				busybox chmod -R 755 /data/data/$FOLDER
+
+				# And we're done!
+				rm -Rf $FOLDER
+				ADOWNER=""
+				ADMANY=`ls | wc -l`
 			fi
 		done
 		#ADMANY=`ls | wc -l`

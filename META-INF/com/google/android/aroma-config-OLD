@@ -1,0 +1,1336 @@
+﻿### LICENSE:
+#
+# Copyright (C) 2011 Ahmad Amarullah ( http://amarullz.com/ )
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+### FILE INFO:
+#
+# AROMA Installer 2.70 - AROMA Installer Test Script Configuration
+#       (c) 2011-2012 by Ahmad Amarullah
+#           amarullz - xda-developers
+#           http://www.amarullz.com/
+#
+#       Binary Version  : 2.70B
+#       Binary Codename : Flamboyan
+#
+### INFO:
+#
+# * AROMA Resource Dir  = META-INF/com/google/android/aroma
+#
+# * AROMA Temporary Dir = /tmp/aroma/
+#
+# * About Icon          = @alert - show <AROMA Resource Dir>/icons/alert.png
+#                         or if theme used it will find <themedir>/icon.alert.png
+#                         you can still access it via "icons/alert"
+#
+# * dp                  = Device Pixelate. WVGA/QHD = 3, HVGA = 2.
+#                         dp calculated with = round(min(width,height) / 160)
+#
+###
+
+##
+# Initializing Rom Information
+#
+ini_set("dp","3");
+ini_set("rom_name",             "ArchiDroid");
+ini_set("rom_version",          "2.1.5");
+ini_set("rom_author",           "JustArchi");
+ini_set("rom_device",           "Samsung Galaxy S3");
+ini_set("rom_date",             "September XXth, 2013");
+
+##
+# Show Simple Splash
+#
+splash(
+#  #-- Duration 2000ms / 2 seconds
+    4000,
+  
+  #-- <AROMA Resource Dir>/sample.png
+    "archidroidsplash"
+);
+
+#
+# Set Small Font to Support all fonts
+#
+###fontresload( "0", "ttf/Roboto-Regular.ttf;ttf/DroidSansFallback.ttf;", "12" ); #-- Use sets of font (Font Family)
+###fontresload( "1", "ttf/Roboto-Regular.ttf;ttf/DroidSansFallback.ttf;", "14" ); #-- Use sets of font (Font Family)
+fontresload( "0", "ttf/Roboto-Regular.ttf", "14" );
+fontresload( "1", "ttf/Roboto-Regular.ttf", "16" );
+
+theme("touchwiz");
+
+###################################################################################################################
+#
+# STEP 1 - SHOW ROM INFORMATION
+#
+viewbox(
+  #-- Title
+    "Welcome!",
+  
+  #-- Text
+    "Hello master, root@ArchiDroid here. Welcome to AROMA. You are about to install <b>"+
+	  #-- Get Config Value
+	  ini_get("rom_name")+
+	"</b> for <b>"+ini_get("rom_device")+"</b>.\n\n"+
+	
+      "  Version:\t\t\t <b><#selectbg_g>"+ini_get("rom_version")+"</#></b>\n"+
+      "  Released:\t\t <b><#selectbg_g>"+ini_get("rom_date")+"</#></b>\n\n\n"+
+
+    "Press <b>Next</b> to continue the installation.",
+  
+  #-- Icon
+    "@welcome"
+);
+
+textbox(
+  #-- Title
+    "Changelog",
+  
+  #-- Subtitle
+    "",
+  
+  #-- Icon
+    "@info",
+  
+  #-- Arg 4
+    resread("_changelog.txt")
+);
+
+ini_set("text_next", "Next");
+ini_set("text_back", "Back");
+
+selectbox(
+  "Language Selection",
+  "Please choose your language:",
+  "icons/confirm",
+  "lang.prop",
+  
+  "English","English",1,
+  "Polski","Polish",0
+);
+
+if prop("lang.prop","selected.0")=="1" then
+  loadlang("langs/en.lang");
+endif;
+
+if prop("lang.prop","selected.0")=="2" then
+  loadlang("langs/pl.lang");
+endif;
+
+### ENGLISH ###
+if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "1" then
+
+ini_set("text_next", "Next");
+ini_set("text_back", "Back");
+
+agreebox(
+  #-- Title
+    "<~archidroid.tos>",
+  
+  #-- Subtitle / Description
+    "",
+  
+  #-- Icon
+    "@license",
+  
+  #-- Text Content ( Read from <AROMA Resource Dir>/read_me.txt )
+    resread("read_me.txt"),
+  
+  #-- Checkbox Text
+    "<~terms.check>",
+  
+  #-- Unchecked Alert Message
+    "<~terms.confirm>"
+);
+
+agreebox(
+  #-- Title
+    "<~archidroid.tos>",
+  
+  #-- Subtitle / Description
+    "",
+  
+  #-- Icon
+    "@info",
+  
+  #-- Text Content ( Read from <AROMA Resource Dir>/read_me2.txt )
+    resread("read_me2.txt"),
+  
+  #-- Checkbox Text
+    "<~terms.check2>",
+  
+  #-- Unchecked Alert Message
+    "<~terms.confirm2>"
+);
+
+textbox(
+  #-- Title
+    "ArchiDroid",
+  
+  #-- Subtitle
+    "",
+  
+  #-- Icon
+    "@alert",
+  
+  #-- Arg 4
+    resread("warning.txt")
+);
+endif;
+
+### POLISH ###
+if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "2" then
+
+ini_set("text_next", "Dalej");
+ini_set("text_back", "Wstecz");
+
+agreebox(
+  #-- Title
+    "Ważne!",
+  
+  #-- Subtitle / Description
+    "",
+  
+  #-- Icon
+    "@license",
+  
+  #-- Text Content ( Read from <AROMA Resource Dir>/read_me.txt )
+    resread("pol_read_me.txt"),
+  
+  #-- Checkbox Text
+    "Zgadzam się z tymi zasadami",
+  
+  #-- Unchecked Alert Message
+    "Musisz zgodzić się z zasadami, aby kontynuować..."
+);
+
+agreebox(
+  #-- Title
+    "Ważne!",
+  
+  #-- Subtitle / Description
+    "",
+  
+  #-- Icon
+    "@info",
+  
+  #-- Text Content ( Read from <AROMA Resource Dir>/read_me2.txt )
+    resread("pol_read_me2.txt"),
+  
+  #-- Checkbox Text
+    "Całkowicie to rozumiem",
+  
+  #-- Unchecked Alert Message
+    "Trochę szacunku!"
+);
+
+textbox(
+  #-- Title
+    "ArchiDroid",
+  
+  #-- Subtitle
+    "",
+  
+  #-- Icon
+    "@alert",
+  
+  #-- Arg 4
+    resread("pol_warning.txt")
+);
+endif;
+
+###################################################################################################################
+#
+# INITIAL CHECKS
+#
+
+pleasewait("Executing Shell...");
+  
+#-- Resource Exec
+setvar(
+  #-- Save Return Status
+    "resexec_retstatus",
+  
+  #-- Run Shell
+    resexec("exec/archidroid_detect.sh")
+);
+
+### ENGLISH ###
+if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "1" then
+	if getvar("resexec_retstatus")=="0" || getvar("resexec_retstatus")=="1" then
+	  if
+		confirm(
+		  #-- Title
+			"ArchiDroid Detect",
+		  #-- Text
+			"ArchiDroid could not detect itself being running. Did you make full wipe or you're coming from other ROM?",
+		  #-- Icon (Optional)
+			"@info",
+			#-- Yes Text
+			  "Yes, I don't have ArchiDroid",
+			#-- No Text
+			  "No, I'm running ArchiDroid!"
+		)=="yes"
+	  then
+		alert("ArchiDroid Detect","OK, I've selected ArchiDroid Install mode for you then.","@info");
+		setvar("archidroid_wipe","1");
+	  else
+		alert("ArchiDroid Detect","That's not good. I'll fake results but do not use Update mode if you don't have ArchiDroid running!","@alert");
+		setvar("resexec_retstatus","2");
+	  endif;
+	endif;
+	if getvar("resexec_retstatus")=="2" then
+		if
+		  confirm(
+			#-- Title
+			  "ArchiDroid Detect",
+			#-- Text
+			  "ArchiDroid successfully detected itself being running. Would you like to try Update mode?",
+			#-- Icon (Optional)
+			  "@info",
+			#-- Yes Text
+			  "Yes, Try Update",
+			#-- No Text
+			  "No, Full Wipe"
+		  )=="yes"
+		then
+		  alert("ArchiDroid Detect","OK, I'll try Update mode. But please select full wipe in case of issues","@info");
+		  setvar("archidroid_wipe","0");
+		else
+		  alert("ArchiDroid Detect","OK, I'll proceed with full wipe and ArchiDroid Install mode","@info");
+		  setvar("archidroid_wipe","1");
+		endif;
+	endif;
+endif;
+
+### POLISH ###
+if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "2" then
+	if getvar("resexec_retstatus")=="0" || getvar("resexec_retstatus")=="1" then
+	  if
+		confirm(
+		  #-- Title
+			"ArchiDroid Detect",
+		  #-- Text
+			"ArchiDroid could not detect itself being running. Did you make full wipe or you're coming from other ROM?",
+		  #-- Icon (Optional)
+			"@info",
+			#-- Yes Text
+			  "Yes, I don't have ArchiDroid",
+			#-- No Text
+			  "No, I'm running ArchiDroid!"
+		)=="yes"
+	  then
+		alert("ArchiDroid Detect","OK, I've selected ArchiDroid Install mode for you then.","@info");
+		setvar("archidroid_wipe","1");
+	  else
+		alert("ArchiDroid Detect","That's not good. I'll fake results but do not use Update mode if you don't have ArchiDroid running!","@alert");
+		setvar("resexec_retstatus","2");
+	  endif;
+	endif;
+	if getvar("resexec_retstatus")=="2" then
+		if
+		  confirm(
+			#-- Title
+			  "ArchiDroid Detect",
+			#-- Text
+			  "ArchiDroid successfully detected itself being running. Would you like to try Update mode?",
+			#-- Icon (Optional)
+			  "@info",
+			#-- Yes Text
+			  "Yes, Try Update",
+			#-- No Text
+			  "No, Full Wipe"
+		  )=="yes"
+		then
+		  alert("ArchiDroid Detect","OK, I'll try Update mode. But please select full wipe in case of issues","@info");
+		  setvar("archidroid_wipe","0");
+		else
+		  alert("ArchiDroid Detect","OK, I'll proceed with full wipe and ArchiDroid Install mode","@info");
+		  setvar("archidroid_wipe","1");
+		endif;
+	endif;
+endif;
+
+###################################################################################################################
+#
+# STEP 5(b) - SELECT TYPE INSTALATION
+#
+
+### ENGLISH ###
+if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "1" then
+selectbox(
+ "Installation Preset",
+ "Please select installation preset:",
+ "icons/confirm",
+ "installmode.prop",
+
+ "Custom","You'll be able to customize every aspect of the installation",0,
+ "ArchiDroid Default","You'll flash ArchiDroid with default optimized settings",1,
+ "Bare Bones","Clean temasek. Only for testing purposes, not recommended",0,
+ "Archi","A profile for me for faster flashing",0
+
+);
+endif;
+
+### POLISH ###
+if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "2" then
+selectbox(
+ "Installation Preset",
+ "Please select installation preset:",
+ "icons/confirm",
+ "installmode.prop",
+
+ "Własny","Będziesz mógł dostosować każdy aspekt instalacji",0,
+ "Domyślny ArchiDroid","Domyślne zoptymalizowane ustawienia ArchiDroid",1,
+ "Sam Szkielet","Czysty temasek. Tylko dla testów ewentualnych błędów, niezalecane",0,
+ "Archi","Profil dla mnie dla szybszego reflashu",0
+
+);
+endif;
+
+##################
+### ArchiDroid ###
+##################
+
+if file_getprop("/tmp/aroma-data/installmode.prop","selected.0") == "2" then
+textbox(
+  #-- Title
+    "Preset",
+  
+  #-- Subtitle
+    "Preset",
+  
+  #-- Icon
+    "@welcome",
+  
+  #-- Arg 4
+    resread("preset_archidroid.txt")
+);
+endif;
+
+
+# Always apply ArchiDroid's preset and eventually override it with other to allow back function to work properly
+
+# Temasek Kernel [Boeffla/No ABB]
+writetmpfile(
+  "kernels.prop",
+  "selected.0=1\n"
+);
+
+# PowerSave Config
+writetmpfile(
+  "kernels2.prop",
+  "selected.0=2\n"
+);
+
+# Boeffla Sound Control with Archi's Audiophile
+writetmpfile(
+  "boeffla.prop",
+  "selected.0=1\n"
+);
+
+# 241 DPI
+writetmpfile(
+  "dpi.prop",
+  "selected.0=2\n"
+);
+
+# Nova
+writetmpfile(
+  "launcher.prop",
+  "selected.0=1\n"
+);
+
+# TouchPal
+writetmpfile(
+  "keyboard.prop",
+  "selected.0=1\n"
+);
+
+# CrossBreeder
+writetmpfile(
+  "breeder.prop",
+  "selected.0=1\n"
+);
+
+# OTA
+writetmpfile(
+  "ota.prop",
+  "selected.0=1\n"
+);
+
+# No Xposed
+writetmpfile(
+  "xposed.prop",
+  "selected.0=2\n"
+);
+
+# 0 App Settings
+# 0 XPrivacy
+writetmpfile(
+  "xposed2.prop",
+  "item.0.1=0\n"+
+  "item.0.2=0\n"
+);
+
+# No Modem
+writetmpfile(
+  "modem.prop",
+  "selected.0=2\n"
+);
+
+# No recovery
+writetmpfile(
+  "recovery.prop",
+  "selected.0=2\n"
+);
+
+
+# 1 Google Apps
+# 0 Google QuickSearchBox
+# 0 Google Calendar
+# 1 Google Chrome
+# 1 Google Ears
+# 1 Google Keep
+# 1 Google Mail
+# 1 Google Maps
+# 1 Google Voice
+# 0 Google Hangouts
+# 0 Google Now
+# 0 Google Plus
+writetmpfile(
+  "gapps.prop",
+  "item.0.1=1\n"+
+  "item.0.2=0\n"+
+  "item.0.3=0\n"+
+  "item.0.4=1\n"+
+  "item.0.5=1\n"+
+  "item.0.6=1\n"+
+  "item.0.7=1\n"+
+  "item.0.8=1\n"+
+  "item.0.9=1\n"+
+  "item.0.10=0\n"+
+  "item.0.11=0\n"+
+  "item.0.12=0\n"
+);
+
+# 1 Titanium Backup
+# 0 ZRAM Status
+# 1 Greenify
+# 1 LMT
+# 1 MXPlayer
+# 0 Ultimate Rotation Control
+# 1 Spirit FM
+# 1 BetterBatteryStats
+# 1 CoolTool
+# 1 Root Browser
+# 1 Adobe Flash Player
+# 1 YouTube
+# 1 Facebook
+writetmpfile(
+  "archiapps.prop",
+  "item.0.1=1\n"+
+  "item.0.2=0\n"+
+  "item.0.3=1\n"+
+  "item.0.4=1\n"+
+  "item.0.5=1\n"+
+  "item.0.6=0\n"+
+  "item.0.7=1\n"+
+  "item.0.8=1\n"+
+  "item.0.9=1\n"+
+  "item.0.10=1\n"+
+  "item.0.11=1\n"+
+  "item.0.12=1\n"+
+  "item.0.13=1\n"
+);
+
+# 1 Bootanimacja Logcat
+# 1 HD Voice
+# 1 build.prop Tweaks
+# 0 OpenPDroid
+# 1 Remove Cell Broadcasts
+writetmpfile(
+"architweaks.prop",
+  "item.0.1=1\n"+
+  "item.0.2=1\n"+
+  "item.0.3=1\n"+
+  "item.0.4=0\n"+
+  "item.0.5=1\n"
+);
+
+##################
+### BARE BONES ###
+##################
+
+if file_getprop("/tmp/aroma-data/installmode.prop","selected.0") == "3" then
+# Stock Kernel
+writetmpfile(
+  "kernels.prop",
+  "selected.0=4\n"
+);
+
+# No Config
+writetmpfile(
+  "kernels2.prop",
+  "selected.0=4\n"
+);
+
+# No Boeffla
+writetmpfile(
+  "boeffla.prop",
+  "selected.0=3\n"
+);
+
+# 320 DPI
+writetmpfile(
+  "dpi.prop",
+  "selected.0=4\n"
+);
+
+# Trebuchet
+writetmpfile(
+  "launcher.prop",
+  "selected.0=2\n"
+);
+
+# Stock Keyboard
+writetmpfile(
+  "keyboard.prop",
+  "selected.0=4\n"
+);
+
+# No CrossBreeder
+writetmpfile(
+  "breeder.prop",
+  "selected.0=2\n"
+);
+
+# No OTA
+writetmpfile(
+  "ota.prop",
+  "selected.0=2\n"
+);
+
+# No GAPPS
+writetmpfile(
+  "gapps.prop",
+  "item.0.1=0\n"+
+  "item.0.2=0\n"+
+  "item.0.3=0\n"+
+  "item.0.4=0\n"+
+  "item.0.5=0\n"+
+  "item.0.6=0\n"+
+  "item.0.7=0\n"+
+  "item.0.8=0\n"+
+  "item.0.9=0\n"+
+  "item.0.10=0\n"+
+  "item.0.11=0\n"+
+  "item.0.12=0\n"
+);
+
+# No ArchiDroid Apps
+writetmpfile(
+  "archiapps.prop",
+  "item.0.1=0\n"+
+  "item.0.2=0\n"+
+  "item.0.3=0\n"+
+  "item.0.4=0\n"+
+  "item.0.5=0\n"+
+  "item.0.6=0\n"+
+  "item.0.7=0\n"+
+  "item.0.8=0\n"+
+  "item.0.9=0\n"+
+  "item.0.10=0\n"+
+  "item.0.11=0\n"+
+  "item.0.12=0\n"+
+  "item.0.13=0\n"
+);
+
+# No ArchiDroid Tweaks
+writetmpfile(
+"architweaks.prop",
+  "item.0.1=0\n"+
+  "item.0.2=0\n"+
+  "item.0.3=0\n"+
+  "item.0.4=0\n"+
+  "item.0.5=0\n"
+);
+endif;
+
+#############
+### ARCHI ###
+#############
+
+if file_getprop("/tmp/aroma-data/installmode.prop","selected.0") == "4" then
+textbox(
+  #-- Title
+    "Preset",
+  
+  #-- Subtitle
+    "Preset",
+  
+  #-- Icon
+    "@welcome",
+  
+  #-- Arg 4
+    resread("preset_archi.txt")
+);
+
+# Archi's Ultra Battery
+writetmpfile(
+  "kernels2.prop",
+  "selected.0=3\n"
+);
+
+# TouchPal + Hacker's Keyboard
+writetmpfile(
+  "keyboard.prop",
+  "selected.0=3\n"
+);
+
+# No OTA
+writetmpfile(
+  "ota.prop",
+  "selected.0=2\n"
+);
+
+# 1 Logcat Bootanimation
+# 1 HD Voice
+# 1 build.prop Tweaks
+# 1 OpenPDroid (if available)
+# 1 Remove Cell Broadcasts
+writetmpfile(
+  "architweaks.prop",
+  "item.0.1=1\n"+
+  "item.0.2=1\n"+
+  "item.0.3=1\n"+
+  "item.0.4=1\n"+
+  "item.0.5=1\n"
+);
+endif;
+
+###############################
+### CUSTOM TYPE INSTALATION ###
+###############################
+
+if file_getprop("/tmp/aroma-data/installmode.prop","selected.0") == "1" then
+###################################################################################################################
+#
+# STEP EXTRA
+#
+
+### ENGLISH ###
+if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "1" then
+selectbox(
+  "ArchiDroid Customization",
+  "Please modify settings to your liking",
+  "icons/apps",
+  "archidroid.prop",
+
+  "Kernel","",2,
+  "Temasek Kernel [Boeffla/No ABB]","Recommended for perfect peformance, powersave, high flexibility and boeffla sound",1,
+  "Yank555.lu Kernel","Recommended as an alternative to Temasek",0,
+  "Googy-Max Kernel","Based on Siyah sources. Unique for dual-boot feature",0,
+  "Stock CM","Comes as a default kernel with CM",0,
+  
+  "DPI","",2,
+  "240 DPI","WARNING! Keep in mind some minor graphic glitches on this DPI",0,
+  "241 DPI","Everything will be smaller, it includes buttons, icons, texts etc. Suggested for best experience with ArchiDroid!",1,
+  "280 DPI","A nice balance between stock and 240 DPI mode",0,
+  "320 DPI","Stock value",0,
+  
+  "Launcher","",2,
+  "Nova Launcher","Recommended for extra flexibility and performance",1,
+  "AOSP Launcher","Coming from CM, also known as Trebuchet",0,
+  
+  "Keyboard","",2,
+  "TouchPal Keyboard","Recommended as great and very flexible Swype/Curve keyboard",1,
+  "Hacker's Keyboard","Great alternative to TouchPal if you're not going to use swype/curve function",0,
+  "TouchPal + Hacker's Keyboard","If you want to use both TouchPal and Hacker's (for example in terminal)",0,
+  "Stock CM","If you want to keep default CM keyboard",0,
+  
+  "Global Tweaks","",2,
+  "CrossBreeder","Recommended for extra performance and flexibility, not compatible with Seeder",1,
+  "None","",0,
+  
+  "ArchiDroid OTA","",2,
+  "Yes","Recommended by ArchiDroid. We'll install UpdateMe apk and enable OTA updates via build.prop",1,
+  "No","If you have a really good reason for disabling ArchiDroid updates. Not recommended",0,
+  
+  "Xposed Framework","",2,
+  "Yes","Remember that you'll need to enable it manualy",0,
+  "No","If you don't want to use any xposed modules",1,
+  
+  "Modem","",2,
+  "XXEMG4","EFS V2",0,
+  "No Modem","If you want to preserve your old modem",1,
+  
+  "Recovery","",2,
+  "PhilZ Touch Recovery","Recommended modern recovery based on CWM 6",0,
+  "None","If you want to keep your current recovery",1
+);
+
+
+
+
+
+
+if file_getprop("/tmp/aroma-data/kernels.prop","selected.0") == "1" then
+selectbox(
+  "Kernel Config",
+  "Please select your kernel config:",
+  "icons/apps",
+  "kernels2.prop",
+
+  "ArchiDroid Balanced Config","Based on Optimized zzmoove, zram, boeffla sound and more",0,
+  "ArchiDroid PowerSave Config","Highly powersave config based on Yank's Battery zzmoove with lower hotplugging",1,
+  "ArchiDroid ULTRA PowerSave Config","ULTRA powersave config based on Archi's Ultra Battery zzmoove with LCDFreq",0,
+  "No Config","Not recommended because you'll miss most of the great features. Choose only if you're going to create your own STweaks config",0
+);
+else
+	writetmpfile(
+	  "kernels2.prop",
+	  "selected.0=4\n"
+	);
+endif;
+
+# If boeffla-kernel
+if file_getprop("/tmp/aroma-data/kernels.prop","selected.0") == "1" || file_getprop("/tmp/aroma-data/kernels.prop","selected.0") == "2" then
+selectbox(
+  "Boeffla Sound Control",
+  "Would you like to include Boeffla SC?",
+  "icons/apps",
+  "boeffla.prop",
+
+  "Yes with Archi's Audiophile","Highly recommended. It enhances audio quality by installing Boeffla SC and tweaking according to Archi's taste",1,
+  "Yes","If you want to create your own Boeffla SC preset later",0,
+  "No","If you don't want to install Boeffla SC",0
+);
+else
+	writetmpfile(
+	  "boeffla.prop",
+	  "selected.0=3\n"
+	);
+endif;
+
+selectbox(
+  "Launcher",
+  "Which launcher would you like to use?",
+  "icons/apps",
+  "launcher.prop",
+  
+  "Nova Launcher","Recommended for extra flexibility and performance",1,
+  "AOSP Launcher","Coming from CM, also known as Trebuchet",0
+);
+
+selectbox(
+  "Keyboard",
+  "Which keyboard would you like to use?",
+  "icons/apps",
+  "keyboard.prop",
+  
+  "TouchPal Keyboard","Recommended as great and very flexible Swype/Curve keyboard",1,
+  "Hacker's Keyboard","Great alternative to TouchPal if you're not going to use swype/curve function",0,
+  "TouchPal + Hacker's Keyboard","If you want to use both TouchPal and Hacker's (for example in terminal)",0,
+  "Stock CM","If you want to keep default CM keyboard",0
+);
+
+selectbox(
+  "Global Tweaks",
+  "Which global tweaks would you like to use?",
+  "icons/apps",
+  "breeder.prop",
+
+  "CrossBreeder","Recommended for extra performance and flexibility, not compatible with Seeder",1,
+  "None","",0
+);
+
+selectbox(
+  "ArchiDroid Updates",
+  "Would you like to enable ArchiDroid OTA?",
+  "icons/update",
+  "ota.prop",
+
+  "Yes","Recommended by ArchiDroid. We'll install UpdateMe apk and enable OTA updates via build.prop",1,
+  "No","If you have a really good reason for disabling ArchiDroid updates. Not recommended",0
+);
+
+selectbox(
+  "Xposed Framework",
+  "Would you like to include Xposed Framework?",
+  "icons/apps",
+  "xposed.prop",
+
+  "Yes","Remember that you'll need to enable it manualy",0,
+  "No","If you don't want to use any xposed modules",1
+);
+
+if file_getprop("/tmp/aroma-data/xposed.prop","selected.0") == "1" then
+checkbox(
+  "Xposed Modules",
+  "Select Xposed modules you would like to install:",
+  "icons/customize",
+  "xposed2.prop",
+
+  "App Settings","Allows changing app settings, like DPI, resident in memory and so on",1,
+  "XPrivacy","Perfect module which prevents leaking of private data, restricts access and more",1
+);
+endif;
+
+selectbox(
+  "Modem",
+  "Which modem would you like to use?",
+  "icons/modem",
+  "modem.prop",
+
+  "XXEMG4","EFS V2",0,
+  "No Modem","If you want to preserve your old modem",1
+);
+
+selectbox(
+  "Recovery",
+  "Which recovery would you like to flash?",
+  "icons/apps",
+  "recovery.prop",
+
+  "PhilZ Touch Recovery","Recommended modern recovery based on CWM 6",0,
+  "None","If you want to keep your current recovery",1
+);
+
+endif;
+
+### POLISH ###
+if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "2" then
+selectbox(
+  "Kernel",
+  "Którego kernela chciałbyś użyć?",
+  "icons/apps",
+  "kernels.prop",
+
+  "Temasek Kernel [Boeffla/No ABB]","Wysoce zalecany dla najlepszej wydajności, elastyczności, oszczędności baterii i jakości audio",1,
+  "Yank555.lu Kernel","Zalecany jako alternatywa dla temaseka",0,
+  "Googy-Max Kernel","Bazowany na źródłach Siyah. Unikalny z powodu funkcji dual-boot",0,
+  "CyanogenMod","Pochodzący prosto z CyanogenMod",0
+);
+
+if file_getprop("/tmp/aroma-data/kernels.prop","selected.0") == "1" then
+selectbox(
+  "Ustawienia Kernela",
+  "Którego configu kernel'a chciałbyś użyć?",
+  "icons/apps",
+  "kernels2.prop",
+
+  "Zbalansowane Ustawienia ArchiDroid","Bazowany na optimized zzmoove, zram, boeffla sound i więcej",0,
+  "Oszczędne Ustawienia ArchiDroid","Wysoce oszczędne dla baterii ustawienia bazowane na powersave zzmoove z mniejszym hotpluggingiem",1,
+  "ULTRA Oszczędne Ustawienia ArchiDroid","ULTRA oszczędne dla baterii ustawienia bazowane na Archi's Ultra Battery z LCDFreq",0,
+  "Brak","Niezalecane z powodu utraty wielu funkcji. Wybierz wyłącznie jeśli zamierzasz stworzyć swoje własne ustawienia po instalacji",0
+);
+else
+	writetmpfile(
+	  "kernels2.prop",
+	  "selected.0=4\n"
+	);
+endif;
+
+if file_getprop("/tmp/aroma-data/kernels.prop","selected.0") == "1" || file_getprop("/tmp/aroma-data/kernels.prop","selected.0") == "2" then
+selectbox(
+  "Boeffla Sound Control",
+  "Czy chciałbyś zainstalować Boeffla SC?",
+  "icons/apps",
+  "boeffla.prop",
+
+  "Tak Z Presetem Archi's Audiophile","Wysoce zalecane. Poprawia jakość dźwięku poprzez ustawienia Boeffla SC wg. gustu Archiego",1,
+  "Tak","Jeśli zamierzasz stworzyć swój własny preset po instalacji",0,
+  "Nie","Jeśli nie chcesz instalować Boeffla SC",0
+);
+else
+	writetmpfile(
+	  "boeffla.prop",
+	  "selected.0=3\n"
+	);
+endif;
+
+selectbox(
+  "DPI",
+  "Ile DPI chciałbyś ustawić?",
+  "icons/personalize",
+  "dpi.prop",
+
+  "240 DPI","UWAGA! Możliwe niewielkie bugi graficzne",0,
+  "241 DPI","Wszystko będzie o wiele mniejsze niż standardowo. Wysoce zalecane",1,
+  "280 DPI","Dobry kompromis pomiędzy 320, a 240 DPI",0,
+  "320 DPI","Wartość domyślna dla stocków i CyanogenMod",0
+);
+
+selectbox(
+  "Launcher",
+  "Którego launchera chciałbyś użyć?",
+  "icons/apps",
+  "launcher.prop",
+  
+  "Launcher Nova","Zalecany dla o wiele większej wydajności i elastyczności",1,
+  "Launcher AOSP","Pochodzący prosto z CyanogenMod. Znany także jako Trebuchet",0
+);
+
+selectbox(
+  "Klawiatura",
+  "Której klawiatury chciałbyś użyć?",
+  "icons/apps",
+  "keyboard.prop",
+  
+  "Klawiatura TouchPal","Zalecana jako świetna i bardzo elastyczna klawiatura Swype/Curve",1,
+  "Klawiatura Hacker's","Świetna alternatywa dla TouchPal'a jeśli nie potrzebujemy Swype/Curve",0,
+  "Klawiatury TouchPal + Hacker's","Jeśli z jakiegoś powodu chciałbyś zainstalować obydwie te klawiatury",0,
+  "Stock CM","Jeśli chciałbyś pozostać przy klawiaturze prosto z CyanogenMod",0
+);
+
+selectbox(
+  "Globalne Tweaki",
+  "Którego globalnego tweaka chciałbyś użyć?",
+  "icons/apps",
+  "breeder.prop",
+
+  "CrossBreeder","Wysoce zalecany dla lepszej wydajności, blokowania reklam i wielu innych tweaków",1,
+  "Żadnego","",0
+);
+
+selectbox(
+  "Aktualizacje ArchiDroid",
+  "Czy chcesz uaktywnić ArchiDroid OTA?",
+  "icons/update",
+  "ota.prop",
+
+  "Tak","Wysoce zalecane. Zainstaluję aplikację UpdateMe oraz włączę aktualizacje OTA via build.prop",1,
+  "Nie","Jeśli masz dobry powód dla wyłączenia powiadomień o aktualizacjach. Niezalecane",0
+);
+
+selectbox(
+  "Xposed Framework",
+  "Czy chciałbyś zainstalować Xposed Framework?",
+  "icons/apps",
+  "xposed.prop",
+
+  "Tak","Pamiętaj, że musisz go włączyć po instalacji",0,
+  "Nie","Jeśli nie masz potrzeby instalowania Xposed ani żadnych jego modułów",1
+);
+
+if file_getprop("/tmp/aroma-data/xposed.prop","selected.0") == "1" then
+checkbox(
+  "Moduły Xposed",
+  "Wybierz moduły Xposed, które chciałbyś zainstalować:",
+  "icons/customize",
+  "xposed2.prop",
+
+  "App Settings","Pozwala na zarządzanie ustawieniami specyficznymi dla danych aplikacji, zmianę DPI, rezydowanie w pamięci i więcej",1,
+  "XPrivacy","Perfekcyjne narzędzie oferujące kontrolę aplikacji i ich uprawnień oraz wiele innych funkcji związanych z bezpieczeństwem",1
+);
+endif;
+
+selectbox(
+  "Modem",
+  "Który modem chciałbyś sflashować?",
+  "icons/modem",
+  "modem.prop",
+
+  "XXEMG4","EFS V2",0,
+  "Żaden","Jeśli chcesz pozostać przy swoim aktualnym modemie",1
+);
+
+selectbox(
+  "Recovery",
+  "Które recovery chciałbyś sflashować?",
+  "icons/apps",
+  "recovery.prop",
+
+  "PhilZ Touch Recovery","Zalecane nowoczesne recovery bazujące na CWM 6",0,
+  "Żadne","Jeśli chcesz pozostać przy swoim aktualnym recovery",1
+);
+
+endif;
+
+###################################################################################################################
+#
+# STEP 6 - SELECT GOOGLE APPLICATIONS
+#
+
+### ENGLISH ###
+if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "1" then
+checkbox(
+  "Google Apps",
+  "Select Google Applications you would like to install:",
+  "icons/apps",
+  "gapps.prop",
+
+  "Google Apps","Core functions and apps from Google. DON'T DESELECT THIS",1,
+  "Google QuickSearchBox","May break Google Voice!",0,
+  "Google Calendar [Inverted]","",0,
+  "Google Chrome [Inverted]","",1,
+  "Google Ears [Inverted]","",1,
+  "Google Keep [Inverted]","",1,
+  "Google Mail [Inverted]","",1,
+  "Google Maps [Inverted]","",1,
+  "Google Voice","",1,
+  "Google Hangouts [Inverted]","",0,
+  "Google Now [Inverted]","",0,
+  "Google Plus [Inverted]","",0
+);
+endif;
+
+### POLISH ###
+if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "2" then
+checkbox(
+  "Aplikacje Google",
+  "Wybierz aplikacje Google, które chciałbyś zainstalować:",
+  "icons/apps",
+  "gapps.prop",
+
+  "Google Apps","Główne aplikacje i funkcje Google. NIE ODZNACZAJ TEGO",1,
+  "Google QuickSearchBox","Może popsuć Google Voice!",0,
+  "Google Calendar [Inverted]","",0,
+  "Google Chrome [Inverted]","",1,
+  "Google Ears [Inverted]","",1,
+  "Google Keep [Inverted]","",1,
+  "Google Mail [Inverted]","",1,
+  "Google Maps [Inverted]","",1,
+  "Google Voice","",1,
+  "Google Hangouts [Inverted]","",0,
+  "Google Now [Inverted]","",0,
+  "Google Plus [Inverted]","",0
+);
+endif;
+
+###################################################################################################################
+#
+# STEP 7 - SELECT CUSTOM APPLICATIONS
+#
+
+###################################################################################################################
+#
+# STEP 8 - SELECT ARCHIDROID APPLICATIONS
+#
+
+### ENGLISH ###
+if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "1" then
+checkbox(
+  "ArchiDroid Apps",
+  "Select ArchiDroid Apps you would like to install:",
+  "icons/apps",
+  "archiapps.prop",
+
+  "Titanium Backup","Perfect solution for saving personal/app data between updates",1,
+  "ZRAM Status","Useful if you want to monitor your zram usage (only available in custom kernels)",0,
+  "Greenify","Useful if you want to hibernate any app, which saves your battery",1,
+  "LMT","Useful tool for executing a command binded to specific gesture on the screen, also known as [pie] in Android 4.2",1,
+  "MXPlayer","Probably best video player for Android",1,
+  "Ultimate Rotation Control","Per app rotation bundled with sensor control and a widget",0,
+  "Spirit FM","Free radio working with CM",1,
+  "BetterBatteryStats","Gives you power to view more specific battery stats - especially wakelocks",1,
+  "CoolTool","Shows some useful statistics on the top bar",1,
+  "Root Browser","Very cool browser extended by optional root access",1,
+  "Adobe Flash Player [Inverted]","Adds flash content support. Does not work with Google Chrome",1,
+  "YouTube [Inverted]","Inverted version of YouTube app",1,
+  "Facebook [Inverted]","Inverted version of Facebook and Messenger",1
+);
+endif;
+
+### POLISH ###
+if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "2" then
+checkbox(
+  "Aplikacje ArchiDroid",
+  "Wybierz aplikacje ArchiDroid'a, które chciałbyś zainstalować:",
+  "icons/apps",
+  "archiapps.prop",
+
+  "Titanium Backup","Świetne narzędzie do zarządzania kopiami zapasowymi pomiędzy flashami romów",1,
+  "ZRAM Status","Użyteczne w celu kontroli ramu oraz zramu (wymaga kernela ze wsparciem dla zram)",0,
+  "Greenify","Użyteczne w celu zamrażania zbędnych aplikacji",1,
+  "LMT","Użyteczne narzędzie znane jako [pie] z Androida 4.2",1,
+  "MXPlayer","Prawdopodobnie najlepszy odtwarzacz wideo dla Androida",1,
+  "Ultimate Rotation Control","Zapewnia o wiele większa kontrolę nad rotacją ekranu",0,
+  "Spirit FM","Darmowe radio działające na CyanogenMod",1,
+  "BetterBatteryStats","Dostarcza o wiele bardziej szczegółowych statystyk dotyczących baterii",1,
+  "CoolTool","Wyświetla wiele użytecznych informacji na górnym pasku powiadomień",1,
+  "Root Browser","Jeden z najlepszych menadżerów plików, wspomagany opcjonalnie dostępem root",1,
+  "Adobe Flash Player [Inverted]","Zapewnia wsparcie dla technologii flash. Nie działa z Google Chrome",1,
+  "YouTube [Inverted]","Ciemny odtwarzacz YouTube",1,
+  "Facebook [Inverted]","Ciemna wersja Facebooka i Messengera",1
+);
+endif;
+
+###################################################################################################################
+#
+# STEP 9 - SELECT MODS
+#
+
+### ENGLISH ###
+if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "1" then
+ini_set("text_next", "Next");
+checkbox(
+  "ArchiDroid Tweaks",
+  "Select ArchiDroid Tweaks you would like to apply:",
+  "icons/apps",
+  "architweaks.prop",
+
+  "Logcat Bootanimation","Changes default bootaimation to logcat output - powered by logcat lite",1,
+  "HD Voice","Enables HD Voice if available",1,
+  "Add build.prop Tweaks","Deeper sleep and disable debug to improve performance",1,
+  "OpenPDroid [EXPERIMENTAL]","Apply OpenPDroid patch after install if available",0,
+  "Remove Cell Broadcasts","In general considered as bloatware. Uncheck if you want to keep this",1
+);
+endif;
+
+### POLISH ###
+if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "2" then
+ini_set("text_next", "Dalej");
+checkbox(
+  "ArchiDroid Tweaks",
+  "Wybierz tweaki ArchiDroid'a, które chcesz włączyć:",
+  "icons/apps",
+  "architweaks.prop",
+
+  "Bootanimacja Logcat","Zamienia domyślną bootanimację na logcata",1,
+  "HD Voice","Włącza HD Voice o ile dostępne",1,
+  "build.prop Tweaks","Głębszy sen oraz wyłączenie zbędnych logów w celu lepszej wydajności",1,
+  "OpenPDroid [EXPERIMENTAL]","Spatchuj ROM ze wsparciem dla OpenPDroid o ile dostępny",0,
+  "Usuń Transmisje Komórkowe","Generalnie uważane za bloatware. Odznacz jeśli chcesz je zachować",1
+);
+endif;
+endif;
+###################################################################################################################
+#
+# STEP 11 - INSTALLING
+#
+
+### ENGLISH ###
+if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "1" then
+ini_set("text_next", "Flash");
+
+viewbox(
+    "Ready to install",
+    "You are now ready to begin installation.\n\n"+
+    "Press <b>Flash</b> to start.\n\n"+
+    "If you want to review or change any of your installation settings, press <b>Back</b>.",
+    "@alert"
+);
+
+ini_set("text_next", "Finish");
+
+  install(
+	#-- Title
+      "Installing",
+	
+	#-- Installation Process message
+	  "<b>"+ini_get("rom_name")+"</b> is being installed.\n\n"+
+      "Please wait while installation wizard installs <b>"+ini_get("rom_name")+
+	  "</b>. WARNING! In case of freeze please hold on power button to restart installation!",
+	
+	#-- Installation Icon
+      "@install",
+	
+	#-- Installation Finish Message
+      "The installation wizard has successfully installed <b>"+ini_get("rom_name")+
+	  "</b>. Press <b>Finish</b> to continue."
+);
+
+checkviewbox(
+  #-- Title
+    "Installation Completed",
+  
+  #-- Text
+    "<#selectbg_g><b>Congratulation...</b></#>\n\n"+
+    "<b>"+ini_get("rom_name")+"</b> has been flashed onto your device.\n\n"+
+    "Installer Status: "+getvar("retstatus")+"\n\n",
+	
+  #-- Icon
+    "@exit",
+
+  #-- Checkbox Text
+    "Reboot Automatically",
+
+  #-- Initial Checkbox value ( 0=unchecked, 1=checked ) -  (Optional, default:0)
+    "1",
+
+  #-- Save checked value in variable "reboot_it" (Optional)
+    "reboot_it"
+);
+endif;
+
+### POLISH ###
+if file_getprop("/tmp/aroma-data/lang.prop","selected.0") == "2" then
+ini_set("text_next", "Flash");
+
+viewbox(
+    "Gotowe",
+    "Jesteś teraz gotowy do rozpoczęcia flashowania.\n\n"+
+    "Wciśnij <b>Flash</b>, aby rozpocząć.\n\n"+
+    "Jeśli chcesz przejrzeć lub zmienić jakiekolwiek ustawienia wciśnij <b>Wstecz</b>.",
+    "@alert"
+);
+
+ini_set("text_next", "Zakończ");
+
+  install(
+	#-- Title
+      "Instalacja",
+	
+	#-- Installation Process message
+	  "<b>"+ini_get("rom_name")+"</b> właśnie jest instalowany.\n\n"+
+      "Poczekaj cierpliwie na koniec instalacji <b>"+ini_get("rom_name")+
+	  "</b>. UWAGA! W przypadku braku postępu przytrzymaj power aby zresetować instalację!",
+	
+	#-- Installation Icon
+      "@install",
+	
+	#-- Installation Finish Message
+      "Instalator pomyślnie zainstalował <b>"+ini_get("rom_name")+
+	  "</b>. Naciśnij <b>Zakończ</b>, aby kontynuować."
+);
+
+checkviewbox(
+  #-- Title
+    "Instalacja Zakończona",
+  
+  #-- Text
+    "<#selectbg_g><b>Gratulacje...</b></#>\n\n"+
+    "<b>"+ini_get("rom_name")+"</b> został pomyślnie zainstalowany na twoim urządzeniu.\n\n"+
+    "Status Instalatora: "+getvar("retstatus")+"\n\n",
+	
+  #-- Icon
+    "@exit",
+
+  #-- Checkbox Text
+    "Zrestartuj Automatycznie",
+
+  #-- Initial Checkbox value ( 0=unchecked, 1=checked ) -  (Optional, default:0)
+    "1",
+
+  #-- Save checked value in variable "reboot_it" (Optional)
+    "reboot_it"
+);
+endif;
+
+exec("/sbin/cp","/tmp/aroma/.install.log","/sdcard/ArchiDroid.log");
+
+###
+#
+# Check if reboot checkbox was checked
+if getvar("reboot_it")=="1" then
+
+	# reboot("onfinish");   - Reboot if anything finished
+	# reboot("now");        - Reboot Directly
+	# reboot("disable");    - If you set reboot("onfinish") before, use this command to revert it.
+
+	reboot("onfinish");
+
+endif;

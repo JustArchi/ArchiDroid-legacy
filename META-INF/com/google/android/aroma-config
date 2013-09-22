@@ -481,7 +481,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
     );
   endif;
 
-  if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "temasek" || file_getprop("archidroid.prop","kernel") == "yank" then
+  if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "temasek" || file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "yank" then
     form(
       "ArchiDroid Extra Customization",
       "Please modify settings to your liking",

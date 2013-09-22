@@ -218,15 +218,15 @@ setvar(
 
 
 form(
-  "ArchiDroid Installation Preset",
-  "Please select installation preset:",
+  "<~archidroid.preset>",
+  "<~archidroid.preset.desc>",
   "icons/apps",
   "archidroidinstallmode.prop",
   
-  "preset","Preset","","group",
-  "custom","Custom", "You'll be able to customize every aspect of the installation","select.selected",
-  "barebones","Bare Bones","Clean CyanogenMod. Only for testing purposes, not recommended","select",
-  "archi","Archi","A profile for me for faster flashing","select"
+  "preset","<~archidroid.preset.group>","","group",
+  "custom","<~archidroid.preset.custom>", "<~archidroid.preset.custom.desc>","select.selected",
+  "barebones","<~archidroid.preset.barebones>","<~archidroid.preset.barebones.desc>","select",
+  "archi","<~archidroid.preset.archi>","<~archidroid.preset.archi.desc>","select"
 );
 
 ##################
@@ -386,16 +386,16 @@ endif;
 
 if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custom" then
   form(
-    "ArchiDroid Customization",
-    "Please modify settings to your liking",
+    "<~archidroid.custom>",
+    "<~archidroid.custom.desc>",
     "icons/apps",
     "archidroid.prop",
     
     "kernel","Kernel","","group",
-    "temasek", "Temasek Kernel [Boeffla/No ABB]","Recommended for perfect peformance, powersave, high flexibility and boeffla sound","select.selected",
-    "yank","Yank555.lu Kernel","Recommended as an alternative to Temasek","select",
-    "googy","Googy-Max Kernel","Based on Siyah sources. Unique for dual-boot feature","select",
-    "stock","Stock CM","Comes as a default kernel with CM","select",
+    "temasek", "Temasek Kernel [Boeffla/No ABB]","<~archidroid.kernel.temasek.desc>",
+    "yank","Yank555.lu Kernel","<~archidroid.kernel.yank.desc>","select",
+    "googy","Googy-Max Kernel","<~archidroid.kernel.googy.desc>","select",
+    "stock","Stock CM","<~archidroid.kernel.stock.desc>","select",
 
     "dpi","DPI","","group",
     "240","240 DPI","WARNING! Keep in mind some minor graphic glitches on this DPI","select",

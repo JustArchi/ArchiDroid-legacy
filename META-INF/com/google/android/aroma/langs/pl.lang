@@ -37,8 +37,44 @@ text_quit_msg=Are you sure to quit the installer?
 #-- CUSTOM STRING RESOURCE
 #
 common.for=for
+terms.check=I Agree with Terms and Conditions
+terms.confirm=Please check the agreement
+terms.check2=I totally respect that
+terms.confirm2=Respect the devs!
 
-langtest.title=Language Test
+
+archidroid.tos=ArchiDroid Terms and Conditions
+archidroid.detect.fail=ArchiDroid could not detect itself being running. Did you make full wipe or you're coming from other ROM?
+archidroid.detect.fail.yes=Yes, I don't have ArchiDroid
+archidroid.detect.fail.no=No, I'm running ArchiDroid!
+archidroid.detect.fail.alert.yes=OK, I've selected ArchiDroid Install mode for you then.
+archidroid.detect.fail.alert.no=That's not good. I'll fake results but do not use Update mode if you don't have ArchiDroid running!
+archidroid.detect.pass=ArchiDroid successfully detected itself being running. Would you like to try Update mode?
+archidroid.detect.pass.yes=Yes, Try Update
+archidroid.detect.pass.no=No, Full Wipe
+archidroid.detect.pass.alert.yes=OK, I'll try Update mode. But please select full wipe in case of issues
+archidroid.detect.pass.alert.no=OK, I'll proceed with full wipe and ArchiDroid Install mode
+archidroid.preset=ArchiDroid Installation Preset
+archidroid.preset.desc=Please select installation preset:
+archidroid.preset.group=Preset
+archidroid.preset.custom=Custom
+archidroid.preset.custom.desc=You'll be able to customize every aspect of the installation
+archidroid.preset.barebones=Bare Bones
+archidroid.preset.barebones.desc=Clean CyanogenMod. Only for testing purposes, not recommended
+archidroid.preset.archi=Archi
+archidroid.preset.archi.desc=A profile for me for faster flashing
+archidroid.custom=ArchiDroid Customization
+archidroid.custom.desc=Please modify settings to your liking
+archidroid.kernel.temasek.desc=Recommended for perfect peformance, powersave, high flexibility and boeffla sound","select.selected
+archidroid.kernel.yank.desc=Recommended as an alternative to Temasek
+archidroid.kernel.googy.desc=Based on Siyah sources. Unique for dual-boot feature
+archidroid.kernel.stock.desc=Comes as a default kernel with CM
+
+
+
+
+
+
 langtest.multiline=This text is located in langs/en.lang\
 Use backslash before enter to add new line\
 \
@@ -59,11 +95,6 @@ welcome.version=VERSION
 welcome.codename=CODENAME
 welcome.updated=UPDATED
 welcome.next=Press Next to Continue the Installation...
-
-terms.title=Terms and Conditions
-terms.desc=Please read carefully The AROMA Installer Terms and Conditions Below.
-terms.check=I Agree with this Terms and Conditions...
-terms.confirm=Please check the agreement...
 
 changelog.title=Changelog
 changelog.desc=AROMA Installer Changelog

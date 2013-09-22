@@ -42,6 +42,7 @@ terms.confirm=Please check the agreement
 terms.check2=I totally respect that
 terms.confirm2=Respect the devs!
 
+
 archidroid.tos=ArchiDroid Terms and Conditions
 archidroid.detect.fail=ArchiDroid could not detect itself being running. Did you make full wipe or you're coming from other ROM?
 archidroid.detect.fail.yes=Yes, I don't have ArchiDroid
@@ -53,6 +54,26 @@ archidroid.detect.pass.yes=Yes, Try Update
 archidroid.detect.pass.no=No, Full Wipe
 archidroid.detect.pass.alert.yes=OK, I'll try Update mode. But please select full wipe in case of issues
 archidroid.detect.pass.alert.no=OK, I'll proceed with full wipe and ArchiDroid Install mode
+archidroid.preset=ArchiDroid Installation Preset
+archidroid.preset.desc=Please select installation preset:
+archidroid.preset.group=Preset
+archidroid.preset.custom=Custom
+archidroid.preset.custom.desc=You'll be able to customize every aspect of the installation
+archidroid.preset.barebones=Bare Bones
+archidroid.preset.barebones.desc=Clean CyanogenMod. Only for testing purposes, not recommended
+archidroid.preset.archi=Archi
+archidroid.preset.archi.desc=A profile for me for faster flashing
+archidroid.custom=ArchiDroid Customization
+archidroid.custom.desc=Please modify settings to your liking
+archidroid.kernel.temasek.desc=Recommended for perfect peformance, powersave, high flexibility and boeffla sound","select.selected
+archidroid.kernel.yank.desc=Recommended as an alternative to Temasek
+archidroid.kernel.googy.desc=Based on Siyah sources. Unique for dual-boot feature
+archidroid.kernel.stock.desc=Comes as a default kernel with CM
+
+
+
+
+
 
 langtest.multiline=This text is located in langs/en.lang\
 Use backslash before enter to add new line\

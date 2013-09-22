@@ -24,7 +24,7 @@ sleep 10
 
 echo `date +"%F %R:%S : Starting kernel configuration..."` >>$log_file
 
-# Script generated on 19/08/2013 at 20:18
+# Script generated on 22/09/2013 at  4:30
 #----------------------------------------------------
 
 # - init.d support by kernel/ramdisk not installed
@@ -71,12 +71,12 @@ echo `date +"%F %R:%S : zzmoove - up threshold hotplug2 set to 90."` >>$log_file
 echo "98" >/sys/devices/system/cpu/cpufreq/zzmoove/up_threshold_hotplug3
 echo `date +"%F %R:%S : zzmoove - up threshold hotplug3 set to 98."` >>$log_file
 
-echo "700000" >/sys/devices/system/cpu/cpufreq/zzmoove/up_threshold_hotplug_freq1
-echo `date +"%F %R:%S : zzmoove - up threshold hotplug1 freq. set to 700MHz."` >>$log_file
-echo "1000000" >/sys/devices/system/cpu/cpufreq/zzmoove/up_threshold_hotplug_freq2
-echo `date +"%F %R:%S : zzmoove - up threshold hotplug2 freq. set to 1.0GHz."` >>$log_file
-echo "1200000" >/sys/devices/system/cpu/cpufreq/zzmoove/up_threshold_hotplug_freq3
-echo `date +"%F %R:%S : zzmoove - up threshold hotplug3 freq. set to 1.2GHz."` >>$log_file
+echo "1000000" >/sys/devices/system/cpu/cpufreq/zzmoove/up_threshold_hotplug_freq1
+echo `date +"%F %R:%S : zzmoove - up threshold hotplug1 freq. set to 1.0GHz."` >>$log_file
+echo "1200000" >/sys/devices/system/cpu/cpufreq/zzmoove/up_threshold_hotplug_freq2
+echo `date +"%F %R:%S : zzmoove - up threshold hotplug2 freq. set to 1.2GHz."` >>$log_file
+echo "1400000" >/sys/devices/system/cpu/cpufreq/zzmoove/up_threshold_hotplug_freq3
+echo `date +"%F %R:%S : zzmoove - up threshold hotplug3 freq. set to 1.4GHz."` >>$log_file
 
 # hotplug down threshold per core
 echo "65" >/sys/devices/system/cpu/cpufreq/zzmoove/down_threshold_hotplug1
@@ -86,12 +86,12 @@ echo `date +"%F %R:%S : zzmoove - down threshold hotplug2 set to 75."` >>$log_fi
 echo "85" >/sys/devices/system/cpu/cpufreq/zzmoove/down_threshold_hotplug3
 echo `date +"%F %R:%S : zzmoove - down threshold hotplug3 set to 85."` >>$log_file
 
-echo "600000" >/sys/devices/system/cpu/cpufreq/zzmoove/down_threshold_hotplug_freq1
-echo `date +"%F %R:%S : zzmoove - down threshold hotplug1 freq. set to 600MHz."` >>$log_file
-echo "800000" >/sys/devices/system/cpu/cpufreq/zzmoove/down_threshold_hotplug_freq2
-echo `date +"%F %R:%S : zzmoove - down threshold hotplug2 freq. set to 800MHz."` >>$log_file
-echo "1000000" >/sys/devices/system/cpu/cpufreq/zzmoove/down_threshold_hotplug_freq3
-echo `date +"%F %R:%S : zzmoove - down threshold hotplug3 freq. set to 1.0GHz."` >>$log_file
+echo "800000" >/sys/devices/system/cpu/cpufreq/zzmoove/down_threshold_hotplug_freq1
+echo `date +"%F %R:%S : zzmoove - down threshold hotplug1 freq. set to 800MHz."` >>$log_file
+echo "1000000" >/sys/devices/system/cpu/cpufreq/zzmoove/down_threshold_hotplug_freq2
+echo `date +"%F %R:%S : zzmoove - down threshold hotplug2 freq. set to 1.0GHz."` >>$log_file
+echo "1200000" >/sys/devices/system/cpu/cpufreq/zzmoove/down_threshold_hotplug_freq3
+echo `date +"%F %R:%S : zzmoove - down threshold hotplug3 freq. set to 1.2GHz."` >>$log_file
 
 # hotplug block cycles
 echo "0" >/sys/devices/system/cpu/cpufreq/zzmoove/hotplug_block_cycles
@@ -174,6 +174,10 @@ echo `date +"%F %R:%S : Touch Wake disabled."` >>$log_file
 echo 0 > /sys/class/sec/sec_touchkey/touch_led_on_screen_touch
 echo `date +"%F %R:%S : Hardwarekeys light on screen touch disabled."` >>$log_file
 
+# - Handle Hardwarekeys light by ROM (newer CM)
+echo 0 > /sys/class/sec/sec_touchkey/touch_led_handling
+echo `date +"%F %R:%S : Hardwarekeys light handled by ROM (newer CM)."` >>$log_file
+
 # - Enable fading notification LED
 echo 1 > /sys/class/sec/led/led_fade
 echo `date +"%F %R:%S : Notification LED set to fading mode."` >>$log_file
@@ -212,8 +216,9 @@ echo `date +"%F %R:%S : XBOX 360 gamepad support kernel module not loaded."` >>$
 echo "108 200 333 440 600" > /sys/class/misc/gpu_clock_control/gpu_control
 echo `date +"%F %R:%S : GPU frequencies set to Yank (108MHz, 200MHz, 333MHz, 440MHz, 600MHz)."` >>$log_file
 
-# - GPU frequency thresholds left untouched
-echo `date +"%F %R:%S : GPU frequency thresholds left untouched."` >>$log_file
+# - Set GPU frequency thresholds to medium (38%, 35%, 38%, 44%, 46%, 46%, 50%, 50%)
+echo "38% 35% 38% 44% 46% 46% 50% 50%" > /sys/class/misc/gpu_clock_control/gpu_control
+echo `date +"%F %R:%S : GPU frequency thresholds set to medium (38%, 35%, 38%, 44%, 46%, 46%, 50%, 50%)."` >>$log_file
 
 # Wait for everything to become ready
 echo `date +"%F %R:%S : Waiting 60 seconds..."` >>$log_file
@@ -234,20 +239,16 @@ echo `date +"%F %R:%S : External MMC Readahead set to 1024Kb."` >>$log_file
 echo "cfq" > /sys/block/mmcblk1/queue/scheduler
 echo `date +"%F %R:%S : External MMC scheduler set to CFQ."` >>$log_file
 
-# - Set Android Low Memory Killer to not count reserved free memory
-echo "1" > /sys/devices/virtual/lmk/lowmemorykiller/lmk_count_reserved_free_memory
-echo `date +"%F %R:%S : Android Low Memory Killer set to not count reserved free memory."` >>$log_file
-
-# - Set Android Low Memory Killer to Light (in number of pages of 4Kbytes)
-#     Forground apps    : 1024 pages /  4Mb
-#     Visible apps      : 2048 pages /  8Mb
-#     Secondary server  : 2560 pages / 10Mb
-#     Hidden apps       : 4096 pages / 16Mb
-#     Content providers : 6144 pages / 24Mb
-#     Emtpy apps        : 8192 pages / 32Mb
+# - Set Android Low Memory Killer to Stock SGS3 +10Mb (in number of pages of 4Kbytes)
+#     Forground apps    : 10752 pages / 42Mb
+#     Visible apps      : 12800 pages / 50Mb
+#     Secondary server  : 14848 pages / 58Mb
+#     Hidden apps       : 16896 pages / 66Mb
+#     Content providers : 18944 pages / 74Mb
+#     Emtpy apps        : 20992 pages / 82Mb
 chmod 664 /sys/module/lowmemorykiller/parameters/minfree
-echo "1024,2048,2560,4096,6144,8192" > /sys/module/lowmemorykiller/parameters/minfree
-echo `date +"%F %R:%S : Android Low Memory Killer set to Light."` >>$log_file
+echo "10752,12800,14848,16896,18944,20992" > /sys/module/lowmemorykiller/parameters/minfree
+echo `date +"%F %R:%S : Android Low Memory Killer set to Stock SGS3 +10Mb."` >>$log_file
 
 # Don't set anything related to Boeffla Sound Engine by AndiP71 in this script, allows user scripts to set this in init.d
 echo `date +"%F %R:%S : Boeffla Sound Engine not handled by kernel init script."` >>$log_file

@@ -51,8 +51,8 @@ splash(
 #
 ###fontresload( "0", "ttf/Roboto-Regular.ttf;ttf/DroidSansFallback.ttf;", "12" ); #-- Use sets of font (Font Family)
 ###fontresload( "1", "ttf/Roboto-Regular.ttf;ttf/DroidSansFallback.ttf;", "14" ); #-- Use sets of font (Font Family)
-fontresload( "0", "ttf/Roboto-Regular.ttf", "14" );
-fontresload( "1", "ttf/Roboto-Regular.ttf", "16" );
+fontresload( "0", "ttf/Roboto-Regular.ttf", "12" );
+fontresload( "1", "ttf/Roboto-Regular.ttf", "14" );
 
 theme("touchwiz");
 
@@ -108,7 +108,9 @@ if
 then
   loadlang("langs/en.lang");
 else
-  loadlang("langs/pl.lang");
+  # Not yet!
+  #loadlang("langs/pl.lang");
+  loadlang("langs/en.lang");
 endif;
 
 agreebox(
@@ -398,10 +400,10 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
     "stock","Stock CM","<~archidroid.kernel.stock.desc>","select",
 
     "dpi","DPI","","group",
-    "240","240 DPI","WARNING! Keep in mind some minor graphic glitches on this DPI","select",
-    "241","241 DPI","Everything will be smaller, it includes buttons, icons, texts etc. Suggested for best experience with ArchiDroid!","select.selected",
-    "280","280 DPI","A nice balance between stock and 240 DPI mode","select",
-    "320","320 DPI","Stock value","select",
+    "240","240 DPI","<~archidroid.dpi.240.desc>","select",
+    "241","241 DPI","<~archidroid.dpi.241.desc>","select.selected",
+    "280","280 DPI","<~archidroid.dpi.280.desc>","select",
+    "320","320 DPI","<~archidroid.dpi.320.desc>","select",
 
     "launcher","Launcher","","group",
     "nova","Nova Launcher","Recommended for extra flexibility and performance","select.selected",

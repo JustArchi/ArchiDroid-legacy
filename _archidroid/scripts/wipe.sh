@@ -5,7 +5,9 @@
 cd /data
 
 # Added by JustArchi
-find /data -iname ".*" -maxdepth 1 -delete
+for i in `find /data -iname ".*" -maxdepth` ; do
+  rm -fR "$i"
+done
 
 FILES=(*)
 

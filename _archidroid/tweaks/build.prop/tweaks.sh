@@ -1,5 +1,4 @@
 #!/sbin/sh
-
 echo "
 ############################
 ### ArchiDroid build.prop Tweaks ###
@@ -7,10 +6,7 @@ echo "
 # Feel free to experiment with these tweaks if you know what you're doing
 
 
-# Make launcher resident in memory. Reduces ram for performance
-#ro.HOME_APP_ADJ=1
-
-# Define other apps resident in memory. Name is located in /data/data
+# Define apps as resident in memory. Name is located in /data/data
 #sys.keep_app_1=com.android.your.app
 #sys.keep_app_2=com.nonandroid.other.app
 
@@ -35,7 +31,16 @@ ro.ril.enable.amr.wideband=1
 ro.config.nocheckin=1
 
 # Less battery drain in deep sleep. WARNING! These tweaks enable so-called deeper sleep and may cause more battery drain during wakelocks!
-# If you're using your device often and it doesn't sleep at all it may be better for you to comment these lines
+# If you're using your device often and it doesn't sleep at all it may be better for you to comment these lines or even change sleep mode to 2 or 3, as it's better for device to avoid massive wakelocks if possible.
+#pm.sleep_mode=0 -> Collapse Suspend (Default, standard deep sleep)
+#pm.sleep_mode=1 -> Full Collapse (It'll aggresively try to power off as much cpu cores as possible, improving battery life in deep sleep)
+#pm.sleep_mode=2 -> Sleep (CPU is still on, but put into low power mode, all registers are still saved, thus all apps are in fact working and they're not suspended)
+#pm.sleep_mode=3 -> Slow Clock And Wait For Interrupt (Lower frequency and lower voltage. May be ultra useful for disabling wakeup lag for some users)
+#pm.sleep_mode=4 -> Wait For Interrupt (No deep sleep at all, same as you'd keep screen on whole the time. Drains battery a lot)
+#
+# 4 > 3 > 2 > 0 (Default) > 1
+# Performance > Battery
+#
 pm.sleep_mode=1
 ro.ril.power.collapse=1
 ro.ril.disable.power.collapse=0

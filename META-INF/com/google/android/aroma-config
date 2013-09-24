@@ -104,7 +104,6 @@ form(
   "langs/pl.lang","Polish","Polski","select"
 );
 
-alert("ArchiDroid Detect",file_getprop("/tmp/aroma-data/lang.prop","language"),"@info");
 loadlang(file_getprop("/tmp/aroma-data/lang.prop","language"));
 
 agreebox(
@@ -450,13 +449,6 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
     "buildtweaks","Add build.prop Tweaks","Deeper sleep and disable debug to improve performance","check.checked",
     "openpdroid","OpenPDroid [EXPERIMENTAL]","Apply OpenPDroid patch after install if available","check",
     "nocell","Remove Cell Broadcasts","In general considered as bloatware. Uncheck if you want to keep this","check.checked"
-  );
-
-  textbox(
-   "DEBUG",
-   "Form generated prop file",
-   "@update",
-   readtmpfile("archidroid.prop")
   );
 
   ### ArchiDroid Extra ###

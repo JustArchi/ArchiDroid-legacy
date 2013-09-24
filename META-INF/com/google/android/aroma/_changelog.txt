@@ -1,4 +1,9 @@
 ArchiDroid 2.1.6
+- All custom keyboards (including hacker's and touchpal) are now installed as SYSTEM apps, not user apps.
+# This change was borrowed from ArchiDroid 1.X, thanks to @qgp from my local polish android forum.
+# A keyboard is required to decrypt encrypted /data partition, and thus it's impossible to do so without a keyboard available as system app.
+# Full wipe is not required but I advise to manualy delete TouchPal and/or Hacker's keyboard from /data/app because it may be doubled now.
+
 - Updated App Settings (Xposed Module) to 1.5
 - Updated Googy Max kernel to 1.7.3
 - Updated PhilZ Touch Recovery to 5.15.0

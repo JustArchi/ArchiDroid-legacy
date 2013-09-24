@@ -1,0 +1,126 @@
+﻿### LICENSE:
+#
+# Copyright (C) 2011 Ahmad Amarullah ( http://amarullz.com/ )
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+### LANGUAGE STRING RESOURCE FILE
+#
+#   Language  : German
+#   By        : beyerservice
+#
+# nothing jet. just testing and asking...
+# neet to test that german letters ( ö ä ü )
+#
+#--- COMMON SYSTEM STRING RESOURCE
+#
+text_ok=OK
+text_next=Weiter
+text_back=Zurück
+text_yes=Ja
+text_no=Nein
+text_about=Über
+text_calibrating=Calibrating Tools
+text_quit=Installation Beenden
+text_quit_msg=Willst du die Installation wirklich abbrechen?
+
+#
+#-- CUSTOM STRING RESOURCE
+#
+common.for=for
+terms.check=I Agree with Terms and Conditions
+terms.confirm=Please check the agreement
+terms.check2=I totally respect that
+terms.confirm2=Respect the devs!
+
+
+archidroid.tos=ArchiDroid Terms and Conditions
+archidroid.detect.fail=ArchiDroid could not detect itself being running. Did you make full wipe or you're coming from other ROM?
+archidroid.detect.fail.yes=Ja, ich habe kein ArchiDroid
+archidroid.detect.fail.no=Nein, ich habe ArchiDroid!
+archidroid.detect.fail.alert.yes=OK, I've selected ArchiDroid Install mode for you then.
+archidroid.detect.fail.alert.no=That's not good. I'll fake results but do not use Update mode if you don't have ArchiDroid running!
+archidroid.detect.pass=ArchiDroid successfully detected itself being running. Would you like to try Update mode?
+archidroid.detect.pass.yes=Yes, Try Update
+archidroid.detect.pass.no=No, Full Wipe
+archidroid.detect.pass.alert.yes=OK, I'll try Update mode. But please select full wipe in case of issues
+archidroid.detect.pass.alert.no=OK, I'll proceed with full wipe and ArchiDroid Install mode
+archidroid.preset=ArchiDroid Installation Preset
+archidroid.preset.desc=Please select installation preset:
+archidroid.preset.group=Preset
+archidroid.preset.custom=Custom
+archidroid.preset.custom.desc=You'll be able to customize every aspect of the installation
+archidroid.preset.barebones=Bare Bones
+archidroid.preset.barebones.desc=Clean CyanogenMod. Only for testing purposes, not recommended
+archidroid.preset.archi=Archi
+archidroid.preset.archi.desc=A profile for me for faster flashing
+archidroid.custom=ArchiDroid Customization
+archidroid.custom.desc=Please modify settings to your liking
+archidroid.kernel.temasek.desc=Recommended for perfect peformance, powersave, high flexibility and boeffla sound
+archidroid.kernel.yank.desc=Recommended as an alternative to Temasek
+archidroid.kernel.googy.desc=Based on Siyah sources. Unique for dual-boot feature
+archidroid.kernel.stock.desc=Comes as a default kernel with CM
+archidroid.dpi.240.desc=WARNING! Keep in mind some minor graphic glitches on this DPI
+archidroid.dpi.241.desc=Everything will be smaller, it includes buttons, icons, texts etc. Suggested for best experience with ArchiDroid!
+archidroid.dpi.280.desc=A nice balance between stock and 240 DPI mode
+archidroid.dpi.320.desc=Stock value
+archidroid.launcher.nova.desc=Recommended for extra flexibility and performance
+archidroid.launcher.stock.desc=Coming from CM, also known as Trebuchet
+archidroid.wizard.reboot=ArchiDroid has been flashed onto your device. Would you like to automatically reboot now?
+
+
+
+archidroid.prepinstall=Bereit zum flashen
+common.flash=Flash
+common.back=Zurück
+
+archidroid.prepinstall.desc=You are now ready to begin installation.\
+Press <b>Flash</b> to start.\
+If you want to review or change any of your installation settings, press <b>Back</b>.
+
+common.finish=Finish
+common.flashing=Flashing
+
+archidroid.install.desc=<b>ArchiDroid</b> is now being installed.\
+Please wait while installation wizard installs your <b>ArchiDroid</b>\
+<b>In case of freezing issues hold on recovery combination and try again</b>
+
+archidroid.install.finish=ArchiDroid wizard successfully flashed <b>ArchiDroid<b>\
+Press <b>Finish</b> to continue.
+
+
+
+
+langtest.multiline=This text is located in langs/en.lang\
+Use backslash before enter to add new line\
+\
+You can also do <b>Formatting</b> inside the language string resource.\
+\
+Thanks for using AROMA Installer
+
+#-- End of string without any backslash for multiline text
+
+
+themes.title=Select Theme
+themes.desc=Please select installer theme that you want to use in this installation test:
+
+welcome.title=Welcome
+welcome.text1=You are about to Installing
+welcome.text2=AROMA Installer was the first and the only Touch and Customizable ANDROID ROM Installer in the World.
+welcome.version=VERSION
+welcome.codename=CODENAME
+welcome.updated=UPDATED
+welcome.next=Press Next to Continue the Installation...
+
+changelog.title=Changelog
+changelog.desc=AROMA Installer Changelog

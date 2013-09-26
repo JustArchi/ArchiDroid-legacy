@@ -14,14 +14,25 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+#
+#
+### ArchiDroid Language File
+#
+# How to create your own language translation
+# 1. Copy en.lang file to your own language.lang, f.e. fr.lang if you're creating French language.
+# 2. Start translating strings (everything after "=" should be translated)
+# 3. Change language and author information below when you're done
+# 4. Send pull request with your updated strings, wait for approval and adding to aroma
+# 5. Thank you for contributing to ArchiDroid project!
+#
 ### LANGUAGE STRING RESOURCE FILE
 #
 #   Language  : English
-#   By        : amarullz
+#   By        : JustArchi
 #
 
 #
-#--- COMMON SYSTEM STRING RESOURCE
+#--- AROMA STRINGS
 #
 text_ok=OK
 text_next=Next
@@ -34,16 +45,20 @@ text_quit=Quit Installation
 text_quit_msg=Are you sure to quit the installer?
 
 #
-#-- CUSTOM STRING RESOURCE
+#-- ARCHIDROID STRINGS
 #
 common.for=for
-terms.check=I Agree with Terms and Conditions
-terms.confirm=Please check the agreement
-terms.check2=I totally respect that
+common.inverted=Inverted
+common.experimental=EXPERIMENTAL
+common.deprecated=DEPRECATED
+common.obsolete=OBSOLETE
+terms.check=I agree with Terms and Conditions
+terms.confirm=Please check the agreement!
+terms.check2=I fully understand and respect that
 terms.confirm2=Respect the devs!
 
-
 archidroid.tos=ArchiDroid Terms and Conditions
+
 archidroid.detect.fail=ArchiDroid could not detect itself being running. Did you make full wipe or you're coming from other ROM?
 archidroid.detect.fail.yes=Yes, I don't have ArchiDroid
 archidroid.detect.fail.no=No, I'm running ArchiDroid!
@@ -54,6 +69,7 @@ archidroid.detect.pass.yes=Yes, Try Update
 archidroid.detect.pass.no=No, Full Wipe
 archidroid.detect.pass.alert.yes=OK, I'll try Update mode. But please select full wipe in case of issues
 archidroid.detect.pass.alert.no=OK, I'll proceed with full wipe and ArchiDroid Install mode
+
 archidroid.preset=ArchiDroid Installation Preset
 archidroid.preset.desc=Please select installation preset:
 archidroid.preset.group=Preset
@@ -63,21 +79,79 @@ archidroid.preset.barebones=Bare Bones
 archidroid.preset.barebones.desc=Clean CyanogenMod. Only for testing purposes, not recommended
 archidroid.preset.archi=Archi
 archidroid.preset.archi.desc=A profile for me for faster flashing
+
 archidroid.custom=ArchiDroid Customization
+archidroid.custom.extra=ArchiDroid Extra Customization
 archidroid.custom.desc=Please modify settings to your liking
+
 archidroid.kernel.temasek.desc=Recommended for perfect peformance, powersave, high flexibility and boeffla sound
 archidroid.kernel.yank.desc=Recommended as an alternative to Temasek
 archidroid.kernel.googy.desc=Based on Siyah sources. Unique for dual-boot feature
 archidroid.kernel.stock.desc=Comes as a default kernel with CM
+
 archidroid.dpi.240.desc=WARNING! Keep in mind some minor graphic glitches on this DPI
 archidroid.dpi.241.desc=Everything will be smaller, it includes buttons, icons, texts etc. Suggested for best experience with ArchiDroid!
 archidroid.dpi.280.desc=A nice balance between stock and 240 DPI mode
 archidroid.dpi.320.desc=Stock value
+
 archidroid.launcher.nova.desc=Recommended for extra flexibility and performance
 archidroid.launcher.stock.desc=Coming from CM, also known as Trebuchet
+
+archidroid.keyboard=Keyboard
+archidroid.keyboard.touchpal.desc=Recommended as great and very flexible Swype/Curve keyboard
+archidroid.keyboard.hackers.desc=Great alternative to TouchPal if you're not going to use swype/curve function
+archidroid.keyboard.both.desc=If you want to use both TouchPal and Hacker's (for example in terminal)
+archidroid.keyboard.stock.desc=If you want to keep default CM keyboard
+
+archidroid.other=Other
+archidroid.ota.desc=Recommended by ArchiDroid. We'll install UpdateMe apk and enable OTA updates via build.prop
+archidroid.xposed.desc=Allows using various of Xposed modules. Needs to be enabled manualy
+archidroid.crossbreeder.desc=Recommended for extra performance and flexibility, not compatible with Seeder
+archidroid.updatemodem=Update Modem
+archidroid.updatemodem.desc=If you want to have latest modem
+archidroid.updaterecovery=Update Recovery
+archidroid.updaterecovery.desc=If you want to have latest recovery
+
+archidroid.gapps.desc=Core functions and apps from Google. DON'T DESELECT THIS
+archidroid.gapps.gquick.desc=May break Google Voice!
+
+archidroid.apps.titaniumbackup.desc=Perfect solution for saving personal/app data between updates
+archidroid.apps.zram.desc=Useful if you want to monitor your zram usage (only available in custom kernels)
+archidroid.apps.greenify.desc=Useful if you want to hibernate any app, which saves your battery
+archidroid.apps.lmt.desc=Useful tool for executing a command binded to specific gesture on the screen, also known as pie from SlimBean
+archidroid.apps.mxplayer.desc=Probably best video player for Android
+archidroid.apps.spiritfm.desc=Free FM radio app working with CM
+archidroid.apps.bbs.desc=Gives you power to view more specific battery stats - especially wakelocks
+archidroid.apps.cooltool.desc=Shows some useful statistics on the top bar
+archidroid.apps.rootbrowser.desc=Very cool browser extended by optional root access
+archidroid.apps.adobeflash.desc=Adds flash content support. Does not work with Google Chrome
+archidroid.apps.youtube.desc=Inverted version of YouTube app
+archidroid.apps.facebook.desc=Inverted version of Facebook and Messenger
+
+archidroid.tweaks.logcat.desc=Changes default bootaimation to logcat output - powered by logcat lite
+archidroid.tweaks.hdvoice.desc=Enables HD Voice if available
+archidroid.tweaks.buildtweaks.desc=Many build.prop tweaks, including deeper sleep, performance tweaks and more
+archidroid.tweaks.openpdroid.desc=Apply OpenPDroid patch after install if available
+archidroid.tweaks.nocell.desc=In general considered as bloatware. Uncheck if you want to keep this
+
+archidroid.temasek.balanced=ArchiDroid Balanced Config
+archidroid.temasek.balanced.desc=Based on Optimized zzmoove, zram, boeffla sound and more. Obsolete since zzmoove 0.7
+archidroid.temasek.powersave=ArchiDroid PowerSave Config
+archidroid.temasek.powersave.desc=Highly powersave config based on Yank's Battery zzmoove with lower hotplugging
+archidroid.temasek.ultra=ArchiDroid ULTRA PowerSave Config
+archidroid.temasek.ultra.desc=ULTRA powersave config based on Archi's Ultra Battery zzmoove with LCDFreq
+archidroid.temasek.no=No Config
+archidroid.temasek.no.desc=Not recommended because you'll miss most of the kernel optimization
+
+archidroid.boeffla.yesarchi=Yes with Archi's Audiophile
+archidroid.boeffla.yesarchi.desc=Highly recommended. It enhances audio quality by installing Boeffla SC and tweaking according to Archi's taste
+archidroid.boeffla.yes.desc=If you want to create your own Boeffla SC preset later
+archidroid.boeffla.no.desc=If you don't want to install Boeffla SC
+
+archidroid.xposed.appsettings.desc=Allows changing app settings. Extremely useful tool
+archidroid.xposed.xprivacy.desc=Perfect module which prevents leaking of private data, restricts access and more
+
 archidroid.wizard.reboot=ArchiDroid has been flashed onto your device. Would you like to automatically reboot now?
-
-
 
 archidroid.prepinstall=Ready for flashing
 common.flash=Flash
@@ -96,30 +170,3 @@ Please wait while installation wizard installs your <b>ArchiDroid</b>\
 
 archidroid.install.finish=ArchiDroid wizard successfully flashed <b>ArchiDroid<b>\
 Press <b>Finish</b> to continue.
-
-
-
-
-langtest.multiline=This text is located in langs/en.lang\
-Use backslash before enter to add new line\
-\
-You can also do <b>Formatting</b> inside the language string resource.\
-\
-Thanks for using AROMA Installer
-
-#-- End of string without any backslash for multiline text
-
-
-themes.title=Select Theme
-themes.desc=Please select installer theme that you want to use in this installation test:
-
-welcome.title=Welcome
-welcome.text1=You are about to Installing
-welcome.text2=AROMA Installer was the first and the only Touch and Customizable ANDROID ROM Installer in the World.
-welcome.version=VERSION
-welcome.codename=CODENAME
-welcome.updated=UPDATED
-welcome.next=Press Next to Continue the Installation...
-
-changelog.title=Changelog
-changelog.desc=AROMA Installer Changelog

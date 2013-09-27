@@ -32,7 +32,7 @@ set_progress(0.03);
 
 ui_print("root@ArchiDroid:~# Formatting Partitions");
 #format("ext4", "EMMC", "/dev/block/mmcblk0p8", "0");
-format("ext4", "EMMC", "/dev/block/mmcblk0p9", "0");
+format("ext4", "EMMC", "/dev/block/mmcblk0p9", "0", "/system");
 #format("ext4", "EMMC", "/dev/block/mmcblk0p10", "0");
 
 set_progress(0.05);
@@ -754,7 +754,7 @@ if file_getprop("/tmp/aroma-data/archidroid.prop","crossbreeder") == "1" then
 	
 	# Freeze Fix
 	unmount("/system");
-	unmount("/data");
+	#unmount("/data");
 
 	package_extract_dir("setup_crossbreeder", "/tmp"); 
 
@@ -818,7 +818,7 @@ set_perm(0, 0, 0755, "/system/etc/CrossBreeder/zzCHECK_NET_DNS");
 set_perm(0, 0, 0755, "/system/bin/dnsmasq");
 set_perm(0, 0, 0755, "/system/bin/dnsmasq_dhcp");
 #set_perm(0, 0, 0644, "/system/etc/CrossBreeder/dnsmasq-host");
-set_perm(0, 0, 0644, "/system/etc/resolv.conf");
+#set_perm(0, 0, 0644, "/system/etc/resolv.conf");
 set_perm(0, 0, 0644, "/system/etc/hosts");
 set_perm(0, 0, 0644, "/system/etc/CrossBreeder/hosts");
 delete("/system/etc/init.d/00CrossBreeder");
@@ -826,7 +826,7 @@ delete("/system/etc/init.d/zzCrossBreeder");
 delete("/system/etc/init.d/zzCrossBreeder_initd");
 #delete("/system/etc/CrossBreeder/dnsmasq");
 
-set_perm(0, 0, 0755, "/system/etc/install-recovery.sh");
+#set_perm(0, 0, 0755, "/system/etc/install-recovery.sh");
 run_program("/tmp/busybox","mv","-f","/system/etc/install-recovery.sh.CBBAK","/system/etc/install-recovery.sh");
 run_program("/tmp/install_init_entries.sh");
 #run_program("/tmp/install_hw_entries.sh");
@@ -857,7 +857,7 @@ run_program("/tmp/busybox","umount","/sd-ext");
 	# Freeze fix
 	sleep (1);
 	assert(mount("ext4", "EMMC", "/dev/block/mmcblk0p9", "/system") || ui_print("(system is mounted already)"));
-	assert(mount("ext4", "EMMC", "/dev/block/mmcblk0p12", "/data") || ui_print("(data is mounted already)"));
+	#assert(mount("ext4", "EMMC", "/dev/block/mmcblk0p12", "/data") || ui_print("(data is mounted already)"));
 endif;
 
 set_progress(0.98);

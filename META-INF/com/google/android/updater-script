@@ -12,9 +12,9 @@ sleep (2);
 
 ui_print("root@ArchiDroid:~# Unmounting Partitions");
 assert(unmount("/system") || ui_print("(system is unmounted already)"));
-assert(unmount("/data") || ui_print("(data is unmounted already)"));
-assert(unmount("/cache") || ui_print("(cache is unmounted already)"));
-assert(unmount("/preload") || ui_print("(preload is unmounted already)"));
+#assert(unmount("/data") || ui_print("(data is unmounted already)"));
+#assert(unmount("/cache") || ui_print("(cache is unmounted already)"));
+#assert(unmount("/preload") || ui_print("(preload is unmounted already)"));
 
 set_progress(0.02);
 
@@ -31,17 +31,17 @@ endif;
 set_progress(0.03);
 
 ui_print("root@ArchiDroid:~# Formatting Partitions");
-format("ext4", "EMMC", "/dev/block/mmcblk0p8", "0");
+#format("ext4", "EMMC", "/dev/block/mmcblk0p8", "0");
 format("ext4", "EMMC", "/dev/block/mmcblk0p9", "0");
-format("ext4", "EMMC", "/dev/block/mmcblk0p10", "0");
+#format("ext4", "EMMC", "/dev/block/mmcblk0p10", "0");
 
 set_progress(0.05);
 
 ui_print("root@ArchiDroid:~# Checking Partitions For Errors");
-run_program("/sbin/e2fsck", "-p", "/dev/block/mmcblk0p8");
+#run_program("/sbin/e2fsck", "-p", "/dev/block/mmcblk0p8");
 run_program("/sbin/e2fsck", "-p", "/dev/block/mmcblk0p9");
-run_program("/sbin/e2fsck", "-p", "/dev/block/mmcblk0p10");
-run_program("/sbin/e2fsck", "-p", "/dev/block/mmcblk0p12");
+#run_program("/sbin/e2fsck", "-p", "/dev/block/mmcblk0p10");
+#run_program("/sbin/e2fsck", "-p", "/dev/block/mmcblk0p12");
 
 set_progress(0.06);
 
@@ -50,8 +50,8 @@ assert(mount("ext4", "EMMC", "/dev/block/mmcblk0p9", "/system") || ui_print("(sy
 assert(mount("ext4", "EMMC", "/dev/block/mmcblk0p12", "/data") || ui_print("(data is mounted already)"));
 
 set_progress(0.07);
-package_extract_file("_archidroid/scripts/bash", "/tmp/bash");
-set_perm(0, 0, 0777, "/tmp/bash");
+#package_extract_file("_archidroid/scripts/bash", "/tmp/bash");
+#set_perm(0, 0, 0777, "/tmp/bash");
 
 if file_getprop("/tmp/aroma-data/archidroidwipe.prop","wipe") == "yes" then
 	ui_print("root@ArchiDroid:~# Formatting /data excluding /data/media");
@@ -72,11 +72,18 @@ endif;
 ui_print("root@ArchiDroid:~# Executing Archi's Scripts");
 package_extract_file("_archidroid/scripts/archidroid.sh", "/tmp/archidroid.sh");
 set_perm(0, 0, 0777, "/tmp/archidroid.sh");
+run_program("/tmp/archidroid.sh");
 
 if file_getprop("/tmp/aroma-data/archidroidwipe.prop","wipe") == "yes" then
-	run_program("/tmp/archidroid.sh", "install");
+  ui_print("RunOnce@ArchiDroid:~# Install Mode Detected");
+  package_extract_file("_archidroid/scripts/archidroid_install.sh", "/tmp/archidroid_install.sh");
+  set_perm(0, 0, 0777, "/tmp/archidroid_install.sh");
+	run_program("/tmp/archidroid_install.sh");
 else
-	run_program("/tmp/archidroid.sh", "update");
+  ui_print("RunOnce@ArchiDroid:~# Update Mode Detected");
+  package_extract_file("_archidroid/scripts/archidroid_update.sh", "/tmp/archidroid_update.sh");
+  set_perm(0, 0, 0777, "/tmp/archidroid_update.sh");
+	run_program("/tmp/archidroid_update.sh");
 endif;
 
 set_progress(0.09);
@@ -88,9 +95,6 @@ show_progress(0.4, 1212);
 package_extract_dir("system", "/system");
 
 run_program("/sbin/sync");
-
-ui_print("root@ArchiDroid:~# Flashing CSC content");
-#package_extract_dir("additions/sec_csc/system", "/system");
 
 set_progress(0.51);
 

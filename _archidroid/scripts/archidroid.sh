@@ -1,4 +1,4 @@
-#!/tmp/bash
+#!/sbin/sh
 
 if [ ! -d /data/media/0 ]; then
 	if [ -f /data/media/0 ]; then
@@ -8,10 +8,6 @@ if [ ! -d /data/media/0 ]; then
 	FILES=`ls`
 	mkdir -p /data/media/0
 	
-	# Just to be sure
-	mkdir -p /data/media/obb
-	mkdir -p /data/media/legacy
-	
 	for i in $FILES; do
 		mv "$i" 0/
 	done
@@ -19,19 +15,9 @@ fi
 
 if [ ! -d /data/media/0/ArchiDroid ]; then
 	mkdir -p /data/media/0/ArchiDroid
+else
+  echo "" > /data/media/0/ArchiDroid/err.log
 fi
-
-case "$1" in
-  install)
-	touch /data/media/0/ArchiDroid/INSTALL
-  ;;
-  update)
-    touch /data/media/0/ArchiDroid/UPDATE
-  ;;
-  *)
-    echo "Error 1"
-    exit 1
-esac
 
 # Force EFS Backup
 if [ ! -d /data/media/0/ArchiDroid/Backups ]; then

@@ -1,0 +1,172 @@
+﻿### LICENSE:
+#
+# Copyright (C) 2011 Ahmad Amarullah ( http://amarullz.com/ )
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+#
+#
+### ArchiDroid Language File
+#
+# How to create your own language translation
+# 1. Copy en.lang file to your own language.lang, f.e. fr.lang if you're creating French language.
+# 2. Start translating strings (everything after "=" should be translated)
+# 3. Change language and author information below when you're done
+# 4. Send pull request with your updated strings, wait for approval and adding to aroma
+# 5. Thank you for contributing to ArchiDroid project!
+#
+### LANGUAGE STRING RESOURCE FILE
+#
+#   Language  : Turkish
+#   By        : ZiR0
+#
+
+#
+#--- AROMA STRINGS
+#
+text_ok=Tamam
+text_next=Ileri
+text_back=Geri
+text_yes=Evet
+text_no=Hayir
+text_about=Hakkinda
+text_calibrating=Kalibrasyon Araclari
+text_quit=Yukleyiciden Cikis
+text_quit_msg=Cikmak istediginize emin misiniz?
+
+#
+#-- ARCHIDROID STRINGS
+#
+common.for=for
+common.inverted=Inverted
+common.experimental=EXPERIMENTAL
+common.deprecated=DEPRECATED
+common.obsolete=OBSOLETE
+terms.check=Sart ve Kosullari kabul ediyorum.
+terms.confirm=Sozlesmeyi kabul edin!
+terms.check2=Tamamen katiliyor ve onayliyorum.
+terms.confirm2=Yazilimcilara Saygi Gosterin!
+
+archidroid.tos=ArchiDroid Sart ve Kosullar
+
+archidroid.detect.fail=ArchiDroid could not detect itself being running. Did you make full wipe or you're coming from other ROM?
+archidroid.detect.fail.yes=Yes, I don't have ArchiDroid
+archidroid.detect.fail.no=No, I'm running ArchiDroid!
+archidroid.detect.fail.alert.yes=OK, I've selected ArchiDroid Install mode for you then.
+archidroid.detect.fail.alert.no=That's not good. I'll fake results but do not use Update mode if you don't have ArchiDroid running!
+archidroid.detect.pass=ArchiDroid successfully detected itself being running. Would you like to try Update mode?
+archidroid.detect.pass.yes=Yes, Try Update
+archidroid.detect.pass.no=No, Full Wipe
+archidroid.detect.pass.alert.yes=OK, I'll try Update mode. But please select full wipe in case of issues
+archidroid.detect.pass.alert.no=OK, I'll proceed with full wipe and ArchiDroid Install mode
+
+archidroid.preset=ArchiDroid Yukleyici Profili
+archidroid.preset.desc=Lutfen bir profil secin:
+archidroid.preset.group=Hazir profil
+archidroid.preset.custom=Ozellestirilebilir
+archidroid.preset.custom.desc=Kendi ayarlamalarinizi yapin
+archidroid.preset.barebones=Yalin
+archidroid.preset.barebones.desc=Saf CyanogenMod. Test amaclidir, onerilmez
+archidroid.preset.archi=Archi
+archidroid.preset.archi.desc=Archi'nin ayarlarini cabucak yukleyen profil
+
+archidroid.custom=ArchiDroid Ozellestirici
+archidroid.custom.extra=ArchiDroid Ekstra Ozellestirme
+archidroid.custom.desc=Lutfen kullanim tarziniza gore ozellestirin
+
+archidroid.kernel.temasek.desc=Performans, uzun sarz, yuksek esneklik ve boeffla ses profili
+archidroid.kernel.yank.desc=Temasek'e alternatif olarak onerilir
+archidroid.kernel.googy.desc=Siyah tabanlı dualboot -cift rom- icin onerilir
+archidroid.kernel.stock.desc=CM ile birlikte gelen stok kernel
+
+archidroid.dpi.240.desc=DIKKAT! Bu DPi seciminde bazi goruntu aksakliklari meydana gelebilir
+archidroid.dpi.241.desc=Hersey daha kucuk olacak. Yazilar, butonlar, genel gorunum. ArchiDroid icin en uygun olani!
+archidroid.dpi.280.desc=Stok ile 240 DPi arasindaki dengeli secim
+archidroid.dpi.320.desc=Stok
+
+archidroid.launcher.nova.desc=Yuksek performans ve esneklik
+archidroid.launcher.stock.desc=CM baslaticisi, Trebuchet.
+
+archidroid.keyboard=Klavye
+archidroid.keyboard.touchpal.desc=Oldukca esnek kaydirarak yazma secenegi olan onerilen klavye
+archidroid.keyboard.hackers.desc=Touchpal alternatifi. Kaydirarak yazma kullanmayacaksaniz onerilir
+archidroid.keyboard.both.desc=Iki klavyeyi de ayni anda kullanmak isteyenler icin
+archidroid.keyboard.stock.desc=CM kendi klavyesi
+
+archidroid.other=Diger
+archidroid.ota.desc=ArchiDroid onerilir. UpdateMe sayesinde OTA guncellemelerini alabileceksiniz
+archidroid.xposed.desc=Cesitli Xposed modullerini kontrol eder. El ile aktiflestirilmelidir
+archidroid.crossbreeder.desc=Ekstra performans ve esneklik icin onerilir, Seeder ile uyumsuzdur
+archidroid.updatemodem=Modem Guncelle
+archidroid.updatemodem.desc=En son modemi yuklemek isterseiz secin
+archidroid.updaterecovery=Recovery Guncelle
+archidroid.updaterecovery.desc=Yeni bir recovery isterseniz secin
+
+archidroid.gapps.desc=Gerekli Google ana bilesenleri. Mutlaka SECIN!
+archidroid.gapps.gquick.desc=Google Voice hata verebilir
+
+archidroid.apps.titaniumbackup.desc=Uygulama yedekleme ve geri yukleme
+archidroid.apps.zram.desc=ZRAM kullanimini goruntuler (sadece ucuncu parti kernellerde)
+archidroid.apps.greenify.desc=Sarz performansina katkida bulunan calisan uygulama uyutucu
+archidroid.apps.lmt.desc=Ekran hareketleri ile komut verme, Slimbean'deki pie
+archidroid.apps.mxplayer.desc=En iyi video oynatici
+archidroid.apps.spiritfm.desc=CM radyo
+archidroid.apps.bbs.desc=Daha spesifik pil monitoru ve uyanma detektoru
+archidroid.apps.cooltool.desc=Durum cubugunda sistem ile ilgili bilgiler
+archidroid.apps.rootbrowser.desc=Root ozellikli dosya yonetici
+archidroid.apps.adobeflash.desc=Chrome ile calismayan flash player
+archidroid.apps.youtube.desc=Youtube renkleri ters cevir
+archidroid.apps.facebook.desc=Facebook ve messenger renklerini ters cevir
+
+archidroid.tweaks.logcat.desc=Baslangic animasyonunu kutuk gosterici olarak degistir
+archidroid.tweaks.hdvoice.desc=Mumkun oldugunda HD sesi aktiflestirir
+archidroid.tweaks.buildtweaks.desc=Pekcok build.prop ayarlamalari, performans ve sarz duzenlemeleri
+archidroid.tweaks.openpdroid.desc=Mumkunse yukleme sonrasında OpenPDroid yamasi uygula
+archidroid.tweaks.nocell.desc=Bloatware olarak kabul edilir. Kalmasini istiyorsaniz secmeyin
+
+archidroid.temasek.balanced=ArchiDroid Dengeli Yapilandirma
+archidroid.temasek.balanced.desc=Optimize edilmis zzmoove, zram, boeffla ses ve fazlasi. zzmoove 0.7 den bu yana eskidi
+archidroid.temasek.powersave=ArchiDroid Guc Tasarrufu Yapilandirmasi
+archidroid.temasek.powersave.desc=Yuksek guc tasarruflu Yank's Battery zzmoove profili
+archidroid.temasek.ultra=ArchiDroid Ultra Yuksek Guc Tasarrufu Yapilandirmasi
+archidroid.temasek.ultra.desc=Cok yuksek guc tasarrufu saglayan Archi's Ultra Battery zzmoove profili
+archidroid.temasek.no=Yapilandirma yok
+archidroid.temasek.no.desc=Kernel optimizasyonlarinin cogu yapilmayacagindan onerilmez
+
+archidroid.boeffla.yesarchi=Evet Archi'nin ses duzenlemesi
+archidroid.boeffla.yesarchi.desc=Archi'nin kendi duzenledigi ses profili, onerilir
+archidroid.boeffla.yes.desc=Boefflayi kendiniz duzenlemek istiyorsaniz sein
+archidroid.boeffla.no.desc=Boeffla ses kontrol kullanmamak istiyorsaniz secin
+
+archidroid.xposed.appsettings.desc=Uygulama calisma ayarlarini ayarlayabilirsiniz, onerilir
+archidroid.xposed.xprivacy.desc=Uygulama izinlerini kontrol etmenizi saglar
+
+archidroid.wizard.reboot=Archidroid basariyla yuklendi. Cihazinizi yeniden baslatmak ister misiniz?
+
+archidroid.prepinstall=Ready for flashing
+common.flash=Flash
+common.back=Back
+
+archidroid.prepinstall.desc=You are now ready to begin installation.\
+Press <b>Flash</b> to start.\
+If you want to review or change any of your installation settings, press <b>Back</b>.
+
+common.finish=Son
+common.flashing=Flashliyor
+
+archidroid.install.desc=<b>ArchiDroid</b> suan yukleniyor\
+Lutfen <b>ArchiDroid</b> yuklenene kadar bekleyin\
+<b>Yukleme sirasinda donma meydana gelirse uc tus kombinasyonu ile yeniden baslayin</b>
+
+archidroid.install.finish=ArchiDroid sihirbazi <b>ArchiDroid<b>i basariyla yukledi\
+Devam etmek icin <b>Son</b> butonuna dokunun.

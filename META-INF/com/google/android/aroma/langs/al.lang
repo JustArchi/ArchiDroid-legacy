@@ -1,0 +1,175 @@
+### LICENSE:
+#
+# Copyright (C) 2011 Ahmad Amarullah ( http://amarullz.com/ )
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+#
+#
+### ArchiDroid Language File
+#
+# How to create your own language translation
+# 1. Copy en.lang file to your own language.lang, f.e. fr.lang if you're creating French language.
+# 2. Start translating strings (everything after "=" should be translated)
+# 3. Change language and author information below when you're done
+# 4. Send pull request with your updated strings, wait for approval and adding to aroma
+# 5. Thank you for contributing to ArchiDroid project!
+#
+# Please note that you can use language-specific chars, f.e. a e ó c ü n or any non-standard letters.
+# All of them should be displayed properly in aroma
+#
+### LANGUAGE STRING RESOURCE FILE
+#
+#   Language  : Albanian
+#   By        : CEPi
+#
+
+#
+#--- AROMA STRINGS
+#
+text_ok=OK
+text_next=Vazhdo
+text_back=Kthehu
+text_yes=Po
+text_no=Jo
+text_about=Info
+text_calibrating=Mjete Kalibrimi
+text_quit=Anulo Instalimin
+text_quit_msg=Jeni te sigurt mbi anulimin e instalimit?
+
+#
+#-- ARCHIDROID STRINGS
+#
+common.for=per
+common.inverted=Invertuar
+common.experimental=EKSPERIMENTAL
+common.deprecated=TEJKALUAR
+common.obsolete=PERFUNDUAR
+terms.check=Pajtohem me kushtet e perdorimit
+terms.confirm=Ju lutem lexoni kushtet
+terms.check2=Kuptoj dhe respektoj!
+terms.confirm2=Respekto zhvilluesit
+
+archidroid.tos=ArchiDroid Kushtet e perdorimit
+
+archidroid.detect.fail=ArchiDroid nuk detektoje vehten. A keni bere Full Wipe apo vini nga nje ROM tjeter?
+archidroid.detect.fail.yes=Po, nuk kam ArchiDroid
+archidroid.detect.fail.no=Jo, une kam ArchiDroid!
+archidroid.detect.fail.alert.yes=OK, kam selektuar ArchiDroid Instalimin per ju.
+archidroid.detect.fail.alert.no=Nuk eshte ne rregull. Do tejap rezultat falso, por mos perdor Update nese nuk ke ArchiDroid!
+archidroid.detect.pass=ArchiDroid ka detektuar vehten. Deshironi te perdorni Update?
+archidroid.detect.pass.yes=Po, provo update.
+archidroid.detect.pass.no=Jo, vazhdo me Full Wipe.
+archidroid.detect.pass.alert.yes=OK, do provoj Update. Por ju lutem selekto Full Wipe nese ke probleme.
+archidroid.detect.pass.alert.no=OK, do vazhdoje me Full Wipe dhe instalim te ArchiDroid.
+
+archidroid.preset=ArchiDroid opcionet e instalimit
+archidroid.preset.desc=Selekto opcionet e instalimit:
+archidroid.preset.group=Te zgjedhura
+archidroid.preset.custom=Individuale
+archidroid.preset.custom.desc=Keni mundesi te ndryshoni te gjitha aspektet e instalimit
+archidroid.preset.barebones=Minimal
+archidroid.preset.barebones.desc=Pastro CyanogenMod. Vetem per testim, nuk rekomandohet
+archidroid.preset.archi=Archi
+archidroid.preset.archi.desc=Profil per mua, per instalim te shpejte
+
+archidroid.custom=ArchiDroid Kustomizimi
+archidroid.custom.extra=ArchiDroid Ekstra Kustomizimi
+archidroid.custom.desc=Modifiko opcionet sipas deshires
+
+archidroid.kernel.temasek.desc=Rekomandohet per performanse te mire, shpenzim te vogel te baterise, fleksibilit dhe boeffla zerim
+archidroid.kernel.yank.desc=Rekomandohet si alternative e Temasek
+archidroid.kernel.googy.desc=Bazuar ne Siyah kod. Dual-boot i dyfisht
+archidroid.kernel.stock.desc=Vjen si berthame standarde ne CM
+
+archidroid.dpi.240.desc=KUJDES! Disa gabime ne grafike dhe rezolucion DPI
+archidroid.dpi.241.desc=Cdo gje do te jete me e vogel, si butonat, ikonat, teksit etj. Rekomandohet per funksionimin me te mire ne ArchiDroid!
+archidroid.dpi.280.desc=Balanc mes normales dhe 240 DPI
+archidroid.dpi.320.desc=Vlera normale
+
+archidroid.launcher.nova.desc=Rekomandohet per ekstra fleksibilitet dhe performanse
+archidroid.launcher.stock.desc=Nese vjen prej CM, i njohur si Trebuchet
+
+archidroid.keyboard=Tastieri
+archidroid.keyboard.touchpal.desc=Rekomandohet per fleksibilitet sikur Swype/Curve tastier
+archidroid.keyboard.hackers.desc=Alternative e TouchPal nese perdorni swype/curve funksionet
+archidroid.keyboard.both.desc=Nese deshiron te perdorni TouchPal dhe Hacker's (p.sh ne Terminal)
+archidroid.keyboard.stock.desc=Nese deshiront CM tastier standard.
+
+archidroid.other=Tjera
+archidroid.ota.desc=Rekomanduar nga ArchiDroid. Do te instalojme UpdateMe apk dhe OTA azhurimin nga build.prop
+archidroid.xposed.desc=Lejon perdorimin e shume Xposed moduleve. Duhet ta lejoni manualisht
+archidroid.crossbreeder.desc=Rekomandohet per extra performance dhe fleksibilitet, jo kompatibili me Seeder
+archidroid.updatemodem=Update Modemin
+archidroid.updatemodem.desc=Nese deshironi modemin me te ri
+archidroid.updaterecovery=Update Recovery
+archidroid.updaterecovery.desc=Nese deshironi recovery me te ri
+
+archidroid.gapps.desc=Funksionet kryesore dhe aplikacionet nga google. MOS NDRYSHO!
+archidroid.gapps.gquick.desc=Mund ta prishe Google Voice!
+
+archidroid.apps.titaniumbackup.desc=Aplikacion per ruajtje te informatave dhe aplikacioneve
+archidroid.apps.zram.desc=Monitorimi i zram perdorimit (vetem me berthama custom)
+archidroid.apps.greenify.desc=Hibernonin aplikacionet, ruan baterine
+archidroid.apps.lmt.desc=Ekzekutimi i komandave per levizje ne ekran, njfet si Pie nga SlimBean
+archidroid.apps.mxplayer.desc=Video Player me i mire ne Android
+archidroid.apps.spiritfm.desc=FM radio gratis ne CM
+archidroid.apps.bbs.desc=Mundeson shikimin e parametrave specifik per baterine, po ashtu edhe wakelocks
+archidroid.apps.cooltool.desc=Tregon disa statistika ne krye te ekranit
+archidroid.apps.rootbrowser.desc=Browser i shernimeve me root qasje
+archidroid.apps.adobeflash.desc=Ofron Flash perkrahje. Nuk punon me Google Chrome
+archidroid.apps.youtube.desc=YouTube aplikacionie i Invertuar (zi/bardhe)
+archidroid.apps.facebook.desc=Facebook i Invertuar
+
+archidroid.tweaks.logcat.desc=Ndryshon animacionin standard ne boot, ne shkronja - nga logcat lite
+archidroid.tweaks.hdvoice.desc=Mundeson HD zerim, nese perkrahet nga Operatori
+archidroid.tweaks.buildtweaks.desc=Disa avansime ne build.prop tweaks, perfshire fjetje te thelle, performansa me te mira, etj
+archidroid.tweaks.openpdroid.desc=Apliko OpenPDroid patch pas instalimit
+archidroid.tweaks.nocell.desc=Konsiderohet si i pa nevojshem. De-selekto nese doni ta mbani
+
+archidroid.temasek.balanced=ArchiDroid Konfigurimi i Balancuar
+archidroid.temasek.balanced.desc=bazuar ne Optimized zzmoove, zram, boeffla zerim etj. E pa nevojshme nga zzmoove 0.7
+archidroid.temasek.powersave=ArchiDroid Kursimi i energjise
+archidroid.temasek.powersave.desc=Kursimi i energjise, bazuar ne Yank's Battery zzmoove me hotplugging me te ulet
+archidroid.temasek.ultra=ArchiDroid ULTRA Kursimi i Energjise
+archidroid.temasek.ultra.desc=ULTRA Kursimi i energjise bazuar ne Archi's Ultra Battery zzmoove me LCDFreq
+archidroid.temasek.no=Pa konfigurim
+archidroid.temasek.no.desc=Nuk rekomandohet sepse do te ju mungojne optimizimet per berthama
+
+archidroid.boeffla.yesarchi=Po, me Archi's Audiophile
+archidroid.boeffla.yesarchi.desc=Rekomandohet. Avanson qualitetin e zerit duke instaluar Boeffla SC dhe konfigurimin nga Archi
+archidroid.boeffla.yes.desc=nese deshironi ti krijoni konfiguriet e juaja per Boeffla SC
+archidroid.boeffla.no.desc=Nese nuk deshiron te instaloni Boeffla SC
+
+archidroid.xposed.appsettings.desc=Lejon ndryshimin e applikacioneve. Shume e nevojshme
+archidroid.xposed.xprivacy.desc=Modul per parandalimin e rrjedhjes se informatave, ndalon qasjen e aplikacioneve etj
+
+archidroid.wizard.reboot=ArchiDroid eshte instaluar. Deshironi te restartoni tash?
+
+archidroid.prepinstall=gati per instalim
+common.flash=Instalo
+common.back=Kthehu
+
+archidroid.prepinstall.desc=You are now ready to begin installation.\
+Press <b>Flash</b> to start.\
+If you want to review or change any of your installation settings, press <b>Back</b>.
+
+common.finish=Finish
+common.flashing=Flashing
+
+archidroid.install.desc=<b>ArchiDroid</b> is now being installed.\
+Please wait while installation wizard installs your <b>ArchiDroid</b>\
+<b>In case of freezing issues hold on recovery combination and try again</b>
+
+archidroid.install.finish=ArchiDroid wizard successfully flashed <b>ArchiDroid<b>\
+Press <b>Finish</b> to continue.

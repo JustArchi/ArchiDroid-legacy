@@ -66,7 +66,7 @@ archidroid.detect.fail=ArchiDroid nie mógł wykryć poprzedniej instalacji. Czy
 archidroid.detect.fail.yes=Tak, nie mam ArchiDroida
 archidroid.detect.fail.no=Nie, mam ArchiDroida!
 archidroid.detect.fail.alert.yes=OK, wybrałem dla ciebie tryb instalacyjny.
-archidroid.detect.fail.alert.no=To nie dobrze. Sfałszuję wyniki, ale nie wybieraj trybu aktualizacji, jeśli nie posiadasz ArchiDroida!
+archidroid.detect.fail.alert.no=To niedobrze. Sfałszuję wyniki, ale nie wybieraj trybu aktualizacji, jeśli nie posiadasz ArchiDroida!
 archidroid.detect.pass=ArchiDroid pomyślnie wykrył poprzednią instalację. Czy chciałbyś spróbować trybu aktualizacji?
 archidroid.detect.pass.yes=Tak, spróbuj aktualizacji
 archidroid.detect.pass.no=Nie, full wipe
@@ -87,7 +87,7 @@ archidroid.custom=Dostosowywanie ArchiDroid
 archidroid.custom.extra=Dostosywywanie Ekstra ArchiDroid
 archidroid.custom.desc=Zmodyfikuj proszę poniższe ustawienia do Twoich predyspozycji:
 
-archidroid.kernel.temasek.desc=ysoce zalecany dla najlepszej wydajności, elastyczności, oszczędności baterii i jakości audio
+archidroid.kernel.temasek.desc=Wysoce zalecany dla najlepszej wydajności, elastyczności, oszczędności baterii i jakości audio
 archidroid.kernel.yank.desc=Zalecany jako alternatywa dla temaseka
 archidroid.kernel.googy.desc=Bazowany na źródłach Siyah. Unikalny z powodu funkcji dual-boot
 archidroid.kernel.stock.desc=Pochodzący prosto z CyanogenMod
@@ -133,7 +133,7 @@ archidroid.apps.facebook.desc=Ciemna wersja Facebooka i Messengera
 
 archidroid.tweaks.logcat.desc=Zamienia domyślną bootanimację na logcata
 archidroid.tweaks.hdvoice.desc=Włącza HD Voice o ile dostępne
-archidroid.tweaks.buildtweaks.desc=Wiele tweaków build.prop, w tym m.in głębszy sen oraz większa wydajność
+archidroid.tweaks.buildtweaks.desc=Wiele tweaków build.prop, w tym m.in. głębszy sen oraz większa wydajność
 archidroid.tweaks.openpdroid.desc=Spatchuj ROM ze wsparciem dla OpenPDroid o ile dostępny
 archidroid.tweaks.nocell.desc=Generalnie uważane za bloatware. Odznacz jeśli chcesz je zachować
 
@@ -146,7 +146,7 @@ archidroid.temasek.ultra.desc=ULTRA oszczędne dla baterii ustawienia bazowane n
 archidroid.temasek.no=Brak Ustawień
 archidroid.temasek.no.desc=Niezalecane. Stracisz większość optymalizacji i tweakowania kernela
 
-archidroid.boeffla.yesarchi=Tak Z Presetem Archi's Audiophile
+archidroid.boeffla.yesarchi=Tak, z Presetem Archi's Audiophile
 archidroid.boeffla.yesarchi.desc=Wysoce zalecane. Poprawia jakość dźwięku poprzez ustawienia Boeffla SC wg. gustu Archiego
 archidroid.boeffla.yes.desc=Jeśli zamierzasz stworzyć swój własny preset po instalacji
 archidroid.boeffla.no.desc=Jeśli nie chcesz instalować Boeffla SC
@@ -162,14 +162,14 @@ common.back=Wstecz
 
 archidroid.prepinstall.desc=Jesteś teraz gotowy do rozpoczęcia flashowania.\
 Wciśnij <b>Flash</b>, aby rozpocząć.\
-IJeśli chcesz przejrzeć lub zmienić jakiekolwiek ustawienia wciśnij <b>Wstecz</b>.
+Jeśli chcesz przejrzeć lub zmienić jakiekolwiek ustawienia wciśnij <b>Wstecz</b>.
 
 common.finish=Zakończ
 common.flashing=Flashuję
 
 archidroid.install.desc=<b>ArchiDroid</b> właśnie jest instalowany.\
-Poczekaj proszę cierpliwie, aż instalatora sflashuje Twojego <b>ArchiDroid</b>a\
-<b>UWAGA! W przypadku braku postępu przytrzymaj kombinację recovery i spróuj jeszcze raz!</b>
+Poczekaj proszę cierpliwie, aż instalator sflashuje Twojego <b>ArchiDroid</b>a\
+<b>UWAGA! W przypadku braku postępu przytrzymaj kombinację recovery i spróbuj jeszcze raz!</b>
 
 archidroid.install.finish=Instalator ArchiDroid pomyślnie zainstalował <b>ArchiDroid<b>a na Twoim urządzeniu\
 Naciśnij <b>Zakończ</b>, aby kontynuować.

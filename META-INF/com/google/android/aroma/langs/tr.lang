@@ -51,27 +51,27 @@ text_quit_msg=Çıkmak istediğinize emin misiniz?
 #-- ARCHIDROID STRINGS
 #
 common.for=for
-common.inverted=Inverted
-common.experimental=EXPERIMENTAL
-common.deprecated=DEPRECATED
-common.obsolete=OBSOLETE
+common.inverted=Renkler ters çevrilmiş (Inverted)
+common.experimental=DENEYSEL
+common.deprecated=ÖNERİLMEMEKTE
+common.obsolete=ESKİ
 terms.check=Şart ve koşulları kabul ediyorum.
-terms.confirm=Sozleşmeyi kabul edin!
+terms.confirm=Sözleşmeyi kabul edin!
 terms.check2=Tamamen katılıyor ve onaylıyorum.
-terms.confirm2=Yazılımcıya Saygı Gosterin!
+terms.confirm2=Yazılımcıya Saygı Gösterin!
 
 archidroid.tos=ArchiDroid Şart ve Koşullar
 
-archidroid.detect.fail=Mevcut Archidroid yüklemesi bulunamadı. Full wipe mı yapıldı? Farkli bir romdan geçiş mi yapıyorsunuz?
+archidroid.detect.fail=Mevcut ArchiDroid yüklemesi bulunamadı. Tam silme mi yapılsın? Farklı bir ROMdan mı geçmek istiyorsunuz?
 archidroid.detect.fail.yes=Evet, Arcidroid'i ilk defa yükleyeceğim.
-archidroid.detect.fail.no=Hayır, zaten Archidroid yüklü.
-archidroid.detect.fail.alert.yes=Tamam, Archidroid yüklenecek.
-archidroid.detect.fail.alert.no=Ters olan birşey var. Güncellemeyi deneyeceğim ancak Archidroid mevcut değilse kesinlikle önerilmez.
+archidroid.detect.fail.no=Hayır, zaten ArchiDroid yüklü.
+archidroid.detect.fail.alert.yes=Tamam, ArchiDroid yüklenecek.
+archidroid.detect.fail.alert.no=Ters olan bir şeyler var. Güncellemeyi deneyeceğim ancak ArchiDroid mevcut değilse kesinlikle önerilmez.
 archidroid.detect.pass=ArchiDroid yüklemesi başarılı bir şekilde bulundu. Güncellensin mi?
-archidroid.detect.pass.yes=Evet güncellemeyi dene
-archidroid.detect.pass.no=Hayır temiz kurulum yap
-archidroid.detect.pass.alert.yes=Tamam, güncellemeyi deniyorum. Hata alırsanız Archidroid'i temiz kurulum seçeneği ile kurun
-archidroid.detect.pass.alert.no=Tamam, temiz Archidroid yüklemesi başlatılacak
+archidroid.detect.pass.yes=Evet güncellemeyi dene.
+archidroid.detect.pass.no=Hayır, temiz kurulum yap.
+archidroid.detect.pass.alert.yes=Tamam, güncellemeyi deniyorum. Hata alırsanız Archidroid'i temiz kurulum seçeneği ile kurun.
+archidroid.detect.pass.alert.no=Tamam, temiz Archidroid yüklemesi başlatılacak.
 
 archidroid.preset=ArchiDroid Yükleyici Profili
 archidroid.preset.desc=Lütfen bir profil seçin:
@@ -79,22 +79,22 @@ archidroid.preset.group=Hazır profil
 archidroid.preset.custom=Özelleştirilebilir
 archidroid.preset.custom.desc=Kendi ayarlamalarınızı yapın
 archidroid.preset.barebones=Sade kurulum
-archidroid.preset.barebones.desc=Saf CyanogenMod. Test amaçlıdır, önerilmez
-archidroid.preset.archi=Archi'nin kendi profili
+archidroid.preset.barebones.desc=Saf CyanogenMod. Test amaçlıdır, önerilmez.
+archidroid.preset.archi=Archi'nin profili
 archidroid.preset.archi.desc=Archi'nin kendi ayarlamalarını hızlıca gerçekleştirebildiği profil
 
 archidroid.custom=ArchiDroid Özelleştirici
 archidroid.custom.extra=ArchiDroid Ekstra Özelleştirme
 archidroid.custom.desc=Lütfen kullanım tarzınıza göre özelleştirin
 
-archidroid.kernel.temasek.desc=Performans, uzun şarz, yüksek esneklik ve boeffla ses profili
+archidroid.kernel.temasek.desc=Performans, uzun şarj, yüksek esneklik ve Boeffla ses profili
 archidroid.kernel.yank.desc=Temasek'e alternatif olarak önerilir
 archidroid.kernel.googy.desc=Siyah tabanlı dualboot -çift rom- için önerilir
 archidroid.kernel.stock.desc=CM ile birlikte gelen stok kernel
 
 archidroid.dpi.240.desc=DİKKAT! Bu dpi görüntü bozuklukları yaratabilir
 archidroid.dpi.241.desc=Herşey daha küçük olacak. Yazılar, butonlar, genel görünüm. ArchiDroid için en uygun olanıdır
-archidroid.dpi.280.desc=Stok ile 240 dpi arasinda dengeli seçim
+archidroid.dpi.280.desc=Stok ile 240 dpi arasında dengeli seçim
 archidroid.dpi.320.desc=Stok
 
 archidroid.launcher.nova.desc=Yüksek performans ve esneklik
@@ -102,21 +102,21 @@ archidroid.launcher.stock.desc=CM başlatıcısı, Trebuchet
 
 archidroid.keyboard=Klavye
 archidroid.keyboard.touchpal.desc=Oldukça esnek kaydırarak yazma seçeneği olan önerilen klavye
-archidroid.keyboard.hackers.desc=Touchpal alternatifi. Kaydırarak yazmayı kullanmayacaksanız önerilir
+archidroid.keyboard.hackers.desc=TouchPal alternatifi. Kaydırarak yazmayı kullanmayacaksanız önerilir.
 archidroid.keyboard.both.desc=İki klavyeyi de aynı anda kullanmak isteyenler için
 archidroid.keyboard.stock.desc=CM'un kendi klavyesi
 
 archidroid.other=Diğer
-archidroid.ota.desc=ArchiDroid'e yüklenmesi önerilir. UpdateMe sayesinde OTA güncelleştirmesi edinebilirsiniz
-archidroid.xposed.desc=Çeşitli Xposed modüllerini kontrol eder. El ile aktifleştirilmelidir
-archidroid.crossbreeder.desc=Ekstra performans ve esneklik için önerilir, Seeder uygulaması ile uyumsuzdur
+archidroid.ota.desc=ArchiDroid'e yüklenmesi önerilir. UpdateMe sayesinde OTA güncelleştirmesi edinebilirsiniz.
+archidroid.xposed.desc=Çeşitli Xposed modüllerini kontrol eder. El ile aktifleştirilmelidir.
+archidroid.crossbreeder.desc=Ekstra performans ve esneklik için önerilir, Seeder uygulaması ile uyumsuzdur.
 archidroid.updatemodem=Modem Güncelle
-archidroid.updatemodem.desc=En son modemi yüklemek isterseiz seçin
+archidroid.updatemodem.desc=En son modemi yüklemek isterseniz seçin
 archidroid.updaterecovery=Recovery Güncelle
 archidroid.updaterecovery.desc=Yeni bir recovery isterseniz seçin
 
 archidroid.gapps.desc=Gerekli Google ana bileşenleri. Mutlaka SEÇİN!
-archidroid.gapps.gquick.desc=Google Voice hata verebilir
+archidroid.gapps.gquick.desc=Google Voice hata verebilir.
 
 archidroid.apps.titaniumbackup.desc=Uygulamalarınızı yedeklemeye ve geri yüklemeye yarar
 archidroid.apps.zram.desc=ZRAM kullanımını görüntüler (stok harici kernellerle uyumludur)
@@ -147,7 +147,7 @@ archidroid.temasek.no=Yapılandırma Yok
 archidroid.temasek.no.desc=Kernel optimizasyonlarının çoğu yapılmayacağından önerilmez
 
 archidroid.boeffla.yesarchi=Evet Archi'nin ses düzenlemesi
-archidroid.boeffla.yesarchi.desc=Archi'nin kendi düzenledigi ses profili, onerilir
+archidroid.boeffla.yesarchi.desc=Archi'nin kendi düzenlediği ses profili, önerilir
 archidroid.boeffla.yes.desc=Boefflayi kendiniz düzenlemek istiyorsaniz seçin
 archidroid.boeffla.no.desc=Boeffla ses kontrol kullanmamak istiyorsaniz seçin
 

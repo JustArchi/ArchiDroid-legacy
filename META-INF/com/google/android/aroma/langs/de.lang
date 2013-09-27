@@ -57,7 +57,7 @@ common.deprecated=DEPRECATED
 common.obsolete=OBSOLETE
 terms.check=Ich stimme den Bedingungen zu.
 terms.confirm=Bitte akzeptiere die Bedingungen!
-terms.check2=Ich habe verstnden und akzeptiere das
+terms.check2=Ich habe verstanden und akzeptiere
 terms.confirm2=Respektiere die Entwickler!
 
 archidroid.tos=ArchiDroid Bedingungen
@@ -71,7 +71,7 @@ archidroid.detect.pass=ArchiDroid hat eine ArchiDroid Installation gefunden. Wil
 archidroid.detect.pass.yes=Ja, versuch ein Update
 archidroid.detect.pass.no=Nein, Full Wipe (alles löschen)
 archidroid.detect.pass.alert.yes=OK, ich werde ein Update versuchen. Bitte wähle Full Wipe bei Problemen
-archidroid.detect.pass.alert.no=OK, ich mache einen Full Wipe (Datenlöschung) und starte dann den ArchiDroid Instllations-Modus
+archidroid.detect.pass.alert.no=OK, ich mache einen Full Wipe (Datenlöschung) und starte dann den ArchiDroid Installations-Modus
 
 archidroid.preset=ArchiDroid Installations-Voreinstellung
 archidroid.preset.desc=Bitte wähle eine Installations-Voreinstellung:
@@ -135,12 +135,12 @@ archidroid.tweaks.logcat.desc=Ersetzt die standart Bootanimation durch eine logc
 archidroid.tweaks.hdvoice.desc=Aktiviert HD Voice wenn verfügbar
 archidroid.tweaks.buildtweaks.desc=Viele build.prop Anpassungen, inklusiv tieferem Schlafmodus, Performance Verbesserungen und mehr
 archidroid.tweaks.openpdroid.desc=Führe OpenPDroid Patch nach der Installation aus (falls verfügbar)
-archidroid.tweaks.nocell.desc=Wird als Bloatware (unnötige  Apps) gesehen. Deselektieren wenn du sie behalten möchtest
+archidroid.tweaks.nocell.desc=Wird als Bloatware (unnötige  Apps) gesehen. Deselektieren wenn du die App behalten möchtest
 
 archidroid.temasek.balanced=ArchiDroid balanced Konfiguration
 archidroid.temasek.balanced.desc=Basiert auf optimiertem ZZmoove, Zram, Boeffla Sound und mehr. Überflüssig seit zzmoove 0.7
 archidroid.temasek.powersave=ArchiDroid PowerSave Konfiguration
-archidroid.temasek.powersave.desc=Hohe Energiesparkonfiguration basierend auf Yank's Battery ZZmoove mit niedrigem Hotplugging
+archidroid.temasek.powersave.desc=Hohe Energiesparkonfiguration basierend auf Yank's Battery ZZmoove mit Lower hotplugging (benutze weniger CPU-Kerne wenn verfügbar)
 archidroid.temasek.ultra=ArchiDroid ULTRA PowerSave Konfiguration
 archidroid.temasek.ultra.desc=Sehr hohe Energiesparkonfiguration basiert auf Archi's Ultra Battery ZZmoove mit LCDFreq
 archidroid.temasek.no=Keine Konfiguration

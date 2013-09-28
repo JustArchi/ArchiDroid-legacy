@@ -427,7 +427,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
     "gmail","Google Mail [<~common.inverted>]","","check.checked",
     "gmaps","Google Maps [<~common.inverted>]","","check.checked",
     "gvoice","Google Voice","","check.checked",
-    "ghangouts","Google Hangouts [Inverted]","","check",
+    "ghangouts","Google Hangouts [<~common.inverted>]","","check",
     "gnow","Google Now [<~common.inverted>]","","check",
     "gplus","Google Plus [<~common.inverted>]","","check",
 
@@ -441,7 +441,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
     "bbs","BetterBatteryStats","<~archidroid.apps.bbs.desc>","check.checked",
     "cooltool","CoolTool","<~archidroid.apps.cooltool.desc>","check.checked",
     "rootbrowser","Root Browser","<~archidroid.apps.rootbrowser.desc>","check.checked",
-    "adobeflash","Adobe Flash Player [<~common.inverted>]","<~archidroid.apps.adobeflash.desc>","check.checked",
+    "adobeflash","Adobe Flash Player","<~archidroid.apps.adobeflash.desc>","check.checked",
     "youtube","YouTube [<~common.inverted>]","<~archidroid.apps.youtube.desc>","check.checked",
     "facebook","Facebook + Messenger [<~common.inverted>]","<~archidroid.apps.facebook.desc>","check.checked",
 

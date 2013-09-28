@@ -8,7 +8,7 @@ ArchiDroid 2.1.6
 - Aroma cleaning, round #2, #3 and #4
 # Round 2 - Aroma is now fully multi-language compatible, thanks to total rewrite basicly everything.
 # If you would like to see your own language in aroma please take a look at HOWTO on xda's topic of ArchiDroid 2.X project.
-# As for now we have Albanian (thanks to CEPi), German (thanks to beyerservice) and Turkish (thanks to ZiR0). I've also fixed English and Polish languages by myself.
+# As for now we have Albanian (thanks to CEPi), German (thanks to beyerservice) and Turkish (thanks to ZiR0 & MadCoderz). I've also fixed English and Polish languages by myself.
 # Round 3 - Finally I was able to throw away useless /tmp/bash during installation, thus changing all my script to native sh provided by busybox instead.
 # This may have positive effect on freezing during executing my scripts at 8% in aroma. Additionally I slightly rewrited my scripts to minimize risk of a freeze.
 # Round 4 - I also threw away old update-binary-installer and replaced it with native CyanogenMod's one. This can also have positive effect to overall flashing.

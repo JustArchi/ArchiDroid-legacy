@@ -317,7 +317,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "archi
   writetmpfile(
     "archidroid.prop",
 
-    "kernel=temasek\n"+
+    "kernel=boeffla\n"+
     "dpi=241\n"+
     "launcher=nova\n"+
     "keyboard=both\n"+
@@ -356,6 +356,8 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "archi
     "openpdroid=1\n"+
     "nocell=1\n"
   );
+  
+### Obsolete, delete later
 
   writetmpfile(
     "archidroidtemasek.prop",
@@ -368,6 +370,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "archi
 
     "boeffla=yesarchi\n"
   );
+###
 
   writetmpfile(
     "archidroidxposed.prop",

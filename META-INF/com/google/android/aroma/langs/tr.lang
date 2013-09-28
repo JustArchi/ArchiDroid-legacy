@@ -31,7 +31,7 @@
 ### LANGUAGE STRING RESOURCE FILE
 #
 #   Language  : Türkçe
-#   By        : ZiR0
+#   By        : ZiR0 & MadCoderz
 #
 
 #
@@ -50,7 +50,7 @@ text_quit_msg=Çıkmak istediğinize emin misiniz?
 #
 #-- ARCHIDROID STRINGS
 #
-common.for=for
+common.for=için
 common.inverted=Renkler ters çevrilmiş (Inverted)
 common.experimental=DENEYSEL
 common.deprecated=ÖNERİLMEMEKTE
@@ -62,114 +62,114 @@ terms.confirm2=Yazılımcıya Saygı Gösterin!
 
 archidroid.tos=ArchiDroid Şart ve Koşullar
 
-archidroid.detect.fail=Mevcut ArchiDroid yüklemesi bulunamadı. Tam silme mi yapılsın? Farklı bir ROMdan mı geçmek istiyorsunuz?
-archidroid.detect.fail.yes=Evet, Arcidroid'i ilk defa yükleyeceğim.
+archidroid.detect.fail=Mevcut ArchiDroid yüklemesi bulunamadı. Tam silme mi yapılsın? Farklı bir ROM'dan mı geçmek istiyorsunuz?
+archidroid.detect.fail.yes=Evet, ArchiDroid'i ilk defa yükleyeceğim.
 archidroid.detect.fail.no=Hayır, zaten ArchiDroid yüklü.
 archidroid.detect.fail.alert.yes=Tamam, ArchiDroid yüklenecek.
 archidroid.detect.fail.alert.no=Ters olan bir şeyler var. Güncellemeyi deneyeceğim ancak ArchiDroid mevcut değilse kesinlikle önerilmez.
 archidroid.detect.pass=ArchiDroid yüklemesi başarılı bir şekilde bulundu. Güncellensin mi?
 archidroid.detect.pass.yes=Evet güncellemeyi dene.
 archidroid.detect.pass.no=Hayır, temiz kurulum yap.
-archidroid.detect.pass.alert.yes=Tamam, güncellemeyi deniyorum. Hata alırsanız Archidroid'i temiz kurulum seçeneği ile kurun.
-archidroid.detect.pass.alert.no=Tamam, temiz Archidroid yüklemesi başlatılacak.
+archidroid.detect.pass.alert.yes=Tamam, güncellemeyi deniyorum. Hata alırsanız ArchiDroid'i temiz kurulum seçeneği ile kurun.
+archidroid.detect.pass.alert.no=Tamam, temiz ArchiDroid yüklemesi başlatılacak.
 
 archidroid.preset=ArchiDroid Yükleyici Profili
 archidroid.preset.desc=Lütfen bir profil seçin:
 archidroid.preset.group=Hazır profil
 archidroid.preset.custom=Özelleştirilebilir
-archidroid.preset.custom.desc=Kendi ayarlamalarınızı yapın
+archidroid.preset.custom.desc=Kendi ayarlamalarınızı yapın.
 archidroid.preset.barebones=Sade kurulum
 archidroid.preset.barebones.desc=Saf CyanogenMod. Test amaçlıdır, önerilmez.
 archidroid.preset.archi=Archi'nin profili
-archidroid.preset.archi.desc=Archi'nin kendi ayarlamalarını hızlıca gerçekleştirebildiği profil
+archidroid.preset.archi.desc=Archi'nin kendi ayarlamalarını hızlıca gerçekleştirebildiği profil.
 
 archidroid.custom=ArchiDroid Özelleştirici
 archidroid.custom.extra=ArchiDroid Ekstra Özelleştirme
-archidroid.custom.desc=Lütfen kullanım tarzınıza göre özelleştirin
+archidroid.custom.desc=Lütfen kullanım tarzınıza göre özelleştirin.
 
-archidroid.kernel.temasek.desc=Performans, uzun şarj, yüksek esneklik ve Boeffla ses profili
-archidroid.kernel.yank.desc=Temasek'e alternatif olarak önerilir
-archidroid.kernel.googy.desc=Siyah tabanlı dualboot -çift rom- için önerilir
-archidroid.kernel.stock.desc=CM ile birlikte gelen stok kernel
+archidroid.kernel.temasek.desc=Performans, uzun şarj, yüksek esneklik, Boeffla ses profili ve daha fazlası.
+archidroid.kernel.yank.desc=Temasek'e alternatif olarak önerilir.
+archidroid.kernel.googy.desc=Siyah tabanlı dualboot için önerilir.
+archidroid.kernel.stock.desc=CM ile birlikte gelen kernel.
 
-archidroid.dpi.240.desc=DİKKAT! Bu dpi görüntü bozuklukları yaratabilir
-archidroid.dpi.241.desc=Herşey daha küçük olacak. Yazılar, butonlar, genel görünüm. ArchiDroid için en uygun olanıdır
-archidroid.dpi.280.desc=Stok ile 240 dpi arasında dengeli seçim
+archidroid.dpi.240.desc=DİKKAT! Bu DPI ayarı görüntü bozuklukları yaratabilir.
+archidroid.dpi.241.desc=Her şey daha küçük olacak. Yazılar, butonlar, genel görünüm. ArchiDroid için en uygun olanıdır.
+archidroid.dpi.280.desc=Stok ile 240 DPI arasında dengeli bir seçim.
 archidroid.dpi.320.desc=Stok
 
-archidroid.launcher.nova.desc=Yüksek performans ve esneklik
-archidroid.launcher.stock.desc=CM başlatıcısı, Trebuchet
+archidroid.launcher.nova.desc=Yüksek performans ve esneklik.
+archidroid.launcher.stock.desc=CM başlatıcısı, Trebuchet.
 
 archidroid.keyboard=Klavye
-archidroid.keyboard.touchpal.desc=Oldukça esnek kaydırarak yazma seçeneği olan önerilen klavye
+archidroid.keyboard.touchpal.desc=Oldukça esnek kaydırarak yazma seçeneği olan önerilen klavye.
 archidroid.keyboard.hackers.desc=TouchPal alternatifi. Kaydırarak yazmayı kullanmayacaksanız önerilir.
-archidroid.keyboard.both.desc=İki klavyeyi de aynı anda kullanmak isteyenler için
-archidroid.keyboard.stock.desc=CM'un kendi klavyesi
+archidroid.keyboard.both.desc=İki klavyeyi de aynı anda kullanmak isteyenler için.
+archidroid.keyboard.stock.desc=CyanogenMod'un kendi klavyesi.
 
 archidroid.other=Diğer
 archidroid.ota.desc=ArchiDroid'e yüklenmesi önerilir. UpdateMe sayesinde OTA güncelleştirmesi edinebilirsiniz.
 archidroid.xposed.desc=Çeşitli Xposed modüllerini kontrol eder. El ile aktifleştirilmelidir.
 archidroid.crossbreeder.desc=Ekstra performans ve esneklik için önerilir, Seeder uygulaması ile uyumsuzdur.
 archidroid.updatemodem=Modem Güncelle
-archidroid.updatemodem.desc=En son modemi yüklemek isterseniz seçin
+archidroid.updatemodem.desc=En son modemi yüklemek isterseniz seçin.
 archidroid.updaterecovery=Recovery Güncelle
-archidroid.updaterecovery.desc=Yeni bir recovery isterseniz seçin
+archidroid.updaterecovery.desc=Yeni bir recovery isterseniz seçin.
 
 archidroid.gapps.desc=Gerekli Google ana bileşenleri. Mutlaka SEÇİN!
 archidroid.gapps.gquick.desc=Google Voice hata verebilir.
 
-archidroid.apps.titaniumbackup.desc=Uygulamalarınızı yedeklemeye ve geri yüklemeye yarar
-archidroid.apps.zram.desc=ZRAM kullanımını görüntüler (stok harici kernellerle uyumludur)
-archidroid.apps.greenify.desc=Şarz performansına katkıda bulunan, calişan uygulama uyutucu
-archidroid.apps.lmt.desc=Ekrana atadığınız hareketlerle cihaza komut verme, slimbean pie
-archidroid.apps.mxplayer.desc=En iyi video oynatıcı
-archidroid.apps.spiritfm.desc=CM radyo
-archidroid.apps.bbs.desc=Daha spesifik pil monitörü ve uyanma detektörü
-archidroid.apps.cooltool.desc=Durum çubugunda sistem kullanım bilgileri
-archidroid.apps.rootbrowser.desc=Kök dizinine erişebilen dosya yönetici
-archidroid.apps.adobeflash.desc=Tarayıcının Flash videoları oynatması için gerekir, Chrome ile çalışmaz
-archidroid.apps.youtube.desc=Youtube renkleri ters çevir
-archidroid.apps.facebook.desc=Facebook ve messenger renklerini ters çevir
+archidroid.apps.titaniumbackup.desc=Uygulamalarınızı yedeklemeye ve geri yüklemeye yarar.
+archidroid.apps.zram.desc=ZRAM kullanımını görüntüler (stok harici kernellerle uyumludur).
+archidroid.apps.greenify.desc=Şarj performansına katkıda bulunan, çalışan uygulama uyutucu.
+archidroid.apps.lmt.desc=Ekrana hareket atama, PIE için ideal.
+archidroid.apps.mxplayer.desc=En iyi video oynatıcı.
+archidroid.apps.spiritfm.desc=Bedava Spirit FM radyo uygulaması.
+archidroid.apps.bbs.desc=Daha özel pil monitörü ve uyanma dedektörü.
+archidroid.apps.cooltool.desc=Durum çubuğunda sistem kullanım bilgileri sağlayan uygulama.
+archidroid.apps.rootbrowser.desc=Kök dizinine erişebilen dosya yönetici.
+archidroid.apps.adobeflash.desc=Adobe Flash Player, Chrome ile çalışmaz.
+archidroid.apps.youtube.desc=Renkleri ters çevrilmiş YouTube (Inverted).
+archidroid.apps.facebook.desc=Renkleri ters çevrilmiş Facebook ve Messenger (Inverted).
 
-archidroid.tweaks.logcat.desc=Baslangiç animasyonu yerine kütük gösterir, logcat
-archidroid.tweaks.hdvoice.desc=Mümkün olduğunda yüksek kalite ses sağlar
-archidroid.tweaks.buildtweaks.desc=Pekçok build.prop ayarlamaları, performans ve şarz düzenlemeleri
+archidroid.tweaks.logcat.desc=Normal başlangıç animasyonu yerine logcat gösteren başlangıç animasyonu.
+archidroid.tweaks.hdvoice.desc=Mümkün olduğunda yüksek kalite ses sağlar.
+archidroid.tweaks.buildtweaks.desc=Pek çok build.prop optimizasyonları, performans ve şarj düzenlemeleri.
 archidroid.tweaks.openpdroid.desc=Mümkün olduğunda yükleme sonrasında OpenPDroid yaması uygula
-archidroid.tweaks.nocell.desc=Bloatware olarak kabul edilir. Silmek istemiyorsanız seçmeyin
+archidroid.tweaks.nocell.desc=Gereksiz olarak kabul edilir. Silmek istemiyorsanız seçmeyin.
 
 archidroid.temasek.balanced=ArchiDroid Dengeli Yapılandırma
-archidroid.temasek.balanced.desc=Optimize edilmiş zzmoove, zram, boeffla ses ve fazlası. zzmoove 0.7 den bu yana eskidi
+archidroid.temasek.balanced.desc=Optimize edilmiş zzmoove, zram, Boeffla Ses Kontrolü ve fazlası.
 archidroid.temasek.powersave=ArchiDroid Güç Tasarrufu Yapılandırması
-archidroid.temasek.powersave.desc=Yüksek güç tasarruflu Yank's Battery zzmoove profili
-archidroid.temasek.ultra=ArchiDroid Ultra Yuksek Güç Tasarrufu Yapılandırması
-archidroid.temasek.ultra.desc=Çok yuksek güç tasarrufu sağlayan Archi's Ultra Battery zzmoove profili
+archidroid.temasek.powersave.desc=Yüksek güç tasarruflu Yank's Extreme Battery (yankzzmoove) zzmoove profili.
+archidroid.temasek.ultra=ArchiDroid Ultra Yüksek Güç Tasarrufu Yapılandırması
+archidroid.temasek.ultra.desc=Çok yüksek güç tasarrufu sağlayan Archi's Ultra Battery zzmoove profili.
 archidroid.temasek.no=Yapılandırma Yok
-archidroid.temasek.no.desc=Kernel optimizasyonlarının çoğu yapılmayacağından önerilmez
+archidroid.temasek.no.desc=Kernel optimizasyonlarının çoğu yapılmayacağından önerilmez.
 
 archidroid.boeffla.yesarchi=Evet Archi'nin ses düzenlemesi
-archidroid.boeffla.yesarchi.desc=Archi'nin kendi düzenlediği ses profili, önerilir
-archidroid.boeffla.yes.desc=Boefflayi kendiniz düzenlemek istiyorsaniz seçin
-archidroid.boeffla.no.desc=Boeffla ses kontrol kullanmamak istiyorsaniz seçin
+archidroid.boeffla.yesarchi.desc=Archi'nin kendi düzenlediği ses profili, önerilir.
+archidroid.boeffla.yes.desc=Boeffla Ses Kontrol'ü kendiniz düzenlemek istiyorsaniz seçin.
+archidroid.boeffla.no.desc=Boeffla Ses Kontrol kullanmamak istiyorsaniz seçin.
 
-archidroid.xposed.appsettings.desc=Uygulama çalisma ayarlarini ayarlayabilirsiniz, önerilir
-archidroid.xposed.xprivacy.desc=Uygulama izinlerini kontrol etmenizi sağlar
+archidroid.xposed.appsettings.desc=Uygulama çalısma ayarlarını ayarlayabilirsiniz, önerilir.
+archidroid.xposed.xprivacy.desc=Uygulama izinlerini kontrol etmenizi sağlar.
 
-archidroid.wizard.reboot=Archidroid başarıyla yüklendi. Cihazınızı yeniden başlatmak ister misiniz?
+archidroid.wizard.reboot=ArchiDroid başarıyla yüklendi. Cihazınızı yeniden başlatmak ister misiniz?
 
-archidroid.prepinstall=Ready for flashing
-common.flash=Flash
-common.back=Back
+archidroid.prepinstall=Yüklemeye hazır
+common.flash=Yükle
+common.back=Geri
 
-archidroid.prepinstall.desc=You are now ready to begin installation.\
-Press <b>Flash</b> to start.\
-If you want to review or change any of your installation settings, press <b>Back</b>.
+archidroid.prepinstall.desc=Şu anda yüklemeyi başlatmaya hazırsınız.\
+Yüklemeyi başlatmak için <b>Yükle</b> butonuna basın.\
+Eğer ayarlarınızı tekrar gözden geçirmek ve değiştirmek istiyorsanız, <b>Geri</b> butonuna basın.
 
 common.finish=Son
-common.flashing=Flashliyor
+common.flashing=Yükleniyor
 
 archidroid.install.desc=<b>ArchiDroid</b> şuan yükleniyor\
 Lütfen <b>ArchiDroid</b> yüklenene kadar bekleyin\
-<b>Yükleme sırasında donma meydana gelirse üç tuş kombinasyonu ile yeniden başlayın</b>
+<b>Yükleme sırasında donma meydana gelirse güç düğmesine basılı tutarak cihazı yeniden başlatın.</b>
 
-archidroid.install.finish=ArchiDroid sihirbazi <b>ArchiDroid<b>i başarıyla yükledi\
-Devam etmek için <b>Son</b> butonuna dokunun.
+archidroid.install.finish=ArchiDroid sihirbazı <b>ArchiDroid<b>'i başarıyla yükledi.\
+Devam etmek için <b>Bitir</b> butonuna basın.

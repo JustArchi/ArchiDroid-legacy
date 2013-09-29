@@ -393,7 +393,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
     
     "kernel","Kernel","","group",
     "temasek","Temasek Kernel [Boeffla/No ABB]","<~archidroid.kernel.temasek.desc>","select.selected",
-    "boeffla","Boeffla Kernel","<~archidroid.kernel.boeffla.desc>","select",
+    "boeffla","Boeffla Kernel [<~common.experimental>]","<~archidroid.kernel.boeffla.desc>","select",
     "yank","Yank555.lu Kernel","<~archidroid.kernel.yank.desc>","select",
     "googy","Googy-Max Kernel","<~archidroid.kernel.googy.desc>","select",
     "stock","Stock CM","<~archidroid.kernel.stock.desc>","select",
@@ -473,7 +473,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
     );
   endif;
 
-  if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "temasek" || file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "yank" then
+  if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "temasek" || file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "yank" || file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "boeffla" then
     form(
       "<~archidroid.custom.extra>",
       "<~archidroid.custom.desc>",

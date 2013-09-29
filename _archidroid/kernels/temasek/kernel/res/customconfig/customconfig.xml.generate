@@ -971,12 +971,12 @@ echo '
       <seekBar  description="The disk size represents the amount of non-compressed data allowed to fit into the compressed ramdisk. The actual memory used by the ramdisk varies depending on compression ratio." 
                 name="ZRAM disk size" 
                 action="zram"
-                unit="mB" min="0" reversed="false" step="100" max="500"/>      
+                unit="mB" min="0" reversed="false" step="8" max="2040"/>      
 
       <seekBar  description="A low value means the kernel will try to avoid swapping as much as possible where a higher value instead will make the kernel aggressively try to use swap space." 
                 name="Virtual machine swappiness" 
                 action="generic /proc/sys/vm/swappiness"
-                unit="%" min="0" reversed="false" step="5" max="100"/>
+                unit="%" min="0" reversed="false" step="1" max="100"/>
 
     </settingsPane>
 
@@ -995,10 +995,41 @@ if [ -e /sys/class/misc/wolfson_control ]; then
 echo '
   <settingsTab name="Audio">
     <settingsPane description="Speaker Tuning Settings" name="Speaker Tuning">
+    
+     <spinner description="Enable or disable Wolfson Audio Engine" name="Wolfson Audio" action="generic /sys/class/misc/wolfson_control/switch_master">
+             <spinnerItem name="Enabled" value="1"/> 
+             <spinnerItem name="Disabled" value="0"/> 
+      </spinner>
+    
       <checkbox description="Enable speaker equalizer for better bass response on main speakers" 
                 name="Speaker equalizer" 
                 action="generic01 /sys/class/misc/wolfson_control/switch_eq_speaker" 
                 label="Enable speaker equalizer"/>
+                
+                <seekBar  description="" 
+		name="Band1 gain" 
+                action="generic /sys/class/misc/wolfson_control/eq_sp_gain_1" 
+                unit=" dB" min="-12" reversed="false" step="1" max="12"/>
+
+      <seekBar  description="" 
+		name="Band2 gain" 
+                action="generic /sys/class/misc/wolfson_control/eq_sp_gain_2" 
+                unit=" dB" min="-12" reversed="false" step="1" max="12"/>
+
+      <seekBar  description="" 
+		name="Band3 gain" 
+                action="generic /sys/class/misc/wolfson_control/eq_sp_gain_3" 
+                unit=" dB" min="-12" reversed="false" step="1" max="12"/>
+
+      <seekBar  description="" 
+		name="Band4 gain" 
+                action="generic /sys/class/misc/wolfson_control/eq_sp_gain_4" 
+                unit=" dB" min="-12" reversed="false" step="1" max="12"/>
+
+      <seekBar  description="" 
+		name="Band5 gain" 
+                action="generic /sys/class/misc/wolfson_control/eq_sp_gain_5" 
+                unit=" dB" min="-12" reversed="false" step="1" max="12"/>
 
       <seekBar  description="External speaker amlification level." 
 		name="Speaker left channel volume" 

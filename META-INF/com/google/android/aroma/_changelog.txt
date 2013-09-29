@@ -11,16 +11,18 @@ ArchiDroid 2.1.6
 # As for now we have Albanian (thanks to CEPi), German (thanks to beyerservice) and Turkish (thanks to ZiR0 & MadCoderz). I've also fixed English and Polish languages by myself.
 # Round 3 - Finally I was able to throw away useless /tmp/bash during installation, thus changing all my script to native sh provided by busybox instead.
 # This may have positive effect on freezing during executing my scripts at 8% in aroma. Additionally I slightly rewrited my scripts to minimize risk of a freeze.
-# Round 4 - I also threw away old update-binary-installer and replaced it with native CyanogenMod's one. This can also have positive effect to overall flashing.
+# Round 4 - I also threw away old update-binary-installer and replaced it with native CyanogenMod's one. This can also have positive effect on overall flashing.
 
 - Added Online Nandroid Backup (onandroid 9.00) utility to /system/bin.
 # Onandroid gives you a possibility of doing backup without rebooting to recovery. This isn't an app, it's a very advanced script which I can include with AD.
 # I've also written a script for you - ArchiDroid_OnlineNandroidBackup, which makes a backup with just one click. To learn more please type onandroid -h from terminal.
 # This tool has been developed by @ameer1234567890. All credit goes to him, I'm only utilizing his tool in my own scripts.
 
-- Added long awaited Boeffla Kernel.
-# There is a high chance that this kernel will be suggested one in near future. I love it!
+- Added long awaited Boeffla Kernel [EXPERIMENTAL].
+# Comes with Boeffla-Config app. There is a high chance that this kernel will be suggested one in near future, because I love it!
 # Expect also some nice presets of mine in near future.
+# As for now I marked it as experimental due to misc issue with non-refreshing logcat bootanimation (yes, your phone isn't freezed, just wait), lack of presets and my not yet finished implementation.
+# It works just fine but please keep in mind that logcat bootanimation is stuck and it's rather a new kernel so it needs still some tests from me. Otherwise it's stable and well-made for daily use.
 
 - Updated App Settings (Xposed Module) to 1.5
 - Updated Googy Max kernel to 1.7.3
@@ -29,3 +31,4 @@ ArchiDroid 2.1.6
 - Updated PhilZ Touch Recovery to 5.15.0
 - Updated temasek sources to V48 (this includes f.e. fixed active display with bugged proximity sensor)
 - Misc bugfixes to aroma (this includes f.e. fixed yank's kernel flashing problem)
+- Other misc fixes and improvements on aroma-side, f.e. new fancy prompt, lawl!

@@ -352,7 +352,7 @@ set_progress(0.6);
 ### ArchiDroid Audio Tweaks ###
 ###############################
 
-if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "temasek" || file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "yank" then
+if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "temasek" || file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "yank" || file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "boeffla" then
   if file_getprop("/tmp/aroma-data/archidroidboeffla.prop","boeffla") == "yesarchi" then
     ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Boeffla SC with Archi's Audiophile preset");
     package_extract_dir("_archidroid/apps/boeffla", "/");

@@ -142,14 +142,22 @@ archidroid.tweaks.buildtweaks.desc=Wiele tweaków build.prop, w tym m.in. głęb
 archidroid.tweaks.openpdroid.desc=Spatchuj ROM ze wsparciem dla OpenPDroid o ile dostępny
 archidroid.tweaks.nocell.desc=Generalnie uważane za bloatware. Odznacz jeśli chcesz je zachować
 
-archidroid.temasek.balanced=Zbalansowane Ustawienia ArchiDroid
-archidroid.temasek.balanced.desc=Bazowany na optimized zzmoove, zram, boeffla sound. Przestarzały od czasu zzmoove 0.7
-archidroid.temasek.powersave=Oszczędne Ustawienia ArchiDroid
-archidroid.temasek.powersave.desc=Wysoce oszczędne dla baterii ustawienia bazowane na powersave zzmoove z mniejszym hotpluggingiem
-archidroid.temasek.ultra=ULTRA Oszczędne Ustawienia ArchiDroid
-archidroid.temasek.ultra.desc=ULTRA oszczędne dla baterii ustawienia bazowane na Archi's Ultra Battery z LCDFreq
-archidroid.temasek.no=Brak Ustawień
-archidroid.temasek.no.desc=Niezalecane. Stracisz większość optymalizacji i tweakowania kernela
+archidroid.preset.no=No Preset
+archidroid.preset.no.desc=Not recommended because you'll miss most of the Archi's optimizations
+
+archidroid.preset.kernel.boeffla.archiperformance=ArchiDroid Performance
+archidroid.preset.kernel.boeffla.archiperformance.desc=A profile optimized and designed mostly for gamers, including overclock CPU & GPU. Expect better performance for a cost of battery life
+archidroid.preset.kernel.boeffla.archipowersave=ArchiDroid PowerSave
+archidroid.preset.kernel.boeffla.archipowersave.desc=Default preset proposed for most users, including light uV. Provides a very good balance between battery life and performance. Recommended by Archi
+archidroid.preset.kernel.boeffla.archiultrapowersave=ArchiDroid UltraPowerSave
+archidroid.preset.kernel.boeffla.archiultrapowersave.desc=A preset designed and optimized for getting maximum of battery life, including moderate uV. Expect better battery life for a cost of performance
+
+archidroid.preset.kernel.temasek.balanced=Zbalansowane Ustawienia ArchiDroid
+archidroid.preset.kernel.temasek.balanced.desc=Bazowany na optimized zzmoove, zram, boeffla sound. Przestarzały od czasu zzmoove 0.7
+archidroid.preset.kernel.temasek.powersave=Oszczędne Ustawienia ArchiDroid
+archidroid.preset.kernel.temasek.powersave.desc=Wysoce oszczędne dla baterii ustawienia bazowane na powersave zzmoove z mniejszym hotpluggingiem
+archidroid.preset.kernel.temasek.ultra=ULTRA Oszczędne Ustawienia ArchiDroid
+archidroid.preset.kernel.temasek.ultra.desc=ULTRA oszczędne dla baterii ustawienia bazowane na Archi's Ultra Battery z LCDFreq
 
 archidroid.boeffla.yesarchi=Tak, z Presetem Archi's Audiophile
 archidroid.boeffla.yesarchi.desc=Wysoce zalecane. Poprawia jakość dźwięku poprzez ustawienia Boeffla SC wg. gustu Archiego

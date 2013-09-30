@@ -142,14 +142,22 @@ archidroid.tweaks.buildtweaks.desc=Pek çok build.prop optimizasyonları, perfor
 archidroid.tweaks.openpdroid.desc=Mümkün olduğunda yükleme sonrasında OpenPDroid yaması uygula
 archidroid.tweaks.nocell.desc=Gereksiz olarak kabul edilir. Silmek istemiyorsanız seçmeyin.
 
-archidroid.temasek.balanced=ArchiDroid Dengeli Yapılandırma
-archidroid.temasek.balanced.desc=Optimize edilmiş zzmoove, zram, Boeffla Ses Kontrolü ve fazlası.
-archidroid.temasek.powersave=ArchiDroid Güç Tasarrufu Yapılandırması
-archidroid.temasek.powersave.desc=Yüksek güç tasarruflu Yank's Extreme Battery (yankzzmoove) zzmoove profili.
-archidroid.temasek.ultra=ArchiDroid Ultra Yüksek Güç Tasarrufu Yapılandırması
-archidroid.temasek.ultra.desc=Çok yüksek güç tasarrufu sağlayan Archi's Ultra Battery zzmoove profili.
-archidroid.temasek.no=Yapılandırma Yok
-archidroid.temasek.no.desc=Kernel optimizasyonlarının çoğu yapılmayacağından önerilmez.
+archidroid.preset.no=No Preset
+archidroid.preset.no.desc=Not recommended because you'll miss most of the Archi's optimizations
+
+archidroid.preset.kernel.boeffla.archiperformance=ArchiDroid Performance
+archidroid.preset.kernel.boeffla.archiperformance.desc=A profile optimized and designed mostly for gamers, including overclock CPU & GPU. Expect better performance for a cost of battery life
+archidroid.preset.kernel.boeffla.archipowersave=ArchiDroid PowerSave
+archidroid.preset.kernel.boeffla.archipowersave.desc=Default preset proposed for most users, including light uV. Provides a very good balance between battery life and performance. Recommended by Archi
+archidroid.preset.kernel.boeffla.archiultrapowersave=ArchiDroid UltraPowerSave
+archidroid.preset.kernel.boeffla.archiultrapowersave.desc=A preset designed and optimized for getting maximum of battery life, including moderate uV. Expect better battery life for a cost of performance
+
+archidroid.preset.kernel.temasek.balanced=ArchiDroid Dengeli Yapılandırma
+archidroid.preset.kernel.temasek.balanced.desc=Optimize edilmiş zzmoove, zram, Boeffla Ses Kontrolü ve fazlası.
+archidroid.preset.kernel.temasek.powersave=ArchiDroid Güç Tasarrufu Yapılandırması
+archidroid.preset.kernel.temasek.powersave.desc=Yüksek güç tasarruflu Yank's Extreme Battery (yankzzmoove) zzmoove profili.
+archidroid.preset.kernel.temasek.ultra=ArchiDroid Ultra Yüksek Güç Tasarrufu Yapılandırması
+archidroid.preset.kernel.temasek.ultra.desc=Çok yüksek güç tasarrufu sağlayan Archi's Ultra Battery zzmoove profili.
 
 archidroid.boeffla.yesarchi=Evet Archi'nin ses düzenlemesi
 archidroid.boeffla.yesarchi.desc=Archi'nin kendi düzenlediği ses profili, önerilir.

@@ -458,6 +458,21 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
   );
 
   ### ArchiDroid Extra ###
+    if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "boeffla" then
+    form(
+      "<~archidroid.custom.extra>",
+      "<~archidroid.custom.desc>",
+      "icons/apps",
+      "archidroidboeffla.prop",
+
+      "preset","Boeffla Kernel Preset","","group",
+      "archiperformance","<~archidroid.preset.kernel.boeffla.archiperformance>","<~archidroid.preset.kernel.boeffla.archiperformance.desc>","select",
+      "archipowersave","<~archidroid.preset.kernel.boeffla.archipowersave>","<~archidroid.preset.kernel.boeffla.archipowersave.desc>","select.selected",
+      "archiultrapowersave","<~archidroid.preset.kernel.boeffla.archiultrapowersave>","<~archidroid.preset.kernel.boeffla.archiultrapowersave.desc>","select",
+      "no","<~archidroid.preset.no>","<~archidroid.preset.no.desc>","select"
+    );
+  endif;
+  
   if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "temasek" then
     form(
       "<~archidroid.custom.extra>",
@@ -466,10 +481,10 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
       "archidroidtemasek.prop",
 
       "preset","Temasek Kernel Preset","","group",
-      "balanced","<~archidroid.temasek.balanced> [<~common.obsolete>]","<~archidroid.temasek.balanced.desc>","select",
-      "powersave","<~archidroid.temasek.powersave>","<~archidroid.temasek.powersave.desc>","select.selected",
-      "ultra","<~archidroid.temasek.ultra>","<~archidroid.temasek.ultra.desc>","select",
-      "no","<~archidroid.temasek.no>","<~archidroid.temasek.no.desc>","select"
+      "balanced","<~archidroid.preset.kernel.temasek.balanced> [<~common.obsolete>]","<~archidroid.preset.kernel.temasek.balanced.desc>","select",
+      "powersave","<~archidroid.preset.kernel.temasek.powersave>","<~archidroid.preset.kernel.temasek.powersave.desc>","select.selected",
+      "ultra","<~archidroid.preset.kernel.temasek.ultra>","<~archidroid.preset.kernel.temasek.ultra.desc>","select",
+      "no","<~archidroid.preset.no>","<~archidroid.preset.no.desc>","select"
     );
   endif;
 

@@ -24,7 +24,7 @@ sleep 10
 
 echo `date +"%F %R:%S : Starting kernel configuration..."` >>$log_file
 
-# Script generated on 22/09/2013 at  4:30
+# Script generated on 30/09/2013 at 17:34
 #----------------------------------------------------
 
 # - init.d support by kernel/ramdisk not installed
@@ -35,10 +35,10 @@ ls -al /system/etc/init.d >>$log_file
 echo "zzmoove" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
 echo `date +"%F %R:%S : CPU governor set to zzmoove."` >>$log_file
 
-# - Enable touchboost (Stock SGS3)
+# - Enable touchboost
 echo "1" > /sys/devices/virtual/misc/touchboost_switch/touchboost_switch
-echo "800000" > /sys/devices/virtual/misc/touchboost_switch/touchboost_freq
-echo `date +"%F %R:%S : Touchboost enabled at 800MHz."` >>$log_file
+echo "500000" > /sys/devices/virtual/misc/touchboost_switch/touchboost_freq
+echo `date +"%F %R:%S : Touchboost enabled at 500MHz."` >>$log_file
 
 # - Set CPU max frequencies for all 4 cores
 echo 1600000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
@@ -212,13 +212,16 @@ echo `date +"%F %R:%S : UDF kernel module not loaded."` >>$log_file
 # - Do not load XBOX 360 gamepad kernel module on boot
 echo `date +"%F %R:%S : XBOX 360 gamepad support kernel module not loaded."` >>$log_file
 
-# - Set GPU frequencies to Yank (108MHz, 200MHz, 333MHz, 440MHz, 600MHz)
-echo "108 200 333 440 600" > /sys/class/misc/gpu_clock_control/gpu_control
-echo `date +"%F %R:%S : GPU frequencies set to Yank (108MHz, 200MHz, 333MHz, 440MHz, 600MHz)."` >>$log_file
+# - Load frandom kernel module on boot
+insmod /system/lib/modules/frandom.ko
+echo `date +"%F %R:%S : frandom kernel module loaded."` >>$log_file
 
-# - Set GPU frequency thresholds to medium (38%, 35%, 38%, 44%, 46%, 46%, 50%, 50%)
-echo "38% 35% 38% 44% 46% 46% 50% 50%" > /sys/class/misc/gpu_clock_control/gpu_control
-echo `date +"%F %R:%S : GPU frequency thresholds set to medium (38%, 35%, 38%, 44%, 46%, 46%, 50%, 50%)."` >>$log_file
+# - Set GPU frequencies to high (160MHz, 266MHz, 350MHz, 440MHz, 533MHz)
+echo "160 266 350 440 533" > /sys/class/misc/gpu_clock_control/gpu_control
+echo `date +"%F %R:%S : GPU frequencies set to low (160MHz, 266MHz, 350MHz, 440MHz, 533MHz) - Careful !"` >>$log_file
+
+# - GPU frequency thresholds left untouched
+echo `date +"%F %R:%S : GPU frequency thresholds left untouched."` >>$log_file
 
 # Wait for everything to become ready
 echo `date +"%F %R:%S : Waiting 60 seconds..."` >>$log_file

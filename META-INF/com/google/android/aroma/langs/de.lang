@@ -80,7 +80,7 @@ archidroid.detect.pass.alert.no=OK, ich mache einen Full Wipe (Datenlöschung) u
 archidroid.preset=ArchiDroid Installations-Voreinstellung
 archidroid.preset.desc=Bitte wähle eine Installations-Voreinstellung:
 archidroid.preset.group=Voreinstellung
-archidroid.preset.custom=Eigen
+archidroid.preset.custom=Angepasst
 archidroid.preset.custom.desc=Du kannst jede Einstellung während der Installation selbst anpassen
 archidroid.preset.barebones=Bare Bones
 archidroid.preset.barebones.desc=Nur CyanogenMod. Nur zum testen, wird nicht empfohlen
@@ -92,15 +92,15 @@ archidroid.custom.extra=ArchiDroid Extra Anpassung
 archidroid.custom.desc=Bitte wähle die Einstellungen, wie du sie möchtest
 
 archidroid.kernel.temasek.desc=Empfehlung für beste Performance, Energiesparen, hohe Flexibilität und Boeffla-Sound
-archidroid.kernel.boeffla.desc=Highly recommended masterpiece perfect for everyone, featuring boeffla sound and many more features
+archidroid.kernel.boeffla.desc=Empfohlenes Meisterwerk perfekt für jeden, mit Boeffla Sound und vielen weiteren Funktionen
 archidroid.kernel.yank.desc=Empfohlen als Alternative zu Temasek-Kernel
 archidroid.kernel.googy.desc=Basiert auf Siyah Quellen. Einzigartig mit Dual-Boot Funktionen
-archidroid.kernel.stock.desc=Der Standart-Kernel von CM
+archidroid.kernel.stock.desc=Der Standard-Kernel von CM
 
 archidroid.dpi.240.desc=WARNUNG! Bei dieser DPI kann es zu kleineren Grafikfehlern kommen
 archidroid.dpi.241.desc=Alles ist kleiner: Buttons, Icons, Text u.s.w.. empfohlen für die beste ArchiDroid-Erfahrung!
-archidroid.dpi.280.desc=Gute Balance zwischen Standart und 240 DPI
-archidroid.dpi.320.desc=Standart
+archidroid.dpi.280.desc=Gute Balance zwischen Standard und 240 DPI
+archidroid.dpi.320.desc=Standard
 
 archidroid.launcher.nova.desc=Empfohlen für extra Flexibilität und Performance
 archidroid.launcher.stock.desc=Von CM, auch bekannt als Trebuchet
@@ -109,7 +109,7 @@ archidroid.keyboard=Tastatur
 archidroid.keyboard.touchpal.desc=Empfohlen als tolle und flexible Swype/Curve Tastatur
 archidroid.keyboard.hackers.desc=Tolle Alternative zu TouchPal wenn du keine swype/curve Funktion benötigst
 archidroid.keyboard.both.desc=Wenn du beide benutzen willst, TouchPal und Hacker's (z.B. für Terminal)
-archidroid.keyboard.stock.desc=Wenn du die Standart CM Tastatur nutzen möchtest
+archidroid.keyboard.stock.desc=Wenn du die Standard CM Tastatur nutzen möchtest
 
 archidroid.other=Anderes
 archidroid.ota.desc=Empfohlen von ArchiDroid. Installation von UpdateMe apk und Aktivierung von OTA-Updates durch build.prop
@@ -124,7 +124,7 @@ archidroid.gapps.desc=Grundfunktionen und Apps von Google. NICHT ABWÄHLEN!
 archidroid.gapps.gquick.desc=Kann Google Voice stören!
 
 archidroid.apps.titaniumbackup.desc=Perfekte Lösung um persönliche Daten/Apps zwischen Updates zu sichern
-archidroid.apps.zram.desc=Praktisch um die ZRAM-Verwendung zu überwachen(nur in bestimmten Kernel verfügbar)
+archidroid.apps.zram.desc=Praktisch um die ZRAM-Verwendung zu überwachen(nur in manchen Kerneln verfügbar)
 archidroid.apps.greenify.desc=Prktisch um jede App in den Standby zu schicken, das spart Energie
 archidroid.apps.lmt.desc=Damit kannst du einen Befehl mit einer Bildschirm-Geste ausführen, auch bekannt als pie von SlimBean
 archidroid.apps.mxplayer.desc=Vermutlcih der beste Videoplayer für Android
@@ -136,7 +136,7 @@ archidroid.apps.adobeflash.desc=Fügt Flash-Player hinzu. Funtkioniert nicht mit
 archidroid.apps.youtube.desc=Invertierte Version der YouTube App
 archidroid.apps.facebook.desc=Invertierte Version von Facebook und Messenger
 
-archidroid.tweaks.logcat.desc=Ersetzt die standart Bootanimation durch eine logcat Ausgabe - powered by logcat lite
+archidroid.tweaks.logcat.desc=Ersetzt die Standard Bootanimation durch eine logcat Ausgabe - powered by logcat lite
 archidroid.tweaks.hdvoice.desc=Aktiviert HD Voice wenn verfügbar
 archidroid.tweaks.buildtweaks.desc=Viele build.prop Anpassungen, inklusiv tieferem Schlafmodus, Performance Verbesserungen und mehr
 archidroid.tweaks.openpdroid.desc=Führe OpenPDroid Patch nach der Installation aus (falls verfügbar)
@@ -184,5 +184,5 @@ archidroid.install.desc=<b>ArchiDroid</b> wird jetzt installiert.\
 Bitte warte bis der Installationsassistent dein <b>ArchiDroid</b> installiert hat.\
 <b>Wenn die Installation hängen bleibt, drücke die Tastenkombination um in dein Recovery zu kommen und versuche es erneut.</b>
 
-archidroid.install.finish=Der ArchiDroid Installationsassistent hat <b>ArchiDroid<b> erfolgreich installiert\
+archidroid.install.finish=Der ArchiDroid Installationsassistent hat <b>ArchiDroid<b> erfolgreich installiert.\
 Drücke <b>Beenden</b> um fortzufahren.

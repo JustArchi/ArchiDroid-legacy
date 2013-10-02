@@ -323,21 +323,22 @@ if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "boeffla" then
   delete_recursive("/system/lib/modules");
   package_extract_dir("_archidroid/kernels/boeffla/system", "/system");
   package_extract_dir("_archidroid/kernels/boeffla/data", "/data");
+  package_extract_dir("_archidroid/kernels/boeffla/presetseditable", "/data/.boeffla");
   package_extract_file("_archidroid/kernels/boeffla/boot.img", "/tmp/boeffla.img");
   write_raw_image("/tmp/boeffla.img", "/dev/block/mmcblk0p5");
   delete("/tmp/boeffla.img");
   
   if file_getprop("/tmp/aroma-data/archidroidboeffla.prop","preset") == "archiperformance" then
 		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying ArchiDroid Performance kernel preset");
-    package_extract_file("_archidroid/kernels/boeffla/presets/Archi_Performance", "/data/media/0/boeffla-kernel-data/startconfig");
+    package_extract_file("_archidroid/kernels/boeffla/presets/Archi_Performance", "/data/.boeffla/startconfig");
 	endif;
   if file_getprop("/tmp/aroma-data/archidroidboeffla.prop","preset") == "archipowersave" then
 		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying ArchiDroid PowerSave kernel preset");
-    package_extract_file("_archidroid/kernels/boeffla/presets/Archi", "/data/media/0/boeffla-kernel-data/startconfig");
+    package_extract_file("_archidroid/kernels/boeffla/presets/Archi", "/data/.boeffla/startconfig");
 	endif;
   if file_getprop("/tmp/aroma-data/archidroidboeffla.prop","preset") == "archiultrapowersave" then
 		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying ArchiDroid UltraPowerSave kernel preset");
-    package_extract_file("_archidroid/kernels/boeffla/presets/Archi_UltraPowerSave", "/data/media/0/boeffla-kernel-data/startconfig");
+    package_extract_file("_archidroid/kernels/boeffla/presets/Archi_UltraPowerSave", "/data/.boeffla/startconfig");
 	endif;
 endif;
 
@@ -369,12 +370,12 @@ set_progress(0.6);
 
 ### Presets for non-boeffla kernels, yet with boeffla sound engine ###
 if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "temasek" || file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "yank" then
-  if file_getprop("/tmp/aroma-data/archidroidboeffla.prop","boeffla") == "yesarchi" then
+  if file_getprop("/tmp/aroma-data/archidroidboefflasound.prop","boeffla") == "yesarchi" then
     ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Boeffla SC with Archi's Audiophile preset");
     package_extract_dir("_archidroid/apps/boeffla", "/");
     package_extract_dir("_archidroid/presets/boeffla", "/");
   endif;	
-  if file_getprop("/tmp/aroma-data/archidroidboeffla.prop","boeffla") == "yes" then
+  if file_getprop("/tmp/aroma-data/archidroidboefflasound.prop","boeffla") == "yes" then
       ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Boeffla SC");
       package_extract_dir("_archidroid/apps/boeffla/system/app", "/system/app");
   endif;

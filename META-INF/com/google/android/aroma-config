@@ -276,18 +276,6 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "bareb
   );
 
   writetmpfile(
-    "archidroidtemasek.prop",
-
-    "preset=no\n"
-  );
-
-  writetmpfile(
-    "archidroidboeffla.prop",
-
-    "boeffla=no\n"
-  );
-
-  writetmpfile(
     "archidroidxposed.prop",
 
     "appsettings=0\n"+
@@ -357,21 +345,12 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "archi
     "openpdroid=1\n"+
     "nocell=1\n"
   );
-  
-### Obsolete, delete later
-
-  writetmpfile(
-    "archidroidtemasek.prop",
-
-    "preset=ultra\n"
-  );
 
   writetmpfile(
     "archidroidboeffla.prop",
 
-    "boeffla=yesarchi\n"
+    "preset=archipowersave\n"
   );
-###
 
   writetmpfile(
     "archidroidxposed.prop",
@@ -393,8 +372,8 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
     "archidroid.prop",
     
     "kernel","Kernel","","group",
-    "temasek","Temasek Kernel [Boeffla/No ABB]","<~archidroid.kernel.temasek.desc>","select.selected",
-    "boeffla","Boeffla Kernel [<~common.experimental>]","<~archidroid.kernel.boeffla.desc>","select",
+    "temasek","Temasek Kernel [Boeffla/No ABB]","<~archidroid.kernel.temasek.desc>","select",
+    "boeffla","Boeffla Kernel","<~archidroid.kernel.boeffla.desc>","select.selected",
     "yank","Yank555.lu Kernel","<~archidroid.kernel.yank.desc>","select",
     "googy","Googy-Max Kernel","<~archidroid.kernel.googy.desc>","select",
     "stock","Stock CM","<~archidroid.kernel.stock.desc>","select",
@@ -495,7 +474,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
       "<~archidroid.custom.extra>",
       "<~archidroid.custom.desc>",
       "icons/apps",
-      "archidroidboeffla.prop",
+      "archidroidboefflasound.prop",
 
       "boeffla","Boeffla Sound Control","","group",
       "yesarchi","<~archidroid.boeffla.yesarchi>","<~archidroid.boeffla.yesarchi.desc>","select.selected",

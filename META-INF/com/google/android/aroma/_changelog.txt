@@ -1,9 +1,12 @@
 ArchiDroid 2.1.7
-- Boeffla presets
-# Not ready yet, you need to manualy open app to automatically apply preset after flashing. But it's working fine if you do so.
+- [!] Boeffla Presets + Boeffla Kernel is default now
+# This includes also updating both app & kernel to newest versions (this fixes f.e. frozen logcat bootanimation in previous stable version)
+# Thanks to Andi and some of my coding I'm happy to introduce Boeffla Presets, available in aroma of course.
+# Please note that Archi's Audiophile with standalone boeffla audio app is NOT available if you choose boeffla. This is because my presets already have Archi's Audiophile so you have everything in one place.
+# With all recent changes I'm happy to set Boeffla Kernel as the proposed one now :)
+# You can easily able to import (load) my presets in boeffla config app, so if you'd like to edit them to your liking feel free to do so (the preset you choose just overrides default one)
 
 - Updated temasek kernel to 300913
-- Updated Boeffla kernel to beta6 (this fixes freezed logcat bootanimation in AD 2.1.6)
 - Updayed Yank's kernel to 1.6f+ (and Archi's config for Yank's kernel)
 - Updated Googy Max kernel to 1.7.4
 - Updated temasek sources to V52

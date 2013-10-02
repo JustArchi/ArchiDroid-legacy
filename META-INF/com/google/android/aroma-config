@@ -239,6 +239,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "bareb
     "dpi=320\n"+
     "launcher=stock\n"+
     "keyboard=stock\n"+
+    "bootanimation=archi\n"+
     "archidroidota=0\n"+
     "xposed=0\n"+
     "crossbreeder=0\n"+
@@ -268,7 +269,6 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "bareb
     "adobeflash=0\n"+
     "youtube=0\n"+
     "facebook=0\n"+
-    "logcat=0\n"+
     "hdvoice=0\n"+
     "buildtweaks=0\n"+
     "openpdroid=0\n"+
@@ -310,6 +310,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "archi
     "dpi=241\n"+
     "launcher=nova\n"+
     "keyboard=both\n"+
+    "bootanimation=archi\n"+
     "archidroidota=0\n"+
     "xposed=1\n"+
     "crossbreeder=1\n"+
@@ -339,7 +340,6 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "archi
     "adobeflash=1\n"+
     "youtube=1\n"+
     "facebook=1\n"+
-    "logcat=1\n"+
     "hdvoice=1\n"+
     "buildtweaks=1\n"+
     "openpdroid=1\n"+

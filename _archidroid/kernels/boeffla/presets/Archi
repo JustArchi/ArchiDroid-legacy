@@ -1,0 +1,76 @@
+echo 'zzmoove' > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+echo 'zzmoove - battery yank' > /dev/bk_governor_profile
+/sbin/busybox usleep 300000
+/res/bc/bccontroller.sh apply_governor_profile 'zzmoove - battery yank'
+echo 'row' > /sys/block/mmcblk0/queue/scheduler
+echo 'cfq' > /sys/block/mmcblk1/queue/scheduler
+echo '512' > /sys/block/mmcblk0/bdi/read_ahead_kb
+echo '1024' > /sys/block/mmcblk1/bdi/read_ahead_kb
+/res/bc/bccontroller.sh apply_ext4_tweaks 1
+echo '1600000' > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+echo '200000' > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+echo 'undervolt light' > /dev/bk_cpu_voltages_profile
+echo '1400 1363 1300 1238 1200 1150 1075 1025 975 950 938 900 900 875 850' > /sys/devices/system/cpu/cpu0/cpufreq/UV_mV_table
+echo '2' > /sys/module/cpuidle_exynos4/parameters/enable_mask
+echo '1' > /sys/devices/system/cpu/sched_mc_power_savings
+echo '' > /dev/bk_gpu_frequencies_profile
+echo '108 200 300 400 533' > /sys/class/misc/gpu_clock_control/gpu_control
+echo 'undervolt light' > /dev/bk_gpu_voltages_profile
+echo '900000 925000 975000 1012000 1075000' > /sys/class/misc/gpu_voltage_control/gpu_control
+echo '1' > /sys/class/misc/boeffla_sound/boeffla_sound
+echo '55 55' > /sys/class/misc/boeffla_sound/headphone_volume
+echo '57 57' > /sys/class/misc/boeffla_sound/speaker_volume
+echo '1' > /sys/class/misc/boeffla_sound/speaker_tuning
+echo '1' > /sys/class/misc/boeffla_sound/privacy_mode
+echo '2' > /sys/class/misc/boeffla_sound/eq
+/res/bc/bccontroller.sh apply_eq_bands 
+echo '8 4 4 2 6' > /sys/class/misc/boeffla_sound/eq_gains
+echo '' > /dev/bk_eq_gains_profile
+echo '0' > /sys/class/misc/boeffla_sound/dac_direct
+echo '1' > /sys/class/misc/boeffla_sound/dac_oversampling
+echo '1' > /sys/class/misc/boeffla_sound/fll_tuning
+echo '8' > /sys/class/misc/boeffla_sound/stereo_expansion
+echo '0' > /sys/class/misc/boeffla_sound/mono_downmix
+echo '28' > /sys/class/misc/boeffla_sound/mic_level_general
+echo '25' > /sys/class/misc/boeffla_sound/mic_level_call
+echo '1' > /sys/class/sec/led/led_fade
+echo '40' > /sys/class/sec/led/led_intensity
+echo '2' > /sys/class/sec/led/led_speed
+echo '1' > /sys/class/misc/touchboost_switch/touchboost_switch
+echo '600000' > /sys/class/misc/touchboost_switch/touchboost_freq
+echo '0' > /sys/class/misc/touchwake/enabled
+echo '0' > /sys/class/misc/touchwake/delay
+echo '0' > /sys/kernel/early_suspend/early_suspend_delay
+echo '1' > /sys/class/misc/mdnie_preset/mdnie_preset
+echo '1' > /dev/bk_mdnie_overwrite
+echo '0' > /sys/class/mdnie/mdnie/outdoor
+echo '0' > /sys/class/mdnie/mdnie/negative
+echo '1' > /sys/class/mdnie/mdnie/scenario
+echo '2' > /sys/class/mdnie/mdnie/mode
+echo '0' > /sys/class/sec/sec_touchkey/touch_led_handling
+echo '0' > /sys/class/sec/sec_touchkey/touch_led_on_screen_touch
+echo 'Boeffla tweaks' > /dev/bk_system_tweaks
+/res/bc/bccontroller.sh apply_system_tweaks 'Boeffla tweaks'
+echo '4' > cat /proc/swaps
+echo '52428800' > /sys/block/zram0/disksize
+echo '52428800' > /sys/block/zram1/disksize
+echo '52428800' > /sys/block/zram2/disksize
+echo '52428800' > /sys/block/zram3/disksize
+/res/bc/bccontroller.sh apply_zram 1 4
+echo '1' > /dev/bk_swappiness_overwrite
+echo '80' > /proc/sys/vm/swappiness
+echo '1100' > /sys/kernel/charge_levels/charge_level_ac
+echo '475' > /sys/kernel/charge_levels/charge_level_usb
+echo '475' > /sys/kernel/charge_levels/charge_level_wireless
+echo '0' > /sys/kernel/charge_levels/ignore_safety_margin
+echo '0' > /sys/kernel/charge_levels/ignore_unstable_power
+/res/bc/bccontroller.sh apply_cifs 0
+/res/bc/bccontroller.sh apply_nfs 0
+/res/bc/bccontroller.sh apply_xbox 0
+/res/bc/bccontroller.sh apply_exfat 1
+/res/bc/bccontroller.sh apply_ntfs 0
+echo '0' > /sys/kernel/logger_mode/logger_mode
+echo '' > /sys/kernel/printk_mode/printk_mode
+echo '12288,15360,18432,21504,24576,30720,' > /sys/module/lowmemorykiller/parameters/minfree
+echo 'Archi' >$BOEFFLA_DATA_PATH/startconfig_done
+/sbin/busybox chmod 666 $BOEFFLA_DATA_PATH/startconfig_done

@@ -329,15 +329,15 @@ if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "boeffla" then
   
   if file_getprop("/tmp/aroma-data/archidroidboeffla.prop","preset") == "archiperformance" then
 		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying ArchiDroid Performance kernel preset");
-    package_extract_file("_archidroid/kernels/boeffla/data/media/0/boeffla-kernel-data/Archi_Performance.bcprofile", "/data/media/0/boeffla-kernel-data/startconfig");
+    package_extract_file("_archidroid/kernels/boeffla/presets/Archi_Performance", "/data/media/0/boeffla-kernel-data/startconfig");
 	endif;
   if file_getprop("/tmp/aroma-data/archidroidboeffla.prop","preset") == "archipowersave" then
 		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying ArchiDroid PowerSave kernel preset");
-    package_extract_file("_archidroid/kernels/boeffla/data/media/0/boeffla-kernel-data/Archi.bcprofile", "/data/media/0/boeffla-kernel-data/startconfig");
+    package_extract_file("_archidroid/kernels/boeffla/presets/Archi", "/data/media/0/boeffla-kernel-data/startconfig");
 	endif;
   if file_getprop("/tmp/aroma-data/archidroidboeffla.prop","preset") == "archiultrapowersave" then
 		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying ArchiDroid UltraPowerSave kernel preset");
-    package_extract_file("_archidroid/kernels/boeffla/data/media/0/boeffla-kernel-data/Archi_UltraPowerSave.bcprofile", "/data/media/0/boeffla-kernel-data/startconfig");
+    package_extract_file("_archidroid/kernels/boeffla/presets/Archi_UltraPowerSave", "/data/media/0/boeffla-kernel-data/startconfig");
 	endif;
 endif;
 

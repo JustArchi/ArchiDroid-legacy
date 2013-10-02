@@ -397,7 +397,7 @@ if file_getprop("/tmp/aroma-data/archidroidwipe.prop","wipe") == "no" then
 	delete("/system/bin/backuptool.functions");;
 endif;
 
-set_progress(0.61);
+set_progress(0.63);
 
 
 ###########
@@ -436,7 +436,7 @@ if file_getprop("/tmp/aroma-data/archidroid.prop","dpi") == "320" then
 	run_program("/tmp/320dpi.sh");
 endif;
 
-set_progress(0.66);
+set_progress(0.64);
 
 
 ##############
@@ -445,13 +445,6 @@ set_progress(0.66);
 
 ### ArchiDroid Tweaks ###
 ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying ArchiDroid Tweaks");
-
-if file_getprop("/tmp/aroma-data/archidroid.prop","logcat") == "1" then
-	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying Logcat Bootscreen");
-	package_extract_dir("_archidroid/logcat", "/");
-	set_perm_recursive(0, 2000, 0755, 0755, "/system/bin");
-	set_perm(0, 0, 06755, "/system/bin/boot-dmesg");
-endif;
 
 if file_getprop("/tmp/aroma-data/archidroid.prop","hdvoice") == "1" then
 	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying HD Voice Tweak");
@@ -482,7 +475,7 @@ if file_getprop("/tmp/aroma-data/archidroid.prop","nocell") == "1" then
 	delete("/system/app/CellBroadcastReceiver.apk");
 endif;
 
-set_progress(0.7);
+set_progress(0.65);
 
 #############
 ### MODEM ###
@@ -500,7 +493,7 @@ endif;
 
 delete("/tmp/flash_image");
 
-set_progress(0.75);
+set_progress(0.70);
 
 
 ##############
@@ -523,7 +516,7 @@ if file_getprop("/tmp/aroma-data/archidroid.prop","xposed") == "1" then
 	
 endif;
 
-set_progress(0.76);
+set_progress(0.71);
 
 
 ################
@@ -537,7 +530,7 @@ if file_getprop("/tmp/aroma-data/archidroid.prop","updaterecovery") == "1" then
 	write_raw_image("/tmp/recovery.img", "/dev/block/mmcblk0p6"));
 endif;
 
-set_progress(0.77);
+set_progress(0.73);
 
 
 ###########
@@ -552,7 +545,7 @@ if file_getprop("/tmp/aroma-data/archidroid.prop","archidroidota") == "1" then
 	package_extract_dir("_archidroid/ota/app", "/");
 endif;
 
-set_progress(0.78);
+set_progress(0.74);
 
 
 ################
@@ -587,7 +580,7 @@ ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</
 # Not needed, haha!
 endif;
 
-set_progress(0.79);
+set_progress(0.75);
 
 
 ################
@@ -611,7 +604,38 @@ ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</
 # Not needed, haha!
 endif;
 
-set_progress(0.8);
+set_progress(0.76);
+
+
+#####################
+### BOOTANIMATION ###
+#####################
+
+if file_getprop("/tmp/aroma-data/archidroid.prop","bootanimation") == "archi" then
+	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying ArchiDroid Bootanimation");
+	package_extract_dir("_archidroid/bootanimations/archi", "/");
+endif;
+
+if file_getprop("/tmp/aroma-data/archidroid.prop","bootanimation") == "archilegacy" then
+	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying ArchiDroid Legacy Bootanimation");
+	package_extract_dir("_archidroid/bootanimations/archilegacy", "/");
+endif;
+
+if file_getprop("/tmp/aroma-data/archidroid.prop","bootanimation") == "logcat" then
+	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying Logcat Bootanimation");
+	package_extract_dir("_archidroid/bootanimations/logcat", "/");
+	set_perm_recursive(0, 2000, 0755, 0755, "/system/bin");
+	set_perm(0, 0, 06755, "/system/bin/boot-dmesg");
+  delete("/system/media/bootanimation.zip");
+endif;
+
+if file_getprop("/tmp/aroma-data/archidroid.prop","bootanimation") == "stock" then
+  ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying CyanogenMod Bootanimation");
+  # Not needed, haha!
+endif;
+
+
+set_progress(0.78);
 
 
 #############
@@ -629,6 +653,8 @@ if file_getprop("/tmp/aroma-data/archidroid.prop","gapps") == "1" then
 	run_program("/tmp/install-optional.sh", "");
 	set_perm_recursive(0, 0, 0755, 0644, "/system/app");
 endif;
+
+set_progress(0.80);
 
 if file_getprop("/tmp/aroma-data/archidroid.prop","gquick") == "0" then
 	delete("/system/app/QuickSearchBox.apk");

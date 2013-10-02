@@ -98,7 +98,7 @@ run_program("/sbin/sync");
 set_progress(0.51);
 
 ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Creating symlinks");
-symlink("/system/xbin/su", "/system/bin/su");
+symlink("../xbin/su", "/system/bin/su");
 symlink("Roboto-Bold.ttf", "/system/fonts/DroidSans-Bold.ttf");
 symlink("Roboto-Regular.ttf", "/system/fonts/DroidSans.ttf");
 symlink("busybox", "/system/xbin/[", "/system/xbin/[[",
@@ -201,7 +201,7 @@ symlink("toolbox", "/system/bin/cat", "/system/bin/chcon",
         "/system/bin/rm", "/system/bin/rmdir", "/system/bin/rmmod",
         "/system/bin/route", "/system/bin/runcon", "/system/bin/schedtop",
         "/system/bin/sendevent", "/system/bin/setconsole",
-        "/system/bin/setenforce", "/system/bin/setprop",
+        "/system/bin/setenforce", "/system/bin/setfattr", "/system/bin/setprop",
         "/system/bin/setsebool", "/system/bin/sleep", "/system/bin/smd",
         "/system/bin/start", "/system/bin/stop", "/system/bin/sync",
         "/system/bin/top", "/system/bin/touch", "/system/bin/umount",

@@ -12,7 +12,7 @@ show_progress(0.500000, 0);
 format("ext4", "EMMC", "/dev/block/mmcblk0p9", "0", "/system");
 mount("ext4", "EMMC", "/dev/block/mmcblk0p9", "/system");
 package_extract_dir("system", "/system");
-symlink("/system/xbin/su", "/system/bin/su");
+symlink("../xbin/su", "/system/bin/su");
 symlink("Roboto-Bold.ttf", "/system/fonts/DroidSans-Bold.ttf");
 symlink("Roboto-Regular.ttf", "/system/fonts/DroidSans.ttf");
 symlink("busybox", "/system/xbin/[", "/system/xbin/[[",
@@ -115,7 +115,7 @@ symlink("toolbox", "/system/bin/cat", "/system/bin/chcon",
         "/system/bin/rm", "/system/bin/rmdir", "/system/bin/rmmod",
         "/system/bin/route", "/system/bin/runcon", "/system/bin/schedtop",
         "/system/bin/sendevent", "/system/bin/setconsole",
-        "/system/bin/setenforce", "/system/bin/setprop",
+        "/system/bin/setenforce", "/system/bin/setfattr", "/system/bin/setprop",
         "/system/bin/setsebool", "/system/bin/sleep", "/system/bin/smd",
         "/system/bin/start", "/system/bin/stop", "/system/bin/sync",
         "/system/bin/top", "/system/bin/touch", "/system/bin/umount",

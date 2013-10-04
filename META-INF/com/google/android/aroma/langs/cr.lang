@@ -111,6 +111,12 @@ archidroid.keyboard.hackers.desc=Odlična alternativa TouchPal tipkovnici ako ne
 archidroid.keyboard.both.desc=Ako želite koristiti obje TouchPad i hackers tipkovnice (primjerice u terminalu)
 archidroid.keyboard.stock.desc=Ako želite zadržati izvornu tipkovnicu CM-a
 
+archidroid.bootanimation=Bootanimation
+archidroid.bootanimation.archi.desc=New fancy ArchiDroid bootanimation
+archidroid.bootanimation.archilegacy.desc=Old ArchiDroid 1.X bootanimation
+archidroid.bootanimation.logcat.desc=Mijenja zadani bootaimation s logcat prikazom bootanimacije - powered by logcat Lite
+archidroid.bootanimation.stock.desc=Stock bootanimation provided by CyanogenMod
+
 archidroid.other=Ostalo
 archidroid.ota.desc=Preporučeno od ArchiDroid-a. Instalirati ćemo UpdateMe Aplikaciju i omogućiti Ota ažuriranja putem build.prop-a
 archidroid.xposed.desc=Omogućuje korištenje raznih Xposed modula. Treba biti ručno omogućeno
@@ -136,7 +142,6 @@ archidroid.apps.adobeflash.desc=Dodaje podršku flash sadržaja na pregledniku. 
 archidroid.apps.youtube.desc=Tamna verzija YouTube aplikacije
 archidroid.apps.facebook.desc=Tamna verzija Facebook and Messenger aplikacije
 
-archidroid.bootanimation.logcat.desc=Mijenja zadani bootaimation s logcat prikazom bootanimacije - powered by logcat Lite
 archidroid.tweaks.hdvoice.desc=Omogućuje HD Voice ako je dostupan na vašoj mreži
 archidroid.tweaks.buildtweaks.desc=Razna build.prop ugađanja, uključujući i dublji san, ugađanje performansi i više
 archidroid.tweaks.openpdroid.desc=Nanesite OpenPDroid zakrpu nakon instalacije ako je dostupno

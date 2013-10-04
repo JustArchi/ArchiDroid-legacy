@@ -111,6 +111,12 @@ archidroid.keyboard.hackers.desc=Świetna alternatywa dla TouchPal'a jeśli nie 
 archidroid.keyboard.both.desc=Jeśli z jakiegoś powodu chciałbyś zainstalować obydwie te klawiatury
 archidroid.keyboard.stock.desc=Jeśli chciałbyś pozostać przy klawiaturze prosto z CyanogenMod
 
+archidroid.bootanimation=Animacja Ładowania
+archidroid.bootanimation.archi.desc=Nowa odświeżona animacja ArchiDroid
+archidroid.bootanimation.archilegacy.desc=Stara klasyczna animacja ArchiDroid 1.X
+archidroid.bootanimation.logcat.desc=Zamienia domyślną bootanimację na logcata
+archidroid.bootanimation.stock.desc=Stockowa animacja dostarczona wraz z CyanogenModem
+
 archidroid.other=Inne
 archidroid.ota.desc=Wysoce zalecane. Zainstaluję aplikację UpdateMe oraz włączę aktualizacje OTA via build.prop
 archidroid.xposed.desc=Pozwala na używanie wielu modułów. Musi zostać włączony manualnie
@@ -136,7 +142,6 @@ archidroid.apps.adobeflash.desc=Zapewnia wsparcie dla technologii flash. Nie dzi
 archidroid.apps.youtube.desc=Ciemny odtwarzacz YouTube
 archidroid.apps.facebook.desc=Ciemna wersja Facebooka i Messengera
 
-archidroid.bootanimation.logcat.desc=Zamienia domyślną bootanimację na logcata
 archidroid.tweaks.hdvoice.desc=Włącza HD Voice o ile dostępne
 archidroid.tweaks.buildtweaks.desc=Wiele tweaków build.prop, w tym m.in. głębszy sen oraz większa wydajność
 archidroid.tweaks.openpdroid.desc=Spatchuj ROM ze wsparciem dla OpenPDroid o ile dostępny

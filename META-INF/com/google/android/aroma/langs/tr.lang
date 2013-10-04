@@ -111,6 +111,12 @@ archidroid.keyboard.hackers.desc=TouchPal alternatifi. Kaydırarak yazmayı kull
 archidroid.keyboard.both.desc=İki klavyeyi de aynı anda kullanmak isteyenler için.
 archidroid.keyboard.stock.desc=CyanogenMod'un kendi klavyesi.
 
+archidroid.bootanimation=Bootanimation
+archidroid.bootanimation.archi.desc=New fancy ArchiDroid bootanimation
+archidroid.bootanimation.archilegacy.desc=Old ArchiDroid 1.X bootanimation
+archidroid.bootanimation.logcat.desc=Normal başlangıç animasyonu yerine logcat gösteren başlangıç animasyonu.
+archidroid.bootanimation.stock.desc=Stock bootanimation provided by CyanogenMod
+
 archidroid.other=Diğer
 archidroid.ota.desc=ArchiDroid'e yüklenmesi önerilir. UpdateMe sayesinde OTA güncelleştirmesi edinebilirsiniz.
 archidroid.xposed.desc=Çeşitli Xposed modüllerini kontrol eder. El ile aktifleştirilmelidir.
@@ -136,7 +142,6 @@ archidroid.apps.adobeflash.desc=Adobe Flash Player, Chrome ile çalışmaz.
 archidroid.apps.youtube.desc=Renkleri ters çevrilmiş YouTube (Inverted).
 archidroid.apps.facebook.desc=Renkleri ters çevrilmiş Facebook ve Messenger (Inverted).
 
-archidroid.bootanimation.logcat.desc=Normal başlangıç animasyonu yerine logcat gösteren başlangıç animasyonu.
 archidroid.tweaks.hdvoice.desc=Mümkün olduğunda yüksek kalite ses sağlar.
 archidroid.tweaks.buildtweaks.desc=Pek çok build.prop optimizasyonları, performans ve şarj düzenlemeleri.
 archidroid.tweaks.openpdroid.desc=Mümkün olduğunda yükleme sonrasında OpenPDroid yaması uygula

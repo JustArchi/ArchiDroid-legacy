@@ -111,6 +111,12 @@ archidroid.keyboard.hackers.desc=Tolle Alternative zu TouchPal wenn du keine swy
 archidroid.keyboard.both.desc=Wenn du beide benutzen willst, TouchPal und Hacker's (z.B. für Terminal)
 archidroid.keyboard.stock.desc=Wenn du die Standard CM Tastatur nutzen möchtest
 
+archidroid.bootanimation=Bootanimation
+archidroid.bootanimation.archi.desc=New fancy ArchiDroid bootanimation
+archidroid.bootanimation.archilegacy.desc=Old ArchiDroid 1.X bootanimation
+archidroid.bootanimation.logcat.desc=Ersetzt die Standard Bootanimation durch eine logcat Ausgabe - powered by logcat lite
+archidroid.bootanimation.stock.desc=Stock bootanimation provided by CyanogenMod
+
 archidroid.other=Anderes
 archidroid.ota.desc=Empfohlen von ArchiDroid. Installation von UpdateMe apk und Aktivierung von OTA-Updates durch build.prop
 archidroid.xposed.desc=Erlaub die Verwendung verschiedener Xposed Module. Muss aber noch manuell aktiviert werden
@@ -136,7 +142,6 @@ archidroid.apps.adobeflash.desc=Fügt Flash-Player hinzu. Funtkioniert nicht mit
 archidroid.apps.youtube.desc=Invertierte Version der YouTube App
 archidroid.apps.facebook.desc=Invertierte Version von Facebook und Messenger
 
-archidroid.bootanimation.logcat.desc=Ersetzt die Standard Bootanimation durch eine logcat Ausgabe - powered by logcat lite
 archidroid.tweaks.hdvoice.desc=Aktiviert HD Voice wenn verfügbar
 archidroid.tweaks.buildtweaks.desc=Viele build.prop Anpassungen, inklusiv tieferem Schlafmodus, Performance Verbesserungen und mehr
 archidroid.tweaks.openpdroid.desc=Führe OpenPDroid Patch nach der Installation aus (falls verfügbar)

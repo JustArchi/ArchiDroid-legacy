@@ -111,6 +111,12 @@ archidroid.keyboard.hackers.desc=Alternative e TouchPal nese perdorni swype/curv
 archidroid.keyboard.both.desc=Nese deshiron te perdorni TouchPal dhe Hacker's (p.sh ne Terminal)
 archidroid.keyboard.stock.desc=Nese deshiront CM tastier standard.
 
+archidroid.bootanimation=Bootanimation
+archidroid.bootanimation.archi.desc=New fancy ArchiDroid bootanimation
+archidroid.bootanimation.archilegacy.desc=Old ArchiDroid 1.X bootanimation
+archidroid.bootanimation.logcat.desc=Ndryshon animacionin standard ne boot, ne shkronja - nga logcat lite
+archidroid.bootanimation.stock.desc=Stock bootanimation provided by CyanogenMod
+
 archidroid.other=Tjera
 archidroid.ota.desc=Rekomanduar nga ArchiDroid. Do te instalojme UpdateMe apk dhe OTA azhurimin nga build.prop
 archidroid.xposed.desc=Lejon perdorimin e shume Xposed moduleve. Duhet ta lejoni manualisht
@@ -136,7 +142,6 @@ archidroid.apps.adobeflash.desc=Ofron Flash perkrahje. Nuk punon me Google Chrom
 archidroid.apps.youtube.desc=YouTube aplikacionie i Invertuar (zi/bardhe)
 archidroid.apps.facebook.desc=Facebook i Invertuar
 
-archidroid.bootanimation.logcat.desc=Ndryshon animacionin standard ne boot, ne shkronja - nga logcat lite
 archidroid.tweaks.hdvoice.desc=Mundeson HD zerim, nese perkrahet nga Operatori
 archidroid.tweaks.buildtweaks.desc=Disa avansime ne build.prop tweaks, perfshire fjetje te thelle, performansa me te mira, etj
 archidroid.tweaks.openpdroid.desc=Apliko OpenPDroid patch pas instalimit

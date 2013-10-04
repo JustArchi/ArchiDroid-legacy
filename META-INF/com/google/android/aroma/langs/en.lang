@@ -111,6 +111,12 @@ archidroid.keyboard.hackers.desc=Great alternative to TouchPal if you're not goi
 archidroid.keyboard.both.desc=If you want to use both TouchPal and Hacker's (for example in terminal)
 archidroid.keyboard.stock.desc=If you want to keep default CM keyboard
 
+archidroid.bootanimation=Bootanimation
+archidroid.bootanimation.archi.desc=New fancy ArchiDroid bootanimation
+archidroid.bootanimation.archilegacy.desc=Old ArchiDroid 1.X bootanimation
+archidroid.bootanimation.logcat.desc=Changes default bootaimation to logcat output - powered by logcat lite
+archidroid.bootanimation.stock.desc=Stock bootanimation provided by CyanogenMod
+
 archidroid.other=Other
 archidroid.ota.desc=Recommended by ArchiDroid. We'll install UpdateMe apk and enable OTA updates via build.prop
 archidroid.xposed.desc=Allows using various of Xposed modules. Needs to be enabled manualy
@@ -136,7 +142,6 @@ archidroid.apps.adobeflash.desc=Adds flash content support. Does not work with G
 archidroid.apps.youtube.desc=Inverted version of YouTube app
 archidroid.apps.facebook.desc=Inverted version of Facebook and Messenger
 
-archidroid.bootanimation.logcat.desc=Changes default bootaimation to logcat output - powered by logcat lite
 archidroid.tweaks.hdvoice.desc=Enables HD Voice if available
 archidroid.tweaks.buildtweaks.desc=Many build.prop tweaks, including deeper sleep, performance tweaks and more
 archidroid.tweaks.openpdroid.desc=Apply OpenPDroid patch after install if available

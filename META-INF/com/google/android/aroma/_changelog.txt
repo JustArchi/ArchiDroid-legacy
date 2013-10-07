@@ -1,19 +1,2 @@
-ArchiDroid 2.1.7
-- [!] Boeffla Presets + Boeffla Kernel is default now
-# This includes also updating both app & kernel to newest versions (this fixes f.e. frozen logcat bootanimation in previous stable version)
-# Thanks to Andi and some of my coding I'm happy to introduce Boeffla Presets, available in aroma of course.
-# Please note that Archi's Audiophile with standalone boeffla audio app is NOT available if you choose boeffla. This is because my presets already have Archi's Audiophile so you have everything in one place.
-# With all recent changes I'm happy to set Boeffla Kernel as the proposed one now :)
-# You can easily able to import (load) my presets in boeffla config app, so if you'd like to edit them to your liking feel free to do so (the preset you choose just overrides default one)
-
-- [!] New ArchiDroid Bootanimations
-# Added new cool ArchiDroid Bootanimation inspired by japanese "Touhou" game, thanks to Kenshin and also old legacy ArchiDroid Bootanimation back from 1.X times, thanks to mrtur
-# Logcat is of course still available, same as original CyanogenMod bootanimation, I guess it's temasek one :)
-
-- Updated Boeffla Kernel & Boeffla-Config App to 2.0-alpha2
-# This is not yet public release, we've worked hard with Andi to implement presets, thus ArchiDroid utilizes it now
-
-- Updated temasek kernel to 021013
-- Updated Yank's kernel to 1.6f+ (and Archi's config for Yank's kernel)
-- Updated Googy Max kernel to 1.7.4
-- Updated temasek sources to V52
+ArchiDroid 2.2
+- Updated Boeffla kernel & app

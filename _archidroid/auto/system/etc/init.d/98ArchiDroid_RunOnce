@@ -50,6 +50,9 @@ DBUPDATE() {
 		VAL1=`$SQLITE3 /data/data/com.android.providers.settings/databases/settings.db "select value from $WHAT where name='$VARIABLE';" 2>/dev/null`
 		if [ "$VAL1" != "" ]; then
 			# Looks good
+      if [ $TRY -gt 1 ]; then
+        echo "ArchiDroid_RunOnce: DBUPDATE() SUCCEEDED with $WHAT $VARIABLE $VAL. It was our $TRY try" >> /data/media/0/ArchiDroid/err.log
+      fi
 			DONE=1
 			return 0
 		else

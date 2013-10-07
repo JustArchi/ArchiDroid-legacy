@@ -140,6 +140,7 @@ while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 	if [ $DBUPDATE -eq 1 ]; then
 		if [ -e /data/data/com.android.providers.settings/databases/settings.db ]; then
 			DBUPDATE secure advanced_reboot 1
+			DBUPDATE secure ui_inverted_mode 2
 			DBUPDATE global transition_animation_scale 0.5
 			DBUPDATE global animator_duration_scale 0.5
 			DBUPDATE global window_animation_scale 0.5

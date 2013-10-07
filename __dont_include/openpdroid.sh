@@ -1,9 +1,9 @@
 #!/bin/bash
 cd ..
 
-# Disabled for a while
-rm -f cm-*.zip
-exit 0
+# Not Disabled for a while
+#rm -f cm-*.zip
+#exit 0
 
 # Let's make it more universal (also benefit temasek's users) because I'm not using updater-script anyway
 # Cleanup, updates and patching
@@ -24,10 +24,6 @@ if [ ! `ls | grep "update-openpdroid" | wc -l` -eq 1 ]; then
 	sleep 30
 	exit 1
 fi
-
-# Let's keep flashable zips for temasek's users
-rm -f ../../shared/git/ArchiDroid/__dont_include/temasek-openpdroid/*.zip
-cp update-openpdroid*.zip restore-from-openpdroid*.zip ../../shared/git/ArchiDroid/__dont_include/temasek-openpdroid/
 
 # And let's finally patch ArchiDroid
 unzip update-openpdroid*.zip -d adpatch

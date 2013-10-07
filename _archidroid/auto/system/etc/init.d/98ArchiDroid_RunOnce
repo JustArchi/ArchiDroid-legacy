@@ -146,11 +146,13 @@ while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 			DBUPDATE global window_animation_scale 0.5
 			DBUPDATE global wifi_scan_always_enabled 0
 			DBUPDATE global install_non_market_apps 1
+			DBUPDATE global development_settings_enabled 1
 			DBUPDATE system power_menu_screenshot_enabled 1
 			DBUPDATE system status_bar_battery 3
 			DBUPDATE system statusbar_clock_date_display 2
 			DBUPDATE system statusbar_clock_date_format 'MMM dd'
 			DBUPDATE system status_bar_traffic 0
+			DBUPDATE system button_backlight_timeout 1000
 			
 			# And don't execute twice
 			DBUPDATE=0

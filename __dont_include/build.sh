@@ -5,7 +5,7 @@
 #exit 1
 
 # From source? Not yet... soon!
-SOURCE=0
+SOURCE=1
 
 WERSJA="ro.build.display.id=ArchiDroid 2.2"
 WERSJA2="ro.archidroid.version=2.2 ALPHA"
@@ -29,7 +29,9 @@ function zamien {
 }
 
 if [ $SOURCE -eq 1 ]; then
-	cd /root/android/system
+	cd /root/android/system/out/target/product/i9300
+  rm -f cm-*
+  cd /root/android/system
 	OLD=`md5sum /root/android/system/device/samsung/i9300/proprietary-files.txt | awk '{print $1}'`
 	OLD2=`md5sum /root/android/system/device/samsung/smdk4412-common/proprietary-files.txt | awk '{print $1}'`
 	#repo selfupdate

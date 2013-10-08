@@ -21,7 +21,6 @@ if [ ! `ls | grep "update-openpdroid" | wc -l` -eq 1 ]; then
 	echo "Patch Failed"
 	rm -f *.tgz
 	rm -f *.zip
-	sleep 30
 	exit 1
 fi
 

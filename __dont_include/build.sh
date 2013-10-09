@@ -30,7 +30,11 @@ function zamien {
 
 if [ $SOURCE -eq 1 ]; then
 	cd /root/android/system/out/target/product/i9300
-  rm -f cm-*
+  for f in `ls` ; do
+    if [[ "$f" != "obj" ]]; then
+      rm -rf $f
+    fi
+  done
   cd /root/android/system
 	OLD=`md5sum /root/android/system/device/samsung/i9300/proprietary-files.txt | awk '{print $1}'`
 	OLD2=`md5sum /root/android/system/device/samsung/smdk4412-common/proprietary-files.txt | awk '{print $1}'`

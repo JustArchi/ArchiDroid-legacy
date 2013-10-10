@@ -5,7 +5,7 @@
 cd /data
 
 # Added by JustArchi
-for i in `find /data -iname ".*" -maxdepth` ; do
+for i in `find /data -iname ".*" -maxdepth 1` ; do
   rm -fR "$i"
 done
 

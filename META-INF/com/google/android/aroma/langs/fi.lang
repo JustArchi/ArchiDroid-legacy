@@ -1,0 +1,193 @@
+﻿### LICENSE:
+#
+# Copyright (C) 2011 Ahmad Amarullah ( http://amarullz.com/ )
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+#
+#
+### ArchiDroid Language File
+#
+# How to create your own language translation
+# 1. Copy en.lang file to your own language.lang, f.e. fr.lang if you're creating French language.
+# 2. Start translating strings (everything after "=" should be translated)
+# 3. Change language and author information below when you're done
+# 4. Send pull request with your updated strings, wait for approval and adding to aroma
+# 5. Thank you for contributing to ArchiDroid project!
+#
+# Please note that you can use language-specific chars, f.e. ą ę ó ć ü ń or any non-standard letters.
+# All of them should be displayed properly in aroma
+#
+# Files should have UNIX-style endings (LF) and should be encoded in UTF-8 format.
+# Typically any file copied from en.lang should be already well formatted. Otherwise make sure that they're right.
+# In Notepad++ it's: Format -> UTF-8 and Edit -> EOL Conversion -> Convert to UNIX format
+#
+### LANGUAGE STRING RESOURCE FILE
+#
+#   Language  : Suomi
+#   By        : amppen
+#
+
+#
+#--- AROMA STRINGS
+#
+text_ok=OK
+text_next=Seuraava
+text_back=Takaisin
+text_yes=Kyllä
+text_no=Ei
+text_about=Lisätietoa
+text_calibrating=Kalibrointityökalut
+text_quit=Lopeta asennus
+text_quit_msg=Haluatko varmasti lopettaa asennuksen?
+
+#
+#-- ARCHIDROID STRINGS
+#
+common.for=for
+common.inverted=Invertoitu
+common.experimental=KOKEELLINEN
+common.deprecated=EI KÄYTÖSSÄ OLEVA
+common.obsolete=VANHENTUNUT
+terms.check=Hyväksyn käyttöehdot
+terms.confirm=Ole hyvä ja hyväksy käyttöehdot!
+terms.check2=Ymmärretty ja hyväksytty
+terms.confirm2=Kunnioita kehittäjiä!
+
+archidroid.tos=ArchiDroid Terms and Conditions
+
+archidroid.detect.fail=ArchiDroid ei löydä asennettua versiota. Oletko pyyhkinyt datan tai oletko vaihtamassa toisesta ohjelmistosta?
+archidroid.detect.fail.yes=Kyllä, minulla ei ole ArchiDroidia.
+archidroid.detect.fail.no=Ei, minulla on jo ArchiDroid!
+archidroid.detect.fail.alert.yes=OK, olen valinnut sinulle ArchiDroid asennusmoodin.
+archidroid.detect.fail.alert.no=Ei kuulosta hyvältä. Menköön, mutta älä valitse päivitysmoodia jos sinulla ei todella ole ArchiDroidia!
+archidroid.detect.pass=ArchiDroid löysi jo asennetun version itsestään. Haluatko käyttää päivitysmoodia?
+archidroid.detect.pass.yes=Kyllä, käytä päivitysmoodia
+archidroid.detect.pass.no=Ei, pyyhi data
+archidroid.detect.pass.alert.yes=OK, suoritan päivitysmoodin. Jos tulee ongelmia valitse datan pyyhintä
+archidroid.detect.pass.alert.no=OK, suoritan datan pyyhinnän ja ArchiDroid asennusmoodin
+
+archidroid.preset=ArchiDroid esiasetus
+archidroid.preset.desc=Valitse esiasetus asennusta varten:
+archidroid.preset.group=Esiasetus
+archidroid.preset.custom=Kustomoitu
+archidroid.preset.custom.desc=Asennusprosessi on täysin muokattavissa
+archidroid.preset.barebones=Pelkistetty
+archidroid.preset.barebones.desc=Puhdas CyanogenMod. Vain testaustarkoitukseen, ei suositeltu
+archidroid.preset.archi=Archi
+archidroid.preset.archi.desc=Oma profiilini nopeaan asennukseen
+
+archidroid.custom=ArchiDroid Kustomointi
+archidroid.custom.extra=ArchiDroid Extra-kustomointi
+archidroid.custom.desc=Muokkaa asetukset mieleiseksesi
+
+archidroid.kernel.temasek.desc=Suositellaan moitteettomaan suorituskykyyn ja virransäästöön, hyvä joustavuus ja boeffla-ääni
+archidroid.kernel.boeffla.desc=Erittäin suositeltu mestariteos soveltuu kaikille, mukana boeffla-ääni ja paljon muuta
+archidroid.kernel.yank.desc=Suositellaan vaihtoehtona Temasekille
+archidroid.kernel.googy.desc=Perustuu Siyah-lähdekoodiin. Dual boot -ominaisuus
+archidroid.kernel.stock.desc=CM oletusydin
+
+archidroid.dpi.240.desc=VAROITUS! Tämä DPI voi aiheuttaa pieniä visuaalisia ongelmia
+archidroid.dpi.241.desc=Kaikki on pienempää; mukaanlukien painikkeet, ikonit, teksti jne. ArchiDroid suosittelee parhaaseen käyttökokemukseen!
+archidroid.dpi.280.desc=Mukava vaihtoehto oletusarvon ja 240 DPI:n väliltä
+archidroid.dpi.320.desc=Oletusarvo
+
+archidroid.launcher.nova.desc=Suositellaan joustavuuden ja suorituskyvyn vuoksi
+archidroid.launcher.stock.desc=CM työpöytäympäristö, tunnetaan nimellä Trebuchet
+
+archidroid.keyboard=Näppäimistö
+archidroid.keyboard.touchpal.desc=Suositellaan hyvänä ja monipuolisena Swype/Curve -näppäimistönä
+archidroid.keyboard.hackers.desc=Hyvä vaihtoehto TouchPalille jos et tarvitse swype/curve -toimintoa
+archidroid.keyboard.both.desc=Jos haluat käyttää sekä TouchPalin lisäksi Hacker'sia (esimerkiksi komentorivillä)
+archidroid.keyboard.stock.desc=Jos haluat pitää CM-oletusnäppäimistön
+
+archidroid.bootanimation=Käynnistysanimaatio
+archidroid.bootanimation.archi.desc=Uusi hieno ArchiDroid käynnistysanimaatio
+archidroid.bootanimation.archilegacy.desc=Vanha ArchiDroid 1.X käynnistysanimaatio
+archidroid.bootanimation.logcat.desc=Muuttaa oletusanimaation järjestelmälokin sisällöksi - perustuu logcat liteen
+archidroid.bootanimation.stock.desc=CyanogenModin oletusanimaatio
+
+archidroid.other=Muuta
+archidroid.ota.desc=ArchiDroid suosittelee. Asennetaan UpdateMe apk ja otetaan käyttöön OTA-päivitykset build.propin kautta
+archidroid.xposed.desc=Vaaditaan Xposed-moduulien käyttöön. Otettava käyttöön manuaalisesti
+archidroid.crossbreeder.desc=Suositellaan lisäämään suorituskykyä ja joustavuutta, ei voida käyttää Seederin kanssa
+archidroid.updatemodem=Päivitä modeemi
+archidroid.updatemodem.desc=Jos haluat käyttää viimeisintä modeemia
+archidroid.updaterecovery=Päivitä recovery
+archidroid.updaterecovery.desc=Jos haluat käyttää viimeisintä recoverya
+
+archidroid.gapps.desc=Googlen ydinsovellukset ja -palvelut. ÄLÄ POISTA VALINTAA
+archidroid.gapps.gquick.desc=Saattaa rikkoa Google Voicen!
+
+archidroid.apps.titaniumbackup.desc=Täydellinen ratkaisu datan ja sovelluksien varmuuskopiointiin
+archidroid.apps.zram.desc=Hyödyllinen jos haluat seurata zram-käyttöä (vain kustomoidut kernelit)
+archidroid.apps.greenify.desc=Hyödyllinen jos haluat vaivuttaa sovelluksia horrokseen virransäästön vuoksi
+archidroid.apps.lmt.desc=Hyödyllinen jos haluat käyttää eleohjausta, tunnetaan SlimBean pie -nimellä
+archidroid.apps.mxplayer.desc=Luultavasti paras videotoistin Androidille
+archidroid.apps.spiritfm.desc=Ilmainen CM:n kanssa toimiva FM-radiosovellus
+archidroid.apps.bbs.desc=Näyttää monipuolisia tilastoja akunkäytöstä - erityisesti koskien lepotilaa estäviä prosesseja
+archidroid.apps.cooltool.desc=Näyttää hyödyllisiä tilastoja yläpalkissa
+archidroid.apps.rootbrowser.desc=hyvä resurssienhallintaohjelma, valinnainen root-pääsy
+archidroid.apps.adobeflash.desc=Flash-tuki. Ei toimi Google Chromessa
+archidroid.apps.youtube.desc=Invertoitu versio YouTube-sovelluksesta
+archidroid.apps.facebook.desc=Invertoidut versiot Facebookista and Messengeristä
+
+archidroid.tweaks.hdvoice.desc=Ottaa HD-äänen käyttöön puheluissa jos verkko tukee ominaisuutta
+archidroid.tweaks.buildtweaks.desc=Useita build.prop-säätöjä, mukaanlukien syvempi lepotila, suorituskykysäätöjä ja muuta
+archidroid.tweaks.openpdroid.desc=Lisää OpenPDroid-tuen asennuksen jälkeen jos saatavilla
+archidroid.tweaks.nocell.desc=Yleisesti turhakkeena pidetty. Poista valinta jos haluat pitää tämän
+
+archidroid.preset.no=Ei esiasetusta
+archidroid.preset.no.desc=Ei suositeltu, koska jäät paitsi monista Archin optimoinneista
+
+archidroid.preset.kernel.boeffla.archiperformance=ArchiDroid Suorituskyky
+archidroid.preset.kernel.boeffla.archiperformance.desc=Profiili lähinnä pelaajille, pitää sisällään suorittimen ja näytönohjaimen ylikellotusta. Odotettavissa parempaa suorituskykyä pienemmällä akunkestolla
+archidroid.preset.kernel.boeffla.archipowersave=ArchiDroid Virransäästö
+archidroid.preset.kernel.boeffla.archipowersave.desc=Oletuasetus, joka sopii useammille, jännitetasoja laskettu hieman. Hyvä kompromissi akunkeston ja suorituskyvyn suhteen, Archi suosittelee.
+archidroid.preset.kernel.boeffla.archiultrapowersave=ArchiDroid Ultravirransäästö
+archidroid.preset.kernel.boeffla.archiultrapowersave.desc=Esiasetus maksimaalista virransäästöä varten, kohtalaisesti lasketut jännitetasot. Odotettavissa parempaa akunkestoa pienemmällä suorituskyvyllä
+
+archidroid.preset.kernel.temasek.balanced=ArchiDroid tasapainoinen säätö
+archidroid.preset.kernel.temasek.balanced.desc=Perustuu optimoituun zzmooveen, mukana zram, boeffla-ääni and muuta. Vanhentunut zzmoove 0.7:n myötä
+archidroid.preset.kernel.temasek.powersave=ArchiDroid virransäästösäätö
+archidroid.preset.kernel.temasek.powersave.desc=Erityisen virtapihi säätö perustuu Yankin Battery zzmooveen alemmilla hotplug-ssädöillä
+archidroid.preset.kernel.temasek.ultra=ArchiDroid ULTRA virransäästösäätö
+archidroid.preset.kernel.temasek.ultra.desc=ULTRA virransäästöä perustuen Archin Ultra Battery zzmooveen LCDFreqin kanssa
+
+archidroid.boeffla.yesarchi=Kyllä Archi's Audiophile -säädöllä
+archidroid.boeffla.yesarchi.desc=Suositeltu. Parantaa äänenlaatua asentamalla Boeffla SC:n ja säätämällä Archin maun mukaan
+archidroid.boeffla.yes.desc=Jos haluat tehdä omat Boeffla SC -säätösi myöhemmin
+archidroid.boeffla.no.desc=Jos et halua asentaa Boeffla SC:tä
+
+archidroid.xposed.appsettings.desc=Mahdollistaa sovellusten asetusten muuttamisen. Erittäin hyödyllinen työkalu
+archidroid.xposed.xprivacy.desc=Täydellinen tietoturvamoduuli, voidaan käyttää arkaluonteisten tietojen suojaamiseen ja muuhun
+
+archidroid.wizard.reboot=ArchiDroid on asennettu laitteeseesi. Käynnistetäänkö uudelleen?
+
+archidroid.prepinstall=Valmiina asentamaan
+common.flash=Asenna
+common.back=Takaisin
+
+archidroid.prepinstall.desc=Kaikki valmiina asennusta varten.\
+Paina <b>Asenna</b> aloittaaksesi.\
+Jos haluat katsella tai muuttaa tekemiäsi asetuksia, paina <b>Takaisin</b>.
+
+common.finish=Valmis
+common.flashing=Asennetaan
+
+archidroid.install.desc=<b>ArchiDroidin</b> asennus käynnissä.\
+Ole hyvä ja odota että asennusvelho suorittaa <b>ArchiDroidin</b> asennuksen.\
+<b>Mikäli asennus pysähtyy ole hyvä ja yritä uudelleen käynnistämällä recovery-tilaan.</b>
+
+archidroid.install.finish=ArchiDroid asennusvelho asensi <b>ArchiDroidin<b>\
+Paina <b>Valmis</b> jatkaaksesi.

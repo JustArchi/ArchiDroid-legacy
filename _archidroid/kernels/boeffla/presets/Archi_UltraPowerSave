@@ -49,8 +49,7 @@ echo '1' > /sys/class/mdnie/mdnie/scenario
 echo '2' > /sys/class/mdnie/mdnie/mode
 echo '0' > /sys/class/sec/sec_touchkey/touch_led_handling
 echo '0' > /sys/class/sec/sec_touchkey/touch_led_on_screen_touch
-echo 'Boeffla tweaks' > /dev/bk_system_tweaks
-/res/bc/bccontroller.sh apply_system_tweaks 'Boeffla tweaks'
+echo 'Off' > /dev/bk_system_tweaks
 echo '4' > cat /proc/swaps
 echo '52428800' > /sys/block/zram0/disksize
 echo '52428800' > /sys/block/zram1/disksize
@@ -72,5 +71,5 @@ echo '0' > /sys/kernel/charge_levels/ignore_unstable_power
 echo '0' > /sys/kernel/logger_mode/logger_mode
 echo '' > /sys/kernel/printk_mode/printk_mode
 echo '12288,15360,18432,21504,24576,30720,' > /sys/module/lowmemorykiller/parameters/minfree
-echo 'Archi_UltraPowerSave' >$BOEFFLA_DATA_PATH/startconfig_done
-/sbin/busybox chmod 666 $BOEFFLA_DATA_PATH/startconfig_done
+echo 'Archi_UltraPowerSave' >/data/.boeffla/startconfig_done
+/sbin/busybox chmod 666 /data/.boeffla/startconfig_done

@@ -7,8 +7,8 @@
 # From source? Not yet... soon!
 SOURCE=1
 
-WERSJA="ro.build.display.id=ArchiDroid 2.2"
-WERSJA2="ro.archidroid.version=2.2 ALPHA"
+VERSION="2.2 EXPERIMENTAL"
+WERSJA="ro.build.display.id=ArchiDroid $VERSION"
 OTA="echo \"updateme.version=2.2\" >> /system/build.prop"
 DENSITY="#ro.sf.lcd_density=320"
 
@@ -143,7 +143,7 @@ ILE=`cat $FILE | wc -l`
 ILE=`expr $ILE - $GDZIE`
 #GDZIE=`expr $GDZIE - 1`
 cat $FILE | head -${GDZIE} > $FILEO
-echo $WERSJA2 >> $FILEO
+echo "ro.archidroid.version=$VERSION" >> $FILEO
 cat $FILE | tail -${ILE} >> $FILEO
 cp $FILEO $FILE
 rm $FILEO

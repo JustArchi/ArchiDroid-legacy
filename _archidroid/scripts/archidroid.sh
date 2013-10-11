@@ -1,5 +1,18 @@
 #!/sbin/sh
 
+if [ ! -d /data/media/0 ]; then
+	if [ -f /data/media/0 ]; then
+		rm -f /data/media/0
+	fi
+	cd /data/media
+	FILES=`ls`
+	mkdir -p /data/media/0
+	
+	for i in $FILES; do
+		mv "$i" 0/
+	done
+fi
+
 if [ ! -d /data/media/0/ArchiDroid ]; then
 	mkdir -p /data/media/0/ArchiDroid
 else

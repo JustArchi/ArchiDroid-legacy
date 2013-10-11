@@ -312,7 +312,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "archi
     "dpi=241\n"+
     "launcher=nova\n"+
     "keyboard=both\n"+
-    "bootanimation=archi\n"+
+    "bootanimation=logcat\n"+
     "archidroidota=0\n"+
     "xposed=1\n"+
     "crossbreeder=1\n"+

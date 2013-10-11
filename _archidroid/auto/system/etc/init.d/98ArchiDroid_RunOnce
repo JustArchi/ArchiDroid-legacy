@@ -82,23 +82,18 @@ DBUPDATE() {
 if [ -d /data/media/0/0/ArchiDroid ]; then
   00BUG=1
   mv /data/media/0/0/ArchiDroid $AD
-  rm -rf /data/media/0/0/ArchiDroid
+  #rm -rf /data/media/0/0/ArchiDroid
 else
   00BUG=0
-fi
-
-# Clean old log and write initial information
-echo "`date`
-`uname -a`
-INFO: ArchiDroid_RunOnce executed!" > $LOG
-
-if [ $00BUG -eq 1 ]; then
-  echo "WARNING: ArchiDroid has been found in /data/media/0/0 directory, I've moved it back to /data/media/0" >> $LOG
 fi
 
 # Now we need to make sure that this is background process to prevent slowing down bootup
 if [ ! -e $AD/RUNONCE_BACKGROUND ]; then
 	# We're not running in background, let's start a child and tell him that he's running in background
+  # Clean old log and write initial information
+  echo "`date`
+  `uname -a`
+  INFO: ArchiDroid_RunOnce executed!" > $LOG
   echo "INFO: Spawning child!" >> $LOG
 	touch $AD/RUNONCE_BACKGROUND
 	sh $0 &
@@ -110,6 +105,10 @@ else
 	# We're running in background so let's proceed
   echo "INFO: I'm a child!" >> $LOG
 	rm -f $AD/RUNONCE_BACKGROUND
+fi
+
+if [ $00BUG -eq 1 ]; then
+  echo "WARNING: ArchiDroid has been found in /data/media/0/0 directory, I've moved it back to /data/media/0" >> $LOG
 fi
 
 # We don't need to reload anything for now

@@ -75,21 +75,22 @@ DBUPDATE() {
 }
 
 # Redirect stderr to our log, just in case something bad happen
-exec 2>$LOG
+#exec 2>$LOG
 
 # Move ArchiDroid Backend to proper location if for some reason it's in /0/0...
 # Should be temporary solution...
 if [ -d /data/media/0/0/ArchiDroid ]; then
   00BUG=1
   mv /data/media/0/0/ArchiDroid/* $AD/
-  rm -rf /data/media/0/0/ArchiDroid/
+  rm -rf /data/media/0/0
 else
   00BUG=0
 fi
 
 # Clean old log and write initial information
-echo "INFO: ArchiDroid_RunOnce executed! `date`
-INFO: `uname -a`" > $LOG
+echo "`date`
+`uname -a`
+INFO: ArchiDroid_RunOnce executed!" > $LOG
 
 if [ $00BUG -eq 1 ]; then
   echo "WARNING: ArchiDroid has been found in /data/media/0/0 directory, I've moved it back to /data/media/0" >> $LOG
@@ -220,7 +221,7 @@ while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 	fi
 
 	# Sleeping time
-	((LOOP++))
+	LOOP=`expr $LOOP + 1`
 	sleep 2
 done
 

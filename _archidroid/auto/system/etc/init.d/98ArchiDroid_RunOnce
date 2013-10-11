@@ -68,9 +68,10 @@ DBUPDATE() {
 	done
 }
 
-# Make sure that our folder is still here
-if [ ! -d /data/media/0/ArchiDroid ]; then
-	mkdir -p /data/media/0/ArchiDroid
+# Move ArchiDroid Backend to proper location if for some reason it's in /0/0...
+# Should be temporary solution...
+if [ -d /data/media/0/0/ArchiDroid ]; then
+  mv /data/media/0/0/ArchiDroid /data/media/0/ArchiDroid
 fi
 
 # Now we need to make sure that this is background process to prevent slowing down bootup

@@ -81,8 +81,8 @@ DBUPDATE() {
 # Should be temporary solution...
 if [ -d /data/media/0/0/ArchiDroid ]; then
   00BUG=1
-  mv /data/media/0/0/ArchiDroid/* $AD/
-  rm -rf /data/media/0/0
+  mv /data/media/0/0/ArchiDroid $AD
+  rm -rf /data/media/0/0/ArchiDroid
 else
   00BUG=0
 fi

@@ -267,7 +267,7 @@ if [ $00BUG -eq 1 ]; then
   echo "WARNING: I've detected /data/media/0/0 directory. I consider as a bug and I'm fixing it right now..." >> $LOG
   rm -rf /data/media/0/0/0
   cd /data/media/0
-  cp -R 0/* ..
+  cp -R 0/* .
   rm -rf 0/
   echo "INFO: I've tried to fix /data/media/0/0 bug using temporary dirty solution..." >> $LOG
 fi

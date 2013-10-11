@@ -1,10 +1,15 @@
 ArchiDroid 2.2
 
+- [!] Temporary solution for fixing /data/media/0/0 loop. AD 2.2 postponed until it's fixed in universal way by CM.
+# I've implemented a simple workaround which just reverts a problem caused by android, but that's dirty solution provided by my backend, definitely can't stay here for long
+# RunOnce will tell you through it's log whenever bug exists and if it's fixed
+
 - [!] ArchiDroid is now built from source, thus it's independent fork of CM now
 # ArchiDroid is based on @Cristiano Matos (crDroid) sources, but it's self-compiled by me
 # From technical point of view this is a big change, but from your point of view it still has nearly all functions provided by temasek, f.e. HALO, Navigation bar, and more
 # Slowly *maybe* AD will have even more unique features, as for now consider it as independent crDroid-fork
 
+- ArchiDroid_RunOnce is more verbose now. You can find it's log in /data/media/0/ArchiDroid/RunOnce.log
 - Added Finnish language, thanks to @amppen
 - Added Russian language, thanks to @egotheist
 - Updated Boeffla kernel to 2.0-alpha3 and app to 2.0-alpha6

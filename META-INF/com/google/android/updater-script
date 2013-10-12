@@ -925,5 +925,5 @@ ui_print("===================================");
 ui_print("  ArchiDroid Flashed Successfully  ");
 ui_print("Please share your experience on XDA");
 ui_print("===================================");
-run_program("/sbin/busybox", "cp", "/tmp/recovery.log", "/sdcard/recovery.log");
+#run_program("/sbin/busybox", "cp", "/tmp/recovery.log", "/sdcard/recovery.log");
 set_progress(1.0);

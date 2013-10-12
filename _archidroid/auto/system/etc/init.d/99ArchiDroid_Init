@@ -6,11 +6,6 @@
 # Not Disabled
 #exit 0
 
-# Make sure that our folder is still here
-if [ ! -d /data/media/0/ArchiDroid ]; then
-	mkdir -p /data/media/0/ArchiDroid
-fi
-
 if [ -e /system/etc/init.d/98ArchiDroid_RunOnce ]; then
 	# This is our first boot, don't call init yet
 	exit 2

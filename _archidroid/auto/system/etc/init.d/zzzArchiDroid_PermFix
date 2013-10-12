@@ -35,9 +35,9 @@ sleep 30
 VERSION="2.04"
 
 # Defaults
-DEBUG=0 # Debug off by default
-LOGGING=0 # Logging on by default
-VERBOSE=0 # Verbose on by default
+DEBUG=1 # Debug off by default
+LOGGING=1 # Logging on by default
+VERBOSE=1 # Verbose on by default
 
 # Messages
 UID_MSG="Changing user ownership for:"
@@ -206,9 +206,9 @@ fp_start()
       fi
    fi
    if $TEST $( $MOUNT | $GREP -c /sdcard ) -eq 0; then
-      LOG_FILE="/data/archidroid_fix_permissions.log"
+      LOG_FILE="/data/media/0/ArchiDroid/PermFix.log"
    else
-      LOG_FILE="/sdcard/archidroid_fix_permissions.log"
+      LOG_FILE="/sdcard/ArchiDroid/PermFix.log"
    fi
    if $TEST ! -e "$LOG_FILE"; then
       > $LOG_FILE

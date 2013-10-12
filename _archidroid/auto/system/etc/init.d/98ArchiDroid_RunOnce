@@ -75,25 +75,15 @@ DBUPDATE() {
 }
 
 # Redirect stderr to our log, just in case something bad happen
-#exec 2>$LOG
-
-# Move ArchiDroid Backend to proper location if for some reason it's in /0/0...
-# Should be temporary solution...
-if [ -d /data/media/0/0/ArchiDroid ]; then
-  00BUG=1
-  mv /data/media/0/0/ArchiDroid $AD
-  #rm -rf /data/media/0/0/ArchiDroid
-else
-  00BUG=0
-fi
+exec 2>>$LOG
 
 # Now we need to make sure that this is background process to prevent slowing down bootup
 if [ ! -e $AD/RUNONCE_BACKGROUND ]; then
 	# We're not running in background, let's start a child and tell him that he's running in background
   # Clean old log and write initial information
-  echo "`date`
-  `uname -a`
-  INFO: ArchiDroid_RunOnce executed!" > $LOG
+  echo "`date`" > $LOG
+  echo "`uname -a`" >> $LOG
+  echo "INFO: ArchiDroid_RunOnce executed!" >> $LOG
   echo "INFO: Spawning child!" >> $LOG
 	touch $AD/RUNONCE_BACKGROUND
 	sh $0 &
@@ -105,10 +95,6 @@ else
 	# We're running in background so let's proceed
   echo "INFO: I'm a child!" >> $LOG
 	rm -f $AD/RUNONCE_BACKGROUND
-fi
-
-if [ $00BUG -eq 1 ]; then
-  echo "WARNING: ArchiDroid has been found in /data/media/0/0 directory, I've moved it back to /data/media/0" >> $LOG
 fi
 
 # We don't need to reload anything for now
@@ -263,15 +249,6 @@ else
   echo "ERROR: I've detected RunOnce still in init.d after cleanup, that's not good, please investigate" >> $LOG
 fi
 
-if [ $00BUG -eq 1 ]; then
-  echo "WARNING: I've detected /data/media/0/0 directory. I consider as a bug and I'm fixing it right now..." >> $LOG
-  rm -rf /data/media/0/0/0
-  cd /data/media/0
-  cp -R 0/* .
-  rm -rf 0/
-  echo "INFO: I've tried to fix /data/media/0/0 bug using temporary dirty solution..." >> $LOG
-fi
-
 # Execute hot reboot if we need it
 if [ $ADRELOAD -eq 1 ]; then
   echo "INFO: Hot reboot required, I'm killing system_server right now" >> $LOG
@@ -279,6 +256,6 @@ if [ $ADRELOAD -eq 1 ]; then
 fi
 
 # Finish
-echo "INFO: ArchiDroid RunOnce finished
-`date`" >> $LOG
+echo "INFO: ArchiDroid RunOnce finished" >> $LOG
+echo "`date`" >> $LOG
 exit 0

@@ -502,6 +502,17 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
       "xprivacy","XPrivacy","<~archidroid.xposed.xprivacy.desc>","check.checked"
     );
   endif;
+  if file_getprop("/tmp/aroma-data/archidroid.prop","buildtweaks") == "1" then
+    form(
+      "<~archidroid.custom.extra>",
+      "<~archidroid.custom.desc>",
+      "icons/apps",
+      "archidroidbuild.prop",
+
+      "build","Build.prop Tweaks","","group",
+      "fastdormancy","Fast Dormancy","<~archidroid.buildtweaks.fastdormancy.desc>","check.checked"
+    );
+  endif;
 endif;
 
 

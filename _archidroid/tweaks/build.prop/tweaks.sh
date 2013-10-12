@@ -128,3 +128,4 @@ ro.sound.driver=alsa
 ### ArchiDroid build.prop Tweaks ###
 ############################
 " >> /system/build.prop
+exit 0

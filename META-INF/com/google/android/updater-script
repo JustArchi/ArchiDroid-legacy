@@ -455,6 +455,14 @@ if file_getprop("/tmp/aroma-data/archidroid.prop","buildtweaks") == "1" then
 	package_extract_file("_archidroid/tweaks/build.prop/tweaks.sh", "/tmp/tweaks.sh");
 	set_perm(0, 0, 0777, "/tmp/tweaks.sh");
 	run_program("/tmp/tweaks.sh");
+  delete ("/tmp/tweaks.sh");
+    if file_getprop("/tmp/aroma-data/archidroidbuild.prop","fastdormancy") == "0" then
+      ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Disabling Fast Dormancy");
+      package_extract_file("_archidroid/tweaks/build.prop/fdOFF.sh", "/tmp/fdOFF.sh");
+      set_perm(0, 0, 0777, "/tmp/fdOFF.sh");
+      run_program("/tmp/fdOFF.sh");
+      delete ("/tmp/fdOFF.sh");
+    endif;
 endif;
 
 if file_getprop("/tmp/aroma-data/archidroid.prop","openpdroid") == "1" then

@@ -33,6 +33,7 @@ done
 sleep 30
 
 VERSION="2.04"
+echo "" > /sdcard/ArchiDroid/PermFix.log
 
 # Defaults
 DEBUG=1 # Debug off by default

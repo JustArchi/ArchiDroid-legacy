@@ -1,11 +1,12 @@
 ArchiDroid 2.2
+-> FULL WIPE HIGHLY RECOMMENDED <-
 
 - [!] ArchiDroid is now built from source, thus it's independent fork of CM now
 # ArchiDroid is based on @Cristiano Matos (crDroid) sources, but it's self-compiled by me
-# From technical point of view this is a big change, but from your point of view it still has nearly all functions provided by temasek, f.e. HALO, Navigation bar, and more
+# From technical point of view this is a big change, but from your point of view it still has nearly all functions provided by temasek, f.e. HALO, Navigation bar, and more (thanks to @Cristiano Matos!)
 # Slowly *maybe* AD will have even more unique features, as for now consider it as independent crDroid-fork
 
-- ArchiDroid Backend is more verbose now. You can find logs in /data/media/0/ArchiDroid - RunOnce.log, PermFix.log
+- ArchiDroid Backend is more verbose now. You can find logs in /data/media/0/ArchiDroid - RunOnce.log, PermFix.log, err.log (shared)
 - Added Finnish language, thanks to @amppen
 - Added Russian language, thanks to @egotheist
 - Added fast dormancy toggle, available if you choose build.prop tweaks. This way you don't need to disable it manualy. Thanks to @andreasltcf

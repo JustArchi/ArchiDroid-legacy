@@ -14,3 +14,6 @@ for i in `ls` ; do
 		then rm -fR "$i"
 	fi
 done
+
+echo -n "2" > /data/.layout_version
+exit 0

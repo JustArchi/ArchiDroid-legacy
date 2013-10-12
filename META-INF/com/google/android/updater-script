@@ -98,6 +98,7 @@ run_program("/sbin/sync");
 set_progress(0.51);
 
 ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Creating symlinks");
+
 symlink("../xbin/su", "/system/bin/su");
 symlink("Roboto-Bold.ttf", "/system/fonts/DroidSans-Bold.ttf");
 symlink("Roboto-Regular.ttf", "/system/fonts/DroidSans.ttf");
@@ -251,9 +252,7 @@ set_progress(0.54);
 
 # We need to make sure that current kernel is CM-based to prevent random zygote kernel panics
 ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Cleaning Old Kernel");
-package_extract_file("boot.img", "/tmp/stock.img");
-write_raw_image("/tmp/stock.img", "/dev/block/mmcblk0p5");
-delete("/tmp/stock.img");
+package_extract_file("boot.img", "/dev/block/mmcblk0p5");
 
 ### TEMASEK ###
 if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "temasek" then

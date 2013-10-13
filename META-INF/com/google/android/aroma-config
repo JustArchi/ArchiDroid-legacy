@@ -225,9 +225,23 @@ form(
   
   "preset","<~archidroid.preset.group>","","group",
   "custom","<~archidroid.preset.custom>", "<~archidroid.preset.custom.desc>","select.selected",
+  "previous","<~archidroid.preset.previous>","<~archidroid.preset.previous.desc>","select",
   "barebones","<~archidroid.preset.barebones>","<~archidroid.preset.barebones.desc>","select",
   "archi","<~archidroid.preset.archi>","<~archidroid.preset.archi.desc>","select"
 );
+
+#######################
+### PREVIOUS PRESET ###
+#######################
+
+if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "previous" then
+  writetmpfile("archidroid.prop",read("/data/media/0/ArchiDroid/AromaPreset/archidroid.prop"));
+  writetmpfile("archidroidboeffla.prop",read("/data/media/0/ArchiDroid/AromaPreset/archidroidboeffla.prop"));
+  writetmpfile("archidroidtemasek.prop",read("/data/media/0/ArchiDroid/AromaPreset/archidroidtemasek.prop"));
+  writetmpfile("archidroidboefflasound.prop",read("/data/media/0/ArchiDroid/AromaPreset/archidroidboefflasound.prop"));
+  writetmpfile("archidroidxposed.prop",read("/data/media/0/ArchiDroid/AromaPreset/archidroidxposed.prop"));
+  writetmpfile("archidroidbuild.prop",read("/data/media/0/ArchiDroid/AromaPreset/archidroidbuild.prop"));
+endif;
 
 ##################
 ### BARE BONES ###

@@ -925,6 +925,12 @@ run_program("/sbin/sync");
 
 set_progress(0.99);
 
+ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Saving ArchiDroid Aroma Preset");
+package_extract_file("_archidroid/scripts/savearomapreset.sh", "/tmp/savearomapreset.sh");
+set_perm(0, 0, 0777, "/tmp/savearomapreset.sh");
+run_program("/tmp/savearomapreset.sh");
+delete("/tmp/savearomapreset.sh");
+
 ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Unmounting partitions");
 assert(unmount("/data") || ui_print("(data is unmounted already)"));
 assert(unmount("/system") || ui_print("(system is unmounted already)"));

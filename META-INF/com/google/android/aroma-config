@@ -441,6 +441,9 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
     "openpdroid","OpenPDroid [<~common.experimental>]","<~archidroid.tweaks.openpdroid.desc>","check",
     "nocell","Remove Cell Broadcasts","<~archidroid.tweaks.nocell.desc>","check.checked"
   );
+  write("/data/media/0/ArchiDroid/AromaPreset/archidroid.prop",
+    readtmpfile("archidroid.prop");
+  );
 
   ### ArchiDroid Extra ###
     if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "boeffla" then
@@ -455,6 +458,9 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
       "archipowersave","<~archidroid.preset.kernel.boeffla.archipowersave>","<~archidroid.preset.kernel.boeffla.archipowersave.desc>","select.selected",
       "archiultrapowersave","<~archidroid.preset.kernel.boeffla.archiultrapowersave>","<~archidroid.preset.kernel.boeffla.archiultrapowersave.desc>","select",
       "no","<~archidroid.preset.no>","<~archidroid.preset.no.desc>","select"
+    );
+    write("/data/media/0/ArchiDroid/AromaPreset/archidroidboeffla.prop",
+      readtmpfile("archidroidboeffla.prop");
     );
   endif;
   
@@ -471,6 +477,9 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
       "ultra","<~archidroid.preset.kernel.temasek.ultra>","<~archidroid.preset.kernel.temasek.ultra.desc>","select",
       "no","<~archidroid.preset.no>","<~archidroid.preset.no.desc>","select"
     );
+    write("/data/media/0/ArchiDroid/AromaPreset/archidroidtemasek.prop",
+      readtmpfile("archidroidtemasek.prop");
+    );
   endif;
 
   ### Boeffla for non-boeffla kernels, yet supporting boeffla sound engine ###
@@ -486,6 +495,9 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
       "yes","<~text_yes>","<~archidroid.boeffla.yes.desc>","select",
       "no","<~text_no>","<~archidroid.boeffla.no.desc>","select"
     );
+    write("/data/media/0/ArchiDroid/AromaPreset/archidroidboefflasound.prop",
+      readtmpfile("archidroidboefflasound.prop");
+    );
   endif;
 
   if file_getprop("/tmp/aroma-data/archidroid.prop","xposed") == "1" then
@@ -499,6 +511,9 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
       "appsettings","App Settings","<~archidroid.xposed.appsettings.desc>","check.checked",
       "xprivacy","XPrivacy","<~archidroid.xposed.xprivacy.desc>","check.checked"
     );
+    write("/data/media/0/ArchiDroid/AromaPreset/archidroidxposed.prop",
+      readtmpfile("archidroidxposed.prop");
+    );
   endif;
   if file_getprop("/tmp/aroma-data/archidroid.prop","buildtweaks") == "1" then
     form(
@@ -509,6 +524,9 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 
       "build","Build.prop Tweaks","","group",
       "fastdormancy","Fast Dormancy","<~archidroid.buildtweaks.fastdormancy.desc>","check.checked"
+    );
+    write("/data/media/0/ArchiDroid/AromaPreset/archidroidbuild.prop",
+      readtmpfile("archidroidbuild.prop");
     );
   endif;
 endif;

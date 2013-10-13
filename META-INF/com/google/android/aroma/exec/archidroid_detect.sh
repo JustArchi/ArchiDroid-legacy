@@ -4,6 +4,8 @@
 # exit 1 -> All fine, we're NOT running ArchiDroid
 # exit 2 -> All fine, we're running ArchiDroid
 
+mkdir -p /data/media/0/ArchiDroid/AromaPreset
+
 mount -t auto /system > /dev/null 2>&1
 if [ -e /system/build.prop ]; then
 	# Good

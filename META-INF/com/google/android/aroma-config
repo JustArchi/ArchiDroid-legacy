@@ -239,10 +239,10 @@ setvar("preset_version","1");
 if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "previous" then
   setvar("preset_version_probe",read("/data/media/0/ArchiDroid/AromaPreset/version.txt"));
   if getvar("preset_version")!=getvar("preset_version_probe") then
-    alert("ArchiDroid Detect","<~archidroid.detect.previouspreset.fail>","@info");
+    alert("ArchiDroid Wizard","<~archidroid.detect.previouspreset.fail>","@info");
     writetmpfile("archidroidinstallmode.prop","preset=custom\n");
   else
-    alert("ArchiDroid Detect","<~archidroid.detect.previouspreset.pass>","@info");
+    alert("ArchiDroid Wizard","<~archidroid.detect.previouspreset.pass>","@info");
     writetmpfile("archidroid.prop",read("/data/media/0/ArchiDroid/AromaPreset/archidroid.prop"));
     writetmpfile("archidroidboeffla.prop",read("/data/media/0/ArchiDroid/AromaPreset/archidroidboeffla.prop"));
     writetmpfile("archidroidtemasek.prop",read("/data/media/0/ArchiDroid/AromaPreset/archidroidtemasek.prop"));

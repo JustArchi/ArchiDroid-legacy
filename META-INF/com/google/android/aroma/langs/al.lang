@@ -86,6 +86,11 @@ archidroid.preset.barebones=Minimal
 archidroid.preset.barebones.desc=Pastro CyanogenMod. Vetem per testim, nuk rekomandohet
 archidroid.preset.archi=Archi
 archidroid.preset.archi.desc=Profil per mua, per instalim te shpejte
+archidroid.preset.previous=Previous Preset
+archidroid.preset.previous.desc=Loads your previous custom installation preset (if available)
+
+archidroid.detect.previouspreset.fail=Could not load your previous preset, either it failed integrity check or doesn't exist
+archidroid.detect.previouspreset.pass=Successfully loaded your previous preset!
 
 archidroid.custom=ArchiDroid Kustomizimi
 archidroid.custom.extra=ArchiDroid Ekstra Kustomizimi

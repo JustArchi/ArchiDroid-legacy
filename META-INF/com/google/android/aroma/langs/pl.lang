@@ -86,6 +86,11 @@ archidroid.preset.barebones=Sam Szkielet
 archidroid.preset.barebones.desc=Czysty CyanogenMod. Tylko dla testów ewentualnych błędów, niezalecane
 archidroid.preset.archi=Archi
 archidroid.preset.archi.desc=Profil dla mnie dla szybszego flashowania
+archidroid.preset.previous=Poprzedni Preset
+archidroid.preset.previous.desc=Ładuje Twój poprzednio wybany preset (o ile dostępny)
+
+archidroid.detect.previouspreset.fail=Nie mogłem załadować Twojego poprzedniego presetu, ponieważ nie przeszedł testów integralności lub nie został znaleziony
+archidroid.detect.previouspreset.pass=Pomyślnie załadowałem Twój poprzedni preset!
 
 archidroid.custom=Dostosowywanie ArchiDroid
 archidroid.custom.extra=Dostosywywanie Ekstra ArchiDroid

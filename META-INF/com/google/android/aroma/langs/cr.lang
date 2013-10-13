@@ -86,6 +86,11 @@ archidroid.preset.barebones=Potpuno ogoljeni ROM
 archidroid.preset.barebones.desc=Čisti CyanogenMod ROM. Samo za testiranje, nije preporučljivo
 archidroid.preset.archi=Archi instalacija
 archidroid.preset.archi.desc=Instalacijski Profil za mene i bržu instalaciju ROM-a
+archidroid.preset.previous=Previous Preset
+archidroid.preset.previous.desc=Loads your previous custom installation preset (if available)
+
+archidroid.detect.previouspreset.fail=Could not load your previous preset, either it failed integrity check or doesn't exist
+archidroid.detect.previouspreset.pass=Successfully loaded your previous preset!
 
 archidroid.custom=ArchiDroid Podešavanja
 archidroid.custom.extra=ArchiDroid Extra Podešavanja

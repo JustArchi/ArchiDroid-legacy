@@ -86,6 +86,11 @@ archidroid.preset.barebones=Голые кости
 archidroid.preset.barebones.desc=Чистый CyanogenMod. Предназначен для тестирования, не рекомендуется.
 archidroid.preset.archi=Archi
 archidroid.preset.archi.desc=Мой профиль для быстрой установки
+archidroid.preset.previous=Previous Preset
+archidroid.preset.previous.desc=Loads your previous custom installation preset (if available)
+
+archidroid.detect.previouspreset.fail=Could not load your previous preset, either it failed integrity check or doesn't exist
+archidroid.detect.previouspreset.pass=Successfully loaded your previous preset!
 
 archidroid.custom=Настройки ArchiDroid
 archidroid.custom.extra=Экстра настройки ArchiDroid

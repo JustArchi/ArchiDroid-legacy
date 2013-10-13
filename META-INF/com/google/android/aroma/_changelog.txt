@@ -1,2 +1,10 @@
 ArchiDroid 2.2.1
+- [!] Added "Previous Preset" function to AROMA
+# Now you can load your preset chosen during previous flashing, as long as it passes integrity check
+# Please note that this function works from now onwards, so it won't load settings from 2.2.0
+
+- Added AROMA File Manager (built-in)
+# It's available under /data/media/0/clockworkmod/aromafm/aromafm.zip
+# Pro tip: You can double-tap in PhilZ Touch Recovery to load aroma file manager whenever you need to do so
+
 - Updated CM source

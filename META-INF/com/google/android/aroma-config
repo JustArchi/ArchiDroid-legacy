@@ -224,8 +224,8 @@ form(
   "archidroidinstallmode.prop",
   
   "preset","<~archidroid.preset.group>","","group",
-  "custom","<~archidroid.preset.custom>", "<~archidroid.preset.custom.desc>","select.selected",
-  "previous","<~archidroid.preset.previous>","<~archidroid.preset.previous.desc>","select",
+  "custom","<~archidroid.preset.custom>", "<~archidroid.preset.custom.desc>","select",
+  "previous","<~archidroid.preset.previous>","<~archidroid.preset.previous.desc>","select.selected",
   "barebones","<~archidroid.preset.barebones>","<~archidroid.preset.barebones.desc>","select",
   "archi","<~archidroid.preset.archi>","<~archidroid.preset.archi.desc>","select"
 );

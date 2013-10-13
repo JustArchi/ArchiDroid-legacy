@@ -276,13 +276,6 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "bareb
     "openpdroid=0\n"+
     "nocell=0\n"
   );
-
-  writetmpfile(
-    "archidroidxposed.prop",
-
-    "appsettings=0\n"+
-    "xprivacy=0\n"
-  );
 endif;
 
 
@@ -359,6 +352,11 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "archi
 
     "appsettings=1\n"+
     "xprivacy=1\n"
+  );
+  writetmpfile(
+    "archidroidbuild.prop",
+
+    "fastdormancy=1\n"
   );
 endif;
 

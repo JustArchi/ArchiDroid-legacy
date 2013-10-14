@@ -24,7 +24,7 @@ sleep 10
 
 echo `date +"%F %R:%S : Starting kernel configuration..."` >>$log_file
 
-# Script generated on 30/09/2013 at 17:34
+# Script generated on 14/10/2013 at 16:06
 #----------------------------------------------------
 
 # - init.d support by kernel/ramdisk not installed
@@ -37,8 +37,8 @@ echo `date +"%F %R:%S : CPU governor set to zzmoove."` >>$log_file
 
 # - Enable touchboost
 echo "1" > /sys/devices/virtual/misc/touchboost_switch/touchboost_switch
-echo "500000" > /sys/devices/virtual/misc/touchboost_switch/touchboost_freq
-echo `date +"%F %R:%S : Touchboost enabled at 500MHz."` >>$log_file
+echo "600000" > /sys/devices/virtual/misc/touchboost_switch/touchboost_freq
+echo `date +"%F %R:%S : Touchboost enabled at 600MHz."` >>$log_file
 
 # - Set CPU max frequencies for all 4 cores
 echo 1600000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
@@ -170,9 +170,9 @@ echo `date +"%F %R:%S : Dynamic Deferred File Sync enabled."` >>$log_file
 echo 0 > /sys/class/misc/touchwake/disabled
 echo `date +"%F %R:%S : Touch Wake disabled."` >>$log_file
 
-# - Disable Hardwarekeys light on screen touch
-echo 0 > /sys/class/sec/sec_touchkey/touch_led_on_screen_touch
-echo `date +"%F %R:%S : Hardwarekeys light on screen touch disabled."` >>$log_file
+# - Enable Hardwarekeys light on screen touch
+echo 1 > /sys/class/sec/sec_touchkey/touch_led_on_screen_touch
+echo `date +"%F %R:%S : Hardwarekeys light on screen touch enabled."` >>$log_file
 
 # - Handle Hardwarekeys light by ROM (newer CM)
 echo 0 > /sys/class/sec/sec_touchkey/touch_led_handling
@@ -220,8 +220,9 @@ echo `date +"%F %R:%S : frandom kernel module loaded."` >>$log_file
 echo "160 266 350 440 533" > /sys/class/misc/gpu_clock_control/gpu_control
 echo `date +"%F %R:%S : GPU frequencies set to low (160MHz, 266MHz, 350MHz, 440MHz, 533MHz) - Careful !"` >>$log_file
 
-# - GPU frequency thresholds left untouched
-echo `date +"%F %R:%S : GPU frequency thresholds left untouched."` >>$log_file
+# - Set GPU frequency thresholds to stock-like (19%, 16%, 19%, 25%, 27%, 27%, 31%, 31%)
+echo "19% 16% 19% 25% 27% 27% 31% 31%" > /sys/class/misc/gpu_clock_control/gpu_control
+echo `date +"%F %R:%S : GPU frequency thresholds set to stock-like (19%, 16%, 19%, 25%, 27%, 27%, 31%, 31%)."` >>$log_file
 
 # Wait for everything to become ready
 echo `date +"%F %R:%S : Waiting 60 seconds..."` >>$log_file

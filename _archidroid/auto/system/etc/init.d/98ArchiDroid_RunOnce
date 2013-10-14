@@ -7,10 +7,13 @@
 #exit 0
 
 # Initial variables, you should NOT change them unless you know what you're doing
-
 AD="/data/media/0/ArchiDroid"
 LOG="$AD/RunOnce.log" # "/dev/null" is no verbose
 FORCE=0 # We don't want to force anything in update mode
+
+# Redirect stderr and stdout to our log, just in case something bad happen
+exec 1>$LOG # Use "exec 1>>$LOG" for append
+exec 2>&1
 
 
 # Main code
@@ -56,17 +59,17 @@ DBUPDATE() {
 		VAL1=`$SQLITE3 /data/data/com.android.providers.settings/databases/settings.db "select value from $WHAT where name='$VARIABLE';" 2>/dev/null`
 		if [ "$VAL1" != "" ]; then
 			# Looks good
-      if [ $TRY -gt 1 ]; then
-        echo "INFO: DBUPDATE SUCCEEDED with $WHAT $VARIABLE $VAL. It was our $TRY try" >> $LOG
-      fi
+			if [ $TRY -gt 1 ]; then
+				echo "INFO: DBUPDATE SUCCEEDED with $WHAT $VARIABLE $VAL. It was our $TRY try"
+			fi
 			DONE=1
 			return 0
 		else
 			# We failed, let's try maximum of 3 times before giving up
-			echo "WARNING: DBUPDATE() FAILED with $WHAT $VARIABLE $VAL. Check returned $CHECK. This is our $TRY try" >> $LOG
+			echo "WARNING: DBUPDATE() FAILED with $WHAT $VARIABLE $VAL. This is our $TRY try"
 			sleep 1
 			if [ $TRY -ge 5 ]; then
-				echo "ERROR: Could not update $WHAT $VARIABLE $VAL after $TRY times. I'm giving up here, please investigate!" >> $LOG
+				echo "ERROR: Could not update $WHAT $VARIABLE $VAL after $TRY times. I'm giving up here, please investigate!"
 				DONE=1
 				return 1
 			fi
@@ -74,26 +77,23 @@ DBUPDATE() {
 	done
 }
 
-# Redirect stderr to our log, just in case something bad happen
-exec 2>>$LOG
+echo "`date`"
+echo "`uname -a`"
+echo "INFO: ArchiDroid_RunOnce executed!"
 
 # Now we need to make sure that this is background process to prevent slowing down bootup
 if [ ! -e $AD/RUNONCE_BACKGROUND ]; then
 	# We're not running in background, let's start a child and tell him that he's running in background
-  # Clean old log and write initial information
-  echo "`date`" > $LOG
-  echo "`uname -a`" >> $LOG
-  echo "INFO: ArchiDroid_RunOnce executed!" >> $LOG
-  echo "INFO: Spawning child!" >> $LOG
+	# Clean old log and write initial information
+	echo "INFO: Spawning child!"
 	touch $AD/RUNONCE_BACKGROUND
 	sh $0 &
-	
+
 	# Nothing to do here anymore, exit call
-  echo "INFO: Child spawned, I'm done!" >> $LOG
 	exit 1
 else
 	# We're running in background so let's proceed
-  echo "INFO: I'm a child!" >> $LOG
+	echo "INFO: I'm a child!"
 	rm -f $AD/RUNONCE_BACKGROUND
 fi
 
@@ -102,37 +102,37 @@ ADRELOAD=0
 
 # Cool ArchiDroid Banner
 if [ -e /system/bin/boot-dmesg ]; then
-  echo "INFO: boot-dmesg detected, turning on logcat banner" >> $LOG
+	echo "INFO: boot-dmesg detected, turning on logcat banner"
 	ADBANNER=1
 else
-  echo "INFO: boot-dmesg NOT detected, turning off logcat banner" >> $LOG
+	echo "INFO: boot-dmesg NOT detected, turning off logcat banner"
 	ADBANNER=0
 fi
 
 # We want some sqlite3 updates and settings but only if INSTALL mode is enabled
 if [ -e $AD/INSTALL ] || [ $FORCE -eq 1 ]; then
-  echo "INFO: Install mode detected, I'm either after full wipe or forced to think so. Turning on ADMANY and DBUPDATE" >> $LOG
+	echo "INFO: Install mode detected, I'm either after full wipe or forced to think so. Turning on ADMANY and DBUPDATE"
 	if [ -d $AD/FIRSTBOOT/DATA ]; then
 		cd $AD/FIRSTBOOT/DATA
 		ADMANY=`ls | wc -l`
-    echo "INFO: I found $ADMANY folders which need merging (data)" >> $LOG
+		echo "INFO: I found $ADMANY folders which need merging (data)"
 	fi
 	DBUPDATE=1
 	ADRELOAD=1
 elif [ -e $AD/UPDATE ]; then
-  echo "INFO: Update mode detected. Turning off ADMANY and DBUPDATE" >> $LOG
+	echo "INFO: Update mode detected. Turning off ADMANY and DBUPDATE"
 	DBUPDATE=0
 	ADMANY=0
 else
 	# Panic
-  echo "FATAL ERROR: Could not detect Install/Update mode, ABORTING RUNONCE, PLEASE INVESTIGATE" >> $LOG
-	exit 1
+	echo "FATAL ERROR: Could not detect Install/Update mode, ABORTING RUNONCE, PLEASE INVESTIGATE"
+	exit 2
 fi
 
 # ArchiDroid Semaphore
 # Wait until we see some android processes to consider boot is more or less complete (credits to AndiP71)
 # Also respect number of loops, maybe something went wrong
-echo "INFO: RunOnce Semaphore started" >> $LOG
+echo "INFO: RunOnce Semaphore started"
 LOOP=0
 while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 
@@ -160,7 +160,7 @@ while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 	
 	if [ $DBUPDATE -eq 1 ]; then
 		if [ -e /data/data/com.android.providers.settings/databases/settings.db ]; then
-      echo "INFO: Android created settings.db for me, how cute! Performing DBUPDATE" >> $LOG
+			echo "INFO: Android created settings.db for me, how cute! Performing DBUPDATE"
 			DBUPDATE secure advanced_reboot 1
 			DBUPDATE secure ui_inverted_mode 2
 			DBUPDATE global transition_animation_scale 0.5
@@ -177,7 +177,7 @@ while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 			DBUPDATE system button_backlight_timeout 1000
 			
 			# And don't execute twice
-      echo "INFO: Finished DBUPDATE" >> $LOG
+			echo "INFO: Finished DBUPDATE"
 			DBUPDATE=0
 		fi
 	fi
@@ -187,7 +187,7 @@ while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 		cd $AD/FIRSTBOOT/DATA
 		for FOLDER in * ; do
 			if [ -d /data/data/$FOLDER ]; then
-        echo "INFO: I'm merging $FOLDER, called by ADMANY" >> $LOG
+				echo "INFO: I'm merging $FOLDER, called by ADMANY"
 				mv $FOLDER/* /data/data/$FOLDER
 
 				# Let's set basic permissions because ArchiDroid_Permfix will fix it anyway really soon
@@ -199,7 +199,7 @@ while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 				rm -Rf $FOLDER
 				ADOWNER=""
 				ADMANY=`ls | wc -l`
-        echo "INFO: $ADMANY to go" >> $LOG
+				echo "INFO: $ADMANY to go"
 			fi
 		done
 		#ADMANY=`ls | wc -l`
@@ -211,9 +211,9 @@ while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 done
 
 if [ $LOOP -ge 150 ]; then
-	echo "ERROR: I looped $LOOP times and needed to exit from infinite loop, not good (RunOnce Semaphore)" >> $LOG
+	echo "ERROR: I looped $LOOP times and needed to exit from infinite loop, not good (RunOnce Semaphore)"
 else
-  echo "INFO: I looped $LOOP times and didn't have to exit from infinite loop, that's nice (RunOnce Semaphore)" >> $LOG
+	echo "INFO: I looped $LOOP times and didn't have to exit from infinite loop, that's nice (RunOnce Semaphore)"
 fi
 
 # Now that is checked, let's just wait another tiny little bit
@@ -223,7 +223,7 @@ sleep 5
 
 # IMPORTANT, CrossBreeder's Adblock doesn't work properly with Android 4.3 for now, fall back to AdAway version until it's fixed.
 if [ -d /system/etc/CrossBreeder ]; then
-  echo "WARNING: CrossBreeder has been found but without adblock fixed yet, calling AdAway's hosts file (DEPRECATED)" >> $LOG
+	echo "WARNING: CrossBreeder has been found but without adblock fixed yet, calling AdAway's hosts file (DEPRECATED)"
 	sh /system/etc/CrossBreeder/DISABLE_ADBLOCK
 	sysrw
 	cat /system/etc/ahosts > /system/etc/hosts
@@ -244,18 +244,18 @@ rm -f $0
 sysro
 
 if [ ! -e "$0" ]; then
-  echo "INFO: Could not detect RunOnce in init.d after cleanup, that's good" >> $LOG
+	echo "INFO: Could not detect RunOnce in init.d after cleanup, that's good"
 else
-  echo "ERROR: I've detected RunOnce still in init.d after cleanup, that's not good, please investigate" >> $LOG
+	echo "ERROR: I've detected RunOnce still in init.d after cleanup, that's not good, please investigate"
 fi
 
 # Execute hot reboot if we need it
 if [ $ADRELOAD -eq 1 ]; then
-  echo "INFO: Hot reboot required, I'm killing system_server right now" >> $LOG
+	echo "INFO: Hot reboot required, I'm killing system_server right now"
 	killall system_server
 fi
 
 # Finish
-echo "INFO: ArchiDroid RunOnce finished" >> $LOG
-echo "`date`" >> $LOG
+echo "INFO: ArchiDroid RunOnce finished"
+echo "`date`"
 exit 0

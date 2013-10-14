@@ -6,49 +6,18 @@
 # Not Disabled
 #exit 0
 
-# Unless we're on install mode
-if [ -e /data/media/0/archidroid/INSTALL ]; then
-	exit 0
-fi
+AD="/data/media/0/ArchiDroid"
+LOG="$AD/SQLite.log" # "/dev/null" is no verbose
 
-# Log file location
-LOG_FILE=/data/sqlite.log
+# Redirect stderr and stdout to our log, just in case something bad happen
+exec 1>$LOG # Use "exec 1>>$LOG" for append
+exec 2>&1
 
-#Interval between SQLite3 runs, in seconds, 604800=1 week
-#RUN_EVERY=604800
-
-# Get the last modify date of the Log file, if the file does not exist, set value to 0
-#if [ -e $LOG_FILE ]; then
-#    LASTRUN=`stat -t $LOG_FILE | awk '{print $14}'`
-#else
-#    LASTRUN=0
-#fi;
-
-# Get current date in epoch format
-#CURRDATE=`date +%s`
-
-# Check the interval
-#INTERVAL=$(expr $CURRDATE - $LASTRUN)
-
-# If interval is more than the set one, then run the main script
-#if [ $INTERVAL -gt $RUN_EVERY ];
-#then
-    if [ -e $LOG_FILE ]; then
-        rm $LOG_FILE;
-    fi;
-        
-    echo "SQLite database VACUUM and REINDEX started at $( date +"%m-%d-%Y %H:%M:%S" )" | tee -a $LOG_FILE;
-
-    for i in `busybox find /d* -iname "*.db"`; do
-        /system/xbin/sqlite3 $i 'REINDEX;';
-        resIndex=$?
-        if [ $resIndex == 0 ]; then
-            resIndex="SUCCESS";
-        else
-            resIndex="ERRCODE-$resIndex";
-        fi;
-        echo "Database $i:  REINDEX=$resIndex" | tee -a $LOG_FILE;
-    done
-      
-    echo "SQLite database REINDEX finished at $( date +"%m-%d-%Y %H:%M:%S" )" | tee -a $LOG_FILE;
-#fi;
+echo "INFO: SQLite database VACUUM and REINDEX started at `date`"
+for i in `busybox find /data -iname "*.db"`; do
+	echo "INFO: VACUUM & REINDEX $i"
+	/system/xbin/sqlite3 $i 'VACUUM;';
+	/system/xbin/sqlite3 $i 'REINDEX;';
+done
+echo "INFO: SQLite database VACUUM and REINDEX finished at `date`"
+exit 0

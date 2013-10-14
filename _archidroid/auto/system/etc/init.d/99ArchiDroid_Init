@@ -6,8 +6,21 @@
 # Not Disabled
 #exit 0
 
+# Initial variables, you should NOT change them unless you know what you're doing
+AD="/data/media/0/ArchiDroid"
+LOG="$AD/Init.log" # "/dev/null" is no verbose
+
+# Redirect stderr and stdout to our log, just in case something bad happen
+exec 1>$LOG # Use "exec 1>>$LOG" for append
+exec 2>&1
+
+echo "`date`"
+echo "`uname -a`"
+echo "INFO: ArchiDroid_Init executed!"
+
 if [ -e /system/etc/init.d/98ArchiDroid_RunOnce ]; then
 	# This is our first boot, don't call init yet
+	echo "INFO: This is our first boot, I'll let RunOnce finish his job, exiting...
 	exit 2
 fi
 
@@ -24,16 +37,21 @@ else
 	rm -f /data/media/0/ArchiDroid/INIT_BACKGROUND
 fi
 
-
+# Cool ArchiDroid Banner
 if [ -e /system/bin/boot-dmesg ]; then
+	echo "INFO: boot-dmesg detected, turning on logcat banner"
 	ADBANNER=1
 else
+	echo "INFO: boot-dmesg NOT detected, turning off logcat banner"
 	ADBANNER=0
 fi
 
 # ArchiDroid Semaphore
 # Wait until we see some android processes to consider boot is more or less complete (credits to AndiP71)
-while ! pgrep com.android ; do
+# Also respect number of loops, maybe something went wrong
+echo "INFO: Init Semaphore started"
+LOOP=0
+while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 	if [ $ADBANNER -eq 1 ]; then
 		echo ""
 		echo "*******************************************************************************"
@@ -58,6 +76,12 @@ while ! pgrep com.android ; do
 	sleep 2
 done
 
+if [ $LOOP -ge 150 ]; then
+	echo "ERROR: I looped $LOOP times and needed to exit from infinite loop, not good (Init Semaphore)"
+else
+	echo "INFO: I looped $LOOP times and didn't have to exit from infinite loop, that's nice (Init Semaphore)"
+fi
+
 # Now that is checked, let's just wait another tiny little bit
 sleep 5
 
@@ -65,15 +89,19 @@ sleep 5
 
 # Execute a reboot if we need it
 if [ -e /data/media/0/ArchiDroid/HARD_REBOOT_REQUIRED ]; then
+	echo "INFO: HARD_REBOOT_REQUIRED found, I'm rebooting device now..."
 	rm -f /data/media/0/ArchiDroid/SOFT_REBOOT_REQUIRED
 	rm -f /data/media/0/ArchiDroid/HARD_REBOOT_REQUIRED
 	reboot
 elif [ -e /data/media/0/ArchiDroid/SOFT_REBOOT_REQUIRED ]; then
+	echo "INFO: SOFT_REBOOT_REQUIRED found, I'm rebooting android interface now..."
 	rm -f /data/media/0/ArchiDroid/SOFT_REBOOT_REQUIRED
 	killall system_server
 fi
 
-
+# Finish
+echo "INFO: ArchiDroid Init finished"
+echo "`date`"
 
 # Finish
 exit 0

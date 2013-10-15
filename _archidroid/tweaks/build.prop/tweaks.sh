@@ -22,9 +22,11 @@ persist.sys.purgeable_assets=1
 # Make sure HD Voice is enabled if available
 ro.ril.enable.amr.wideband=1
 
-# RIL and Baseband tweaks, may cause better battery life and/or better signal, proceed with caution
+# Fast Dormancy toggle. If your provider doesn't support it then it may be better for you to uncomment these lines
 #ro.ril.fast.dormancy.rule=0
 #ro.config.hw_fast_dormancy=0
+
+# Other RIL and Baseband tweaks, may cause better battery life and/or better signal, proceed with caution
 #persist.cust.tel.eons=1
 
 # Disable Sending Usage Data

@@ -55,6 +55,7 @@ text_quit_msg=Willst du die Installation wirklich abbrechen?
 #-- ARCHIDROID STRINGS
 #
 common.for=für
+common.none=None
 common.inverted=Invertiert
 common.experimental=EXPERIMENTAL
 common.deprecated=DEPRECATED
@@ -121,6 +122,7 @@ archidroid.bootanimation.archi.desc=Neue ausgefallene ArchiDroid Bootanimation
 archidroid.bootanimation.archilegacy.desc=Alte ArchiDroid 1.X Bootanimation
 archidroid.bootanimation.logcat.desc=Ersetzt die Standard Bootanimation durch eine logcat Ausgabe - powered by logcat lite
 archidroid.bootanimation.stock.desc=Standard Bootanimation von CyanogenMod
+archidroid.bootanimation.none.desc=No bootanimation, for slightly faster bootup
 
 archidroid.other=Anderes
 archidroid.ota.desc=Empfohlen von ArchiDroid. Installation von UpdateMe apk und Aktivierung von OTA-Updates durch build.prop

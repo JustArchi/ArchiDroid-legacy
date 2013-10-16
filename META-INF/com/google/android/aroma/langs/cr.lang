@@ -55,6 +55,7 @@ text_quit_msg=Da li sigurno želiš prekinuti instalaciju?
 #-- ARCHIDROID STRINGS
 #
 common.for=Za
+common.none=None
 common.inverted=Obrnut (Tamna verzija apk)
 common.experimental=EXPERIMENTALNO
 common.deprecated=NE ODOBRAVATI
@@ -121,6 +122,7 @@ archidroid.bootanimation.archi.desc=New fancy ArchiDroid bootanimation
 archidroid.bootanimation.archilegacy.desc=Old ArchiDroid 1.X bootanimation
 archidroid.bootanimation.logcat.desc=Mijenja zadani bootaimation s logcat prikazom bootanimacije - powered by logcat Lite
 archidroid.bootanimation.stock.desc=Stock bootanimation provided by CyanogenMod
+archidroid.bootanimation.none.desc=No bootanimation, for slightly faster bootup
 
 archidroid.other=Ostalo
 archidroid.ota.desc=Preporučeno od ArchiDroid-a. Instalirati ćemo UpdateMe Aplikaciju i omogućiti Ota ažuriranja putem build.prop-a

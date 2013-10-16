@@ -437,51 +437,6 @@ endif;
 
 set_progress(0.64);
 
-
-##############
-### TWEAKS ###
-##############
-
-### ArchiDroid Tweaks ###
-ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying ArchiDroid Tweaks");
-
-if file_getprop("/tmp/aroma-data/archidroid.prop","hdvoice") == "1" then
-	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying HD Voice Tweak");
-	package_extract_dir("_archidroid/tweaks/hdvoice", "/");
-endif;
-
-if file_getprop("/tmp/aroma-data/archidroid.prop","buildtweaks") == "1" then
-	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying build.prop Tweaks");
-	package_extract_file("_archidroid/tweaks/build.prop/tweaks.sh", "/tmp/tweaks.sh");
-	set_perm(0, 0, 0777, "/tmp/tweaks.sh");
-	run_program("/tmp/tweaks.sh");
-  delete ("/tmp/tweaks.sh");
-    if file_getprop("/tmp/aroma-data/archidroidbuild.prop","fastdormancy") == "0" then
-      ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Disabling Fast Dormancy");
-      package_extract_file("_archidroid/tweaks/build.prop/fdOFF.sh", "/tmp/fdOFF.sh");
-      set_perm(0, 0, 0777, "/tmp/fdOFF.sh");
-      run_program("/tmp/fdOFF.sh");
-      delete ("/tmp/fdOFF.sh");
-    endif;
-endif;
-
-if file_getprop("/tmp/aroma-data/archidroid.prop","openpdroid") == "1" then
-	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying OpenPDroid Patch");
-  
-  ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> ON HOLD");
-	#package_extract_dir("_archidroid/tweaks/openpdroid", "/");
-	#set_perm_recursive(0, 0, 0755, 0644, "/system/app");
-	#set_perm_recursive(0, 0, 0755, 0644, "/system/framework");
-	#set_perm_recursive(0, 0, 0755, 0644, "/system/media");
-endif;
-
-if file_getprop("/tmp/aroma-data/archidroid.prop","nocell") == "1" then
-	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Removing Cell Broadcasts");
-	delete("/system/app/CellBroadcastReceiver.apk");
-endif;
-
-set_progress(0.65);
-
 #############
 ### MODEM ###
 #############
@@ -535,7 +490,7 @@ if file_getprop("/tmp/aroma-data/archidroid.prop","updaterecovery") == "1" then
 	write_raw_image("/tmp/recovery.img", "/dev/block/mmcblk0p6"));
 endif;
 
-set_progress(0.73);
+set_progress(0.72);
 
 
 ###########
@@ -550,7 +505,7 @@ if file_getprop("/tmp/aroma-data/archidroid.prop","archidroidota") == "1" then
 	package_extract_dir("_archidroid/ota/app", "/");
 endif;
 
-set_progress(0.74);
+set_progress(0.73);
 
 
 ################
@@ -585,7 +540,7 @@ ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</
 # Not needed, haha!
 endif;
 
-set_progress(0.75);
+set_progress(0.74);
 
 
 ################
@@ -609,7 +564,7 @@ ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</
 # Not needed, haha!
 endif;
 
-set_progress(0.76);
+set_progress(0.75);
 
 
 #####################
@@ -631,7 +586,7 @@ if file_getprop("/tmp/aroma-data/archidroid.prop","bootanimation") == "logcat" t
 	package_extract_dir("_archidroid/bootanimations/logcat", "/");
 	set_perm_recursive(0, 2000, 0755, 0755, "/system/bin");
 	set_perm(0, 0, 06755, "/system/bin/boot-dmesg");
-  delete("/system/media/bootanimation.zip");
+	delete("/system/media/bootanimation.zip");
 endif;
 
 if file_getprop("/tmp/aroma-data/archidroid.prop","bootanimation") == "stock" then
@@ -639,8 +594,61 @@ if file_getprop("/tmp/aroma-data/archidroid.prop","bootanimation") == "stock" th
   # Not needed, haha!
 endif;
 
+if file_getprop("/tmp/aroma-data/archidroid.prop","bootanimation") == "none" then
+	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Disabling Bootanimation");
+	package_extract_file("_archidroid/bootanimations/none/disablebootanim.sh", "/tmp/disablebootanim.sh");
+	set_perm(0, 0, 0777, "/tmp/disablebootanim.sh");
+	run_program("/tmp/disablebootanim.sh");
+	delete ("/tmp/disablebootanim.sh");
+	delete("/system/media/bootanimation.zip");
+endif;
 
-set_progress(0.78);
+set_progress(0.76);
+
+
+##############
+### TWEAKS ###
+##############
+
+### ArchiDroid Tweaks ###
+ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying ArchiDroid Tweaks");
+
+if file_getprop("/tmp/aroma-data/archidroid.prop","hdvoice") == "1" then
+	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying HD Voice Tweak");
+	package_extract_dir("_archidroid/tweaks/hdvoice", "/");
+endif;
+
+if file_getprop("/tmp/aroma-data/archidroid.prop","buildtweaks") == "1" then
+	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying build.prop Tweaks");
+	package_extract_file("_archidroid/tweaks/build.prop/tweaks.sh", "/tmp/tweaks.sh");
+	set_perm(0, 0, 0777, "/tmp/tweaks.sh");
+	run_program("/tmp/tweaks.sh");
+  delete ("/tmp/tweaks.sh");
+    if file_getprop("/tmp/aroma-data/archidroidbuild.prop","fastdormancy") == "0" then
+      ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Disabling Fast Dormancy");
+      package_extract_file("_archidroid/tweaks/build.prop/fdOFF.sh", "/tmp/fdOFF.sh");
+      set_perm(0, 0, 0777, "/tmp/fdOFF.sh");
+      run_program("/tmp/fdOFF.sh");
+      delete ("/tmp/fdOFF.sh");
+    endif;
+endif;
+
+if file_getprop("/tmp/aroma-data/archidroid.prop","openpdroid") == "1" then
+	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying OpenPDroid Patch");
+  
+  ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> ON HOLD");
+	#package_extract_dir("_archidroid/tweaks/openpdroid", "/");
+	#set_perm_recursive(0, 0, 0755, 0644, "/system/app");
+	#set_perm_recursive(0, 0, 0755, 0644, "/system/framework");
+	#set_perm_recursive(0, 0, 0755, 0644, "/system/media");
+endif;
+
+if file_getprop("/tmp/aroma-data/archidroid.prop","nocell") == "1" then
+	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Removing Cell Broadcasts");
+	delete("/system/app/CellBroadcastReceiver.apk");
+endif;
+
+set_progress(0.77);
 
 
 #############
@@ -659,7 +667,7 @@ if file_getprop("/tmp/aroma-data/archidroid.prop","gapps") == "1" then
 	set_perm_recursive(0, 0, 0755, 0644, "/system/app");
 endif;
 
-set_progress(0.80);
+set_progress(0.85);
 
 if file_getprop("/tmp/aroma-data/archidroid.prop","gquick") == "0" then
 	delete("/system/app/QuickSearchBox.apk");
@@ -718,12 +726,7 @@ if file_getprop("/tmp/aroma-data/archidroid.prop","gplus") == "1" then
 	package_extract_dir("_archidroid/apps/gplus", "/");
 endif;
 
-set_progress(0.85);
-
-
-###############
-### TWEAKS2 ###
-###############
+set_progress(0.86);
 	
 	
 ############

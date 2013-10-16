@@ -55,6 +55,7 @@ text_quit_msg=Haluatko varmasti lopettaa asennuksen?
 #-- ARCHIDROID STRINGS
 #
 common.for=for
+common.none=None
 common.inverted=Invertoitu
 common.experimental=KOKEELLINEN
 common.deprecated=EI KÄYTÖSSÄ OLEVA
@@ -121,6 +122,7 @@ archidroid.bootanimation.archi.desc=Uusi hieno ArchiDroid käynnistysanimaatio
 archidroid.bootanimation.archilegacy.desc=Vanha ArchiDroid 1.X käynnistysanimaatio
 archidroid.bootanimation.logcat.desc=Muuttaa oletusanimaation järjestelmälokin sisällöksi - perustuu logcat liteen
 archidroid.bootanimation.stock.desc=CyanogenModin oletusanimaatio
+archidroid.bootanimation.none.desc=No bootanimation, for slightly faster bootup
 
 archidroid.other=Muuta
 archidroid.ota.desc=ArchiDroid suosittelee. Asennetaan UpdateMe apk ja otetaan käyttöön OTA-päivitykset build.propin kautta

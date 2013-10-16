@@ -55,6 +55,7 @@ text_quit_msg=Jeni te sigurt mbi anulimin e instalimit?
 #-- ARCHIDROID STRINGS
 #
 common.for=per
+common.none=None
 common.inverted=Invertuar
 common.experimental=EKSPERIMENTAL
 common.deprecated=TEJKALUAR
@@ -121,6 +122,7 @@ archidroid.bootanimation.archi.desc=New fancy ArchiDroid bootanimation
 archidroid.bootanimation.archilegacy.desc=Old ArchiDroid 1.X bootanimation
 archidroid.bootanimation.logcat.desc=Ndryshon animacionin standard ne boot, ne shkronja - nga logcat lite
 archidroid.bootanimation.stock.desc=Stock bootanimation provided by CyanogenMod
+archidroid.bootanimation.none.desc=No bootanimation, for slightly faster bootup
 
 archidroid.other=Tjera
 archidroid.ota.desc=Rekomanduar nga ArchiDroid. Do te instalojme UpdateMe apk dhe OTA azhurimin nga build.prop

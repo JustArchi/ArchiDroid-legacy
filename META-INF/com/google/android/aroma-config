@@ -422,6 +422,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
     "archilegacy","ArchiDroid Legacy","<~archidroid.bootanimation.archilegacy.desc>","select",
     "logcat","Logcat","<~archidroid.bootanimation.logcat.desc>","select",
     "stock","CyanogenMod","<~archidroid.bootanimation.stock.desc>","select",
+    "none","<~common.none>","<~archidroid.bootanimation.none.desc>","select",
 
     "other","<~archidroid.other>","","group",
     "archidroidota","ArchiDroid OTA","<~archidroid.ota.desc>","check.checked",

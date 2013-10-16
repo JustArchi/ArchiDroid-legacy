@@ -55,6 +55,7 @@ text_quit_msg=Çıkmak istediğinize emin misiniz?
 #-- ARCHIDROID STRINGS
 #
 common.for=için
+common.none=None
 common.inverted=Renkler ters çevrilmiş (Inverted)
 common.experimental=DENEYSEL
 common.deprecated=ÖNERİLMEMEKTE
@@ -121,6 +122,7 @@ archidroid.bootanimation.archi.desc=New fancy ArchiDroid bootanimation
 archidroid.bootanimation.archilegacy.desc=Old ArchiDroid 1.X bootanimation
 archidroid.bootanimation.logcat.desc=Normal başlangıç animasyonu yerine logcat gösteren başlangıç animasyonu.
 archidroid.bootanimation.stock.desc=Stock bootanimation provided by CyanogenMod
+archidroid.bootanimation.none.desc=No bootanimation, for slightly faster bootup
 
 archidroid.other=Diğer
 archidroid.ota.desc=ArchiDroid'e yüklenmesi önerilir. UpdateMe sayesinde OTA güncelleştirmesi edinebilirsiniz.

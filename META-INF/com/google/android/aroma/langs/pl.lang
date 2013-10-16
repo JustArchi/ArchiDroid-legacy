@@ -55,6 +55,7 @@ text_quit_msg=Czy jesteś pewny, że chcesz zakończyć instalację?
 #-- ARCHIDROID STRINGS
 #
 common.for=dla
+common.none=Brak
 common.inverted=Ciemny
 common.experimental=EKSPERYMENTALNE
 common.deprecated=PRZESTARZAŁE
@@ -121,6 +122,7 @@ archidroid.bootanimation.archi.desc=Nowa odświeżona animacja ArchiDroid
 archidroid.bootanimation.archilegacy.desc=Stara klasyczna animacja ArchiDroid 1.X
 archidroid.bootanimation.logcat.desc=Zamienia domyślną bootanimację na logcata
 archidroid.bootanimation.stock.desc=Stockowa animacja dostarczona wraz z CyanogenModem
+archidroid.bootanimation.none.desc=Brak animacji ładowania, dla nieco szybszego startu
 
 archidroid.other=Inne
 archidroid.ota.desc=Wysoce zalecane. Zainstaluję aplikację UpdateMe oraz włączę aktualizacje OTA via build.prop

@@ -7,6 +7,10 @@ ArchiDroid 2.2.1
 # It's available under /data/media/0/clockworkmod/aromafm/aromafm.zip
 # Pro tip: You can double-tap in PhilZ Touch Recovery to load aroma file manager whenever you need to do so
 
+- Small fixes to ArchiDroid Backend
+* Updated DBUPDATE - now ArchiDroid shows ram usage on recent apps page, moves clear button to the right and changes default backlight (buttons) delays from 5s to 1s (also present in AD 2.2, forgot to mention). Please notice that you need ArchiDroid Install mode to apply new DBUPDATE (as always, optional), or you can simply modify needed values yourself in already running system.
+* Everything is more verbose now, Init.log Sqlite.log Zipalign.log and more.
+
 - Added "No Bootanimation" option, thanks to @Ubimo
 - Updated Boeffla Config app
 - Updated Temasek Kernel to 141013

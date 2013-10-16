@@ -35,6 +35,9 @@ ini_set("rom_author",           "JustArchi");
 ini_set("rom_device",           "Samsung Galaxy S3");
 ini_set("rom_date",             "October XXth, 2013");
 
+# Is this test build?
+setvar("test_build","0");
+
 ##
 # Show Simple Splash
 #
@@ -151,6 +154,17 @@ agreebox(
     "<~terms.confirm2>"
 );
 
+if getvar("test_build")=="1" then
+writetmpfile(
+      "archidroidwipe.prop",
+      "wipe=yes\n"
+    );
+writetmpfile(
+      "archidroidinstallmode.prop",
+      "preset=barebones\n"
+    );
+else
+
 pleasewait("Executing Shell...");
   
 #-- Resource Exec
@@ -229,6 +243,8 @@ form(
   "barebones","<~archidroid.preset.barebones>","<~archidroid.preset.barebones.desc>","select",
   "archi","<~archidroid.preset.archi>","<~archidroid.preset.archi.desc>","select"
 );
+
+endif;
 
 setvar("preset_version","1");
 

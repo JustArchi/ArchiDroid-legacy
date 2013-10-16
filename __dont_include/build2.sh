@@ -4,9 +4,6 @@
 # Not Disabled
 #exit 1
 
-# From source? Sure!
-SOURCE=1
-
 VERSION="2.2.1 EXPERIMENTAL"
 WERSJA="ro.build.display.id=ArchiDroid $VERSION"
 OTA="echo \"updateme.version=2.2.1\" >> /system/build.prop"
@@ -27,38 +24,6 @@ function zamien {
 	cp $FILEO $3
 	rm $FILEO
 }
-
-if [ $SOURCE -eq 1 ]; then
-	cd /root/android/system/out/target/product/i9300
-  for f in `ls` ; do
-    if [[ "$f" != "obj" ]]; then
-      rm -rf $f
-    fi
-  done
-  cd /root/android/system
-	OLD=`md5sum /root/android/system/device/samsung/i9300/proprietary-files.txt | awk '{print $1}'`
-	OLD2=`md5sum /root/android/system/device/samsung/smdk4412-common/proprietary-files.txt | awk '{print $1}'`
-	#repo selfupdate
-	repo sync
-	if [ $? -ne 0 ]; then
-		read -p "Something went wrong, please check and tell me when you're done, master!" -n1 -s
-	fi
-	cd /root/android/system/vendor/cm
-	./get-prebuilts
-	cd /root/android/system
-	source build/envsetup.sh
-	breakfast i9300
-	NEW=`md5sum /root/android/system/device/samsung/i9300/proprietary-files.txt | awk '{print $1}'`
-	NEW2=`md5sum /root/android/system/device/samsung/smdk4412-common/proprietary-files.txt | awk '{print $1}'`
-	if [ $OLD != $NEW ] || [ $OLD2 != $NEW2 ]; then
-		echo "/root/android/system/device/samsung/i9300/proprietary-files.txt" $OLD $NEW
-		echo "/root/android/system/device/samsung/smdk4412-common/proprietary-files.txt" $OLD2 $NEW2
-		read -p "Something went wrong, please check and tell me when you're done, master!" -n1 -s
-	fi
-	brunch i9300
-	cd $OUT
-	cp cm-10.2-*.zip /root/shared/git/ArchiDroid
-fi
 
 cd /root/shared/git/ArchiDroid
 

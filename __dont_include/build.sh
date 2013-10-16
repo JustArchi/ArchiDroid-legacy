@@ -30,7 +30,7 @@ function zamien {
 
 if [ $SOURCE -eq 1 ]; then
 	cd /root/android/system/out/target/product/i9300
-	if ( $? -eq 0 ]; then
+	if [ $? -eq 0 ]; then
 		for f in `ls` ; do
 		if [[ "$f" != "obj" ]]; then
 			rm -rf $f

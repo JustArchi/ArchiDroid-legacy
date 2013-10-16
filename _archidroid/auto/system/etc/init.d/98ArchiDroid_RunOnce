@@ -176,6 +176,8 @@ while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 			DBUPDATE system statusbar_clock_date_format 'MMM dd'
 			DBUPDATE system status_bar_traffic 0
 			DBUPDATE system button_backlight_timeout 1000
+			DBUPDATE system recents_clear_all_on_right 1
+			DBUPDATE system recents_ram_bar_mode 3
 			
 			# And don't execute twice
 			echo "INFO: Finished DBUPDATE" >> $LOG

@@ -191,12 +191,20 @@ while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 		for FOLDER in * ; do
 			if [ -d /data/data/$FOLDER ]; then
 				echo "INFO: I'm merging $FOLDER, called by ADMANY" >> $LOG
-				mv $FOLDER/* /data/data/$FOLDER
-
-				# Let's set basic permissions because ArchiDroid_Permfix will fix it anyway really soon
 				ADOWNER=`ls -ld /data/data/$FOLDER | awk '{print $3}'`
-				busybox chown -hR $ADOWNER.$ADOWNER /data/data/$FOLDER
-				busybox chmod -R 755 /data/data/$FOLDER
+				su "$ADOWNER" "cp -R $FOLDER/* /data/data/$FOLDER"
+				if [ $? -eq 0 ]; then
+					echo "INFO: It looks like everything ended successfully on $FOLDER" >> $LOG
+				else
+					echo "WARNING: CyanogenMod su failed, trying alternative su -c"
+					su "$ADOWNER" -c "cp -R $FOLDER/* /data/data/$FOLDER"
+					if [ $? -eq 0 ]; then
+						echo "INFO: It looks like alternative su -c ended successfully on $FOLDER" >> $LOG
+					else
+						echo "ERROR: Alternative su failed as well, falling back to dirty chmod 777, please investigate" >> $LOG
+						busybox chmod -R 777 /data/data/$FOLDER/*
+					fi
+				fi
 
 				# And we're done!
 				rm -Rf $FOLDER

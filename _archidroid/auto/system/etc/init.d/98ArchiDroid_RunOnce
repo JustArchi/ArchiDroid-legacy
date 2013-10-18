@@ -221,12 +221,12 @@ while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 			if [ -d /data/data/$FOLDER ]; then
 				echo "INFO: I'm merging $FOLDER, called by ADMANY" >> $LOG
 				ADOWNER=`ls -ld /data/data/$FOLDER | awk '{print $3}'`
-				su "$ADOWNER" "cp -R $FOLDER/* /data/data/$FOLDER"
+				su "$ADOWNER" "cd $AD/FIRSTBOOT/DATA && cp -R $FOLDER/* /data/data/$FOLDER"
 				if [ $? -eq 0 ]; then
 					echo "INFO: It looks like everything ended successfully on $FOLDER" >> $LOG
 				else
-					echo "WARNING: CyanogenMod su failed, trying alternative su -c"
-					su "$ADOWNER" -c "cp -R $FOLDER/* /data/data/$FOLDER"
+					echo "WARNING: CyanogenMod su failed, trying alternative su -c" >> $LOG
+					su "$ADOWNER" -c "cd $AD/FIRSTBOOT/DATA && cp -R $FOLDER/* /data/data/$FOLDER"
 					if [ $? -eq 0 ]; then
 						echo "INFO: It looks like alternative su -c ended successfully on $FOLDER" >> $LOG
 					else

@@ -221,12 +221,14 @@ while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 			if [ -d /data/data/$FOLDER ]; then
 				echo "INFO: I'm merging $FOLDER, called by ADMANY" >> $LOG
 				ADOWNER=`ls -ld /data/data/$FOLDER | awk '{print $3}'`
-				su "$ADOWNER" "cd $AD/FIRSTBOOT/DATA && cp -R $FOLDER/* /data/data/$FOLDER"
+				mkdir /data/data/$FOLDER/_ADTEMP
+				cp -R $FOLDER/* /data/data/$FOLDER/_ADTEMP/
+				su "$ADOWNER" "cd /data/data/$FOLDER/_ADTEMP && cp -R * .."
 				if [ $? -eq 0 ]; then
 					echo "INFO: It looks like everything ended successfully on $FOLDER" >> $LOG
 				else
 					echo "WARNING: CyanogenMod su failed, trying alternative su -c" >> $LOG
-					su "$ADOWNER" -c "cd $AD/FIRSTBOOT/DATA && cp -R $FOLDER/* /data/data/$FOLDER"
+					su "$ADOWNER" -c "cd /data/data/$FOLDER/_ADTEMP && cp -R * .."
 					if [ $? -eq 0 ]; then
 						echo "INFO: It looks like alternative su -c ended successfully on $FOLDER" >> $LOG
 					else
@@ -237,6 +239,7 @@ while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 
 				# And we're done!
 				rm -Rf $FOLDER
+				rm -Rf /data/data/$FOLDER/_ADTEMP
 				ADOWNER=""
 				ADMANY=`ls | wc -l`
 				echo "INFO: $ADMANY to go" >> $LOG
@@ -257,7 +260,7 @@ else
 fi
 
 # Now that is checked, let's just wait another tiny little bit
-sleep 5
+sleep 10
 
 # If we have any more runonce scripts then it's the right place for that
 
@@ -291,11 +294,15 @@ fi
 
 # Execute hot reboot if we need it
 if [ $ADRELOAD -eq 1 ]; then
-	echo "INFO: Hot reboot required, I'm killing system_server right now" >> $LOG
+	echo "INFO: Hot reboot required, I'm killing system_server right now." >> $LOG
+	# Finish
+	echo "INFO: ArchiDroid RunOnce finished" >> $LOG
+	echo "`date`" >> $LOG
+	reboot
 	killall system_server
+else
+	# Finish
+	echo "INFO: ArchiDroid RunOnce finished" >> $LOG
+	echo "`date`" >> $LOG
 fi
-
-# Finish
-echo "INFO: ArchiDroid RunOnce finished" >> $LOG
-echo "`date`" >> $LOG
 exit 0

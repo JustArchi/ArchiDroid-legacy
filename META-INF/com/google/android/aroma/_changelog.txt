@@ -3,6 +3,13 @@ ArchiDroid 2.2.1
 # Now you can load your preset chosen during previous flashing, as long as it passes integrity check
 # Please note that this function works from now onwards, so it won't load settings from 2.2.0
 
+- [!] Fixed permissions problem caused by ADMANY (Presets)
+# For now it only affects Cool Tool. User was not being able to modify settings of the app after RunOnce applied preset
+# It is now fixed with additional workaround if universal method fails.
+# That means you can now modify Cool Tool settings after installation.
+# Please notice that you need ArchiDroid Install mode to apply new ADMANY (as always, optional).
+# Eventually you can create /data/media/0/ArchiDroid/FORCE file after flashing (before first boot) to force RunOnce to apply both ADMANY and DBUPDATE (overrides your settings, if any)
+
 - Added AROMA File Manager (built-in)
 # It's available under /data/media/0/clockworkmod/aromafm/aromafm.zip
 # Pro tip: You can double-tap in PhilZ Touch Recovery to load aroma file manager whenever you need to do so
@@ -13,14 +20,14 @@ ArchiDroid 2.2.1
 - Updated DBUPDATE
 * Ram usage on recent apps page
 * Clear button on the right position
+* Kill app with long press of back button (3 seconds)
 * Default backlight (buttons) delay from 5s to 1s (also present in AD 2.2, forgot to mention)
 * AOKP Custom Animations Translucent (activity open/close, task open/close, move to front/back, wallpaper/wallpaper intra open/close)
 * AOKP Custom Animations App Override active
 * AOKP Custom Animations duration 510 ms
 * ListView Animation Alpha
 * ListView Interpolator overshoot_interpolator
-# Please notice that you need ArchiDroid Install mode to apply new DBUPDATE (as always, optional).
-# Eventually you can create /data/media/0/ArchiDroid/FORCE file after flashing (before first boot) to force RunOnce to apply new DBUPDATE (overrides your settings, if any)
+# Same situation as above with ADMANY. You need Install mode, either forced or natural one to apply above updates.
 
 - Added "No Bootanimation" option, thanks to @Ubimo
 - Updated Boeffla Config app

@@ -113,6 +113,7 @@ fi
 if [ -e $AD/FORCE ]; then
 	echo "WARNING: Forcing Install mode, even if Update mode found!" >> $LOG
 	FORCE=1
+	rm -f $AD/FORCE
 else
 	echo "INFO: Not forcing Install mode if Update mode found" >> $LOG
 	FORCE=0

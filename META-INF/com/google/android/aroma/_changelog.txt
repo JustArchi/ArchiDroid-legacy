@@ -8,8 +8,19 @@ ArchiDroid 2.2.1
 # Pro tip: You can double-tap in PhilZ Touch Recovery to load aroma file manager whenever you need to do so
 
 - Small fixes to ArchiDroid Backend
-* Updated DBUPDATE - now ArchiDroid shows ram usage on recent apps page, moves clear button to the right and changes default backlight (buttons) delays from 5s to 1s (also present in AD 2.2, forgot to mention). Please notice that you need ArchiDroid Install mode to apply new DBUPDATE (as always, optional), or you can simply modify needed values yourself in already running system.
 * Everything is more verbose now, Init.log Sqlite.log Zipalign.log and more.
+
+- Updated DBUPDATE
+* Ram usage on recent apps page
+* Clear button on the right position
+* Default backlight (buttons) delay from 5s to 1s (also present in AD 2.2, forgot to mention)
+* AOKP Custom Animations Translucent (activity open/close, task open/close, move to front/back, wallpaper/wallpaper intra open/close)
+* AOKP Custom Animations App Override active
+* AOKP Custom Animations duration 510 ms
+* ListView Animation Alpha
+* ListView Interpolator overshoot_interpolator
+# Please notice that you need ArchiDroid Install mode to apply new DBUPDATE (as always, optional).
+# Eventually you can create /data/media/0/ArchiDroid/FORCE file after flashing (before first boot) to force RunOnce to apply new DBUPDATE (overrides your settings, if any)
 
 - Added "No Bootanimation" option, thanks to @Ubimo
 - Updated Boeffla Config app

@@ -231,6 +231,7 @@ while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 					echo "INFO: It looks like everything ended successfully on $FOLDER" >> $LOG
 				else
 					echo "ERROR: su failed on $FOLDER, falling back to dirty chmod 777, please investigate" >> $LOG
+					cd /data/data/$FOLDER/_ADTEMP && cp -R * .. && cd $AD/FIRSTBOOT/DATA
 					busybox chmod -R 777 /data/data/$FOLDER/*
 				fi
 

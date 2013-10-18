@@ -258,7 +258,7 @@ else
 fi
 
 # Now that is checked, let's just wait another tiny little bit
-sleep 10
+sleep 8
 
 # If we have any more runonce scripts then it's the right place for that
 
@@ -296,7 +296,7 @@ if [ $ADRELOAD -eq 1 ]; then
 	# Finish
 	echo "INFO: ArchiDroid RunOnce finished" >> $LOG
 	echo "`date`" >> $LOG
-	reboot
+	#reboot
 	killall system_server
 else
 	# Finish

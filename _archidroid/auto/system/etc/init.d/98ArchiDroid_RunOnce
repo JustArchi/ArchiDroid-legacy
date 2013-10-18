@@ -223,18 +223,15 @@ while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 				ADOWNER=`ls -ld /data/data/$FOLDER | awk '{print $3}'`
 				mkdir /data/data/$FOLDER/_ADTEMP
 				cp -R $FOLDER/* /data/data/$FOLDER/_ADTEMP/
-				su "$ADOWNER" "cd /data/data/$FOLDER/_ADTEMP && cp -R * .."
+				
+				# I hate using implementations like this one, our shell is very limited. Forgive me
+				echo "cd /data/data/$FOLDER/_ADTEMP && cp -R * .." | su "$ADOWNER"
+				
 				if [ $? -eq 0 ]; then
 					echo "INFO: It looks like everything ended successfully on $FOLDER" >> $LOG
 				else
-					echo "WARNING: CyanogenMod su failed, trying alternative su -c" >> $LOG
-					su "$ADOWNER" -c "cd /data/data/$FOLDER/_ADTEMP && cp -R * .."
-					if [ $? -eq 0 ]; then
-						echo "INFO: It looks like alternative su -c ended successfully on $FOLDER" >> $LOG
-					else
-						echo "ERROR: Alternative su failed as well, falling back to dirty chmod 777, please investigate" >> $LOG
-						busybox chmod -R 777 /data/data/$FOLDER/*
-					fi
+					echo "ERROR: su failed on $FOLDER, falling back to dirty chmod 777, please investigate" >> $LOG
+					busybox chmod -R 777 /data/data/$FOLDER/*
 				fi
 
 				# And we're done!

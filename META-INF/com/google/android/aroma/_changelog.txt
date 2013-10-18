@@ -15,4 +15,9 @@ ArchiDroid 2.2.1
 - Updated Boeffla Config app
 - Updated Temasek Kernel to 141013
 - Updated Yank's Kernel to 1.6g-beta4 (and Archi's config)
+
 - Updated CM source
+# Includes a few cherry-picks from temasek's sources
+* Disable warning dialog in "Performance" Settings
+* Enable developer options visibility by default for userdebug builds
+* Add option to Restart SystemUI to DevSettings

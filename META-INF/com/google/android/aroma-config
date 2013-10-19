@@ -115,50 +115,6 @@ form(
 
 loadlang(file_getprop("/tmp/aroma-data/lang.prop","language"));
 
-  if file_getprop("/tmp/aroma-data/lang.prop","language") == "langs/pl.lang" then
-
-agreebox(
-  #-- Title
-    "<~archidroid.tos>",
-  
-  #-- Subtitle / Description
-    "",
-  
-  #-- Icon
-    "@license",
-  
-  #-- Text Content ( Read from <AROMA Resource Dir>/pol_read_me.txt )
-    resread("pol_read_me.txt"),
-  
-  #-- Checkbox Text
-    "<~terms.check>",
-  
-  #-- Unchecked Alert Message
-    "<~terms.confirm>"
-);
-
-agreebox(
-  #-- Title
-    "<~archidroid.tos>",
-  
-  #-- Subtitle / Description
-    "",
-  
-  #-- Icon
-    "@license",
-  
-  #-- Text Content ( Read from <AROMA Resource Dir>/pol_read_me2.txt )
-    resread("pol_read_me2.txt"),
-  
-  #-- Checkbox Text
-    "<~terms.check2>",
-  
-  #-- Unchecked Alert Message
-    "<~terms.confirm2>"
-);
-
-  else
-
 agreebox(
   #-- Title
     "<~archidroid.tos>",
@@ -199,7 +155,6 @@ agreebox(
     "<~terms.confirm2>"
 );
 
-  endif;
 if getvar("test_build")=="1" then
 writetmpfile(
       "archidroidwipe.prop",

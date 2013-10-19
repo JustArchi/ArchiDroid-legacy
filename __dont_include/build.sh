@@ -7,9 +7,9 @@
 # From source? Sure!
 SOURCE=1
 
-VERSION="2.2.1 EXPERIMENTAL"
+VERSION="2.2.2 EXPERIMENTAL"
 WERSJA="ro.build.display.id=ArchiDroid $VERSION"
-OTA="echo \"updateme.version=2.2.1\" >> /system/build.prop"
+OTA="echo \"updateme.version=2.2.2\" >> /system/build.prop"
 DENSITY="#ro.sf.lcd_density=320"
 
 function zamien {

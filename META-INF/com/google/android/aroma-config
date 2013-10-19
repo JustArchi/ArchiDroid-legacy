@@ -30,10 +30,10 @@
 #
 ini_set("dp","3");
 ini_set("rom_name",             "ArchiDroid");
-ini_set("rom_version",          "2.2.1");
+ini_set("rom_version",          "2.2.2");
 ini_set("rom_author",           "JustArchi");
 ini_set("rom_device",           "Samsung Galaxy S3");
-ini_set("rom_date",             "October 19th, 2013");
+ini_set("rom_date",             "October XXth, 2013");
 
 # Is this test build?
 setvar("test_build","0");

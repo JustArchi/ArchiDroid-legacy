@@ -27,3 +27,10 @@ elif  [ -d /system/vendor/pittpatt/ ]; then
   rm  -f /system/addon.d/71-gapps-faceunlock.sh
 fi
 rm -rf /tmp/face
+
+#if ( ! grep -q "neon" /proc/cpuinfo ); then
+#  echo "Installing support for non-NEON target"
+#  cp -a /tmp/noneon/* /system/
+#fi
+#rm -rf /tmp/noneon
+

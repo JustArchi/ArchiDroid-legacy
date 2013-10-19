@@ -39,14 +39,15 @@ ini_set("rom_date",             "October 19th, 2013");
 setvar("test_build","0");
 
 ##
-# Show Simple Splash
+# Show Animated Splash
 #
-splash(
-#  #-- Duration 2000ms / 2 seconds
-    4000,
+anisplash(
+#  #-- Number of Loop
+    1,
   
-  #-- <AROMA Resource Dir>/sample.png
-    "archidroidsplash"
+  #-- Frame 1 [ Image, duration in millisecond ]. <AROMA Resource Dir>/splash/a[1..6].png
+    "archidroidsplash", 2000,
+    "archidroidsplash2", 2000
 );
 
 #

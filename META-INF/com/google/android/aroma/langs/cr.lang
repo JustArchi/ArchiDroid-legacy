@@ -56,6 +56,7 @@ text_quit_msg=Da li sigurno želiš prekinuti instalaciju?
 #
 common.for=Za
 common.none=None
+common.replaces=Replaces
 common.inverted=Obrnut (Tamna verzija apk)
 common.experimental=EXPERIMENTALNO
 common.deprecated=NE ODOBRAVATI
@@ -91,7 +92,6 @@ archidroid.preset.previous=Previous Preset
 archidroid.preset.previous.desc=Loads your previous custom installation preset (if available)
 
 archidroid.detect.previouspreset.fail=Could not load your previous preset, either it failed integrity check or doesn't exist
-archidroid.detect.previouspreset.pass=Successfully loaded your previous preset!
 
 archidroid.custom=ArchiDroid Podešavanja
 archidroid.custom.extra=ArchiDroid Extra Podešavanja

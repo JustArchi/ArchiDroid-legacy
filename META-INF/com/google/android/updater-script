@@ -669,10 +669,6 @@ endif;
 
 set_progress(0.85);
 
-if file_getprop("/tmp/aroma-data/archidroid.prop","gquick") == "0" then
-	delete("/system/app/QuickSearchBox.apk");
-endif;
-
 if file_getprop("/tmp/aroma-data/archidroid.prop","gcalendar") == "1" then
 	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Google Calendar");
 	package_extract_dir("_archidroid/apps/gcalendar", "/");
@@ -681,11 +677,6 @@ endif;
 if file_getprop("/tmp/aroma-data/archidroid.prop","gchrome") == "1" then
 	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Google Chrome");
 	package_extract_dir("_archidroid/apps/gchrome", "/");
-endif;
-
-if file_getprop("/tmp/aroma-data/archidroid.prop","gears") == "1" then
-	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Google Ears");
-	package_extract_dir("_archidroid/apps/gears", "/");
 endif;
 
 if file_getprop("/tmp/aroma-data/archidroid.prop","gkeep") == "1" then
@@ -716,14 +707,14 @@ if file_getprop("/tmp/aroma-data/archidroid.prop","ghangouts") == "1" then
 	package_extract_dir("_archidroid/apps/ghangouts", "/");
 endif;
 
-if file_getprop("/tmp/aroma-data/archidroid.prop","gnow") == "1" then
-	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Google Now");
-	package_extract_dir("_archidroid/apps/gnow", "/");
-endif;
-
 if file_getprop("/tmp/aroma-data/archidroid.prop","gplus") == "1" then
 	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Google Plus");
 	package_extract_dir("_archidroid/apps/gplus", "/");
+endif;
+
+if file_getprop("/tmp/aroma-data/archidroid.prop","gtranslate") == "1" then
+	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Google Translate");
+	package_extract_dir("_archidroid/apps/gtranslate", "/");
 endif;
 
 set_progress(0.86);

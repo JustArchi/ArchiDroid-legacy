@@ -291,7 +291,7 @@ form(
 
 endif;
 
-setvar("preset_version","1");
+setvar("preset_version","2");
 
 #######################
 ### PREVIOUS PRESET ###
@@ -303,7 +303,6 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "previ
     alert("ArchiDroid Wizard","<~archidroid.detect.previouspreset.fail>","@alert");
     writetmpfile("archidroidinstallmode.prop","preset=custom\n");
   else
-    alert("ArchiDroid Wizard","<~archidroid.detect.previouspreset.pass>","@info");
     writetmpfile("archidroid.prop",read("/data/media/0/ArchiDroid/AromaPreset/archidroid.prop"));
     writetmpfile("archidroidboeffla.prop",read("/data/media/0/ArchiDroid/AromaPreset/archidroidboeffla.prop"));
     writetmpfile("archidroidtemasek.prop",read("/data/media/0/ArchiDroid/AromaPreset/archidroidtemasek.prop"));
@@ -332,17 +331,15 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "bareb
     "updatemodem=0\n"+
     "updaterecovery=0\n"+
     "gapps=0\n"+
-    "gquick=0\n"+
     "gcalendar=0\n"+
     "gchrome=0\n"+
-    "gears=0\n"+
     "gkeep=0\n"+
     "gmail=0\n"+
     "gmaps=0\n"+
     "gvoice=0\n"+
     "ghangouts=0\n"+
-    "gnow=0\n"+
     "gplus=0\n"+
+    "gtranslate=0\n"+
     "titaniumbackup=0\n"+
     "zram=0\n"+
     "greenify=0\n"+
@@ -359,88 +356,6 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "bareb
     "buildtweaks=0\n"+
     "openpdroid=0\n"+
     "nocell=0\n"
-  );
-endif;
-
-
-#############
-### ARCHI ###
-#############
-
-if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "archi" then
-  textbox(
-    #-- Title
-      "Preset",
-    
-    #-- Subtitle
-      "Preset",
-    
-    #-- Icon
-      "@welcome",
-    
-    #-- Arg 4
-      resread("preset_archi.txt")
-  );
-
-  writetmpfile(
-    "archidroid.prop",
-
-    "kernel=boeffla\n"+
-    "dpi=241\n"+
-    "launcher=nova\n"+
-    "keyboard=both\n"+
-    "bootanimation=logcat\n"+
-    "archidroidota=0\n"+
-    "xposed=1\n"+
-    "crossbreeder=1\n"+
-    "updatemodem=0\n"+
-    "updaterecovery=0\n"+
-    "gapps=1\n"+
-    "gquick=0\n"+
-    "gcalendar=0\n"+
-    "gchrome=1\n"+
-    "gears=1\n"+
-    "gkeep=1\n"+
-    "gmail=1\n"+
-    "gmaps=1\n"+
-    "gvoice=1\n"+
-    "ghangouts=1\n"+
-    "gnow=0\n"+
-    "gplus=0\n"+
-    "titaniumbackup=1\n"+
-    "zram=0\n"+
-    "greenify=1\n"+
-    "lmt=1\n"+
-    "mxplayer=1\n"+
-    "spiritfm=1\n"+
-    "bbs=1\n"+
-    "cooltool=1\n"+
-    "rootbrowser=1\n"+
-    "adobeflash=1\n"+
-    "youtube=1\n"+
-    "facebook=1\n"+
-    "hdvoice=1\n"+
-    "buildtweaks=1\n"+
-    "openpdroid=1\n"+
-    "nocell=1\n"
-  );
-
-  writetmpfile(
-    "archidroidboeffla.prop",
-
-    "preset=archipowersave\n"
-  );
-
-  writetmpfile(
-    "archidroidxposed.prop",
-
-    "appsettings=1\n"+
-    "xprivacy=1\n"
-  );
-  writetmpfile(
-    "archidroidbuild.prop",
-
-    "fastdormancy=1\n"
   );
 endif;
 
@@ -494,23 +409,21 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 
     "googleapps","<#selectbg_g>Google Apps</#>","","group",
     "gapps","Google Apps","<~archidroid.gapps.desc>","check.checked",
-    "gquick","Google QuickSearchBox","<~archidroid.gapps.gquick.desc>","check",
-    "gcalendar","Google Calendar [<~common.inverted>]","","check",
+    "gcalendar","Google Calendar [<~common.inverted>]","<~common.replaces> CyanogenMod Calendar","check.checked",
     "gchrome","Google Chrome [<~common.inverted>]","","check.checked",
-    "gears","Google Ears [<~common.inverted>]","","check.checked",
     "gkeep","Google Keep [<~common.inverted>]","","check.checked",
-    "gmail","Google Mail [<~common.inverted>]","","check.checked",
+    "gmail","Google Mail (Gmail) [<~common.inverted>]","","check.checked",
     "gmaps","Google Maps [<~common.inverted>]","","check.checked",
     "gvoice","Google Voice","","check.checked",
     "ghangouts","Google Hangouts [<~common.inverted>]","","check",
-    "gnow","Google Now [<~common.inverted>]","","check",
     "gplus","Google Plus [<~common.inverted>]","","check",
+    "gtranslate","Google Translate [<~common.inverted>]","","check.checked",
 
     "archiapps","<#selectbg_g>ArchiDroid Apps</#>","","group",
     "titaniumbackup","Titanium Backup","<~archidroid.apps.titaniumbackup.desc>","check.checked",
     "zram","ZRAM Status","<~archidroid.apps.zram.desc>","check",
     "greenify","Greenify","<~archidroid.apps.greenify.desc>","check.checked",
-    "lmt","LMT","<~archidroid.apps.lmt.desc>","check.checked",
+    "lmt","LMT","<~archidroid.apps.lmt.desc>","check",
     "mxplayer","MXPlayer","<~archidroid.apps.mxplayer.desc>","check.checked",
     "spiritfm","Spirit FM","<~archidroid.apps.spiritfm.desc>","check.checked",
     "bbs","BetterBatteryStats","<~archidroid.apps.bbs.desc>","check.checked",

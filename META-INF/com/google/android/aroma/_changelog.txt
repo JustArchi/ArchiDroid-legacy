@@ -2,6 +2,8 @@ ArchiDroid 2.2.1
 - [!] Added "Previous Preset" function to AROMA
 # Now you can load your preset chosen during previous flashing, as long as it passes integrity check
 # Please note that this function works from now onwards, so it won't load settings from 2.2.0
+# Please also note that your preset must pass integrity check. This typically means that if I add any new option then you'll need to create your preset once again.
+# This feature is mostly useful for users using experimentals, as they don't need to modify aroma preset every time, while still keeping in-sync with all new features provided by me
 
 - [!] Fixed permissions problem caused by ADMANY (Presets)
 # For now it only affects Cool Tool. User was not being able to modify settings of the app after RunOnce applied preset
@@ -11,9 +13,10 @@ ArchiDroid 2.2.1
 # Eventually you can create /data/media/0/ArchiDroid/FORCE file after flashing (before first boot) to force RunOnce to apply both ADMANY and DBUPDATE (overrides your settings, if any)
 
 - Merged Paranoid GAPPS and updated inverted (g)apps
-# Includes basicly all previous Google Apps and inverted Facebook/Youtube
+# Includes updated Google Apps and inverted Facebook/Youtube
 # I've used smallest possible .zip, with deleted (useless for me) gapps. If you for whatever reason want full package then you can download it manualy or download needed apps through google store
-# I try to keep it as minimalisic as possible, featuring only core and optional inverts in aroma
+# I try to keep it as minimalistic as possible, featuring only core and optional inverts in aroma
+# I've also merged Google Ears and Google Now into core package. Google Now is automatically deleted if you tick Google Voice in aroma, as you can use only one of these.
 
 - Added AROMA File Manager (built-in)
 # It's available under /data/media/0/clockworkmod/aromafm/aromafm.zip
@@ -34,7 +37,10 @@ ArchiDroid 2.2.1
 * ListView Interpolator overshoot_interpolator
 # Same situation as above with ADMANY. You need Install mode, either forced or natural one to apply above updates.
 
+- Added Google Translate (inverted)
 - Added "No Bootanimation" option, thanks to @Ubimo
+- Deleted Archi's Preset, due to previous preset feature
+- LMT is now disabled in default preset, as we already have SlimBean's Pie implemented in ROM (still available if you like it)
 - Updated Boeffla Config app
 - Updated Temasek Kernel to 141013
 - Updated Yank's Kernel to 1.6g-beta4 (and Archi's config)

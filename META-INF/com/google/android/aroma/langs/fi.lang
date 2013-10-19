@@ -56,6 +56,7 @@ text_quit_msg=Haluatko varmasti lopettaa asennuksen?
 #
 common.for=for
 common.none=None
+common.replaces=Replaces
 common.inverted=Invertoitu
 common.experimental=KOKEELLINEN
 common.deprecated=EI KÄYTÖSSÄ OLEVA
@@ -91,7 +92,6 @@ archidroid.preset.previous=Previous Preset
 archidroid.preset.previous.desc=Loads your previous custom installation preset (if available)
 
 archidroid.detect.previouspreset.fail=Could not load your previous preset, either it failed integrity check or doesn't exist
-archidroid.detect.previouspreset.pass=Successfully loaded your previous preset!
 
 archidroid.custom=ArchiDroid Kustomointi
 archidroid.custom.extra=ArchiDroid Extra-kustomointi

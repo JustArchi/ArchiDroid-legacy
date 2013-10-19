@@ -56,6 +56,7 @@ text_quit_msg=Willst du die Installation wirklich abbrechen?
 #
 common.for=für
 common.none=None
+common.replaces=Replaces
 common.inverted=Invertiert
 common.experimental=EXPERIMENTAL
 common.deprecated=DEPRECATED
@@ -91,7 +92,6 @@ archidroid.preset.previous=Previous Preset
 archidroid.preset.previous.desc=Loads your previous custom installation preset (if available)
 
 archidroid.detect.previouspreset.fail=Could not load your previous preset, either it failed integrity check or doesn't exist
-archidroid.detect.previouspreset.pass=Successfully loaded your previous preset!
 
 archidroid.custom=ArchiDroid Anpassung
 archidroid.custom.extra=ArchiDroid Extra Anpassung

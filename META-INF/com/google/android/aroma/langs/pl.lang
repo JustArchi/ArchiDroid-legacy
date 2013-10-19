@@ -56,6 +56,7 @@ text_quit_msg=Czy jesteś pewny, że chcesz zakończyć instalację?
 #
 common.for=dla
 common.none=Brak
+common.replaces=Zastępuje
 common.inverted=Ciemny
 common.experimental=EKSPERYMENTALNE
 common.deprecated=PRZESTARZAŁE
@@ -91,7 +92,6 @@ archidroid.preset.previous=Poprzedni Preset
 archidroid.preset.previous.desc=Ładuje Twój poprzednio wybany preset (o ile dostępny)
 
 archidroid.detect.previouspreset.fail=Nie mogłem załadować Twojego poprzedniego presetu, ponieważ nie przeszedł testów integralności lub nie został znaleziony
-archidroid.detect.previouspreset.pass=Pomyślnie załadowałem Twój poprzedni preset!
 
 archidroid.custom=Dostosowywanie ArchiDroid
 archidroid.custom.extra=Dostosywywanie Ekstra ArchiDroid

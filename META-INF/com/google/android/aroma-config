@@ -98,10 +98,10 @@ textbox(
 form(
   "ArchiDroid Language",
   "Which language would you like to use?",
-  "icons/apps",
+  "@confirm",
   "lang.prop",
   
-  "language","Language","","group",
+  "language","<#selectbg_g>Language</#>","","group",
   "langs/al.lang","Albanian","Shqiptar, thanks to CEPi","select",
   "langs/cr.lang","Croatian","Hrvatski, thanks to gastonmazzacane","select",
   "langs/en.lang","English", "","select.selected",
@@ -113,6 +113,50 @@ form(
 );
 
 loadlang(file_getprop("/tmp/aroma-data/lang.prop","language"));
+
+  if file_getprop("/tmp/aroma-data/lang.prop","language") == "langs/pl.lang" then
+
+agreebox(
+  #-- Title
+    "<~archidroid.tos>",
+  
+  #-- Subtitle / Description
+    "",
+  
+  #-- Icon
+    "@license",
+  
+  #-- Text Content ( Read from <AROMA Resource Dir>/pol_read_me.txt )
+    resread("pol_read_me.txt"),
+  
+  #-- Checkbox Text
+    "<~terms.check>",
+  
+  #-- Unchecked Alert Message
+    "<~terms.confirm>"
+);
+
+agreebox(
+  #-- Title
+    "<~archidroid.tos>",
+  
+  #-- Subtitle / Description
+    "",
+  
+  #-- Icon
+    "@license",
+  
+  #-- Text Content ( Read from <AROMA Resource Dir>/pol_read_me2.txt )
+    resread("pol_read_me2.txt"),
+  
+  #-- Checkbox Text
+    "<~terms.check2>",
+  
+  #-- Unchecked Alert Message
+    "<~terms.confirm2>"
+);
+
+  else
 
 agreebox(
   #-- Title
@@ -154,6 +198,7 @@ agreebox(
     "<~terms.confirm2>"
 );
 
+  endif;
 if getvar("test_build")=="1" then
 writetmpfile(
       "archidroidwipe.prop",
@@ -234,10 +279,10 @@ setvar(
 form(
   "<~archidroid.preset>",
   "<~archidroid.preset.desc>",
-  "icons/apps",
+  "@apps",
   "archidroidinstallmode.prop",
   
-  "preset","<~archidroid.preset.group>","","group",
+  "preset","<#selectbg_g><~archidroid.preset.group></#>","","group",
   "custom","<~archidroid.preset.custom>", "<~archidroid.preset.custom.desc>","select",
   "previous","<~archidroid.preset.previous>","<~archidroid.preset.previous.desc>","select.selected",
   "barebones","<~archidroid.preset.barebones>","<~archidroid.preset.barebones.desc>","select",
@@ -407,47 +452,47 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
   form(
     "<~archidroid.custom>",
     "<~archidroid.custom.desc>",
-    "icons/apps",
+    "@apps",
     "archidroid.prop",
     
-    "kernel","Kernel","","group",
+    "kernel","<#selectbg_g>Kernel</#>","","group",
     "temasek","Temasek Kernel [Boeffla/No ABB]","<~archidroid.kernel.temasek.desc>","select",
     "boeffla","Boeffla Kernel","<~archidroid.kernel.boeffla.desc>","select.selected",
     "yank","Yank555.lu Kernel","<~archidroid.kernel.yank.desc>","select",
     "googy","Googy-Max Kernel","<~archidroid.kernel.googy.desc>","select",
     "stock","Stock CM","<~archidroid.kernel.stock.desc>","select",
 
-    "dpi","DPI","","group",
+    "dpi","<#selectbg_g>DPI</#>","","group",
     "240","240 DPI","<~archidroid.dpi.240.desc>","select",
     "241","241 DPI","<~archidroid.dpi.241.desc>","select.selected",
     "280","280 DPI","<~archidroid.dpi.280.desc>","select",
     "320","320 DPI","<~archidroid.dpi.320.desc>","select",
 
-    "launcher","Launcher","","group",
+    "launcher","<#selectbg_g>Launcher</#>","","group",
     "nova","Nova Launcher","<~archidroid.launcher.nova.desc>","select.selected",
     "stock","AOSP Launcher","<~archidroid.launcher.stock.desc>","select",
 
-    "keyboard","<~archidroid.keyboard>","","group",
+    "keyboard","<#selectbg_g><~archidroid.keyboard></#>","","group",
     "touchpal","TouchPal Keyboard","<~archidroid.keyboard.touchpal.desc>","select.selected",
     "hackers","Hacker's Keyboard","<~archidroid.keyboard.hackers.desc>","select",
     "both","TouchPal + Hacker's Keyboard","<~archidroid.keyboard.both.desc>","select",
     "stock","Stock CM","<~archidroid.keyboard.stock.desc>","select",
 
-    "bootanimation","<~archidroid.bootanimation>","","group",
+    "bootanimation","<#selectbg_g><~archidroid.bootanimation></#>","","group",
     "archi","ArchiDroid","<~archidroid.bootanimation.archi.desc>","select.selected",
     "archilegacy","ArchiDroid Legacy","<~archidroid.bootanimation.archilegacy.desc>","select",
     "logcat","Logcat","<~archidroid.bootanimation.logcat.desc>","select",
     "stock","CyanogenMod","<~archidroid.bootanimation.stock.desc>","select",
     "none","<~common.none>","<~archidroid.bootanimation.none.desc>","select",
 
-    "other","<~archidroid.other>","","group",
+    "other","<#selectbg_g><~archidroid.other></#>","","group",
     "archidroidota","ArchiDroid OTA","<~archidroid.ota.desc>","check.checked",
     "xposed","Xposed Framework","<~archidroid.xposed.desc>","check.checked",
     "crossbreeder","Crossbreeder","<~archidroid.crossbreeder.desc>","check.checked",
     "updatemodem","<~archidroid.updatemodem> [XXEMG4]","<~archidroid.updatemodem.desc>","check",
     "updaterecovery","<~archidroid.updaterecovery> [PhilZ 5.15.0]","<~archidroid.updaterecovery.desc>","check",
 
-    "googleapps","Google Apps","","group",
+    "googleapps","<#selectbg_g>Google Apps</#>","","group",
     "gapps","Google Apps","<~archidroid.gapps.desc>","check.checked",
     "gquick","Google QuickSearchBox","<~archidroid.gapps.gquick.desc>","check",
     "gcalendar","Google Calendar [<~common.inverted>]","","check",
@@ -461,7 +506,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
     "gnow","Google Now [<~common.inverted>]","","check",
     "gplus","Google Plus [<~common.inverted>]","","check",
 
-    "archiapps","ArchiDroid Apps","","group",
+    "archiapps","<#selectbg_g>ArchiDroid Apps</#>","","group",
     "titaniumbackup","Titanium Backup","<~archidroid.apps.titaniumbackup.desc>","check.checked",
     "zram","ZRAM Status","<~archidroid.apps.zram.desc>","check",
     "greenify","Greenify","<~archidroid.apps.greenify.desc>","check.checked",
@@ -475,7 +520,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
     "youtube","YouTube [<~common.inverted>]","<~archidroid.apps.youtube.desc>","check.checked",
     "facebook","Facebook + Messenger [<~common.inverted>]","<~archidroid.apps.facebook.desc>","check.checked",
 
-    "architweaks","ArchiDroid Tweaks","","group",
+    "architweaks","<#selectbg_g>ArchiDroid Tweaks</#>","","group",
     "hdvoice","HD Voice","<~archidroid.tweaks.hdvoice.desc>","check.checked",
     "buildtweaks","Add build.prop Tweaks","<~archidroid.tweaks.buildtweaks.desc>","check.checked",
     "openpdroid","OpenPDroid [<~common.experimental>]","<~archidroid.tweaks.openpdroid.desc>","check",
@@ -493,7 +538,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
       "icons/apps",
       "archidroidboeffla.prop",
 
-      "preset","Boeffla Kernel Preset","","group",
+      "preset","<#selectbg_g>Boeffla Kernel Preset</#>","","group",
       "archiperformance","<~archidroid.preset.kernel.boeffla.archiperformance>","<~archidroid.preset.kernel.boeffla.archiperformance.desc>","select",
       "archipowersave","<~archidroid.preset.kernel.boeffla.archipowersave>","<~archidroid.preset.kernel.boeffla.archipowersave.desc>","select.selected",
       "archiultrapowersave","<~archidroid.preset.kernel.boeffla.archiultrapowersave>","<~archidroid.preset.kernel.boeffla.archiultrapowersave.desc>","select",
@@ -511,7 +556,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
       "icons/apps",
       "archidroidtemasek.prop",
 
-      "preset","Temasek Kernel Preset","","group",
+      "preset","<#selectbg_g>Temasek Kernel Preset</#>","","group",
       "balanced","<~archidroid.preset.kernel.temasek.balanced> [<~common.obsolete>]","<~archidroid.preset.kernel.temasek.balanced.desc>","select",
       "powersave","<~archidroid.preset.kernel.temasek.powersave>","<~archidroid.preset.kernel.temasek.powersave.desc>","select.selected",
       "ultra","<~archidroid.preset.kernel.temasek.ultra>","<~archidroid.preset.kernel.temasek.ultra.desc>","select",
@@ -530,7 +575,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
       "icons/apps",
       "archidroidboefflasound.prop",
 
-      "boeffla","Boeffla Sound Control","","group",
+      "boeffla","<#selectbg_g>Boeffla Sound Control</#>","","group",
       "yesarchi","<~archidroid.boeffla.yesarchi>","<~archidroid.boeffla.yesarchi.desc>","select.selected",
       "yes","<~text_yes>","<~archidroid.boeffla.yes.desc>","select",
       "no","<~text_no>","<~archidroid.boeffla.no.desc>","select"
@@ -544,10 +589,10 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
     form(
       "<~archidroid.custom.extra>",
       "<~archidroid.custom.desc>",
-      "icons/apps",
+      "@apps",
       "archidroidxposed.prop",
 
-      "modules","Xposed Modules","","group",
+      "modules","<#selectbg_g>Xposed Modules</#>","","group",
       "appsettings","App Settings","<~archidroid.xposed.appsettings.desc>","check.checked",
       "xprivacy","XPrivacy","<~archidroid.xposed.xprivacy.desc>","check.checked"
     );
@@ -559,10 +604,10 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
     form(
       "<~archidroid.custom.extra>",
       "<~archidroid.custom.desc>",
-      "icons/apps",
+      "@apps",
       "archidroidbuild.prop",
 
-      "build","Build.prop Tweaks","","group",
+      "build","<#selectbg_g>Build.prop Tweaks</#>","","group",
       "fastdormancy","Fast Dormancy","<~archidroid.buildtweaks.fastdormancy.desc>","check.checked"
     );
     write("/data/media/0/ArchiDroid/AromaPreset/archidroidbuild.prop",
@@ -606,7 +651,7 @@ if
 	#-- Text
 	  "<~archidroid.wizard.reboot>",
 	#-- Icon (Optional)
-	  "@install",
+	  "@confirm",
 	#-- Yes Text
 	  "<~text_yes>",
 	#-- No Text

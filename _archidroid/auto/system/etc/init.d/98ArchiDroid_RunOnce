@@ -113,7 +113,6 @@ fi
 if [ -e $AD/FORCE ]; then
 	echo "WARNING: Forcing Install mode, even if Update mode found!" >> $LOG
 	FORCE=1
-	rm -f $AD/FORCE
 else
 	echo "INFO: Not forcing Install mode if Update mode found" >> $LOG
 	FORCE=0
@@ -280,6 +279,7 @@ fi
 # ArchiDroid has sysro/sysrw support, change that to remount system rw if needed
 rm -f $AD/INSTALL
 rm -f $AD/UPDATE
+rm -f $AD/FORCE
 rm -Rf $AD/FIRSTBOOT
 rm -Rf /data/media/0/vrtheme-backup
 sysrw

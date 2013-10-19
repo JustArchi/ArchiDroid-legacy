@@ -76,8 +76,8 @@ archidroid.detect.fail.alert.no=Ters olan bir şeyler var. Güncellemeyi deneyec
 archidroid.detect.pass=ArchiDroid yüklemesi başarılı bir şekilde bulundu. Güncellensin mi?
 archidroid.detect.pass.yes=Evet güncellemeyi dene.
 archidroid.detect.pass.no=Hayır, temiz kurulum yap.
-archidroid.detect.pass.alert.yes=Tamam, güncellemeyi deniyorum. Hata alırsanız ArchiDroid'i temiz kurulum seçeneği ile kurun.
 archidroid.detect.pass.alert.no=Tamam, temiz ArchiDroid yüklemesi başlatılacak.
+archidroid.detect.force=Would you like to use forced update mode? This tells ArchiDroid RunOnce to perform advanced tweaks, which normally would be executed only during install mode. Select No if you're unsure
 
 archidroid.preset=ArchiDroid Yükleyici Profili
 archidroid.preset.desc=Lütfen bir profil seçin:

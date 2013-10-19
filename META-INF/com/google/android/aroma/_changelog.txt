@@ -5,12 +5,30 @@ ArchiDroid 2.2.1
 # Please also note that your preset must pass integrity check. This typically means that if I add any new option then you'll need to create your preset once again.
 # This feature is mostly useful for users using experimentals, as they don't need to modify aroma preset every time, while still keeping in-sync with all new features provided by me
 
+- [!] Implemented Forced Update Mode (optional)
+# Basicly it gives you a possibility to perform DBUPDATE and ADMANY also in update mode
+# Useful if you want to have newest DBUPDATE and ADMANY tweaks provided by ArchiDroid RunOnce without needing of full wipe (install mode)
+# Warning, it WILL override some of your presets and settings. Don't choose it if you want to preserve all of your settings and presets
+# For example Cool Tool will return back to ArchiDroid default, Dark Droid will be active again etc.
+# Of course you can change everything later
+
 - [!] Fixed permissions problem caused by ADMANY (Presets)
 # For now it only affects Cool Tool. User was not being able to modify settings of the app after RunOnce applied preset
 # It is now fixed with additional workaround if universal method fails.
 # That means you can now modify Cool Tool settings after installation.
-# Please notice that you need ArchiDroid Install mode to apply new ADMANY (as always, optional).
-# Eventually you can create /data/media/0/ArchiDroid/FORCE file after flashing (before first boot) to force RunOnce to apply both ADMANY and DBUPDATE (overrides your settings, if any)
+# Please notice that you need ArchiDroid Install mode to apply new ADMANY. Of course you can also use Forced Update Mode described above, without needing of full wipe
+
+- [!] Updated DBUPDATE
+* Ram usage on recent apps page
+* Clear button on the right position
+* Kill app with long press of back button (3 seconds)
+* Default backlight (buttons) delay from 5s to 1s (also present in AD 2.2, forgot to mention)
+* AOKP Custom Animations Translucent (activity open/close, task open/close, move to front/back, wallpaper/wallpaper intra open/close)
+* AOKP Custom Animations App Override active
+* AOKP Custom Animations duration 510 ms
+* ListView Animation Alpha
+* ListView Interpolator overshoot_interpolator
+# Same situation as above with ADMANY. You need Install mode, either forced or natural one to apply above updates.
 
 - Merged Paranoid GAPPS and updated inverted (g)apps
 # Includes updated Google Apps and inverted Facebook/Youtube
@@ -24,18 +42,6 @@ ArchiDroid 2.2.1
 
 - Small fixes to ArchiDroid Backend
 * Everything is more verbose now, Init.log Sqlite.log Zipalign.log and more.
-
-- Updated DBUPDATE
-* Ram usage on recent apps page
-* Clear button on the right position
-* Kill app with long press of back button (3 seconds)
-* Default backlight (buttons) delay from 5s to 1s (also present in AD 2.2, forgot to mention)
-* AOKP Custom Animations Translucent (activity open/close, task open/close, move to front/back, wallpaper/wallpaper intra open/close)
-* AOKP Custom Animations App Override active
-* AOKP Custom Animations duration 510 ms
-* ListView Animation Alpha
-* ListView Interpolator overshoot_interpolator
-# Same situation as above with ADMANY. You need Install mode, either forced or natural one to apply above updates.
 
 - Added Google Translate (inverted)
 - Added "No Bootanimation" option, thanks to @Ubimo

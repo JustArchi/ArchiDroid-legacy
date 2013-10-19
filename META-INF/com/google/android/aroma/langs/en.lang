@@ -76,8 +76,8 @@ archidroid.detect.fail.alert.no=That's not good. I'll fake results but do not us
 archidroid.detect.pass=ArchiDroid successfully detected itself being running. Would you like to try Update mode?
 archidroid.detect.pass.yes=Yes, Try Update
 archidroid.detect.pass.no=No, Full Wipe
-archidroid.detect.pass.alert.yes=OK, I'll try Update mode. But please select full wipe in case of issues
 archidroid.detect.pass.alert.no=OK, I'll proceed with full wipe and ArchiDroid Install mode
+archidroid.detect.force=Would you like to use forced update mode? This tells ArchiDroid RunOnce to perform advanced tweaks, which normally would be executed only during install mode. Select No if you're unsure
 
 archidroid.preset=ArchiDroid Installation Preset
 archidroid.preset.desc=Please select installation preset:

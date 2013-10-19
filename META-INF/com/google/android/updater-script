@@ -74,15 +74,22 @@ set_perm(0, 0, 0777, "/tmp/archidroid.sh");
 run_program("/tmp/archidroid.sh");
 
 if file_getprop("/tmp/aroma-data/archidroidwipe.prop","wipe") == "yes" then
-  ui_print("<b><#ff0000>RunOnce</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>$</#></b> Install Mode Detected");
-  package_extract_file("_archidroid/scripts/archidroid_install.sh", "/tmp/archidroid_install.sh");
-  set_perm(0, 0, 0777, "/tmp/archidroid_install.sh");
+	ui_print("<b><#ff0000>RunOnce</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>$</#></b> Install Mode Detected");
+	package_extract_file("_archidroid/scripts/archidroid_install.sh", "/tmp/archidroid_install.sh");
+	set_perm(0, 0, 0777, "/tmp/archidroid_install.sh");
 	run_program("/tmp/archidroid_install.sh");
 else
-  ui_print("<b><#ff0000>RunOnce</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>$</#></b> Update Mode Detected");
-  package_extract_file("_archidroid/scripts/archidroid_update.sh", "/tmp/archidroid_update.sh");
-  set_perm(0, 0, 0777, "/tmp/archidroid_update.sh");
-	run_program("/tmp/archidroid_update.sh");
+	if file_getprop("/tmp/aroma-data/archidroidwipe.prop","force") == "no" then
+		ui_print("<b><#ff0000>RunOnce</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>$</#></b> Update Mode Detected");
+		package_extract_file("_archidroid/scripts/archidroid_update.sh", "/tmp/archidroid_update.sh");
+		set_perm(0, 0, 0777, "/tmp/archidroid_update.sh");
+		run_program("/tmp/archidroid_update.sh");
+	else
+		ui_print("<b><#ff0000>RunOnce</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>$</#></b> Forced Update Mode Detected");
+		package_extract_file("_archidroid/scripts/archidroid_update.sh", "/tmp/archidroid_update.sh");
+		set_perm(0, 0, 0777, "/tmp/archidroid_update.sh");
+		run_program("/tmp/archidroid_update.sh", "force");
+	endif;
 endif;
 
 set_progress(0.09);

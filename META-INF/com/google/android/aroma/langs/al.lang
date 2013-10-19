@@ -76,8 +76,8 @@ archidroid.detect.fail.alert.no=Nuk eshte ne rregull. Do tejap rezultat falso, p
 archidroid.detect.pass=ArchiDroid ka detektuar vehten. Deshironi te perdorni Update?
 archidroid.detect.pass.yes=Po, provo update.
 archidroid.detect.pass.no=Jo, vazhdo me Full Wipe.
-archidroid.detect.pass.alert.yes=OK, do provoj Update. Por ju lutem selekto Full Wipe nese ke probleme.
 archidroid.detect.pass.alert.no=OK, do vazhdoje me Full Wipe dhe instalim te ArchiDroid.
+archidroid.detect.force=Would you like to use forced update mode? This tells ArchiDroid RunOnce to perform advanced tweaks, which normally would be executed only during install mode. Select No if you're unsure
 
 archidroid.preset=ArchiDroid opcionet e instalimit
 archidroid.preset.desc=Selekto opcionet e instalimit:

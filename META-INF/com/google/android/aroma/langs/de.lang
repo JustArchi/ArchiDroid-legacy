@@ -76,8 +76,8 @@ archidroid.detect.fail.alert.no=Das ist nicht gut. Ich werde so tun als ob du Ar
 archidroid.detect.pass=ArchiDroid hat eine ArchiDroid Installation gefunden. Willst du den Update-Modus verwenden?
 archidroid.detect.pass.yes=Ja, versuch ein Update
 archidroid.detect.pass.no=Nein, Full Wipe (alles löschen)
-archidroid.detect.pass.alert.yes=OK, ich werde ein Update versuchen. Bitte wähle Full Wipe bei Problemen
 archidroid.detect.pass.alert.no=OK, ich mache einen Full Wipe (Datenlöschung) und starte dann den ArchiDroid Installations-Modus
+archidroid.detect.force=Would you like to use forced update mode? This tells ArchiDroid RunOnce to perform advanced tweaks, which normally would be executed only during install mode. Select No if you're unsure
 
 archidroid.preset=ArchiDroid Installations-Voreinstellung
 archidroid.preset.desc=Bitte wähle eine Installations-Voreinstellung:

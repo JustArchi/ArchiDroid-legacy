@@ -1,5 +1,7 @@
 #!/sbin/sh
 
-touch /data/media/0/ArchiDroid/INSTALL
+AD="/data/media/0/ArchiDroid"
+
+touch $AD/INSTALL
 busybox sync
 exit 0

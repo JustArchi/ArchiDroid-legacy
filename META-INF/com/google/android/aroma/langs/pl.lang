@@ -76,8 +76,8 @@ archidroid.detect.fail.alert.no=To niedobrze. Sfałszuję wyniki, ale nie wybier
 archidroid.detect.pass=ArchiDroid pomyślnie wykrył poprzednią instalację. Czy chciałbyś spróbować trybu aktualizacji?
 archidroid.detect.pass.yes=Tak, spróbuj aktualizacji
 archidroid.detect.pass.no=Nie, full wipe
-archidroid.detect.pass.alert.yes=OK, spróbuje trybu aktualizacji, jednak w przypadku jakichkolwiek problemów wybierz full wipe!
 archidroid.detect.pass.alert.no=OK, wybrałem tryb instalacji, czyli dokonania full wipe.
+archidroid.detect.force=Czy chciałbyś użyć trybu wymuszonej aktualizacji? Ta opcja powoduje wykonanie przez ArchiDroid RunOnce wielu zaawansowanych modyfikacji, które normalnie byłyby wykonane wyłącznie podczas trybu instalacji. Wybierz Nie jeśli nie jesteś pewny
 
 archidroid.preset=Preset Instalacji ArchiDroid
 archidroid.preset.desc=Wybierz proszę swój preset:

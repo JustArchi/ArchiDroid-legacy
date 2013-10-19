@@ -76,8 +76,8 @@ archidroid.detect.fail.alert.no=To nije bilo dobro. Rezultati će biti lažni, a
 archidroid.detect.pass=ArchiDroid je otkrio da imate instaliran ArchiDroid ROM. Da li želite pokušati način ažuriranja ROM-a?
 archidroid.detect.pass.yes=Da, Pokušajte način ažuriranja
 archidroid.detect.pass.no=Ne, Potpuno čišćenje sustava telefona
-archidroid.detect.pass.alert.yes=U redu, Pokušati ću način ažuriranja ROM-a. Molimo vas napravite potuno čišćenje sustava telefona u slučaju problema!
 archidroid.detect.pass.alert.no=U redu, Nastaviti ću s potpunim čišćenjem sustava telefona i ArchiDroid instalaciji ROM-a.
+archidroid.detect.force=Would you like to use forced update mode? This tells ArchiDroid RunOnce to perform advanced tweaks, which normally would be executed only during install mode. Select No if you're unsure
 
 archidroid.preset=Podešavanje ArchiDroid Instalacije
 archidroid.preset.desc=Molimo odabrati podešavanje instalacije:

@@ -76,8 +76,8 @@ archidroid.detect.fail.alert.no=Ei kuulosta hyvältä. Menköön, mutta älä va
 archidroid.detect.pass=ArchiDroid löysi jo asennetun version itsestään. Haluatko käyttää päivitysmoodia?
 archidroid.detect.pass.yes=Kyllä, käytä päivitysmoodia
 archidroid.detect.pass.no=Ei, pyyhi data
-archidroid.detect.pass.alert.yes=OK, suoritan päivitysmoodin. Jos tulee ongelmia valitse datan pyyhintä
 archidroid.detect.pass.alert.no=OK, suoritan datan pyyhinnän ja ArchiDroid asennusmoodin
+archidroid.detect.force=Would you like to use forced update mode? This tells ArchiDroid RunOnce to perform advanced tweaks, which normally would be executed only during install mode. Select No if you're unsure
 
 archidroid.preset=ArchiDroid esiasetus
 archidroid.preset.desc=Valitse esiasetus asennusta varten:

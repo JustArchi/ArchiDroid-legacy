@@ -222,56 +222,78 @@ setvar(
 );
 
 	if getvar("resexec_retstatus")=="0" || getvar("resexec_retstatus")=="1" then
-	  if
-		confirm(
-		  #-- Title
-			"ArchiDroid Detect",
-		  #-- Text
-			"<~archidroid.detect.fail>",
-		  #-- Icon (Optional)
-			"@info",
-			#-- Yes Text
-			  "<~archidroid.detect.fail.yes>",
-			#-- No Text
-			  "<~archidroid.detect.fail.no>"
-		)=="yes"
-	  then
-		alert("ArchiDroid Detect","<~archidroid.detect.fail.alert.yes>","@info");
-    writetmpfile(
-      "archidroidwipe.prop",
-      "wipe=yes\n"
-    );
-	  else
-		alert("ArchiDroid Detect","<~archidroid.detect.fail.alert.no>","@alert");
-		setvar("resexec_retstatus","2");
-	  endif;
+		if
+			confirm(
+				#-- Title
+				"ArchiDroid Detect",
+				#-- Text
+				"<~archidroid.detect.fail>",
+				#-- Icon (Optional)
+				"@info",
+				#-- Yes Text
+				"<~archidroid.detect.fail.yes>",
+				#-- No Text
+				"<~archidroid.detect.fail.no>"
+			)=="yes"
+		then
+			alert("ArchiDroid Detect","<~archidroid.detect.fail.alert.yes>","@info");
+			writetmpfile(
+				"archidroidwipe.prop",
+				"wipe=yes\n"
+			);
+		else
+			alert("ArchiDroid Detect","<~archidroid.detect.fail.alert.no>","@alert");
+			setvar("resexec_retstatus","2");
+		endif;
 	endif;
 	if getvar("resexec_retstatus")=="2" then
 		if
-		  confirm(
-			#-- Title
-			  "ArchiDroid Detect",
-			#-- Text
-			  "<~archidroid.detect.pass>",
-			#-- Icon (Optional)
-			  "@info",
-			#-- Yes Text
-			  "<~archidroid.detect.pass.yes>",
-			#-- No Text
-			  "<~archidroid.detect.pass.no>"
-		  )=="yes"
+			confirm(
+				#-- Title
+				"ArchiDroid Detect",
+				#-- Text
+				"<~archidroid.detect.pass>",
+				#-- Icon (Optional)
+				"@info",
+				#-- Yes Text
+				"<~archidroid.detect.pass.yes>",
+				#-- No Text
+				"<~archidroid.detect.pass.no>"
+			)=="yes"
 		then
-		  alert("ArchiDroid Detect","<~archidroid.detect.pass.alert.yes>","@info");
-    writetmpfile(
-      "archidroidwipe.prop",
-      "wipe=no\n"
-    );
+			writetmpfile(
+				"archidroidwipe.prop",
+				"wipe=no\n"+
+				"force=no\n"
+			);
+			if
+				confirm(
+					#-- Title
+					"ArchiDroid Detect",
+					#-- Text
+					"<~archidroid.detect.force>",
+					#-- Icon (Optional)
+					"@alert"
+				)=="yes"
+			then
+				writetmpfile(
+					"archidroidwipe.prop",
+					"wipe=no\n"+
+					"force=yes\n"
+				);
+			else
+				writetmpfile(
+					"archidroidwipe.prop",
+					"wipe=no\n"+
+					"force=no\n"
+				);
+			endif;
 		else
-		  alert("ArchiDroid Detect","<~archidroid.detect.pass.alert.no>","@info");
-    writetmpfile(
-      "archidroidwipe.prop",
-      "wipe=yes\n"
-    );
+			alert("ArchiDroid Detect","<~archidroid.detect.pass.alert.no>","@info");
+			writetmpfile(
+				"archidroidwipe.prop",
+				"wipe=yes\n"
+			);
 		endif;
 	endif;
 

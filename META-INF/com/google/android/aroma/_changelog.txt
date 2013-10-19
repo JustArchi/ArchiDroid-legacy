@@ -10,6 +10,11 @@ ArchiDroid 2.2.1
 # Please notice that you need ArchiDroid Install mode to apply new ADMANY (as always, optional).
 # Eventually you can create /data/media/0/ArchiDroid/FORCE file after flashing (before first boot) to force RunOnce to apply both ADMANY and DBUPDATE (overrides your settings, if any)
 
+- Merged Paranoid GAPPS and updated inverted (g)apps
+# Includes basicly all previous Google Apps and inverted Facebook/Youtube
+# I've used smallest possible .zip, with deleted (useless for me) gapps. If you for whatever reason want full package then you can download it manualy or download needed apps through google store
+# I try to keep it as minimalisic as possible, featuring only core and optional inverts in aroma
+
 - Added AROMA File Manager (built-in)
 # It's available under /data/media/0/clockworkmod/aromafm/aromafm.zip
 # Pro tip: You can double-tap in PhilZ Touch Recovery to load aroma file manager whenever you need to do so

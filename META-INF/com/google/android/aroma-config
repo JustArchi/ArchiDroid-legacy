@@ -426,7 +426,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
     "xposed","Xposed Framework","<~archidroid.xposed.desc>","check.checked",
     "crossbreeder","Crossbreeder","<~archidroid.crossbreeder.desc>","check.checked",
     "updatemodem","<~archidroid.updatemodem> [XXEMG4]","<~archidroid.updatemodem.desc>","check",
-    "updaterecovery","<~archidroid.updaterecovery> [PhilZ 5.15.0]","<~archidroid.updaterecovery.desc>","check",
+    "updaterecovery","<~archidroid.updaterecovery> [PhilZ Touch Recovery]","<~archidroid.updaterecovery.desc>","check",
 
     "googleapps","<#selectbg_g>Google Apps</#>","","group",
     "gapps","Google Apps","<~archidroid.gapps.desc>","check.checked",

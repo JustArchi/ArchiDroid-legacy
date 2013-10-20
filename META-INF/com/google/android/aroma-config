@@ -114,8 +114,6 @@ form(
   "langs/tr.lang","Turkish","Türkçe, thanks to ZiR0 & MadCoderz","select"
 );
 
-nmeuret
-
 loadlang(file_getprop("/tmp/aroma-data/lang.prop","language"));
 
 agreebox(

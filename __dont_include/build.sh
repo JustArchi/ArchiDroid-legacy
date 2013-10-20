@@ -29,6 +29,8 @@ function zamien {
 }
 
 if [ $SOURCE -eq 1 ]; then
+	cd /root/shared/git/auto
+	bash updaterepos.sh
 	cd /root/android/system/out/target/product/i9300
 	if [ $? -eq 0 ]; then
 		for f in `ls` ; do

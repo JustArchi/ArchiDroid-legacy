@@ -55,9 +55,9 @@ text_quit_msg=Вы точно хотите прервать установку?
 #-- ARCHIDROID STRINGS
 #
 common.for=Для
-common.none=None
-common.replaces=Replaces
-common.inverted=Ивернтированные цвета
+common.none=Никаой
+common.replaces=Заменяет
+common.inverted=Ивертированные цвета
 common.experimental=Экспериментально
 common.deprecated=Не поддерживается более
 common.obsolete=Не используется
@@ -120,7 +120,7 @@ archidroid.bootanimation.archi.desc=Новая красивая анимация
 archidroid.bootanimation.archilegacy.desc=Старая анимация из ArchiDroid 1.X.
 archidroid.bootanimation.logcat.desc=Меняет анимацию загрузки на вывод логов загрузки - при поддержке logcat lite.
 archidroid.bootanimation.stock.desc=Стоковая анимация из CyanogenMod.
-archidroid.bootanimation.none.desc=No bootanimation, for slightly faster bootup
+archidroid.bootanimation.none.desc=Без анимации. Немного более быстрая загрузка.
 
 archidroid.other=Другое
 archidroid.ota.desc=Рекомендовано для ArchiDroid. Будет установлен UpdateMe.apk и задействованы OTA обновления через build.prop
@@ -197,4 +197,4 @@ archidroid.install.desc=<b>ArchiDroid</b> устанавливается.\
 archidroid.install.finish=Установщик ArchiDroid успешно прошил <b>ArchiDroid<b>\
 Нажмите <b>Закончить</b> для продолжения.
 
-archidroid.buildtweaks.fastdormancy.desc=Снимите отметку, чтобы выключить быстрое засыпание. Может уменьшить расход батаре.
+archidroid.buildtweaks.fastdormancy.desc=Снимите отметку, чтобы выключить быстрое засыпание. Может уменьшить расход батареи, если активровано и подерживатся оператором связи.

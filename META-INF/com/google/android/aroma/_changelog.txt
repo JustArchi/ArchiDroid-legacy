@@ -1,4 +1,10 @@
 ArchiDroid 2.2.2
+- Moved ArchiDroid_Detect to the last step in AROMA.
+# Should fix most of the back button issues
+
 - Added French language, thanks to @nmeuret
 - Updated Boeffla Kernel & App to 2.0-beta1
+
 - Updated CM source
+# Includes a few cherry-picks from temasek's sources
+* Removed CMUpdater

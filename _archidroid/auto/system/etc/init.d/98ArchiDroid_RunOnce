@@ -124,8 +124,10 @@ if [ -e $AD/INSTALL ] || [ $FORCE -eq 1 ]; then
 	if [ -d $AD/FIRSTBOOT/DATA ]; then
 		cd $AD/FIRSTBOOT/DATA
 		ADMANY=`ls | wc -l`
-		echo "INFO: I found $ADMANY folders which need merging (data)" >> $LOG
+	else
+		ADMANY=0
 	fi
+	echo "INFO: I found $ADMANY folders which need merging (data)" >> $LOG
 	DBUPDATE=1
 	ADRELOAD=1
 elif [ -e $AD/UPDATE ]; then

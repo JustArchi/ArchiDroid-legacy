@@ -56,7 +56,7 @@ fontresload( "0", "ttf/Roboto-Regular.ttf", "12" );
 fontresload( "1", "ttf/Roboto-Regular.ttf", "14" );
 
 theme("touchwiz");
-resexec("exec/archidroid_init.sh")
+resexec("exec/archidroid_init.sh");
 
 
 

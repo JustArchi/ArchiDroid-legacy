@@ -1,6 +1,6 @@
 #!/bin/bash
 
-INIT=1
+INIT=0
 
 contains () {
 	local e
@@ -11,7 +11,7 @@ contains () {
 }
 
 # Packages in great sync with CM, we can literally pull them from CM repo to merge changes
-inSyncWithCM=("android_vendor_cm" "android_frameworks_native" "android_packages_apps_Nfc" "android_packages_providers_MediaProvider" "android_packages_inputmethods_LatinIME" "android_packages_apps_Phone" "android_packages_apps_Mms" "android_packages_apps_Gallery2" "android_packages_apps_Email" "android_packages_apps_Dialer" "android_packages_apps_ContactsCommon" "android_packages_apps_Calculator")
+inSyncWithCM=("android_vendor_cm" "android_frameworks_native" "android_packages_apps_Nfc" "android_packages_providers_MediaProvider" "android_packages_inputmethods_LatinIME" "android_packages_apps_Phone" "android_packages_apps_Mms" "android_packages_apps_Gallery2" "android_packages_apps_Email" "android_packages_apps_Dialer" "android_packages_apps_Contacts" "android_packages_apps_ContactsCommon" "android_packages_apps_Calculator")
 
 # Packages NOT in great sync with CM, we should wait for Cristiano's merges if possible
 NOTinSyncWithCM=("android_frameworks_base" "android_packages_apps_Settings")

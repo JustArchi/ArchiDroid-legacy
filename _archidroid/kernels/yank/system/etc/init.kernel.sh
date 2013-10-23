@@ -212,8 +212,9 @@ echo `date +"%F %R:%S : UDF kernel module not loaded."` >>$log_file
 # - Do not load XBOX 360 gamepad kernel module on boot
 echo `date +"%F %R:%S : XBOX 360 gamepad support kernel module not loaded."` >>$log_file
 
-# - Do not load frandom kernel module on boot
-echo `date +"%F %R:%S : frandom kernel module not loaded."` >>$log_file
+# - Load frandom kernel module on boot
+insmod /system/lib/modules/frandom.ko
+echo `date +"%F %R:%S : frandom kernel module loaded."` >>$log_file
 
 # - Set GPU frequencies to high (160MHz, 266MHz, 350MHz, 440MHz, 533MHz)
 echo "160 266 350 440 533" > /sys/class/misc/gpu_clock_control/gpu_control

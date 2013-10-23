@@ -24,7 +24,7 @@ sleep 10
 
 echo `date +"%F %R:%S : Starting kernel configuration..."` >>$log_file
 
-# Script generated on 14/10/2013 at 16:06
+# Script generated on 23/10/2013 at 15:52
 #----------------------------------------------------
 
 # - init.d support by kernel/ramdisk not installed
@@ -170,9 +170,9 @@ echo `date +"%F %R:%S : Dynamic Deferred File Sync enabled."` >>$log_file
 echo 0 > /sys/class/misc/touchwake/disabled
 echo `date +"%F %R:%S : Touch Wake disabled."` >>$log_file
 
-# - Enable Hardwarekeys light on screen touch
-echo 1 > /sys/class/sec/sec_touchkey/touch_led_on_screen_touch
-echo `date +"%F %R:%S : Hardwarekeys light on screen touch enabled."` >>$log_file
+# - Disable Hardwarekeys light on screen touch
+echo 0 > /sys/class/sec/sec_touchkey/touch_led_on_screen_touch
+echo `date +"%F %R:%S : Hardwarekeys light on screen touch disabled."` >>$log_file
 
 # - Handle Hardwarekeys light by ROM (newer CM)
 echo 0 > /sys/class/sec/sec_touchkey/touch_led_handling
@@ -212,9 +212,8 @@ echo `date +"%F %R:%S : UDF kernel module not loaded."` >>$log_file
 # - Do not load XBOX 360 gamepad kernel module on boot
 echo `date +"%F %R:%S : XBOX 360 gamepad support kernel module not loaded."` >>$log_file
 
-# - Load frandom kernel module on boot
-insmod /system/lib/modules/frandom.ko
-echo `date +"%F %R:%S : frandom kernel module loaded."` >>$log_file
+# - Do not load frandom kernel module on boot
+echo `date +"%F %R:%S : frandom kernel module not loaded."` >>$log_file
 
 # - Set GPU frequencies to high (160MHz, 266MHz, 350MHz, 440MHz, 533MHz)
 echo "160 266 350 440 533" > /sys/class/misc/gpu_clock_control/gpu_control

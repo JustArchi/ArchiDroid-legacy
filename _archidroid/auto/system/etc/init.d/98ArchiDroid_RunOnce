@@ -271,6 +271,7 @@ if [ -d /system/etc/CrossBreeder ]; then
 	sh /system/etc/CrossBreeder/DISABLE_ADBLOCK
 	sysrw
 	cat /system/etc/ahosts > /system/etc/hosts
+	busybox sync
 	sysro
 	ADRELOAD=1
 fi
@@ -286,6 +287,7 @@ rm -Rf $AD/FIRSTBOOT
 rm -Rf /data/media/0/vrtheme-backup
 sysrw
 rm -f $0
+busybox sync
 sysro
 
 if [ ! -e "$0" ]; then
@@ -300,6 +302,7 @@ if [ $ADRELOAD -eq 1 ]; then
 	# Finish
 	echo "INFO: ArchiDroid RunOnce finished" >> $LOG
 	echo "`date`" >> $LOG
+	busybox sync
 	#reboot
 	killall system_server
 else

@@ -74,6 +74,7 @@ while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 *******************************************************************************
 "
 	fi
+	LOOP=`expr $LOOP + 1`
 	sleep 2
 done
 

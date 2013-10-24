@@ -521,30 +521,37 @@ set_progress(0.73);
 
 ### TOUCHPAL ###
 if file_getprop("/tmp/aroma-data/archidroid.prop","keyboard") == "touchpal" then
-delete("/system/app/LatinIME.apk");
-ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing TouchPal Keyboard");
-package_extract_dir("_archidroid/apps/touchpal", "/");
+	delete("/system/app/LatinIME.apk");
+	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing TouchPal Keyboard");
+	package_extract_dir("_archidroid/apps/touchpal", "/");
 endif;
 
 ### HACKERS ###
 if file_getprop("/tmp/aroma-data/archidroid.prop","keyboard") == "hackers" then
-ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Hacker's Keyboard");
-delete("/system/app/LatinIME.apk");
-package_extract_dir("_archidroid/apps/hackers", "/");
+	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Hacker's Keyboard");
+	delete("/system/app/LatinIME.apk");
+	package_extract_dir("_archidroid/apps/hackers", "/");
 endif;
 
 ### BOTH ###
 if file_getprop("/tmp/aroma-data/archidroid.prop","keyboard") == "both" then
-ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing TouchPal + Hacker's Keyboard");
-delete("/system/app/LatinIME.apk");
-package_extract_dir("_archidroid/apps/touchpal", "/");
-package_extract_dir("_archidroid/apps/hackers", "/");
+	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing TouchPal + Hacker's Keyboard");
+	delete("/system/app/LatinIME.apk");
+	package_extract_dir("_archidroid/apps/touchpal", "/");
+	package_extract_dir("_archidroid/apps/hackers", "/");
 endif;
 
 ### STOCK ###
 if file_getprop("/tmp/aroma-data/archidroid.prop","keyboard") == "stock" then
-ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing AOSP Keyboard");
-# Not needed, haha!
+	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing AOSP Keyboard");
+	# Not needed, haha!
+endif;
+
+### NONE ###
+if file_getprop("/tmp/aroma-data/archidroid.prop","keyboard") == "none" then
+	# Just delete LatinIME then
+	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Skipping Keyboard");
+	delete("/system/app/LatinIME.apk");
 endif;
 
 set_progress(0.74);
@@ -556,19 +563,22 @@ set_progress(0.74);
 
 ### NOVA ###
 if file_getprop("/tmp/aroma-data/archidroid.prop","launcher") == "nova" then
-ui_print("");
-ui_print("");
-ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Nova Launcher");
-delete("/system/app/Trebuchet.apk");
-package_extract_dir("_archidroid/apps/nova", "/");
+	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Nova Launcher");
+	delete("/system/app/Trebuchet.apk");
+	package_extract_dir("_archidroid/apps/nova", "/");
 endif;
 
 ### STOCK ###
 if file_getprop("/tmp/aroma-data/archidroid.prop","launcher") == "stock" then
-ui_print("");
-ui_print("");
-ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Trebuchet");
-# Not needed, haha!
+	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Trebuchet");
+	# Not needed, haha!
+endif;
+
+### NONE ###
+if file_getprop("/tmp/aroma-data/archidroid.prop","launcher") == "none" then
+	# Just delete Trebuchet then
+	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Skipping Launcher");
+	delete("/system/app/Trebuchet.apk");
 endif;
 
 set_progress(0.75);

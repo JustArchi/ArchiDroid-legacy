@@ -2,6 +2,11 @@ ArchiDroid 2.2.2
 - Moved ArchiDroid_Detect to the last step in AROMA.
 # Should fix most of the back button issues
 
+- Added No Keyboard and No Launcher options to aroma
+# These should be used only if you already have working launcher/keyboard, f.e. in update option after you're set.
+# Should NOT be used when you're flashing for first time with full wipe, unless you can add your launcher/keyboard as .apk file manualy BEFORE first boot
+# System needs at least one launcher and one keyboard during initial booting to function normally.
+
 - Added French language, thanks to @nmeuret
 - Updated Boeffla Kernel & App to 2.0-beta2a
 - Updated Temasek Kernel to 231013

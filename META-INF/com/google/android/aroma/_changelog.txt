@@ -16,7 +16,7 @@ ArchiDroid 2.2.2
 - Updated CM source
 # This is a really big CM update. I synced all crDroid's packages with CyanogenMod upstream (they were a bit outdated)
 # Additionally I resolved a dozen of conflicts, forked independent repos and in general "synced" with CM upstream
-# Literally, updated with ALL CyanogenMod commits apart from Settings app and main framework. Also with abandoned ones from crDroid, as I have independent base now.
+# Literally, updated with ALL CyanogenMod commits from all repos. Also with abandoned ones from crDroid, as I have independent base now. For example you can now send multiple MMSes or export your contacts to sim card...
 # There is really too much to mention. Just take a look at my GitHub if you're interested.
 # It also includes a few cherry-picks from temasek's sources:
 * Removed CMUpdater

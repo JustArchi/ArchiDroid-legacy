@@ -46,7 +46,7 @@ for folder in `find . -mindepth 1 -maxdepth 1 -type d` ; do
 			read -p "Something went wrong, please check and tell me when you're done, master!" -n1 -s
 		fi
 		if `contains "$ourName" "${inSyncWithCM[@]}"`; then
-			git pull $CMRepo $CM
+			git pull -s ours $CMRepo $CM
 			if [ $? -ne 0 ]; then
 				read -p "Something went wrong, please check and tell me when you're done, master!" -n1 -s
 			fi

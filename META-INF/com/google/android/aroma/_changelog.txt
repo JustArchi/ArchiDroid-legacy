@@ -1,4 +1,10 @@
 ArchiDroid 2.2.2
+
+- Reworked MDNIE (ArchiDroid Colors)
+# MDNIE settings are available once again directly in CyanogenMod Settings, under Display => Advanced.
+# Archi's MDNIE Preset is now applied through ADMANY (RunOnce) during Install mode (or forced update), so it doesn't need any specific kernel and preset now
+# I didn't want redundancy and I disabled MDNIE settings in all my boeffla and temasek presets. I suggest using MDNIE in ROM if you want to manage that, although kernel's MDNIE will still work (but it will fight with ROM's mdnie)
+
 - Moved ArchiDroid_Detect to the last step in AROMA.
 # Should fix most of the back button issues
 

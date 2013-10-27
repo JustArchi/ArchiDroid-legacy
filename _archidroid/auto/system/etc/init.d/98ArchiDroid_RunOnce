@@ -305,19 +305,9 @@ if [ $ADRELOAD -eq 1 ]; then
 	busybox sync
 	#reboot
 	killall system_server
-	# Let's wait for system_server to resurrect
-	sleep 10
 else
 	# Finish
 	echo "INFO: ArchiDroid RunOnce finished" >> $LOG
 	echo "`date`" >> $LOG
 fi
-
-# Let's set some mdnie unless we have a DBUPDATE for that
-echo '0' > /sys/class/mdnie/mdnie/outdoor
-echo '0' > /sys/class/mdnie/mdnie/negative
-echo '1' > /sys/class/mdnie/mdnie/scenario
-echo '2' > /sys/class/mdnie/mdnie/mode
-
-# Finish
 exit 0

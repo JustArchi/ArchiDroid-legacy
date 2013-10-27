@@ -16,7 +16,6 @@ if [ $MODE -eq 0 ]; then
 else
 	VERSION="$VERSION STABLE"
 fi
-VERSION="$VERSION STABLE"
 OTA="echo \"updateme.version=2.2.2\" >> /system/build.prop"
 DENSITY="#ro.sf.lcd_density=320"
 

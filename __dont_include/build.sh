@@ -4,11 +4,19 @@
 # Not Disabled
 #exit 1
 
+# Common
+VERSION=2.2.2
+MODE=0 # 0 - Experimental | 1 - Stable
+
 # From source? Sure!
 SOURCE=1
 
-VERSION="2.2.2 EXPERIMENTAL"
-WERSJA="ro.build.display.id=ArchiDroid $VERSION"
+if [ $MODE -eq 0 ]; then
+	VERSION="$VERSION EXPERIMENTAL"
+else
+	VERSION="$VERSION STABLE"
+fi
+VERSION="$VERSION STABLE"
 OTA="echo \"updateme.version=2.2.2\" >> /system/build.prop"
 DENSITY="#ro.sf.lcd_density=320"
 
@@ -157,7 +165,8 @@ ILE=`cat $FILE | wc -l`
 ILE=`expr $ILE - $GDZIE`
 GDZIE=`expr $GDZIE - 1`
 cat $FILE | head -${GDZIE} > $FILEO
-echo $WERSJA >> $FILEO
+echo "ro.build.display.id=ArchiDroid $VERSION" >> $FILEO
+echo "ro.archidroid.version=$VERSION" >> $FILEO
 cat $FILE | tail -${ILE} >> $FILEO
 cp $FILEO $FILE
 rm $FILEO

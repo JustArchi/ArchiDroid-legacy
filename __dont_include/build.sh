@@ -149,16 +149,6 @@ cat $FILE | tail -${ILE} >> $FILEO
 cp $FILEO $FILE
 rm $FILEO
 
-GDZIE=`grep -n "ro.modversion" $FILE | cut -f1 -d:`
-ILE=`cat $FILE | wc -l`
-ILE=`expr $ILE - $GDZIE`
-#GDZIE=`expr $GDZIE - 1`
-cat $FILE | head -${GDZIE} > $FILEO
-echo "ro.archidroid.version=$VERSION" >> $FILEO
-cat $FILE | tail -${ILE} >> $FILEO
-cp $FILEO $FILE
-rm $FILEO
-
 GDZIE=`grep -n "ro.build.display.id=" $FILE | cut -f1 -d:`
 ILE=`cat $FILE | wc -l`
 ILE=`expr $ILE - $GDZIE`

@@ -13,6 +13,9 @@ ArchiDroid 2.2.2
 # Should NOT be used when you're flashing for first time with full wipe, unless you can add your launcher/keyboard as .apk file manualy BEFORE first boot
 # System needs at least one launcher and one keyboard during initial booting to function normally.
 
+- Moved Archi's Boeffla presets to proper location
+# You can now import and manage my presets from boeffla config app
+
 - Added French language, thanks to @nmeuret
 - Updated Boeffla Kernel & App to 2.0-beta3
 - Updated Temasek Kernel to 231013

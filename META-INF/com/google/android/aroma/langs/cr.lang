@@ -108,12 +108,14 @@ archidroid.dpi.320.desc=Izvorna vrijednost dpi-a
 
 archidroid.launcher.nova.desc=Preporučuje se za dodatnu fleksibilnost i performanse
 archidroid.launcher.stock.desc=Dolazi iz CM-a, također poznat kao Trebuchet pokretač
+archidroid.launcher.none.desc=No launcher. WARNING! Don't tick if you're after full wipe! You need at least one custom launcher before first boot!
 
 archidroid.keyboard=Tipkovnica
 archidroid.keyboard.touchpal.desc=Preporučeno kao odlična i vrlo fleksibilana Swype / Curve tipkovnica
 archidroid.keyboard.hackers.desc=Odlična alternativa TouchPal tipkovnici ako ne koristitiš Swype / Curve funkciju
 archidroid.keyboard.both.desc=Ako želite koristiti obje TouchPad i hackers tipkovnice (primjerice u terminalu)
 archidroid.keyboard.stock.desc=Ako želite zadržati izvornu tipkovnicu CM-a
+archidroid.keyboard.none.desc=No keyboard. WARNING! Don't tick if you're after full wipe! You need at least one custom keyboard before first boot!
 
 archidroid.bootanimation=Bootanimation
 archidroid.bootanimation.archi.desc=New fancy ArchiDroid bootanimation

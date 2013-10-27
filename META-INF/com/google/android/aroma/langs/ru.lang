@@ -108,12 +108,14 @@ archidroid.dpi.320.desc=Значение по умолчанию
 
 archidroid.launcher.nova.desc=Рекомендуется для ультра гибкости и прозводительности.
 archidroid.launcher.stock.desc=Родной лончер CM, известный как Trebuchet
+archidroid.launcher.none.desc=No launcher. WARNING! Don't tick if you're after full wipe! You need at least one custom launcher before first boot!
 
 archidroid.keyboard=Клавиатура
 archidroid.keyboard.touchpal.desc=Рекомендована как очень гибкая в настройках клавиатура с поддержкой жестов.
 archidroid.keyboard.hackers.desc=Отличная альтернатива TouchPal, если Вы не собираетесь использовать жесты.
 archidroid.keyboard.both.desc=Если Вы хотите использовать и TouchPal, и Hacker's (например в Терминале).
 archidroid.keyboard.stock.desc=Если Вы хотите использовать клавитуру по умолчанию из CM.
+archidroid.keyboard.none.desc=No keyboard. WARNING! Don't tick if you're after full wipe! You need at least one custom keyboard before first boot!
 
 archidroid.bootanimation=Анимация загрузки
 archidroid.bootanimation.archi.desc=Новая красивая анимация ArchiDroid.

@@ -108,12 +108,14 @@ archidroid.dpi.320.desc=Stock value
 
 archidroid.launcher.nova.desc=Recommended for extra flexibility and performance
 archidroid.launcher.stock.desc=Coming from CM, also known as Trebuchet
+archidroid.launcher.none.desc=No launcher. WARNING! Don't tick if you're after full wipe! You need at least one custom launcher before first boot!
 
 archidroid.keyboard=Keyboard
 archidroid.keyboard.touchpal.desc=Recommended as great and very flexible Swype/Curve keyboard
 archidroid.keyboard.hackers.desc=Great alternative to TouchPal if you're not going to use swype/curve function
 archidroid.keyboard.both.desc=If you want to use both TouchPal and Hacker's (for example in terminal)
 archidroid.keyboard.stock.desc=If you want to keep default CM keyboard
+archidroid.keyboard.none.desc=No keyboard. WARNING! Don't tick if you're after full wipe! You need at least one custom keyboard before first boot!
 
 archidroid.bootanimation=Bootanimation
 archidroid.bootanimation.archi.desc=New fancy ArchiDroid bootanimation

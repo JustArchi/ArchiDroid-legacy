@@ -5,7 +5,7 @@
 #exit 1
 
 # Common
-VERSION=2.2.2
+VERSION=2.2.3
 MODE=0 # 0 - Experimental | 1 - Stable
 
 # From source? Sure!
@@ -16,7 +16,7 @@ if [ $MODE -eq 0 ]; then
 else
 	VERSION="$VERSION STABLE"
 fi
-OTA="echo \"updateme.version=2.2.2\" >> /system/build.prop"
+OTA="echo \"updateme.version=$VERSION\" >> /system/build.prop"
 DENSITY="#ro.sf.lcd_density=320"
 
 function zamien {

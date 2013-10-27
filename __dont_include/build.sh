@@ -11,12 +11,12 @@ MODE=0 # 0 - Experimental | 1 - Stable
 # From source? Sure!
 SOURCE=1
 
+OTA="echo \"updateme.version=$VERSION\" >> /system/build.prop"
 if [ $MODE -eq 0 ]; then
 	VERSION="$VERSION EXPERIMENTAL"
 else
 	VERSION="$VERSION STABLE"
 fi
-OTA="echo \"updateme.version=$VERSION\" >> /system/build.prop"
 DENSITY="#ro.sf.lcd_density=320"
 
 function zamien {

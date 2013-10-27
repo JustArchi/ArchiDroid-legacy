@@ -42,11 +42,7 @@ echo '0' > /sys/class/misc/touchwake/enabled
 echo '0' > /sys/class/misc/touchwake/delay
 echo '0' > /sys/kernel/early_suspend/early_suspend_delay
 echo '1' > /sys/class/misc/mdnie_preset/mdnie_preset
-echo '1' > /dev/bk_mdnie_overwrite
-echo '0' > /sys/class/mdnie/mdnie/outdoor
-echo '0' > /sys/class/mdnie/mdnie/negative
-echo '1' > /sys/class/mdnie/mdnie/scenario
-echo '2' > /sys/class/mdnie/mdnie/mode
+echo '0' > /dev/bk_mdnie_overwrite
 echo '0' > /sys/class/sec/sec_touchkey/touch_led_handling
 echo '0' > /sys/class/sec/sec_touchkey/touch_led_on_screen_touch
 echo 'Off' > /dev/bk_system_tweaks

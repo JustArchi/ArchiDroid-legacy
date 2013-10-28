@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2008 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+  
+          http://www.apache.org/licenses/LICENSE-2.0
+  
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<!-- This file contains fake APNs that are necessary for the emulator
+     to talk to the network.  It should only be installed for SDK builds.
+
+     This file is not installed by the local Android.mk, it's installed using
+     a PRODUCT_COPY_FILES line in the sdk section of the toplevel Makefile.
+-->
+
+<!-- use empty string to specify no proxy or port -->
+<!-- This version must agree with that in apps/common/res/apns.xml -->
+	<NetworkInfos version="7">
+        <!-- Canada  -->
+        <DormPolicy plmn="302610"
+            nwkname="Bell"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="20404"
+            nwkname="Bell"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+
+        <!-- Australia  -->
+        <DormPolicy plmn="50502"
+            nwkname="Telstra"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+
+        <DormPolicy plmn="50503"
+            nwkname="YES OPTUS"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="50506"
+            nwkname="Vodafone AU"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="50508"
+            nwkname="3Telstra"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="50501"
+            nwkname="One.Tel"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+
+        <!-- Vodafone  -->
+        <DormPolicy plmn="20810"
+            nwkname="SFR"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="64710"
+            nwkname="SFR"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="28001"
+            nwkname="CYV"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="22801"
+            nwkname="SWISSCOM"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="22210"
+            nwkname="Vodafone"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="23415"
+            nwkname="Vodafone"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="26202"
+            nwkname="Vodafone"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="26801"
+            nwkname="Vodafone"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="20205"
+            nwkname="VGR"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+
+        <!-- Duplicate
+        <DormPolicy plmn="50503"
+            nwkname="Vodafone"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        -->
+        <!-- Duplicate
+        <DormPolicy plmn="50506"
+            nwkname="Vodafone"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        -->
+
+        <DormPolicy plmn="28401"
+            nwkname="MTL"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="23003"
+            nwkname="Vodafone"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="21401"
+            nwkname="Vodafone"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="21406"
+            nwkname="Vodafone"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="27201"
+            nwkname="Vodafone"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="23201"
+            nwkname="MOBILKOM"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="29340"
+            nwkname="JANUSTRADE"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="22601"
+            nwkname="HAT"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="21670"
+            nwkname="Vodafone"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="21910"
+            nwkname="EUROPATRAD"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <!-- Duplicate
+        <DormPolicy plmn="20404"
+            nwkname="Vodafone"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        -->
+        <!-- Netherlands  -->
+        <DormPolicy plmn="20408"
+            nwkname="KPN"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <!-- Duplicate
+        <DormPolicy plmn="20404"
+            nwkname="Vodafone"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        -->
+        <DormPolicy plmn="20412"
+            nwkname="T-Mobile"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="20402"
+            nwkname="Tele2"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+
+        <!-- Belgium  -->
+        <DormPolicy plmn="20601"
+            nwkname="Proximus"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="20610"
+            nwkname="Mobistar"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="20620"
+            nwkname="Base"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+
+        <!-- Luxemburg  -->
+        <DormPolicy plmn="27001"
+            nwkname="Luxgsm"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="27077"
+            nwkname="Tango"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="27099"
+            nwkname="Vox Mobile"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+
+        <!-- Germany  -->
+        <DormPolicy plmn="26201"
+            nwkname="T-Mobile"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <!-- Duplicate
+        <DormPolicy plmn="26202"
+            nwkname="Vodafone"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        -->
+        <DormPolicy plmn="26207"
+            nwkname="O2"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="26203"
+            nwkname="E-Plus"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+
+        <!-- Czech  -->
+        <DormPolicy plmn="23002"
+            nwkname="O2"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <!-- Duplicate
+        <DormPolicy plmn="23003"
+            nwkname="Vodafone"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        -->
+        <!-- Hungary  -->
+        <DormPolicy plmn="21630"
+            nwkname="T-Mobile"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="21601"
+            nwkname="Telenor"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <!-- Duplicate
+        <DormPolicy plmn="21670"
+            nwkname="Vodafone"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        -->
+        <!-- USA  -->
+        <DormPolicy plmn="31026"
+            nwkname="T-Mobile"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="310160"
+            nwkname="T-Mobile"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="310200"
+            nwkname="T-Mobile"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="310210"
+            nwkname="T-Mobile"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="310220"
+            nwkname="T-Mobile"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="310230"
+            nwkname="T-Mobile"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="310240"
+            nwkname="T-Mobile"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="310250"
+            nwkname="T-Mobile"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="310260"
+            nwkname="T-Mobile"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="310270"
+            nwkname="T-Mobile"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="310310"
+            nwkname="T-Mobile"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="310330"
+            nwkname="T-Mobile"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="310490"
+            nwkname="T-Mobile"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="310580"
+            nwkname="T-Mobile"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="310660"
+            nwkname="T-Mobile"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="310800"
+            nwkname="T-Mobile"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="31038"
+            nwkname="Vodafone"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="31090"
+            nwkname="Vodafone"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="310150"
+            nwkname="ATT"
+            lcdonfdtime="0"
+            lcdofffdtime="3"
+        />
+        <DormPolicy plmn="310410"
+            nwkname="ATT"
+            lcdonfdtime="0"
+            lcdofffdtime="3"
+        />
+        <DormPolicy plmn="310560"
+            nwkname="Vodafone"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="310680"
+            nwkname="Vodafone"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="310980"
+            nwkname="ATT"
+            lcdonfdtime="0"
+            lcdofffdtime="3"
+        />
+        <DormPolicy plmn="311180"
+            nwkname="ATT"
+            lcdonfdtime="0"
+            lcdofffdtime="3"
+        />
+
+        <!-- Israel  -->
+        <DormPolicy plmn="42503"
+            nwkname="PCL"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <!--	<DormPolicy plmn="42501"/>
+        <DormPolicy plmn="42502"/>
+        -->
+        <!-- UK  -->
+        <DormPolicy plmn="23420"
+            nwkname="H3G"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="23410"
+            nwkname="O2U"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+
+        <!-- Italy  -->
+        <DormPolicy plmn="22299"
+            nwkname="HUI"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+
+        <!-- Austria  -->
+        <DormPolicy plmn="23210"
+            nwkname="DRE"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+
+        <!-- Sweden  -->
+        <DormPolicy plmn="24002"
+            nwkname="HTS"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+
+        <!-- Denmark  -->
+        <DormPolicy plmn="23806"
+            nwkname="HTD"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+
+        <!-- Ireland  -->
+        <DormPolicy plmn="27202"
+            nwkname="O2I"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="27205"
+            nwkname="Hutchon"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <!-- Duplicate
+        <DormPolicy plmn="27201"
+            nwkname="Vodafone"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        -->
+
+        <!-- Spain  -->
+        <!-- Duplicate
+        <DormPolicy plmn="21401"
+            nwkname="Vodafone"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        -->
+        <!-- Duplicate
+        <DormPolicy plmn="21406"
+            nwkname="Vodafone"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        -->
+        <DormPolicy plmn="21407"
+            nwkname="XEC"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="21403"
+            nwkname="Orange"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="21404"
+            nwkname="Yoigo"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="21408"
+            nwkname="Euskaltel"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+
+        <!-- Singapore  -->
+        <DormPolicy plmn="52501"
+            nwkname="SingTel"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="52502"
+            nwkname="SingTel"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="52503"
+            nwkname="M1"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+        <DormPolicy plmn="52505"
+            nwkname="StarHub"
+            lcdonfdtime="0"
+            lcdofffdtime="0"
+        />
+
+	</NetworkInfos>
+

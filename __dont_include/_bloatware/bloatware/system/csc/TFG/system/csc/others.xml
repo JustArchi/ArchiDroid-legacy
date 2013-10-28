@@ -1,0 +1,30 @@
+﻿<?xml  version="1.0" encoding="UTF-8" ?>
+<SamsungMobileFeauture>
+  <Version>ED010</Version>
+  <Country>CHILE</Country>
+  <CountryISO>CL</CountryISO>
+  <SalesCode>TFG</SalesCode>
+  <FeatureSet>
+    <CscFeature_Contact_EnableDynCallerIdMatchingDigitWithAutoSim>TRUE</CscFeature_Contact_EnableDynCallerIdMatchingDigitWithAutoSim>
+    <CscFeature_Setting_ShortcutListInLockScreen>Phone,ChatON,Google,Contenidos,Camera</CscFeature_Setting_ShortcutListInLockScreen>
+    <CscFeature_VoiceCall_EnableBeepVibration4UssdAlert>TRUE</CscFeature_VoiceCall_EnableBeepVibration4UssdAlert>
+    <CscFeature_VoiceCall_EnableDisplaySdnNameDuringCall>TRUE</CscFeature_VoiceCall_EnableDisplaySdnNameDuringCall>
+    <CscFeature_Message_DisableSmscEditable>TRUE</CscFeature_Message_DisableSmscEditable>
+    <CscFeature_Message_CMASOperator>la-tfg</CscFeature_Message_CMASOperator>
+    <CscFeature_Camera_CameraFlicker>60hz</CscFeature_Camera_CameraFlicker>
+    <CscFeature_Music_TranslateUnknownTitle>TRUE</CscFeature_Music_TranslateUnknownTitle>
+    <CscFeature_Web_DisableMostVisitedHomepage>TRUE</CscFeature_Web_DisableMostVisitedHomepage>
+    <CscFeature_Web_SetUAProfile>http://wap.samsungmobile.com/uaprof/%s.xml</CscFeature_Web_SetUAProfile>
+    <CscFeature_Web_EnableAutoBookmarkSetBySim>TRUE</CscFeature_Web_EnableAutoBookmarkSetBySim>
+    <CscFeature_Web_EnableAutoSimHomeUrlInProfile>TRUE</CscFeature_Web_EnableAutoSimHomeUrlInProfile>
+    <CscFeature_GMS_SetClientIDBaseMs>android-hms-tef-{country}</CscFeature_GMS_SetClientIDBaseMs>
+    <CscFeature_GMS_SetClientIDBaseGmm>android-samsung</CscFeature_GMS_SetClientIDBaseGmm>
+    <CscFeature_GMS_SetClientIDBaseYt>android-samsung</CscFeature_GMS_SetClientIDBaseYt>
+    <CscFeature_GMS_SetClientIDBaseAm>android-samsung</CscFeature_GMS_SetClientIDBaseAm>
+    <CscFeature_RIL_PDPRetryMechanism4>EBE</CscFeature_RIL_PDPRetryMechanism4>
+    <CscFeature_RIL_EnableTotalCallTime>TRUE</CscFeature_RIL_EnableTotalCallTime>
+    <CscFeature_RIL_EnableCallBlock4TDF>TRUE</CscFeature_RIL_EnableCallBlock4TDF>
+    <CscFeature_RIL_ReplaceImeiSalesCodeAs>TFG</CscFeature_RIL_ReplaceImeiSalesCodeAs>
+    <CscFeature_RIL_DisplaySpnOnlyInCaseSamePlmn>TRUE</CscFeature_RIL_DisplaySpnOnlyInCaseSamePlmn>
+  </FeatureSet>
+</SamsungMobileFeauture>

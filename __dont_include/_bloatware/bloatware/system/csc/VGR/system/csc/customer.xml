@@ -1,0 +1,179 @@
+﻿<?xml  version="1.0" encoding="UTF-8" ?>
+<CustomerData>
+  <GeneralInfo>
+    <CSCEdition>ED010</CSCEdition>
+    <Country>Greece</Country>
+    <CountryISO>GR</CountryISO>
+    <Region>EUR</Region>
+    <SalesCode>VGR</SalesCode>
+    <NbNetworkInfo>1</NbNetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>20205</MCCMNC>
+      <NetworkName>Vodafone GR</NetworkName>
+    </NetworkInfo>
+  </GeneralInfo>
+  <Settings>
+    <Main>
+      <Network>
+        <NbFastDormancy>2</NbFastDormancy>
+        <FastDormancy>
+          <NetworkName>Vodafone GR</NetworkName>
+          <FastDormancyEnableStatus>off</FastDormancyEnableStatus>
+          <LCDStatus>on</LCDStatus>
+        </FastDormancy>
+        <FastDormancy>
+          <NetworkName>Vodafone GR</NetworkName>
+          <FastDormancyEnableStatus>on</FastDormancyEnableStatus>
+          <TimeoutValue>5</TimeoutValue>
+          <LCDStatus>off</LCDStatus>
+        </FastDormancy>
+      </Network>
+      <Phone>
+        <DefLanguage>greek</DefLanguage>
+        <DefLanguageNoSIM>greek</DefLanguageNoSIM>
+        <DateTimeFormat>
+          <DateFormat>ddmmyyyy</DateFormat>
+          <TimeFormat>12h</TimeFormat>
+          <TimezoneUpdate>off</TimezoneUpdate>
+        </DateTimeFormat>
+      </Phone>
+      <Security />
+    </Main>
+    <Messages>
+      <NbVoicemail>1</NbVoicemail>
+      <Voicemail>
+        <NetworkName>Vodafone GR</NetworkName>
+        <TelNum>121</TelNum>
+      </Voicemail>
+      <PushMsg>
+        <PushLoading>prompt</PushLoading>
+      </PushMsg>
+      <SMS>
+        <MsgTypeThreshold>
+          <ThresholdValue>5</ThresholdValue>
+          <ThresholdType>pagecount</ThresholdType>
+        </MsgTypeThreshold>
+        <MaxRecipient>20</MaxRecipient>
+        <CharSupport>gsmalpha</CharSupport>
+      </SMS>
+      <MMS>
+        <MmsSending>
+          <ReqDeliveryRep>on</ReqDeliveryRep>
+          <ReqReadRep>on</ReqReadRep>
+          <CreationMode>free</CreationMode>
+        </MmsSending>
+        <MmsReceiving>
+          <Home>auto</Home>
+          <Roaming>auto</Roaming>
+        </MmsReceiving>
+      </MMS>
+      <Email>
+        <NbAccount>2</NbAccount>
+        <Account>
+          <NetworkName>Vodafone GR</NetworkName>
+          <AccountName>YAHOO! GR</AccountName>
+          <Incoming>
+            <MailboxType>pop3</MailboxType>
+            <ServAddr>pop.mail.yahoo.com</ServAddr>
+            <Port>995</Port>
+            <Secure>ssl</Secure>
+          </Incoming>
+          <Outgoing>
+            <ServAddr>smtp.mail.yahoo.com</ServAddr>
+            <Port>465</Port>
+            <SmtpAuth>on</SmtpAuth>
+            <Secure>ssl</Secure>
+          </Outgoing>
+        </Account>
+        <Account>
+          <NetworkName>Vodafone GR</NetworkName>
+          <AccountName>Gmail</AccountName>
+          <Incoming>
+            <MailboxType>pop3</MailboxType>
+            <ServAddr>pop.gmail.com</ServAddr>
+            <Port>995</Port>
+            <Secure>ssl</Secure>
+          </Incoming>
+          <Outgoing>
+            <ServAddr>smtp.gmail.com</ServAddr>
+            <Port>465</Port>
+            <SmtpAuth>on</SmtpAuth>
+            <Secure>ssl</Secure>
+          </Outgoing>
+        </Account>
+      </Email>
+    </Messages>
+    <Browser>
+      <NbBookmark>3</NbBookmark>
+      <Bookmark>
+        <NetworkName>Vodafone GR</NetworkName>
+        <BookmarkName>My Web</BookmarkName>
+        <URL>http://myweb.vodafone.gr</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>Vodafone GR</NetworkName>
+        <BookmarkName>Vodafone.gr</BookmarkName>
+        <URL>http://www.vodafone.gr</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>Vodafone GR</NetworkName>
+        <BookmarkName>E-Manual</BookmarkName>
+        <URL>http://www.samsung.com/m-manual/voda</URL>
+      </Bookmark>
+    </Browser>
+    <GPS>
+      <NbAGPS>1</NbAGPS>
+      <AGPS>
+        <TLS>on</TLS>
+        <ServAddr>supl.vodafone.com</ServAddr>
+        <Port>7275</Port>
+      </AGPS>
+    </GPS>
+    <Connections>
+      <NbProfileHandle>1</NbProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>Vodafone GR</NetworkName>
+        <ProfBrowser>Vf Internet</ProfBrowser>
+        <ProfMMS>Vf MMS</ProfMMS>
+        <ProfAGPS>Vf Internet</ProfAGPS>
+        <ProfIntSharing>Vf Internet</ProfIntSharing>
+      </ProfileHandle>
+      <NbProfile>2</NbProfile>
+      <Profile>
+        <NetworkName>Vodafone GR</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Vf MMS</ProfileName>
+        <URL>http://mms.vodafone.gr</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>213.249.19.49</ServAddr>
+          <Port>5080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mms.vodafone.net</APN>
+          <UserId>user</UserId>
+          <Password>pass</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Vodafone GR</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Vf Internet</ProfileName>
+        <URL>http://myweb.vodafone.gr</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>internet.vodafone.gr</APN>
+        </PSparam>
+      </Profile>
+    </Connections>
+  </Settings>
+</CustomerData>

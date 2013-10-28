@@ -4,15 +4,15 @@ This ROM is based on many third-party roms, modifications, tweaks, scripts and o
 
 Thanks to developers of:
 - Aroma & Aroma File Manager
-- ROMS: crDroid | Temasek's Unofficial CM Build | Slim Bean | ChameleonOS | Paranoid Android | AOKP | AOSP | More
-- Kernels: Boeffla Kernel | Temasek's Kernel | Yank555.lu Kernel | Googy Max Kernel
+- ROMS: Wanam Lite
+- Kernels: Boeffla Kernel | Yank555.lu Kernel | Googy Max Kernel
 - All available ArchiDroid apps, especially BetterBatteryStats, SpiritFM, CoolTool.
 - GApps: Paranoid Android GApps | Team BlackOut Inverts
 - Launcher: Nova Launcher
 - Keyboards: TouchPal X | Hacker's Keyboard
-- Utilities: CrossBreeder | Xposed Framework | Logcat Lite | OpenPDroid | Online Nandroid Backup
+- Utilities: CrossBreeder | Xposed Framework | Logcat Lite | Online Nandroid Backup
 - Recovery: PhilZ Touch Recovery
-- Xposed Modules: App Settings | XPrivacy
+- Xposed Modules: App Settings | XPrivacy | Wanam's Xposed
 
 Special thanks to:
 - All ArchiDroid contributors for translating and improving ArchiDroid, especially mrtur

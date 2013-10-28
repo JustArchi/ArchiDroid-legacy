@@ -1,0 +1,585 @@
+﻿<?xml  version="1.0" encoding="UTF-8" ?>
+<CustomerData>
+  <GeneralInfo>
+    <CSCEdition>ED006</CSCEdition>
+    <Country>BALTIC</Country>
+    <CountryISO>LV</CountryISO>
+    <Region>EUR</Region>
+    <SalesCode>SEB</SalesCode>
+    <NbNetworkInfo>9</NbNetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>24701</MCCMNC>
+      <NetworkName>LMT GSM</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>24702</MCCMNC>
+      <NetworkName>LV TELE2</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>24705</MCCMNC>
+      <NetworkName>LV BITE</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>24601</MCCMNC>
+      <NetworkName>LT Omnitel</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>24602</MCCMNC>
+      <NetworkName>LT BITE</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>24603</MCCMNC>
+      <NetworkName>LT TELE2</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>24801</MCCMNC>
+      <NetworkName>EE EMT</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>24802</MCCMNC>
+      <NetworkName>EE ELISA</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>24803</MCCMNC>
+      <NetworkName>EE TELE2</NetworkName>
+    </NetworkInfo>
+  </GeneralInfo>
+  <Settings>
+    <Main>
+      <Network>
+        <AutoProfile>on</AutoProfile>
+        <AutoVoicemail>off</AutoVoicemail>
+        <AutoEmailAccount>off</AutoEmailAccount>
+        <AutoBookmark>off</AutoBookmark>
+        <AutoLink>off</AutoLink>
+        <AutoSyncML>off</AutoSyncML>
+        <AutoFastDormancy>off</AutoFastDormancy>
+        <AutoWbAmr>off</AutoWbAmr>
+        <AutoFOTA>off</AutoFOTA>
+      </Network>
+      <Sound>
+        <ExtraSound>
+          <ConnectTone>on</ConnectTone>
+          <CallEndTone>off</CallEndTone>
+          <MinuteMind>off</MinuteMind>
+        </ExtraSound>
+      </Sound>
+      <Phone>
+        <AlertOnCall>on</AlertOnCall>
+        <DefLanguage>automatic</DefLanguage>
+        <DefLanguageNoSIM>en_GB</DefLanguageNoSIM>
+        <T9Enabling>disable</T9Enabling>
+        <DateTimeFormat>
+          <DateFormat>ddmmyyyy</DateFormat>
+          <TimeFormat>24h</TimeFormat>
+          <TimezoneUpdate>on</TimezoneUpdate>
+        </DateTimeFormat>
+      </Phone>
+      <Security />
+    </Main>
+    <Calendar>
+      <StartDay>monday</StartDay>
+    </Calendar>
+    <Messages>
+      <PushMsg>
+        <RecOption>on</RecOption>
+        <PushLoading>prompt</PushLoading>
+      </PushMsg>
+      <SMS>
+        <DeliveryReport>off</DeliveryReport>
+        <CharSupport>automatic</CharSupport>
+      </SMS>
+      <MMS>
+        <MmsSending>
+          <ReqDeliveryRep>off</ReqDeliveryRep>
+          <ReqReadRep>off</ReqReadRep>
+          <CreationMode>free</CreationMode>
+        </MmsSending>
+        <MmsReceiving>
+          <Home>auto</Home>
+          <Roaming>manual</Roaming>
+        </MmsReceiving>
+      </MMS>
+    </Messages>
+    <Browser>
+      <NbBookmark>11</NbBookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>yes</Editable>
+        <BookmarkName>Yahoo!</BookmarkName>
+        <URL>http://m.yahoo.com/?tsrc=samsungbm</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>yes</Editable>
+        <BookmarkName>SamsungApps</BookmarkName>
+        <URL>http://m.baltic.samsungapps.com</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>yes</Editable>
+        <BookmarkName>LMT WAP</BookmarkName>
+        <URL>http://m.lmt.lv</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>yes</Editable>
+        <BookmarkName>Tele2 LV WAP</BookmarkName>
+        <URL>http://m.tele2.lv</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>yes</Editable>
+        <BookmarkName>Bite LV WAP</BookmarkName>
+        <URL>http://wap.biteplus.lv</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>yes</Editable>
+        <BookmarkName>Omnitel WAP</BookmarkName>
+        <URL>http://wap.sp.lt</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>yes</Editable>
+        <BookmarkName>Bite LT WAP</BookmarkName>
+        <URL>http://wap.biteplius.lt</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>yes</Editable>
+        <BookmarkName>Tele2 LT WAP</BookmarkName>
+        <URL>http://wap.tele2.lt</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>yes</Editable>
+        <BookmarkName>EMT WAP</BookmarkName>
+        <URL>http://wap.emt.ee</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>yes</Editable>
+        <BookmarkName>Elisa WAP</BookmarkName>
+        <URL>http://wap.elisa.ee</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>yes</Editable>
+        <BookmarkName>Tele2 EE WAP</BookmarkName>
+        <URL>http://m.tele2.ee</URL>
+      </Bookmark>
+      <eManual>
+        <URL>http://www.samsung.com/m-manual/common</URL>
+      </eManual>
+    </Browser>
+    <Connections>
+      <NbProfileHandle>9</NbProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>LMT GSM</NetworkName>
+        <ProfBrowser>LMT WAP</ProfBrowser>
+        <ProfMMS>LMT MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>LV TELE2</NetworkName>
+        <ProfBrowser>Tele2 LV Internet</ProfBrowser>
+        <ProfMMS>Tele2 LV MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>LV BITE</NetworkName>
+        <ProfBrowser>Bite LV Internet</ProfBrowser>
+        <ProfMMS>Bite LV MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>LT Omnitel</NetworkName>
+        <ProfBrowser>Omnitel Internet</ProfBrowser>
+        <ProfMMS>Omnitel MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>LT BITE</NetworkName>
+        <ProfBrowser>Bite LT Internet</ProfBrowser>
+        <ProfMMS>Bite LT MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>LT TELE2</NetworkName>
+        <ProfBrowser>Tele2 LT Internet</ProfBrowser>
+        <ProfMMS>Tele2 LT MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>EE EMT</NetworkName>
+        <ProfBrowser>EMT WAP</ProfBrowser>
+        <ProfMMS>EMT MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>EE ELISA</NetworkName>
+        <ProfBrowser>Elisa WAP</ProfBrowser>
+        <ProfMMS>Elisa MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>EE TELE2</NetworkName>
+        <ProfBrowser>Tele2 EE Internet</ProfBrowser>
+        <ProfMMS>Tele2 EE MMS</ProfMMS>
+      </ProfileHandle>
+      <NbProfile>21</NbProfile>
+      <Profile>
+        <NetworkName>LMT GSM</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>LMT WAP</ProfileName>
+        <URL>http://m.baltic.samsungapps.com</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>internet.lmt.lv</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>LMT GSM</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>LMT MMS</ProfileName>
+        <URL>http://mmsc.lmt.lv/mmsc</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>212.93.97.201</ServAddr>
+          <Port>80</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mms.lmt.lv</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>LMT GSM</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>LMT Streaming</ProfileName>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>video.lmt.lv</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>LV TELE2</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Tele2 LV Internet</ProfileName>
+        <URL>http://m.baltic.samsungapps.com</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>internet.tele2.lv</APN>
+          <UserId>wap</UserId>
+          <Password>wap</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>LV TELE2</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Tele2 LV MMS</ProfileName>
+        <URL>http://mmsc.tele2.lv</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>193.12.40.38</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mms.tele2.lv</APN>
+          <UserId>wap</UserId>
+          <Password>wap</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>LV BITE</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Bite LV Internet</ProfileName>
+        <URL>http://m.baltic.samsungapps.com</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>internet</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>LV BITE</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Bite LV MMS</ProfileName>
+        <URL>http://mmsc/servlets/mms</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>192.168.150.2</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mms</APN>
+          <UserId>mms@mms</UserId>
+          <Password>mms</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>LT Omnitel</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Omnitel Internet</ProfileName>
+        <URL>http://m.baltic.samsungapps.com</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>omnitel</APN>
+          <UserId>omni</UserId>
+          <Password>omni</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>LT Omnitel</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Omnitel MMS</ProfileName>
+        <URL>http://mms.omnitel.net:8002/</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>194.176.32.149</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>gprs.mms.lt</APN>
+          <UserId>mms</UserId>
+          <Password>mms</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>LT BITE</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Bite LT Internet</ProfileName>
+        <URL>http://m.baltic.samsungapps.com</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>internet</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>LT BITE</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Bite LT MMS</ProfileName>
+        <URL>http://mmsc/servlets/mms</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>192.168.150.2</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mms</APN>
+          <UserId>mms@mms</UserId>
+          <Password>mms</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>LT TELE2</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Tele2 LT Internet</ProfileName>
+        <URL>http://m.baltic.samsungapps.com</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>internet.tele2.lt</APN>
+          <UserId>wap</UserId>
+          <Password>wap</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>LT TELE2</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Tele2 LT MMS</ProfileName>
+        <URL>http://mmsc.tele2.lt</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>193.12.40.29</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>internet.tele2.lt</APN>
+          <UserId>wap</UserId>
+          <Password>wap</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>EE EMT</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>EMT WAP</ProfileName>
+        <URL>http://wap.emt.ee</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>217.71.32.236</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>wap.emt.ee</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>EE EMT</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>EMT MMS</ProfileName>
+        <URL>http://mms.emt.ee/servlets/mms</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>217.71.32.82</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mms.emt.ee</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>EE EMT</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>EMT Internet</ProfileName>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>internet.emt.ee</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>EE ELISA</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Elisa WAP</ProfileName>
+        <URL>http://m.baltic.samsungapps.com</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>194.204.2.6</ServAddr>
+          <Port>8000</Port>
+        </Proxy>
+        <PSparam>
+          <APN>wap</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>EE ELISA</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Elisa MMS</ProfileName>
+        <URL>http://194.204.2.10</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>194.204.2.6</ServAddr>
+          <Port>8000</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mms</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>EE ELISA</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Elisa Internet</ProfileName>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>internet</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>EE TELE2</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Tele2 EE Internet</ProfileName>
+        <URL>http://m.baltic.samsungapps.com</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>internet.tele2.ee</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>EE TELE2</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Tele2 EE MMS</ProfileName>
+        <URL>http://mmsc.tele2.ee</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>193.12.40.6</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mms.tele2.ee</APN>
+        </PSparam>
+      </Profile>
+    </Connections>
+  </Settings>
+</CustomerData>

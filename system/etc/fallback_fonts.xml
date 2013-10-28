@@ -31,12 +31,7 @@
 <familyset>
     <family>
         <fileset>
-            <file variant="elegant">DroidNaskh-Regular.ttf</file>
-        </fileset>
-    </family>
-    <family>
-        <fileset>
-            <file variant="compact">DroidNaskhUI-Regular.ttf</file>
+            <file>GS45_Arab_AndroidOS.ttf</file>
         </fileset>
     </family>
     <family>
@@ -52,7 +47,7 @@
     </family>
     <family>
         <fileset>
-            <file>DroidSansThai.ttf</file>
+            <file>SamsungThai.ttf</file>
         </fileset>
     </family>
     <family>
@@ -67,71 +62,58 @@
     </family>
     <family>
         <fileset>
-            <file>DroidSansDevanagari-Regular.ttf</file>
+            <file>SamsungBengali.ttf</file>
         </fileset>
     </family>
     <family>
         <fileset>
-            <file>DroidSansTamil-Regular.ttf</file>
-            <file>DroidSansTamil-Bold.ttf</file>
+            <file>SamsungDevanagari.ttf</file>
+
         </fileset>
     </family>
     <family>
         <fileset>
-            <file variant="elegant">NotoSansMalayalam-Regular.ttf</file>
-            <file variant="elegant">NotoSansMalayalam-Bold.ttf</file>
+            <file>SamsungGujarathi.ttf</file>
         </fileset>
     </family>
     <family>
         <fileset>
-            <file variant="compact">NotoSansMalayalamUI-Regular.ttf</file>
-            <file variant="compact">NotoSansMalayalamUI-Bold.ttf</file>
+            <file>SamsungKannada.ttf</file>
         </fileset>
     </family>
     <family>
         <fileset>
-            <file variant="elegant">NotoSansBengali-Regular.ttf</file>
-            <file variant="elegant">NotoSansBengali-Bold.ttf</file>
+            <file>SamsungMalayalam.ttf</file>
         </fileset>
     </family>
     <family>
         <fileset>
-            <file variant="compact">NotoSansBengaliUI-Regular.ttf</file>
-            <file variant="compact">NotoSansBengaliUI-Bold.ttf</file>
+            <file>SamsungOriya.ttf</file>
         </fileset>
     </family>
     <family>
         <fileset>
-            <file variant="elegant">NotoSansTelugu-Regular.ttf</file>
-            <file variant="elegant">NotoSansTelugu-Bold.ttf</file>
+            <file>SamsungPunjabi.ttf</file>
         </fileset>
     </family>
     <family>
         <fileset>
-            <file variant="compact">NotoSansTeluguUI-Regular.ttf</file>
-            <file variant="compact">NotoSansTeluguUI-Bold.ttf</file>
+            <file>SamsungSinhala.ttf</file>
         </fileset>
     </family>
     <family>
         <fileset>
-            <file variant="elegant">NotoSansKannada-Regular.ttf</file>
-            <file variant="elegant">NotoSansKannada-Bold.ttf</file>
+            <file>SamsungTamil.ttf</file>
         </fileset>
     </family>
     <family>
         <fileset>
-            <file variant="compact">NotoSansKannadaUI-Regular.ttf</file>
-            <file variant="compact">NotoSansKannadaUI-Bold.ttf</file>
+            <file>SamsungTelugu.ttf</file>
         </fileset>
     </family>
     <family>
         <fileset>
-            <file>NanumGothic.ttf</file>
-        </fileset>
-    </family>
-    <family>
-        <fileset>
-            <file>AndroidEmoji.ttf</file>
+            <file>DroidSans_Subset.ttf</file>
         </fileset>
     </family>
     <family>
@@ -141,13 +123,26 @@
     </family>
     <family>
         <fileset>
+            <file>AndroidEmoji.ttf</file>
+        </fileset>
+    </family>
+    <family>
+        <fileset>
+            <file>HelveticaNeue-Light.ttf</file>
+        </fileset>
+    </family>
+    <family>
+        <fileset>
+            <file>NanumGothic.ttf</file>
+        </fileset>
+    </family>
+    <family>
+        <fileset>
             <file lang="ja">MTLmr3m.ttf</file>
         </fileset>
     </family>
-    <!-- Note: complex scripts (i.e. those requiring shaping in Harfbuzz) have
-         a cumulative limit of 64k glyphs. Thus, if they are placed after the
-         large fonts such as DroidSansFallback, they are likely to render
-         incorrectly. Please use caution when putting fonts toward the end of
-         the list.
+    <!--
+        Fonts below this point have problematic glyphs and should not be moved
+        higher in the fallback list until those glyphs have been fixed.
     -->
 </familyset>

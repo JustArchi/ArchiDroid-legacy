@@ -13,18 +13,19 @@ fi
 setprop dhcp.${intf}.reason "${reason}"
 
 case "${reason}" in
-BOUND|INFORM|REBIND|REBOOT|RENEW|TIMEOUT)
+BOUND|INFORM|REBIND|REBOOT|RENEW|TIMEOUT|IPV4LL)
     setprop dhcp.${intf}.ipaddress  "${new_ip_address}"
     setprop dhcp.${intf}.gateway    "${new_routers%% *}"
     setprop dhcp.${intf}.mask       "${new_subnet_mask}"
     setprop dhcp.${intf}.leasetime  "${new_dhcp_lease_time}"
     setprop dhcp.${intf}.server     "${new_dhcp_server_identifier}"
     setprop dhcp.${intf}.vendorInfo "${new_vendor_encapsulated_options}"
+    setprop dhcp.${intf}.roaming    "${new_roaming}"
 
     setprop dhcp.${intf}.result "ok"
     ;;
 
-EXPIRE|FAIL|IPV4LL|STOP)
+EXPIRE|FAIL|STOP)
     setprop dhcp.${intf}.result "failed"
     ;;
 

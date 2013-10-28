@@ -1,0 +1,117 @@
+﻿<?xml  version="1.0" encoding="UTF-8" ?>
+<!-- It can be added for each operators like below form
+
+<ABC>                       -> sales code
+<sapient>true</sapient>         -> feature1
+<burton>false</burton>          -> feature2
+<libtech>true</libtech>         -> feature3
+.
+.
+</ABC>
+
+each name of tags are will be environment variable with "ro.csc."
+ex) "ro.csc.sapient", "ro.csc.burton", "ro.csc.libtech" <== you could use them at any section.
+also, should be added between <FeatureSet>
+ and </FeatureSet> .
+jhwan.kim@hdlnc.com
+by Wanam  -->
+<SamsungMobileFeature>
+
+<Country></Country>
+<CountryISO></CountryISO>
+<SalesCode></SalesCode>
+
+<!-- KOR -->
+<FeatureSet>
+
+<!-- Camera -->
+<CscFeature_Camera_EnableCameraDuringCall>true</CscFeature_Camera_EnableCameraDuringCall>
+<CscFeature_Camera_EnableSmsNotiPopup>true</CscFeature_Camera_EnableSmsNotiPopup>
+<CscFeature_Camera_ShutterSoundMenu>true</CscFeature_Camera_ShutterSoundMenu>
+
+<!-- Message -->
+<CscFeature_Message_RecipientLimit>999</CscFeature_Message_RecipientLimit>
+<CscFeature_Message_SmsToMmsTextThreshold>999</CscFeature_Message_SmsToMmsTextThreshold>
+<CscFeature_Message_MaxSlideCount>999</CscFeature_Message_MaxSlideCount>
+<CscFeature_Message_ReplaceCRToNewLine>true</CscFeature_Message_ReplaceCRToNewLine>
+<CscFeature_Message_DisableConvertingEffectBetweenSMSMMS>true</CscFeature_Message_DisableConvertingEffectBetweenSMSMMS>
+<CscFeature_Message_DisableSmsToMmsConversionByTextInput>true</CscFeature_Message_DisableSmsToMmsConversionByTextInput>
+<CscFeature_Message_DisableBackgroundStyleWithImage>true</CscFeature_Message_DisableBackgroundStyleWithImage>
+<CscFeature_Message_EnableRegisterToCalender>true</CscFeature_Message_EnableRegisterToCalender>
+<CscFeature_Message_EnableNetworkWarningDialog>true</CscFeature_Message_EnableNetworkWarningDialog>
+<CscFeature_IsWanamLite>true</CscFeature_IsWanamLite>
+<CscFeature_Message_EnableFolderView>true</CscFeature_Message_EnableFolderView>
+<CscFeature_Message_EnableMenuRemindAlert>true</CscFeature_Message_EnableMenuRemindAlert>
+<CscFeature_Message_ReplaceLabel4RetreivedMsg>true</CscFeature_Message_ReplaceLabel4RetreivedMsg>
+<CscFeature_Message_EnableVCard>true</CscFeature_Message_EnableVCard>
+<CscFeature_Message_EnableSlideshowAutoPlay>true</CscFeature_Message_EnableSlideshowAutoPlay>
+<CscFeature_Message_EnableMessagePriorityDuringComposing>true</CscFeature_Message_EnableMessagePriorityDuringComposing>
+<CscFeature_Message_EnableFontSize>true</CscFeature_Message_EnableFontSize>
+<CscFeature_Message_EnableTextFieldColor>true</CscFeature_Message_EnableTextFieldColor>
+<CscFeature_Message_EnableFontSizeByVolumeKey>true</CscFeature_Message_EnableFontSizeByVolumeKey>
+<CscFeature_Message_EnableScheduledMessage>true</CscFeature_Message_EnableScheduledMessage>
+<CscFeature_Message_EnableScheduledMsgBox>true</CscFeature_Message_EnableScheduledMsgBox>
+
+<!-- KIES -->
+
+
+<!-- Contacts -->
+<CscFeature_Contact_SetLinkCountMaxAs>999</CscFeature_Contact_SetLinkCountMaxAs>
+<CscFeature_Contact_EnableCallButtonInList>true</CscFeature_Contact_EnableCallButtonInList>
+
+<!-- Calendar -->
+
+<!-- Call -->
+<CscFeature_Common_DisablePhoneNumberFormatting>true</CscFeature_Common_DisablePhoneNumberFormatting>
+
+<!-- Clock -->
+
+<!-- Mini Diary -->
+<CscFeature_MiniDiary_DisableChinaSns>true</CscFeature_MiniDiary_DisableChinaSns>
+
+<!-- Dialer -->
+
+<!-- Log -->
+
+<!-- RIL -->
+<CscFeature_RIL_SupportUssdWithSharpChar>true</CscFeature_RIL_SupportUssdWithSharpChar>
+
+<!-- Settings -->
+
+<!-- MMApp -->
+
+<!-- MyFiles -->
+
+<!-- Launcher -->
+<CscFeature_Launcher_DisablePageRotation>false</CscFeature_Launcher_DisablePageRotation>
+
+<!-- Gallery -->
+
+<!-- Music -->
+
+<!-- MMFW -->
+
+<!-- NFC -->
+<CscFeature_mCommerce_WalletMgrConfig>Disable</CscFeature_mCommerce_WalletMgrConfig>
+
+<!-- WEB -->
+<CscFeature_Web_EnableAutoSimHomeUrlInProfile>true</CscFeature_Web_EnableAutoSimHomeUrlInProfile>
+<CscFeature_Web_AddOptionToTerminate>true</CscFeature_Web_AddOptionToTerminate>
+<CscFeature_Web_TerminateAppOnCloseAllAction>true</CscFeature_Web_TerminateAppOnCloseAllAction>
+
+<!-- AppFW -->
+<CscFeature_Framework_EnableScrCaptureSoundOnlyInCamera>true</CscFeature_Framework_EnableScrCaptureSoundOnlyInCamera>
+<CscFeature_Sip_DisableMultiInputLanuage>false</CscFeature_Sip_DisableMultiInputLanuage>
+
+<!-- Email -->
+
+<!-- SEC FMRadio -->
+
+<!-- GMS -->
+<CscFeature_GMS_DisableSetupWizard>true</CscFeature_GMS_DisableSetupWizard>
+
+<!-- Wifi -->
+<CscFeature_Wifi_MaxClient4MobileAp>10</CscFeature_Wifi_MaxClient4MobileAp>
+
+</FeatureSet>
+</SamsungMobileFeature>

@@ -85,7 +85,7 @@ archidroid.preset.group=Te zgjedhura
 archidroid.preset.custom=Individuale
 archidroid.preset.custom.desc=Keni mundesi te ndryshoni te gjitha aspektet e instalimit
 archidroid.preset.barebones=Minimal
-archidroid.preset.barebones.desc=Pastro CyanogenMod. Vetem per testim, nuk rekomandohet
+archidroid.preset.barebones.desc=Pastro Samsung. Vetem per testim, nuk rekomandohet
 archidroid.preset.previous=Previous Preset
 archidroid.preset.previous.desc=Loads your previous custom installation preset (if available)
 
@@ -95,33 +95,31 @@ archidroid.custom=ArchiDroid Kustomizimi
 archidroid.custom.extra=ArchiDroid Ekstra Kustomizimi
 archidroid.custom.desc=Modifiko opcionet sipas deshires
 
-archidroid.kernel.temasek.desc=Rekomandohet per performanse te mire, shpenzim te vogel te baterise, fleksibilit dhe boeffla zerim
 archidroid.kernel.boeffla.desc=Highly recommended masterpiece perfect for everyone, featuring boeffla sound and many more features
 archidroid.kernel.yank.desc=Rekomandohet si alternative e Temasek
 archidroid.kernel.googy.desc=Bazuar ne Siyah kod. Dual-boot i dyfisht
 archidroid.kernel.stock.desc=Vjen si berthame standarde ne CM
 
-archidroid.dpi.240.desc=KUJDES! Disa gabime ne grafike dhe rezolucion DPI
-archidroid.dpi.241.desc=Cdo gje do te jete me e vogel, si butonat, ikonat, teksit etj. Rekomandohet per funksionimin me te mire ne ArchiDroid!
+archidroid.dpi.240.desc=Cdo gje do te jete me e vogel, si butonat, ikonat, teksit etj. Rekomandohet per funksionimin me te mire ne ArchiDroid!
 archidroid.dpi.280.desc=Balanc mes normales dhe 240 DPI
 archidroid.dpi.320.desc=Vlera normale
 
 archidroid.launcher.nova.desc=Rekomandohet per ekstra fleksibilitet dhe performanse
-archidroid.launcher.stock.desc=Nese vjen prej CM, i njohur si Trebuchet
+archidroid.launcher.stock.desc=Stock TouchWiz
 archidroid.launcher.none.desc=No launcher. WARNING! Don't tick if you're after full wipe! You need at least one custom launcher before first boot!
 
 archidroid.keyboard=Tastieri
 archidroid.keyboard.touchpal.desc=Rekomandohet per fleksibilitet sikur Swype/Curve tastier
 archidroid.keyboard.hackers.desc=Alternative e TouchPal nese perdorni swype/curve funksionet
 archidroid.keyboard.both.desc=Nese deshiron te perdorni TouchPal dhe Hacker's (p.sh ne Terminal)
-archidroid.keyboard.stock.desc=Nese deshiront CM tastier standard.
+archidroid.keyboard.stock.desc=Nese deshiront Samsung tastier standard.
 archidroid.keyboard.none.desc=No keyboard. WARNING! Don't tick if you're after full wipe! You need at least one custom keyboard before first boot!
 
 archidroid.bootanimation=Bootanimation
 archidroid.bootanimation.archi.desc=New fancy ArchiDroid bootanimation
 archidroid.bootanimation.archilegacy.desc=Old ArchiDroid 1.X bootanimation
 archidroid.bootanimation.logcat.desc=Ndryshon animacionin standard ne boot, ne shkronja - nga logcat lite
-archidroid.bootanimation.stock.desc=Stock bootanimation provided by CyanogenMod
+archidroid.bootanimation.stock.desc=Stock bootanimation provided by Samsung
 archidroid.bootanimation.none.desc=No bootanimation, for slightly faster bootup
 
 archidroid.other=Tjera
@@ -151,8 +149,6 @@ archidroid.apps.facebook.desc=Facebook i Invertuar
 
 archidroid.tweaks.hdvoice.desc=Mundeson HD zerim, nese perkrahet nga Operatori
 archidroid.tweaks.buildtweaks.desc=Disa avansime ne build.prop tweaks, perfshire fjetje te thelle, performansa me te mira, etj
-archidroid.tweaks.openpdroid.desc=Apliko OpenPDroid patch pas instalimit
-archidroid.tweaks.nocell.desc=Konsiderohet si i pa nevojshem. De-selekto nese doni ta mbani
 
 archidroid.preset.no=No Preset
 archidroid.preset.no.desc=Not recommended because you'll miss most of the Archi's optimizations
@@ -163,13 +159,6 @@ archidroid.preset.kernel.boeffla.archipowersave=ArchiDroid PowerSave
 archidroid.preset.kernel.boeffla.archipowersave.desc=Default preset proposed for most users, including light uV. Provides a very good balance between battery life and performance. Recommended by Archi
 archidroid.preset.kernel.boeffla.archiultrapowersave=ArchiDroid UltraPowerSave
 archidroid.preset.kernel.boeffla.archiultrapowersave.desc=A preset designed and optimized for getting maximum of battery life, including moderate uV. Expect better battery life for a cost of performance
-
-archidroid.preset.kernel.temasek.balanced=ArchiDroid Konfigurimi i Balancuar
-archidroid.preset.kernel.temasek.balanced.desc=bazuar ne Optimized zzmoove, zram, boeffla zerim etj. E pa nevojshme nga zzmoove 0.7
-archidroid.preset.kernel.temasek.powersave=ArchiDroid Kursimi i energjise
-archidroid.preset.kernel.temasek.powersave.desc=Kursimi i energjise, bazuar ne Yank's Battery zzmoove me hotplugging me te ulet
-archidroid.preset.kernel.temasek.ultra=ArchiDroid ULTRA Kursimi i Energjise
-archidroid.preset.kernel.temasek.ultra.desc=ULTRA Kursimi i energjise bazuar ne Archi's Ultra Battery zzmoove me LCDFreq
 
 archidroid.boeffla.yesarchi=Po, me Archi's Audiophile
 archidroid.boeffla.yesarchi.desc=Rekomandohet. Avanson qualitetin e zerit duke instaluar Boeffla SC dhe konfigurimin nga Archi

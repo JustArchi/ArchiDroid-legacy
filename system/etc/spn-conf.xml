@@ -1,23 +1,185 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+** Copyright 2006, Google Inc.
+**
+** Licensed under the Apache License, Version 2.0 (the "License");
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://www.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+*/
+-->
 
+<!--
+spnOverride attributes:
+	numeric: MCC+MNC from IMSI - this attribute is used as the key
+	imsi_subset: this attribute is used as a imsi filter (imsi format is: [MCC][MNC][imsi_subset][rest of imsi]) - the longest matching imsi_subset is a best match
+	spn: spn to show instead of EFSPN. locales can be specified here too, if needed
+	spn_display_rule: SPN_RULE_SHOW_SPN, SPN_RULE_SHOW_PLMN or both
+	fake_home_on: regard specified PLMN as home
+    fake_roaming_on: regard specified PLMN as roaming (comma-separated list)
+
+examples:
+	<spnOverride
+		numeric="45001" spn="ko_KR;?�국??SPN,en;English SPN,fr;Français SPN,pl;Polski SPN,Default SPN"
+		spn_display_rule="SPN_RULE_SHOW_SPN" spn_override_only_on="45001" fake_home_on="00101,45008"/>
+    <spnOverride numeric="46001" spn="zh_CN;ｿ��?��? />
+-->
 <spnOverrides>
-  <!-- Japan -->
-  <spnOverride numeric="44020" spn="SoftBank" />
-  <!-- Hong Kong -->
-  <spnOverride numeric="45406" spn="SmarTone" />
-  <spnOverride numeric="45412" spn="中國移動香港" />
-  <!-- China -->
-  <spnOverride numeric="46000" spn="中国移动" />
-  <spnOverride numeric="46001" spn="中国联通" />
-  <spnOverride numeric="46002" spn="中国移动" />
-  <spnOverride numeric="46003" spn="中国电信" />
-  <spnOverride numeric="46007" spn="中国移动" />
-  <!-- Taiwan -->
-  <spnOverride numeric="46601" spn="遠傳電信" />
-  <spnOverride numeric="46688" spn="和信電訊" />
-  <spnOverride numeric="46689" spn="威寶電信" />
-  <spnOverride numeric="46692" spn="中華電信" />
-  <spnOverride numeric="46693" spn="東信電訊" />
-  <spnOverride numeric="46697" spn="台灣大哥大" />
-  <spnOverride numeric="46699" spn="泛亞電信" />
+
+<!-- Spain -->
+<!-- Spain -->
+    <spnOverride numeric="21404" spn_display_rule="SPN_RULE_SHOW_SPN" spn_override_only_on="214" fake_home_on="214"/>
+    <spnOverride numeric="21405" fake_home_on="21407"/> <!-- Tuenti -->
+    <spnOverride numeric="21406" spn_display_rule="SPN_RULE_SHOW_SPN" spn_override_only_on="214" fake_home_on="214"/>
+    <spnOverride numeric="21407" fake_home_on="214"/> <!-- Tuenti -->
+    <spnOverride numeric="21408" spn_display_rule="SPN_RULE_SHOW_SPN" spn_override_only_on="214" fake_home_on="214"/>
+    <spnOverride numeric="21415" fake_home_on="214"/>
+    <spnOverride numeric="21416" spn_display_rule="SPN_RULE_SHOW_SPN" spn_override_only_on="214" fake_home_on="214"/>
+    <spnOverride numeric="21418" spn_display_rule="SPN_RULE_SHOW_SPN" spn_override_only_on="214" fake_home_on="214"/> <!-- ONO -->
+    <spnOverride numeric="21419" spn_display_rule="SPN_RULE_SHOW_SPN" spn_override_only_on="214" fake_home_on="214"/> <!-- Simyo -->
+    <spnOverride numeric="21420" fake_home_on="214"/>
+    <spnOverride numeric="21421" fake_home_on="214"/> <!-- Jazztel -->
+    <spnOverride numeric="21422" fake_home_on="214"/>
+    <spnOverride numeric="21423" fake_home_on="214"/>
+    <spnOverride numeric="21424" fake_home_on="214"/>
+    <spnOverride numeric="21425" fake_home_on="214"/>
+
+<!-- SENA -->
+    <spnOverride numeric="24001" spn_display_rule="SPN_RULE_SHOW_SPN" spn_override_only_on="24005"/>
+    <spnOverride numeric="24007" spn_display_rule="SPN_RULE_SHOW_SPN" spn_override_only_on="24005"/>
+
+<!-- Finland -->
+    <spnOverride numeric="24421" fake_home_on="24405"/>
+
+<!-- Japan -->
+    <spnOverride numeric="44010" spn="NTT DOCOMO"/>
+
+<!-- Belgium Telent - Proximus and Mobistar-->
+	<spnOverride numeric="20605" spn_display_rule="SPN_RULE_SHOW_SPN" spn="Telenet" spn_override_only_on="20605,20610" fake_home_on="20610"/>
+	<spnOverride numeric="20601" imsi_subset="889" spn_display_rule="SPN_RULE_SHOW_SPN" spn="Telenet" spn_override_only_on="20601" fake_roaming_on="20601"/>
+
+<!-- Netherlands - Telfort and KPN -->
+    <spnOverride numeric="20412" fake_home_on="20408,20410" />
+    <spnOverride numeric="20402" fake_home_on="20416" />
+    <spnOverride numeric="20416" fake_home_on="20408" />
+
+<!-- France Vodafone - Vodafone Femto cell -->
+    <spnOverride numeric="20810" fake_home_on="20811"/>
+
+<!-- France -->
+    <spnOverride numeric="20815" spn_display_rule="SPN_RULE_SHOW_SPN" spn_override_only_on="20801,20802,20815" fake_home_on="20801,20802,20815"/>
+
+<!-- LTN  [latin_protocol] -->
+    <spnOverride numeric="72410" fake_home_on="72410,72411,72406,72423"/>
+    <spnOverride numeric="72411" fake_home_on="72410,72411,72406,72423"/>
+    <spnOverride numeric="72406" fake_home_on="72410,72411,72406,72423"/>
+    <spnOverride numeric="72423" fake_home_on="72410,72411,72406,72423"/>
+    <spnOverride numeric="72416" fake_home_on="72416,72424,72431"/>
+    <spnOverride numeric="72424" fake_home_on="72416,72424,72431"/>
+    <spnOverride numeric="72431" fake_home_on="72416,72424,72431"/>
+    <spnOverride numeric="72432" fake_home_on="72432,72433,72434"/>
+    <spnOverride numeric="72433" fake_home_on="72432,72433,72434"/>
+    <spnOverride numeric="72434" fake_home_on="72432,72433,72434"/>
+    <spnOverride numeric="73001" fake_home_on="73001,73010"/>
+    <spnOverride numeric="73010" fake_home_on="73001,73010"/>
+    <spnOverride numeric="71201" fake_home_on="71201,71202"/>
+    <spnOverride numeric="71202" fake_home_on="71201,71202"/>
+    <spnOverride numeric="732103" fake_home_on="732103,732111"/>
+    <spnOverride numeric="732111" fake_home_on="732103,732111"/>
+    <spnOverride numeric="732154" fake_home_on="732123"/>
+    <spnOverride numeric="73401" fake_home_on="73401,73402,73403"/>
+    <spnOverride numeric="73402" fake_home_on="73401,73402,73403"/>
+    <spnOverride numeric="73403" fake_home_on="73401,73402,73403"/>
+
+    <spnOverride numeric="338050" fake_home_on="33805,338050"/>
+    <spnOverride numeric="33805" fake_home_on="33805,338050"/>
+    <spnOverride numeric="73007" fake_home_on="73002"/>
+    <spnOverride numeric="73008" fake_home_on="73002"/>
+    <spnOverride numeric="73009" fake_home_on="73001,73010"/>
+
+<!-- SEAU Austrailia -->
+    <spnOverride numeric="50502" imsi_subset="9" spn_display_rule="SPN_RULE_SHOW_SPN" spn_override_only_on="50502"/>
+
+<!-- South Africa -->
+    <spnOverride numeric="65507" imsi_subset="10" spn_display_rule="SPN_RULE_SHOW_SPN" spn="Virgin" spn_override_only_on="655"/> <!-- Virgin is roaming on 'Cell C' network (same mcc-mnc) and this display rule for home country  -->
+    <spnOverride numeric="65507" imsi_subset="13" spn_display_rule="SPN_RULE_SHOW_SPN" spn="Red Bull Mobile" spn_override_only_on="655"/>
+    <spnOverride numeric="65507" spn_display_rule="SPN_RULE_SHOW_SPN" spn="Cell C"/>
+    <spnOverride numeric="65502" spn_display_rule="SPN_RULE_SHOW_SPN" spn="8.ta"/>
+
+<!-- H3G RM#2022-->
+    <spnOverride numeric="23420" spn_display_rule="SPN_RULE_SHOW_PLMN" spn_override_only_on="23420,23433" fake_home_on="23420,23433,23434" />
+
+<!-- TDC Sweden -->
+    <spnOverride numeric="23801" imsi_subset="72" fake_home_on="24005,24007" fake_roaming_on="23801" />
+    <spnOverride numeric="24014" imsi_subset="72" fake_home_on="24005,24007" fake_roaming_on="23801" />
+
+    <spnOverride numeric="24004" spn_display_rule="SPN_RULE_SHOW_SPN" fake_home_on="24008,24024"/>
+    <spnOverride numeric="24008" spn_display_rule="SPN_RULE_SHOW_SPN" fake_home_on="24004,24024"/>
+    <spnOverride numeric="24024" spn_display_rule="SPN_RULE_SHOW_SPN" fake_home_on="24004,24008"/>
+
+<!-- TDC Norway -->
+    <spnOverride numeric="23801" imsi_subset="71" fake_home_on="24201" fake_roaming_on="23801" />
+    <spnOverride numeric="24208" imsi_subset="71" fake_home_on="24201" fake_roaming_on="23801" />
+
+    <spnOverride numeric="24205" spn_display_rule="SPN_RULE_SHOW_PLMN" spn_override_only_on="24205" />
+
+<!-- TDC Finland -->
+    <spnOverride numeric="24412" imsi_subset="2400" fake_home_on="24412" fake_roaming_on="23801" />
+    <spnOverride numeric="23801" imsi_subset="7300" fake_home_on="24412" fake_roaming_on="23801" />
+    <spnOverride numeric="23211" fake_home_on="23201"/> <!-- bob @ A1 network -->
+    <spnOverride numeric="23212" fake_home_on="23205"/> <!-- yesss! @ Orange AT -->
+    <spnOverride numeric="23207" spn_display_rule="SPN_RULE_SHOW_SPN" spn="tele.ring" fake_home_on="23203"/> <!-- tele.ring @ T-Mobile A -->
+    <spnOverride numeric="23210" fake_home_on="23201,23203"/>  <!-- H3G Network -->
+
+<!-- 3IE Ireland -->
+    <spnOverride numeric="27205" fake_home_on="27201"/> <!-- 3IE @ Vodafone IE Network-->
+
+<!-- Everything Everywhere -->
+        <spnOverride numeric="23430" spn_display_rule="SPN_RULE_SHOW_PLMN" spn_override_only_on="23430,23431,23432,23433,23434,23486,00101" fake_home_on="23430,23431,23432,23433,23434,23486"/>
+	<spnOverride numeric="23431" spn_display_rule="SPN_RULE_SHOW_PLMN" spn_override_only_on="23430,23431,23432,23433,23434,23486,00101" fake_home_on="23430,23431,23432,23433,23434,23486"/>
+	<spnOverride numeric="23432" spn_display_rule="SPN_RULE_SHOW_PLMN" spn_override_only_on="23430,23431,23432,23433,23434,23486,00101" fake_home_on="23430,23431,23432,23433,23434,23486"/>
+	<spnOverride numeric="23433" spn_display_rule="SPN_RULE_SHOW_PLMN" spn_override_only_on="23430,23431,23432,23433,23434,23486,00101" fake_home_on="23430,23431,23432,23433,23434,23486"/>
+	<spnOverride numeric="23434" spn_display_rule="SPN_RULE_SHOW_PLMN" spn_override_only_on="23430,23431,23432,23433,23434,23486,00101" fake_home_on="23430,23431,23432,23433,23434,23486"/>
+	<spnOverride numeric="23486" spn_display_rule="SPN_RULE_SHOW_PLMN" spn_override_only_on="23430,23431,23432,23433,23434,23486,00101" fake_home_on="23430,23431,23432,23433,23434,23486"/>
+
+<!-- Philippine -->
+    <spnOverride numeric="51518" spn_display_rule="SPN_RULE_SHOW_SPN" spn_override_only_on="51503"/>  <!--red mobile -->
+    <spnOverride numeric="51505" spn_display_rule="SPN_RULE_SHOW_SPN" spn_override_only_on="51503"/>  <!--Sun Cellular -->
+
+<!-- Indonesia -->
+    <spnOverride numeric="51008" spn_display_rule="SPN_RULE_SHOW_SPN" spn_override_only_on="51008"/>  <!--AXIS -->
+
+<!-- Israel -->
+	<spnOverride numeric="42507" fake_home_on="42503"/> <!-- MIR @ PCL network -->
+
+<!-- PAN -->
+    <spnOverride numeric="21601" spn_display_rule="SPN_RULE_SHOW_PLMN" spn_override_only_on="21601"/>
+
+<!-- SEA Telkomsel -->
+	<spnOverride numeric="51010" spn_display_rule="SPN_RULE_SHOW_PLMN" spn_override_only_on="51010"/>
+
+<!-- Malaysia -->
+    <spnOverride numeric="50218" spn_display_rule="SPN_RULE_SHOW_SPN" spn="umobile2G" spn_override_only_on="50219"/>  <!-- umobile2G -->
+
+<!-- Thai  -->
+    <spnOverride numeric="52018" spn_display_rule="SPN_RULE_SHOW_SPN" spn="dtac" spn_override_only_on="52018"/>  <!-- dtac -->
+
+<!-- Canada -->
+    <spnOverride numeric="302610" fake_home_on="302"/>
+    <spnOverride numeric="302780" fake_home_on="302"/>
+
+<!-- Swisscom -->
+    <spnOverride numeric="22801" fake_home_on="29501"/>
+
+<!-- IDEA 64k sim -->
+    <spnOverride numeric="404891" fake_home_on="40489"/>
+
 </spnOverrides>

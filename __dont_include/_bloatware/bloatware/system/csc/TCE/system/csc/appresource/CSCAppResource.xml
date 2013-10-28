@@ -1,0 +1,18 @@
+<applicationresource xmlns:android="http://schemas.android.com/apk/res/android">
+<!-- ic_browser --><item name="com.android.browser" stringid="7f04000f" />
+<!-- ic_browser --><item name="com.android.browser.BrowserActivity" stringid="7f04000f" />
+<!-- ic_camera --><item name="com.sec.android.app.camera" iconid="7f020003" stringid="7f040011" />
+<!-- ic_camera --><item name="com.sec.android.app.camera.Camera" iconid="7f020003" stringid="7f040011" />
+<!-- ic_contacts --><item name="com.android.contacts" iconid="7f020004" stringid="7f040012" />
+<!-- ic_contacts --><item name="com.android.contacts.activities.PeopleActivity" iconid="7f020004" stringid="7f040012" />
+<!-- ic_download --><item name="com.android.providers.downloads.ui" iconid="7f020005" stringid="7f040013" />
+<!-- ic_gallery --><item name="com.sec.android.gallery3d" iconid="7f020007" />
+<!-- ic_gallery --><item name="com.sec.android.gallery3d.app.Gallery" stringid="7f040014" />
+<!-- ic_mms --><item name="com.android.mms" iconid="7f020009" stringid="7f040015" />
+<!-- ic_music --><item name="com.sec.android.app.music" iconid="7f02000c" stringid="7f040016" />
+<!-- ic_phone --><item name="com.android.contacts.activities.DialtactsActivity" iconid="7f02000d" stringid="7f040017" />
+<!-- ic_settings --><item name="com.android.settings" iconid="7f02000e" stringid="7f040018" />
+<!-- ic_settings --><item name="com.android.settings.Settings" iconid="7f02000e" stringid="7f040018" />
+<!-- ic_mobile_network_settings --><item name="com.android.phone.MobileNetworkSettings" iconid="7f02000e" stringid="7f040018" />
+<!-- ic_stk --><item name="com.android.stk" iconid="7f02000f" stringid="7f040005" />
+</applicationresource>

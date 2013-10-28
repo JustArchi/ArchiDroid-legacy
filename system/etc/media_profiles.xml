@@ -14,80 +14,81 @@
      limitations under the License.
 -->
 <!DOCTYPE MediaSettings [
-  <!ELEMENT MediaSettings (CamcorderProfiles,
+<!ELEMENT MediaSettings (CamcorderProfiles,
                          EncoderOutputFileFormat+,
                          VideoEncoderCap+,
                          AudioEncoderCap+,
                          VideoDecoderCap,
                          AudioDecoderCap)>
-  <!ELEMENT CamcorderProfiles (EncoderProfile+, ImageEncoding+, ImageDecoding, Camera)>
-  <!ELEMENT EncoderProfile (Video, Audio)>
+<!ELEMENT CamcorderProfiles (EncoderProfile+, ImageEncoding+, ImageDecoding, Camera)>
+<!ELEMENT EncoderProfile (Video, Audio)>
   <!ATTLIST EncoderProfile quality (timelapse1080p|timelapse720p|timelapse480p|timelapsehigh|timelapselow|480p|qcif|high|low) #REQUIRED>
-  <!ATTLIST EncoderProfile fileFormat (mp4|3gp) #REQUIRED>
-  <!ATTLIST EncoderProfile duration (30|60) #REQUIRED>
-  <!ELEMENT Video EMPTY>
-  <!ATTLIST Video codec (h264|h263|m4v) #REQUIRED>
-  <!ATTLIST Video bitRate CDATA #REQUIRED>
-  <!ATTLIST Video width CDATA #REQUIRED>
-  <!ATTLIST Video height CDATA #REQUIRED>
-  <!ATTLIST Video frameRate CDATA #REQUIRED>
-  <!ELEMENT Audio EMPTY>
-  <!ATTLIST Audio codec (amrnb|amrwb|aac) #REQUIRED>
-  <!ATTLIST Audio bitRate CDATA #REQUIRED>
-  <!ATTLIST Audio sampleRate CDATA #REQUIRED>
-  <!ATTLIST Audio channels (1|2) #REQUIRED>
-  <!ELEMENT ImageEncoding EMPTY>
-  <!ATTLIST ImageEncoding quality (90|80|70|60|50|40) #REQUIRED>
-  <!ELEMENT ImageDecoding EMPTY>
-  <!ATTLIST ImageDecoding memCap CDATA #REQUIRED>
-  <!ELEMENT Camera EMPTY>
-  <!ATTLIST Camera previewFrameRate CDATA #REQUIRED>
-  <!ELEMENT EncoderOutputFileFormat EMPTY>
-  <!ATTLIST EncoderOutputFileFormat name (mp4|3gp) #REQUIRED>
-  <!ELEMENT VideoEncoderCap EMPTY>
-  <!ATTLIST VideoEncoderCap name (h264|h263|m4v|wmv) #REQUIRED>
-  <!ATTLIST VideoEncoderCap enabled (true|false) #REQUIRED>
-  <!ATTLIST VideoEncoderCap minBitRate CDATA #REQUIRED>
-  <!ATTLIST VideoEncoderCap maxBitRate CDATA #REQUIRED>
-  <!ATTLIST VideoEncoderCap minFrameWidth CDATA #REQUIRED>
-  <!ATTLIST VideoEncoderCap maxFrameWidth CDATA #REQUIRED>
-  <!ATTLIST VideoEncoderCap minFrameHeight CDATA #REQUIRED>
-  <!ATTLIST VideoEncoderCap maxFrameHeight CDATA #REQUIRED>
-  <!ATTLIST VideoEncoderCap minFrameRate CDATA #REQUIRED>
-  <!ATTLIST VideoEncoderCap maxFrameRate CDATA #REQUIRED>
-  <!ELEMENT AudioEncoderCap EMPTY>
-  <!ATTLIST AudioEncoderCap name (amrnb|amrwb|aac|wma) #REQUIRED>
-  <!ATTLIST AudioEncoderCap enabled (true|false) #REQUIRED>
-  <!ATTLIST AudioEncoderCap minBitRate CDATA #REQUIRED>
-  <!ATTLIST AudioEncoderCap maxBitRate CDATA #REQUIRED>
-  <!ATTLIST AudioEncoderCap minSampleRate CDATA #REQUIRED>
-  <!ATTLIST AudioEncoderCap maxSampleRate CDATA #REQUIRED>
-  <!ATTLIST AudioEncoderCap minChannels (1|2) #REQUIRED>
-  <!ATTLIST AudioEncoderCap maxChannels (1|2) #REQUIRED>
-  <!ELEMENT VideoDecoderCap EMPTY>
-  <!ATTLIST VideoDecoderCap name (wmv) #REQUIRED>
-  <!ATTLIST VideoDecoderCap enabled (true|false) #REQUIRED>
-  <!ELEMENT AudioDecoderCap EMPTY>
-  <!ATTLIST AudioDecoderCap name (wma) #REQUIRED>
-  <!ATTLIST AudioDecoderCap enabled (true|false) #REQUIRED>
-  <!ELEMENT VideoEditorCap EMPTY>
-  <!ATTLIST VideoEditorCap maxInputFrameWidth CDATA #REQUIRED>
-  <!ATTLIST VideoEditorCap maxInputFrameHeight CDATA #REQUIRED>
-  <!ATTLIST VideoEditorCap maxOutputFrameWidth CDATA #REQUIRED>
-  <!ATTLIST VideoEditorCap maxOutputFrameHeight CDATA #REQUIRED>
-  <!ELEMENT ExportVideoProfile EMPTY>
-  <!ATTLIST ExportVideoProfile name (h264|h263|m4v) #REQUIRED>
-  <!ATTLIST ExportVideoProfile profile CDATA #REQUIRED>
-  <!ATTLIST ExportVideoProfile level CDATA #REQUIRED>
+<!ATTLIST EncoderProfile fileFormat (mp4|3gp) #REQUIRED>
+<!ATTLIST EncoderProfile duration (30|60) #REQUIRED>
+<!ATTLIST EncoderProfile cameraId (0|1) #REQUIRED>
+<!ELEMENT Video EMPTY>
+<!ATTLIST Video codec (h264|h263|m4v) #REQUIRED>
+<!ATTLIST Video bitRate CDATA #REQUIRED>
+<!ATTLIST Video width CDATA #REQUIRED>
+<!ATTLIST Video height CDATA #REQUIRED>
+<!ATTLIST Video frameRate CDATA #REQUIRED>
+<!ELEMENT Audio EMPTY>
+<!ATTLIST Audio codec (amrnb|amrwb|aac) #REQUIRED>
+<!ATTLIST Audio bitRate CDATA #REQUIRED>
+<!ATTLIST Audio sampleRate CDATA #REQUIRED>
+<!ATTLIST Audio channels (1|2) #REQUIRED>
+<!ELEMENT ImageEncoding EMPTY>
+<!ATTLIST ImageEncoding quality (90|80|70|60|50|40) #REQUIRED>
+<!ELEMENT ImageDecoding EMPTY>
+<!ATTLIST ImageDecoding memCap CDATA #REQUIRED>
+<!ELEMENT Camera EMPTY>
+<!ELEMENT EncoderOutputFileFormat EMPTY>
+<!ATTLIST EncoderOutputFileFormat name (mp4|3gp) #REQUIRED>
+<!ELEMENT VideoEncoderCap EMPTY>
+<!ATTLIST VideoEncoderCap name (h264|h263|m4v|wmv) #REQUIRED>
+<!ATTLIST VideoEncoderCap enabled (true|false) #REQUIRED>
+<!ATTLIST VideoEncoderCap minBitRate CDATA #REQUIRED>
+<!ATTLIST VideoEncoderCap maxBitRate CDATA #REQUIRED>
+<!ATTLIST VideoEncoderCap minFrameWidth CDATA #REQUIRED>
+<!ATTLIST VideoEncoderCap maxFrameWidth CDATA #REQUIRED>
+<!ATTLIST VideoEncoderCap minFrameHeight CDATA #REQUIRED>
+<!ATTLIST VideoEncoderCap maxFrameHeight CDATA #REQUIRED>
+<!ATTLIST VideoEncoderCap minFrameRate CDATA #REQUIRED>
+<!ATTLIST VideoEncoderCap maxFrameRate CDATA #REQUIRED>
+<!ELEMENT AudioEncoderCap EMPTY>
+<!ATTLIST AudioEncoderCap name (amrnb|amrwb|aac|wma) #REQUIRED>
+<!ATTLIST AudioEncoderCap enabled (true|false) #REQUIRED>
+<!ATTLIST AudioEncoderCap minBitRate CDATA #REQUIRED>
+<!ATTLIST AudioEncoderCap maxBitRate CDATA #REQUIRED>
+<!ATTLIST AudioEncoderCap minSampleRate CDATA #REQUIRED>
+<!ATTLIST AudioEncoderCap maxSampleRate CDATA #REQUIRED>
+<!ATTLIST AudioEncoderCap minChannels (1|2) #REQUIRED>
+<!ATTLIST AudioEncoderCap maxChannels (1|2) #REQUIRED>
+<!ELEMENT VideoDecoderCap EMPTY>
+<!ATTLIST VideoDecoderCap name (wmv) #REQUIRED>
+<!ATTLIST VideoDecoderCap enabled (true|false) #REQUIRED>
+<!ELEMENT AudioDecoderCap EMPTY>
+<!ATTLIST AudioDecoderCap name (wma) #REQUIRED>
+<!ATTLIST AudioDecoderCap enabled (true|false) #REQUIRED>
+<!ELEMENT VideoEditorCap EMPTY>
+<!ATTLIST VideoEditorCap maxInputFrameWidth CDATA #REQUIRED>
+<!ATTLIST VideoEditorCap maxInputFrameHeight CDATA #REQUIRED>
+<!ATTLIST VideoEditorCap maxOutputFrameWidth CDATA #REQUIRED>
+<!ATTLIST VideoEditorCap maxOutputFrameHeight CDATA #REQUIRED>
+<!ATTLIST VideoEditorCap maxPrefetchYUVFrames CDATA #REQUIRED>
+<!ELEMENT ExportVideoProfile EMPTY>
+<!ATTLIST ExportVideoProfile name (h264|h263|m4v) #REQUIRED>
+<!ATTLIST ExportVideoProfile profile CDATA #REQUIRED>
+<!ATTLIST ExportVideoProfile level CDATA #REQUIRED>
 ]>
 <!--
      This file is used to declare the multimedia profiles and capabilities
      on an android-powered device.
 -->
 <MediaSettings>
-  <!-- Each camcorder profile defines a set of predefined configuration parameters -->
-  <!-- Back Camera -->
-  <CamcorderProfiles cameraId="0">
+    <!-- Each camcorder profile defines a set of predefined configuration parameters -->
+    <!-- Back Camera -->
+    <CamcorderProfiles cameraId="0">
 
     <EncoderProfile quality="low" fileFormat="mp4" duration="30">
       <Video codec="h264"
@@ -99,7 +100,20 @@
       <Audio codec="aac"
              bitRate="128000"
              sampleRate="48000"
-             channels="2" />
+             channels="1" />
+    </EncoderProfile>
+
+    <EncoderProfile quality="high" fileFormat="mp4" duration="30">
+      <Video codec="h264"
+             bitRate="17000000"
+             width="1920"
+             height="1080"
+             frameRate="30" />
+
+      <Audio codec="aac"
+             bitRate="128000"
+             sampleRate="48000"
+             channels="1" />
     </EncoderProfile>
 
     <EncoderProfile quality="qcif" fileFormat="mp4" duration="30">
@@ -112,7 +126,7 @@
       <Audio codec="aac"
              bitRate="128000"
              sampleRate="48000"
-             channels="2" />
+             channels="1" />
     </EncoderProfile>
 
     <EncoderProfile quality="480p" fileFormat="mp4" duration="30">
@@ -125,7 +139,7 @@
       <Audio codec="aac"
              bitRate="128000"
              sampleRate="48000"
-             channels="2" />
+             channels="1" />
     </EncoderProfile>
 
     <EncoderProfile quality="720p" fileFormat="mp4" duration="30">
@@ -138,7 +152,7 @@
       <Audio codec="aac"
              bitRate="128000"
              sampleRate="48000"
-             channels="2" />
+             channels="1" />
     </EncoderProfile>
 
     <EncoderProfile quality="1080p" fileFormat="mp4" duration="30">
@@ -149,12 +163,12 @@
              frameRate="30" />
 
       <Audio codec="aac"
-             bitRate="196000"
+             bitRate="128000"
              sampleRate="48000"
-             channels="2" />
+             channels="1" />
     </EncoderProfile>
 
-    <EncoderProfile quality="timelapselow" fileFormat="3gp" duration="30">
+    <EncoderProfile quality="timelapselow" fileFormat="mp4" duration="30">
       <Video codec="h264"
              bitRate="384000"
              width="176"
@@ -188,7 +202,7 @@
              channels="1" />
     </EncoderProfile>
 
-    <EncoderProfile quality="timelapseqcif" fileFormat="3gp" duration="30">
+    <EncoderProfile quality="timelapseqcif" fileFormat="mp4" duration="30">
       <Video codec="h264"
              bitRate="384000"
              width="176"
@@ -266,7 +280,7 @@
   <!-- Front Camera -->
   <CamcorderProfiles cameraId="1">
 
-    <EncoderProfile quality="low" fileFormat="3gp" duration="30">
+    <EncoderProfile quality="low" fileFormat="mp4" duration="30">
       <Video codec="h264"
              bitRate="384000"
              width="176"
@@ -292,7 +306,7 @@
              channels="1" />
     </EncoderProfile>
 
-    <EncoderProfile quality="qcif" fileFormat="3gp" duration="30">
+    <EncoderProfile quality="qcif" fileFormat="mp4" duration="30">
       <Video codec="h264"
              bitRate="384000"
              width="176"
@@ -318,7 +332,7 @@
              channels="1" />
     </EncoderProfile>
 
-    <EncoderProfile quality="timelapselow" fileFormat="3gp" duration="30">
+    <EncoderProfile quality="timelapselow" fileFormat="mp4" duration="30">
       <Video codec="h264"
              bitRate="384000"
              width="176"
@@ -352,7 +366,7 @@
              channels="1" />
     </EncoderProfile>
 
-    <EncoderProfile quality="timelapseqcif" fileFormat="3gp" duration="30">
+    <EncoderProfile quality="timelapseqcif" fileFormat="mp4" duration="30">
       <Video codec="h264"
              bitRate="384000"
              width="176"
@@ -393,8 +407,7 @@
 
   </CamcorderProfiles>
 
-  <EncoderOutputFileFormat name="3gp" />
-  <EncoderOutputFileFormat name="mp4" />
+    <EncoderOutputFileFormat name="mp4" />
 
   <!--
          If a codec is not enabled, it is invisible to the applications

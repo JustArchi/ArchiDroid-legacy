@@ -1,0 +1,286 @@
+<?xml version="1.0"?>
+<SDP version="0.9" domain="particular">
+
+	<Calendar accessibility="all">
+		<ASyncObex>
+		<FileFolderPath value="internal:\_SamsungBnR_\MDG\"/>
+		<SupportVersion value="1.0" />
+		</ASyncObex>	
+		<ImageLinkSupport value="TRUE">
+		</ImageLinkSupport>
+	    	<SupportMultiLocalCalendar accessibility="all" value = "TRUE" />
+		<SupportTodoGroup accessibility="all" value="FALSE"/>
+		<SyncHistory value="TRUE" />
+		<SupportRecurrenceException value="TRUE" />
+		<AvailableWithoutAccount value="TRUE" />
+		<Schedule>
+			<MaxItemCount value="0" />
+			<MaxScheduleCount>
+				<Appointment value="0" />
+			</MaxScheduleCount>
+
+			<Enums>
+				<Enum name="COMMON_TYPE">
+					<Element name="Appointment" />
+					<Element name="Anniversary" />
+				</Enum>
+
+				<Enum Name="CATEGORY_TYPE">
+					<Element name="Business" value="0" />
+					<Element name="Holiday" value="1" />
+					<Element name="Personal" value="2" />
+					<Element name="Seasonal" value="3" />
+				</Enum>
+
+				<Enum Name="ALARM_TIME_LIST_TYPE">
+					<Element name="Item0" value="None" type="None" />
+					<Element name="Item1" value="5" type="Minute" />
+					<Element name="Item2" value="15" type="Minute" />
+					<Element name="Item3" value="30" type="Minute" />
+					<Element name="Item4" value="1" type="Hour" />
+					<Element name="Item5" value="2" type="Hour" />
+					<Element name="Item6" value="0" type="OnTime" />
+				</Enum>
+
+				<Enum Name="ALARM_TIME_LIST_TYPE_B">
+					<Element Name="0" value="None" type="None" />
+					<Element Name="1" value="0" type="OnTime" />
+					<Element Name="2" value="1" type="Day" />
+					<Element Name="3" value="3" type="Day" />
+					<Element Name="4" value="7" type="Day" />
+				</Enum>
+
+				<Enum Name="ALARM_TIME_LIST_TYPE_C">
+					<Element name="Item0" value="None" type="None" />
+					<Element name="Item1" value="0" type="OnTime" />
+					<Element name="Item2" value="5" type="Minute" />
+					<Element name="Item3" value="15" type="Minute" />
+					<Element name="Item4" value="1" type="Hour" />
+					<Element name="Item5" value="1" type="Day" />
+					<Element name="Item6" value="2" type="Day" />
+					<Element name="Item7" value="1" type="Week" />
+				</Enum>
+
+				<Enum Name="ALARM_TIME_TYPE">
+					<Element Name="None" value="0" type="None" />
+					<Element Name="OnTime" value="1" type="OnTime" />
+					<Element Name="Minute" value="2" type="Minute" />
+					<Element Name="Hour" value="3" type="Hour" />
+					<Element Name="Day" value="4" type="Day" />
+					<Element Name="Week" value="5" type="Week" />
+				</Enum>
+
+				<Enum Name="ALARM_TIME_TYPE_B">
+					<Element Name="None" value="0" type="None" />
+					<Element Name="Day" value="1" type="Day" />
+					<Element Name="Week" value="2" type="Week" />
+				</Enum>
+
+				<Enum Name="ALARM_MELODY_TYPE">
+					<Element Name="bell" value="0" />
+					<Element Name="mp3" value="1" />
+					<Element Name="default bell" value="2" />
+					<Element Name="path" value="3" />
+					<Element Name="object" value="4" />
+				</Enum>
+
+				<Enum Name="DONE_STATE">
+					<Element Name="Done" value="0" />
+					<Element Name="Undone" value="1" />
+				</Enum>
+
+				<Enum name="RECURRENCE_TYPE_DOMESTIC_A">
+					<Element name="None" type="RECURRENCE_SUPPORT_FIELD_DOMESTICNONE" />
+					<Element name="Daily" type="RECURRENCE_SUPPORT_FIELD_DOMESTICNONE" />
+					<Element name="Weekly" type="RECURRENCE_SUPPORT_FIELD_DOMESTICNONE" />
+					<Element name="Monthly" type="RECURRENCE_SUPPORT_FIELD_DOMESTICNONE" />
+					<Element name="Yearly" type="RECURRENCE_SUPPORT_FIELD_DOMESTICNONE" />
+				</Enum>
+
+				<Enum name="RECURRENCE_TYPE_DOMESTIC_B">
+					<Element name="None" type="RECURRENCE_SUPPORT_FIELD_DOMESTICNONE" />
+					<Element name="Daily" type="RECURRENCE_SUPPORT_FIELD_DOMESTICNONE" />
+					<Element name="Weekly" type="RECURRENCE_SUPPORT_FIELD_DOMESTICWEEKLY" />
+					<Element name="Monthly" type="RECURRENCE_SUPPORT_FIELD_DOMESTICMONTHLY" />
+					<Element name="Yearly" type="RECURRENCE_SUPPORT_FIELD_DOMESTICYEARLY" />
+				</Enum>
+
+				<Enum name="RECURRENCE_TYPE_APPOINTMENT_A">
+					<Element name="None" type="RECURRENCE_SUPPORT_FIELD_DOMESTICNONE" />
+					<Element name="Daily" type="RECURRENCE_SUPPORT_FIELD_GSM_DAILY" />
+					<Element name="Weekly" type="RECURRENCE_SUPPORT_FIELD_GSM_DAILY" />
+					<Element name="Monthly" type="RECURRENCE_SUPPORT_FIELD_GSM_MONTHLY" />
+					<Element name="Yearly" type="RECURRENCE_SUPPORT_FIELD_GSM_YEARLY" />
+				</Enum>
+
+				<Enum name="RECURRENCE_TYPE_APPOINTMENT_B">
+					<Element name="None" type="RECURRENCE_SUPPORT_FIELD_DOMESTICNONE" />
+					<Element name="Daily" type="RECURRENCE_SUPPORT_FIELD_DOMESTICNONE" />
+					<Element name="Weekly" type="RECURRENCE_SUPPORT_FIELD_DOMESTICNONE" />
+					<Element name="Monthly" type="RECURRENCE_SUPPORT_FIELD_DOMESTICNONE" />
+				</Enum>
+
+				<Enum name="RECURRENCE_TYPE_APPOINTMENT_C">
+					<Element name="None" type="RECURRENCE_SUPPORT_FIELD_DOMESTICNONE" />
+					<Element name="Daily" type="RECURRENCE_SUPPORT_FIELD_GSM_DAILY" />
+					<Element name="Weekly" type="RECURRENCE_SUPPORT_FIELD_GSM_DAILY" />
+					<Element name="Monthly" type="RECURRENCE_SUPPORT_FIELD_GSM_MONTHLY" />
+				</Enum>
+
+				<Enum name="RECURRENCE_TYPE_APPOINTMENT_ANDROID">
+					<Element name="None" type="RECURRENCE_SUPPORT_FIELD_DOMESTICNONE" />
+					<Element name="Daily" type="RECURRENCE_SUPPORT_FIELD_DOMESTICNONE" />
+					<Element name="Workday" type="RECURRENCE_SUPPORT_FIELD_DOMESTICNONE" />
+					<Element name="Weekly" type="RECURRENCE_SUPPORT_FIELD_DOMESTICNONE" />
+					<Element name="Fortnightly" type="RECURRENCE_SUPPORT_FIELD_DOMESTICNONE" />
+					<Element name="MonthlyNth" type="RECURRENCE_SUPPORT_FIELD_DOMESTICNONE" />
+					<Element name="Monthly" type="RECURRENCE_SUPPORT_FIELD_DOMESTICNONE" />
+					<Element name="Yearly" type="RECURRENCE_SUPPORT_FIELD_DOMESTICNONE" />
+				</Enum>
+				<Enum name="RECURRENCE_TYPE_ANNIVERSARY_A">
+					<Element name="None" type="bool" />
+					<Element name="Yearly" type="bool" />
+				</Enum>
+
+				<Enum name="RECURRENCE_SUPPORT_FIELD_DOMESTICNONE">
+					<Element name="ExpiryDate" type="Date" value="2037" />
+				</Enum>
+
+				<Enum name="RECURRENCE_SUPPORT_FIELD_DOMESTICNOENDDATE">
+					<Element name="ExpiryDate" type="Date" />
+					<Element name="NoEndDate" type="Boolean" />
+				</Enum>
+
+				<Enum name="RECURRENCE_SUPPORT_FIELD_DOMESTICWEEKLY">
+					<Element name="DayOfWeek" type="int" />
+					<Element name="ExpiryDate" type="Date" />
+				</Enum>
+
+				<Enum name="RECURRENCE_SUPPORT_FIELD_DOMESTICMONTHLY">
+					<Element name="Day" type="int" />
+					<Element name="ExpiryDate" type="Date" />
+				</Enum>
+
+				<Enum name="RECURRENCE_SUPPORT_FIELD_DOMESTICYEARLY">
+					<Element name="Date" type="Date" />
+					<Element name="ExpiryDate" type="Date" />
+				</Enum>
+
+				<Enum name="RECURRENCE_SUPPORT_FIELD_GSM_DAILY">
+					<Element name="Every" type="int" />
+					<Element name="ExceptWeekends" type="bool" />
+					<Element name="ExpiryDate" type="Date" />
+				</Enum>
+
+				<Enum name="RECURRENCE_SUPPORT_FIELD_GSM_WEEKLY">
+					<Element name="Every" type="int" />
+					<Element name="DayOfWeek" type="int" />
+					<Element name="ExpiryDate" type="Date" />
+				</Enum>
+
+				<Enum name="RECURRENCE_SUPPORT_FIELD_GSM_MONTHLY">
+					<Element name="Every" type="int" />
+					<Element name="DayOfWeek" type="int" />
+					<Element name="Week" type="int" />
+					<Element name="ExpiryDate" type="Date" />
+				</Enum>
+
+				<Enum name="RECURRENCE_SUPPORT_FIELD_GSM_YEARLY">
+					<Element name="DayOfWeek" type="int" />
+					<Element name="Week" type="int" />
+					<Element name="Month" type="int" />
+					<Element name="ExpiryDate" type="Date" />
+				</Enum>
+
+				<Enum name="RECURRENCE_SUPPORT_FIELD_GSM_ANNIVERSARY_A">
+					<Element name="RepeatEvetyYear" type="bool" />
+				</Enum>
+
+				<Enum name="RECURRENCE_FLAG">
+					<Element name="Workday" value="0" />
+					<Element name="Sunday" value="1" />
+					<Element name="Monday" value="2" />
+					<Element name="Tuesday" value="4" />
+					<Element name="Wednesday" value="8" />
+					<Element name="Wednesday" value="8" />
+					<Element name="Wednesday" value="8" />
+					<Element name="Wednesday" value="8" />
+				</Enum>
+
+				<Enum name="ICON_TYPE">
+					<Element name="Calendar" value="0" />
+					<Element name="Greenexclamationmark" value="1" />
+					<Element name="Car" value="2" />
+					<Element name="Start" value="3" />
+					<Element name="Yellowflower" value="4" />
+					...
+				</Enum>
+
+				<Enum name="SENSITIVITY_TYPE">
+					<Element name="Normal" value="0" />
+					<Element name="Personal" value="1" />
+					<Element name="Private" value="2" />
+					<Element name="Confidential" value="3" />
+				</Enum>
+
+				<Enum Name="PRIORITY_TYPE">
+					<Element Name="High" value="0" />
+					<Element Name="Low" value="1" />
+					<Element Name="Normal" value="2" />
+				</Enum>
+
+			</Enums>
+			<Appointment>
+				<DataField>
+					<Title type="String" charset="utf-16" maxLength="2000" />
+					<StartDate type="DateTime" />
+					<EndDate type="DateTime" />
+					<AllDay type="Boolean" />
+					<Location type="String" charset="utf-16" maxLength="2000" />
+					<Alarm>
+						<AlarmTime type="ALARM_TIME_TYPE" />
+						<Value type="int" />
+					</Alarm>
+					<Recurrence type="RECURRENCE_TYPE_APPOINTMENT_ANDROID" />
+					<Content type="String" charset="utf-16" maxLength="2000" />
+				</DataField>
+			</Appointment>
+		</Schedule>
+
+		<Todo>
+			<MaxItemCount value="65535" />
+
+			<Enums>
+				<Enum Name="ALARM_TIME_LIST_TYPE">
+					<Element Name="0" value="None" type="None" />
+					<Element Name="1" value="0" type="OnTime" />
+					<Element Name="2" value="1" type="Day" />
+					<Element Name="3" value="3" type="Day" />
+					<Element Name="4" value="7" type="Day" />
+				</Enum>
+				<Enum name="PRIORITY_TYPE">
+					<Element name="High" value="1" />
+					<Element name="Normal" value="2" />
+					<Element name="Low" value="3" />
+				</Enum>
+				<Enum name="DONE_STATE">
+					<Element name="Done" value="1" />
+					<Element name="UnDone" value="2" />
+				</Enum>
+			</Enums>
+			<DataField>
+				<Title type="String" charset="utf-16" maxLength="1000" />
+				<Content type="String" charset="utf-16" maxLength="2000" />
+				<StartTime type="Date" />
+				<EndTime type="Date" />
+				<Priority type="PRIORITY_TYPE" />
+				<Alarm>
+					<Date type="Date" />
+					<Time type="Time" />
+				</Alarm>
+				<Done type="DONE_STATE" />
+			</DataField>
+		</Todo>
+
+	</Calendar>
+</SDP>

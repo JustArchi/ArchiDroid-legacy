@@ -1,0 +1,11 @@
+﻿<?xml  version="1.0" encoding="UTF-8" ?>
+<SamsungMobileFeauture>
+  <Version>ED001</Version>
+  <Country>SWITZERLAND</Country>
+  <CountryISO>CH</CountryISO>
+  <SalesCode>AUT</SalesCode>
+  <FeatureSet>
+    <CscFeature_Common_DisablePhoneNumberFormatting>TRUE</CscFeature_Common_DisablePhoneNumberFormatting>
+    <CscFeature_Web_EnableAutoSimHomeUrlInProfile>TRUE</CscFeature_Web_EnableAutoSimHomeUrlInProfile>
+  </FeatureSet>
+</SamsungMobileFeauture>

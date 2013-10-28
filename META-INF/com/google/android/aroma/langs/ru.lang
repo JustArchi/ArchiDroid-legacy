@@ -85,7 +85,7 @@ archidroid.preset.group=Режим
 archidroid.preset.custom=Настраиваемый
 archidroid.preset.custom.desc=Вы сможете полностью управлять процессом установки.
 archidroid.preset.barebones=Голые кости
-archidroid.preset.barebones.desc=Чистый CyanogenMod. Предназначен для тестирования, не рекомендуется.
+archidroid.preset.barebones.desc=Чистый Samsung. Предназначен для тестирования, не рекомендуется.
 archidroid.preset.previous=Сохраненный режим установки
 archidroid.preset.previous.desc=Загружает Ваш сохраненный режим установки (если Вы его сохраняли ранее).
 
@@ -95,33 +95,31 @@ archidroid.custom=Настройки ArchiDroid
 archidroid.custom.extra=Экстра настройки ArchiDroid
 archidroid.custom.desc=Выберите установки на свой вкус
 
-archidroid.kernel.temasek.desc=Рекомнедовано для высокой производительности, энергосбережения, гибкости и звука boeffla.
 archidroid.kernel.boeffla.desc=Крайне рекомендованный всем шедевр, включающий в себя звук boeffla и множество других особенностей.
 archidroid.kernel.yank.desc=Рекомендуется в качестве альтернативы Temasek.
 archidroid.kernel.googy.desc=Основан на Siyah. Уникален возможностью dual-boot.
 archidroid.kernel.stock.desc=Ядро по умлочанию из CM.
 
-archidroid.dpi.240.desc=Внимание! Помните о вероятности незначительных графических искажений на этом DPI.
-archidroid.dpi.241.desc=Все будет меньше, включая кнопки, иконки, шрифт и т.д. Рекомендовано для лучшего опыта использования ArchiDroid!
+archidroid.dpi.240.desc=Все будет меньше, включая кнопки, иконки, шрифт и т.д. Рекомендовано для лучшего опыта использования ArchiDroid!
 archidroid.dpi.280.desc=Прекрасный баланс между стоковым и режимом 240 DPI.
 archidroid.dpi.320.desc=Значение по умолчанию
 
 archidroid.launcher.nova.desc=Рекомендуется для ультра гибкости и прозводительности.
-archidroid.launcher.stock.desc=Родной лончер CM, известный как Trebuchet
+archidroid.launcher.stock.desc=Stock TouchWiz
 archidroid.launcher.none.desc=No launcher. WARNING! Don't tick if you're after full wipe! You need at least one custom launcher before first boot!
 
 archidroid.keyboard=Клавиатура
 archidroid.keyboard.touchpal.desc=Рекомендована как очень гибкая в настройках клавиатура с поддержкой жестов.
 archidroid.keyboard.hackers.desc=Отличная альтернатива TouchPal, если Вы не собираетесь использовать жесты.
 archidroid.keyboard.both.desc=Если Вы хотите использовать и TouchPal, и Hacker's (например в Терминале).
-archidroid.keyboard.stock.desc=Если Вы хотите использовать клавитуру по умолчанию из CM.
+archidroid.keyboard.stock.desc=Если Вы хотите использовать клавитуру по умолчанию из Samsung.
 archidroid.keyboard.none.desc=No keyboard. WARNING! Don't tick if you're after full wipe! You need at least one custom keyboard before first boot!
 
 archidroid.bootanimation=Анимация загрузки
 archidroid.bootanimation.archi.desc=Новая красивая анимация ArchiDroid.
 archidroid.bootanimation.archilegacy.desc=Старая анимация из ArchiDroid 1.X.
 archidroid.bootanimation.logcat.desc=Меняет анимацию загрузки на вывод логов загрузки - при поддержке logcat lite.
-archidroid.bootanimation.stock.desc=Стоковая анимация из CyanogenMod.
+archidroid.bootanimation.stock.desc=Стоковая анимация из Samsung.
 archidroid.bootanimation.none.desc=Без анимации. Немного более быстрая загрузка.
 
 archidroid.other=Другое
@@ -151,8 +149,6 @@ archidroid.apps.facebook.desc=Приложения Facebook и Messenger с ин
 
 archidroid.tweaks.hdvoice.desc=Включает HD Voice при наличии поддержки.
 archidroid.tweaks.buildtweaks.desc=Множество тонких настроек build.prop, включая более глубокий сон, настройки производительности и многое другое.
-archidroid.tweaks.openpdroid.desc=Применить патч OpenPDroid после установки (если доступен).
-archidroid.tweaks.nocell.desc=Считается ненужным приложением. Снимите галку, если хотите оставить его.
 
 archidroid.preset.no=Без выбора режима.
 archidroid.preset.no.desc=Не рекомендуется, т.к. Вы потеряете большую чатью оптимизации от Archi.
@@ -163,13 +159,6 @@ archidroid.preset.kernel.boeffla.archipowersave=Энергосберегающи
 archidroid.preset.kernel.boeffla.archipowersave.desc=Сбалансированный режим для всех с немного пониженным напряжением. Идеальный баланс между производительностью и расходом батареи. Archi рекомендует.
 archidroid.preset.kernel.boeffla.archiultrapowersave=Ультраэнергосберегающий режим ArchiDroid
 archidroid.preset.kernel.boeffla.archiultrapowersave.desc=Разработан и оптимизирован для максимально длительной работы от батареи с умеренно пониженным напряжением. Длительная работа от батареи в ущерб производительности.
-
-archidroid.preset.kernel.temasek.balanced=Сбалансированная конфигурация ArchiDroid
-archidroid.preset.kernel.temasek.balanced.desc=Основана на оптимизированных zzmoove, zram, boeffla и т.д. С выходом zzmoove 0.7 стала неактуальной.
-archidroid.preset.kernel.temasek.powersave=Энергосберегающая конфигурация ArchiDroid
-archidroid.preset.kernel.temasek.powersave.desc=Очень энергосебергающая, основанная на Yank's Battery zzmoove с более улучшенным управлением ядрами процессора.
-archidroid.preset.kernel.temasek.ultra=Ультраэнергосберегающая конфигурация ArchiDroid
-archidroid.preset.kernel.temasek.ultra.desc=Ультраэнергосберегающая конфигурация, основанная на Archi's Ultra Battery zzmoove с LCDFreq.
 
 archidroid.boeffla.yesarchi=ДА, с аудиофильскими настройками Archi.
 archidroid.boeffla.yesarchi.desc=Крайне рекомендовано. Улучшает качество звука установкой Boeffla SC и настройками по вкусу Archi.

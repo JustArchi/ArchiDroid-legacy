@@ -1,0 +1,269 @@
+<?xml  version="1.0" encoding="UTF-8" ?>
+<!-- It can be added for each operators like below form
+
+<ABC>                       -> sales code
+<sapient>true</sapient>         -> feature1
+<burton>false</burton>          -> feature2
+<libtech>true</libtech>         -> feature3
+.
+.
+</ABC>
+
+each name of tags are will be environment variable with "ro.csc."
+ex) "ro.csc.sapient", "ro.csc.burton", "ro.csc.libtech" <== you could use them at any section.
+also, should be added between <FeatureSet>
+ and </FeatureSet> .
+jhwan.kim@hdlnc.com  -->
+<SamsungMobileFeature>
+
+<Country></Country>
+<CountryISO></CountryISO>
+<SalesCode></SalesCode>
+
+<!-- Default Values -->
+<FeatureSet>
+<!-- Common -->
+<CscFeature_Common_MyPhonebookBrandName></CscFeature_Common_MyPhonebookBrandName>
+<CscFeature_Common_EnableMobileOfficeMdm>false</CscFeature_Common_EnableMobileOfficeMdm>
+<CscFeature_Common_AddPrefix4InternationalCall></CscFeature_Common_AddPrefix4InternationalCall>
+<CscFeature_Common_AllowExternalApkUsage>false</CscFeature_Common_AllowExternalApkUsage>
+ <CscFeature_Common_EnableBaidu></CscFeature_Common_EnableBaidu>
+<CscFeature_Common_EnableHDVoiceDuring3GConnection>false</CscFeature_Common_EnableHDVoiceDuring3GConnection>
+
+
+<!-- SyncML -->
+<CscFeature_SyncML_MyPhonebookISD></CscFeature_SyncML_MyPhonebookISD>
+<CscFeature_SyncML_EnableLimitationDeltaSizeViaMobileNet>-1</CscFeature_SyncML_EnableLimitationDeltaSizeViaMobileNet>
+<CscFeature_SyncML_EnableShowVersionNameAferSuccessfulUpdate>false</CscFeature_SyncML_EnableShowVersionNameAferSuccessfulUpdate>
+<CscFeature_SyncML_EnableNotiDeltaBinarySizeBeforeDownload>false</CscFeature_SyncML_EnableNotiDeltaBinarySizeBeforeDownload>
+
+<!-- Camera -->
+<CscFeature_Camera_DefaultSideMenu>selfcamera,flashmode,shootingmode,effect</CscFeature_Camera_DefaultSideMenu>
+<CscFeature_Camera_CamcorderDefaultSideMenu>selfcamcorder,recordingmode,flashmode,effect</CscFeature_Camera_CamcorderDefaultSideMenu>
+<CscFeature_Camera_CameraFlicker>50hz</CscFeature_Camera_CameraFlicker>
+<CscFeature_Camera_CamcoderForceShutterSoundDuringSnapShot>false</CscFeature_Camera_CamcoderForceShutterSoundDuringSnapShot>
+<!-- Message -->
+
+<CscFeature_Message_MaxMessageSize>307200</CscFeature_Message_MaxMessageSize>
+<CscFeature_Message_MmsModeCaptureVideoMaxSize>302080</CscFeature_Message_MmsModeCaptureVideoMaxSize>
+<CscFeature_Message_MaxImageWidth>640</CscFeature_Message_MaxImageWidth>
+<CscFeature_Message_MaxImageHeight>480</CscFeature_Message_MaxImageHeight>
+<CscFeature_Message_RecipientLimit>10</CscFeature_Message_RecipientLimit>
+
+
+
+
+<CscFeature_Message_HttpSocketTimeout>60000</CscFeature_Message_HttpSocketTimeout>
+<CscFeature_Message_MinSlideDuration>5</CscFeature_Message_MinSlideDuration>
+<CscFeature_Message_SmsToMmsTextThreshold>4</CscFeature_Message_SmsToMmsTextThreshold>
+<CscFeature_Message_DisableMenuRequestMmsReadReport>false</CscFeature_Message_DisableMenuRequestMmsReadReport>
+<CscFeature_Message_EnableSmsDeliveryReports>true</CscFeature_Message_EnableSmsDeliveryReports>
+<CscFeature_Message_DisableMenuRequestMmsDeliveryReport>false</CscFeature_Message_DisableMenuRequestMmsDeliveryReport>
+<CscFeature_Message_MMSMaxCharPerSlide>2000</CscFeature_Message_MMSMaxCharPerSlide>
+
+<CscFeature_Message_EnableWapPush>true</CscFeature_Message_EnableWapPush>
+<CscFeature_Message_EnableSmscEditable>true</CscFeature_Message_EnableSmscEditable>
+<CscFeature_Message_TWVersion>500</CscFeature_Message_TWVersion>
+<CscFeature_Message_EnableReplyAll>false</CscFeature_Message_EnableReplyAll>
+<CscFeature_Message_AutoRetrieval>true</CscFeature_Message_AutoRetrieval>
+<CscFeature_Message_SmsInputMode>automatic</CscFeature_Message_SmsInputMode>
+<CscFeature_Message_MmsCreationMode>free</CscFeature_Message_MmsCreationMode>
+<CscFeature_Message_ServiceLoadingAction>prompt</CscFeature_Message_ServiceLoadingAction>
+<CscFeature_Message_MessageReminderAlert>1</CscFeature_Message_MessageReminderAlert>
+<CscFeature_Message_EnableMmsCreationMode>true</CscFeature_Message_EnableMmsCreationMode>
+<CscFeature_Message_EnableServiceLoading>true</CscFeature_Message_EnableServiceLoading>
+<CscFeature_Message_EnableSmsInputMode>true</CscFeature_Message_EnableSmsInputMode>
+<CscFeature_Message_MaxSlideCount>10</CscFeature_Message_MaxSlideCount>
+<CscFeature_Message_EnableVCard>true</CscFeature_Message_EnableVCard>
+<CscFeature_Message_DisableOptionAttachVCalendar>false</CscFeature_Message_DisableOptionAttachVCalendar>
+<CscFeature_Message_EnableVMemo>true</CscFeature_Message_EnableVMemo>
+<CscFeature_Message_EnableLocation>true</CscFeature_Message_EnableLocation>
+<CscFeature_Message_EnableRecordAudio>true</CscFeature_Message_EnableRecordAudio>
+<CscFeature_Message_EnableMmsServerTime>true</CscFeature_Message_EnableMmsServerTime>
+<CscFeature_Message_EnableStageFlightLib>true</CscFeature_Message_EnableStageFlightLib>
+<CscFeature_Message_EnableCBMessage>true</CscFeature_Message_EnableCBMessage>
+<CscFeature_Message_MaxSubjectLength>40</CscFeature_Message_MaxSubjectLength>
+<CscFeature_Message_EnableSubject>true</CscFeature_Message_EnableSubject>
+<CscFeature_Message_EnableSlideshowAutoPlay>true</CscFeature_Message_EnableSlideshowAutoPlay>
+<CscFeature_Message_DisableOptionAttachAudio>false</CscFeature_Message_DisableOptionAttachAudio>
+<CscFeature_Message_EnableFontSize>true</CscFeature_Message_EnableFontSize>
+<CscFeature_Message_EnableSplitMode>true</CscFeature_Message_EnableSplitMode>
+<CscFeature_Message_EnableTextFieldColor>true</CscFeature_Message_EnableTextFieldColor>
+
+<CscFeature_Message_MaxMmsSize>307200</CscFeature_Message_MaxMmsSize>
+<CscFeature_Message_SplitMode>true</CscFeature_Message_SplitMode>
+
+<CscFeature_Message_CBMessage>true</CscFeature_Message_CBMessage>
+<CscFeature_Message_EnableManageSimMessages>true</CscFeature_Message_EnableManageSimMessages>
+<CscFeature_Message_VibrateWhen>never</CscFeature_Message_VibrateWhen>
+<CscFeature_Message_Priority>normal</CscFeature_Message_Priority>
+<CscFeature_Message_EnableFontSizeByVolumeKey>true</CscFeature_Message_EnableFontSizeByVolumeKey>
+
+<CscFeature_Message_EnableAlias>false</CscFeature_Message_EnableAlias>
+<CscFeature_Message_EnableMenuSmsExpiryDate>false</CscFeature_Message_EnableMenuSmsExpiryDate>
+<CscFeature_Message_EnableDSAC>false</CscFeature_Message_EnableDSAC>
+<CscFeature_Message_EnableSMSPcheckWhenSendSMS>false</CscFeature_Message_EnableSMSPcheckWhenSendSMS>
+<CscFeature_Message_EnableSegmentedSMS>false</CscFeature_Message_EnableSegmentedSMS>
+
+<!-- KIES -->
+<CscFeature_Kies_SupportCategory>Device,Calendar,Contents,Phonebook,Memo,Message,Phonebook_com.android.exchange,Phonebook_com.google</CscFeature_Kies_SupportCategory>
+<CscFeature_Kies_DrCategory>IMEI,Ril_Sales,Normal,MSISDN,Normal,GT-I9100,Normal,Normal,Normal</CscFeature_Kies_DrCategory>
+<CscFeature_Kies_WifiCategory>Phone,Normal,Normal,1280X720,20,Normal</CscFeature_Kies_WifiCategory>
+<CscFeature_Kies_NpsCategory>Normal,Normal,Normal,Normal,Normal,Normal,Normal,Normal,Normal,Normal,Normal,Normal,Normal,Normal,Normal,Normal</CscFeature_Kies_NpsCategory>
+
+
+<!-- Contacts -->
+<CscFeature_Contact_SupportMotionCall>true</CscFeature_Contact_SupportMotionCall>
+<CscFeature_Contact_ImProviderFirstPostion_As>AIM</CscFeature_Contact_ImProviderFirstPostion_As>
+<CscFeature_Contact_SetLinkCountMaxAs>5</CscFeature_Contact_SetLinkCountMaxAs>
+<CscFeature_Contact_AddPreloadedSpeedDialAs>None,0,None,None</CscFeature_Contact_AddPreloadedSpeedDialAs>
+<CscFeature_Contact_EnablePuzzySearch>NONE</CscFeature_Contact_EnablePuzzySearch>
+<CscFeature_Contact_EnableExceptionHandling4Corea>false</CscFeature_Contact_EnableExceptionHandling4Corea>
+<CscFeature_Contact_FastScrollDepth>2</CscFeature_Contact_FastScrollDepth>
+<CscFeature_Contact_MaxCountVcardAttachment>10</CscFeature_Contact_MaxCountVcardAttachment>
+<CscFeature_Contact_LimitNameLength>1000</CscFeature_Contact_LimitNameLength>
+<CscFeature_Contact_DoNotSaveEcc>false</CscFeature_Contact_DoNotSaveEcc>
+<CscFeature_Contact_FavoritesWidgetRows>3</CscFeature_Contact_FavoritesWidgetRows>
+
+<!-- New Calendar -->
+<CscFeature_Calendar_EnableLocalHolidayDisplay>NONE</CscFeature_Calendar_EnableLocalHolidayDisplay>
+<CscFeature_Calendar_SetColorOfDays>XXXXXXR</CscFeature_Calendar_SetColorOfDays>
+<CscFeature_Calender_EnableWeatherInfo>false</CscFeature_Calender_EnableWeatherInfo>
+
+<!-- Call -->
+<CscFeature_VoiceCall_EnableSSC>false</CscFeature_VoiceCall_EnableSSC>
+<CscFeature_VoiceCall_DisableAutoAnswerInSilentNEarjactMode>false</CscFeature_VoiceCall_DisableAutoAnswerInSilentNEarjactMode>
+<CscFeature_VoiceCall_EnableDisplayVMTelNumDuringCall>false</CscFeature_VoiceCall_EnableDisplayVMTelNumDuringCall> 
+<!-- Network Settings -->
+
+<!-- Phone -->
+
+<!-- Calculator -->
+
+<!-- Clock -->
+<CscFeature_Clock_EnableAlarmSnoozeDefault>true</CscFeature_Clock_EnableAlarmSnoozeDefault>
+<CscFeature_Clock_EnableAlarmVolumeSpr>true</CscFeature_Clock_EnableAlarmVolumeSpr>
+<CscFeature_Clock_EnableAlarmRepeatTypeWeeklySpr>true</CscFeature_Clock_EnableAlarmRepeatTypeWeeklySpr>
+<CscFeature_Clock_DisableServProvider>NONE</CscFeature_Clock_DisableServProvider>
+
+<!-- Mini Diary -->
+<CscFeature_MiniDiary_DisableChinaSns>true</CscFeature_MiniDiary_DisableChinaSns>
+
+<!-- Memo -->
+
+<!-- Dialer / Logs -->
+
+<!-- RIL -->
+<CscFeature_RIL_DisplayPlmnByLURejectCause>true</CscFeature_RIL_DisplayPlmnByLURejectCause>
+<CscFeature_RIL_CallerIdMatchingDigit>-1</CscFeature_RIL_CallerIdMatchingDigit>
+<CscFeature_RIL_DisablePromptPopup4SIMProfileSelection>false</CscFeature_RIL_DisablePromptPopup4SIMProfileSelection>
+<CscFeature_RIL_PDPRetryMechanism4>NONE</CscFeature_RIL_PDPRetryMechanism4>
+<CscFeature_RIL_Enable2DigitCall>true</CscFeature_RIL_Enable2DigitCall>
+<CscFeature_RIL_EnableRoamingIcon4NationalRoaming>false</CscFeature_RIL_EnableRoamingIcon4NationalRoaming>
+<CscFeature_RIL_ControlFakeRoamingNRP2G>false</CscFeature_RIL_ControlFakeRoamingNRP2G>
+<CscFeature_RIL_EnableVoicePriority>false</CscFeature_RIL_EnableVoicePriority>
+<CscFeature_RIL_BlockUsingRoamingProtocol>false</CscFeature_RIL_BlockUsingRoamingProtocol>
+
+<!-- Settings -->
+<CscFeature_Settings_FindMyMobile>true</CscFeature_Settings_FindMyMobile>
+<CscFeature_Setting_EnableSimChangeAlertOnly4FindMobile>false</CscFeature_Setting_EnableSimChangeAlertOnly4FindMobile>
+<CscFeature_Setting_OperatorSpecificPreConfigKeyString>Samsung</CscFeature_Setting_OperatorSpecificPreConfigKeyString>
+<CscFeature_Setting_FixApn4SpecificMccMnc>false</CscFeature_Setting_FixApn4SpecificMccMnc>
+
+<!-- MyFiles -->
+
+<!-- Gallery -->
+<CscFeature_Gallery_DisablePreloadedAccount></CscFeature_Gallery_DisablePreloadedAccount>
+
+<!-- Music -->
+<CscFeature_Music_SupportPinyinSort>false</CscFeature_Music_SupportPinyinSort>
+<CscFeature_Music_DisableFindTag>false</CscFeature_Music_DisableFindTag>
+<CscFeature_Music_SupportChinaMusicHub>false</CscFeature_Music_SupportChinaMusicHub>
+<CscFeature_Music_TranslateUnknownTitle>false</CscFeature_Music_TranslateUnknownTitle>
+<CscFeature_Music_DisableSelectableMusichubLink>false</CscFeature_Music_DisableSelectableMusichubLink>
+
+<!-- VoiceRecorder -->
+
+
+<!-- MMFW -->
+<CscFeature_MediaScanner_FixLocaleTo></CscFeature_MediaScanner_FixLocaleTo>
+<CscFeature_MediaScanner_SkipFolder4></CscFeature_MediaScanner_SkipFolder4>
+<CscFeature_MediaProvider_AddTable4VT>false</CscFeature_MediaProvider_AddTable4VT>
+<CscFeature_MediaProvider_AddDB4VAS>false</CscFeature_MediaProvider_AddDB4VAS>
+<CscFeature_MediaProvider_HideVoiceFilesInMusic>true</CscFeature_MediaProvider_HideVoiceFilesInMusic>
+
+<!-- NFC -->
+
+<!-- WEB -->
+<CscFeature_Web_Bool_EnableDRM>true</CscFeature_Web_Bool_EnableDRM>
+
+<!-- AppFW -->
+<CscFeature_Framework_HyperLinkDigit>5</CscFeature_Framework_HyperLinkDigit>
+<CscFeature_Framework_ReplaceDataTypeIconAsOpBrand>OPEN</CscFeature_Framework_ReplaceDataTypeIconAsOpBrand>
+<CscFeature_Framework_EnableScrCaptureSoundOnlyInCamera>false</CscFeature_Framework_EnableScrCaptureSoundOnlyInCamera>
+<CscFeature_Framework_DisableForceClosePopup>false</CscFeature_Framework_DisableForceClosePopup>
+<CscFeature_Framework_AddProductRoField></CscFeature_Framework_AddProductRoField>
+
+<!-- Email -->
+<CscFeature_Email_DefaultSyncInterval>15</CscFeature_Email_DefaultSyncInterval>
+<CscFeature_Email_UseFixedSmtpPortAs>587</CscFeature_Email_UseFixedSmtpPortAs>
+
+<CscFeature_Email_EasDefaultSyncInterval>-2</CscFeature_Email_EasDefaultSyncInterval>
+<CscFeature_Email_EasSyncServiceCommandTimeoutValue>80</CscFeature_Email_EasSyncServiceCommandTimeoutValue>
+<CscFeature_Email_EasSyncServiceConnectionTimeoutValue>40</CscFeature_Email_EasSyncServiceConnectionTimeoutValue>
+
+<!-- SEC FMRadio -->
+<CscFeature_FMRadio_FrequencySpaceAs>100</CscFeature_FMRadio_FrequencySpaceAs>
+<CscFeature_FMRadio_DefaultChannelAs>87.5</CscFeature_FMRadio_DefaultChannelAs>
+<CscFeature_FMRadio_DisableRTPlusInfo>false</CscFeature_FMRadio_DisableRTPlusInfo>
+<CscFeature_FMRadio_DeconstantAs>50</CscFeature_FMRadio_DeconstantAs>
+<CscFeature_FMRadio_BandWidthAs>87500_108000</CscFeature_FMRadio_BandWidthAs>
+
+<!-- BT -->
+<CscFeature_BT_EnableExceptionHandling4Corea>false</CscFeature_BT_EnableExceptionHandling4Corea>
+
+<!-- SEC LiveWallpaper -->
+<CscFeature_LiveWallpaper_TopicWallNewsCPName>yahoonews</CscFeature_LiveWallpaper_TopicWallNewsCPName>
+<CscFeature_LiveWallpaper_TopicWallStockCPName>yahoostock</CscFeature_LiveWallpaper_TopicWallStockCPName>
+<CscFeature_LiveWallpaper_WeatherWallCPName>accuweather</CscFeature_LiveWallpaper_WeatherWallCPName>
+
+<!-- SEC Framework -->
+<CscFeature_Framework_EnableLinuxCommonApi4>NONE</CscFeature_Framework_EnableLinuxCommonApi4>
+
+<!-- Streaming -->
+<CscFeature_Streaming_SupportMultiAPN>false</CscFeature_Streaming_SupportMultiAPN>
+<CscFeature_Streaming_AddCommandCondition4MusicholicApp>false</CscFeature_Streaming_AddCommandCondition4MusicholicApp>
+<CscFeature_Streaming_DrivingTestTunning4></CscFeature_Streaming_DrivingTestTunning4>
+<CscFeature_Streaming_ReduceTimeSwitchingTcp4></CscFeature_Streaming_ReduceTimeSwitchingTcp4>
+
+<!-- IMS -->
+
+<!-- Wifi -->
+<CscFeature_Wlan_UseDefaultSecurityAs>OPEN</CscFeature_Wlan_UseDefaultSecurityAs>
+<CscFeature_Wifi_MaxClient4MobileAp>10</CscFeature_Wifi_MaxClient4MobileAp>
+<CscFeature_Wifi_EapMethodSetting>NONE</CscFeature_Wifi_EapMethodSetting>
+<CscFeature_Wifi_EnableMenuIWLAN4>NONE</CscFeature_Wifi_EnableMenuIWLAN4>
+<CscFeature_Wifi_EnableMenuConnPriorityMode>false</CscFeature_Wifi_EnableMenuConnPriorityMode>
+<CscFeature_Wifi_PreferredBand>false</CscFeature_Wifi_PreferredBand>
+<CscFeature_Wifi_ExceptScanlist>false</CscFeature_Wifi_ExceptScanlist>
+<CscFeature_Wifi_Reset>false</CscFeature_Wifi_Reset>
+
+<!-- GMS -->
+
+<!-- SEC Launcher -->
+
+<!-- Voice Talk -->
+
+<!-- SPenGesturePad -->
+<CscFeature_SPenGesturePad_UseSearchEngine>false</CscFeature_SPenGesturePad_UseSearchEngine>
+
+<!-- StoryAlbum -->
+<CscFeature_StoryAlbum_CPConfig></CscFeature_StoryAlbum_CPConfig>
+<!-- JobManager -->
+<CscFeature_JobManager_EnableUnusedAppsControl>false</CscFeature_JobManager_EnableUnusedAppsControl>
+
+<!-- FeliCa -->
+<CscFeature_FeliCa_EnableFeliCa>false</CscFeature_FeliCa_EnableFeliCa>
+
+</FeatureSet>
+</SamsungMobileFeature>

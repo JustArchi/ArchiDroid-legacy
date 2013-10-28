@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<SDP version="0.9" domain="Particular">
+	<Device>
+		<ModelName value=""/>
+		<BaseModelName  value="GT-I9300"/>
+		<ProjectName value="M0"/>
+		<FriendlyName value="M0"/>
+		<ProductLineup value="HHP"/>
+		<OS value="Android" version="4.2"/>
+		<TargetMarket value= "Europe" />
+		<LoadingMode value = "Runtime"/>
+		<Platform value="Android" lab="GALAB"/>
+		<Language value= "English" />
+		<SIM accessibility="all">
+			<SupportPhonebook accessibility="all" value="true" />
+			<SupportDualSim value="FALSE" />
+		</SIM>
+		<LCD>
+			<Type value="HD"/>
+			<Width value="720"/>
+			<Height value="1280"/>
+			<Color value="16777216"/>
+		</LCD>
+		<Operator value="Open" />
+		<ConnectModes>
+			<USB>
+				<ConnectMode name="PCLink" value= "MODEM">
+					<SupportApp>
+						<Calendar/>
+						<Phonebook/>
+						<Photo/>
+	        				<Music/>
+	        				<Video/>  
+	        				<Task/>  
+						<MessageManager/>
+						<MessageSender />			
+						<Smemo/>
+						<BackupRestore/>
+						<AsyncBackupRestore/>
+					</SupportApp>
+				</ConnectMode>
+				<ConnectMode name="RemovableDisk" value= "UMS" >
+					<SupportApp>
+						<FileManagement/>
+					</SupportApp>
+				</ConnectMode>
+			</USB>
+      
+			<WIFI>
+				<ConnectMode name="PCLink" value= "MODEM">
+					<SupportApp>
+						<Phonebook/>
+						<Calendar/>
+						<Photo/>
+	        				<Music/>
+	        				<Video/>  
+	        				<Task/>  
+						<FileManagement/>
+						<MessageManager/>
+						<MessageSender />	           
+						<Smemo/>
+						<AsyncBackupRestore/>
+					</SupportApp>
+					<EncryptConnection value="TRUE" />
+					<SupportAutoConnection value="TRUE" />
+					<EncryptAllData value="TRUE"/>
+				</ConnectMode> 
+			</WIFI>
+		</ConnectModes>
+
+		<SIM>
+			<SupportDualSim value="FALSE" />
+		</SIM>
+		<TwoNumber value="FALSE"/>
+		<Storage>
+			<SupportExternal value="TRUE"/>
+		</Storage>
+		<TimeCoordinate value="UTC"/>
+		<DST value="FALSE"/>
+
+		<MediaSync value="FALSE">
+		</MediaSync>
+		<BackupRestore value="TRUE"/>
+		<FirmwareUpdate value="TRUE"/>
+		<MacSupport value="TRUE"/>
+		<QuickFixes>
+		<ModelDB>
+			<Property name="IgnoreAccount" value="false" /> 
+		</ModelDB>
+	</QuickFixes>    
+  </Device>
+</SDP>

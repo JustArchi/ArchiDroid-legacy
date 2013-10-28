@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SDP version="1.1">
+	<Phonebook>
+		<MaxItemCount value="65535" />
+		<GUITemplate value="ANDROID"> 
+			<Revision value="JELLYBEAN"/> 
+		</GUITemplate>
+		<SupportFavorite  Value="TRUE"/>
+		<SupportFullSizePhoto  Value="TRUE"/>
+		<PhotoSize accessibility="all" value="720*720"/>
+		<MultipleAccount value="TRUE"/>
+		<SupportSync value="FALSE"/>
+		<MinimumYear value="1902"/>
+		<MaximumYear value="2037"/>
+		<DialChar value="*#,+,;()/N- ." />
+		<Enums>
+			<Enum name="TEL_TYPE" >
+				<Element type="Default" name="Mobile" />
+				<Element type="Default" name="Landline.Private" />
+				<Element type="Default" name="Landline.Business" />
+				<Element type="Default" name="Fax.Business" />
+				<Element type="Default" name="Fax.Private" />
+				<Element type="Default" name="Pager" />
+				<Element type="Default" name="Etc" />
+				<Element type="Default" name="Custom" />
+				<Element type="Default" name="Callback" />
+				<Element type="Internet" name="InternetPhone" />
+			</Enum>
+			<Enum name="GENERAL_TYPE">
+				<Element name="Private" />
+				<Element name="Business" />
+				<Element name="Other" />
+				<Element name="Custom" />
+			</Enum>
+			<Enum name="ADDRESS_TYPE" DataLength="1">
+				<Element name="Private" value="1" />
+				<Element name="Business" value="2" />
+				<Element name="Other" value="3" />
+				<Element name="Custom" value="3" />
+			</Enum>
+			<Enum name="MESSENGER_TYPE" >
+				<Element name="AIM" />
+				<Element name="WindowsLive" />
+				<Element name="Yahoo" />
+				<Element name="Skype" />
+				<Element name="QQ" />
+				<Element name="GoogleTalk" />
+				<Element name="ICQ" />
+				<Element name="Jabber" />
+				<Element name="Custom" />
+			</Enum>
+			<Enum name="RELATION_TYPE">
+				<Element name="X-ASSISTANT" />
+				<Element name="X-BROTHER" />
+				<Element name="X-CHILD" />
+				<Element name="X-DOMESTICPARTNER" />
+				<Element name="X-FATHER" />
+				<Element name="X-FRIEND" />
+				<Element name="X-MANAGER" />
+				<Element name="X-MOTHER" />
+				<Element name="X-PARENT" />
+				<Element name="X-PARTNER" />
+				<Element name="X-REFERDBY" />
+				<Element name="X-RELATIVE" />
+				<Element name="X-SISTER" />
+				<Element name="X-SPOUSE" />
+				<Element name="Custom" />
+			</Enum>			
+			<Enum name="EVENT_TYPE" >
+				<Element name="Other"/>
+				<Element name="Custom"/>
+			</Enum>
+		</Enums>
+		<DataField>
+			<Names>
+				<FirstName type="String" charset="utf-16" MaxLength="2000"/>
+				<MiddleName type="String" charset="utf-16" MaxLength="2000"  />
+				<LastName type="String" charset="utf-16" MaxLength="2000"/>
+				<TitleName type="String" charset="utf-16" MaxLength="2000"  />
+				<SuffixName type="String" charset="utf-16" MaxLength="2000"  />
+				<ReadingFirstName type="String" charset="utf-16" MaxLength="2000" />
+				<ReadingMiddleName type="String" charset="utf-16" MaxLength="2000" />
+				<ReadingLastName type="String" charset="utf-16" MaxLength="2000" />
+			</Names>
+			<TelNumbers>
+				<TelNumber Count="9">
+					<TelType Type="TEL_TYPE" value="Default"/>
+					<TelNum	Type="String" CharSet="utf-16" MaxLength="2000" />
+				</TelNumber>
+				<TelNumber Count="1">
+					<TelType Type="TEL_TYPE" value="Internet"/>
+					<TelNum Type="String" CharSet="utf-16" MaxLength="2000" />
+				</TelNumber>
+			</TelNumbers>
+			<Emails>
+				<Email Count="10">
+					<EmailType Type="GENERAL_TYPE" Value="1"/>
+					<EmailAddr type="String" charset="utf-16" MaxLength="2000" />
+				</Email>
+			</Emails>
+			<MessengerIDs>
+				<MessengerID count ="10">
+					<MessengerType Type ="MESSENGER_TYPE" value="1"/>
+					<MessengerAddr type="String" charset="utf-16" MaxLength="2000" />
+				</MessengerID>
+			</MessengerIDs>
+			<Addresses>
+				<address count="5">
+					<AddrType type="ADDRESS_TYPE" value="3"/>
+					<Neighborhood type="String" charset="utf-16" MaxLength="2000" />
+				</address>
+			</Addresses>
+			<Organizations>
+				<Organization count="1">
+					<Company type="String" charset="utf-16" MaxLength="2000"/>
+					<Position type="String" charset="utf-16" MaxLength="2000" />
+				</Organization>
+			</Organizations>
+			<Notes>
+				<Note count="1">
+					<Content type="Text" charset="utf-16" MaxLength="2000" />
+				</Note>
+			</Notes>
+			<Nicknames>
+				<Nickname count="1">
+					<Name type="String" charset="utf-16" MaxLength="2000" />
+				</Nickname>
+			</Nicknames>
+			<Urls>
+				<Url count="10">
+					<UrlAddr type="String" charset="utf-16" MaxLength="2000" />
+				</Url>
+			</Urls>
+			<Birthday>
+				<Birthday count="1">
+					<BirthdayDate type="Date" />
+				</Birthday>
+			</Birthday>
+			<Anniversarys>
+				<Anniversary count="10">
+					<AnniversaryDate type="Date" />
+				</Anniversary>
+			</Anniversarys>
+			<Relations>
+				<Relation count="10">
+					<RelationType type="RELATION_TYPE"/>
+					<RelationShip type="String" charset="utf-16" MaxLength="2000"/>
+				</Relation>
+			</Relations>
+			<Events>
+				<Event count="10">
+					<EventType type="EVENT_TYPE"/>
+					<EventDate type="Date"/>
+				</Event>
+			</Events>
+		</DataField>
+	</Phonebook>
+	<PhonebookGroup>
+		<Readonly value="FALSE"/>
+		<MaxItemCount value="65535" />
+		<MultipleAccount value="TRUE" /> 
+		<MultiGroup value="true">
+			<MaxCount value="65535" />
+		</MultiGroup>
+		<DataField>
+			<Name Type="String" Charset="utf-16" MaxLength="2000" />
+		</DataField>
+	</PhonebookGroup>
+</SDP>

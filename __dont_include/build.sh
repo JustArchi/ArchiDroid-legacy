@@ -5,11 +5,11 @@
 #exit 1
 
 # Common
-VERSION=2.2.3
+VERSION=1.6.4
 MODE=0 # 0 - Experimental | 1 - Stable
 
-# From source? Sure!
-SOURCE=1
+# From source? Nope!
+SOURCE=0
 
 OTA="echo \"updateme.version=$VERSION\" >> /system/build.prop"
 if [ $MODE -eq 0 ]; then
@@ -17,7 +17,7 @@ if [ $MODE -eq 0 ]; then
 else
 	VERSION="$VERSION STABLE"
 fi
-DENSITY="#ro.sf.lcd_density=320"
+DENSITY="ro.sf.lcd_density=320"
 
 function zamien {
 	FILEO=wynik.txt
@@ -71,43 +71,6 @@ if [ $SOURCE -eq 1 ]; then
 	cp cm-10.2-*.zip /root/shared/git/ArchiDroid
 fi
 
-cd /root/shared/git/ArchiDroid
-
-if [ ! -e cm-*.zip ]; then
-	exit 1
-fi
-
-unzip cm-*.zip -d __newtemasek
-rm -Rf system/
-cd __newtemasek
-for i in `ls` ; do
-	if [ $i != "META-INF" ]; then
-		cp -R $i ..
-	fi
-done
-cd ..
-OLD=`md5sum __dont_include/_updater-scripts/temasek/updater-script | awk '{print $1}'`
-NEW=`md5sum __newtemasek/META-INF/com/google/android/updater-script | awk '{print $1}'`
-
-if [ $OLD != $NEW ]; then
-	echo "Warning! New $NEW does not equal old $OLD."
-	echo "Probably just symlink or permissions stuff"
-	diff __dont_include/_updater-scripts/temasek/updater-script __newtemasek/META-INF/com/google/android/updater-script
-	cp __newtemasek/META-INF/com/google/android/updater-script __dont_include/_updater-scripts/temasek/updater-script
-	read -p "Tell me when you're done, master!" -n1 -s
-else
-	echo "MD5 Sums matches, no further action required, automatic mode goes on..."
-fi
-rm -Rf __newtemasek
-#rm -f cm-*.zip
-
-cd __dont_include/
-# Bo CM tez ma syf...
-#rm -rf bloatware/
-#mkdir -p bloatware/system/app
-#mv ../system/app/CellBroadcastReceiver.apk bloatware/system/app
-#TODO uzupelnic syf
-
 ##################
 ### OTA UPDATE ###
 FILE=otaold.sh
@@ -139,15 +102,7 @@ cat $FILE >> $FILEO
 cp $FILEO $FILE
 rm $FILEO
 
-GDZIE=`grep -n "ro.sf.lcd_density=320" $FILE | cut -f1 -d:`
-ILE=`cat $FILE | wc -l`
-ILE=`expr $ILE - $GDZIE`
-GDZIE=`expr $GDZIE - 1`
-cat $FILE | head -${GDZIE} > $FILEO
-echo $DENSITY >> $FILEO
-cat $FILE | tail -${ILE} >> $FILEO
-cp $FILEO $FILE
-rm $FILEO
+sed -i "s/$DENSITY/#$DENSITY/g" ../system/build.prop
 
 GDZIE=`grep -n "ro.build.display.id=" $FILE | cut -f1 -d:`
 ILE=`cat $FILE | wc -l`

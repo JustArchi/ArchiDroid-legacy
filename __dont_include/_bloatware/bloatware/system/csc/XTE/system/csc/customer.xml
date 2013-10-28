@@ -1,0 +1,206 @@
+﻿<?xml  version="1.0" encoding="UTF-8" ?>
+<CustomerData>
+  <GeneralInfo>
+    <CSCEdition>ED004</CSCEdition>
+    <Country>PHILIPPINES</Country>
+    <CountryISO>PH</CountryISO>
+    <Region>SEA</Region>
+    <SalesCode>XTE</SalesCode>
+    <NbNetworkInfo>3</NbNetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>51505</MCCMNC>
+      <NetworkName>SUN</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>51518</MCCMNC>
+      <NetworkName>red mobile</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>51503</MCCMNC>
+      <NetworkName>Smart</NetworkName>
+    </NetworkInfo>
+  </GeneralInfo>
+  <Settings>
+    <Main>
+      <Security>
+        <NbNetworkLock>3</NbNetworkLock>
+        <NetworkLock>51503</NetworkLock>
+        <NetworkLock>51505</NetworkLock>
+        <NetworkLock>51518</NetworkLock>
+      </Security>
+      <Network>
+        <AutoProfile>on</AutoProfile>
+        <AutoVoicemail>off</AutoVoicemail>
+        <AutoEmailAccount>off</AutoEmailAccount>
+        <AutoBookmark>off</AutoBookmark>
+        <AutoLink>off</AutoLink>
+        <AutoSyncML>off</AutoSyncML>
+        <AutoFastDormancy>off</AutoFastDormancy>
+        <AutoWbAmr>off</AutoWbAmr>
+        <AutoFOTA>off</AutoFOTA>
+      </Network>
+      <Sound>
+        <RngToneAlertType>melody</RngToneAlertType>
+        <ExtraSound>
+          <ConnectTone>on</ConnectTone>
+          <MinuteMind>off</MinuteMind>
+        </ExtraSound>
+      </Sound>
+      <Phone>
+        <DefLanguage>english_philippines</DefLanguage>
+        <DefLanguageNoSIM>english_philippines</DefLanguageNoSIM>
+        <T9Enabling>disable</T9Enabling>
+        <T9Language>english</T9Language>
+        <DateTimeFormat>
+          <DateFormat>mmddyyyy</DateFormat>
+          <TimeFormat>12h</TimeFormat>
+        </DateTimeFormat>
+      </Phone>
+      <Display>
+        <NbWallpaper>1</NbWallpaper>
+        <Wallpaper src="/Customer/XTE/Wallpaper/Sun_1280x1280.jpg" default="true">
+          <Position>1</Position>
+          <FileType>JPG</FileType>
+        </Wallpaper>
+      </Display>
+    </Main>
+    <Messages>
+      <SMS>
+        <DeliveryReport>off</DeliveryReport>
+        <MaxRecipient>20</MaxRecipient>
+        <SSMS>off</SSMS>
+      </SMS>
+      <MMS>
+        <MmsSending>
+          <ReqDeliveryRep>off</ReqDeliveryRep>
+          <ReqReadRep>off</ReqReadRep>
+        </MmsSending>
+        <MmsReceiving>
+          <Home>manual</Home>
+          <Roaming>manual</Roaming>
+        </MmsReceiving>
+      </MMS>
+    </Messages>
+    <Browser>
+      <NbBookmark>2</NbBookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Index>1</Index>
+        <BookmarkName>Samsung Apps</BookmarkName>
+        <URL>http://m.ph.samsungapps.com</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>yes</Editable>
+        <Index>2</Index>
+        <BookmarkName>Yahoo!</BookmarkName>
+        <URL>http://m.yahoo.com/?tsrc=samsungbm</URL>
+      </Bookmark>
+      <eManual>
+        <URL>http://www.samsung.com/m-manual/common</URL>
+      </eManual>
+    </Browser>
+    <Connections>
+      <NbProfileHandle>3</NbProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>SUN</NetworkName>
+        <ProfBrowser>SUN INTERNET</ProfBrowser>
+        <ProfMMS>SUN MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>Smart</NetworkName>
+        <ProfBrowser>Smart Internet</ProfBrowser>
+        <ProfMMS>SmartMMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>red mobile</NetworkName>
+        <ProfBrowser>RED INTERNET</ProfBrowser>
+        <ProfMMS>RED MMS</ProfMMS>
+      </ProfileHandle>
+      <NbProfile>6</NbProfile>
+      <Profile>
+        <NetworkName>SUN</NetworkName>
+        <ProfileName>SUN MMS</ProfileName>
+        <URL>http://mmscenter.suncellular.com.ph</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>202.138.159.78</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mms</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>SUN</NetworkName>
+        <ProfileName>SUN INTERNET</ProfileName>
+        <URL>http://wap.suncellular.com.ph</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <PSparam>
+          <APN>minternet</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Smart</NetworkName>
+        <ProfileName>SmartMMS</ProfileName>
+        <URL>http://10.102.61.238:8002</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>10.102.61.46</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mms</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Smart</NetworkName>
+        <ProfileName>Smart Internet</ProfileName>
+        <URL>http://m.smart.com.ph</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <PSparam>
+          <APN>internet</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>red mobile</NetworkName>
+        <ProfileName>RED INTERNET</ProfileName>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <PSparam>
+          <APN>redinternet</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>red mobile</NetworkName>
+        <ProfileName>RED MMS</ProfileName>
+        <URL>http://10.102.61.193:8002/mmsc</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>10.138.3.35</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>redmms</APN>
+        </PSparam>
+      </Profile>
+    </Connections>
+  </Settings>
+</CustomerData>

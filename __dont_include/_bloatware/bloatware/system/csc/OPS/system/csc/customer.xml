@@ -1,0 +1,466 @@
+﻿<?xml  version="1.0" encoding="UTF-8" ?>
+<CustomerData>
+  <GeneralInfo>
+    <CSCEdition>ED015</CSCEdition>
+    <Country>Australia</Country>
+    <CountryISO>AU</CountryISO>
+    <Region>SEA</Region>
+    <SalesCode>OPS</SalesCode>
+    <NbNetworkInfo>2</NbNetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>50502</MCCMNC>
+      <NetworkName>YES OPTUS</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>50502</MCCMNC>
+      <NetworkName>Virgin Mobile</NetworkName>
+      <SPCode>9</SPCode>
+    </NetworkInfo>
+  </GeneralInfo>
+  <Settings>
+    <Main>
+      <Network>
+        <NbFastDormancy>4</NbFastDormancy>
+        <FastDormancy>
+          <NetworkName>YES OPTUS</NetworkName>
+          <FastDormancyEnableStatus>off</FastDormancyEnableStatus>
+          <LCDStatus>on</LCDStatus>
+        </FastDormancy>
+        <FastDormancy>
+          <NetworkName>YES OPTUS</NetworkName>
+          <FastDormancyEnableStatus>off</FastDormancyEnableStatus>
+          <LCDStatus>off</LCDStatus>
+        </FastDormancy>
+        <FastDormancy>
+          <NetworkName>Virgin Mobile</NetworkName>
+          <FastDormancyEnableStatus>off</FastDormancyEnableStatus>
+          <LCDStatus>on</LCDStatus>
+        </FastDormancy>
+        <FastDormancy>
+          <NetworkName>Virgin Mobile</NetworkName>
+          <FastDormancyEnableStatus>off</FastDormancyEnableStatus>
+          <LCDStatus>off</LCDStatus>
+        </FastDormancy>
+        <NbSOSNumber>1</NbSOSNumber>
+        <SOSNumber>112,911,000</SOSNumber>
+        <NbSOSNumberNoSIM>1</NbSOSNumberNoSIM>
+        <SOSNumberNoSIM>112,911,999,000,08,110,118,119</SOSNumberNoSIM>
+        <AutoProfile>on</AutoProfile>
+        <AutoVoicemail>on</AutoVoicemail>
+        <AutoEmailAccount>on</AutoEmailAccount>
+        <AutoBookmark>on</AutoBookmark>
+        <AutoLink>off</AutoLink>
+        <AutoSyncML>off</AutoSyncML>
+        <AutoFastDormancy>on</AutoFastDormancy>
+        <AutoWbAmr>off</AutoWbAmr>
+        <AutoFOTA>off</AutoFOTA>
+      </Network>
+      <Phone>
+        <DefLanguage>en_AU</DefLanguage>
+        <DefLanguageNoSIM>english</DefLanguageNoSIM>
+        <T9Language>english</T9Language>
+        <DateTimeFormat>
+          <DateFormat>ddmmyyyy</DateFormat>
+          <TimezoneUpdate>on</TimezoneUpdate>
+        </DateTimeFormat>
+      </Phone>
+      <Display>
+        <NbPowerOffAnim>20</NbPowerOffAnim>
+        <PowerOffAnim src="/Customer/OPS/PowerOffAnim/01.png" width="480" height="800">
+          <FileType>PNG</FileType>
+        </PowerOffAnim>
+        <PowerOffAnim src="/Customer/OPS/PowerOffAnim/02.png" width="480" height="800">
+          <FileType>PNG</FileType>
+        </PowerOffAnim>
+        <PowerOffAnim src="/Customer/OPS/PowerOffAnim/03.png" width="480" height="800">
+          <FileType>PNG</FileType>
+        </PowerOffAnim>
+        <PowerOffAnim src="/Customer/OPS/PowerOffAnim/04.png" width="480" height="800">
+          <FileType>PNG</FileType>
+        </PowerOffAnim>
+        <PowerOffAnim src="/Customer/OPS/PowerOffAnim/05.png" width="480" height="800">
+          <FileType>PNG</FileType>
+        </PowerOffAnim>
+        <PowerOffAnim src="/Customer/OPS/PowerOffAnim/06.png" width="480" height="800">
+          <FileType>PNG</FileType>
+        </PowerOffAnim>
+        <PowerOffAnim src="/Customer/OPS/PowerOffAnim/07.png" width="480" height="800">
+          <FileType>PNG</FileType>
+        </PowerOffAnim>
+        <PowerOffAnim src="/Customer/OPS/PowerOffAnim/08.png" width="480" height="800">
+          <FileType>PNG</FileType>
+        </PowerOffAnim>
+        <PowerOffAnim src="/Customer/OPS/PowerOffAnim/09.png" width="480" height="800">
+          <FileType>PNG</FileType>
+        </PowerOffAnim>
+        <PowerOffAnim src="/Customer/OPS/PowerOffAnim/10.png" width="480" height="800">
+          <FileType>PNG</FileType>
+        </PowerOffAnim>
+        <PowerOffAnim src="/Customer/OPS/PowerOffAnim/11.png" width="480" height="800">
+          <FileType>PNG</FileType>
+        </PowerOffAnim>
+        <PowerOffAnim src="/Customer/OPS/PowerOffAnim/12.png" width="480" height="800">
+          <FileType>PNG</FileType>
+        </PowerOffAnim>
+        <PowerOffAnim src="/Customer/OPS/PowerOffAnim/13.png" width="480" height="800">
+          <FileType>PNG</FileType>
+        </PowerOffAnim>
+        <PowerOffAnim src="/Customer/OPS/PowerOffAnim/14.png" width="480" height="800">
+          <FileType>PNG</FileType>
+        </PowerOffAnim>
+        <PowerOffAnim src="/Customer/OPS/PowerOffAnim/15.png" width="480" height="800">
+          <FileType>PNG</FileType>
+        </PowerOffAnim>
+        <PowerOffAnim src="/Customer/OPS/PowerOffAnim/16.png" width="480" height="800">
+          <FileType>PNG</FileType>
+        </PowerOffAnim>
+        <PowerOffAnim src="/Customer/OPS/PowerOffAnim/17.png" width="480" height="800">
+          <FileType>PNG</FileType>
+        </PowerOffAnim>
+        <PowerOffAnim src="/Customer/OPS/PowerOffAnim/18.png" width="480" height="800">
+          <FileType>PNG</FileType>
+        </PowerOffAnim>
+        <PowerOffAnim src="/Customer/OPS/PowerOffAnim/19.png" width="480" height="800">
+          <FileType>PNG</FileType>
+        </PowerOffAnim>
+        <PowerOffAnim src="/Customer/OPS/PowerOffAnim/20.png" width="480" height="800">
+          <FileType>PNG</FileType>
+        </PowerOffAnim>
+        <NbPowerOnAnim>20</NbPowerOnAnim>
+        <PowerOnAnim src="/Customer/OPS/PowerOnAnim/01.png" width="720" height="1280">
+          <FileType>PNG</FileType>
+        </PowerOnAnim>
+        <PowerOnAnim src="/Customer/OPS/PowerOnAnim/02.png" width="720" height="1280">
+          <FileType>PNG</FileType>
+        </PowerOnAnim>
+        <PowerOnAnim src="/Customer/OPS/PowerOnAnim/03.png" width="720" height="1280">
+          <FileType>PNG</FileType>
+        </PowerOnAnim>
+        <PowerOnAnim src="/Customer/OPS/PowerOnAnim/04.png" width="720" height="1280">
+          <FileType>PNG</FileType>
+        </PowerOnAnim>
+        <PowerOnAnim src="/Customer/OPS/PowerOnAnim/05.png" width="720" height="1280">
+          <FileType>PNG</FileType>
+        </PowerOnAnim>
+        <PowerOnAnim src="/Customer/OPS/PowerOnAnim/06.png" width="720" height="1280">
+          <FileType>PNG</FileType>
+        </PowerOnAnim>
+        <PowerOnAnim src="/Customer/OPS/PowerOnAnim/07.png" width="720" height="1280">
+          <FileType>PNG</FileType>
+        </PowerOnAnim>
+        <PowerOnAnim src="/Customer/OPS/PowerOnAnim/08.png" width="720" height="1280">
+          <FileType>PNG</FileType>
+        </PowerOnAnim>
+        <PowerOnAnim src="/Customer/OPS/PowerOnAnim/09.png" width="720" height="1280">
+          <FileType>PNG</FileType>
+        </PowerOnAnim>
+        <PowerOnAnim src="/Customer/OPS/PowerOnAnim/10.png" width="720" height="1280">
+          <FileType>PNG</FileType>
+        </PowerOnAnim>
+        <PowerOnAnim src="/Customer/OPS/PowerOnAnim/11.png" width="720" height="1280">
+          <FileType>PNG</FileType>
+        </PowerOnAnim>
+        <PowerOnAnim src="/Customer/OPS/PowerOnAnim/12.png" width="720" height="1280">
+          <FileType>PNG</FileType>
+        </PowerOnAnim>
+        <PowerOnAnim src="/Customer/OPS/PowerOnAnim/13.png" width="720" height="1280">
+          <FileType>PNG</FileType>
+        </PowerOnAnim>
+        <PowerOnAnim src="/Customer/OPS/PowerOnAnim/14.png" width="720" height="1280">
+          <FileType>PNG</FileType>
+        </PowerOnAnim>
+        <PowerOnAnim src="/Customer/OPS/PowerOnAnim/15.png" width="720" height="1280">
+          <FileType>PNG</FileType>
+        </PowerOnAnim>
+        <PowerOnAnim src="/Customer/OPS/PowerOnAnim/16.png" width="720" height="1280">
+          <FileType>PNG</FileType>
+        </PowerOnAnim>
+        <PowerOnAnim src="/Customer/OPS/PowerOnAnim/17.png" width="720" height="1280">
+          <FileType>PNG</FileType>
+        </PowerOnAnim>
+        <PowerOnAnim src="/Customer/OPS/PowerOnAnim/18.png" width="720" height="1280">
+          <FileType>PNG</FileType>
+        </PowerOnAnim>
+        <PowerOnAnim src="/Customer/OPS/PowerOnAnim/19.png" width="720" height="1280">
+          <FileType>PNG</FileType>
+        </PowerOnAnim>
+        <PowerOnAnim src="/Customer/OPS/PowerOnAnim/20.png" width="720" height="1280">
+          <FileType>PNG</FileType>
+        </PowerOnAnim>
+        <NbWallpaper>5</NbWallpaper>
+        <Wallpaper src="/Customer/OPS/Wallpaper/wallpaper-ops-01.jpg" width="1280" height="1280">
+          <Position>1</Position>
+          <FileType>JPG</FileType>
+        </Wallpaper>
+        <Wallpaper src="/Customer/OPS/Wallpaper/wallpaper-ops-02.jpg" width="1280" height="1280">
+          <Position>2</Position>
+          <FileType>JPG</FileType>
+        </Wallpaper>
+        <Wallpaper src="/Customer/OPS/Wallpaper/wallpaper-ops-03.jpg" width="1280" height="1280">
+          <Position>3</Position>
+          <FileType>JPG</FileType>
+        </Wallpaper>
+        <Wallpaper src="/Customer/OPS/Wallpaper/wallpaper-ops-04.jpg" width="1280" height="1280">
+          <Position>4</Position>
+          <FileType>JPG</FileType>
+        </Wallpaper>
+        <Wallpaper src="/Customer/OPS/Wallpaper/wallpaper-ops-05.jpg" width="1280" height="1280" default="true">
+          <Position>5</Position>
+          <FileType>JPG</FileType>
+        </Wallpaper>
+      </Display>
+      <Security />
+    </Main>
+    <Messages>
+      <NbVoicemail>2</NbVoicemail>
+      <Voicemail>
+        <NetworkName>YES OPTUS</NetworkName>
+        <TelNum>+61411000321</TelNum>
+      </Voicemail>
+      <Voicemail>
+        <NetworkName>Virgin Mobile</NetworkName>
+        <TelNum>212</TelNum>
+      </Voicemail>
+      <MMS>
+        <MmsSending>
+          <ReqDeliveryRep>off</ReqDeliveryRep>
+          <CreationMode>warning</CreationMode>
+        </MmsSending>
+        <MmsReceiving>
+          <Home>auto</Home>
+          <Roaming>auto</Roaming>
+        </MmsReceiving>
+      </MMS>
+      <Email>
+        <NbAccount>2</NbAccount>
+        <Account>
+          <NetworkName>YES OPTUS</NetworkName>
+          <AccountName>OptusNet</AccountName>
+          <Incoming>
+            <MailboxType>pop3</MailboxType>
+            <ServAddr>mail.optusnet.com.au</ServAddr>
+            <Port>110</Port>
+          </Incoming>
+          <Outgoing>
+            <ServAddr>mail.optusnet.com.au</ServAddr>
+            <Port>25</Port>
+          </Outgoing>
+        </Account>
+        <Account>
+          <NetworkName>default</NetworkName>
+          <AccountName>Hotmail</AccountName>
+          <EmailAddr>@hotmail.com</EmailAddr>
+          <LoginType>domain_type</LoginType>
+          <Incoming>
+            <MailboxType>pop3</MailboxType>
+            <ServAddr>pop3.live.com</ServAddr>
+            <Port>995</Port>
+            <Secure>ssl</Secure>
+          </Incoming>
+          <Outgoing>
+            <ServAddr>smtp.live.com</ServAddr>
+            <Port>587</Port>
+            <SmtpAuth>on</SmtpAuth>
+            <Secure>tls</Secure>
+          </Outgoing>
+        </Account>
+      </Email>
+    </Messages>
+    <Multimedia>
+      <Camera>
+        <ShutterSound>on</ShutterSound>
+      </Camera>
+    </Multimedia>
+    <GPS>
+      <GPSActivation>off</GPSActivation>
+    </GPS>
+    <Browser>
+      <NbBookmark>15</NbBookmark>
+      <Bookmark>
+        <NetworkName>YES OPTUS</NetworkName>
+        <BookmarkName>Optus Zoo</BookmarkName>
+        <URL>http://networker.optus.net.au/wap/index.wml</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>YES OPTUS</NetworkName>
+        <BookmarkName>Google</BookmarkName>
+        <URL>http://www.google.com.au/xhtml?client=ms-optus-au&amp;hl=en&amp;lr=lang_en&amp;safe=high&amp;site=search&amp;q=</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>YES OPTUS</NetworkName>
+        <BookmarkName>App Store</BookmarkName>
+        <URL>http://www.optus.com.au/appstore?dpid=120</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>YES OPTUS</NetworkName>
+        <BookmarkName>Optus Ideas</BookmarkName>
+        <URL>http://www.optus.com.au/appideas</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>YES OPTUS</NetworkName>
+        <BookmarkName>Games</BookmarkName>
+        <URL>http://www.optus.com.au/zoogames</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>YES OPTUS</NetworkName>
+        <BookmarkName>TV&amp;Video</BookmarkName>
+        <URL>http://www.optuszoo.com.au/tvandvideo</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>YES OPTUS</NetworkName>
+        <BookmarkName>Music</BookmarkName>
+        <URL>http://www.optus.com.au/mobilemusicstore</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>YES OPTUS</NetworkName>
+        <BookmarkName>SocialView</BookmarkName>
+        <URL>http://www.optus.com.au/socialview</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>YES OPTUS</NetworkName>
+        <BookmarkName>Facebook</BookmarkName>
+        <URL>http://www.optus.com.au/facebook</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>YES OPTUS</NetworkName>
+        <BookmarkName>Twitter</BookmarkName>
+        <URL>http://www.optus.com.au/twitter</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>YES OPTUS</NetworkName>
+        <BookmarkName>MySpace</BookmarkName>
+        <URL>http://www.optus.com.au/myspace</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>YES OPTUS</NetworkName>
+        <BookmarkName>Ringtones</BookmarkName>
+        <URL>http://www.optus.com.au/zooringtones</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>YES OPTUS</NetworkName>
+        <BookmarkName>Videos</BookmarkName>
+        <URL>http://www.optus.com.au/zoovideos</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>YES OPTUS</NetworkName>
+        <BookmarkName>Wallpapers</BookmarkName>
+        <URL>http://www.optus.com.au/zoopictures</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>YES OPTUS</NetworkName>
+        <BookmarkName>Pics &amp; Vids</BookmarkName>
+        <URL>http://www.optus.com.au/picsandvids</URL>
+      </Bookmark>
+    </Browser>
+    <Connections>
+      <NbProfileHandle>2</NbProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>YES OPTUS</NetworkName>
+        <ProfBrowser>Optus Yes Internet</ProfBrowser>
+        <ProfMMS>Optus MMS</ProfMMS>
+        <ProfIntSharing>Optus Yes Internet</ProfIntSharing>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>Virgin Mobile</NetworkName>
+        <ProfBrowser>Virgin Internet</ProfBrowser>
+        <ProfMMS>Virgin MMS</ProfMMS>
+        <ProfIntSharing>Virgin Internet</ProfIntSharing>
+      </ProfileHandle>
+      <NbProfile>6</NbProfile>
+      <Profile>
+        <NetworkName>YES OPTUS</NetworkName>
+        <IpVersion>ipv4</IpVersion>
+        <ProfileName>Optus MMS</ProfileName>
+        <URL>http://mmsc.optus.com.au:8002/</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>61.88.190.10</ServAddr>
+          <Port>8070</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mms</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>YES OPTUS</NetworkName>
+        <IpVersion>ipv4</IpVersion>
+        <ProfileName>Optus Yes Internet</ProfileName>
+        <URL>http://networker.optus.net.au/wap/index.wml</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>yesinternet</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>YES OPTUS</NetworkName>
+        <IpVersion>ipv4</IpVersion>
+        <ProfileName>Optus Internet</ProfileName>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>internet</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Virgin Mobile</NetworkName>
+        <ProfileName>Virgin Internet</ProfileName>
+        <URL>http://www.virginvibe.com.au/wap</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>202.139.83.152</ServAddr>
+          <Port>8070</Port>
+        </Proxy>
+        <PSparam>
+          <APN>virgininternet</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Virgin Mobile</NetworkName>
+        <ProfileName>Virgin MMS</ProfileName>
+        <URL>http://mms.virginvibe.com.au:8002/</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>202.139.83.152</ServAddr>
+          <Port>8070</Port>
+        </Proxy>
+        <PSparam>
+          <APN>virginmms</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>YES OPTUS</NetworkName>
+        <IpVersion>ipv4</IpVersion>
+        <ProfileName>Optus Business Mobile Broadband</ProfileName>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>yesbusiness</APN>
+        </PSparam>
+      </Profile>
+    </Connections>
+  </Settings>
+</CustomerData>

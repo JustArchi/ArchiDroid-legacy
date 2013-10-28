@@ -1,0 +1,15 @@
+﻿<?xml  version="1.0" encoding="UTF-8" ?>
+<SamsungMobileFeauture>
+  <Version>ED001</Version>
+  <Country>PHILIPPINES</Country>
+  <CountryISO>PH</CountryISO>
+  <SalesCode>GLB</SalesCode>
+  <FeatureSet>
+    <CscFeature_Framework_EnableThaiVietReshaping>TRUE</CscFeature_Framework_EnableThaiVietReshaping>
+    <CscFeature_Sip_LangQwertyType4HwKey>HW_KEYBOARD_COUNTRY_TYPE_PHILIPPINE</CscFeature_Sip_LangQwertyType4HwKey>
+    <CscFeature_FMRadio_FrequencySpaceAs>100</CscFeature_FMRadio_FrequencySpaceAs>
+    <CscFeature_FMRadio_DefaultChannelAs>88.3</CscFeature_FMRadio_DefaultChannelAs>
+    <CscFeature_Web_SetUAProfile>TRUE</CscFeature_Web_SetUAProfile>
+    <CscFeature_RIL_EnableRoamingIcon4NationalRoaming>TRUE</CscFeature_RIL_EnableRoamingIcon4NationalRoaming>	<CscFeature_VoiceCall_KeypadTypeToDigit4UssdInput>TRUE</CscFeature_VoiceCall_KeypadTypeToDigit4UssdInput>	<CscFeature_RIL_EnableCallBarringConnectToUssd>TRUE</CscFeature_RIL_EnableCallBarringConnectToUssd>	<CscFeature_Email_DisableFontAttributeDuringComposing>TRUE</CscFeature_Email_DisableFontAttributeDuringComposing>	<CscFeature_Web_EnableAutoSimHomeUrlInProfile>TRUE</CscFeature_Web_EnableAutoSimHomeUrlInProfile>	<CscFeature_Common_DisablePhoneNumberFormatting>TRUE</CscFeature_Common_DisablePhoneNumberFormatting>	<CscFeature_RIL_IgnoreNitzNetworkName>TRUE</CscFeature_RIL_IgnoreNitzNetworkName>
+  </FeatureSet>
+</SamsungMobileFeauture>

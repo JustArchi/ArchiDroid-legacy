@@ -1,0 +1,258 @@
+﻿<?xml  version="1.0" encoding="UTF-8" ?>
+<CustomerData>
+  <GeneralInfo>
+    <CSCEdition>ED013</CSCEdition>
+    <Country>Romania</Country>
+    <CountryISO>RO</CountryISO>
+    <Region>EUR</Region>
+    <SalesCode>COA</SalesCode>
+    <NbNetworkInfo>4</NbNetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>22603</MCCMNC>
+      <NetworkName>COSMOTE</NetworkName>
+      <SPName>COSMOTE</SPName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>22601</MCCMNC>
+      <NetworkName>Vodafone RO POSTPAID</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>22601</MCCMNC>
+      <NetworkName>Vodafone RO PREPAID</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>22610</MCCMNC>
+      <NetworkName>RO Orange</NetworkName>
+    </NetworkInfo>
+  </GeneralInfo>
+  <Settings>
+    <Main>
+      <Sound>
+        <ExtraSound>
+          <ConnectTone>on</ConnectTone>
+          <MinuteMind>off</MinuteMind>
+        </ExtraSound>
+      </Sound>
+      <Phone>
+        <DefLanguage>ro_RO</DefLanguage>
+        <DefLanguageNoSIM>ro_RO</DefLanguageNoSIM>
+        <T9Enabling>disable</T9Enabling>
+        <DateTimeFormat>
+          <DateFormat>ddmmyyyy</DateFormat>
+          <TimeFormat>24h</TimeFormat>
+        </DateTimeFormat>
+      </Phone>
+      <Security />
+    </Main>
+    <Messages>
+      <SMS>
+        <MsgTypeThreshold>
+          <ThresholdValue>12</ThresholdValue>
+        </MsgTypeThreshold>
+      </SMS>
+      <MMS>
+        <MmsSending>
+          <ReqDeliveryRep>off</ReqDeliveryRep>
+          <ReqReadRep>off</ReqReadRep>
+          <CreationMode>warning</CreationMode>
+        </MmsSending>
+        <MmsReceiving>
+          <Home>auto</Home>
+          <Roaming>manual</Roaming>
+        </MmsReceiving>
+      </MMS>
+    </Messages>
+    <Browser>
+      <NbBookmark>2</NbBookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>yes</Editable>
+        <Index>1</Index>
+        <BookmarkName>web´n´walk</BookmarkName>
+        <URL>http://m.webnwalk.ro</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>yes</Editable>
+        <Index>2</Index>
+        <BookmarkName>Yahoo!</BookmarkName>
+        <URL>http://m.yahoo.com/?tsrc=samsungbm</URL>
+      </Bookmark>
+      <eManual>
+        <URL>http://www.samsung.com/m-manual/common</URL>
+      </eManual>
+    </Browser>
+    <Connections>
+      <NbProfileHandle>4</NbProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>COSMOTE</NetworkName>
+        <ProfBrowser>Cosmote Connect Mobile</ProfBrowser>
+        <ProfMMS>Cosmote MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>Vodafone RO POSTPAID</NetworkName>
+        <ProfBrowser>Vodafone live!</ProfBrowser>
+        <ProfMMS>Vodafone MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>Vodafone RO PREPAID</NetworkName>
+        <ProfBrowser>Vodafone live! PRE</ProfBrowser>
+        <ProfMMS>Vodafone MMS PRE</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>RO Orange</NetworkName>
+        <ProfBrowser>Orange Internet</ProfBrowser>
+        <ProfMMS>Orange MMS</ProfMMS>
+      </ProfileHandle>
+      <NbProfile>8</NbProfile>
+      <Profile>
+        <NetworkName>RO Orange</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Orange MMS</ProfileName>
+        <URL>http://wap.mms.orange.ro:8002</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>62.217.247.252</ServAddr>
+          <Port>8799</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mms</APN>
+          <UserId>mms</UserId>
+          <Password>mms</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>RO Orange</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Orange Internet</ProfileName>
+        <URL>http://m.orange.ro</URL>
+        <Auth>none</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>net</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Vodafone RO POSTPAID</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Vodafone live!</ProfileName>
+        <URL>http://live.vodafone.com</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>193.230.161.231</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>live.vodafone.com</APN>
+          <UserId>live</UserId>
+          <Password>vodafone</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Vodafone RO POSTPAID</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Vodafone MMS</ProfileName>
+        <URL>http://multimedia/servlets/mms</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>193.230.161.231</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mms.vodafone.ro</APN>
+          <UserId>mms</UserId>
+          <Password>vodafone</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Vodafone RO PREPAID</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Vodafone live! PRE</ProfileName>
+        <URL>http://live.vodafone.com</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>193.230.161.231</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>live.pre.vodafone.com</APN>
+          <UserId>live</UserId>
+          <Password>vodafone</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Vodafone RO PREPAID</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Vodafone MMS PRE</ProfileName>
+        <URL>http://multimedia/servlets/mms</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>193.230.161.231</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mms.pre.vodafone.ro</APN>
+          <UserId>mms</UserId>
+          <Password>vodafone</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>COSMOTE</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Cosmote Connect Mobile</ProfileName>
+        <URL>http://m.webnwalk.ro</URL>
+        <Auth>none</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>broadband</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>COSMOTE</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Cosmote MMS</ProfileName>
+        <URL>http://mmsc1.mms.cosmote.ro:8002</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>10.252.1.62</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mms</APN>
+          <UserId>mms</UserId>
+          <Password>mms</Password>
+        </PSparam>
+      </Profile>
+    </Connections>
+  </Settings>
+</CustomerData>

@@ -40,7 +40,7 @@
        SyncLto="true"
        ltoFileName="lto2.dat"
        acLtoDir="/data/gps/"
-       LbsSyncLtoThresholdDays="3"
+       LbsSyncLtoThresholdDays="1"
        LbsTAC="10101222"
        LbsWlanEnable="false"
 

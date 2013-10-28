@@ -1,0 +1,48 @@
+﻿<?xml  version="1.0" encoding="UTF-8" ?>
+<CustomerData>
+  <GeneralInfo>
+    <CSCEdition>ED001</CSCEdition>
+    <Country>Korea</Country>
+    <SalesCode>KOR</SalesCode>
+    <NbNetworkInfo>1</NbNetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>45001</MCCMNC>
+      <NetworkName>SEC Test</NetworkName>
+    </NetworkInfo>
+  </GeneralInfo>
+  <Settings>
+    <Main>
+      <Phone>
+        <DefLanguage>automatic</DefLanguage>
+        <DefLanguageNoSIM>english</DefLanguageNoSIM>
+      </Phone>
+      <Network>
+        <AutoProfile>on</AutoProfile>
+        <AutoVoicemail>off</AutoVoicemail>
+        <AutoEmailAccount>off</AutoEmailAccount>
+        <AutoBookmark>off</AutoBookmark>
+        <AutoLink>off</AutoLink>
+        <AutoSyncML>off</AutoSyncML>
+      </Network>
+      <Security />
+    </Main>
+    <Messages>
+      <SMS>
+        <ReplyPath>off</ReplyPath>
+        <DeliveryReport>off</DeliveryReport>
+        <CharSupport>automatic</CharSupport>
+      </SMS>
+      <MMS>
+        <MmsSending>
+          <ReqDeliveryRep>off</ReqDeliveryRep>
+          <ReqReadRep>off</ReqReadRep>
+          <CreationMode>free</CreationMode>
+        </MmsSending>
+        <MmsReceiving>
+          <Home>auto</Home>
+          <Roaming>manual</Roaming>
+        </MmsReceiving>
+      </MMS>      <Email>      	  <Combinded>0</Combinded>      </Email>
+    </Messages>
+  </Settings>
+</CustomerData>

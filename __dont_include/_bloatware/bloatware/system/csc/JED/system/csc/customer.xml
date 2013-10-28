@@ -1,0 +1,233 @@
+<?xml  version="1.0" encoding="UTF-8" ?>
+<CustomerData>
+  <GeneralInfo>
+    <CSCEdition>ED002</CSCEdition>
+    <Country>KSA</Country>
+    <CountryISO>SA</CountryISO>
+    <Region>MEA</Region>
+    <SalesCode>JED</SalesCode>
+    <NbNetworkInfo>4</NbNetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>42001</MCCMNC>
+      <NetworkName>STC</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>42003</MCCMNC>
+      <NetworkName>Mobily Prepaid</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>42003</MCCMNC>
+      <NetworkName>Mobily Postpaid</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>42004</MCCMNC>
+      <NetworkName>Zain</NetworkName>
+    </NetworkInfo>
+  </GeneralInfo>
+  <Settings>
+    <Main>
+      <Network>
+        <AutoProfile>on</AutoProfile>
+        <AutoVoicemail>off</AutoVoicemail>
+        <AutoEmailAccount>off</AutoEmailAccount>
+        <AutoBookmark>off</AutoBookmark>
+        <AutoLink>off</AutoLink>
+        <AutoSyncML>off</AutoSyncML>
+        <AutoFastDormancy>off</AutoFastDormancy>
+        <AutoWbAmr>off</AutoWbAmr>
+        <AutoFOTA>off</AutoFOTA>
+      </Network>
+      <Sound>
+        <RngToneAlertType>melody</RngToneAlertType>
+      </Sound>
+      <Phone>
+        <DefLanguage>en_GB</DefLanguage>
+        <DefLanguageNoSIM>en_GB</DefLanguageNoSIM>
+        <T9Language>english</T9Language>
+        <DateTimeFormat>
+          <DateFormat>ddmmyyyy</DateFormat>
+        </DateTimeFormat>
+        <VisiblePassword>off</VisiblePassword>
+      </Phone>
+      <Security />
+    </Main>
+    <Calendar>
+      <StartDay>monday</StartDay>
+    </Calendar>
+    <Messages>
+      <MMS>
+        <MMSVersion>1.2</MMSVersion>
+        <MmsSending>
+          <ReqDeliveryRep>off</ReqDeliveryRep>
+          <ReqReadRep>off</ReqReadRep>
+          <CreationMode>free</CreationMode>
+        </MmsSending>
+        <MmsReceiving>
+          <Home>auto</Home>
+          <Roaming>restricted</Roaming>
+          <SendReadRep>on</SendReadRep>
+          <SendDeliveryRep>off</SendDeliveryRep>
+        </MmsReceiving>
+      </MMS>
+    </Messages>
+    <Browser>
+      <NbBookmark>2</NbBookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Index>1</Index>
+        <BookmarkName>Samsung Apps Web</BookmarkName>
+        <URL>http://www.samsungapps.com</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>yes</Editable>
+        <Index>2</Index>
+        <BookmarkName>Yahoo!</BookmarkName>
+        <URL>http://m.yahoo.com/?tsrc=samsungbm</URL>
+      </Bookmark>
+      <eManual>
+        <URL>http://www.samsung.com/m-manual/common</URL>
+      </eManual>
+    </Browser>
+    <Connections>
+      <NbProfileHandle>4</NbProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>STC</NetworkName>
+        <ProfBrowser>JAWALNet</ProfBrowser>
+        <ProfMMS>ALJAWAL MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>Mobily Prepaid</NetworkName>
+        <ProfBrowser>mobily Net Prepaid</ProfBrowser>
+        <ProfMMS>mobily MMS Prepaid</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>Mobily Postpaid</NetworkName>
+        <ProfBrowser>mobily Net Postpaid</ProfBrowser>
+        <ProfMMS>mobily MMS Postpaid</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>Zain</NetworkName>
+        <ProfBrowser>zain-gprs</ProfBrowser>
+        <ProfMMS>zain-mms</ProfMMS>
+      </ProfileHandle>
+      <NbProfile>8</NbProfile>
+      <Profile>
+        <NetworkName>STC</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>JAWALNet</ProfileName>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <PSparam>
+          <APN>jawalnet.com.sa</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>STC</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>ALJAWAL MMS</ProfileName>
+        <URL>http://mms.net.sa:8002</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>010.001.001.001</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mms.net.sa</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Zain</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>zain-mms</ProfileName>
+        <URL>http://10.122.200.12:8002</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>10.122.200.010</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>zain</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Zain</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>zain-gprs</ProfileName>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <PSparam>
+          <APN>zain</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Mobily Postpaid</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>mobily MMS Postpaid</ProfileName>
+        <URL>http://10.3.3.133:9090/was</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>010.003.002.133</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mms1</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Mobily Postpaid</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>mobily Net Postpaid</ProfileName>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <PSparam>
+          <APN>web1</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Mobily Prepaid</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>mobily MMS Prepaid</ProfileName>
+        <URL>http://10.3.3.133:9090/was</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>010.003.002.133</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mms2</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Mobily Prepaid</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>mobily Net Prepaid</ProfileName>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <PSparam>
+          <APN>web2</APN>
+        </PSparam>
+      </Profile>
+    </Connections>
+  </Settings>
+</CustomerData>

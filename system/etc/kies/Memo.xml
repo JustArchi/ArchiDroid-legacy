@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<SDP version="0.9" domain="particular">
+    <Memo>
+        <ASyncObex>
+		<FileFolderPath value="internal:\_SamsungBnR_\MDG\"/>
+		<SupportVersion value="1.0" />
+		</ASyncObex>	
+		<MaxItemCount value="65535"/>
+        <Enums>
+            <Enum name="ATTRIBUTE_TYPE" DataLength="1">
+                <Element name="NORMAL" value="1"/>
+                <Element name="READ_ONLY" value="2"/>
+                <Element name="DISABLE_DEL" value="3"/>
+                <Element name="HIDDEN" value="4"/>
+                <Element name="LOCK" value="5"/>
+            </Enum>
+        </Enums>
+        <DataField>
+	 <Content type="String" charset="utf-16" maxLength="3000"/>
+         <CreateDate type="DateTime"/>
+        </DataField>
+    </Memo>
+</SDP>

@@ -1,0 +1,263 @@
+﻿<?xml  version="1.0" encoding="UTF-8" ?>
+<CustomerData>
+  <GeneralInfo>
+    <CSCEdition>ED008</CSCEdition>
+    <Country>Albania</Country>
+    <CountryISO>AL</CountryISO>
+    <Region>EUR</Region>
+    <SalesCode>ALB</SalesCode>
+    <NbNetworkInfo>4</NbNetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>27601</MCCMNC>
+      <NetworkName>AMC MOBIL</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>27602</MCCMNC>
+      <NetworkName>Vodafone AL</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>27603</MCCMNC>
+      <NetworkName>Eagle Mobile</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>27604</MCCMNC>
+      <NetworkName>PLUS AL</NetworkName>
+    </NetworkInfo>
+  </GeneralInfo>
+  <Settings>
+    <Main>
+      <Network>
+        <AutoProfile>on</AutoProfile>
+        <AutoVoicemail>on</AutoVoicemail>
+        <AutoEmailAccount>off</AutoEmailAccount>
+        <AutoBookmark>off</AutoBookmark>
+        <AutoLink>off</AutoLink>
+        <AutoSyncML>off</AutoSyncML>
+        <AutoFastDormancy>off</AutoFastDormancy>
+        <AutoWbAmr>off</AutoWbAmr>
+        <AutoFOTA>off</AutoFOTA>
+      </Network>
+      <Phone>
+        <DefLanguageNoSIM>en_GB</DefLanguageNoSIM>
+        <DateTimeFormat>
+          <DateFormat>ddmmyyyy</DateFormat>
+          <TimeFormat>24h</TimeFormat>
+        </DateTimeFormat>
+      </Phone>
+      <Security />
+    </Main>
+    <Messages>
+      <NbVoicemail>2</NbVoicemail>
+      <Voicemail>
+        <NetworkName>AMC MOBIL</NetworkName>
+        <TelNum>777</TelNum>
+      </Voicemail>
+      <Voicemail>
+        <NetworkName>Vodafone AL</NetworkName>
+        <TelNum>135</TelNum>
+      </Voicemail>
+    </Messages>
+    <NbFOTA>1</NbFOTA>
+    <FOTA>
+      <NetworkName>Vodafone AL</NetworkName>
+      <FotaBearer>wifi_dedicated</FotaBearer>
+    </FOTA>
+    <Browser>
+      <eManual>
+        <URL>http://www.samsung.com/m-manual/common</URL>
+      </eManual>
+    </Browser>
+    <Connections>
+      <NbProfileHandle>4</NbProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>AMC MOBIL</NetworkName>
+        <ProfBrowser>AMC Internet</ProfBrowser>
+        <ProfMMS>AMC MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>Vodafone AL</NetworkName>
+        <ProfBrowser>VFAL Internet</ProfBrowser>
+        <ProfMMS>VFAL MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>Eagle Mobile</NetworkName>
+        <ProfBrowser>Eagle-Internet</ProfBrowser>
+        <ProfMMS>Eagle-MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>1</NbNetProfile>
+        <NetworkName>PLUS AL</NetworkName>
+        <ProfBrowser>PLUS</ProfBrowser>
+      </ProfileHandle>
+      <NbProfile>10</NbProfile>
+      <Profile>
+        <NetworkName>AMC MOBIL</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>AMC Internet</ProfileName>
+        <URL>http://www.amc.al</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <PSparam>
+          <APN>internet.amc</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>AMC MOBIL</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>AMC MMS</ProfileName>
+        <URL>http://195.167.65.220:8002</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>010.010.010.020</ServAddr>
+          <Port>0</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mms</APN>
+          <UserId>nil</UserId>
+          <Password>nil</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Vodafone AL</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>VFAL WAP</ProfileName>
+        <URL>http://www.vodafone.al</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>10.0.9.2</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>vfalwap</APN>
+          <UserId>wap</UserId>
+          <Password>wap</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Vodafone AL</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>VFAL MMS</ProfileName>
+        <URL>http://mmsc.vodafone.al</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>10.0.9.2</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>vfalmms</APN>
+          <UserId>mms</UserId>
+          <Password>mms</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Vodafone AL</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>VFAL Internet</ProfileName>
+        <URL>http://www.vodafone.al</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>vodafoneweb</APN>
+          <UserId>web</UserId>
+          <Password>web</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Eagle Mobile</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>EagleZone-WAP</ProfileName>
+        <URL>http://wap.eaglezone.al</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>192.168.141.25</ServAddr>
+          <Port>80</Port>
+        </Proxy>
+        <PSparam>
+          <APN>wap</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Eagle Mobile</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Eagle-Internet</ProfileName>
+        <URL>http://wap.google.com</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>0.0.0.0</ServAddr>
+          <Port>80</Port>
+        </Proxy>
+        <PSparam>
+          <APN>internet</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Eagle Mobile</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>EagleZone-TV</ProfileName>
+        <URL>http://192.168.120.133</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+          <ServAddr>0.0.0.0</ServAddr>
+        </Proxy>
+        <PSparam>
+          <APN>mtv</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Eagle Mobile</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Eagle-MMS</ProfileName>
+        <URL>http://192.168.140.164:38090</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>192.168.141.25</ServAddr>
+          <Port>80</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mms</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>PLUS AL</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>PLUS</ProfileName>
+        <URL>http://www.plus.al</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <PSparam>
+          <APN>plusweb</APN>
+        </PSparam>
+      </Profile>
+    </Connections>
+  </Settings>
+</CustomerData>

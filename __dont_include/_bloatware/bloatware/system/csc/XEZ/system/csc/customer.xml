@@ -1,0 +1,226 @@
+﻿<?xml  version="1.0" encoding="UTF-8" ?>
+<CustomerData>
+  <GeneralInfo>
+    <CSCEdition>ED003</CSCEdition>
+    <Country>Czech Republic</Country>
+    <CountryISO>CZ</CountryISO>
+    <Region>EUR</Region>
+    <SalesCode>XEZ</SalesCode>
+    <NbNetworkInfo>3</NbNetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>23001</MCCMNC>
+      <NetworkName>T-Mobile CZ</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>23002</MCCMNC>
+      <NetworkName>O2 - CZ</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>23003</MCCMNC>
+      <NetworkName>Vodafone CZ</NetworkName>
+    </NetworkInfo>
+  </GeneralInfo>
+  <Settings>
+    <Main>
+      <Network>
+        <AutoProfile>on</AutoProfile>
+        <AutoVoicemail>off</AutoVoicemail>
+        <AutoEmailAccount>off</AutoEmailAccount>
+        <AutoBookmark>off</AutoBookmark>
+        <AutoLink>off</AutoLink>
+        <AutoSyncML>off</AutoSyncML>
+        <AutoFastDormancy>off</AutoFastDormancy>
+        <AutoWbAmr>off</AutoWbAmr>
+        <AutoFOTA>off</AutoFOTA>
+      </Network>
+      <Sound>
+        <KeyTone>
+          <KeyVolume>1</KeyVolume>
+        </KeyTone>
+        <ExtraSound>
+          <ConnectTone>on</ConnectTone>
+          <MinuteMind>off</MinuteMind>
+        </ExtraSound>
+      </Sound>
+      <Phone>
+        <DefLanguage>czech</DefLanguage>
+        <DefLanguageNoSIM>czech</DefLanguageNoSIM>
+        <T9Enabling>enable</T9Enabling>
+        <T9Language>czech</T9Language>
+        <DateTimeFormat>
+          <DateFormat>ddmmyyyy</DateFormat>
+          <TimeFormat>24h</TimeFormat>
+        </DateTimeFormat>
+      </Phone>
+      <Security />
+    </Main>
+    <Messages>
+      <SMS>
+        <DeliveryReport>off</DeliveryReport>
+        <CharSupport>gsmalpha</CharSupport>
+        <SSMS>off</SSMS>
+      </SMS>
+      <MMS>
+        <MmsSending>
+          <ReqDeliveryRep>off</ReqDeliveryRep>
+          <ReqReadRep>off</ReqReadRep>
+          <CreationMode>free</CreationMode>
+        </MmsSending>
+        <MmsReceiving>
+          <Home>auto</Home>
+          <Roaming>manual</Roaming>
+          <SendReadRep>off</SendReadRep>
+          <SendDeliveryRep>off</SendDeliveryRep>
+        </MmsReceiving>
+      </MMS>
+      <Email>
+        <EmailReceiving>
+          <AutoPoll>off</AutoPoll>
+          <PollTime>off</PollTime>
+          <KeepServer>on</KeepServer>
+        </EmailReceiving>
+      </Email>
+    </Messages>
+    <Browser>
+      <NbBookmark>2</NbBookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Index>1</Index>
+        <BookmarkName>Samsung Apps</BookmarkName>
+        <URL>http://m.cz.samsungapps.com</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Index>2</Index>
+        <BookmarkName>Yahoo!</BookmarkName>
+        <URL>http://m.yahoo.com/?tsrc=samsungbm</URL>
+      </Bookmark>
+      <eManual>
+        <URL>http://www.samsung.com/m-manual/common</URL>
+      </eManual>
+    </Browser>
+    <Connections>
+      <NbProfileHandle>3</NbProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>O2 - CZ</NetworkName>
+        <ProfBrowser>O2 Internet</ProfBrowser>
+        <ProfMMS>O2 MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>T-Mobile CZ</NetworkName>
+        <ProfBrowser>T-Mobile Internet</ProfBrowser>
+        <ProfMMS>T-Mobile MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>Vodafone CZ</NetworkName>
+        <ProfBrowser>Vodafone Internet</ProfBrowser>
+        <ProfMMS>Vodafone MMS</ProfMMS>
+      </ProfileHandle>
+      <NbProfile>6</NbProfile>
+      <Profile>
+        <NetworkName>O2 - CZ</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>O2 Internet</ProfileName>
+        <URL>http://m.o2mobil.cz</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>internet</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>O2 - CZ</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>O2 MMS</ProfileName>
+        <URL>http://mms.o2active.cz:8002</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>160.218.160.218</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mms</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Vodafone CZ</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Vodafone Internet</ProfileName>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>internet</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Vodafone CZ</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Vodafone MMS</ProfileName>
+        <URL>http://mms</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>10.11.10.111</ServAddr>
+          <Port>80</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mms</APN>
+          <UserId>mms</UserId>
+          <Password>mms</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>T-Mobile CZ</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>T-Mobile Internet</ProfileName>
+        <URL>http://tmo.cz/</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>internet.t-mobile.cz</APN>
+          <UserId>wap</UserId>
+          <Password>wap</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>T-Mobile CZ</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>T-Mobile MMS</ProfileName>
+        <URL>http://mms</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>010.000.000.010</ServAddr>
+          <Port>80</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mms.t-mobile.cz</APN>
+          <UserId>mms</UserId>
+          <Password>mms</Password>
+        </PSparam>
+      </Profile>
+    </Connections>
+  </Settings>
+</CustomerData>

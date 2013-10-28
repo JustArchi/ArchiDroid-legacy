@@ -15,18 +15,6 @@ assert(unmount("/system") || ui_print("(system is unmounted already)"));
 #assert(unmount("/cache") || ui_print("(cache is unmounted already)"));
 #assert(unmount("/preload") || ui_print("(preload is unmounted already)"));
 
-set_progress(0.02);
-
-if file_getprop("/tmp/aroma-data/archidroidwipe.prop","wipe") == "no" then
-	mount("ext4", "EMMC", "/dev/block/mmcblk0p9", "/system");
-	package_extract_file("system/bin/backuptool.sh", "/tmp/backuptool.sh");
-	package_extract_file("system/bin/backuptool.functions", "/tmp/backuptool.functions");
-	set_perm(0, 0, 0777, "/tmp/backuptool.sh");
-	set_perm(0, 0, 0644, "/tmp/backuptool.functions");
-	run_program("/tmp/backuptool.sh", "backup");
-	unmount("/system");
-endif;
-
 set_progress(0.03);
 
 ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Formatting Partitions");
@@ -106,7 +94,6 @@ set_progress(0.51);
 
 ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Creating symlinks");
 
-symlink("../xbin/su", "/system/bin/su");
 symlink("Roboto-Bold.ttf", "/system/fonts/DroidSans-Bold.ttf");
 symlink("Roboto-Regular.ttf", "/system/fonts/DroidSans.ttf");
 symlink("busybox", "/system/xbin/[", "/system/xbin/[[",
@@ -126,19 +113,18 @@ symlink("busybox", "/system/xbin/[", "/system/xbin/[[",
         "/system/xbin/dos2unix", "/system/xbin/du", "/system/xbin/echo",
         "/system/xbin/ed", "/system/xbin/egrep", "/system/xbin/env",
         "/system/xbin/expand", "/system/xbin/expr", "/system/xbin/false",
-        "/system/xbin/fbsplash", "/system/xbin/fdisk", "/system/xbin/fgrep",
-        "/system/xbin/find", "/system/xbin/flash_lock",
-        "/system/xbin/flash_unlock", "/system/xbin/flashcp",
-        "/system/xbin/flock", "/system/xbin/fold", "/system/xbin/free",
-        "/system/xbin/freeramdisk", "/system/xbin/fstrim", "/system/xbin/fsync",
+        "/system/xbin/fdisk", "/system/xbin/fgrep", "/system/xbin/find",
+        "/system/xbin/flash_lock", "/system/xbin/flash_unlock",
+        "/system/xbin/flashcp", "/system/xbin/flock", "/system/xbin/fold",
+        "/system/xbin/free", "/system/xbin/freeramdisk", "/system/xbin/fsync",
         "/system/xbin/ftpget", "/system/xbin/ftpput", "/system/xbin/fuser",
         "/system/xbin/getopt", "/system/xbin/grep", "/system/xbin/groups",
         "/system/xbin/gunzip", "/system/xbin/gzip", "/system/xbin/halt",
         "/system/xbin/head", "/system/xbin/hexdump", "/system/xbin/id",
         "/system/xbin/ifconfig", "/system/xbin/inetd", "/system/xbin/insmod",
-        "/system/xbin/install", "/system/xbin/ionice", "/system/xbin/iostat",
-        "/system/xbin/ip", "/system/xbin/kill", "/system/xbin/killall",
-        "/system/xbin/killall5", "/system/xbin/less", "/system/xbin/ln",
+        "/system/xbin/install", "/system/xbin/iostat", "/system/xbin/ip",
+        "/system/xbin/kill", "/system/xbin/killall", "/system/xbin/killall5",
+        "/system/xbin/length", "/system/xbin/less", "/system/xbin/ln",
         "/system/xbin/losetup", "/system/xbin/ls", "/system/xbin/lsattr",
         "/system/xbin/lsmod", "/system/xbin/lsusb", "/system/xbin/lzcat",
         "/system/xbin/lzma", "/system/xbin/lzop", "/system/xbin/lzopcat",
@@ -149,68 +135,56 @@ symlink("busybox", "/system/xbin/[", "/system/xbin/[[",
         "/system/xbin/modinfo", "/system/xbin/modprobe", "/system/xbin/more",
         "/system/xbin/mount", "/system/xbin/mountpoint", "/system/xbin/mpstat",
         "/system/xbin/mv", "/system/xbin/nanddump", "/system/xbin/nandwrite",
-        "/system/xbin/nbd-client", "/system/xbin/netstat", "/system/xbin/nice",
-        "/system/xbin/nohup", "/system/xbin/nslookup", "/system/xbin/ntpd",
-        "/system/xbin/od", "/system/xbin/patch", "/system/xbin/pgrep",
-        "/system/xbin/pidof", "/system/xbin/ping", "/system/xbin/pipe_progress",
-        "/system/xbin/pkill", "/system/xbin/pmap", "/system/xbin/poweroff",
-        "/system/xbin/printenv", "/system/xbin/printf", "/system/xbin/ps",
-        "/system/xbin/pstree", "/system/xbin/pwd", "/system/xbin/pwdx",
-        "/system/xbin/rdev", "/system/xbin/readlink", "/system/xbin/realpath",
-        "/system/xbin/renice", "/system/xbin/reset", "/system/xbin/resize",
-        "/system/xbin/rev", "/system/xbin/rm", "/system/xbin/rmdir",
-        "/system/xbin/rmmod", "/system/xbin/route", "/system/xbin/run-parts",
-        "/system/xbin/rx", "/system/xbin/sed", "/system/xbin/seq",
-        "/system/xbin/setconsole", "/system/xbin/setserial",
+        "/system/xbin/netstat", "/system/xbin/nice", "/system/xbin/nohup",
+        "/system/xbin/nslookup", "/system/xbin/ntpd", "/system/xbin/od",
+        "/system/xbin/patch", "/system/xbin/pgrep", "/system/xbin/pidof",
+        "/system/xbin/ping", "/system/xbin/pkill", "/system/xbin/pmap",
+        "/system/xbin/poweroff", "/system/xbin/printenv", "/system/xbin/printf",
+        "/system/xbin/ps", "/system/xbin/pstree", "/system/xbin/pwd",
+        "/system/xbin/pwdx", "/system/xbin/rdev", "/system/xbin/readlink",
+        "/system/xbin/realpath", "/system/xbin/renice", "/system/xbin/reset",
+        "/system/xbin/resize", "/system/xbin/rev", "/system/xbin/rm",
+        "/system/xbin/rmdir", "/system/xbin/rmmod", "/system/xbin/route",
+        "/system/xbin/run-parts", "/system/xbin/rx", "/system/xbin/sed",
+        "/system/xbin/seq", "/system/xbin/setconsole", "/system/xbin/setserial",
         "/system/xbin/setsid", "/system/xbin/sh", "/system/xbin/sha1sum",
-        "/system/xbin/sha256sum", "/system/xbin/sha3sum",
-        "/system/xbin/sha512sum", "/system/xbin/sleep", "/system/xbin/sort",
-        "/system/xbin/split", "/system/xbin/stat", "/system/xbin/strings",
-        "/system/xbin/stty", "/system/xbin/sum", "/system/xbin/swapoff",
-        "/system/xbin/swapon", "/system/xbin/sync", "/system/xbin/sysctl",
-        "/system/xbin/tac", "/system/xbin/tail", "/system/xbin/tar",
-        "/system/xbin/taskset", "/system/xbin/tee", "/system/xbin/telnet",
-        "/system/xbin/telnetd", "/system/xbin/test", "/system/xbin/tftp",
-        "/system/xbin/tftpd", "/system/xbin/time", "/system/xbin/timeout",
-        "/system/xbin/top", "/system/xbin/touch", "/system/xbin/tr",
-        "/system/xbin/traceroute", "/system/xbin/true", "/system/xbin/ttysize",
-        "/system/xbin/tune2fs", "/system/xbin/umount", "/system/xbin/uname",
-        "/system/xbin/uncompress", "/system/xbin/unexpand", "/system/xbin/uniq",
-        "/system/xbin/unix2dos", "/system/xbin/unlzma", "/system/xbin/unlzop",
-        "/system/xbin/unxz", "/system/xbin/unzip", "/system/xbin/uptime",
-        "/system/xbin/usleep", "/system/xbin/uudecode", "/system/xbin/uuencode",
-        "/system/xbin/vi", "/system/xbin/watch", "/system/xbin/wc",
-        "/system/xbin/wget", "/system/xbin/which", "/system/xbin/whoami",
-        "/system/xbin/xargs", "/system/xbin/xz", "/system/xbin/xzcat",
-        "/system/xbin/yes",
+        "/system/xbin/sha256sum", "/system/xbin/sha512sum",
+        "/system/xbin/sleep", "/system/xbin/sort", "/system/xbin/split",
+        "/system/xbin/stat", "/system/xbin/strings", "/system/xbin/stty",
+        "/system/xbin/sum", "/system/xbin/swapoff", "/system/xbin/swapon",
+        "/system/xbin/sync", "/system/xbin/sysctl", "/system/xbin/tac",
+        "/system/xbin/tail", "/system/xbin/tar", "/system/xbin/taskset",
+        "/system/xbin/tee", "/system/xbin/telnet", "/system/xbin/telnetd",
+        "/system/xbin/test", "/system/xbin/tftp", "/system/xbin/tftpd",
+        "/system/xbin/time", "/system/xbin/timeout", "/system/xbin/top",
+        "/system/xbin/touch", "/system/xbin/tr", "/system/xbin/traceroute",
+        "/system/xbin/true", "/system/xbin/ttysize", "/system/xbin/tune2fs",
+        "/system/xbin/umount", "/system/xbin/uname", "/system/xbin/uncompress",
+        "/system/xbin/unexpand", "/system/xbin/uniq", "/system/xbin/unix2dos",
+        "/system/xbin/unlzma", "/system/xbin/unlzop", "/system/xbin/unxz",
+        "/system/xbin/unzip", "/system/xbin/uptime", "/system/xbin/usleep",
+        "/system/xbin/uudecode", "/system/xbin/uuencode", "/system/xbin/vi",
+        "/system/xbin/watch", "/system/xbin/wc", "/system/xbin/wget",
+        "/system/xbin/which", "/system/xbin/whoami", "/system/xbin/xargs",
+        "/system/xbin/xz", "/system/xbin/xzcat", "/system/xbin/yes",
         "/system/xbin/zcat");
-symlink("libGLESv2.so", "/system/lib/libGLESv3.so");
-symlink("logcat", "/system/bin/lolcat");
 symlink("mksh", "/system/bin/sh");
-symlink("mount.exfat", "/system/bin/fsck.exfat",
-        "/system/bin/mkfs.exfat");
-symlink("pigz", "/system/xbin/unpigz");
-symlink("toolbox", "/system/bin/cat", "/system/bin/chcon",
-        "/system/bin/chmod", "/system/bin/chown", "/system/bin/clear",
-        "/system/bin/cmp", "/system/bin/cp", "/system/bin/date",
+symlink("toolbox", "/system/bin/cat", "/system/bin/chmod",
+        "/system/bin/chown", "/system/bin/cmp", "/system/bin/date",
         "/system/bin/dd", "/system/bin/df", "/system/bin/dmesg",
-        "/system/bin/du", "/system/bin/getenforce", "/system/bin/getevent",
-        "/system/bin/getprop", "/system/bin/getsebool", "/system/bin/grep",
-        "/system/bin/hd", "/system/bin/id", "/system/bin/ifconfig",
-        "/system/bin/iftop", "/system/bin/insmod", "/system/bin/ioctl",
-        "/system/bin/ionice", "/system/bin/kill", "/system/bin/ln",
-        "/system/bin/load_policy", "/system/bin/log", "/system/bin/ls",
-        "/system/bin/lsmod", "/system/bin/lsof", "/system/bin/md5",
-        "/system/bin/mkdir", "/system/bin/mount", "/system/bin/mv",
-        "/system/bin/nandread", "/system/bin/netstat",
+        "/system/bin/getevent", "/system/bin/getprop", "/system/bin/hd",
+        "/system/bin/id", "/system/bin/ifconfig", "/system/bin/iftop",
+        "/system/bin/insmod", "/system/bin/ioctl", "/system/bin/ionice",
+        "/system/bin/kill", "/system/bin/ln", "/system/bin/log",
+        "/system/bin/ls", "/system/bin/lsmod", "/system/bin/lsof",
+        "/system/bin/md5", "/system/bin/mkdir", "/system/bin/mount",
+        "/system/bin/mv", "/system/bin/nandread", "/system/bin/netstat",
         "/system/bin/newfs_msdos", "/system/bin/notify", "/system/bin/printenv",
         "/system/bin/ps", "/system/bin/r", "/system/bin/reboot",
-        "/system/bin/renice", "/system/bin/restart", "/system/bin/restorecon",
-        "/system/bin/rm", "/system/bin/rmdir", "/system/bin/rmmod",
-        "/system/bin/route", "/system/bin/runcon", "/system/bin/schedtop",
+        "/system/bin/renice", "/system/bin/rm", "/system/bin/rmdir",
+        "/system/bin/rmmod", "/system/bin/route", "/system/bin/schedtop",
         "/system/bin/sendevent", "/system/bin/setconsole",
-        "/system/bin/setenforce", "/system/bin/setfattr", "/system/bin/setprop",
-        "/system/bin/setsebool", "/system/bin/sleep", "/system/bin/smd",
+        "/system/bin/setprop", "/system/bin/sleep", "/system/bin/smd",
         "/system/bin/start", "/system/bin/stop", "/system/bin/sync",
         "/system/bin/top", "/system/bin/touch", "/system/bin/umount",
         "/system/bin/uptime", "/system/bin/vmstat", "/system/bin/watchprops",
@@ -227,27 +201,24 @@ set_progress(0.53);
 
 ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Setting Permissions");
 set_perm_recursive(0, 0, 0755, 0644, "/system");
-set_perm_recursive(0, 0, 0755, 0755, "/system/addon.d");
+set_perm_recursive(0, 0, 0755, 0755, "/system/etc/init.d");
 set_perm_recursive(0, 2000, 0755, 0755, "/system/bin");
+set_perm(0, 3003, 06755, "/system/bin/ip");
 set_perm(0, 3003, 02750, "/system/bin/netcfg");
-set_perm(0, 0, 0755, "/system/bin/ping");
-set_perm(0, 2000, 0750, "/system/bin/run-as");
+set_perm(0, 3004, 02755, "/system/bin/ping");
+set_perm(0, 2000, 06750, "/system/bin/run-as");
+set_perm_recursive(1002, 1002, 0755, 0440, "/system/etc/bluetooth");
+set_perm(0, 0, 0755, "/system/etc/bluetooth");
+#set_perm(1000, 1000, 0640, "/system/etc/bluetooth/auto_pairing.conf");
+#set_perm(3002, 3002, 0444, "/system/etc/bluetooth/blacklist.conf");
+set_perm(1002, 1002, 0440, "/system/etc/dbus.conf");
 set_perm(1014, 2000, 0550, "/system/etc/dhcpcd/dhcpcd-run-hooks");
-set_perm_recursive(0, 2000, 0755, 0755, "/system/etc/init.d");
-set_perm(0, 0, 0755, "/system/etc/init.d");
 set_perm(0, 2000, 0550, "/system/etc/init.goldfish.sh");
 set_perm_recursive(0, 0, 0755, 0555, "/system/etc/ppp");
-set_perm(0, 2000, 0755, "/system/vendor");
-set_perm_recursive(0, 2000, 0755, 0644, "/system/vendor/etc");
-set_perm(0, 0, 0644, "/system/vendor/etc/audio_effects.conf");
+set_perm_recursive(0, 2000, 0755, 0644, "/system/vendor");
+set_perm_recursive(0, 0, 0755, 0644, "/system/vendor/firmware");
 set_perm(0, 2000, 0755, "/system/vendor/firmware");
-set_perm(0, 2000, 0755, "/system/vendor/lib");
-set_perm_recursive(0, 2000, 0755, 0644, "/system/vendor/lib/drm");
-set_perm(0, 0, 0644, "/system/vendor/lib/drm/libdrmwvmplugin.so");
 set_perm_recursive(0, 2000, 0755, 0755, "/system/xbin");
-set_perm(0, 0, 06755, "/system/xbin/librank");
-set_perm(0, 0, 06755, "/system/xbin/procmem");
-set_perm(0, 0, 06755, "/system/xbin/procrank");
 set_perm(0, 0, 06755, "/system/xbin/su");
 
 set_progress(0.54);
@@ -257,71 +228,9 @@ set_progress(0.54);
 ### KERNEL ###
 ##############
 
-# We need to make sure that current kernel is CM-based to prevent random zygote kernel panics
+# We need to make sure that current kernel is Stock-based to prevent random zygote kernel panics
 ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Cleaning Old Kernel");
 package_extract_file("boot.img", "/dev/block/mmcblk0p5");
-
-### TEMASEK ###
-if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "temasek" then
-	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Flashing Temasek Kernel");
-	#delete_recursive("/data/.temasek");
-  delete("/data/.temasek/config.version");
-  delete("/data/.temasek/customconfig.xml");
-	delete_recursive("/system/lib/modules");
-	package_extract_dir("_archidroid/kernels/temasek/system", "/system");
-	set_perm_recursive(0, 0, 0755, 0755, "/system/lib/modules/");
-	set_perm(0, 0, 0755, "/system/bin/hostapd");
-	package_extract_dir("_archidroid/kernels/temasek/kernel", "/tmp");
-	set_perm(0, 0, 0777, "/tmp/dump_image");
-	set_perm(0, 0, 0777, "/tmp/mkbootimg.sh");
-	set_perm(0, 0, 0777, "/tmp/mkbootimg");
-	set_perm(0, 0, 0777, "/tmp/unpackbootimg");
-	set_perm(0, 0, 0777, "/tmp/cpio");
-	set_perm(0, 0, 0777, "/tmp/res/uci.sh");
-	set_perm(0, 0, 0777, "/tmp/sbin/temasek.sh");
-	run_program("/tmp/dump_image", "/dev/block/mmcblk0p5", "/tmp/boot.img");
-	run_program("/tmp/unpackbootimg", "-i", "/tmp/boot.img", "-o", "/tmp/");
-	run_program("/tmp/mkbootimg.sh");
-	run_program("/sbin/busybox", "dd", "if=/tmp/newboot.img", "of=/dev/block/mmcblk0p5");
-	
-	if file_getprop("/tmp/aroma-data/archidroidtemasek.prop","preset") == "balanced" then
-		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying ArchiDroid Balanced kernel config");
-		package_extract_dir("_archidroid/presets/temasek/archi", "/data/.temasek");
-	endif;
-	if file_getprop("/tmp/aroma-data/archidroidtemasek.prop","preset") == "powersave" then
-		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying ArchiDroid PowerSave kernel config");
-		package_extract_dir("_archidroid/presets/temasek/archi_powersave", "/data/.temasek");
-	endif;
-	if file_getprop("/tmp/aroma-data/archidroidtemasek.prop","preset") == "ultra" then
-		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying ArchiDroid ULTRA PowerSave kernel config");
-		package_extract_dir("_archidroid/presets/temasek/archi_ultra_powersave", "/data/.temasek");
-	endif;
-	
-	package_extract_dir("_archidroid/apps/stweaks", "/");
-	
-endif;
-
-### YANK ###
-if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "yank" then
-	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Flashing Yank555.lu Kernel");
-	delete_recursive("/system/lib/modules");
-	delete("/system/etc/init.kernel.sh");
-	delete("/system/etc/init.hardswap.sh");
-	delete("/data/kernel-script.log");
-	delete("/data/hardswap.log");
-	delete("/data/swap.0.log");
-	delete("/data/swap.1.log");
-	delete("/data/swap.2.log");
-	delete("/data/swap.3.log");
-	delete("/data/swap.4.log");
-
-    package_extract_dir("_archidroid/kernels/yank/system", "/system");
-	set_perm_recursive(0, 0, 0755, 0755, "/system/lib/modules/");
-  set_perm(0, 0, 0755, "/system/etc/init.kernel.sh");
-	package_extract_file("_archidroid/kernels/yank/boot.img", "/tmp/yank.img");
-    write_raw_image("/tmp/yank.img", "/dev/block/mmcblk0p5");
-    delete("/tmp/yank.img");
-endif;
 
 ### BOEFFLA ###
 if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "boeffla" then
@@ -348,6 +257,28 @@ if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "boeffla" then
 	endif;
 endif;
 
+### YANK ###
+if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "yank" then
+	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Flashing Yank555.lu Kernel");
+	delete_recursive("/system/lib/modules");
+	delete("/system/etc/init.kernel.sh");
+	delete("/system/etc/init.hardswap.sh");
+	delete("/data/kernel-script.log");
+	delete("/data/hardswap.log");
+	delete("/data/swap.0.log");
+	delete("/data/swap.1.log");
+	delete("/data/swap.2.log");
+	delete("/data/swap.3.log");
+	delete("/data/swap.4.log");
+
+    package_extract_dir("_archidroid/kernels/yank/system", "/system");
+	set_perm_recursive(0, 0, 0755, 0755, "/system/lib/modules/");
+  set_perm(0, 0, 0755, "/system/etc/init.kernel.sh");
+	package_extract_file("_archidroid/kernels/yank/boot.img", "/tmp/yank.img");
+    write_raw_image("/tmp/yank.img", "/dev/block/mmcblk0p5");
+    delete("/tmp/yank.img");
+endif;
+
 ### GOOGY-MAX ###
 if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "googy" then
 	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Flashing Googy-Max Kernel");
@@ -359,7 +290,7 @@ endif;
 
 ### STOCK CM ###
 if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "stock" then
-	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Flashing CM Kernel");
+	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Flashing Stock Kernel");
 	
 	# Not needed since zygote kernel panic fix
     #package_extract_file("boot.img", "/tmp/stock.img");
@@ -375,7 +306,7 @@ set_progress(0.6);
 ###############################
 
 ### Presets for non-boeffla kernels, yet with boeffla sound engine ###
-if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "temasek" || file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "yank" then
+if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "yank" then
   if file_getprop("/tmp/aroma-data/archidroidboefflasound.prop","boeffla") == "yesarchi" then
     ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Boeffla SC with Archi's Audiophile preset");
     package_extract_dir("_archidroid/apps/boeffla", "/");
@@ -388,19 +319,25 @@ if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "temasek" || file
 endif;
 
 
-###############
-### RESTORE ###
-###############
+#############
+### THEME ###
+#############
 
-if file_getprop("/tmp/aroma-data/archidroidwipe.prop","wipe") == "no" then
-	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Restoring Addons");
-	package_extract_file("system/bin/backuptool.sh", "/tmp/backuptool.sh");
-	package_extract_file("system/bin/backuptool.functions", "/tmp/backuptool.functions");
-	set_perm(0, 0, 0777, "/tmp/backuptool.sh");
-	set_perm(0, 0, 0644, "/tmp/backuptool.functions");
-	run_program("/tmp/backuptool.sh", "restore");
-	delete("/system/bin/backuptool.sh");
-	delete("/system/bin/backuptool.functions");;
+if file_getprop("/tmp/aroma-data/archidroid.prop","theme") == "dreamtheme" then
+	ui_print("root@ArchiDroid:~# Installing DreamTheme AOSP");
+	package_extract_dir("_archidroid/themes/dreamtheme", "/sdcard/vrtheme");
+	package_extract_dir("_archidroid/themes/vrtheme", "/sdcard/vrtheme");
+	set_perm(0, 0, 0755, "/sdcard/vrtheme/installtheme.sh");
+	set_perm(0, 0, 0755, "/sdcard/vrtheme/zip");
+	set_perm(0, 0, 0755, "/sdcard/vrtheme/cleanup.sh");
+	set_perm(0, 0, 0755, "/sdcard/vrtheme/zipalign");
+	run_program("/sdcard/vrtheme/installtheme.sh");
+	run_program("/sdcard/vrtheme/cleanup.sh");
+endif;
+
+if file_getprop("/tmp/aroma-data/archidroid.prop","theme") == "stock" then
+	ui_print("root@ArchiDroid:~# Installing Stock Theme");
+	# Not needed, haha!
 endif;
 
 set_progress(0.63);
@@ -416,14 +353,6 @@ if file_getprop("/tmp/aroma-data/archidroid.prop","dpi") == "240" then
 	package_extract_file("_archidroid/dpi/240dpi.sh", "/tmp/240dpi.sh");
 	set_perm(0, 0, 0777, "/tmp/240dpi.sh");
 	run_program("/tmp/240dpi.sh");
-endif;
-
-### 241 ###
-if file_getprop("/tmp/aroma-data/archidroid.prop","dpi") == "241" then
-	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying 241 DPI");
-	package_extract_file("_archidroid/dpi/241dpi.sh", "/tmp/241dpi.sh");
-	set_perm(0, 0, 0777, "/tmp/241dpi.sh");
-	run_program("/tmp/241dpi.sh");
 endif;
 	
 ### 280 ###
@@ -480,6 +409,10 @@ if file_getprop("/tmp/aroma-data/archidroid.prop","xposed") == "1" then
 		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Including XPrivacy Xposed Module");
 		package_extract_dir("_archidroid/apps/xposed/xprivacy", "/");
 	endif;
+	if file_getprop("/tmp/aroma-data/archidroidxposed.prop","wanam") == "1" then
+		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Including Wanam's Xposed Module");
+		package_extract_dir("_archidroid/apps/xposed/wanam", "/");
+	endif;
 	
 endif;
 
@@ -521,7 +454,7 @@ set_progress(0.73);
 
 ### TOUCHPAL ###
 if file_getprop("/tmp/aroma-data/archidroid.prop","keyboard") == "touchpal" then
-	delete("/system/app/LatinIME.apk");
+	delete("/system/app/SamsungIME.apk");
 	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing TouchPal Keyboard");
 	package_extract_dir("_archidroid/apps/touchpal", "/");
 endif;
@@ -529,14 +462,14 @@ endif;
 ### HACKERS ###
 if file_getprop("/tmp/aroma-data/archidroid.prop","keyboard") == "hackers" then
 	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Hacker's Keyboard");
-	delete("/system/app/LatinIME.apk");
+	delete("/system/app/SamsungIME.apk");
 	package_extract_dir("_archidroid/apps/hackers", "/");
 endif;
 
 ### BOTH ###
 if file_getprop("/tmp/aroma-data/archidroid.prop","keyboard") == "both" then
 	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing TouchPal + Hacker's Keyboard");
-	delete("/system/app/LatinIME.apk");
+	delete("/system/app/SamsungIME.apk");
 	package_extract_dir("_archidroid/apps/touchpal", "/");
 	package_extract_dir("_archidroid/apps/hackers", "/");
 endif;
@@ -551,7 +484,7 @@ endif;
 if file_getprop("/tmp/aroma-data/archidroid.prop","keyboard") == "none" then
 	# Just delete LatinIME then
 	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Skipping Keyboard");
-	delete("/system/app/LatinIME.apk");
+	delete("/system/app/SamsungIME.apk");
 endif;
 
 set_progress(0.74);
@@ -564,7 +497,7 @@ set_progress(0.74);
 ### NOVA ###
 if file_getprop("/tmp/aroma-data/archidroid.prop","launcher") == "nova" then
 	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Nova Launcher");
-	delete("/system/app/Trebuchet.apk");
+	#delete("/system/app/SecLauncher2.apk");
 	package_extract_dir("_archidroid/apps/nova", "/");
 endif;
 
@@ -578,7 +511,7 @@ endif;
 if file_getprop("/tmp/aroma-data/archidroid.prop","launcher") == "none" then
 	# Just delete Trebuchet then
 	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Skipping Launcher");
-	delete("/system/app/Trebuchet.apk");
+	#delete("/system/app/SecLauncher2.apk");
 endif;
 
 set_progress(0.75);
@@ -591,11 +524,15 @@ set_progress(0.75);
 if file_getprop("/tmp/aroma-data/archidroid.prop","bootanimation") == "archi" then
 	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying ArchiDroid Bootanimation");
 	package_extract_dir("_archidroid/bootanimations/archi", "/");
+	package_extract_file("_archidroid/bootanimations/bootanimation", "/system/bin/bootanimation");
+	set_perm(0, 2000, 0755, "/system/bin/bootanimation");
 endif;
 
 if file_getprop("/tmp/aroma-data/archidroid.prop","bootanimation") == "archilegacy" then
 	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying ArchiDroid Legacy Bootanimation");
 	package_extract_dir("_archidroid/bootanimations/archilegacy", "/");
+	package_extract_file("_archidroid/bootanimations/bootanimation", "/system/bin/bootanimation");
+	set_perm(0, 2000, 0755, "/system/bin/bootanimation");
 endif;
 
 if file_getprop("/tmp/aroma-data/archidroid.prop","bootanimation") == "logcat" then
@@ -648,21 +585,6 @@ if file_getprop("/tmp/aroma-data/archidroid.prop","buildtweaks") == "1" then
       run_program("/tmp/fdOFF.sh");
       delete ("/tmp/fdOFF.sh");
     endif;
-endif;
-
-if file_getprop("/tmp/aroma-data/archidroid.prop","openpdroid") == "1" then
-	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying OpenPDroid Patch");
-  
-  ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> ON HOLD");
-	#package_extract_dir("_archidroid/tweaks/openpdroid", "/");
-	#set_perm_recursive(0, 0, 0755, 0644, "/system/app");
-	#set_perm_recursive(0, 0, 0755, 0644, "/system/framework");
-	#set_perm_recursive(0, 0, 0755, 0644, "/system/media");
-endif;
-
-if file_getprop("/tmp/aroma-data/archidroid.prop","nocell") == "1" then
-	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Removing Cell Broadcasts");
-	delete("/system/app/CellBroadcastReceiver.apk");
 endif;
 
 set_progress(0.77);

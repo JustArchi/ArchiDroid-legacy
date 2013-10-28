@@ -1,0 +1,45 @@
+#
+# Updater-script for ArchiDroid
+#
+ui_print(">>> ArchiDroid is now loading...");
+sleep (1);
+# TODO some checks
+ui_print("root@ArchiDroid:~# Ready!");
+set_progress(0.01);
+sleep (2);
+
+ui_print("root@ArchiDroid:~# Mounting Partitions");
+assert(mount("ext4", "EMMC", "/dev/block/mmcblk0p9", "/system") || ui_print("(system is mounted already)"));
+assert(mount("ext4", "EMMC", "/dev/block/mmcblk0p12", "/data") || ui_print("(data is mounted already)"));
+
+set_progress(0.1);
+
+show_progress(0.88, 229);
+if file_getprop("/tmp/aroma-data/mode.prop","selected.0") == "1" then
+	ui_print("root@ArchiDroid:~# Restoring Full Bloatware");
+	package_extract_dir("bloatware", "/");
+endif;
+if file_getprop("/tmp/aroma-data/mode.prop","selected.0") == "2" then
+	ui_print("root@ArchiDroid:~# Restoring Custom Bloatware");
+	package_extract_dir("custom_bloatware", "/");
+endif;
+
+set_progress(0.98);
+
+ui_print("root@ArchiDroid:~# Syncing System");
+run_program("/sbin/sync");
+
+set_progress(0.99);
+
+ui_print("root@ArchiDroid:~# Unmounting partitions");
+assert(unmount("/data") || ui_print("(data is unmounted already)"));
+assert(unmount("/system") || ui_print("(system is unmounted already)"));
+
+ui_print("===================================");
+ui_print("  Bloatware Flashed Successfully  ");
+ui_print("===================================");
+ui_print("");
+ui_print("");
+ui_print(">>> ArchiDroid PermFix will now make sure that you have correct permissions");
+ui_print(">>> Press PermFix and wait. It shouldn't take longer than two minutes");
+set_progress(1.0);

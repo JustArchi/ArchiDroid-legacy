@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+  (c) Copyright 2012 Samsung Telecommunication America, Inc.
+                   All rights reserved
+ 
+              Wireless Terminals Lab in Dallas Technology Lab  
+ 
+
+ Copyright (C) 2012 Samsung Electronics Co., Ltd. All rights reserved.
+
+ Mobile Communication Division,
+ Digital Media & Communications Business, Samsung Electronics Co., Ltd.
+
+ This software and its documentation are confidential and proprietary
+ information of Samsung Electronics Co., Ltd.  No part of the software and
+ documents may be copied, reproduced, transmitted, translated, or reduced to
+ any electronic medium or machine-readable form without the prior written
+ consent of Samsung Electronics.
+
+ Samsung Electronics makes no representations with respect to the contents,
+ and assumes no responsibility for any errors that might appear in the
+ software and documents. This publication and the contents hereof are subject
+ to change without notice.
+-->
+<permissions>
+    <!-- WTL_EDM -->
+    <library name="com.sec.android.mdm" file="/system/framework/sec_edm.jar"/>
+</permissions>

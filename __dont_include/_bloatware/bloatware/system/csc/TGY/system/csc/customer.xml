@@ -1,0 +1,972 @@
+<?xml  version="1.0" encoding="UTF-8" ?>
+<CustomerData>
+  <GeneralInfo>
+    <CSCEdition>ED002</CSCEdition>
+    <Country>Hong Kong</Country>
+    <CountryISO>HK</CountryISO>
+    <Region>CHN</Region>
+    <SalesCode>TGY</SalesCode>
+    <NbNetworkInfo>33</NbNetworkInfo> 
+    <NetworkInfo>
+      <MCCMNC>45418</MCCMNC>
+      <NetworkName>1O1O</NetworkName>
+      <SPName>CSL</SPName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>45402</MCCMNC>
+      <NetworkName>1O1O</NetworkName>
+      <SPName>CSL</SPName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>45410</MCCMNC>
+      <NetworkName>1O1O</NetworkName>
+      <SPName>CSL</SPName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>45400</MCCMNC>
+      <NetworkName>1O1O</NetworkName>
+      <SPName>CSL</SPName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>45400</MCCMNC>
+      <NetworkName>one2free</NetworkName>
+      <SPName>CSL</SPName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>45418</MCCMNC>
+      <NetworkName>one2free</NetworkName>
+      <SPName>CSL</SPName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>45402</MCCMNC>
+      <NetworkName>one2free</NetworkName>
+      <SPName>CSL</SPName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>45410</MCCMNC>
+      <NetworkName>one2free</NetworkName>
+      <SPName>CSL</SPName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>45400</MCCMNC>
+      <NetworkName>New World Mobility</NetworkName>
+      <SPName>CSL</SPName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>45418</MCCMNC>
+      <NetworkName>New World Mobility</NetworkName>
+      <SPName>CSL</SPName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>45402</MCCMNC>
+      <NetworkName>New World Mobility</NetworkName>
+      <SPName>CSL</SPName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>45410</MCCMNC>
+      <NetworkName>New World Mobility</NetworkName>
+      <SPName>CSL</SPName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>45403</MCCMNC>
+      <NetworkName>3</NetworkName>
+      <SPName>3</SPName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>45404</MCCMNC>
+      <NetworkName>3(2G)</NetworkName>
+      <SPName>3(2G)</SPName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>45414</MCCMNC>
+      <NetworkName>3(2G)</NetworkName>
+      <SPName>3(2G)</SPName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>45419</MCCMNC>
+      <NetworkName>PCCW</NetworkName>
+      <SPName>PCCW</SPName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>45416</MCCMNC>
+      <NetworkName>PCCW 2G</NetworkName>
+      <SPName>PCCW 2G</SPName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>45412</MCCMNC>
+      <NetworkName>China Mobile HK</NetworkName>
+      <SPName>China Mobile HK</SPName>
+    </NetworkInfo>
+	<NetworkInfo>
+      <MCCMNC>45413</MCCMNC>
+      <NetworkName>China Mobile HK</NetworkName>
+      <SPName>China Mobile HK</SPName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>45406</MCCMNC>
+      <NetworkName>SmarTone HK</NetworkName>
+      <SPName>SmarTone HK</SPName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>45415</MCCMNC>
+      <NetworkName>SmarTone HK</NetworkName>
+      <SPName>SmarTone HK</SPName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>45417</MCCMNC>
+      <NetworkName>SmarTone HK</NetworkName>
+      <SPName>SmarTone HK</SPName>
+    </NetworkInfo>    
+    <NetworkInfo>
+      <MCCMNC>45501</MCCMNC>
+      <NetworkName>CTM</NetworkName>
+      <SPName>CTM</SPName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>45501</MCCMNC>
+      <NetworkName>CTM Prepaid</NetworkName>
+      <SPName>CTM</SPName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>45500</MCCMNC> 
+      <NetworkName>SmarTone MAC</NetworkName>
+      <SPName>SmarTone MAC</SPName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>45504</MCCMNC>
+      <NetworkName>CTM</NetworkName>
+      <SPName>CTM</SPName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>45504</MCCMNC>
+      <NetworkName>CTM Prepaid</NetworkName>
+      <SPName>CTM</SPName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>46000</MCCMNC>
+      <NetworkName>中國移動通信</NetworkName>
+      <SPName>中國移動通信</SPName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>46002</MCCMNC>
+      <NetworkName>中國移動通信</NetworkName>
+      <SPName>中國移動通信</SPName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>46007</MCCMNC>
+      <NetworkName>中國移動通信</NetworkName>
+      <SPName>中國移動通信</SPName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>46001</MCCMNC>
+      <NetworkName>中國聯通3G</NetworkName>
+      <SPName>中國聯通3G</SPName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>46001</MCCMNC>
+      <NetworkName>中國聯通2.5G</NetworkName>
+      <SPName>中國聯通2.5G</SPName>
+    </NetworkInfo>
+     <NetworkInfo>
+      <MCCMNC>45503</MCCMNC>
+      <NetworkName>3 Macau</NetworkName>
+      <SPName>3 Macau</SPName>
+    </NetworkInfo>
+  </GeneralInfo>
+  <Settings>
+    <Main>
+      <Network>
+        <NbFastDormancy>1</NbFastDormancy>
+        <FastDormancy>
+          <FastDormancyEnableStatus>on</FastDormancyEnableStatus>
+          <LCDStatus>off</LCDStatus>
+        </FastDormancy>
+        <NbSOSNumber>2</NbSOSNumber>
+        <SOSNumber>112</SOSNumber>
+        <SOSNumber>911</SOSNumber>
+        <NbSOSNumberNoSIM>8</NbSOSNumberNoSIM>
+        <SOSNumberNoSIM>112</SOSNumberNoSIM>
+        <SOSNumberNoSIM>911</SOSNumberNoSIM>
+        <SOSNumberNoSIM>08</SOSNumberNoSIM>
+        <SOSNumberNoSIM>000</SOSNumberNoSIM>
+        <SOSNumberNoSIM>110</SOSNumberNoSIM>
+        <SOSNumberNoSIM>118</SOSNumberNoSIM>
+        <SOSNumberNoSIM>999</SOSNumberNoSIM>
+        <SOSNumberNoSIM>119</SOSNumberNoSIM>
+        <AutoProfile>on</AutoProfile>
+        <AutoVoicemail>off</AutoVoicemail>
+        <AutoEmailAccount>off</AutoEmailAccount>
+        <AutoBookmark>off</AutoBookmark>
+        <AutoLink>off</AutoLink>
+        <AutoSyncML>off</AutoSyncML>
+        <AutoFastDormancy>off</AutoFastDormancy>
+        <AutoWbAmr>off</AutoWbAmr>
+        <AutoFOTA>off</AutoFOTA>
+        <NbWbAmr>3</NbWbAmr>
+        <WbAmr>
+          <NetworkName>one2free</NetworkName>
+          <WbAmrCodec>on</WbAmrCodec>
+        </WbAmr>
+        <WbAmr>
+          <NetworkName>1O1O</NetworkName>
+          <WbAmrCodec>on</WbAmrCodec>
+        </WbAmr>
+        <WbAmr>
+          <NetworkName>PCCW</NetworkName>
+          <WbAmrCodec>on</WbAmrCodec>
+        </WbAmr>
+      </Network>
+      <Sound>
+        <AMRVoiceCodec>on</AMRVoiceCodec>
+      </Sound>
+      <Phone>
+        <AlertOnCall>on</AlertOnCall>
+        <DefLanguage>chinese_traditional_hongkong</DefLanguage>
+        <DefLanguageNoSIM>chinese_traditional_hongkong</DefLanguageNoSIM>
+        <WorldTime>
+          <Sign>+</Sign>
+          <TimeDiff>8</TimeDiff>
+          <City>Hong Kong</City>
+          <TimeZone>Asia/Hong_Kong</TimeZone>
+        </WorldTime>
+        <DateTimeFormat>
+          <DateFormat>yyyymmdd</DateFormat>
+          <TimeFormat>24h</TimeFormat>
+          <TimezoneUpdate>off</TimezoneUpdate>
+        </DateTimeFormat>
+      </Phone>
+      <Security />
+    </Main>
+    <Messages>
+      <SMS>
+        <ReplyPath>off</ReplyPath>
+        <DeliveryReport>off</DeliveryReport>
+        <CharSupport>automatic</CharSupport>
+        <CharSupport>Automatic</CharSupport>
+        <MaxRecipient>100</MaxRecipient>
+        <SSMS>off</SSMS>
+      </SMS>
+      <MMS>
+        <MmsSending>
+          <ReqDeliveryRep>off</ReqDeliveryRep>
+          <ReqReadRep>off</ReqReadRep>
+          <MaxRecipientMMS>100</MaxRecipientMMS>
+        </MmsSending>
+        <MmsReceiving>
+          <Home>auto</Home>
+        </MmsReceiving>
+      </MMS>
+    </Messages>
+    <Browser>
+      <NbBookmark>9</NbBookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>yes</Editable>
+        <Index>1</Index>
+        <BookmarkName>Samsung Apps</BookmarkName>
+        <URL>http://m.hk.samsungapps.com</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>yes</Editable>
+        <Index>2</Index>
+        <BookmarkName>MYNET</BookmarkName>
+        <URL>http://bookmark.hkcsl.com/home</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>yes</Editable>
+        <Index>3</Index>
+        <BookmarkName>Yahoo!</BookmarkName>
+        <URL>http://m.yahoo.com?tsrc=samsungbm</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>yes</Editable>
+        <Index>4</Index>
+        <BookmarkName>New World Mobility</BookmarkName>
+        <URL>http://wap.nwmobile.com</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>yes</Editable>
+        <Index>5</Index>
+        <BookmarkName>3</BookmarkName>
+        <URL>http://mobile.three.com.hk</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>yes</Editable>
+        <Index>6</Index>
+        <BookmarkName>3(2G)</BookmarkName>
+        <URL>http://3db.three.com.hk</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>yes</Editable>
+        <Index>7</Index>
+        <BookmarkName>PCCW</BookmarkName>
+        <URL>http://wap.pccwmobile.com</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>yes</Editable>
+        <Index>8</Index>
+        <BookmarkName>CMHK</BookmarkName>
+        <URL>http://color.hk.chinamobile.com</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>yes</Editable>
+        <Index>9</Index>
+        <BookmarkName>SmarTone iN!</BookmarkName>
+        <URL>http://wap.smartone.com</URL>
+      </Bookmark>
+      <eManual>
+        <URL>http://www.samsung.com/m-manual/common</URL>
+      </eManual>
+    </Browser>
+    <Connections>
+      <NbProfileHandle>17</NbProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>3</NbNetProfile>
+        <NetworkName>1O1O</NetworkName>
+        <ProfBrowser>1O1O Data</ProfBrowser>
+        <ProfMMS>1O1O MMS</ProfMMS>
+        <ProfIntSharing>1O1O Tethering</ProfIntSharing>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>3</NbNetProfile>
+        <NetworkName>one2free</NetworkName>
+        <ProfBrowser>one2free Data</ProfBrowser>
+        <ProfMMS>one2free MMS</ProfMMS>
+        <ProfIntSharing>one2free Tethering</ProfIntSharing>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>New World Mobility</NetworkName>
+        <ProfBrowser>NWMOBILE Data</ProfBrowser>
+        <ProfMMS>NWMOBILE MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>3</NbNetProfile>
+        <NetworkName>3</NetworkName>
+        <ProfBrowser>3</ProfBrowser>
+        <ProfMMS>3 MMS</ProfMMS>
+        <ProfIntSharing>3 Tethering</ProfIntSharing>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>3(2G)</NetworkName>
+        <ProfBrowser>3-DB-GPRS</ProfBrowser>
+        <ProfMMS>3-DB-MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>PCCW</NetworkName>
+        <ProfBrowser>PCCW 3G</ProfBrowser>
+        <ProfMMS>PCCW 3G MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>PCCW 2G</NetworkName>
+        <ProfBrowser>PCCW_GPRS</ProfBrowser>
+        <ProfMMS>PCCW_MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>China Mobile HK</NetworkName>
+        <ProfBrowser>CMHK Data</ProfBrowser>
+        <ProfMMS>CMHK MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>1</NbNetProfile>
+        <NetworkName>SmarTone HK</NetworkName>
+        <ProfBrowser>SmarTone</ProfBrowser>
+        <ProfMMS>SmarTone</ProfMMS>
+        <ProfIntSharing>SmarTone</ProfIntSharing>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>CTM</NetworkName>
+        <ProfBrowser>CTM GPRS.T</ProfBrowser>
+        <ProfMMS>CTM MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>1</NbNetProfile>
+        <NetworkName>CTM</NetworkName>
+        <ProfBrowser>CTMdata</ProfBrowser>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>CTM Prepaid</NetworkName>
+        <ProfBrowser>CTM Prepaid_Data</ProfBrowser>
+        <ProfMMS>CTM Prepaid_MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>SmarTone MAC</NetworkName>
+        <ProfBrowser>SmarTone MAC</ProfBrowser>
+        <ProfMMS>SMC MAC MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>3</NbNetProfile>
+        <NetworkName>中國移動通信</NetworkName>
+        <ProfBrowser>CMWAP</ProfBrowser>
+        <ProfMMS>中國移動彩信</ProfMMS>
+        <ProfEmail>中國移動 GPRS</ProfEmail>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>3</NbNetProfile>
+        <NetworkName>中國聯通3G</NetworkName>
+        <ProfBrowser>聯通3GWAP上網</ProfBrowser>
+        <ProfMMS>聯通3G彩信</ProfMMS>
+        <ProfEmail>聯通3GNET上網</ProfEmail>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>3</NbNetProfile>
+        <NetworkName>中國聯通2.5G</NetworkName>
+        <ProfBrowser>聯通2.5GNET上網</ProfBrowser>
+        <ProfMMS>聯通2.5G彩信</ProfMMS>
+        <ProfEmail>聯通2.5GWAP上網</ProfEmail>
+      </ProfileHandle>
+       <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>3 Macau</NetworkName>
+        <ProfBrowser>3 Macau</ProfBrowser>
+        <ProfMMS>3 Macau MMS</ProfMMS>
+      </ProfileHandle>
+      <NbProfile>38</NbProfile>
+      <Profile>
+        <NetworkName>中國移動通信</NetworkName>
+        <Editable>yes</Editable>
+        <EnableStatus>enable</EnableStatus>
+        <ProfileName>中國移動 GPRS</ProfileName>
+	<MTUSize>1400</MTUSize>
+        <PSparam>
+          <APN>cmnet</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>中國移動通信</NetworkName>
+        <Editable>yes</Editable>
+        <EnableStatus>enable</EnableStatus>
+        <ProfileName>CMWAP</ProfileName>
+        <Auth>normal</Auth>
+	<MTUSize>1400</MTUSize>
+        <Proxy>
+          <ServAddr>10.0.0.172</ServAddr>
+          <Port>80</Port>
+        </Proxy>
+        <PSparam>
+          <APN>cmwap</APN>
+          <UserId>wap</UserId>
+          <Password>wap</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>中國移動通信</NetworkName>
+        <Editable>yes</Editable>
+        <EnableStatus>enable</EnableStatus>
+        <ProfileName>中國移動彩信</ProfileName>
+        <URL>http://mmsc.monternet.com</URL>
+        <Auth>normal</Auth>
+	<MTUSize>1400</MTUSize>
+        <Proxy>
+          <ServAddr>10.0.0.172</ServAddr>
+          <Port>80</Port>
+        </Proxy>
+        <PSparam>
+          <APN>cmwap</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>中國聯通3G</NetworkName>
+        <Editable>yes</Editable>
+        <EnableStatus>enable</EnableStatus>
+        <ProfileName>聯通3G彩信</ProfileName>
+        <URL>http://mmsc.myuni.com.cn</URL>
+        <Auth>normal</Auth>
+	<MTUSize>1400</MTUSize>
+        <Proxy>
+          <ServAddr>10.0.0.172</ServAddr>
+          <Port>80</Port>
+        </Proxy>
+        <PSparam>
+          <APN>3gwap</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>中國聯通2.5G</NetworkName>
+        <Editable>yes</Editable>
+        <EnableStatus>enable</EnableStatus>
+        <ProfileName>聯通2.5GWAP上網</ProfileName>
+        <Auth>normal</Auth>
+	<MTUSize>1400</MTUSize>
+        <Proxy>
+          <ServAddr>10.0.0.172</ServAddr>
+          <Port>80</Port>
+        </Proxy>
+        <PSparam>
+          <APN>uniwap</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>中國聯通2.5G</NetworkName>
+        <Editable>yes</Editable>
+        <EnableStatus>enable</EnableStatus>
+        <ProfileName>聯通2.5G彩信</ProfileName>
+        <URL>http://mmsc.myuni.com.cn</URL>
+        <Auth>normal</Auth>
+	<MTUSize>1400</MTUSize>
+        <Proxy>
+          <ServAddr>10.0.0.172</ServAddr>
+          <Port>80</Port>
+        </Proxy>
+        <PSparam>
+          <APN>uniwap</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>中國聯通2.5G</NetworkName>
+        <Editable>yes</Editable>
+        <EnableStatus>enable</EnableStatus>
+        <ProfileName>聯通2.5GNET上網</ProfileName>
+        <Auth>normal</Auth>
+	<MTUSize>1400</MTUSize>
+        <PSparam>
+          <APN>uninet</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>中國聯通3G</NetworkName>
+        <Editable>yes</Editable>
+        <EnableStatus>enable</EnableStatus>
+        <ProfileName>聯通3GNET上網</ProfileName>
+        <Auth>normal</Auth>
+	<MTUSize>1400</MTUSize>
+        <PSparam>
+          <APN>3gnet</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>中國聯通3G</NetworkName>
+        <Editable>yes</Editable>
+        <EnableStatus>enable</EnableStatus>
+        <ProfileName>聯通3GWAP上網</ProfileName>
+        <Auth>normal</Auth>
+	<MTUSize>1400</MTUSize>
+        <Proxy>
+          <ServAddr>10.0.0.172</ServAddr>
+          <Port>80</Port>
+        </Proxy>
+        <PSparam>
+          <APN>3gwap</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>3</NetworkName>
+        <Editable>yes</Editable>
+        <EnableStatus>enable</EnableStatus>
+        <ProfileName>3</ProfileName>
+        <Auth>normal</Auth>
+        <MTUSize>1400</MTUSize>
+        <Proxy>
+          <Port>0</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mobile.three.com.hk</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>3</NetworkName>
+        <Editable>yes</Editable>
+        <EnableStatus>enable</EnableStatus>
+        <ProfileName>3 MMS</ProfileName>
+        <URL>http://mms.um.three.com.hk:10021/mmsc</URL>
+        <Auth>normal</Auth>
+        <MTUSize>1400</MTUSize>
+        <Proxy>
+          <ServAddr>172.20.97.116</ServAddr>
+          <Port>8799</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mobile.three.com.hk</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>3</NetworkName>
+        <Editable>yes</Editable>
+        <EnableStatus>enable</EnableStatus>
+        <ProfileName>3 Tethering</ProfileName>
+        <Auth>normal</Auth>
+        <MTUSize>1400</MTUSize>
+        <PSparam>
+          <APN>mobile.three.com.hk</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>3(2G)</NetworkName>
+        <Editable>yes</Editable>
+        <EnableStatus>enable</EnableStatus>
+        <ProfileName>3-DB-GPRS</ProfileName>
+        <Auth>normal</Auth>
+        <MTUSize>1400</MTUSize>
+        <Proxy>
+          <ServAddr>10.30.3.151</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>web-g.three.com.hk</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>3(2G)</NetworkName>
+        <Editable>yes</Editable>
+        <EnableStatus>enable</EnableStatus>
+        <ProfileName>3-DB-MMS</ProfileName>
+        <URL>http://10.30.15.51:10021/mmsc</URL>
+        <Auth>normal</Auth>
+        <MTUSize>1400</MTUSize>
+        <Proxy>
+          <ServAddr>10.30.15.53</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mms-g.three.com.hk</APN>
+          <UserId>3</UserId>
+          <Password>1234</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>1O1O</NetworkName>
+        <Editable>yes</Editable>
+        <EnableStatus>enable</EnableStatus>
+        <ProfileName>1O1O Data</ProfileName>
+        <Auth>normal</Auth>
+        <MTUSize>1400</MTUSize>
+        <PSparam>
+          <APN>hkcsl</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>1O1O</NetworkName>
+        <Editable>yes</Editable>
+        <EnableStatus>enable</EnableStatus>
+        <ProfileName>1O1O MMS</ProfileName>
+        <URL>http://192.168.58.171:8002/</URL>
+        <Auth>normal</Auth>
+        <MTUSize>1400</MTUSize>
+        <Proxy>
+          <ServAddr>192.168.59.51</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>hkcsl</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>1O1O</NetworkName>
+        <Editable>no</Editable>
+        <EnableStatus>enable</EnableStatus>
+        <ProfileName>1O1O Tethering</ProfileName>
+        <Auth>normal</Auth>
+        <MTUSize>1400</MTUSize>
+        <PSparam>
+          <APN>internet</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>one2free</NetworkName>
+        <Editable>yes</Editable>
+        <EnableStatus>enable</EnableStatus>
+        <ProfileName>one2free Data</ProfileName>
+        <Auth>normal</Auth>
+        <MTUSize>1400</MTUSize>
+        <PSparam>
+          <APN>hkcsl</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>one2free</NetworkName>
+        <Editable>yes</Editable>
+        <EnableStatus>enable</EnableStatus>
+        <ProfileName>one2free MMS</ProfileName>
+        <URL>http://192.168.58.171:8002/</URL>
+        <Auth>normal</Auth>
+        <MTUSize>1400</MTUSize>
+        <Proxy>
+          <ServAddr>192.168.59.51</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>hkcsl</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>one2free</NetworkName>
+        <Editable>no</Editable>
+        <EnableStatus>enable</EnableStatus>
+        <ProfileName>one2free Tethering</ProfileName>
+        <Auth>normal</Auth>
+        <MTUSize>1400</MTUSize>
+        <PSparam>
+          <APN>internet</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>New World Mobility</NetworkName>
+        <Editable>yes</Editable>
+        <EnableStatus>enable</EnableStatus>
+        <ProfileName>NWMOBILE Data</ProfileName>
+        <Auth>normal</Auth>
+        <MTUSize>1400</MTUSize>
+        <PSparam>
+          <APN>NWMOBILE</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>New World Mobility</NetworkName>
+        <Editable>yes</Editable>
+        <EnableStatus>enable</EnableStatus>
+        <ProfileName>NWMOBILE MMS</ProfileName>
+        <URL>http://192.168.58.171:8002</URL>
+        <Auth>normal</Auth>
+        <MTUSize>1400</MTUSize>
+        <Proxy>
+          <ServAddr>192.168.59.61</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>NWMOBILE</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>SmarTone HK</NetworkName>
+        <Editable>yes</Editable>
+        <EnableStatus>enable</EnableStatus>
+        <ProfileName>SmarTone</ProfileName>
+        <URL>http://mms.smartone.com/server</URL>
+        <Auth>secure</Auth>
+        <MTUSize>1400</MTUSize>
+        <Proxy>
+          <ServAddr>10.9.9.9</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>SmarTone</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>PCCW</NetworkName>
+        <Editable>yes</Editable>
+        <EnableStatus>enable</EnableStatus>
+        <ProfileName>PCCW 3G</ProfileName>
+        <Auth>normal</Auth>
+        <MTUSize>1400</MTUSize>
+        <PSparam>
+          <APN>pccw</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>PCCW</NetworkName>
+        <Editable>yes</Editable>
+        <EnableStatus>enable</EnableStatus>
+        <ProfileName>PCCW 3G MMS</ProfileName>
+        <URL>http://3gmms.pccwmobile.com:8080/was</URL>
+        <Auth>normal</Auth>
+        <MTUSize>1400</MTUSize>
+        <Proxy>
+          <ServAddr>10.140.14.10</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>pccw</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>PCCW 2G</NetworkName>
+        <Editable>yes</Editable>
+        <EnableStatus>enable</EnableStatus>
+        <ProfileName>PCCW_GPRS</ProfileName>
+        <Auth>normal</Auth>
+        <MTUSize>1400</MTUSize>
+        <Proxy>
+          <ServAddr>10.131.2.8</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>pccwdata</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>PCCW 2G</NetworkName>
+        <Editable>yes</Editable>
+        <EnableStatus>enable</EnableStatus>
+        <ProfileName>PCCW_MMS</ProfileName>
+        <URL>http://mmsc.mms.pccwmobile.com:8002/</URL>
+        <Auth>normal</Auth>
+        <MTUSize>1400</MTUSize>
+        <Proxy>
+          <ServAddr>10.131.2.8</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>pccwmms</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>China Mobile HK</NetworkName>
+        <Editable>yes</Editable>
+        <EnableStatus>enable</EnableStatus>
+        <ProfileName>CMHK Data</ProfileName>
+        <Auth>normal</Auth>
+        <MTUSize>1400</MTUSize>
+        <PSparam>
+          <APN>cmhk</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>China Mobile HK</NetworkName>
+        <Editable>yes</Editable>
+        <EnableStatus>enable</EnableStatus>
+        <ProfileName>CMHK MMS</ProfileName>
+        <URL>http://mms.hk.chinamobile.com/mms</URL>
+        <Auth>normal</Auth>
+        <MTUSize>1400</MTUSize>
+        <PSparam>
+          <APN>cmhk</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>CTM</NetworkName>
+        <Editable>yes</Editable>
+        <EnableStatus>enable</EnableStatus>
+        <ProfileName>CTMdata</ProfileName>
+        <Auth>normal</Auth>
+        <MTUSize>1400</MTUSize>
+        <Proxy>
+          <ServAddr>192.168.99.2</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>ctm-mobile</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>CTM</NetworkName>
+        <Editable>yes</Editable>
+        <EnableStatus>enable</EnableStatus>
+        <ProfileName>CTM MMS</ProfileName>
+        <URL>http://mms.wap.ctm.net:8002</URL>
+        <Auth>secure</Auth>
+        <MTUSize>1400</MTUSize>
+        <Proxy>
+          <ServAddr>192.168.99.3</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>ctmmms</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>CTM</NetworkName>
+        <Editable>yes</Editable>
+        <EnableStatus>enable</EnableStatus>
+        <ProfileName>CTM GPRS.T</ProfileName>
+        <Auth>normal</Auth>
+        <MTUSize>1400</MTUSize>
+        <PSparam>
+          <APN>ctm-mobile.t</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>CTM Prepaid</NetworkName>
+        <Editable>yes</Editable>
+        <EnableStatus>enable</EnableStatus>
+        <ProfileName>CTM Prepaid_Data</ProfileName>
+        <Auth>normal</Auth>
+        <MTUSize>1400</MTUSize>
+        <Proxy>
+          <ServAddr>192.168.99.2</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>ctmprepaid</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>CTM Prepaid</NetworkName>
+        <Editable>yes</Editable>
+        <EnableStatus>enable</EnableStatus>
+        <ProfileName>CTM Prepaid_MMS</ProfileName>
+        <URL>http://mms.wap.ctm.net:8002</URL>
+        <Auth>secure</Auth>
+        <MTUSize>1400</MTUSize>
+        <Proxy>
+          <ServAddr>192.168.99.3</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>ctmprepaid</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>SmarTone MAC</NetworkName>
+        <Editable>yes</Editable>
+        <EnableStatus>enable</EnableStatus>
+        <ProfileName>SmarTone MAC</ProfileName>
+	<Auth>normal</Auth>
+        <MTUSize>1400</MTUSize>
+        <PSparam>
+          <APN>smartgprs</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>SmarTone MAC</NetworkName>
+        <Editable>yes</Editable>
+        <EnableStatus>enable</EnableStatus>
+        <ProfileName>SMC MAC MMS</ProfileName>
+        <URL>http://momms.smartone.com/dmog/mo</URL>
+	<Auth>normal</Auth>
+        <MTUSize>1400</MTUSize>
+        <Proxy>
+          <ServAddr>10.9.9.29</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>smartgprs</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>3 Macau</NetworkName>
+        <Editable>yes</Editable>
+        <EnableStatus>enable</EnableStatus>
+        <ProfileName>3 Macau</ProfileName>
+        <MTUSize>1400</MTUSize>
+        <Auth>normal</Auth>        
+        <PSparam>
+          <APN>mobile.three.com.mo</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>3 Macau</NetworkName>
+
+
+        <Editable>yes</Editable>
+        <EnableStatus>enable</EnableStatus>
+        <ProfileName>3 Macau MMS</ProfileName>
+        <URL>http://mms.three.com.mo:10021/mmsc</URL>
+        <Auth>normal</Auth>
+        <MTUSize>1400</MTUSize>
+        <Proxy>
+          <ServAddr>mms.three.com.mo</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mobile.three.com.mo</APN>
+        </PSparam>
+      </Profile>
+    </Connections>
+  </Settings>
+</CustomerData>

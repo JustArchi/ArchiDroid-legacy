@@ -30,7 +30,7 @@
 #
 ini_set("dp","3");
 ini_set("rom_name",             "ArchiDroid");
-ini_set("rom_version",          "2.2.3");
+ini_set("rom_version",          "1.6.4");
 ini_set("rom_author",           "JustArchi");
 ini_set("rom_device",           "Samsung Galaxy S3");
 ini_set("rom_date",             "November XXth, 2013");
@@ -195,6 +195,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "bareb
     "archidroid.prop",
 
     "kernel=stock\n"+
+    "theme=stock\n"+
     "dpi=320\n"+
     "launcher=stock\n"+
     "keyboard=stock\n"+
@@ -228,14 +229,16 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "bareb
     "facebook=0\n"+
     "hdvoice=0\n"+
     "buildtweaks=0\n"+
-    "openpdroid=0\n"+
-    "nocell=0\n"
   );
 endif;
 
 ###############################
 ### CUSTOM TYPE INSTALATION ###
 ###############################
+
+#"boeffla","Boeffla Kernel","<~archidroid.kernel.boeffla.desc>","select.selected",
+#"yank","Yank555.lu Kernel","<~archidroid.kernel.yank.desc>","select",
+#"googy","Googy-Max Kernel","<~archidroid.kernel.googy.desc>","select",
 
 if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custom" then
   form(
@@ -245,28 +248,27 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
     "archidroid.prop",
     
     "kernel","<#selectbg_g>Kernel</#>","","group",
-    "temasek","Temasek Kernel [Boeffla/No ABB]","<~archidroid.kernel.temasek.desc>","select",
-    "boeffla","Boeffla Kernel","<~archidroid.kernel.boeffla.desc>","select.selected",
-    "yank","Yank555.lu Kernel","<~archidroid.kernel.yank.desc>","select",
-    "googy","Googy-Max Kernel","<~archidroid.kernel.googy.desc>","select",
-    "stock","Stock CM","<~archidroid.kernel.stock.desc>","select",
+    "stock","Stock CM","<~archidroid.kernel.stock.desc>","select.selected",
+	 
+    "theme","<#selectbg_g>Theme</#>","","group",
+    "dreamtheme","Dream Theme","<~archidroid.theme.dreamtheme.desc>","select.selected",
+    "stock","Stock Theme","<~archidroid.theme.stock.desc>","select",
 
     "dpi","<#selectbg_g>DPI</#>","","group",
-    "240","240 DPI","<~archidroid.dpi.240.desc>","select",
-    "241","241 DPI","<~archidroid.dpi.241.desc>","select.selected",
+    "240","240 DPI","<~archidroid.dpi.240.desc>","select.selected",
     "280","280 DPI","<~archidroid.dpi.280.desc>","select",
     "320","320 DPI","<~archidroid.dpi.320.desc>","select",
 
     "launcher","<#selectbg_g>Launcher</#>","","group",
     "nova","Nova Launcher","<~archidroid.launcher.nova.desc>","select.selected",
-    "stock","AOSP Launcher","<~archidroid.launcher.stock.desc>","select",
+    "stock","Stock TouchWiz","<~archidroid.launcher.stock.desc>","select",
     "none","<~common.none>","<~archidroid.launcher.none.desc>","select",
 
     "keyboard","<#selectbg_g><~archidroid.keyboard></#>","","group",
     "touchpal","TouchPal Keyboard","<~archidroid.keyboard.touchpal.desc>","select.selected",
     "hackers","Hacker's Keyboard","<~archidroid.keyboard.hackers.desc>","select",
     "both","TouchPal + Hacker's Keyboard","<~archidroid.keyboard.both.desc>","select",
-    "stock","Stock CM","<~archidroid.keyboard.stock.desc>","select",
+    "stock","Stock Samsung","<~archidroid.keyboard.stock.desc>","select",
     "none","<~common.none>","<~archidroid.keyboard.none.desc>","select",
 
     "bootanimation","<#selectbg_g><~archidroid.bootanimation></#>","","group",
@@ -311,9 +313,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 
     "architweaks","<#selectbg_g>ArchiDroid Tweaks</#>","","group",
     "hdvoice","HD Voice","<~archidroid.tweaks.hdvoice.desc>","check.checked",
-    "buildtweaks","Add build.prop Tweaks","<~archidroid.tweaks.buildtweaks.desc>","check.checked",
-    "openpdroid","OpenPDroid [<~common.experimental>]","<~archidroid.tweaks.openpdroid.desc>","check",
-    "nocell","Remove Cell Broadcasts","<~archidroid.tweaks.nocell.desc>","check.checked"
+    "buildtweaks","Add build.prop Tweaks","<~archidroid.tweaks.buildtweaks.desc>","check.checked"
   );
   write("/data/media/0/ArchiDroid/AromaPreset/archidroid.prop",
     readtmpfile("archidroid.prop");
@@ -337,27 +337,9 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
       readtmpfile("archidroidboeffla.prop");
     );
   endif;
-  
-  if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "temasek" then
-    form(
-      "<~archidroid.custom.extra>",
-      "<~archidroid.custom.desc>",
-      "icons/apps",
-      "archidroidtemasek.prop",
-
-      "preset","<#selectbg_g>Temasek Kernel Preset</#>","","group",
-      "balanced","<~archidroid.preset.kernel.temasek.balanced> [<~common.obsolete>]","<~archidroid.preset.kernel.temasek.balanced.desc>","select",
-      "powersave","<~archidroid.preset.kernel.temasek.powersave>","<~archidroid.preset.kernel.temasek.powersave.desc>","select.selected",
-      "ultra","<~archidroid.preset.kernel.temasek.ultra>","<~archidroid.preset.kernel.temasek.ultra.desc>","select",
-      "no","<~archidroid.preset.no>","<~archidroid.preset.no.desc>","select"
-    );
-    write("/data/media/0/ArchiDroid/AromaPreset/archidroidtemasek.prop",
-      readtmpfile("archidroidtemasek.prop");
-    );
-  endif;
 
   ### Boeffla for non-boeffla kernels, yet supporting boeffla sound engine ###
-  if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "temasek" || file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "yank" then
+  if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "yank" then
     form(
       "<~archidroid.custom.extra>",
       "<~archidroid.custom.desc>",
@@ -383,7 +365,8 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 
       "modules","<#selectbg_g>Xposed Modules</#>","","group",
       "appsettings","App Settings","<~archidroid.xposed.appsettings.desc>","check.checked",
-      "xprivacy","XPrivacy","<~archidroid.xposed.xprivacy.desc>","check.checked"
+      "xprivacy","XPrivacy","<~archidroid.xposed.xprivacy.desc>","check.checked",
+      "wanam","Wanam's Xposed","<~archidroid.xposed.wanam.desc>","check.checked"
     );
     write("/data/media/0/ArchiDroid/AromaPreset/archidroidxposed.prop",
       readtmpfile("archidroidxposed.prop");

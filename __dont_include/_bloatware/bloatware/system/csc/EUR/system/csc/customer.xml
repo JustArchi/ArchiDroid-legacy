@@ -1,0 +1,230 @@
+﻿<?xml  version="1.0" encoding="UTF-8" ?>
+<CustomerData>
+  <GeneralInfo>
+    <CSCEdition>ED004</CSCEdition>
+    <Country>Greece</Country>
+    <CountryISO>GR</CountryISO>
+    <Region>EUR</Region>
+    <SalesCode>EUR</SalesCode>
+    <NbNetworkInfo>3</NbNetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>20210</MCCMNC>
+      <NetworkName>WIND GR</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>20205</MCCMNC>
+      <NetworkName>vodafone GR</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>20201</MCCMNC>
+      <NetworkName>COSMOTE</NetworkName>
+    </NetworkInfo>
+  </GeneralInfo>
+  <Settings>
+    <Main>
+      <Network>
+        <NbFastDormancy>3</NbFastDormancy>
+        <FastDormancy>
+          <NetworkName>vodafone GR</NetworkName>
+          <FastDormancyEnableStatus>off</FastDormancyEnableStatus>
+        </FastDormancy>
+        <FastDormancy>
+          <NetworkName>COSMOTE</NetworkName>
+          <FastDormancyEnableStatus>off</FastDormancyEnableStatus>
+        </FastDormancy>
+        <FastDormancy>
+          <NetworkName>WIND GR</NetworkName>
+          <FastDormancyEnableStatus>off</FastDormancyEnableStatus>
+        </FastDormancy>
+        <AutoProfile>on</AutoProfile>
+        <AutoVoicemail>off</AutoVoicemail>
+        <AutoEmailAccount>off</AutoEmailAccount>
+        <AutoBookmark>off</AutoBookmark>
+        <AutoLink>off</AutoLink>
+        <AutoSyncML>off</AutoSyncML>
+        <AutoFastDormancy>on</AutoFastDormancy>
+        <AutoWbAmr>off</AutoWbAmr>
+        <AutoFOTA>off</AutoFOTA>
+      </Network>
+      <Sound>
+        <ExtraSound>
+          <ConnectTone>on</ConnectTone>
+          <MinuteMind>off</MinuteMind>
+        </ExtraSound>
+      </Sound>
+      <Phone>
+        <DefLanguage>greek</DefLanguage>
+        <DefLanguageNoSIM>greek</DefLanguageNoSIM>
+        <T9Enabling>disable</T9Enabling>
+        <DateTimeFormat>
+          <DateFormat>ddmmyyyy</DateFormat>
+          <TimeFormat>24h</TimeFormat>
+          <TimezoneUpdate>on</TimezoneUpdate>
+        </DateTimeFormat>
+      </Phone>
+      <Security />
+    </Main>
+    <Contact>
+      <ContactSort>lastname</ContactSort>
+    </Contact>
+    <Calendar>
+      <StartDay>monday</StartDay>
+    </Calendar>
+    <Messages>
+      <PushMsg>
+        <RecOption>on</RecOption>
+        <PushLoading>always</PushLoading>
+      </PushMsg>
+      <SMS>
+        <DeliveryReport>on</DeliveryReport>
+        <CharSupport>gsmalpha</CharSupport>
+        <SSMS>off</SSMS>
+      </SMS>
+      <MMS>
+        <MMSVersion>1.2</MMSVersion>
+        <MmsSending>
+          <ReqDeliveryRep>on</ReqDeliveryRep>
+          <ReqReadRep>off</ReqReadRep>
+          <CreationMode>warning</CreationMode>
+        </MmsSending>
+        <MmsReceiving>
+          <Home>auto</Home>
+          <Roaming>manual</Roaming>
+        </MmsReceiving>
+      </MMS>
+    </Messages>
+    <Browser>
+      <NbBookmark>2</NbBookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <BookmarkName>Yahoo!</BookmarkName>
+        <URL>http://m.yahoo.com/?tsrc=samsungbm</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <BookmarkName>E-Manual</BookmarkName>
+        <URL>http://www.samsung.com/m-manual/common</URL>
+      </Bookmark>
+    </Browser>
+    <Connections>
+      <NbProfileHandle>3</NbProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>WIND GR</NetworkName>
+        <ProfBrowser>Wind Internet</ProfBrowser>
+        <ProfMMS>Wind MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>vodafone GR</NetworkName>
+        <ProfBrowser>Vf Internet</ProfBrowser>
+        <ProfMMS>Vodafone MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>COSMOTE</NetworkName>
+        <ProfBrowser>Cosmote Internet</ProfBrowser>
+        <ProfMMS>Cosmote MMS</ProfMMS>
+      </ProfileHandle>
+      <NbProfile>6</NbProfile>
+      <Profile>
+        <NetworkName>WIND GR</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Wind MMS</ProfileName>
+        <URL>http://192.168.200.95/servlets/mms</URL>
+        <Auth>none</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>192.168.200.11</ServAddr>
+          <Port>9401</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mnet.b-online.gr</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>WIND GR</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Wind Internet</ProfileName>
+        <Auth>none</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>gint.b-online.gr</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>vodafone GR</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Vodafone MMS</ProfileName>
+        <URL>http://mms.vodafone.gr</URL>
+        <Auth>none</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>213.249.19.49</ServAddr>
+          <Port>5080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mms.vodafone.net</APN>
+          <UserId>user</UserId>
+          <Password>pass</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>vodafone GR</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Vf Internet</ProfileName>
+        <URL>http://myweb.vodafone.com</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>internet.vodafone.gr</APN>
+          <UserId>user</UserId>
+          <Password>pass</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>COSMOTE</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Cosmote MMS</ProfileName>
+        <URL>http://mmsc.cosmote.gr:8002</URL>
+        <Auth>none</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>10.10.10.20</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mms</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>COSMOTE</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Cosmote Internet</ProfileName>
+        <Auth>none</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>internet</APN>
+        </PSparam>
+      </Profile>
+    </Connections>
+  </Settings>
+</CustomerData>

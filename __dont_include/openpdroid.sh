@@ -1,9 +1,9 @@
 #!/bin/bash
 cd ..
 
-# Disabled for a while
-rm -f cm-*.zip
-exit 0
+# Not Disabled for a while
+#rm -f cm-*.zip
+#exit 0
 
 # Let's make it more universal (also benefit temasek's users) because I'm not using updater-script anyway
 # Cleanup, updates and patching

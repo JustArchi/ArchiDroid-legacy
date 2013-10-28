@@ -324,7 +324,7 @@ endif;
 #############
 
 if file_getprop("/tmp/aroma-data/archidroid.prop","theme") == "dreamtheme" then
-	ui_print("root@ArchiDroid:~# Installing DreamTheme AOSP");
+	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing DreamTheme AOSP");
 	package_extract_dir("_archidroid/themes/dreamtheme", "/sdcard/vrtheme");
 	package_extract_dir("_archidroid/themes/vrtheme", "/sdcard/vrtheme");
 	set_perm(0, 0, 0755, "/sdcard/vrtheme/installtheme.sh");
@@ -523,6 +523,7 @@ set_progress(0.75);
 
 if file_getprop("/tmp/aroma-data/archidroid.prop","bootanimation") == "archi" then
 	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying ArchiDroid Bootanimation");
+	delete("/system/media/audio/ui/PowerOn.ogg");
 	package_extract_dir("_archidroid/bootanimations/archi", "/");
 	package_extract_file("_archidroid/bootanimations/bootanimation", "/system/bin/bootanimation");
 	set_perm(0, 2000, 0755, "/system/bin/bootanimation");
@@ -530,6 +531,7 @@ endif;
 
 if file_getprop("/tmp/aroma-data/archidroid.prop","bootanimation") == "archilegacy" then
 	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying ArchiDroid Legacy Bootanimation");
+	delete("/system/media/audio/ui/PowerOn.ogg");
 	package_extract_dir("_archidroid/bootanimations/archilegacy", "/");
 	package_extract_file("_archidroid/bootanimations/bootanimation", "/system/bin/bootanimation");
 	set_perm(0, 2000, 0755, "/system/bin/bootanimation");
@@ -537,6 +539,7 @@ endif;
 
 if file_getprop("/tmp/aroma-data/archidroid.prop","bootanimation") == "logcat" then
 	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying Logcat Bootanimation");
+	delete("/system/media/audio/ui/PowerOn.ogg");
 	package_extract_dir("_archidroid/bootanimations/logcat", "/");
 	set_perm_recursive(0, 2000, 0755, 0755, "/system/bin");
 	set_perm(0, 0, 06755, "/system/bin/boot-dmesg");
@@ -550,6 +553,7 @@ endif;
 
 if file_getprop("/tmp/aroma-data/archidroid.prop","bootanimation") == "none" then
 	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Disabling Bootanimation");
+	delete("/system/media/audio/ui/PowerOn.ogg");
 	package_extract_file("_archidroid/bootanimations/none/disablebootanim.sh", "/tmp/disablebootanim.sh");
 	set_perm(0, 0, 0777, "/tmp/disablebootanim.sh");
 	run_program("/tmp/disablebootanim.sh");

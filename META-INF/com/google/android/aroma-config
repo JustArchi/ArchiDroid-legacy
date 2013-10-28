@@ -228,7 +228,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "bareb
     "youtube=0\n"+
     "facebook=0\n"+
     "hdvoice=0\n"+
-    "buildtweaks=0\n"+
+    "buildtweaks=0\n"
   );
 endif;
 

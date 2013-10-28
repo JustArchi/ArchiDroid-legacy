@@ -28,7 +28,7 @@ DBUPDATE() {
 	SQLITE3='/system/xbin/sqlite3'
 
 	while [ $DONE -ne 1 ] ; do
-		((TRY++))
+		TRY=`expr $TRY + 1`
 		# Try to update value first if exists
 		busybox sync
 		CHECK=`$SQLITE3 /data/data/com.android.providers.settings/databases/settings.db "update $WHAT set value='$VAL' where name='$VARIABLE';" 2>/dev/null`

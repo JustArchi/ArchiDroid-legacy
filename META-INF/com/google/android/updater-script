@@ -594,18 +594,6 @@ set_progress(0.77);
 ### GAPPS ###
 #############
 
-if file_getprop("/tmp/aroma-data/archidroid.prop","gapps") == "1" then
-	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Google Apps");
-	delete("/system/app/Provision.apk","/system/app/QuickSearchBox.apk","/system/app/SetupWizard.apk","/system/app/Velvet.apk","/system/app/Vending.apk","/system/app/BrowserProviderProxy.apk","/system/app/PartnerBookmarksProvider.apk","/system/app/Gmail2.apk");
-	package_extract_dir("_archidroid/gapps/system", "/system");
-	set_perm(0, 0, 0755, "/system/addon.d/70-gapps.sh");
-	package_extract_dir("_archidroid/gapps/optional", "/tmp");
-	package_extract_file("_archidroid/gapps/install-optional.sh", "/tmp/install-optional.sh");
-	set_perm(0, 0, 0777, "/tmp/install-optional.sh");
-	run_program("/tmp/install-optional.sh", "");
-	set_perm_recursive(0, 0, 0755, 0644, "/system/app");
-endif;
-
 set_progress(0.85);
 
 if file_getprop("/tmp/aroma-data/archidroid.prop","gcalendar") == "1" then

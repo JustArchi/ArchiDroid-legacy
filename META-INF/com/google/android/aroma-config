@@ -205,7 +205,6 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "bareb
     "crossbreeder=0\n"+
     "updatemodem=0\n"+
     "updaterecovery=0\n"+
-    "gapps=0\n"+
     "gcalendar=0\n"+
     "gchrome=0\n"+
     "gkeep=0\n"+
@@ -236,10 +235,6 @@ endif;
 ### CUSTOM TYPE INSTALATION ###
 ###############################
 
-#"boeffla","Boeffla Kernel","<~archidroid.kernel.boeffla.desc>","select.selected",
-#"yank","Yank555.lu Kernel","<~archidroid.kernel.yank.desc>","select",
-#"googy","Googy-Max Kernel","<~archidroid.kernel.googy.desc>","select",
-
 if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custom" then
   form(
     "<~archidroid.custom>",
@@ -248,6 +243,10 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
     "archidroid.prop",
     
     "kernel","<#selectbg_g>Kernel</#>","","group",
+    #"boeffla","Boeffla Kernel","<~archidroid.kernel.boeffla.desc>","select.selected",
+    #"yank","Yank555.lu Kernel","<~archidroid.kernel.yank.desc>","select",
+    #"googy","Googy-Max Kernel","<~archidroid.kernel.googy.desc>","select",
+    #"stock","Stock CM","<~archidroid.kernel.stock.desc>","select.selected",
     "stock","Stock CM","<~archidroid.kernel.stock.desc>","select.selected",
 	 
     "theme","<#selectbg_g>Theme</#>","","group",
@@ -274,7 +273,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
     "bootanimation","<#selectbg_g><~archidroid.bootanimation></#>","","group",
     "archi","ArchiDroid","<~archidroid.bootanimation.archi.desc>","select.selected",
     "archilegacy","ArchiDroid Legacy","<~archidroid.bootanimation.archilegacy.desc>","select",
-    "logcat","Logcat","<~archidroid.bootanimation.logcat.desc>","select",
+    #"logcat","Logcat","<~archidroid.bootanimation.logcat.desc>","select",
     "stock","CyanogenMod","<~archidroid.bootanimation.stock.desc>","select",
     "none","<~common.none>","<~archidroid.bootanimation.none.desc>","select",
 
@@ -286,7 +285,6 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
     "updaterecovery","<~archidroid.updaterecovery> [PhilZ Touch Recovery]","<~archidroid.updaterecovery.desc>","check",
 
     "googleapps","<#selectbg_g>Google Apps</#>","","group",
-    "gapps","Google Apps","<~archidroid.gapps.desc>","check.checked",
     "gcalendar","Google Calendar [<~common.inverted>]","<~common.replaces> CyanogenMod Calendar","check.checked",
     "gchrome","Google Chrome [<~common.inverted>]","","check.checked",
     "gkeep","Google Keep [<~common.inverted>]","","check.checked",

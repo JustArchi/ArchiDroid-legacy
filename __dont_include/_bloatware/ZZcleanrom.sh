@@ -27,4 +27,8 @@ mkdir -p bloatware$line2 > /dev/null 2>&1
 mv ../..$line bloatware$line2/ > /dev/null 2>&1
 done
 
+cat delete.txt | grep "\.apk" | while read line; do
+rm -rf ../../system/app/$line > /dev/null 2>&1
+done
+
 exit 0

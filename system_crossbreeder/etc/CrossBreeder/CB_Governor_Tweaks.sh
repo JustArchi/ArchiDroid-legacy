@@ -1,5 +1,7 @@
 #!/system/etc/CrossBreeder/busybox sh
 
+set +e
+
 # These are based on Thunderbolt values modified for use with CrossBreeder
 
 #Credits to Thunderbolt team
@@ -13,6 +15,13 @@ alias [[='BUSYBOX [['
 alias ECHO='BUSYBOX timeout -t 1 -s KILL /system/etc/CrossBreeder/busybox echo'
 alias CAT='BUSYBOX timeout -t 1 -s KILL /system/etc/CrossBreeder/busybox cat'
 
+sync; BUSYBOX sync; 
+#BUSYBOX sysctl -w vm.swappiness=0
+BUSYBOX sysctl -w vm.drop_caches=2
+BUSYBOX sysctl -w vm.drop_caches=2
+BUSYBOX sysctl -w vm.drop_caches=2
+#BUSYBOX sysctl -w vm.swappiness=0
+
 if [[ -f /data/STOP_TWEAKING_ME && "$1" != "FORCE" ]]; then return 0; fi
 
 if [[ -f /system/etc/CrossBreeder/STOP_TWEAKING_GOVERNOR && "$1" != "FORCE" ]]; then return 0; fi
@@ -25,7 +34,7 @@ fi
 SET_VALUE() {
   if [ -e $2 ]; then
     VALUE=`cat $2 2>/dev/null`
-    if [ "$VALUE" != "$1" ]; then
+    if [ "x$VALUE" != "x$1" ]; then
       ECHO $1 > $2 2>/dev/null
     fi
   fi

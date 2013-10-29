@@ -247,13 +247,6 @@ sleep 8
 
 # If we have any more runonce scripts then it's the right place for that
 
-# If we have a CB then we should use dnsproxy2 as temporary solution for Android 4.3
-if [ -d /system/etc/CrossBreeder ]; then
-	echo "WARNING: CrossBreeder has been found but without adblock fixed yet, calling dnsproxy2 (workaround)" >> $LOG
-	#sh /system/etc/CrossBreeder/DISABLE_ADBLOCK
-	/system/etc/CrossBreeder/dnsproxy2 127.0.0.1 & > /dev/null 2>&1
-fi
-
 # I'm runonce script so let's clean everything and delete myself
 
 # NOTICE

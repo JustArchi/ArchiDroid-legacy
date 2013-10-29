@@ -9,7 +9,7 @@ trap '/system/etc/CrossBreeder/busybox kill -9 $pid; /system/etc/CrossBreeder/bu
 date > /data/dnsmasq.log
 echo $* >> /data/dnsmasq.log
 
-/system/etc/CrossBreeder/busybox kill -9 $(/system/etc/CrossBreeder/busybox pgrep -f "dnsmasq_dhcp -d \-p 10054") 
+/system/etc/CrossBreeder/busybox kill -9 $(/system/etc/CrossBreeder/busybox pgrep -f "dnsmasq_dhcp -d \-p 0") 
 /system/etc/CrossBreeder/busybox kill -9 $(/system/etc/CrossBreeder/busybox pgrep -f dnsmasq.CBBAK) 
 
 /system/bin/dnsmasq_dhcp -d -p 0 --dhcp-option=252,\"\\n\" --no-ping --dhcp-authoritative $* >> /data/dnsmasq.log 2>>/data/dnsmasq.log &

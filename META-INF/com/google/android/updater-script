@@ -809,7 +809,7 @@ delete("/system/etc/init.d/zzCrossBreeder");
 delete("/system/etc/init.d/zzCrossBreeder_initd");
 #delete("/system/etc/CrossBreeder/dnsmasq");
 
-#set_perm(0, 0, 0755, "/system/etc/install-recovery.sh");
+set_perm(0, 0, 0755, "/system/etc/install-recovery.sh");
 run_program("/tmp/busybox","mv","-f","/system/etc/install-recovery.sh.CBBAK","/system/etc/install-recovery.sh");
 run_program("/tmp/install_init_entries.sh");
 #run_program("/tmp/install_hw_entries.sh");

@@ -68,15 +68,18 @@ total_ram=$((`BUSYBOX free | BUSYBOX grep Mem | BUSYBOX head -1 | BUSYBOX awk '{
 if [ -f /data/STOP_TWEAKING_ME ]; then return 0; fi
 
 #for m in $(BUSYBOX mount | BUSYBOX grep ext[3-4] | BUSYBOX awk '{ print $1 }' | BUSYBOX sort | BUSYBOX uniq);
-#do
-#  tune2fs -o journal_data_writeback $m >/dev/null 2>&1;
-#done;
+for m in $(BUSYBOX mount | BUSYBOX grep ext[3-4] | BUSYBOX grep "on /data " | BUSYBOX awk '{ print $1 }' | BUSYBOX sort | BUSYBOX uniq);
+do
+  tune2fs -o journal_data_writeback $m >/dev/null 2>&1;
+done;
 
 
 UPDATE_TABLES() {
   VARIABLE=$1
   VAL=$2
+  BUSYBOX sync; sqlite3 /data/data/com.android.providers.settings/databases/settings.db "update system set value=$VAL where name=\"$VARIABLE\";"
   BUSYBOX sync; sqlite3 /data/data/com.android.providers.settings/databases/settings.db "PRAGMA journal_mode=OFF;update system set value=$VAL where name=\"$VARIABLE\";"
+  BUSYBOX sync; sqlite3 /data/data/com.android.providers.settings/databases/settings.db "update global set value=$VAL where name=\"$VARIABLE\";"
   BUSYBOX sync; sqlite3 /data/data/com.android.providers.settings/databases/settings.db "PRAGMA journal_mode=OFF;update global set value=$VAL where name=\"$VARIABLE\";"
   BUSYBOX sync
 
@@ -184,6 +187,7 @@ if [ "$total_ram" = "DISABLED" ]; then
   BUSYBOX echo -e "#<485f6283-03f8-4fba-90ec-d6519033bc71>\npersist.sys.vm.heapsize=${total_heap}m\n#</485f6283-03f8-4fba-90ec-d6519033bc71>" >> /system/build.prop
 fi
 
+BUSYBOX rm -f /data/system/batterystats.bin
 #BUSYBOX rm -f /data/dalvik-cache/*Settings.apk*
 #BUSYBOX rm -f /data/dalvik-cache/*SettingsProvider.apk*
 BUSYBOX rm -f /data/dalvik-cache/*

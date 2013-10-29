@@ -6,7 +6,7 @@
 
 # Common
 VERSION=2.2.3
-MODE=0 # 0 - Experimental | 1 - Stable
+MODE=1 # 0 - Experimental | 1 - Stable
 
 # From source? Sure!
 SOURCE=1

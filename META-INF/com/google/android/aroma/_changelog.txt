@@ -1,5 +1,9 @@
 ArchiDroid 2.2.3
 
+- [!] Reverted Paranoid Android GAPPS
+# There's no need to use them because we have inverted gapps anyway
+# Additionally this fixes AOSP Keyboard FC after update
+
 - Updated CrossBreeder to it's final release. It's now EOL'ed (End Of Life)
 # It's still very useful and I'm not going to drop it, at least not now
 
@@ -10,4 +14,4 @@ ArchiDroid 2.2.3
 - Updated Googy Max kernel to 1.7.7
 - Updated sources
 # It mostly fixes bugs introduced in 2.2.2
-# Especially memory leaks and frozen hardware keys
+# Especially memory leaks

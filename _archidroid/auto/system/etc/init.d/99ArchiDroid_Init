@@ -89,12 +89,6 @@ sleep 5
 
 # If we have any more init scripts then it's the right place for that
 
-# Execute dnsproxy2 from CB if we have it
-if [ -e /system/etc/CrossBreeder/dnsproxy2 ]; then
-	echo "WARNING: CrossBreeder has been found but without adblock fixed yet, calling dnsproxy2 (workaround)" >> $LOG
-	/system/etc/CrossBreeder/dnsproxy2 127.0.0.1 & > /dev/null 2>&1
-fi
-
 # Execute a reboot if we need it
 if [ -e /data/media/0/ArchiDroid/HARD_REBOOT_REQUIRED ]; then
 	echo "INFO: HARD_REBOOT_REQUIRED found, I'm rebooting device now..." >> $LOG

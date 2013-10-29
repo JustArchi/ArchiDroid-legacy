@@ -7,7 +7,7 @@ exec 1>/data/cb_CHECK_PROCS.log 2>&1
 alias BUSYBOX='/system/etc/CrossBreeder/busybox'
 
 echo -2
-echo CrossBreeder Version 6.25.13
+echo CrossBreeder Version 7.2.13
 echo -1
 BUSYBOX uname -a
 getprop | BUSYBOX egrep -i "build|product"

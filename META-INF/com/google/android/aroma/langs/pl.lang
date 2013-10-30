@@ -85,7 +85,7 @@ archidroid.preset.group=Preset
 archidroid.preset.custom=Własny
 archidroid.preset.custom.desc=Będziesz mógł dostosować każdy aspekt instalacji
 archidroid.preset.barebones=Sam Szkielet
-archidroid.preset.barebones.desc=Czysty Samsung. Tylko dla testów ewentualnych błędów, niezalecane
+archidroid.preset.barebones.desc=Czysty ROM. Tylko dla testów ewentualnych błędów, niezalecane
 archidroid.preset.previous=Poprzedni Preset
 archidroid.preset.previous.desc=Ładuje Twój poprzednio wybrany preset (o ile dostępny)
 
@@ -95,31 +95,33 @@ archidroid.custom=Dostosowywanie ArchiDroid
 archidroid.custom.extra=Dostosywywanie Ekstra ArchiDroid
 archidroid.custom.desc=Zmodyfikuj proszę poniższe ustawienia do Twoich predyspozycji:
 
+archidroid.kernel.temasek.desc=Wysoce zalecany dla najlepszej wydajności, elastyczności, oszczędności baterii i jakości audio
 archidroid.kernel.boeffla.desc=Wysoce zalecane arcydzieło dla każdego, wyróżniające się silnikiem boeffla oraz wieloma innymi usprawnieniami
 archidroid.kernel.yank.desc=Zalecany jako alternatywa dla temaseka
 archidroid.kernel.googy.desc=Bazowany na źródłach Siyah. Unikalny z powodu funkcji dual-boot
-archidroid.kernel.stock.desc=Pochodzący prosto z Samsung
+archidroid.kernel.stock.desc=Pochodzący prosto z ROM
 
-archidroid.dpi.240.desc=Wszystko będzie o wiele mniejsze niż standardowo. Wysoce zalecane
+archidroid.dpi.240.desc=UWAGA! Możliwe niewielkie bugi graficzne
+archidroid.dpi.241.desc=Wszystko będzie o wiele mniejsze niż standardowo. Wysoce zalecane
 archidroid.dpi.280.desc=Dobry kompromis pomiędzy 320, a 240 DPI
 archidroid.dpi.320.desc=Wartość domyślna
 
 archidroid.launcher.nova.desc=Zalecany dla o wiele większej wydajności i elastyczności
-archidroid.launcher.stock.desc=Stock TouchWiz
+archidroid.launcher.stock.desc=Pochodzący prosto z ROM. Znany także jako Trebuchet
 archidroid.launcher.none.desc=Brak Launchera. UWAGA! Nie zaznaczaj tej opcji jeśli wykonałeś full wipe. Potrzebujesz przynajmniej 1 własnego launchera przed pierwszym bootem!
 
 archidroid.keyboard=Klawiatura
 archidroid.keyboard.touchpal.desc=Zalecana jako świetna i bardzo elastyczna klawiatura Swype/Curve
 archidroid.keyboard.hackers.desc=Świetna alternatywa dla TouchPal'a jeśli nie potrzebujemy Swype/Curve
 archidroid.keyboard.both.desc=Jeśli z jakiegoś powodu chciałbyś zainstalować obydwie te klawiatury
-archidroid.keyboard.stock.desc=Jeśli chciałbyś pozostać przy klawiaturze prosto od Samsunga
+archidroid.keyboard.stock.desc=Jeśli chciałbyś pozostać przy klawiaturze prosto z ROM
 archidroid.keyboard.none.desc=Brak Klawiatury. UWAGA! Nie zaznaczaj tej opcji jeśli wykonałeś full wipe. Potrzebujesz przynajmniej 1 własnej klawiatury przed pierwszym bootem!
 
 archidroid.bootanimation=Animacja Ładowania
 archidroid.bootanimation.archi.desc=Nowa odświeżona animacja ArchiDroid
 archidroid.bootanimation.archilegacy.desc=Stara klasyczna animacja ArchiDroid 1.X
 archidroid.bootanimation.logcat.desc=Zamienia domyślną bootanimację na logcata
-archidroid.bootanimation.stock.desc=Stockowa animacja dostarczona wraz z Samsungem
+archidroid.bootanimation.stock.desc=Stockowa animacja dostarczona wraz z ROMem
 archidroid.bootanimation.none.desc=Brak animacji ładowania, dla nieco szybszego startu
 
 archidroid.other=Inne
@@ -139,7 +141,7 @@ archidroid.apps.zram.desc=Użyteczne w celu kontroli ramu oraz zramu (wymaga ker
 archidroid.apps.greenify.desc=Użyteczne w celu zamrażania zbędnych aplikacji
 archidroid.apps.lmt.desc=Użyteczne narzędzie znane jako pie ze SlimBeana
 archidroid.apps.mxplayer.desc=Prawdopodobnie najlepszy odtwarzacz wideo dla Androida
-archidroid.apps.spiritfm.desc=Darmowe radio działające na Samsung
+archidroid.apps.spiritfm.desc=Darmowe radio działające na CyanogenMod
 archidroid.apps.bbs.desc=Dostarcza o wiele bardziej szczegółowych statystyk dotyczących baterii
 archidroid.apps.cooltool.desc=Wyświetla wiele użytecznych informacji na górnym pasku powiadomień
 archidroid.apps.rootbrowser.desc=Jeden z najlepszych menadżerów plików, wspomagany opcjonalnie dostępem root
@@ -149,6 +151,8 @@ archidroid.apps.facebook.desc=Ciemna wersja Facebooka i Messengera
 
 archidroid.tweaks.hdvoice.desc=Włącza HD Voice o ile dostępne
 archidroid.tweaks.buildtweaks.desc=Wiele tweaków build.prop, w tym m.in. głębszy sen oraz większa wydajność
+archidroid.tweaks.openpdroid.desc=Spatchuj ROM ze wsparciem dla OpenPDroid o ile dostępny
+archidroid.tweaks.nocell.desc=Generalnie uważane za bloatware. Odznacz jeśli chcesz je zachować
 
 archidroid.preset.no=No Preset
 archidroid.preset.no.desc=Not recommended because you'll miss most of the Archi's optimizations
@@ -159,6 +163,13 @@ archidroid.preset.kernel.boeffla.archipowersave=ArchiDroid PowerSave
 archidroid.preset.kernel.boeffla.archipowersave.desc=Default preset proposed for most users, including light uV. Provides a very good balance between battery life and performance. Recommended by Archi
 archidroid.preset.kernel.boeffla.archiultrapowersave=ArchiDroid UltraPowerSave
 archidroid.preset.kernel.boeffla.archiultrapowersave.desc=A preset designed and optimized for getting maximum of battery life, including moderate uV. Expect better battery life for a cost of performance
+
+archidroid.preset.kernel.temasek.balanced=Zbalansowane Ustawienia ArchiDroid
+archidroid.preset.kernel.temasek.balanced.desc=Bazowany na optimized zzmoove, zram, boeffla sound. Przestarzały od czasu zzmoove 0.7
+archidroid.preset.kernel.temasek.powersave=Oszczędne Ustawienia ArchiDroid
+archidroid.preset.kernel.temasek.powersave.desc=Wysoce oszczędne dla baterii ustawienia bazowane na powersave zzmoove z mniejszym hotpluggingiem
+archidroid.preset.kernel.temasek.ultra=ULTRA Oszczędne Ustawienia ArchiDroid
+archidroid.preset.kernel.temasek.ultra.desc=ULTRA oszczędne dla baterii ustawienia bazowane na Archi's Ultra Battery z LCDFreq
 
 archidroid.boeffla.yesarchi=Tak, z Presetem Archi's Audiophile
 archidroid.boeffla.yesarchi.desc=Wysoce zalecane. Poprawia jakość dźwięku poprzez ustawienia Boeffla SC wg. gustu Archiego

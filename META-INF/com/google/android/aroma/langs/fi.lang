@@ -85,7 +85,7 @@ archidroid.preset.group=Esiasetus
 archidroid.preset.custom=Kustomoitu
 archidroid.preset.custom.desc=Asennusprosessi on täysin muokattavissa
 archidroid.preset.barebones=Pelkistetty
-archidroid.preset.barebones.desc=Puhdas Samsung. Vain testaustarkoitukseen, ei suositeltu
+archidroid.preset.barebones.desc=Puhdas ROM. Vain testaustarkoitukseen, ei suositeltu
 archidroid.preset.previous=Previous Preset
 archidroid.preset.previous.desc=Loads your previous custom installation preset (if available)
 
@@ -95,31 +95,33 @@ archidroid.custom=ArchiDroid Kustomointi
 archidroid.custom.extra=ArchiDroid Extra-kustomointi
 archidroid.custom.desc=Muokkaa asetukset mieleiseksesi
 
+archidroid.kernel.temasek.desc=Suositellaan moitteettomaan suorituskykyyn ja virransäästöön, hyvä joustavuus ja boeffla-ääni
 archidroid.kernel.boeffla.desc=Erittäin suositeltu mestariteos soveltuu kaikille, mukana boeffla-ääni ja paljon muuta
 archidroid.kernel.yank.desc=Suositellaan vaihtoehtona Temasekille
 archidroid.kernel.googy.desc=Perustuu Siyah-lähdekoodiin. Dual boot -ominaisuus
-archidroid.kernel.stock.desc=CM oletusydin
+archidroid.kernel.stock.desc=ROM oletusydin
 
-archidroid.dpi.240.desc=Kaikki on pienempää; mukaanlukien painikkeet, ikonit, teksti jne. ArchiDroid suosittelee parhaaseen käyttökokemukseen!
+archidroid.dpi.240.desc=VAROITUS! Tämä DPI voi aiheuttaa pieniä visuaalisia ongelmia
+archidroid.dpi.241.desc=Kaikki on pienempää; mukaanlukien painikkeet, ikonit, teksti jne. ArchiDroid suosittelee parhaaseen käyttökokemukseen!
 archidroid.dpi.280.desc=Mukava vaihtoehto oletusarvon ja 240 DPI:n väliltä
 archidroid.dpi.320.desc=Oletusarvo
 
 archidroid.launcher.nova.desc=Suositellaan joustavuuden ja suorituskyvyn vuoksi
-archidroid.launcher.stock.desc=Stock TouchWiz
+archidroid.launcher.stock.desc=ROM työpöytäympäristö, tunnetaan nimellä Trebuchet
 archidroid.launcher.none.desc=No launcher. WARNING! Don't tick if you're after full wipe! You need at least one custom launcher before first boot!
 
 archidroid.keyboard=Näppäimistö
 archidroid.keyboard.touchpal.desc=Suositellaan hyvänä ja monipuolisena Swype/Curve -näppäimistönä
 archidroid.keyboard.hackers.desc=Hyvä vaihtoehto TouchPalille jos et tarvitse swype/curve -toimintoa
 archidroid.keyboard.both.desc=Jos haluat käyttää sekä TouchPalin lisäksi Hacker'sia (esimerkiksi komentorivillä)
-archidroid.keyboard.stock.desc=Jos haluat pitää Samsung-oletusnäppäimistön
+archidroid.keyboard.stock.desc=Jos haluat pitää ROM-oletusnäppäimistön
 archidroid.keyboard.none.desc=No keyboard. WARNING! Don't tick if you're after full wipe! You need at least one custom keyboard before first boot!
 
 archidroid.bootanimation=Käynnistysanimaatio
 archidroid.bootanimation.archi.desc=Uusi hieno ArchiDroid käynnistysanimaatio
 archidroid.bootanimation.archilegacy.desc=Vanha ArchiDroid 1.X käynnistysanimaatio
 archidroid.bootanimation.logcat.desc=Muuttaa oletusanimaation järjestelmälokin sisällöksi - perustuu logcat liteen
-archidroid.bootanimation.stock.desc=Samsungin oletusanimaatio
+archidroid.bootanimation.stock.desc=ROMin oletusanimaatio
 archidroid.bootanimation.none.desc=No bootanimation, for slightly faster bootup
 
 archidroid.other=Muuta
@@ -139,7 +141,7 @@ archidroid.apps.zram.desc=Hyödyllinen jos haluat seurata zram-käyttöä (vain 
 archidroid.apps.greenify.desc=Hyödyllinen jos haluat vaivuttaa sovelluksia horrokseen virransäästön vuoksi
 archidroid.apps.lmt.desc=Hyödyllinen jos haluat käyttää eleohjausta, tunnetaan SlimBean pie -nimellä
 archidroid.apps.mxplayer.desc=Luultavasti paras videotoistin Androidille
-archidroid.apps.spiritfm.desc=Ilmainen CM:n kanssa toimiva FM-radiosovellus
+archidroid.apps.spiritfm.desc=Ilmainen CyanogenMod:n kanssa toimiva FM-radiosovellus
 archidroid.apps.bbs.desc=Näyttää monipuolisia tilastoja akunkäytöstä - erityisesti koskien lepotilaa estäviä prosesseja
 archidroid.apps.cooltool.desc=Näyttää hyödyllisiä tilastoja yläpalkissa
 archidroid.apps.rootbrowser.desc=hyvä resurssienhallintaohjelma, valinnainen root-pääsy
@@ -149,6 +151,8 @@ archidroid.apps.facebook.desc=Invertoidut versiot Facebookista and Messengerist�
 
 archidroid.tweaks.hdvoice.desc=Ottaa HD-äänen käyttöön puheluissa jos verkko tukee ominaisuutta
 archidroid.tweaks.buildtweaks.desc=Useita build.prop-säätöjä, mukaanlukien syvempi lepotila, suorituskykysäätöjä ja muuta
+archidroid.tweaks.openpdroid.desc=Lisää OpenPDroid-tuen asennuksen jälkeen jos saatavilla
+archidroid.tweaks.nocell.desc=Yleisesti turhakkeena pidetty. Poista valinta jos haluat pitää tämän
 
 archidroid.preset.no=Ei esiasetusta
 archidroid.preset.no.desc=Ei suositeltu, koska jäät paitsi monista Archin optimoinneista
@@ -159,6 +163,13 @@ archidroid.preset.kernel.boeffla.archipowersave=ArchiDroid Virransäästö
 archidroid.preset.kernel.boeffla.archipowersave.desc=Oletuasetus, joka sopii useammille, jännitetasoja laskettu hieman. Hyvä kompromissi akunkeston ja suorituskyvyn suhteen, Archi suosittelee.
 archidroid.preset.kernel.boeffla.archiultrapowersave=ArchiDroid Ultravirransäästö
 archidroid.preset.kernel.boeffla.archiultrapowersave.desc=Esiasetus maksimaalista virransäästöä varten, kohtalaisesti lasketut jännitetasot. Odotettavissa parempaa akunkestoa pienemmällä suorituskyvyllä
+
+archidroid.preset.kernel.temasek.balanced=ArchiDroid tasapainoinen säätö
+archidroid.preset.kernel.temasek.balanced.desc=Perustuu optimoituun zzmooveen, mukana zram, boeffla-ääni and muuta. Vanhentunut zzmoove 0.7:n myötä
+archidroid.preset.kernel.temasek.powersave=ArchiDroid virransäästösäätö
+archidroid.preset.kernel.temasek.powersave.desc=Erityisen virtapihi säätö perustuu Yankin Battery zzmooveen alemmilla hotplug-ssädöillä
+archidroid.preset.kernel.temasek.ultra=ArchiDroid ULTRA virransäästösäätö
+archidroid.preset.kernel.temasek.ultra.desc=ULTRA virransäästöä perustuen Archin Ultra Battery zzmooveen LCDFreqin kanssa
 
 archidroid.boeffla.yesarchi=Kyllä Archi's Audiophile -säädöllä
 archidroid.boeffla.yesarchi.desc=Suositeltu. Parantaa äänenlaatua asentamalla Boeffla SC:n ja säätämällä Archin maun mukaan

@@ -85,7 +85,7 @@ archidroid.preset.group=Modus
 archidroid.preset.custom=Custom
 archidroid.preset.custom.desc=Je hebt de mogelijkheid om elk aspect van de installatie aan te passen
 archidroid.preset.barebones=Bare Bones
-archidroid.preset.barebones.desc=Lege CyanogenMod. Alleen voor test doeleinden. Niet aangeraden!
+archidroid.preset.barebones.desc=Lege ROM. Alleen voor test doeleinden. Niet aangeraden!
 archidroid.preset.previous=Vorige keuzes
 archidroid.preset.previous.desc=Laad de installatie keuzes van de vorige installatie(indien mogelijk)
 
@@ -99,7 +99,7 @@ archidroid.kernel.temasek.desc=Aanbevolen voor snelheid, batterijduur, flexibili
 archidroid.kernel.boeffla.desc=Sterk aanbevolen meesterwerk, perfect voor iedereen. Heeft Boeffla geluid en veel meer opties
 archidroid.kernel.yank.desc=Aanbevolen als alternatief voor Temasek
 archidroid.kernel.googy.desc=Gebaseerd op Siyah bronnen. Uniek voor dual-boot optie
-archidroid.kernel.stock.desc=Standaard CM kernel 
+archidroid.kernel.stock.desc=Standaard ROM kernel 
 
 archidroid.dpi.240.desc=WAARSCHUWING! Er kunnen zich wat verstoringen in het beeld voordoen op dit DPI level
 archidroid.dpi.241.desc=Alles zal kleiner zijn, knoppen, iconen, tekst etc. Aanbevolen voor beste ervaring met ArchiDroid
@@ -107,21 +107,21 @@ archidroid.dpi.280.desc=Een mooie balans tussen standaard en 240 DPI modus
 archidroid.dpi.320.desc=Standaard instelling
 
 archidroid.launcher.nova.desc=Aanbevolen voor extra flexibiliteit en prestatie
-archidroid.launcher.stock.desc=Afkomstig van CM, ook bekend als Trebuchet
+archidroid.launcher.stock.desc=Afkomstig van ROM, ook bekend als Trebuchet
 archidroid.launcher.none.desc=Geen aanraakinterface. WAARSCHUWING! Gebruik deze optie niet als je een full wipe doet! Bij de eerste keer opstarten is een aanraakinterface noodzakelijk!
 
 archidroid.keyboard=Toetsenbord
 archidroid.keyboard.touchpal.desc=Aanbevolen als goed en flexibel toetsenbord met Swype/Curve
 archidroid.keyboard.hackers.desc=Goed alternatief voor TouchPal als je geen Swype/Curve gebruikt
 archidroid.keyboard.both.desc=Als je zowel TouchPal en Hacker's toetsenbord wilt gebruiken.
-archidroid.keyboard.stock.desc=Voor het standaard CM toetsenbord
+archidroid.keyboard.stock.desc=Voor het standaard ROM toetsenbord
 archidroid.keyboard.none.desc=Geen toetsenbord. WAARSCHUWING! Gebruik deze optie niet bij een full wipe. Er is een toetsenbord nodig bij de eerste keer opstarten.
 
 archidroid.bootanimation=Opstart animatie
 archidroid.bootanimation.archi.desc=Nieuwe ArchiDroid opstart animatie
 archidroid.bootanimation.archilegacy.desc=Oude ArchiDroid 1.X opstart animatie
 archidroid.bootanimation.logcat.desc=Veranderd standaard opstart animatie naar logcat uitvoer - aangedreven door logcat lite
-archidroid.bootanimation.stock.desc=Standaard opstart animatie van CyanogenMod
+archidroid.bootanimation.stock.desc=Standaard opstart animatie van ROM
 archidroid.bootanimation.none.desc=Geen opstart animatie voor iets sneller opstarten.
 
 archidroid.other=Overig
@@ -141,7 +141,7 @@ archidroid.apps.zram.desc=Handig als je het zram gebruik in de gaten wilt houden
 archidroid.apps.greenify.desc=Handig om app's in slaapstand te zetten. Bespaart batterij.
 archidroid.apps.lmt.desc=Handige software voor het uitvoeren van commandos gekoppeld aan gebaren. Ook wel bekend als pie van SlimBean
 archidroid.apps.mxplayer.desc=Waarschijnlijk de beste video speler voor Android
-archidroid.apps.spiritfm.desc=Gratis FM Radio app welke werkt met CM
+archidroid.apps.spiritfm.desc=Gratis FM Radio app welke werkt met CyanogenMod
 archidroid.apps.bbs.desc=Geeft je de kracht om specifieke batterij statistieken te zien - voornamelijk wakelocks
 archidroid.apps.cooltool.desc=Laat handige statistieken zien op de bovenste balk
 archidroid.apps.rootbrowser.desc=Very cool browser extended by optional root access

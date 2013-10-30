@@ -5,8 +5,8 @@
 #exit 1
 
 # Common
-VERSION=2.2.3
-MODE=1 # 0 - Experimental | 1 - Stable
+VERSION=2.2.4
+MODE=0 # 0 - Experimental | 1 - Stable
 
 # From source? Sure!
 SOURCE=1

@@ -1,17 +1,3 @@
-ArchiDroid 2.2.3
+ArchiDroid 2.2.4
 
-- [!] Reverted Paranoid Android GAPPS
-# There's no need to use them because we have inverted gapps anyway
-# Additionally this fixes AOSP Keyboard FC after update
-
-- Updated CrossBreeder to it's final release. It's now EOL'ed (End Of Life)
-# It's still very useful and I'm not going to drop it, at least not now
-
-- Updated Inverts
-# Google Chrome 30.0.1599.82 | Facebook Messenger 2.7.1 | YouTube 5.2.27
-
-- Added Spanish language, thanks to mariesqu
-- Updated Googy Max kernel to 1.7.7
-- Updated sources
-# It mostly fixes bugs introduced in 2.2.2
-# Especially memory leaks
+- Updated source

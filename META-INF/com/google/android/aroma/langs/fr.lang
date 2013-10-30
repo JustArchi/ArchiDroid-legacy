@@ -85,7 +85,7 @@ archidroid.preset.group=Configuration
 archidroid.preset.custom=Personnalisé
 archidroid.preset.custom.desc=Vous serez en mesure de personnaliser chaque point de l'installation
 archidroid.preset.barebones=Bare Bones
-archidroid.preset.barebones.desc=CyanogenMod Clean. Uniquement à des fins de test, non recommandé
+archidroid.preset.barebones.desc=ROM Clean. Uniquement à des fins de test, non recommandé
 archidroid.preset.previous=Configuration précédente
 archidroid.preset.previous.desc=Applique votre configuration personnalisée précédente (si disponible)
 
@@ -99,7 +99,7 @@ archidroid.kernel.temasek.desc=Recommandé : bonnes peformances, bon niveau de b
 archidroid.kernel.boeffla.desc=Chef-d'oeuvre hautement recommandé : parfait pour tout le monde, avec Boeffla Sound et beaucoup de fonctionnalités
 archidroid.kernel.yank.desc=Recommandé comme une alternative à Temasek
 archidroid.kernel.googy.desc=Sur la base des sources Siyah. Fonctionnalité dual-boot unique
-archidroid.kernel.stock.desc=Kernel par défaut livré avec les CM
+archidroid.kernel.stock.desc=Kernel par défaut livré avec les ROM
 
 archidroid.dpi.240.desc=ATTENTION! Veuillez noter que certains problèmes graphiques mineurs existent avec cette résolution
 archidroid.dpi.241.desc=Tout sera plus petit, y compris les boutons, icônes, textes, etc. Recommandé pour mieux profiter d'ArchiDroid!
@@ -107,21 +107,21 @@ archidroid.dpi.280.desc=Bon équilibre entre la résolution stock et le mode 240
 archidroid.dpi.320.desc=Valeur Stock
 
 archidroid.launcher.nova.desc=Recommandé pour sa flexibilité et sa performance
-archidroid.launcher.stock.desc=Launcher CM, également connu sous le nom de Trebuchet
+archidroid.launcher.stock.desc=Launcher ROM, également connu sous le nom de Trebuchet
 archidroid.launcher.none.desc=No launcher. WARNING! Don't tick if you're after full wipe! You need at least one custom launcher before first boot!
 
 archidroid.keyboard=Clavier
 archidroid.keyboard.touchpal.desc=Recommandé pour sa très grande flexibilité et ses fonctions Swype/Curve
 archidroid.keyboard.hackers.desc=Excellente alternative à TouchPal si vous n'utilisez les fonctions Swype/Curve 
 archidroid.keyboard.both.desc=Si vous voulez utiliser à la fois TouchPal et Hacker (par exemple dans Terminal)
-archidroid.keyboard.stock.desc=Si vous voulez garder le clavier CM par défaut
+archidroid.keyboard.stock.desc=Si vous voulez garder le clavier ROM par défaut
 archidroid.keyboard.none.desc=No keyboard. WARNING! Don't tick if you're after full wipe! You need at least one custom keyboard before first boot!
 
 archidroid.bootanimation=Bootanimation
 archidroid.bootanimation.archi.desc=Nouveau bootanimation ArchiDroid 
 archidroid.bootanimation.archilegacy.desc=Ancien bootanimation ArchiDroid 1.X
 archidroid.bootanimation.logcat.desc=Bootaimation Logcat par Logcat Lite
-archidroid.bootanimation.stock.desc=Bootanimation stock par CyanogenMod
+archidroid.bootanimation.stock.desc=Bootanimation stock par ROM
 archidroid.bootanimation.none.desc=Pas de bootanimation, pour un démarrage légèrement plus rapide
 
 archidroid.other=Autres
@@ -141,7 +141,7 @@ archidroid.apps.zram.desc=Utile si vous souhaitez surveiller votre consommation 
 archidroid.apps.greenify.desc=Utile si vous voulez hiberner n'importe quelle application, permettant ainsi d'économiser votre batterie
 archidroid.apps.lmt.desc=Outil utile pour exécuter une commande gestuelle à l'écran, aussi connu comme SlimBean PIE
 archidroid.apps.mxplayer.desc=Probablement le meilleur lecteur vidéo pour Android
-archidroid.apps.spiritfm.desc=Application radio gratuite fonctionnant avec CM
+archidroid.apps.spiritfm.desc=Application radio gratuite fonctionnant avec CyanogenMod
 archidroid.apps.bbs.desc=Vous donne la possibilité de voir les statistiques de batterie spécifiques - notamment les wakelocks
 archidroid.apps.cooltool.desc=Affiche quelques statistiques utiles dans la barre supérieure
 archidroid.apps.rootbrowser.desc=Navigateur très sympa utilisant le mode root

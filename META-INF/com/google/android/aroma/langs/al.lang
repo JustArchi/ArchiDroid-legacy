@@ -85,7 +85,7 @@ archidroid.preset.group=Te zgjedhura
 archidroid.preset.custom=Individuale
 archidroid.preset.custom.desc=Keni mundesi te ndryshoni te gjitha aspektet e instalimit
 archidroid.preset.barebones=Minimal
-archidroid.preset.barebones.desc=Pastro CyanogenMod. Vetem per testim, nuk rekomandohet
+archidroid.preset.barebones.desc=Pastro ROM. Vetem per testim, nuk rekomandohet
 archidroid.preset.previous=Previous Preset
 archidroid.preset.previous.desc=Loads your previous custom installation preset (if available)
 
@@ -99,7 +99,7 @@ archidroid.kernel.temasek.desc=Rekomandohet per performanse te mire, shpenzim te
 archidroid.kernel.boeffla.desc=Highly recommended masterpiece perfect for everyone, featuring boeffla sound and many more features
 archidroid.kernel.yank.desc=Rekomandohet si alternative e Temasek
 archidroid.kernel.googy.desc=Bazuar ne Siyah kod. Dual-boot i dyfisht
-archidroid.kernel.stock.desc=Vjen si berthame standarde ne CM
+archidroid.kernel.stock.desc=Vjen si berthame standarde ne ROM
 
 archidroid.dpi.240.desc=KUJDES! Disa gabime ne grafike dhe rezolucion DPI
 archidroid.dpi.241.desc=Cdo gje do te jete me e vogel, si butonat, ikonat, teksit etj. Rekomandohet per funksionimin me te mire ne ArchiDroid!
@@ -107,21 +107,21 @@ archidroid.dpi.280.desc=Balanc mes normales dhe 240 DPI
 archidroid.dpi.320.desc=Vlera normale
 
 archidroid.launcher.nova.desc=Rekomandohet per ekstra fleksibilitet dhe performanse
-archidroid.launcher.stock.desc=Nese vjen prej CM, i njohur si Trebuchet
+archidroid.launcher.stock.desc=Nese vjen prej ROM, i njohur si Trebuchet
 archidroid.launcher.none.desc=No launcher. WARNING! Don't tick if you're after full wipe! You need at least one custom launcher before first boot!
 
 archidroid.keyboard=Tastieri
 archidroid.keyboard.touchpal.desc=Rekomandohet per fleksibilitet sikur Swype/Curve tastier
 archidroid.keyboard.hackers.desc=Alternative e TouchPal nese perdorni swype/curve funksionet
 archidroid.keyboard.both.desc=Nese deshiron te perdorni TouchPal dhe Hacker's (p.sh ne Terminal)
-archidroid.keyboard.stock.desc=Nese deshiront CM tastier standard.
+archidroid.keyboard.stock.desc=Nese deshiront ROM tastier standard.
 archidroid.keyboard.none.desc=No keyboard. WARNING! Don't tick if you're after full wipe! You need at least one custom keyboard before first boot!
 
 archidroid.bootanimation=Bootanimation
 archidroid.bootanimation.archi.desc=New fancy ArchiDroid bootanimation
 archidroid.bootanimation.archilegacy.desc=Old ArchiDroid 1.X bootanimation
 archidroid.bootanimation.logcat.desc=Ndryshon animacionin standard ne boot, ne shkronja - nga logcat lite
-archidroid.bootanimation.stock.desc=Stock bootanimation provided by CyanogenMod
+archidroid.bootanimation.stock.desc=Stock bootanimation provided by ROM
 archidroid.bootanimation.none.desc=No bootanimation, for slightly faster bootup
 
 archidroid.other=Tjera
@@ -141,7 +141,7 @@ archidroid.apps.zram.desc=Monitorimi i zram perdorimit (vetem me berthama custom
 archidroid.apps.greenify.desc=Hibernonin aplikacionet, ruan baterine
 archidroid.apps.lmt.desc=Ekzekutimi i komandave per levizje ne ekran, njfet si Pie nga SlimBean
 archidroid.apps.mxplayer.desc=Video Player me i mire ne Android
-archidroid.apps.spiritfm.desc=FM radio gratis ne CM
+archidroid.apps.spiritfm.desc=FM radio gratis ne CyanogenMod
 archidroid.apps.bbs.desc=Mundeson shikimin e parametrave specifik per baterine, po ashtu edhe wakelocks
 archidroid.apps.cooltool.desc=Tregon disa statistika ne krye te ekranit
 archidroid.apps.rootbrowser.desc=Browser i shernimeve me root qasje

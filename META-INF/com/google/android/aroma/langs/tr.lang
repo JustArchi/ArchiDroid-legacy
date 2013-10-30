@@ -85,7 +85,7 @@ archidroid.preset.group=Hazır profil
 archidroid.preset.custom=Özelleştirilebilir
 archidroid.preset.custom.desc=Kendi ayarlamalarınızı yapın.
 archidroid.preset.barebones=Sade kurulum
-archidroid.preset.barebones.desc=Saf CyanogenMod. Test amaçlıdır, önerilmez.
+archidroid.preset.barebones.desc=Saf ROM. Test amaçlıdır, önerilmez.
 archidroid.preset.previous=Previous Preset
 archidroid.preset.previous.desc=Loads your previous custom installation preset (if available)
 
@@ -99,7 +99,7 @@ archidroid.kernel.temasek.desc=Performans, uzun şarj, yüksek esneklik, Boeffla
 archidroid.kernel.boeffla.desc=Herkese tavsiye edilen mükemmel bir başyapıt, Boeffla ses ve bir çok özelliğe sahip.
 archidroid.kernel.yank.desc=Temasek'e alternatif olarak önerilir.
 archidroid.kernel.googy.desc=Siyah tabanlı dualboot için önerilir.
-archidroid.kernel.stock.desc=CM ile birlikte gelen kernel.
+archidroid.kernel.stock.desc=ROM ile birlikte gelen kernel.
 
 archidroid.dpi.240.desc=DİKKAT! Bu DPI ayarı görüntü bozuklukları yaratabilir.
 archidroid.dpi.241.desc=Her şey daha küçük olacak. Yazılar, butonlar, genel görünüm. ArchiDroid için en uygun olanıdır.
@@ -107,21 +107,21 @@ archidroid.dpi.280.desc=Stok ile 240 DPI arasında dengeli bir seçim.
 archidroid.dpi.320.desc=Stok
 
 archidroid.launcher.nova.desc=Yüksek performans ve esneklik.
-archidroid.launcher.stock.desc=CM başlatıcısı, Trebuchet.
+archidroid.launcher.stock.desc=ROM başlatıcısı, Trebuchet.
 archidroid.launcher.none.desc=No launcher. WARNING! Don't tick if you're after full wipe! You need at least one custom launcher before first boot!
 
 archidroid.keyboard=Klavye
 archidroid.keyboard.touchpal.desc=Oldukça esnek kaydırarak yazma seçeneği olan önerilen klavye.
 archidroid.keyboard.hackers.desc=TouchPal alternatifi. Kaydırarak yazmayı kullanmayacaksanız önerilir.
 archidroid.keyboard.both.desc=İki klavyeyi de aynı anda kullanmak isteyenler için.
-archidroid.keyboard.stock.desc=CyanogenMod'un kendi klavyesi.
+archidroid.keyboard.stock.desc=ROM'un kendi klavyesi.
 archidroid.keyboard.none.desc=No keyboard. WARNING! Don't tick if you're after full wipe! You need at least one custom keyboard before first boot!
 
 archidroid.bootanimation=Bootanimation
 archidroid.bootanimation.archi.desc=New fancy ArchiDroid bootanimation
 archidroid.bootanimation.archilegacy.desc=Old ArchiDroid 1.X bootanimation
 archidroid.bootanimation.logcat.desc=Normal başlangıç animasyonu yerine logcat gösteren başlangıç animasyonu.
-archidroid.bootanimation.stock.desc=Stock bootanimation provided by CyanogenMod
+archidroid.bootanimation.stock.desc=Stock bootanimation provided by ROM
 archidroid.bootanimation.none.desc=No bootanimation, for slightly faster bootup
 
 archidroid.other=Diğer

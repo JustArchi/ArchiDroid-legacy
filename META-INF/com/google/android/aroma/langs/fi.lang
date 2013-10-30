@@ -85,7 +85,7 @@ archidroid.preset.group=Esiasetus
 archidroid.preset.custom=Kustomoitu
 archidroid.preset.custom.desc=Asennusprosessi on täysin muokattavissa
 archidroid.preset.barebones=Pelkistetty
-archidroid.preset.barebones.desc=Puhdas CyanogenMod. Vain testaustarkoitukseen, ei suositeltu
+archidroid.preset.barebones.desc=Puhdas ROM. Vain testaustarkoitukseen, ei suositeltu
 archidroid.preset.previous=Previous Preset
 archidroid.preset.previous.desc=Loads your previous custom installation preset (if available)
 
@@ -99,7 +99,7 @@ archidroid.kernel.temasek.desc=Suositellaan moitteettomaan suorituskykyyn ja vir
 archidroid.kernel.boeffla.desc=Erittäin suositeltu mestariteos soveltuu kaikille, mukana boeffla-ääni ja paljon muuta
 archidroid.kernel.yank.desc=Suositellaan vaihtoehtona Temasekille
 archidroid.kernel.googy.desc=Perustuu Siyah-lähdekoodiin. Dual boot -ominaisuus
-archidroid.kernel.stock.desc=CM oletusydin
+archidroid.kernel.stock.desc=ROM oletusydin
 
 archidroid.dpi.240.desc=VAROITUS! Tämä DPI voi aiheuttaa pieniä visuaalisia ongelmia
 archidroid.dpi.241.desc=Kaikki on pienempää; mukaanlukien painikkeet, ikonit, teksti jne. ArchiDroid suosittelee parhaaseen käyttökokemukseen!
@@ -107,21 +107,21 @@ archidroid.dpi.280.desc=Mukava vaihtoehto oletusarvon ja 240 DPI:n väliltä
 archidroid.dpi.320.desc=Oletusarvo
 
 archidroid.launcher.nova.desc=Suositellaan joustavuuden ja suorituskyvyn vuoksi
-archidroid.launcher.stock.desc=CM työpöytäympäristö, tunnetaan nimellä Trebuchet
+archidroid.launcher.stock.desc=ROM työpöytäympäristö, tunnetaan nimellä Trebuchet
 archidroid.launcher.none.desc=No launcher. WARNING! Don't tick if you're after full wipe! You need at least one custom launcher before first boot!
 
 archidroid.keyboard=Näppäimistö
 archidroid.keyboard.touchpal.desc=Suositellaan hyvänä ja monipuolisena Swype/Curve -näppäimistönä
 archidroid.keyboard.hackers.desc=Hyvä vaihtoehto TouchPalille jos et tarvitse swype/curve -toimintoa
 archidroid.keyboard.both.desc=Jos haluat käyttää sekä TouchPalin lisäksi Hacker'sia (esimerkiksi komentorivillä)
-archidroid.keyboard.stock.desc=Jos haluat pitää CM-oletusnäppäimistön
+archidroid.keyboard.stock.desc=Jos haluat pitää ROM-oletusnäppäimistön
 archidroid.keyboard.none.desc=No keyboard. WARNING! Don't tick if you're after full wipe! You need at least one custom keyboard before first boot!
 
 archidroid.bootanimation=Käynnistysanimaatio
 archidroid.bootanimation.archi.desc=Uusi hieno ArchiDroid käynnistysanimaatio
 archidroid.bootanimation.archilegacy.desc=Vanha ArchiDroid 1.X käynnistysanimaatio
 archidroid.bootanimation.logcat.desc=Muuttaa oletusanimaation järjestelmälokin sisällöksi - perustuu logcat liteen
-archidroid.bootanimation.stock.desc=CyanogenModin oletusanimaatio
+archidroid.bootanimation.stock.desc=ROMin oletusanimaatio
 archidroid.bootanimation.none.desc=No bootanimation, for slightly faster bootup
 
 archidroid.other=Muuta
@@ -141,7 +141,7 @@ archidroid.apps.zram.desc=Hyödyllinen jos haluat seurata zram-käyttöä (vain 
 archidroid.apps.greenify.desc=Hyödyllinen jos haluat vaivuttaa sovelluksia horrokseen virransäästön vuoksi
 archidroid.apps.lmt.desc=Hyödyllinen jos haluat käyttää eleohjausta, tunnetaan SlimBean pie -nimellä
 archidroid.apps.mxplayer.desc=Luultavasti paras videotoistin Androidille
-archidroid.apps.spiritfm.desc=Ilmainen CM:n kanssa toimiva FM-radiosovellus
+archidroid.apps.spiritfm.desc=Ilmainen CyanogenMod:n kanssa toimiva FM-radiosovellus
 archidroid.apps.bbs.desc=Näyttää monipuolisia tilastoja akunkäytöstä - erityisesti koskien lepotilaa estäviä prosesseja
 archidroid.apps.cooltool.desc=Näyttää hyödyllisiä tilastoja yläpalkissa
 archidroid.apps.rootbrowser.desc=hyvä resurssienhallintaohjelma, valinnainen root-pääsy

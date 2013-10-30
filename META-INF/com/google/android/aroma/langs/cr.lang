@@ -85,7 +85,7 @@ archidroid.preset.group=Podešavanje
 archidroid.preset.custom=Prilagođen
 archidroid.preset.custom.desc=Biti će te u mogućnosti prilagoditi svaki dio instalacije ROM-a na vaš uređaj
 archidroid.preset.barebones=Potpuno ogoljeni ROM
-archidroid.preset.barebones.desc=Čisti CyanogenMod ROM. Samo za testiranje, nije preporučljivo
+archidroid.preset.barebones.desc=Čisti ROM ROM. Samo za testiranje, nije preporučljivo
 archidroid.preset.previous=Previous Preset
 archidroid.preset.previous.desc=Loads your previous custom installation preset (if available)
 
@@ -99,7 +99,7 @@ archidroid.kernel.temasek.desc=Preporučuje se za savršene peformanse, uštedu 
 archidroid.kernel.boeffla.desc=Preporučeno remek djelo savršeno za svakoga, s boeffla zvukom i mnogo više mogućnosti
 archidroid.kernel.yank.desc=Preporučeno kao zamjena za Temasek kernel
 archidroid.kernel.googy.desc=Baziran na Siyah kernel izvorima. "Dual-boot" svojstvo
-archidroid.kernel.stock.desc=Dolazi kao zadani CM kernel
+archidroid.kernel.stock.desc=Dolazi kao zadani ROM kernel
 
 archidroid.dpi.240.desc=UPOZORENJE! Imajte na umu neke manje grafičke propuste na ovom DPI-u
 archidroid.dpi.241.desc=Sve će biti manje, uključujući tipke, ikone, tekstove itd. Preporučeno za najbolje iskustvo s ArchiDroid ROM-om!
@@ -107,21 +107,21 @@ archidroid.dpi.280.desc=Lijepa ravnoteža između izvornog i 240 dpi
 archidroid.dpi.320.desc=Izvorna vrijednost dpi-a
 
 archidroid.launcher.nova.desc=Preporučuje se za dodatnu fleksibilnost i performanse
-archidroid.launcher.stock.desc=Dolazi iz CM-a, također poznat kao Trebuchet pokretač
+archidroid.launcher.stock.desc=Dolazi iz ROM-a, također poznat kao Trebuchet pokretač
 archidroid.launcher.none.desc=No launcher. WARNING! Don't tick if you're after full wipe! You need at least one custom launcher before first boot!
 
 archidroid.keyboard=Tipkovnica
 archidroid.keyboard.touchpal.desc=Preporučeno kao odlična i vrlo fleksibilana Swype / Curve tipkovnica
 archidroid.keyboard.hackers.desc=Odlična alternativa TouchPal tipkovnici ako ne koristitiš Swype / Curve funkciju
 archidroid.keyboard.both.desc=Ako želite koristiti obje TouchPad i hackers tipkovnice (primjerice u terminalu)
-archidroid.keyboard.stock.desc=Ako želite zadržati izvornu tipkovnicu CM-a
+archidroid.keyboard.stock.desc=Ako želite zadržati izvornu tipkovnicu ROM-a
 archidroid.keyboard.none.desc=No keyboard. WARNING! Don't tick if you're after full wipe! You need at least one custom keyboard before first boot!
 
 archidroid.bootanimation=Bootanimation
 archidroid.bootanimation.archi.desc=New fancy ArchiDroid bootanimation
 archidroid.bootanimation.archilegacy.desc=Old ArchiDroid 1.X bootanimation
 archidroid.bootanimation.logcat.desc=Mijenja zadani bootaimation s logcat prikazom bootanimacije - powered by logcat Lite
-archidroid.bootanimation.stock.desc=Stock bootanimation provided by CyanogenMod
+archidroid.bootanimation.stock.desc=Stock bootanimation provided by ROM
 archidroid.bootanimation.none.desc=No bootanimation, for slightly faster bootup
 
 archidroid.other=Ostalo
@@ -141,7 +141,7 @@ archidroid.apps.zram.desc=Korisno ako želite pratiti svoju zram uporabu (dostup
 archidroid.apps.greenify.desc=Korisno ako želite hibernaciju bilo koje aplikacije, što štedi bateriju
 archidroid.apps.lmt.desc=Koristan alat za izvršavanje naredbe koje se odnose na određene geste na ekranu, također poznat kao PIE iz SlimBean ROM-a
 archidroid.apps.mxplayer.desc=Vjerovatno najbolji video player za Android
-archidroid.apps.spiritfm.desc=Besplatna FM radio aplikacija koja radi na CM Romovima
+archidroid.apps.spiritfm.desc=Besplatna FM radio aplikacija koja radi na CyanogenMod Romovima
 archidroid.apps.bbs.desc=Daje vam mogućnost vidjeti specifičnu statistiku uporabe baterije - pogotovo raznorazna nepotrebna buđenja uređaja
 archidroid.apps.cooltool.desc=Pokazuje određene korisne statistike na gornjoj traci
 archidroid.apps.rootbrowser.desc=Odličan preglednik proširien dodatnim root pristupom

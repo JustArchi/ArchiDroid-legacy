@@ -85,7 +85,7 @@ archidroid.preset.group=Preset
 archidroid.preset.custom=Własny
 archidroid.preset.custom.desc=Będziesz mógł dostosować każdy aspekt instalacji
 archidroid.preset.barebones=Sam Szkielet
-archidroid.preset.barebones.desc=Czysty CyanogenMod. Tylko dla testów ewentualnych błędów, niezalecane
+archidroid.preset.barebones.desc=Czysty ROM. Tylko dla testów ewentualnych błędów, niezalecane
 archidroid.preset.previous=Poprzedni Preset
 archidroid.preset.previous.desc=Ładuje Twój poprzednio wybrany preset (o ile dostępny)
 
@@ -99,7 +99,7 @@ archidroid.kernel.temasek.desc=Wysoce zalecany dla najlepszej wydajności, elast
 archidroid.kernel.boeffla.desc=Wysoce zalecane arcydzieło dla każdego, wyróżniające się silnikiem boeffla oraz wieloma innymi usprawnieniami
 archidroid.kernel.yank.desc=Zalecany jako alternatywa dla temaseka
 archidroid.kernel.googy.desc=Bazowany na źródłach Siyah. Unikalny z powodu funkcji dual-boot
-archidroid.kernel.stock.desc=Pochodzący prosto z CyanogenMod
+archidroid.kernel.stock.desc=Pochodzący prosto z ROM
 
 archidroid.dpi.240.desc=UWAGA! Możliwe niewielkie bugi graficzne
 archidroid.dpi.241.desc=Wszystko będzie o wiele mniejsze niż standardowo. Wysoce zalecane
@@ -107,21 +107,21 @@ archidroid.dpi.280.desc=Dobry kompromis pomiędzy 320, a 240 DPI
 archidroid.dpi.320.desc=Wartość domyślna
 
 archidroid.launcher.nova.desc=Zalecany dla o wiele większej wydajności i elastyczności
-archidroid.launcher.stock.desc=Pochodzący prosto z CyanogenMod. Znany także jako Trebuchet
+archidroid.launcher.stock.desc=Pochodzący prosto z ROM. Znany także jako Trebuchet
 archidroid.launcher.none.desc=Brak Launchera. UWAGA! Nie zaznaczaj tej opcji jeśli wykonałeś full wipe. Potrzebujesz przynajmniej 1 własnego launchera przed pierwszym bootem!
 
 archidroid.keyboard=Klawiatura
 archidroid.keyboard.touchpal.desc=Zalecana jako świetna i bardzo elastyczna klawiatura Swype/Curve
 archidroid.keyboard.hackers.desc=Świetna alternatywa dla TouchPal'a jeśli nie potrzebujemy Swype/Curve
 archidroid.keyboard.both.desc=Jeśli z jakiegoś powodu chciałbyś zainstalować obydwie te klawiatury
-archidroid.keyboard.stock.desc=Jeśli chciałbyś pozostać przy klawiaturze prosto z CyanogenMod
+archidroid.keyboard.stock.desc=Jeśli chciałbyś pozostać przy klawiaturze prosto z ROM
 archidroid.keyboard.none.desc=Brak Klawiatury. UWAGA! Nie zaznaczaj tej opcji jeśli wykonałeś full wipe. Potrzebujesz przynajmniej 1 własnej klawiatury przed pierwszym bootem!
 
 archidroid.bootanimation=Animacja Ładowania
 archidroid.bootanimation.archi.desc=Nowa odświeżona animacja ArchiDroid
 archidroid.bootanimation.archilegacy.desc=Stara klasyczna animacja ArchiDroid 1.X
 archidroid.bootanimation.logcat.desc=Zamienia domyślną bootanimację na logcata
-archidroid.bootanimation.stock.desc=Stockowa animacja dostarczona wraz z CyanogenModem
+archidroid.bootanimation.stock.desc=Stockowa animacja dostarczona wraz z ROMem
 archidroid.bootanimation.none.desc=Brak animacji ładowania, dla nieco szybszego startu
 
 archidroid.other=Inne

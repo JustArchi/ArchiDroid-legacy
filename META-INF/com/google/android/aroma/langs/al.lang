@@ -101,13 +101,16 @@ archidroid.kernel.yank.desc=Rekomandohet si alternative e Temasek
 archidroid.kernel.googy.desc=Bazuar ne Siyah kod. Dual-boot i dyfisht
 archidroid.kernel.stock.desc=Vjen si berthame standarde ne ROM
 
-archidroid.dpi.240.desc=KUJDES! Disa gabime ne grafike dhe rezolucion DPI
-archidroid.dpi.241.desc=Cdo gje do te jete me e vogel, si butonat, ikonat, teksit etj. Rekomandohet per funksionimin me te mire ne ArchiDroid!
+archidroid.theme.dreamtheme.desc=Light AOSP blue theme
+archidroid.theme.stock.desc=Stock theme
+
+archidroid.dpi.240w.desc=KUJDES! Disa gabime ne grafike dhe rezolucion DPI
+archidroid.dpi.240.desc=Cdo gje do te jete me e vogel, si butonat, ikonat, teksit etj. Rekomandohet per funksionimin me te mire ne ArchiDroid!
 archidroid.dpi.280.desc=Balanc mes normales dhe 240 DPI
 archidroid.dpi.320.desc=Vlera normale
 
 archidroid.launcher.nova.desc=Rekomandohet per ekstra fleksibilitet dhe performanse
-archidroid.launcher.stock.desc=Nese vjen prej ROM, i njohur si Trebuchet
+archidroid.launcher.stock.desc=Nese vjen prej ROM
 archidroid.launcher.none.desc=No launcher. WARNING! Don't tick if you're after full wipe! You need at least one custom launcher before first boot!
 
 archidroid.keyboard=Tastieri
@@ -178,6 +181,7 @@ archidroid.boeffla.no.desc=Nese nuk deshiron te instaloni Boeffla SC
 
 archidroid.xposed.appsettings.desc=Lejon ndryshimin e applikacioneve. Shume e nevojshme
 archidroid.xposed.xprivacy.desc=Modul per parandalimin e rrjedhjes se informatave, ndalon qasjen e aplikacioneve etj
+archidroid.xposed.wanam.desc=Masterpiece from Wanam. Enhances ArchiDroid's flexibility and provides a ton of customization options
 
 archidroid.wizard.reboot=ArchiDroid eshte instaluar. Deshironi te restartoni tash?
 

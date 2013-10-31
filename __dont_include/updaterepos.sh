@@ -1,6 +1,7 @@
 #!/bin/bash
 
 INIT=0
+KEEPSYNC=0
 
 contains () {
 	local e
@@ -50,8 +51,8 @@ for folder in `find . -mindepth 1 -maxdepth 1 -type d` ; do
 		fi
 		if `contains "$ourName" "${inPerfectSyncWithCM[@]}"`; then
 			git pull $CMRepo $CM
-		elif `contains "$ourName" "${inSyncWithCM[@]}"`; then
-			git pull -s ours $CMRepo $CM
+		elif `contains "$ourName" "${inSyncWithCM[@]}"` && [ $KEEPSYNC -eq 1 ]; then
+			git pull $CMRepo $CM
 		fi
 		if [ $? -ne 0 ]; then
 			read -p "Something went wrong, please check and tell me when you're done, master!" -n1 -s

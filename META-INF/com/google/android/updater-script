@@ -298,7 +298,7 @@ if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "stock" then
     #delete("/tmp/stock.img");
 endif;
 
-set_progress(0.6);
+set_progress(0.55);
 
 
 ###############################
@@ -324,7 +324,7 @@ endif;
 #############
 
 if file_getprop("/tmp/aroma-data/archidroid.prop","theme") == "dreamtheme" then
-	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing DreamTheme AOSP");
+	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing DreamTheme AOSP. Notice: This can take up to 5 minutes!");
 	package_extract_dir("_archidroid/themes/dreamtheme", "/sdcard/vrtheme");
 	package_extract_dir("_archidroid/themes/vrtheme", "/sdcard/vrtheme");
 	set_perm(0, 0, 0755, "/sdcard/vrtheme/installtheme.sh");
@@ -340,7 +340,7 @@ if file_getprop("/tmp/aroma-data/archidroid.prop","theme") == "stock" then
 	# Not needed, haha!
 endif;
 
-set_progress(0.63);
+set_progress(0.68);
 
 
 ###########
@@ -371,7 +371,7 @@ if file_getprop("/tmp/aroma-data/archidroid.prop","dpi") == "320" then
 	run_program("/tmp/320dpi.sh");
 endif;
 
-set_progress(0.64);
+set_progress(0.69);
 
 #############
 ### MODEM ###

@@ -101,13 +101,16 @@ archidroid.kernel.yank.desc=Empfohlen als Alternative zu Temasek-Kernel
 archidroid.kernel.googy.desc=Basiert auf Siyah Quellen. Einzigartig mit Dual-Boot Funktionen
 archidroid.kernel.stock.desc=Der Standard-Kernel von ROM
 
-archidroid.dpi.240.desc=WARNUNG! Bei dieser DPI kann es zu kleineren Grafikfehlern kommen
-archidroid.dpi.241.desc=Alles ist kleiner: Buttons, Icons, Text u.s.w.. empfohlen für die beste ArchiDroid-Erfahrung!
+archidroid.theme.dreamtheme.desc=Light AOSP blue theme
+archidroid.theme.stock.desc=Stock theme
+
+archidroid.dpi.240w.desc=WARNUNG! Bei dieser DPI kann es zu kleineren Grafikfehlern kommen
+archidroid.dpi.240.desc=Alles ist kleiner: Buttons, Icons, Text u.s.w.. empfohlen für die beste ArchiDroid-Erfahrung!
 archidroid.dpi.280.desc=Gute Balance zwischen Standard und 240 DPI
 archidroid.dpi.320.desc=Standard
 
 archidroid.launcher.nova.desc=Empfohlen für extra Flexibilität und Performance
-archidroid.launcher.stock.desc=Von ROM, auch bekannt als Trebuchet
+archidroid.launcher.stock.desc=Von ROM
 archidroid.launcher.none.desc=No launcher. WARNING! Don't tick if you're after full wipe! You need at least one custom launcher before first boot!
 
 archidroid.keyboard=Tastatur
@@ -178,6 +181,7 @@ archidroid.boeffla.no.desc=Wenn du Boeffla SC nicht installieren möchtest
 
 archidroid.xposed.appsettings.desc=Erlaubt App-Einstellungen zu ändern. Sehr praktisches Tool
 archidroid.xposed.xprivacy.desc=Perfektes Modul um die Preisgabe persönlicher Daten zu verhintern,  Berechtigungen einschränken und vieles mehr
+archidroid.xposed.wanam.desc=Masterpiece from Wanam. Enhances ArchiDroid's flexibility and provides a ton of customization options
 
 archidroid.wizard.reboot=ArchiDroid wurde auf deinem Gerät installiert. Möchtest du automatisch neu starten?
 

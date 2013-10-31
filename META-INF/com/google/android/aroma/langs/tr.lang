@@ -101,13 +101,16 @@ archidroid.kernel.yank.desc=Temasek'e alternatif olarak önerilir.
 archidroid.kernel.googy.desc=Siyah tabanlı dualboot için önerilir.
 archidroid.kernel.stock.desc=ROM ile birlikte gelen kernel.
 
-archidroid.dpi.240.desc=DİKKAT! Bu DPI ayarı görüntü bozuklukları yaratabilir.
-archidroid.dpi.241.desc=Her şey daha küçük olacak. Yazılar, butonlar, genel görünüm. ArchiDroid için en uygun olanıdır.
+archidroid.theme.dreamtheme.desc=Light AOSP blue theme
+archidroid.theme.stock.desc=Stock theme
+
+archidroid.dpi.240w.desc=DİKKAT! Bu DPI ayarı görüntü bozuklukları yaratabilir.
+archidroid.dpi.240.desc=Her şey daha küçük olacak. Yazılar, butonlar, genel görünüm. ArchiDroid için en uygun olanıdır.
 archidroid.dpi.280.desc=Stok ile 240 DPI arasında dengeli bir seçim.
 archidroid.dpi.320.desc=Stok
 
 archidroid.launcher.nova.desc=Yüksek performans ve esneklik.
-archidroid.launcher.stock.desc=ROM başlatıcısı, Trebuchet.
+archidroid.launcher.stock.desc=ROM başlatıcısı
 archidroid.launcher.none.desc=No launcher. WARNING! Don't tick if you're after full wipe! You need at least one custom launcher before first boot!
 
 archidroid.keyboard=Klavye
@@ -178,6 +181,7 @@ archidroid.boeffla.no.desc=Boeffla Ses Kontrol kullanmamak istiyorsaniz seçin.
 
 archidroid.xposed.appsettings.desc=Uygulama çalısma ayarlarını ayarlayabilirsiniz, önerilir.
 archidroid.xposed.xprivacy.desc=Uygulama izinlerini kontrol etmenizi sağlar.
+archidroid.xposed.wanam.desc=Masterpiece from Wanam. Enhances ArchiDroid's flexibility and provides a ton of customization options
 
 archidroid.wizard.reboot=ArchiDroid başarıyla yüklendi. Cihazınızı yeniden başlatmak ister misiniz?
 

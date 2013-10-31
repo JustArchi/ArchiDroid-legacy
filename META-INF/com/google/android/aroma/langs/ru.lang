@@ -101,13 +101,16 @@ archidroid.kernel.yank.desc=Рекомендуется в качестве ал�
 archidroid.kernel.googy.desc=Основан на Siyah. Уникален возможностью dual-boot.
 archidroid.kernel.stock.desc=Ядро по умлочанию из ROM.
 
-archidroid.dpi.240.desc=Внимание! Помните о вероятности незначительных графических искажений на этом DPI.
-archidroid.dpi.241.desc=Все будет меньше, включая кнопки, иконки, шрифт и т.д. Рекомендовано для лучшего опыта использования ArchiDroid!
+archidroid.theme.dreamtheme.desc=Light AOSP blue theme
+archidroid.theme.stock.desc=Stock theme
+
+archidroid.dpi.240w.desc=Внимание! Помните о вероятности незначительных графических искажений на этом DPI.
+archidroid.dpi.240.desc=Все будет меньше, включая кнопки, иконки, шрифт и т.д. Рекомендовано для лучшего опыта использования ArchiDroid!
 archidroid.dpi.280.desc=Прекрасный баланс между стоковым и режимом 240 DPI.
 archidroid.dpi.320.desc=Значение по умолчанию
 
 archidroid.launcher.nova.desc=Рекомендуется для ультра гибкости и прозводительности.
-archidroid.launcher.stock.desc=Родной лончер ROM, известный как Trebuchet
+archidroid.launcher.stock.desc=Родной лончер ROM
 archidroid.launcher.none.desc=No launcher. WARNING! Don't tick if you're after full wipe! You need at least one custom launcher before first boot!
 
 archidroid.keyboard=Клавиатура
@@ -178,6 +181,7 @@ archidroid.boeffla.no.desc=Если Вы не хотите устанавлив�
 
 archidroid.xposed.appsettings.desc=Позволяет изменять установки приложений. Крайне полезный инструмент.
 archidroid.xposed.xprivacy.desc=Модуль, позволяющий предотвратить утечку личный данных, запрещает доступ к ним и т.д.
+archidroid.xposed.wanam.desc=Masterpiece from Wanam. Enhances ArchiDroid's flexibility and provides a ton of customization options
 
 archidroid.wizard.reboot=ArchiDroid был установлен на Ваше устройство. Хотите выполнить перезагрузку?
 

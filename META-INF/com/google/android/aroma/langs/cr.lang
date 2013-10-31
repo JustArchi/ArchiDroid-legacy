@@ -101,13 +101,16 @@ archidroid.kernel.yank.desc=Preporučeno kao zamjena za Temasek kernel
 archidroid.kernel.googy.desc=Baziran na Siyah kernel izvorima. "Dual-boot" svojstvo
 archidroid.kernel.stock.desc=Dolazi kao zadani ROM kernel
 
-archidroid.dpi.240.desc=UPOZORENJE! Imajte na umu neke manje grafičke propuste na ovom DPI-u
-archidroid.dpi.241.desc=Sve će biti manje, uključujući tipke, ikone, tekstove itd. Preporučeno za najbolje iskustvo s ArchiDroid ROM-om!
+archidroid.theme.dreamtheme.desc=Light AOSP blue theme
+archidroid.theme.stock.desc=Stock theme
+
+archidroid.dpi.240w.desc=UPOZORENJE! Imajte na umu neke manje grafičke propuste na ovom DPI-u
+archidroid.dpi.240.desc=Sve će biti manje, uključujući tipke, ikone, tekstove itd. Preporučeno za najbolje iskustvo s ArchiDroid ROM-om!
 archidroid.dpi.280.desc=Lijepa ravnoteža između izvornog i 240 dpi
 archidroid.dpi.320.desc=Izvorna vrijednost dpi-a
 
 archidroid.launcher.nova.desc=Preporučuje se za dodatnu fleksibilnost i performanse
-archidroid.launcher.stock.desc=Dolazi iz ROM-a, također poznat kao Trebuchet pokretač
+archidroid.launcher.stock.desc=Dolazi iz ROM-a
 archidroid.launcher.none.desc=No launcher. WARNING! Don't tick if you're after full wipe! You need at least one custom launcher before first boot!
 
 archidroid.keyboard=Tipkovnica
@@ -178,6 +181,7 @@ archidroid.boeffla.no.desc=Ako ne želite instalirati Boeffla SC
 
 archidroid.xposed.appsettings.desc=Omogućuje promjenu postavki aplikacija. Izuzetno koristan alat
 archidroid.xposed.xprivacy.desc=Izvrsni modul koji sprječava curenje privatnih podataka, ograničava pristup i više
+archidroid.xposed.wanam.desc=Masterpiece from Wanam. Enhances ArchiDroid's flexibility and provides a ton of customization options
 
 archidroid.wizard.reboot=ArchiDroid je instaliran na vaš uređaj. Želite li automatsko ponovno podizanje sustava sada?
 

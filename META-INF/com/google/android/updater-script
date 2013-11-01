@@ -688,6 +688,7 @@ set_progress(0.85);
 
 if file_getprop("/tmp/aroma-data/archidroid.prop","gcalendar") == "1" then
 	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Google Calendar");
+	delete("/system/app/SecCalendar.apk");
 	package_extract_dir("_archidroid/apps/gcalendar", "/");
 endif;
 

@@ -173,9 +173,6 @@ while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 		if [ -e /data/data/com.android.providers.settings/databases/settings.db ]; then
 			echo "INFO: Android created settings.db for me, how cute! Performing DBUPDATE" >> $LOG
 			DBUPDATE secure advanced_reboot 1
-			
-			# Requires SlimBean's Dark Droid
-			DBUPDATE secure ui_inverted_mode 2
 			DBUPDATE secure kill_app_longpress_back 1
 			
 			DBUPDATE global transition_animation_scale 0.5
@@ -185,13 +182,7 @@ while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 			DBUPDATE global install_non_market_apps 1
 			DBUPDATE global development_settings_enabled 1
 			DBUPDATE system power_menu_screenshot_enabled 1
-			DBUPDATE system status_bar_battery 3
-			DBUPDATE system statusbar_clock_date_display 2
-			DBUPDATE system statusbar_clock_date_format 'MMM dd'
-			DBUPDATE system status_bar_traffic 0
-			DBUPDATE system button_backlight_timeout 1000
-			DBUPDATE system recents_clear_all_on_right 1
-			DBUPDATE system recents_ram_bar_mode 3
+			DBUPDATE system lockscreen_ripple_effect 2
 			
 			# And don't execute twice
 			echo "INFO: Finished DBUPDATE" >> $LOG
@@ -243,7 +234,7 @@ else
 fi
 
 # Now that is checked, let's just wait another tiny little bit
-sleep 8
+sleep 10
 
 # If we have any more runonce scripts then it's the right place for that
 

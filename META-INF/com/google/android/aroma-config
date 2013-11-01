@@ -174,17 +174,17 @@ form(
 
 setvar("preset_version","2");
 if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "previous" then
-  setvar("preset_version_probe",read("/data/media/0/ArchiDroid/AromaPreset/version.txt"));
+  setvar("preset_version_probe",read("/data/media/0/ArchiDroid/AromaPreset/2.X/version.txt"));
   if getvar("preset_version")!=getvar("preset_version_probe") then
     alert("ArchiDroid Wizard","<~archidroid.detect.previouspreset.fail>","@alert");
     writetmpfile("archidroidinstallmode.prop","preset=custom\n");
   else
-    writetmpfile("archidroid.prop",read("/data/media/0/ArchiDroid/AromaPreset/archidroid.prop"));
-    writetmpfile("archidroidboeffla.prop",read("/data/media/0/ArchiDroid/AromaPreset/archidroidboeffla.prop"));
-    writetmpfile("archidroidtemasek.prop",read("/data/media/0/ArchiDroid/AromaPreset/archidroidtemasek.prop"));
-    writetmpfile("archidroidboefflasound.prop",read("/data/media/0/ArchiDroid/AromaPreset/archidroidboefflasound.prop"));
-    writetmpfile("archidroidxposed.prop",read("/data/media/0/ArchiDroid/AromaPreset/archidroidxposed.prop"));
-    writetmpfile("archidroidbuild.prop",read("/data/media/0/ArchiDroid/AromaPreset/archidroidbuild.prop"));
+    writetmpfile("archidroid.prop",read("/data/media/0/ArchiDroid/AromaPreset/2.X/archidroid.prop"));
+    writetmpfile("archidroidboeffla.prop",read("/data/media/0/ArchiDroid/AromaPreset/2.X/archidroidboeffla.prop"));
+    writetmpfile("archidroidtemasek.prop",read("/data/media/0/ArchiDroid/AromaPreset/2.X/archidroidtemasek.prop"));
+    writetmpfile("archidroidboefflasound.prop",read("/data/media/0/ArchiDroid/AromaPreset/2.X/archidroidboefflasound.prop"));
+    writetmpfile("archidroidxposed.prop",read("/data/media/0/ArchiDroid/AromaPreset/2.X/archidroidxposed.prop"));
+    writetmpfile("archidroidbuild.prop",read("/data/media/0/ArchiDroid/AromaPreset/2.X/archidroidbuild.prop"));
   endif;
 endif;
 
@@ -317,7 +317,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
     "openpdroid","OpenPDroid [<~common.experimental>]","<~archidroid.tweaks.openpdroid.desc>","check",
     "nocell","Remove Cell Broadcasts","<~archidroid.tweaks.nocell.desc>","check.checked"
   );
-  write("/data/media/0/ArchiDroid/AromaPreset/archidroid.prop",
+  write("/data/media/0/ArchiDroid/AromaPreset/2.X/archidroid.prop",
     readtmpfile("archidroid.prop");
   );
 
@@ -335,7 +335,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
       "archiultrapowersave","<~archidroid.preset.kernel.boeffla.archiultrapowersave>","<~archidroid.preset.kernel.boeffla.archiultrapowersave.desc>","select",
       "no","<~archidroid.preset.no>","<~archidroid.preset.no.desc>","select"
     );
-    write("/data/media/0/ArchiDroid/AromaPreset/archidroidboeffla.prop",
+    write("/data/media/0/ArchiDroid/AromaPreset/2.X/archidroidboeffla.prop",
       readtmpfile("archidroidboeffla.prop");
     );
   endif;
@@ -353,7 +353,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
       "ultra","<~archidroid.preset.kernel.temasek.ultra>","<~archidroid.preset.kernel.temasek.ultra.desc>","select",
       "no","<~archidroid.preset.no>","<~archidroid.preset.no.desc>","select"
     );
-    write("/data/media/0/ArchiDroid/AromaPreset/archidroidtemasek.prop",
+    write("/data/media/0/ArchiDroid/AromaPreset/2.X/archidroidtemasek.prop",
       readtmpfile("archidroidtemasek.prop");
     );
   endif;
@@ -371,7 +371,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
       "yes","<~text_yes>","<~archidroid.boeffla.yes.desc>","select",
       "no","<~text_no>","<~archidroid.boeffla.no.desc>","select"
     );
-    write("/data/media/0/ArchiDroid/AromaPreset/archidroidboefflasound.prop",
+    write("/data/media/0/ArchiDroid/AromaPreset/2.X/archidroidboefflasound.prop",
       readtmpfile("archidroidboefflasound.prop");
     );
   endif;
@@ -387,7 +387,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
       "appsettings","App Settings","<~archidroid.xposed.appsettings.desc>","check.checked",
       "xprivacy","XPrivacy","<~archidroid.xposed.xprivacy.desc>","check.checked"
     );
-    write("/data/media/0/ArchiDroid/AromaPreset/archidroidxposed.prop",
+    write("/data/media/0/ArchiDroid/AromaPreset/2.X/archidroidxposed.prop",
       readtmpfile("archidroidxposed.prop");
     );
   endif;
@@ -401,11 +401,11 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
       "build","<#selectbg_g>Build.prop Tweaks</#>","","group",
       "fastdormancy","Fast Dormancy","<~archidroid.buildtweaks.fastdormancy.desc>","check.checked"
     );
-    write("/data/media/0/ArchiDroid/AromaPreset/archidroidbuild.prop",
+    write("/data/media/0/ArchiDroid/AromaPreset/2.X/archidroidbuild.prop",
       readtmpfile("archidroidbuild.prop");
     );
   endif;
-  write("/data/media/0/ArchiDroid/AromaPreset/version.txt",getvar("preset_version"));
+  write("/data/media/0/ArchiDroid/AromaPreset/2.X/version.txt",getvar("preset_version"));
 endif;
 
 

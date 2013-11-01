@@ -274,7 +274,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
     "archi","ArchiDroid","<~archidroid.bootanimation.archi.desc>","select.selected",
     "archilegacy","ArchiDroid Legacy","<~archidroid.bootanimation.archilegacy.desc>","select",
     #"logcat","Logcat","<~archidroid.bootanimation.logcat.desc>","select",
-    "stock","CyanogenMod","<~archidroid.bootanimation.stock.desc>","select",
+    "stock","Samsung","<~archidroid.bootanimation.stock.desc>","select",
     "none","<~common.none>","<~archidroid.bootanimation.none.desc>","select",
 
     "other","<#selectbg_g><~archidroid.other></#>","","group",
@@ -285,7 +285,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
     "updaterecovery","<~archidroid.updaterecovery> [PhilZ Touch Recovery]","<~archidroid.updaterecovery.desc>","check",
 
     "googleapps","<#selectbg_g>Google Apps</#>","","group",
-    "gcalendar","Google Calendar [<~common.inverted>]","<~common.replaces> CyanogenMod Calendar","check.checked",
+    "gcalendar","Google Calendar [<~common.inverted>]","<~common.replaces> Samsung Calendar","check.checked",
     "gchrome","Google Chrome [<~common.inverted>]","","check.checked",
     "gkeep","Google Keep [<~common.inverted>]","","check.checked",
     "gmail","Google Mail (Gmail) [<~common.inverted>]","","check.checked",
@@ -299,7 +299,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
     "titaniumbackup","Titanium Backup","<~archidroid.apps.titaniumbackup.desc>","check.checked",
     "zram","ZRAM Status","<~archidroid.apps.zram.desc>","check",
     "greenify","Greenify","<~archidroid.apps.greenify.desc>","check.checked",
-    "lmt","LMT","<~archidroid.apps.lmt.desc>","check",
+    "lmt","LMT","<~archidroid.apps.lmt.desc>","check.checked",
     "mxplayer","MXPlayer","<~archidroid.apps.mxplayer.desc>","check.checked",
     "bbs","BetterBatteryStats","<~archidroid.apps.bbs.desc>","check.checked",
     "cooltool","CoolTool","<~archidroid.apps.cooltool.desc>","check.checked",

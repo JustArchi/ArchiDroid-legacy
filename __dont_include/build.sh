@@ -127,6 +127,10 @@ rm $FILE
 ### BLOATWARE ###
 #################
 
+cd framework-res
+zip -0 -r ../../system/framework/framework-res.apk *
+cd ..
+
 bash openpdroid.sh
 if [ $? -ne 0 ]; then
 	exit 1

@@ -476,7 +476,7 @@ endif;
 
 ### STOCK ###
 if file_getprop("/tmp/aroma-data/archidroid.prop","keyboard") == "stock" then
-	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing AOSP Keyboard");
+	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Stock Keyboard");
 	# Not needed, haha!
 endif;
 
@@ -503,7 +503,7 @@ endif;
 
 ### STOCK ###
 if file_getprop("/tmp/aroma-data/archidroid.prop","launcher") == "stock" then
-	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Trebuchet");
+	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Stock Launcher");
 	# Not needed, haha!
 endif;
 

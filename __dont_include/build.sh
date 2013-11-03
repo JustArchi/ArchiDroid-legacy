@@ -5,7 +5,7 @@
 #exit 1
 
 # Common
-VERSION=1.6.4
+VERSION=1.7
 MODE=0 # 0 - Experimental | 1 - Stable
 
 # From source? Nope!

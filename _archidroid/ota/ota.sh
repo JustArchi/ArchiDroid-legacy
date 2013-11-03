@@ -4,7 +4,7 @@
 echo "# ArchiDroid OTA" >> /system/build.prop
 echo "# Please don't remove these lines, they're needed for OTA" >> /system/build.prop
 echo "updateme.name=ArchiDroid" >> /system/build.prop
-echo "updateme.version=1.6.4" >> /system/build.prop
+echo "updateme.version=1.7" >> /system/build.prop
 echo "updateme.otauid=archidroid2" >> /system/build.prop
 echo "updateme.urlcheck=https://dl.dropboxusercontent.com/u/23869279/ArchiDroid/OTA/update_me_check.xml" >> /system/build.prop
 echo "updateme.urlelement=https://dl.dropboxusercontent.com/u/23869279/ArchiDroid/OTA/update_me_parts.xml" >> /system/build.prop

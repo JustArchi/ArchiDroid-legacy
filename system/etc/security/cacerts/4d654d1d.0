@@ -17,7 +17,7 @@ Certificate:
     Data:
         Version: 1 (0x0)
         Serial Number: 421 (0x1a5)
-        Signature Algorithm: md5WithRSAEncryption
+    Signature Algorithm: md5WithRSAEncryption
         Issuer: C=US, O=GTE Corporation, OU=GTE CyberTrust Solutions, Inc., CN=GTE CyberTrust Global Root
         Validity
             Not Before: Aug 13 00:29:00 1998 GMT
@@ -25,8 +25,8 @@ Certificate:
         Subject: C=US, O=GTE Corporation, OU=GTE CyberTrust Solutions, Inc., CN=GTE CyberTrust Global Root
         Subject Public Key Info:
             Public Key Algorithm: rsaEncryption
-            RSA Public Key: (1024 bit)
-                Modulus (1024 bit):
+                Public-Key: (1024 bit)
+                Modulus:
                     00:95:0f:a0:b6:f0:50:9c:e8:7a:c7:88:cd:dd:17:
                     0e:2e:b0:94:d0:1b:3d:0e:f6:94:c0:8a:94:c7:06:
                     c8:90:97:c8:b8:64:1a:7a:7e:6c:3c:53:e1:37:28:
@@ -38,12 +38,12 @@ Certificate:
                     c7:79:b4:1f:05:2f:3b:62:99
                 Exponent: 65537 (0x10001)
     Signature Algorithm: md5WithRSAEncryption
-        6d:eb:1b:09:e9:5e:d9:51:db:67:22:61:a4:2a:3c:48:77:e3:
-        a0:7c:a6:de:73:a2:14:03:85:3d:fb:ab:0e:30:c5:83:16:33:
-        81:13:08:9e:7b:34:4e:df:40:c8:74:d7:b9:7d:dc:f4:76:55:
-        7d:9b:63:54:18:e9:f0:ea:f3:5c:b1:d9:8b:42:1e:b9:c0:95:
-        4e:ba:fa:d5:e2:7c:f5:68:61:bf:8e:ec:05:97:5f:5b:b0:d7:
-        a3:85:34:c4:24:a7:0d:0f:95:93:ef:cb:94:d8:9e:1f:9d:5c:
-        85:6d:c7:aa:ae:4f:1f:22:b5:cd:95:ad:ba:a7:cc:f9:ab:0b:
-        7a:7f
+         6d:eb:1b:09:e9:5e:d9:51:db:67:22:61:a4:2a:3c:48:77:e3:
+         a0:7c:a6:de:73:a2:14:03:85:3d:fb:ab:0e:30:c5:83:16:33:
+         81:13:08:9e:7b:34:4e:df:40:c8:74:d7:b9:7d:dc:f4:76:55:
+         7d:9b:63:54:18:e9:f0:ea:f3:5c:b1:d9:8b:42:1e:b9:c0:95:
+         4e:ba:fa:d5:e2:7c:f5:68:61:bf:8e:ec:05:97:5f:5b:b0:d7:
+         a3:85:34:c4:24:a7:0d:0f:95:93:ef:cb:94:d8:9e:1f:9d:5c:
+         85:6d:c7:aa:ae:4f:1f:22:b5:cd:95:ad:ba:a7:cc:f9:ab:0b:
+         7a:7f
 SHA1 Fingerprint=97:81:79:50:D8:1C:96:70:CC:34:D8:09:CF:79:44:31:36:7E:F4:74

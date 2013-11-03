@@ -108,4 +108,22 @@
         </fileset>
     </family>
 
+    <family>
+        <nameset>
+            <name>samsung-sans-light</name>
+        </nameset>
+        <fileset>
+            <file>SamsungSans_Light.ttf</file>
+        </fileset>
+    </family>    
+
+    <family>
+        <nameset>
+            <name>samsung-sans-thin</name>
+        </nameset>
+        <fileset>
+            <file>SamsungSans_Thin.ttf</file>
+        </fileset>
+    </family>    
+
 </familyset>

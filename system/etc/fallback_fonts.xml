@@ -113,6 +113,11 @@
     </family>
     <family>
         <fileset>
+            <file>AndroidEmoji.ttf</file>
+        </fileset>
+    </family>
+    <family>
+        <fileset>
             <file>DroidSans_Subset.ttf</file>
         </fileset>
     </family>
@@ -123,17 +128,8 @@
     </family>
     <family>
         <fileset>
-            <file>AndroidEmoji.ttf</file>
-        </fileset>
-    </family>
-    <family>
-        <fileset>
-            <file>HelveticaNeue-Light.ttf</file>
-        </fileset>
-    </family>
-    <family>
-        <fileset>
-            <file>NanumGothic.ttf</file>
+            <file>SamsungKorean.ttf</file>
+            <file>SamsungKorean-Bold.ttf</file>
         </fileset>
     </family>
     <family>
@@ -141,8 +137,10 @@
             <file lang="ja">MTLmr3m.ttf</file>
         </fileset>
     </family>
-    <!--
-        Fonts below this point have problematic glyphs and should not be moved
-        higher in the fallback list until those glyphs have been fixed.
+    <!-- Note: complex scripts (i.e. those requiring shaping in Harfbuzz) have
+         a cumulative limit of 64k glyphs. Thus, if they are placed after the
+         large fonts such as DroidSansFallback, they are likely to render
+         incorrectly. Please use caution when putting fonts toward the end of
+         the list.
     -->
 </familyset>

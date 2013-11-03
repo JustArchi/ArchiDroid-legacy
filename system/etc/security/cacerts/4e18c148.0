@@ -24,7 +24,7 @@ Certificate:
     Data:
         Version: 3 (0x2)
         Serial Number: 38 (0x26)
-        Signature Algorithm: sha1WithRSAEncryption
+    Signature Algorithm: sha1WithRSAEncryption
         Issuer: C=DE, O=Deutsche Telekom AG, OU=T-TeleSec Trust Center, CN=Deutsche Telekom Root CA 2
         Validity
             Not Before: Jul  9 12:11:00 1999 GMT
@@ -32,8 +32,8 @@ Certificate:
         Subject: C=DE, O=Deutsche Telekom AG, OU=T-TeleSec Trust Center, CN=Deutsche Telekom Root CA 2
         Subject Public Key Info:
             Public Key Algorithm: rsaEncryption
-            RSA Public Key: (2048 bit)
-                Modulus (2048 bit):
+                Public-Key: (2048 bit)
+                Modulus:
                     00:ab:0b:a3:35:e0:8b:29:14:b1:14:85:af:3c:10:
                     e4:39:6f:35:5d:4a:ae:dd:ea:61:8d:95:49:f4:6f:
                     64:a3:1a:60:66:a4:a9:40:22:84:d9:d4:a5:e5:78:
@@ -61,19 +61,19 @@ Certificate:
             X509v3 Key Usage: critical
                 Certificate Sign, CRL Sign
     Signature Algorithm: sha1WithRSAEncryption
-        94:64:59:ad:39:64:e7:29:eb:13:fe:5a:c3:8b:13:57:c8:04:
-        24:f0:74:77:c0:60:e3:67:fb:e9:89:a6:83:bf:96:82:7c:6e:
-        d4:c3:3d:ef:9e:80:6e:bb:29:b4:98:7a:b1:3b:54:eb:39:17:
-        47:7e:1a:8e:0b:fc:1f:31:59:31:04:b2:ce:17:f3:2c:c7:62:
-        36:55:e2:22:d8:89:55:b4:98:48:aa:64:fa:d6:1c:36:d8:44:
-        78:5a:5a:23:3a:57:97:f5:7a:30:4f:ae:9f:6a:4c:4b:2b:8e:
-        a0:03:e3:3e:e0:a9:d4:d2:7b:d2:b3:a8:e2:72:3c:ad:9e:ff:
-        80:59:e4:9b:45:b4:f6:3b:b0:cd:39:19:98:32:e5:ea:21:61:
-        90:e4:31:21:8e:34:b1:f7:2f:35:4a:85:10:da:e7:8a:37:21:
-        be:59:63:e0:f2:85:88:31:53:d4:54:14:85:70:79:f4:2e:06:
-        77:27:75:2f:1f:b8:8a:f9:fe:c5:ba:d8:36:e4:83:ec:e7:65:
-        b7:bf:63:5a:f3:46:af:81:94:37:d4:41:8c:d6:23:d6:1e:cf:
-        f5:68:1b:44:63:a2:5a:ba:a7:35:59:a1:e5:70:05:9b:0e:23:
-        57:99:94:0a:6d:ba:39:63:28:86:92:f3:18:84:d8:fb:d1:cf:
-        05:56:64:57
+         94:64:59:ad:39:64:e7:29:eb:13:fe:5a:c3:8b:13:57:c8:04:
+         24:f0:74:77:c0:60:e3:67:fb:e9:89:a6:83:bf:96:82:7c:6e:
+         d4:c3:3d:ef:9e:80:6e:bb:29:b4:98:7a:b1:3b:54:eb:39:17:
+         47:7e:1a:8e:0b:fc:1f:31:59:31:04:b2:ce:17:f3:2c:c7:62:
+         36:55:e2:22:d8:89:55:b4:98:48:aa:64:fa:d6:1c:36:d8:44:
+         78:5a:5a:23:3a:57:97:f5:7a:30:4f:ae:9f:6a:4c:4b:2b:8e:
+         a0:03:e3:3e:e0:a9:d4:d2:7b:d2:b3:a8:e2:72:3c:ad:9e:ff:
+         80:59:e4:9b:45:b4:f6:3b:b0:cd:39:19:98:32:e5:ea:21:61:
+         90:e4:31:21:8e:34:b1:f7:2f:35:4a:85:10:da:e7:8a:37:21:
+         be:59:63:e0:f2:85:88:31:53:d4:54:14:85:70:79:f4:2e:06:
+         77:27:75:2f:1f:b8:8a:f9:fe:c5:ba:d8:36:e4:83:ec:e7:65:
+         b7:bf:63:5a:f3:46:af:81:94:37:d4:41:8c:d6:23:d6:1e:cf:
+         f5:68:1b:44:63:a2:5a:ba:a7:35:59:a1:e5:70:05:9b:0e:23:
+         57:99:94:0a:6d:ba:39:63:28:86:92:f3:18:84:d8:fb:d1:cf:
+         05:56:64:57
 SHA1 Fingerprint=85:A4:08:C0:9C:19:3E:5D:51:58:7D:CD:D6:13:30:FD:8C:DE:37:BF

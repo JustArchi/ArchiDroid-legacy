@@ -621,7 +621,7 @@
 			<Content name="Others">
 				<FileExtension value="*" />
 				<TargetFilePath value="Internal:\*" />
-				<ExceptFolderPath value="Internal:\Android\data;Internal:\_SamsungBnR_\BR" />
+				<ExceptFolderPath value="Internal:\Android\data;Internal:\_SamsungBnR_" />
 			</Content>
 
 			<Content name="Configuration" Type="Custom" version="2.0"

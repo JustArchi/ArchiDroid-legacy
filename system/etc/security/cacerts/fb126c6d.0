@@ -39,7 +39,7 @@ Certificate:
     Data:
         Version: 3 (0x2)
         Serial Number: 994436456 (0x3b45e568)
-        Signature Algorithm: sha1WithRSAEncryption
+    Signature Algorithm: sha1WithRSAEncryption
         Issuer: C=ES, O=Generalitat Valenciana, OU=PKIGVA, CN=Root CA Generalitat Valenciana
         Validity
             Not Before: Jul  6 16:22:47 2001 GMT
@@ -47,8 +47,8 @@ Certificate:
         Subject: C=ES, O=Generalitat Valenciana, OU=PKIGVA, CN=Root CA Generalitat Valenciana
         Subject Public Key Info:
             Public Key Algorithm: rsaEncryption
-            RSA Public Key: (2048 bit)
-                Modulus (2048 bit):
+                Public-Key: (2048 bit)
+                Modulus:
                     00:c6:2a:ab:57:11:37:2f:22:8a:ca:03:74:1d:ca:
                     ed:2d:a2:0b:bc:33:52:40:26:47:be:5a:69:a6:3b:
                     72:36:17:4c:e8:df:b8:bb:2f:76:e1:40:46:74:65:
@@ -88,19 +88,19 @@ Certificate:
                 serial:3B:45:E5:68
 
     Signature Algorithm: sha1WithRSAEncryption
-        24:61:4e:f5:b5:c8:42:02:2a:b3:5c:75:ad:c5:6d:ca:e7:94:
-        3f:a5:68:95:88:c1:54:c0:10:69:a2:12:2f:18:3f:25:50:a8:
-        7c:4a:ea:c6:09:d9:f4:75:c6:40:da:af:50:9d:3d:a5:16:bb:
-        6d:31:c6:c7:73:0a:48:fe:20:72:ed:6f:cc:e8:83:61:16:46:
-        90:01:95:4b:7d:8e:9a:52:09:2f:f6:6f:1c:e4:a1:71:cf:8c:
-        2a:5a:17:73:83:47:4d:0f:36:fb:04:4d:49:51:e2:14:c9:64:
-        61:fb:d4:14:e0:f4:9e:b7:34:8f:0a:26:bd:97:5c:f4:79:3a:
-        4a:30:19:cc:ad:4f:a0:98:8a:b4:31:97:2a:e2:73:6d:7e:78:
-        b8:f8:88:89:4f:b1:22:91:64:4b:f5:50:de:03:db:e5:c5:76:
-        e7:13:66:75:7e:65:fb:01:9f:93:87:88:9d:f9:46:57:7c:4d:
-        60:af:98:73:13:23:a4:20:91:81:fa:d0:61:66:b8:7d:d1:af:
-        d6:6f:1e:6c:3d:e9:11:fd:a9:f9:82:22:86:99:33:71:5a:ea:
-        19:57:3d:91:cd:a9:c0:a3:6e:07:13:a6:c9:ed:f8:68:a3:9e:
-        c3:5a:72:09:87:28:d1:c4:73:c4:73:18:5f:50:75:16:31:9f:
-        b7:e8:7c:c3
+         24:61:4e:f5:b5:c8:42:02:2a:b3:5c:75:ad:c5:6d:ca:e7:94:
+         3f:a5:68:95:88:c1:54:c0:10:69:a2:12:2f:18:3f:25:50:a8:
+         7c:4a:ea:c6:09:d9:f4:75:c6:40:da:af:50:9d:3d:a5:16:bb:
+         6d:31:c6:c7:73:0a:48:fe:20:72:ed:6f:cc:e8:83:61:16:46:
+         90:01:95:4b:7d:8e:9a:52:09:2f:f6:6f:1c:e4:a1:71:cf:8c:
+         2a:5a:17:73:83:47:4d:0f:36:fb:04:4d:49:51:e2:14:c9:64:
+         61:fb:d4:14:e0:f4:9e:b7:34:8f:0a:26:bd:97:5c:f4:79:3a:
+         4a:30:19:cc:ad:4f:a0:98:8a:b4:31:97:2a:e2:73:6d:7e:78:
+         b8:f8:88:89:4f:b1:22:91:64:4b:f5:50:de:03:db:e5:c5:76:
+         e7:13:66:75:7e:65:fb:01:9f:93:87:88:9d:f9:46:57:7c:4d:
+         60:af:98:73:13:23:a4:20:91:81:fa:d0:61:66:b8:7d:d1:af:
+         d6:6f:1e:6c:3d:e9:11:fd:a9:f9:82:22:86:99:33:71:5a:ea:
+         19:57:3d:91:cd:a9:c0:a3:6e:07:13:a6:c9:ed:f8:68:a3:9e:
+         c3:5a:72:09:87:28:d1:c4:73:c4:73:18:5f:50:75:16:31:9f:
+         b7:e8:7c:c3
 SHA1 Fingerprint=A0:73:E5:C5:BD:43:61:0D:86:4C:21:13:0A:85:58:57:CC:9C:EA:46

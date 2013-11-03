@@ -54,7 +54,7 @@
 #EnforceMasterRole KEY_BDADDR="00:18:13:*" KEY_LMP_VER="3:4390" KEY_LMP_MFCT="13" KEY_DIR_ALL="0"
 
 /* Jabra BT 3030 series */
-#EnforceMasterRole KEY_BDADDR="00:1d:82:*" KEY_DIR_ALL="0"
+#EnforceMasterRole KEY_BDADDR="00:1d:82:*" KEY_LMP_MFCT="10" KEY_DIR_ALL="0"
 
 /* MB China carkit */
 #EnforceMasterRole KEY_BDADDR="00:0e:9f:*" KEY_DIR_ALL="0"
@@ -69,7 +69,34 @@
 #EnforceMasterRole KEY_BDADDR="00:50:f2:*" KEY_DIR_ALL="0"
 
 /* Plantronics Pulsar 590 */
-#EnforceMasterRole KEY_BDADDR="00:19:7f:*" KEY_DIR_ALL="0"
+#EnforceMasterRole KEY_BDADDR="00:19:7f:*" KEY_LMP_MFCT="10" KEY_DIR_ALL="0"
+
+# Jabra BT620
+#EnforceMasterRole KEY_BDADDR="00:13:17:*" KEY_LMP_MFCT="10" KEY_LMP_VER="2:2361" KEY_DIR_ALL="0"
+
+# Motorola S9-HD
+#EnforceMasterRole KEY_BDADDR="00:0d:fd:*" KEY_LMP_MFCT="10" KEY_LMP_VER="4:5363" KEY_DIR_ALL="0"
+
+# Samsung SBH650 Stereo HS
+#EnforceMasterRole KEY_BDADDR="a0:07:98:*" KEY_LMP_MFCT="10" KEY_LMP_VER="3:4277" KEY_DIR_ALL="0"
+
+# Motorola S7-HD Stereo HS
+#EnforceMasterRole KEY_BDADDR="00:1a:0e:*" KEY_LMP_MFCT="10" KEY_LMP_VER="3:4532" KEY_DIR_ALL="0"
+
+# LG HBS250 Stereo HS
+#EnforceMasterRole KEY_BDADDR="00:07:88:*" KEY_LMP_MFCT="10" KEY_LMP_VER="3:3413" KEY_DIR_ALL="0"
+
+# Sennheiser PX 210BT Stereo HS
+#EnforceMasterRole KEY_BDADDR="00:1b:66:*" KEY_LMP_MFCT="10" KEY_LMP_VER="4:5363" KEY_DIR_ALL="0"
+
+# Motorola HT820 Stereo HS
+#EnforceMasterRole KEY_BDADDR="00:07:a4:*" KEY_LMP_MFCT="10" KEY_LMP_VER="2:2660" KEY_DIR_ALL="0"
+
+# Jabra Halo Stereo HS
+#EnforceMasterRole KEY_BDADDR="00:23:78:*" KEY_LMP_MFCT="10" KEY_LMP_VER="4:6301" KEY_DIR_ALL="0"
+
+# Jabra Clipper
+#EnforceMasterRole KEY_BDADDR="9c:b7:0d:*" KEY_LMP_MFCT="10" KEY_LMP_VER="4:5370" KEY_DIR_ALL="0"
 
 /* RAPOO E6300 */
 EnforceMasterRole KEY_BDADDR="6c:5d:63:*" KEY_DIR_ALL="0"
@@ -126,6 +153,29 @@ HidPairBlacklist KEY_BDADDR="00:1d:d8:*"
 HidPairBlacklist KEY_BDADDR="7c:ed:8d:*"
 /* Microsoft bluetooth notebook mouse 8000*/
 HidPairBlacklist KEY_BDADDR="00:17:fa:*"
+
+#---------------------------------------------------------------------
+# :: Prevent sending update fast conn params
+#
+#    AVAILABLE KEYS :
+#
+#      KEY_BDADDR
+
+/* Madcatz devices */
+HOGPBlacklist KEY_BDADDR="00:15:9E:*"
+/*  iBuffalo BSMBB09DS */
+HOGPBlacklist KEY_BDADDR="00:1B:DC:*"
+
+#---------------------------------------------------------------------
+# :: Prevent SDP with some HID devices during incoming connections
+#
+#    AVAILABLE KEYS :
+#
+#      KEY_LMP_MFCT
+
+/* APPLE MAGIC MOUSE */
+HidSdpBlacklist  KEY_LMP_MFCT="76"
+
 #---------------------------------------------------------------------
 # List of HID keyboards for which the NUMLOCK state needs to be
 # turned ON by default. Add devices to this list to apply the
@@ -151,6 +201,16 @@ HidKeybNumLock KEY_HIDKB_PRID="B30B" KEY_HIDKB_VNDID="046D"
 
 /* Ford Sync Carkit (Device Name: SYNC Mfr:10 (CSR), LMP=3, SUBV=0x0C5C) */
 AvrcKeyReleaseQuirk KEY_NAME="SYNC" KEY_LMP_MFCT="10" KEY_LMP_VER="3:3164"
+
+#---------------------------------------------------------------------
+# :: Initiate Av connect even when sdp fails
+#
+#    AVAILABLE KEYS :
+#
+#      KEY_BDADDR
+
+AvConnectOnSdpFail KEY_BDADDR="00:1e:3d:*"
+AvConnectOnSdpFail KEY_BDADDR="00:1b:fb:*"
 
 #---------------------------------------------------------------------
 # :: enforce open AVDTP sig CH if the HF doesn't open it
@@ -206,4 +266,13 @@ NoClearLinkPolicy KEY_BDADDR="00:22:65:*"
 /* sony dr-bt50 headset */
 #EnforceMasterRole KEY_BDADDR="00:24:be:*" KEY_LMP_VER="3:3413" KEY_LMP_MFCT="10"
 
+#---------------------------------------------------------------------
+# :: to process PLAY/PAUSE command after a voice call has ended recently.
+#
+#    AVAILABLE KEYS :
+#
+#      KEY_BDADDR
+
+/* VW PHONE */
+ProcessAvrcKey KEY_BDADDR="90:03:b7:*"
 

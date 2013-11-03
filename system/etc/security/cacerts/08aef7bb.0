@@ -30,7 +30,7 @@ Certificate:
     Data:
         Version: 3 (0x2)
         Serial Number: 1 (0x1)
-        Signature Algorithm: sha1WithRSAEncryption
+    Signature Algorithm: sha1WithRSAEncryption
         Issuer: C=US, O=Wells Fargo WellsSecure, OU=Wells Fargo Bank NA, CN=WellsSecure Public Root Certificate Authority
         Validity
             Not Before: Dec 13 17:07:54 2007 GMT
@@ -38,8 +38,8 @@ Certificate:
         Subject: C=US, O=Wells Fargo WellsSecure, OU=Wells Fargo Bank NA, CN=WellsSecure Public Root Certificate Authority
         Subject Public Key Info:
             Public Key Algorithm: rsaEncryption
-            RSA Public Key: (2048 bit)
-                Modulus (2048 bit):
+                Public-Key: (2048 bit)
+                Modulus:
                     00:ee:6f:b4:bd:79:e2:8f:08:21:9e:38:04:41:25:
                     ef:ab:5b:1c:53:92:ac:6d:9e:dd:c2:c4:2e:45:94:
                     03:35:88:67:74:57:e3:df:8c:b8:a7:76:8f:3b:f7:
@@ -63,7 +63,9 @@ Certificate:
             X509v3 Basic Constraints: critical
                 CA:TRUE
             X509v3 CRL Distribution Points: 
-                URI:http://crl.pki.wellsfargo.com/wsprca.crl
+
+                Full Name:
+                  URI:http://crl.pki.wellsfargo.com/wsprca.crl
 
             X509v3 Key Usage: critical
                 Digital Signature, Non Repudiation, Certificate Sign, CRL Sign
@@ -75,19 +77,19 @@ Certificate:
                 serial:01
 
     Signature Algorithm: sha1WithRSAEncryption
-        b9:15:b1:44:91:cc:23:c8:2b:4d:77:e3:f8:9a:7b:27:0d:cd:
-        72:bb:99:00:ca:7c:66:19:50:c6:d5:98:ed:ab:bf:03:5a:e5:
-        4d:e5:1e:c8:4f:71:97:86:d5:e3:1d:fd:90:c9:3c:75:77:57:
-        7a:7d:f8:de:f4:d4:d5:f7:95:e6:74:6e:1d:3c:ae:7c:9d:db:
-        02:03:05:2c:71:4b:25:3e:07:e3:5e:9a:f5:66:17:29:88:1a:
-        38:9f:cf:aa:41:03:84:97:6b:93:38:7a:ca:30:44:1b:24:44:
-        33:d0:e4:d1:dc:28:38:f4:13:43:35:35:29:63:a8:7c:a2:b5:
-        ad:38:a4:ed:ad:fd:c6:9a:1f:ff:97:73:fe:fb:b3:35:a7:93:
-        86:c6:76:91:00:e6:ac:51:16:c4:27:32:5c:db:73:da:a5:93:
-        57:8e:3e:6d:35:26:08:59:d5:e7:44:d7:76:20:63:e7:ac:13:
-        67:c3:6d:b1:70:46:7c:d5:96:11:3d:89:6f:5d:a8:a1:eb:8d:
-        0a:da:c3:1d:33:6c:a3:ea:67:19:9a:99:7f:4b:3d:83:51:2a:
-        1d:ca:2f:86:0c:a2:7e:10:2d:2b:d4:16:95:0b:07:aa:2e:14:
-        92:49:b7:29:6f:d8:6d:31:7d:f5:fc:a1:10:07:87:ce:2f:59:
-        dc:3e:58:db
+         b9:15:b1:44:91:cc:23:c8:2b:4d:77:e3:f8:9a:7b:27:0d:cd:
+         72:bb:99:00:ca:7c:66:19:50:c6:d5:98:ed:ab:bf:03:5a:e5:
+         4d:e5:1e:c8:4f:71:97:86:d5:e3:1d:fd:90:c9:3c:75:77:57:
+         7a:7d:f8:de:f4:d4:d5:f7:95:e6:74:6e:1d:3c:ae:7c:9d:db:
+         02:03:05:2c:71:4b:25:3e:07:e3:5e:9a:f5:66:17:29:88:1a:
+         38:9f:cf:aa:41:03:84:97:6b:93:38:7a:ca:30:44:1b:24:44:
+         33:d0:e4:d1:dc:28:38:f4:13:43:35:35:29:63:a8:7c:a2:b5:
+         ad:38:a4:ed:ad:fd:c6:9a:1f:ff:97:73:fe:fb:b3:35:a7:93:
+         86:c6:76:91:00:e6:ac:51:16:c4:27:32:5c:db:73:da:a5:93:
+         57:8e:3e:6d:35:26:08:59:d5:e7:44:d7:76:20:63:e7:ac:13:
+         67:c3:6d:b1:70:46:7c:d5:96:11:3d:89:6f:5d:a8:a1:eb:8d:
+         0a:da:c3:1d:33:6c:a3:ea:67:19:9a:99:7f:4b:3d:83:51:2a:
+         1d:ca:2f:86:0c:a2:7e:10:2d:2b:d4:16:95:0b:07:aa:2e:14:
+         92:49:b7:29:6f:d8:6d:31:7d:f5:fc:a1:10:07:87:ce:2f:59:
+         dc:3e:58:db
 SHA1 Fingerprint=E7:B4:F6:9D:61:EC:90:69:DB:7E:90:A7:40:1A:3C:F4:7D:4F:E8:EE

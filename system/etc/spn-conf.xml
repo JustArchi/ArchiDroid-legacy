@@ -30,12 +30,14 @@ examples:
 	<spnOverride
 		numeric="45001" spn="ko_KR;?�국??SPN,en;English SPN,fr;Français SPN,pl;Polski SPN,Default SPN"
 		spn_display_rule="SPN_RULE_SHOW_SPN" spn_override_only_on="45001" fake_home_on="00101,45008"/>
-    <spnOverride numeric="46001" spn="zh_CN;ｿ��?��? />
+    <spnOverride numeric="46001" spn="zh_CN" />
 -->
 <spnOverrides>
 
 <!-- Spain -->
 <!-- Spain -->
+    <spnOverride numeric="21403" imsi_subset="59" spn_display_rule="SPN_RULE_SHOW_SPN" spn_override_only_on="214" fake_home_on="214"/>
+	<spnOverride numeric="21403" imsi_subset="51" spn_display_rule="SPN_RULE_SHOW_SPN" spn_override_only_on="214" fake_home_on="214"/>
     <spnOverride numeric="21404" spn_display_rule="SPN_RULE_SHOW_SPN" spn_override_only_on="214" fake_home_on="214"/>
     <spnOverride numeric="21405" fake_home_on="21407"/> <!-- Tuenti -->
     <spnOverride numeric="21406" spn_display_rule="SPN_RULE_SHOW_SPN" spn_override_only_on="214" fake_home_on="214"/>
@@ -63,7 +65,7 @@ examples:
     <spnOverride numeric="44010" spn="NTT DOCOMO"/>
 
 <!-- Belgium Telent - Proximus and Mobistar-->
-	<spnOverride numeric="20605" spn_display_rule="SPN_RULE_SHOW_SPN" spn="Telenet" spn_override_only_on="20605,20610" fake_home_on="20610"/>
+	<spnOverride numeric="20605" spn_display_rule="SPN_RULE_SHOW_SPN" spn_override_only_on="20605,20610" fake_home_on="20610"/>
 	<spnOverride numeric="20601" imsi_subset="889" spn_display_rule="SPN_RULE_SHOW_SPN" spn="Telenet" spn_override_only_on="20601" fake_roaming_on="20601"/>
 
 <!-- Netherlands - Telfort and KPN -->
@@ -78,6 +80,9 @@ examples:
     <spnOverride numeric="20815" spn_display_rule="SPN_RULE_SHOW_SPN" spn_override_only_on="20801,20802,20815" fake_home_on="20801,20802,20815"/>
 
 <!-- LTN  [latin_protocol] -->
+    <spnOverride numeric="72402" fake_home_on="72402,72403,72404"/>
+    <spnOverride numeric="72403" fake_home_on="72402,72403,72404"/>
+    <spnOverride numeric="72404" fake_home_on="72402,72403,72404"/>
     <spnOverride numeric="72410" fake_home_on="72410,72411,72406,72423"/>
     <spnOverride numeric="72411" fake_home_on="72410,72411,72406,72423"/>
     <spnOverride numeric="72406" fake_home_on="72410,72411,72406,72423"/>
@@ -99,6 +104,9 @@ examples:
     <spnOverride numeric="73402" fake_home_on="73401,73402,73403"/>
     <spnOverride numeric="73403" fake_home_on="73401,73402,73403"/>
 
+    <spnOverride numeric="33403" fake_home_on="33403,334030"/>
+    <spnOverride numeric="334030" fake_home_on="33403,33403"/>
+    
     <spnOverride numeric="338050" fake_home_on="33805,338050"/>
     <spnOverride numeric="33805" fake_home_on="33805,338050"/>
     <spnOverride numeric="73007" fake_home_on="73002"/>
@@ -112,7 +120,7 @@ examples:
     <spnOverride numeric="65507" imsi_subset="10" spn_display_rule="SPN_RULE_SHOW_SPN" spn="Virgin" spn_override_only_on="655"/> <!-- Virgin is roaming on 'Cell C' network (same mcc-mnc) and this display rule for home country  -->
     <spnOverride numeric="65507" imsi_subset="13" spn_display_rule="SPN_RULE_SHOW_SPN" spn="Red Bull Mobile" spn_override_only_on="655"/>
     <spnOverride numeric="65507" spn_display_rule="SPN_RULE_SHOW_SPN" spn="Cell C"/>
-    <spnOverride numeric="65502" spn_display_rule="SPN_RULE_SHOW_SPN" spn="8.ta"/>
+    <spnOverride numeric="65502" spn_display_rule="SPN_RULE_SHOW_SPN" spn="TelkomSA"/>
 
 <!-- H3G RM#2022-->
     <spnOverride numeric="23420" spn_display_rule="SPN_RULE_SHOW_PLMN" spn_override_only_on="23420,23433" fake_home_on="23420,23433,23434" />
@@ -135,24 +143,27 @@ examples:
     <spnOverride numeric="24412" imsi_subset="2400" fake_home_on="24412" fake_roaming_on="23801" />
     <spnOverride numeric="23801" imsi_subset="7300" fake_home_on="24412" fake_roaming_on="23801" />
     <spnOverride numeric="23211" fake_home_on="23201"/> <!-- bob @ A1 network -->
-    <spnOverride numeric="23212" fake_home_on="23205"/> <!-- yesss! @ Orange AT -->
+    <spnOverride numeric="23212" spn_display_rule="SPN_RULE_SHOW_SPN" spn_override_only_on="23201,23205" spn="yesss!" fake_home_on="23201,23205"/> <!-- yesss! @ A1 network @ Orange AT network -->
     <spnOverride numeric="23207" spn_display_rule="SPN_RULE_SHOW_SPN" spn="tele.ring" fake_home_on="23203"/> <!-- tele.ring @ T-Mobile A -->
     <spnOverride numeric="23210" fake_home_on="23201,23203"/>  <!-- H3G Network -->
+    <spnOverride numeric="23205" fake_home_on="23203,23210"/>  <!-- H3G Network -->
 
 <!-- 3IE Ireland -->
     <spnOverride numeric="27205" fake_home_on="27201"/> <!-- 3IE @ Vodafone IE Network-->
+<!-- TSI Ireland-->
+    <spnOverride numeric="27211" fake_home_on="27202"/> <!-- TSI @ O2 Network-->
 
 <!-- Everything Everywhere -->
         <spnOverride numeric="23430" spn_display_rule="SPN_RULE_SHOW_PLMN" spn_override_only_on="23430,23431,23432,23433,23434,23486,00101" fake_home_on="23430,23431,23432,23433,23434,23486"/>
 	<spnOverride numeric="23431" spn_display_rule="SPN_RULE_SHOW_PLMN" spn_override_only_on="23430,23431,23432,23433,23434,23486,00101" fake_home_on="23430,23431,23432,23433,23434,23486"/>
 	<spnOverride numeric="23432" spn_display_rule="SPN_RULE_SHOW_PLMN" spn_override_only_on="23430,23431,23432,23433,23434,23486,00101" fake_home_on="23430,23431,23432,23433,23434,23486"/>
-	<spnOverride numeric="23433" spn_display_rule="SPN_RULE_SHOW_PLMN" spn_override_only_on="23430,23431,23432,23433,23434,23486,00101" fake_home_on="23430,23431,23432,23433,23434,23486"/>
+	<spnOverride numeric="23433" spn_display_rule="SPN_RULE_SHOW_PLMN" spn_override_only_on="23431,23432,23434,23486,00101" fake_home_on="23430,23431,23432,23433,23434,23486"/>
 	<spnOverride numeric="23434" spn_display_rule="SPN_RULE_SHOW_PLMN" spn_override_only_on="23430,23431,23432,23433,23434,23486,00101" fake_home_on="23430,23431,23432,23433,23434,23486"/>
 	<spnOverride numeric="23486" spn_display_rule="SPN_RULE_SHOW_PLMN" spn_override_only_on="23430,23431,23432,23433,23434,23486,00101" fake_home_on="23430,23431,23432,23433,23434,23486"/>
 
 <!-- Philippine -->
     <spnOverride numeric="51518" spn_display_rule="SPN_RULE_SHOW_SPN" spn_override_only_on="51503"/>  <!--red mobile -->
-    <spnOverride numeric="51505" spn_display_rule="SPN_RULE_SHOW_SPN" spn_override_only_on="51503"/>  <!--Sun Cellular -->
+    <spnOverride numeric="51505" spn_display_rule="SPN_RULE_SHOW_SPN" spn="SUN" spn_override_only_on="51503,51505"/>  <!--Sun Cellular -->
 
 <!-- Indonesia -->
     <spnOverride numeric="51008" spn_display_rule="SPN_RULE_SHOW_SPN" spn_override_only_on="51008"/>  <!--AXIS -->
@@ -162,6 +173,9 @@ examples:
 
 <!-- PAN -->
     <spnOverride numeric="21601" spn_display_rule="SPN_RULE_SHOW_PLMN" spn_override_only_on="21601"/>
+    
+<!-- Cambodia -->
+    <spnOverride numeric="45601" spn_display_rule="SPN_RULE_SHOW_PLMN" spn_override_only_on="45601"/>
 
 <!-- SEA Telkomsel -->
 	<spnOverride numeric="51010" spn_display_rule="SPN_RULE_SHOW_PLMN" spn_override_only_on="51010"/>
@@ -172,6 +186,10 @@ examples:
 <!-- Thai  -->
     <spnOverride numeric="52018" spn_display_rule="SPN_RULE_SHOW_SPN" spn="dtac" spn_override_only_on="52018"/>  <!-- dtac -->
 
+<!-- Vietnam  -->
+    <spnOverride numeric="45202" spn_display_rule="SPN_RULE_SHOW_SPN" spn="VN VINAPHONE" spn_override_only_on="45202"/>  <!-- VN VINAPHONE -->
+    <spnOverride numeric="45205" spn_display_rule="SPN_RULE_SHOW_SPN" spn="VN Vietnamobile" spn_override_only_on="45205"/>  <!-- VN Vietnamobile-->
+
 <!-- Canada -->
     <spnOverride numeric="302610" fake_home_on="302"/>
     <spnOverride numeric="302780" fake_home_on="302"/>
@@ -181,5 +199,8 @@ examples:
 
 <!-- IDEA 64k sim -->
     <spnOverride numeric="404891" fake_home_on="40489"/>
+
+<!-- Singapore -->
+    <spnOverride numeric="52503" spn_display_rule="SPN_RULE_SHOW_PLMN" spn_override_only_on="52503"/>
 
 </spnOverrides>

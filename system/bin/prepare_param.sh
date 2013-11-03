@@ -10,6 +10,13 @@ sleep 2
 if [ -e $PARAM_PATH ]; then
 	chown system.system $PARAM_PATH
 	chmod 0660 $PARAM_PATH
+
+	# Remove if param link is exist.
+	if [ -e $PARAM_LINK_PATH ]; then
+		rm $PARAM_LINK_PATH
+	fi
+
+	# Make param link.
 	ln -s $PARAM_PATH $PARAM_LINK_PATH
 fi
 

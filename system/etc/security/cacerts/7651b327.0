@@ -17,7 +17,7 @@ Certificate:
         Version: 1 (0x0)
         Serial Number:
             3c:91:31:cb:1f:f6:d0:1b:0e:9a:b8:d0:44:bf:12:be
-        Signature Algorithm: sha1WithRSAEncryption
+    Signature Algorithm: sha1WithRSAEncryption
         Issuer: C=US, O=VeriSign, Inc., OU=Class 3 Public Primary Certification Authority
         Validity
             Not Before: Jan 29 00:00:00 1996 GMT
@@ -25,8 +25,8 @@ Certificate:
         Subject: C=US, O=VeriSign, Inc., OU=Class 3 Public Primary Certification Authority
         Subject Public Key Info:
             Public Key Algorithm: rsaEncryption
-            RSA Public Key: (1024 bit)
-                Modulus (1024 bit):
+                Public-Key: (1024 bit)
+                Modulus:
                     00:c9:5c:59:9e:f2:1b:8a:01:14:b4:10:df:04:40:
                     db:e3:57:af:6a:45:40:8f:84:0c:0b:d1:33:d9:d9:
                     11:cf:ee:02:58:1f:25:f7:2a:a8:44:05:aa:ec:03:
@@ -38,12 +38,12 @@ Certificate:
                     71:64:4c:65:2e:81:68:45:a7
                 Exponent: 65537 (0x10001)
     Signature Algorithm: sha1WithRSAEncryption
-        10:72:52:a9:05:14:19:32:08:41:f0:c5:6b:0a:cc:7e:0f:21:
-        19:cd:e4:67:dc:5f:a9:1b:e6:ca:e8:73:9d:22:d8:98:6e:73:
-        03:61:91:c5:7c:b0:45:40:6e:44:9d:8d:b0:b1:96:74:61:2d:
-        0d:a9:45:d2:a4:92:2a:d6:9a:75:97:6e:3f:53:fd:45:99:60:
-        1d:a8:2b:4c:f9:5e:a7:09:d8:75:30:d7:d2:65:60:3d:67:d6:
-        48:55:75:69:3f:91:f5:48:0b:47:69:22:69:82:96:be:c9:c8:
-        38:86:4a:7a:2c:73:19:48:69:4e:6b:7c:65:bf:0f:fc:70:ce:
-        88:90
+         10:72:52:a9:05:14:19:32:08:41:f0:c5:6b:0a:cc:7e:0f:21:
+         19:cd:e4:67:dc:5f:a9:1b:e6:ca:e8:73:9d:22:d8:98:6e:73:
+         03:61:91:c5:7c:b0:45:40:6e:44:9d:8d:b0:b1:96:74:61:2d:
+         0d:a9:45:d2:a4:92:2a:d6:9a:75:97:6e:3f:53:fd:45:99:60:
+         1d:a8:2b:4c:f9:5e:a7:09:d8:75:30:d7:d2:65:60:3d:67:d6:
+         48:55:75:69:3f:91:f5:48:0b:47:69:22:69:82:96:be:c9:c8:
+         38:86:4a:7a:2c:73:19:48:69:4e:6b:7c:65:bf:0f:fc:70:ce:
+         88:90
 SHA1 Fingerprint=A1:DB:63:93:91:6F:17:E4:18:55:09:40:04:15:C7:02:40:B0:AE:6B

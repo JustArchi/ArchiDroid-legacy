@@ -46,7 +46,7 @@ Certificate:
         Version: 3 (0x2)
         Serial Number:
             cc:b8:e7:bf:4e:29:1a:fd:a2:dc:66:a5:1c:2c:0f:11
-        Signature Algorithm: sha1WithRSAEncryption
+    Signature Algorithm: sha1WithRSAEncryption
         Issuer: C=HU, L=Budapest, O=Microsec Ltd., OU=e-Szigno CA, CN=Microsec e-Szigno Root CA
         Validity
             Not Before: Apr  6 12:28:44 2005 GMT
@@ -54,8 +54,8 @@ Certificate:
         Subject: C=HU, L=Budapest, O=Microsec Ltd., OU=e-Szigno CA, CN=Microsec e-Szigno Root CA
         Subject Public Key Info:
             Public Key Algorithm: rsaEncryption
-            RSA Public Key: (2048 bit)
-                Modulus (2048 bit):
+                Public-Key: (2048 bit)
+                Modulus:
                     00:ed:c8:00:d5:81:7b:cd:38:00:47:cc:db:84:c1:
                     21:69:2c:74:90:0c:21:d9:53:87:ed:3e:43:44:53:
                     af:ab:f8:80:9b:3c:78:8d:d4:8d:ae:b8:ef:d3:11:
@@ -89,8 +89,10 @@ Certificate:
                     Explicit Text: 
 
             X509v3 CRL Distribution Points: 
-                URI:http://www.e-szigno.hu/RootCA.crl
-                URI:ldap://ldap.e-szigno.hu/CN=Microsec%20e-Szigno%20Root%20CA,OU=e-Szigno%20CA,O=Microsec%20Ltd.,L=Budapest,C=HU?certificateRevocationList;binary
+
+                Full Name:
+                  URI:http://www.e-szigno.hu/RootCA.crl
+                  URI:ldap://ldap.e-szigno.hu/CN=Microsec%20e-Szigno%20Root%20CA,OU=e-Szigno%20CA,O=Microsec%20Ltd.,L=Budapest,C=HU?certificateRevocationList;binary
 
             X509v3 Key Usage: critical
                 Certificate Sign, CRL Sign
@@ -104,19 +106,19 @@ Certificate:
             X509v3 Subject Key Identifier: 
                 C7:A0:49:75:16:61:84:DB:31:4B:84:D2:F1:37:40:90:EF:4E:DC:F7
     Signature Algorithm: sha1WithRSAEncryption
-        d3:13:9c:66:63:59:2e:ca:5c:70:0c:fc:83:bc:55:b1:f4:8e:
-        07:6c:66:27:ce:c1:3b:20:a9:1c:bb:46:54:70:ee:5a:cc:a0:
-        77:ea:68:44:27:eb:f2:29:dd:77:a9:d5:fb:e3:d4:a7:04:c4:
-        95:b8:0b:e1:44:68:60:07:43:30:31:42:61:e5:ee:d9:e5:24:
-        d5:1b:df:e1:4a:1b:aa:9f:c7:5f:f8:7a:11:ea:13:93:00:ca:
-        8a:58:b1:ee:ed:0e:4d:b4:d7:a8:36:26:7c:e0:3a:c1:d5:57:
-        82:f1:75:b6:fd:89:5f:da:f3:a8:38:9f:35:06:08:ce:22:95:
-        be:cd:d5:fc:be:5b:de:79:6b:dc:7a:a9:65:66:be:b1:25:5a:
-        5f:ed:7e:d3:ac:46:6d:4c:f4:32:87:b4:20:04:e0:6c:78:b0:
-        77:d1:85:46:4b:a6:12:b7:75:e8:4a:c9:56:6c:d7:92:ab:9d:
-        f5:49:38:d2:4f:53:e3:55:90:11:db:98:96:c6:49:f2:3e:f4:
-        9f:1b:e0:f7:88:dc:25:62:99:44:d8:73:bf:3f:30:f3:0c:37:
-        3e:d4:c2:28:80:73:b1:01:b7:9d:5a:96:14:01:4b:a9:11:9d:
-        29:6a:2e:d0:5d:81:c0:cf:b2:20:43:c7:03:e0:37:4e:5d:0a:
-        dc:59:20:25
+         d3:13:9c:66:63:59:2e:ca:5c:70:0c:fc:83:bc:55:b1:f4:8e:
+         07:6c:66:27:ce:c1:3b:20:a9:1c:bb:46:54:70:ee:5a:cc:a0:
+         77:ea:68:44:27:eb:f2:29:dd:77:a9:d5:fb:e3:d4:a7:04:c4:
+         95:b8:0b:e1:44:68:60:07:43:30:31:42:61:e5:ee:d9:e5:24:
+         d5:1b:df:e1:4a:1b:aa:9f:c7:5f:f8:7a:11:ea:13:93:00:ca:
+         8a:58:b1:ee:ed:0e:4d:b4:d7:a8:36:26:7c:e0:3a:c1:d5:57:
+         82:f1:75:b6:fd:89:5f:da:f3:a8:38:9f:35:06:08:ce:22:95:
+         be:cd:d5:fc:be:5b:de:79:6b:dc:7a:a9:65:66:be:b1:25:5a:
+         5f:ed:7e:d3:ac:46:6d:4c:f4:32:87:b4:20:04:e0:6c:78:b0:
+         77:d1:85:46:4b:a6:12:b7:75:e8:4a:c9:56:6c:d7:92:ab:9d:
+         f5:49:38:d2:4f:53:e3:55:90:11:db:98:96:c6:49:f2:3e:f4:
+         9f:1b:e0:f7:88:dc:25:62:99:44:d8:73:bf:3f:30:f3:0c:37:
+         3e:d4:c2:28:80:73:b1:01:b7:9d:5a:96:14:01:4b:a9:11:9d:
+         29:6a:2e:d0:5d:81:c0:cf:b2:20:43:c7:03:e0:37:4e:5d:0a:
+         dc:59:20:25
 SHA1 Fingerprint=23:88:C9:D3:71:CC:9E:96:3D:FF:7D:3C:A7:CE:FC:D6:25:EC:19:0D

@@ -21,7 +21,7 @@ Certificate:
     Data:
         Version: 3 (0x2)
         Serial Number: 913315222 (0x36701596)
-        Signature Algorithm: sha1WithRSAEncryption
+    Signature Algorithm: sha1WithRSAEncryption
         Issuer: C=US, O=Digital Signature Trust Co., OU=DSTCA E1
         Validity
             Not Before: Dec 10 18:10:23 1998 GMT
@@ -29,8 +29,8 @@ Certificate:
         Subject: C=US, O=Digital Signature Trust Co., OU=DSTCA E1
         Subject Public Key Info:
             Public Key Algorithm: rsaEncryption
-            RSA Public Key: (1024 bit)
-                Modulus (1024 bit):
+                Public-Key: (1024 bit)
+                Modulus:
                     00:a0:6c:81:a9:cf:34:1e:24:dd:fe:86:28:cc:de:
                     83:2f:f9:5e:d4:42:d2:e8:74:60:66:13:98:06:1c:
                     a9:51:12:69:6f:31:55:b9:49:72:00:08:7e:d3:a5:
@@ -45,7 +45,9 @@ Certificate:
             Netscape Cert Type: 
                 SSL CA, S/MIME CA, Object Signing CA
             X509v3 CRL Distribution Points: 
-                DirName:/C=US/O=Digital Signature Trust Co./OU=DSTCA E1/CN=CRL1
+
+                Full Name:
+                  DirName: C = US, O = Digital Signature Trust Co., OU = DSTCA E1, CN = CRL1
 
             X509v3 Private Key Usage Period: 
                 Not Before: Dec 10 18:10:23 1998 GMT, Not After: Dec 10 18:10:23 2018 GMT
@@ -62,12 +64,12 @@ Certificate:
                 0
 ..V4.0....
     Signature Algorithm: sha1WithRSAEncryption
-        22:12:d8:7a:1d:dc:81:06:b6:09:65:b2:87:c8:1f:5e:b4:2f:
-        e9:c4:1e:f2:3c:c1:bb:04:90:11:4a:83:4e:7e:93:b9:4d:42:
-        c7:92:26:a0:5c:34:9a:38:72:f8:fd:6b:16:3e:20:ee:82:8b:
-        31:2a:93:36:85:23:88:8a:3c:03:68:d3:c9:09:0f:4d:fc:6c:
-        a4:da:28:72:93:0e:89:80:b0:7d:fe:80:6f:65:6d:18:33:97:
-        8b:c2:6b:89:ee:60:3d:c8:9b:ef:7f:2b:32:62:73:93:cb:3c:
-        e3:7b:e2:76:78:45:bc:a1:93:04:bb:86:9f:3a:5b:43:7a:c3:
-        8a:65
+         22:12:d8:7a:1d:dc:81:06:b6:09:65:b2:87:c8:1f:5e:b4:2f:
+         e9:c4:1e:f2:3c:c1:bb:04:90:11:4a:83:4e:7e:93:b9:4d:42:
+         c7:92:26:a0:5c:34:9a:38:72:f8:fd:6b:16:3e:20:ee:82:8b:
+         31:2a:93:36:85:23:88:8a:3c:03:68:d3:c9:09:0f:4d:fc:6c:
+         a4:da:28:72:93:0e:89:80:b0:7d:fe:80:6f:65:6d:18:33:97:
+         8b:c2:6b:89:ee:60:3d:c8:9b:ef:7f:2b:32:62:73:93:cb:3c:
+         e3:7b:e2:76:78:45:bc:a1:93:04:bb:86:9f:3a:5b:43:7a:c3:
+         8a:65
 SHA1 Fingerprint=81:96:8B:3A:EF:1C:DC:70:F5:FA:32:69:C2:92:A3:63:5B:D1:23:D3

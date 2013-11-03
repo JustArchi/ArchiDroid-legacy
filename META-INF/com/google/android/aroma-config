@@ -172,7 +172,7 @@ form(
 ### PREVIOUS PRESET ###
 #######################
 
-setvar("preset_version","1");
+setvar("preset_version","2");
 if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "previous" then
   setvar("preset_version_probe",read("/data/media/0/ArchiDroid/AromaPreset/1.X/version.txt"));
   if getvar("preset_version")!=getvar("preset_version_probe") then
@@ -200,7 +200,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "bareb
     "dpi=320\n"+
     "launcher=stock\n"+
     "keyboard=stock\n"+
-    "bootanimation=archi\n"+
+    "bootanimation=stock\n"+
     "archidroidota=0\n"+
     "xposed=0\n"+
     "crossbreeder=0\n"+
@@ -250,7 +250,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
     "stock","Stock CM","<~archidroid.kernel.stock.desc>","select.selected",
 	 
     "theme","<#selectbg_g>Theme</#>","","group",
-    "dreamtheme","Dream Theme","<~archidroid.theme.dreamtheme.desc>","select.selected",
+    #"dreamtheme","Dream Theme","<~archidroid.theme.dreamtheme.desc>","select.selected",
     "stock","Stock Theme","<~archidroid.theme.stock.desc>","select",
 
     "dpi","<#selectbg_g>DPI</#>","","group",
@@ -270,9 +270,9 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
     "stock","Stock Samsung","<~archidroid.keyboard.stock.desc>","select",
     "none","<~common.none>","<~archidroid.keyboard.none.desc>","select",
 
-    "bootanimation","<#selectbg_g><~archidroid.bootanimation></#>","","group",
-    "archi","ArchiDroid","<~archidroid.bootanimation.archi.desc>","select.selected",
-    "archilegacy","ArchiDroid Legacy","<~archidroid.bootanimation.archilegacy.desc>","select",
+    #"bootanimation","<#selectbg_g><~archidroid.bootanimation></#>","","group",
+    #"archi","ArchiDroid","<~archidroid.bootanimation.archi.desc>","select.selected",
+    #"archilegacy","ArchiDroid Legacy","<~archidroid.bootanimation.archilegacy.desc>","select",
     #"logcat","Logcat","<~archidroid.bootanimation.logcat.desc>","select",
     "stock","Samsung","<~archidroid.bootanimation.stock.desc>","select",
     "none","<~common.none>","<~archidroid.bootanimation.none.desc>","select",

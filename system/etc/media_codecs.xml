@@ -135,14 +135,14 @@ Only the three quirks included above are recognized at this point:
             <Quirk name="decoder-ignores-streamcorrupt-error" />
         </MediaCodec>
 
-        <MediaCodec name="OMX.SEC.MP3.Decoder" type="audio/mpeg" >
-            <Quirk name="supports-multiple-frames-per-input-buffer" />
-            <Quirk name="needs-flush-before-disable" />
-        </MediaCodec>
-
         <MediaCodec name="OMX.SEC.mp3.dec" type="audio/mpeg" >
             <Quirk name="needs-flush-before-disable" />
             <Quirk name="decoder-ignores-streamcorrupt-error" />
+        </MediaCodec>
+		
+        <MediaCodec name="OMX.SEC.MP3.Decoder" type="audio/mpeg" >
+            <Quirk name="supports-multiple-frames-per-input-buffer" />
+            <Quirk name="needs-flush-before-disable" />
         </MediaCodec>
 
        <MediaCodec name="OMX.SEC.mp3.dec" type="audio/mpeg-L1" >

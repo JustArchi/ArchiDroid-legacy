@@ -20,7 +20,7 @@ Certificate:
     Data:
         Version: 1 (0x0)
         Serial Number: 1 (0x1)
-        Signature Algorithm: sha1WithRSAEncryption
+    Signature Algorithm: sha1WithRSAEncryption
         Issuer: L=ValiCert Validation Network, O=ValiCert, Inc., OU=ValiCert Class 2 Policy Validation Authority, CN=http://www.valicert.com//emailAddress=info@valicert.com
         Validity
             Not Before: Jun 26 00:19:54 1999 GMT
@@ -28,8 +28,8 @@ Certificate:
         Subject: L=ValiCert Validation Network, O=ValiCert, Inc., OU=ValiCert Class 2 Policy Validation Authority, CN=http://www.valicert.com//emailAddress=info@valicert.com
         Subject Public Key Info:
             Public Key Algorithm: rsaEncryption
-            RSA Public Key: (1024 bit)
-                Modulus (1024 bit):
+                Public-Key: (1024 bit)
+                Modulus:
                     00:ce:3a:71:ca:e5:ab:c8:59:92:55:d7:ab:d8:74:
                     0e:f9:ee:d9:f6:55:47:59:65:47:0e:05:55:dc:eb:
                     98:36:3c:5c:53:5d:d3:30:cf:38:ec:bd:41:89:ed:
@@ -41,12 +41,12 @@ Certificate:
                     b3:43:bb:ef:7b:6e:2e:69:f7
                 Exponent: 65537 (0x10001)
     Signature Algorithm: sha1WithRSAEncryption
-        3b:7f:50:6f:6f:50:94:99:49:62:38:38:1f:4b:f8:a5:c8:3e:
-        a7:82:81:f6:2b:c7:e8:c5:ce:e8:3a:10:82:cb:18:00:8e:4d:
-        bd:a8:58:7f:a1:79:00:b5:bb:e9:8d:af:41:d9:0f:34:ee:21:
-        81:19:a0:32:49:28:f4:c4:8e:56:d5:52:33:fd:50:d5:7e:99:
-        6c:03:e4:c9:4c:fc:cb:6c:ab:66:b3:4a:21:8c:e5:b5:0c:32:
-        3e:10:b2:cc:6c:a1:dc:9a:98:4c:02:5b:f3:ce:b9:9e:a5:72:
-        0e:4a:b7:3f:3c:e6:16:68:f8:be:ed:74:4c:bc:5b:d5:62:1f:
-        43:dd
+         3b:7f:50:6f:6f:50:94:99:49:62:38:38:1f:4b:f8:a5:c8:3e:
+         a7:82:81:f6:2b:c7:e8:c5:ce:e8:3a:10:82:cb:18:00:8e:4d:
+         bd:a8:58:7f:a1:79:00:b5:bb:e9:8d:af:41:d9:0f:34:ee:21:
+         81:19:a0:32:49:28:f4:c4:8e:56:d5:52:33:fd:50:d5:7e:99:
+         6c:03:e4:c9:4c:fc:cb:6c:ab:66:b3:4a:21:8c:e5:b5:0c:32:
+         3e:10:b2:cc:6c:a1:dc:9a:98:4c:02:5b:f3:ce:b9:9e:a5:72:
+         0e:4a:b7:3f:3c:e6:16:68:f8:be:ed:74:4c:bc:5b:d5:62:1f:
+         43:dd
 SHA1 Fingerprint=31:7A:2A:D0:7F:2B:33:5E:F5:A1:C3:4E:4B:57:E8:B7:D8:F1:FC:A6

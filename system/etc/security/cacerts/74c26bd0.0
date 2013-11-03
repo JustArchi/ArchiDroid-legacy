@@ -18,7 +18,7 @@ Certificate:
     Data:
         Version: 3 (0x2)
         Serial Number: 1 (0x1)
-        Signature Algorithm: md5WithRSAEncryption
+    Signature Algorithm: md5WithRSAEncryption
         Issuer: C=US, O=Equifax Secure Inc., CN=Equifax Secure Global eBusiness CA-1
         Validity
             Not Before: Jun 21 04:00:00 1999 GMT
@@ -26,8 +26,8 @@ Certificate:
         Subject: C=US, O=Equifax Secure Inc., CN=Equifax Secure Global eBusiness CA-1
         Subject Public Key Info:
             Public Key Algorithm: rsaEncryption
-            RSA Public Key: (1024 bit)
-                Modulus (1024 bit):
+                Public-Key: (1024 bit)
+                Modulus:
                     00:ba:e7:17:90:02:65:b1:34:55:3c:49:c2:51:d5:
                     df:a7:d1:37:8f:d1:e7:81:73:41:52:60:9b:9d:a1:
                     17:26:78:ad:c7:b1:e8:26:94:32:b5:de:33:8d:3a:
@@ -49,12 +49,12 @@ Certificate:
             X509v3 Subject Key Identifier: 
                 BE:A8:A0:74:72:50:6B:44:B7:C9:23:D8:FB:A8:FF:B3:57:6B:68:6C
     Signature Algorithm: md5WithRSAEncryption
-        30:e2:01:51:aa:c7:ea:5f:da:b9:d0:65:0f:30:d6:3e:da:0d:
-        14:49:6e:91:93:27:14:31:ef:c4:f7:2d:45:f8:ec:c7:bf:a2:
-        41:0d:23:b4:92:f9:19:00:67:bd:01:af:cd:e0:71:fc:5a:cf:
-        64:c4:e0:96:98:d0:a3:40:e2:01:8a:ef:27:07:f1:65:01:8a:
-        44:2d:06:65:75:52:c0:86:10:20:21:5f:6c:6b:0f:6c:ae:09:
-        1c:af:f2:a2:18:34:c4:75:a4:73:1c:f1:8d:dc:ef:ad:f9:b3:
-        76:b4:92:bf:dc:95:10:1e:be:cb:c8:3b:5a:84:60:19:56:94:
-        a9:55
+         30:e2:01:51:aa:c7:ea:5f:da:b9:d0:65:0f:30:d6:3e:da:0d:
+         14:49:6e:91:93:27:14:31:ef:c4:f7:2d:45:f8:ec:c7:bf:a2:
+         41:0d:23:b4:92:f9:19:00:67:bd:01:af:cd:e0:71:fc:5a:cf:
+         64:c4:e0:96:98:d0:a3:40:e2:01:8a:ef:27:07:f1:65:01:8a:
+         44:2d:06:65:75:52:c0:86:10:20:21:5f:6c:6b:0f:6c:ae:09:
+         1c:af:f2:a2:18:34:c4:75:a4:73:1c:f1:8d:dc:ef:ad:f9:b3:
+         76:b4:92:bf:dc:95:10:1e:be:cb:c8:3b:5a:84:60:19:56:94:
+         a9:55
 SHA1 Fingerprint=7E:78:4A:10:1C:82:65:CC:2D:E1:F1:6D:47:B4:40:CA:D9:0A:19:45

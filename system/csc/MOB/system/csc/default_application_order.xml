@@ -1,9 +1,0 @@
-<appOrder
-xmlns:launcher="http://schemas.android.com/apk/res/com.sec.android.app.launcher"
->       
-  <favorite
-            launcher:packageName="com.vodafone.android.myweb.launcher"
-            launcher:className="com.vodafone.android.myweb.launcher.MyWebLauncherActivity" 
-            launcher:screen="0"/> 
-</appOrder>
-

@@ -28,7 +28,7 @@ Certificate:
     Data:
         Version: 3 (0x2)
         Serial Number: 1 (0x1)
-        Signature Algorithm: sha1WithRSAEncryption
+    Signature Algorithm: sha1WithRSAEncryption
         Issuer: C=ES, L=C/ Muntaner 244 Barcelona, CN=Autoridad de Certificacion Firmaprofesional CIF A62634068/emailAddress=ca@firmaprofesional.com
         Validity
             Not Before: Oct 24 22:00:00 2001 GMT
@@ -36,8 +36,8 @@ Certificate:
         Subject: C=ES, L=C/ Muntaner 244 Barcelona, CN=Autoridad de Certificacion Firmaprofesional CIF A62634068/emailAddress=ca@firmaprofesional.com
         Subject Public Key Info:
             Public Key Algorithm: rsaEncryption
-            RSA Public Key: (2048 bit)
-                Modulus (2048 bit):
+                Public-Key: (2048 bit)
+                Modulus:
                     00:e7:23:03:6f:6f:23:a5:5e:78:ce:95:2c:ed:94:
                     1e:6e:0a:9e:01:c7:ea:30:d1:2c:9d:dd:37:e8:9b:
                     98:79:56:d3:fc:73:df:d0:8a:de:55:8f:51:f9:5a:
@@ -69,19 +69,19 @@ Certificate:
             X509v3 Subject Key Identifier: 
                 33:0B:A0:66:D1:EA:DA:CE:DE:62:93:04:28:52:B5:14:7F:38:68:B7
     Signature Algorithm: sha1WithRSAEncryption
-        47:73:fe:8d:27:54:f0:f5:d4:77:9c:27:79:57:57:b7:15:56:
-        ec:c7:d8:58:b7:01:02:f4:33:ed:93:50:88:9e:7c:46:b1:bd:
-        3f:14:6f:f1:b3:47:48:8b:8c:97:06:d7:ea:7e:a3:5c:2a:bb:
-        4d:2f:47:e2:f8:39:06:c9:9c:2e:31:1a:03:78:f4:bc:38:c6:
-        22:8b:33:31:f0:16:04:04:7d:f9:76:e4:4b:d7:c0:e6:83:ec:
-        59:cc:3f:de:ff:4f:6b:b7:67:7e:a6:86:81:32:23:03:9d:c8:
-        f7:5f:c1:4a:60:a5:92:a9:b1:a4:a0:60:c3:78:87:b3:22:f3:
-        2a:eb:5b:a9:ed:05:ab:37:0f:b1:e2:d3:95:76:63:56:74:8c:
-        58:72:1b:37:e5:64:a1:be:4d:0c:93:98:0c:97:f6:87:6d:b3:
-        3f:e7:cb:80:a6:ed:88:c7:5f:50:62:02:e8:99:74:16:d0:e6:
-        b4:39:f1:27:cb:c8:40:d6:e3:86:10:a9:23:12:92:e0:69:41:
-        63:a7:af:25:0b:c0:c5:92:cb:1e:98:a3:5a:ba:c5:33:0f:a0:
-        97:01:dd:7f:e0:7b:d6:06:54:cf:a1:e2:4d:38:eb:4b:50:b5:
-        cb:26:f4:ca:da:70:4a:6a:a1:e2:79:aa:e1:a7:33:f6:fd:4a:
-        1f:f6:d9:60
+         47:73:fe:8d:27:54:f0:f5:d4:77:9c:27:79:57:57:b7:15:56:
+         ec:c7:d8:58:b7:01:02:f4:33:ed:93:50:88:9e:7c:46:b1:bd:
+         3f:14:6f:f1:b3:47:48:8b:8c:97:06:d7:ea:7e:a3:5c:2a:bb:
+         4d:2f:47:e2:f8:39:06:c9:9c:2e:31:1a:03:78:f4:bc:38:c6:
+         22:8b:33:31:f0:16:04:04:7d:f9:76:e4:4b:d7:c0:e6:83:ec:
+         59:cc:3f:de:ff:4f:6b:b7:67:7e:a6:86:81:32:23:03:9d:c8:
+         f7:5f:c1:4a:60:a5:92:a9:b1:a4:a0:60:c3:78:87:b3:22:f3:
+         2a:eb:5b:a9:ed:05:ab:37:0f:b1:e2:d3:95:76:63:56:74:8c:
+         58:72:1b:37:e5:64:a1:be:4d:0c:93:98:0c:97:f6:87:6d:b3:
+         3f:e7:cb:80:a6:ed:88:c7:5f:50:62:02:e8:99:74:16:d0:e6:
+         b4:39:f1:27:cb:c8:40:d6:e3:86:10:a9:23:12:92:e0:69:41:
+         63:a7:af:25:0b:c0:c5:92:cb:1e:98:a3:5a:ba:c5:33:0f:a0:
+         97:01:dd:7f:e0:7b:d6:06:54:cf:a1:e2:4d:38:eb:4b:50:b5:
+         cb:26:f4:ca:da:70:4a:6a:a1:e2:79:aa:e1:a7:33:f6:fd:4a:
+         1f:f6:d9:60
 SHA1 Fingerprint=A9:62:8F:4B:98:A9:1B:48:35:BA:D2:C1:46:32:86:BB:66:64:6A:8C

@@ -24,7 +24,7 @@ Certificate:
     Data:
         Version: 3 (0x2)
         Serial Number: 10000010 (0x98968a)
-        Signature Algorithm: sha1WithRSAEncryption
+    Signature Algorithm: sha1WithRSAEncryption
         Issuer: C=NL, O=Staat der Nederlanden, CN=Staat der Nederlanden Root CA
         Validity
             Not Before: Dec 17 09:23:49 2002 GMT
@@ -32,8 +32,8 @@ Certificate:
         Subject: C=NL, O=Staat der Nederlanden, CN=Staat der Nederlanden Root CA
         Subject Public Key Info:
             Public Key Algorithm: rsaEncryption
-            RSA Public Key: (2048 bit)
-                Modulus (2048 bit):
+                Public-Key: (2048 bit)
+                Modulus:
                     00:98:d2:b5:51:11:7a:81:a6:14:98:71:6d:be:cc:
                     e7:13:1b:d6:27:0e:7a:b3:6a:18:1c:b6:61:5a:d5:
                     61:09:bf:de:90:13:c7:67:ee:dd:f3:da:c5:0c:12:
@@ -65,19 +65,19 @@ Certificate:
             X509v3 Subject Key Identifier: 
                 A8:7D:EB:BC:63:A4:74:13:74:00:EC:96:E0:D3:34:C1:2C:BF:6C:F8
     Signature Algorithm: sha1WithRSAEncryption
-        05:84:87:55:74:36:61:c1:bb:d1:d4:c6:15:a8:13:b4:9f:a4:
-        fe:bb:ee:15:b4:2f:06:0c:29:f2:a8:92:a4:61:0d:fc:ab:5c:
-        08:5b:51:13:2b:4d:c2:2a:61:c8:f8:09:58:fc:2d:02:b2:39:
-        7d:99:66:81:bf:6e:5c:95:45:20:6c:e6:79:a7:d1:d8:1c:29:
-        fc:c2:20:27:51:c8:f1:7c:5d:34:67:69:85:11:30:c6:00:d2:
-        d7:f3:d3:7c:b6:f0:31:57:28:12:82:73:e9:33:2f:a6:55:b4:
-        0b:91:94:47:9c:fa:bb:7a:42:32:e8:ae:7e:2d:c8:bc:ac:14:
-        bf:d9:0f:d9:5b:fc:c1:f9:7a:95:e1:7d:7e:96:fc:71:b0:c2:
-        4c:c8:df:45:34:c9:ce:0d:f2:9c:64:08:d0:3b:c3:29:c5:b2:
-        ed:90:04:c1:b1:29:91:c5:30:6f:c1:a9:72:33:cc:fe:5d:16:
-        17:2c:11:69:e7:7e:fe:c5:83:08:df:bc:dc:22:3a:2e:20:69:
-        23:39:56:60:67:90:8b:2e:76:39:fb:11:88:97:f6:7c:bd:4b:
-        b8:20:16:67:05:8d:e2:3b:c1:72:3f:94:95:37:c7:5d:b9:9e:
-        d8:93:a1:17:8f:ff:0c:66:15:c1:24:7c:32:7c:03:1d:3b:a1:
-        58:45:32:93
+         05:84:87:55:74:36:61:c1:bb:d1:d4:c6:15:a8:13:b4:9f:a4:
+         fe:bb:ee:15:b4:2f:06:0c:29:f2:a8:92:a4:61:0d:fc:ab:5c:
+         08:5b:51:13:2b:4d:c2:2a:61:c8:f8:09:58:fc:2d:02:b2:39:
+         7d:99:66:81:bf:6e:5c:95:45:20:6c:e6:79:a7:d1:d8:1c:29:
+         fc:c2:20:27:51:c8:f1:7c:5d:34:67:69:85:11:30:c6:00:d2:
+         d7:f3:d3:7c:b6:f0:31:57:28:12:82:73:e9:33:2f:a6:55:b4:
+         0b:91:94:47:9c:fa:bb:7a:42:32:e8:ae:7e:2d:c8:bc:ac:14:
+         bf:d9:0f:d9:5b:fc:c1:f9:7a:95:e1:7d:7e:96:fc:71:b0:c2:
+         4c:c8:df:45:34:c9:ce:0d:f2:9c:64:08:d0:3b:c3:29:c5:b2:
+         ed:90:04:c1:b1:29:91:c5:30:6f:c1:a9:72:33:cc:fe:5d:16:
+         17:2c:11:69:e7:7e:fe:c5:83:08:df:bc:dc:22:3a:2e:20:69:
+         23:39:56:60:67:90:8b:2e:76:39:fb:11:88:97:f6:7c:bd:4b:
+         b8:20:16:67:05:8d:e2:3b:c1:72:3f:94:95:37:c7:5d:b9:9e:
+         d8:93:a1:17:8f:ff:0c:66:15:c1:24:7c:32:7c:03:1d:3b:a1:
+         58:45:32:93
 SHA1 Fingerprint=10:1D:FA:3F:D5:0B:CB:BB:9B:B5:60:0C:19:55:A4:1A:F4:73:3A:04

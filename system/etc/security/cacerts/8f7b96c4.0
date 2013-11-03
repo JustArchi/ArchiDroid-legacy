@@ -21,7 +21,7 @@ Certificate:
     Data:
         Version: 3 (0x2)
         Serial Number: 930140085 (0x3770cfb5)
-        Signature Algorithm: sha1WithRSAEncryption
+    Signature Algorithm: sha1WithRSAEncryption
         Issuer: C=US, O=Equifax Secure, OU=Equifax Secure eBusiness CA-2
         Validity
             Not Before: Jun 23 12:14:45 1999 GMT
@@ -29,8 +29,8 @@ Certificate:
         Subject: C=US, O=Equifax Secure, OU=Equifax Secure eBusiness CA-2
         Subject Public Key Info:
             Public Key Algorithm: rsaEncryption
-            RSA Public Key: (1024 bit)
-                Modulus (1024 bit):
+                Public-Key: (1024 bit)
+                Modulus:
                     00:e4:39:39:93:1e:52:06:1b:28:36:f8:b2:a3:29:
                     c5:ed:8e:b2:11:bd:fe:eb:e7:b4:74:c2:8f:ff:05:
                     e7:d9:9d:06:bf:12:c8:3f:0e:f2:d6:d1:24:b2:11:
@@ -43,7 +43,9 @@ Certificate:
                 Exponent: 65537 (0x10001)
         X509v3 extensions:
             X509v3 CRL Distribution Points: 
-                DirName:/C=US/O=Equifax Secure/OU=Equifax Secure eBusiness CA-2/CN=CRL1
+
+                Full Name:
+                  DirName: C = US, O = Equifax Secure, OU = Equifax Secure eBusiness CA-2, CN = CRL1
 
             X509v3 Private Key Usage Period: 
                 Not After: Jun 23 12:14:45 2019 GMT
@@ -59,12 +61,12 @@ Certificate:
             1.2.840.113533.7.65.0: 
                 0...V3.0c....
     Signature Algorithm: sha1WithRSAEncryption
-        0c:86:82:ad:e8:4e:1a:f5:8e:89:27:e2:35:58:3d:29:b4:07:
-        8f:36:50:95:bf:6e:c1:9e:eb:c4:90:b2:85:a8:bb:b7:42:e0:
-        0f:07:39:df:fb:9e:90:b2:d1:c1:3e:53:9f:03:44:b0:7e:4b:
-        f4:6f:e4:7c:1f:e7:e2:b1:e4:b8:9a:ef:c3:bd:ce:de:0b:32:
-        34:d9:de:28:ed:33:6b:c4:d4:d7:3d:12:58:ab:7d:09:2d:cb:
-        70:f5:13:8a:94:a1:27:a4:d6:70:c5:6d:94:b5:c9:7d:9d:a0:
-        d2:c6:08:49:d9:66:9b:a6:d3:f4:0b:dc:c5:26:57:e1:91:30:
-        ea:cd
+         0c:86:82:ad:e8:4e:1a:f5:8e:89:27:e2:35:58:3d:29:b4:07:
+         8f:36:50:95:bf:6e:c1:9e:eb:c4:90:b2:85:a8:bb:b7:42:e0:
+         0f:07:39:df:fb:9e:90:b2:d1:c1:3e:53:9f:03:44:b0:7e:4b:
+         f4:6f:e4:7c:1f:e7:e2:b1:e4:b8:9a:ef:c3:bd:ce:de:0b:32:
+         34:d9:de:28:ed:33:6b:c4:d4:d7:3d:12:58:ab:7d:09:2d:cb:
+         70:f5:13:8a:94:a1:27:a4:d6:70:c5:6d:94:b5:c9:7d:9d:a0:
+         d2:c6:08:49:d9:66:9b:a6:d3:f4:0b:dc:c5:26:57:e1:91:30:
+         ea:cd
 SHA1 Fingerprint=39:4F:F6:85:0B:06:BE:52:E5:18:56:CC:10:E1:80:E8:82:B3:85:CC

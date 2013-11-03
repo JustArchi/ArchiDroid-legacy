@@ -25,7 +25,7 @@ Certificate:
         Version: 3 (0x2)
         Serial Number:
             85:bd:4b:f3:d8:da:e3:69:f6:94:d7:5f:c3:a5:44:23
-        Signature Algorithm: sha1WithRSAEncryption
+    Signature Algorithm: sha1WithRSAEncryption
         Issuer: C=FR, O=Certplus, CN=Class 2 Primary CA
         Validity
             Not Before: Jul  7 17:05:00 1999 GMT
@@ -33,8 +33,8 @@ Certificate:
         Subject: C=FR, O=Certplus, CN=Class 2 Primary CA
         Subject Public Key Info:
             Public Key Algorithm: rsaEncryption
-            RSA Public Key: (2048 bit)
-                Modulus (2048 bit):
+                Public-Key: (2048 bit)
+                Modulus:
                     00:dc:50:96:d0:12:f8:35:d2:08:78:7a:b6:52:70:
                     fd:6f:ee:cf:b9:11:cb:5d:77:e1:ec:e9:7e:04:8d:
                     d6:cc:6f:73:43:57:60:ac:33:0a:44:ec:03:5f:1c:
@@ -64,22 +64,24 @@ Certificate:
             Netscape Cert Type: 
                 SSL CA, S/MIME CA
             X509v3 CRL Distribution Points: 
-                URI:http://www.certplus.com/CRL/class2.crl
+
+                Full Name:
+                  URI:http://www.certplus.com/CRL/class2.crl
 
     Signature Algorithm: sha1WithRSAEncryption
-        a7:54:cf:88:44:19:cb:df:d4:7f:00:df:56:33:62:b5:f7:51:
-        01:90:eb:c3:3f:d1:88:44:e9:24:5d:ef:e7:14:bd:20:b7:9a:
-        3c:00:fe:6d:9f:db:90:dc:d7:f4:62:d6:8b:70:5d:e7:e5:04:
-        48:a9:68:7c:c9:f1:42:f3:6c:7f:c5:7a:7c:1d:51:88:ba:d2:
-        0a:3e:27:5d:de:2d:51:4e:d3:13:64:69:e4:2e:e3:d3:e7:9b:
-        09:99:a6:e0:95:9b:ce:1a:d7:7f:be:3c:ce:52:b3:11:15:c1:
-        0f:17:cd:03:bb:9c:25:15:ba:a2:76:89:fc:06:f1:18:d0:93:
-        4b:0e:7c:82:b7:a5:f4:f6:5f:fe:ed:40:a6:9d:84:74:39:b9:
-        dc:1e:85:16:da:29:1b:86:23:00:c9:bb:89:7e:6e:80:88:1e:
-        2f:14:b4:03:24:a8:32:6f:03:9a:47:2c:30:be:56:c6:a7:42:
-        02:70:1b:ea:40:d8:ba:05:03:70:07:a4:96:ff:fd:48:33:0a:
-        e1:dc:a5:81:90:9b:4d:dd:7d:e7:e7:b2:cd:5c:c8:6a:95:f8:
-        a5:f6:8d:c4:5d:78:08:be:7b:06:d6:49:cf:19:36:50:23:2e:
-        08:e6:9e:05:4d:47:18:d5:16:e9:b1:d6:b6:10:d5:bb:97:bf:
-        a2:8e:b4:54
+         a7:54:cf:88:44:19:cb:df:d4:7f:00:df:56:33:62:b5:f7:51:
+         01:90:eb:c3:3f:d1:88:44:e9:24:5d:ef:e7:14:bd:20:b7:9a:
+         3c:00:fe:6d:9f:db:90:dc:d7:f4:62:d6:8b:70:5d:e7:e5:04:
+         48:a9:68:7c:c9:f1:42:f3:6c:7f:c5:7a:7c:1d:51:88:ba:d2:
+         0a:3e:27:5d:de:2d:51:4e:d3:13:64:69:e4:2e:e3:d3:e7:9b:
+         09:99:a6:e0:95:9b:ce:1a:d7:7f:be:3c:ce:52:b3:11:15:c1:
+         0f:17:cd:03:bb:9c:25:15:ba:a2:76:89:fc:06:f1:18:d0:93:
+         4b:0e:7c:82:b7:a5:f4:f6:5f:fe:ed:40:a6:9d:84:74:39:b9:
+         dc:1e:85:16:da:29:1b:86:23:00:c9:bb:89:7e:6e:80:88:1e:
+         2f:14:b4:03:24:a8:32:6f:03:9a:47:2c:30:be:56:c6:a7:42:
+         02:70:1b:ea:40:d8:ba:05:03:70:07:a4:96:ff:fd:48:33:0a:
+         e1:dc:a5:81:90:9b:4d:dd:7d:e7:e7:b2:cd:5c:c8:6a:95:f8:
+         a5:f6:8d:c4:5d:78:08:be:7b:06:d6:49:cf:19:36:50:23:2e:
+         08:e6:9e:05:4d:47:18:d5:16:e9:b1:d6:b6:10:d5:bb:97:bf:
+         a2:8e:b4:54
 SHA1 Fingerprint=74:20:74:41:72:9C:DD:92:EC:79:31:D8:23:10:8D:C2:81:92:E2:BB

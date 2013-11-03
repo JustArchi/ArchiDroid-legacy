@@ -22,7 +22,7 @@ Certificate:
         Version: 3 (0x2)
         Serial Number:
             34:a4:ff:f6:30:af:4c:a5:3c:33:17:42:a1:94:66:75
-        Signature Algorithm: sha1WithRSAEncryption
+    Signature Algorithm: sha1WithRSAEncryption
         Issuer: C=ZA, ST=Western Cape, L=Cape Town, O=Thawte Consulting cc, OU=Certification Services Division, CN=Thawte Server CA/emailAddress=server-certs@thawte.com
         Validity
             Not Before: Aug  1 00:00:00 1996 GMT
@@ -30,8 +30,8 @@ Certificate:
         Subject: C=ZA, ST=Western Cape, L=Cape Town, O=Thawte Consulting cc, OU=Certification Services Division, CN=Thawte Server CA/emailAddress=server-certs@thawte.com
         Subject Public Key Info:
             Public Key Algorithm: rsaEncryption
-            RSA Public Key: (1024 bit)
-                Modulus (1024 bit):
+                Public-Key: (1024 bit)
+                Modulus:
                     00:d3:a4:50:6e:c8:ff:56:6b:e6:cf:5d:b6:ea:0c:
                     68:75:47:a2:aa:c2:da:84:25:fc:a8:f4:47:51:da:
                     85:b5:20:74:94:86:1e:0f:75:c9:e9:08:61:f5:06:
@@ -46,12 +46,12 @@ Certificate:
             X509v3 Basic Constraints: critical
                 CA:TRUE
     Signature Algorithm: sha1WithRSAEncryption
-        be:40:69:41:6f:c6:db:c1:a7:bf:07:c0:45:e4:d0:b5:43:1e:
-        4c:95:33:35:e9:5e:c2:3e:28:f6:a8:0d:50:d5:ff:e2:0c:0f:
-        fc:50:02:8e:ae:91:b9:ad:34:8a:8d:9f:27:71:aa:19:cc:4b:
-        e8:04:ca:d4:17:6b:12:1a:d6:c6:5f:d6:cd:5e:ff:89:76:bf:
-        d8:48:d8:59:bd:08:8a:89:1d:57:cd:45:1e:52:ba:12:9a:84:
-        fa:18:89:5f:e8:f9:30:35:6a:01:60:b9:99:80:83:85:0a:6e:
-        da:f4:c9:8f:5e:73:2d:31:4a:63:a0:74:f2:1f:8b:22:d2:29:
-        3e:eb
+         be:40:69:41:6f:c6:db:c1:a7:bf:07:c0:45:e4:d0:b5:43:1e:
+         4c:95:33:35:e9:5e:c2:3e:28:f6:a8:0d:50:d5:ff:e2:0c:0f:
+         fc:50:02:8e:ae:91:b9:ad:34:8a:8d:9f:27:71:aa:19:cc:4b:
+         e8:04:ca:d4:17:6b:12:1a:d6:c6:5f:d6:cd:5e:ff:89:76:bf:
+         d8:48:d8:59:bd:08:8a:89:1d:57:cd:45:1e:52:ba:12:9a:84:
+         fa:18:89:5f:e8:f9:30:35:6a:01:60:b9:99:80:83:85:0a:6e:
+         da:f4:c9:8f:5e:73:2d:31:4a:63:a0:74:f2:1f:8b:22:d2:29:
+         3e:eb
 SHA1 Fingerprint=9F:AD:91:A6:CE:6A:C6:C5:00:47:C4:4E:C9:D4:A5:0D:92:D8:49:79

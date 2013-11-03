@@ -31,7 +31,7 @@ Certificate:
     Data:
         Version: 3 (0x2)
         Serial Number: 999181308 (0x3b8e4bfc)
-        Signature Algorithm: sha1WithRSAEncryption
+    Signature Algorithm: sha1WithRSAEncryption
         Issuer: emailAddress=pki@sk.ee, C=EE, O=AS Sertifitseerimiskeskus, CN=Juur-SK
         Validity
             Not Before: Aug 30 14:23:01 2001 GMT
@@ -39,8 +39,8 @@ Certificate:
         Subject: emailAddress=pki@sk.ee, C=EE, O=AS Sertifitseerimiskeskus, CN=Juur-SK
         Subject Public Key Info:
             Public Key Algorithm: rsaEncryption
-            RSA Public Key: (2048 bit)
-                Modulus (2048 bit):
+                Public-Key: (2048 bit)
+                Modulus:
                     00:81:71:36:3e:33:07:d6:e3:30:8d:13:7e:77:32:
                     46:cb:cf:19:b2:60:31:46:97:86:f4:98:46:a4:c2:
                     65:45:cf:d3:40:7c:e3:5a:22:a8:10:78:33:cc:88:
@@ -70,7 +70,9 @@ Certificate:
                   CPS: http://www.sk.ee/cps/
 
             X509v3 CRL Distribution Points: 
-                URI:http://www.sk.ee/juur/crl/
+
+                Full Name:
+                  URI:http://www.sk.ee/juur/crl/
 
             X509v3 Subject Key Identifier: 
                 04:AA:7A:47:A3:E4:89:AF:1A:CF:0A:40:A7:18:3F:6F:EF:E9:7D:BE
@@ -80,19 +82,19 @@ Certificate:
             X509v3 Key Usage: critical
                 Digital Signature, Non Repudiation, Key Encipherment, Certificate Sign, CRL Sign
     Signature Algorithm: sha1WithRSAEncryption
-        7b:c1:18:94:53:a2:09:f3:fe:26:67:9a:50:e4:c3:05:2f:2b:
-        35:78:91:4c:7c:a8:11:11:79:4c:49:59:ac:c8:f7:85:65:5c:
-        46:bb:3b:10:a0:02:af:cd:4f:b5:cc:36:2a:ec:5d:fe:ef:a0:
-        91:c9:b6:93:6f:7c:80:54:ec:c7:08:70:0d:8e:fb:82:ec:2a:
-        60:78:69:36:36:d1:c5:9c:8b:69:b5:40:c8:94:65:77:f2:57:
-        21:66:3b:ce:85:40:b6:33:63:1a:bf:79:1e:fc:5c:1d:d3:1d:
-        93:1b:8b:0c:5d:85:bd:99:30:32:18:09:91:52:e9:7c:a1:ba:
-        ff:64:92:9a:ec:fe:35:ee:8c:2f:ae:fc:20:86:ec:4a:de:1b:
-        78:32:37:a6:81:d2:9d:af:5a:12:16:ca:99:5b:fc:6f:6d:0e:
-        c5:a0:1e:86:c9:91:d0:5c:98:82:5f:63:0c:8a:5a:ab:d8:95:
-        a6:cc:cb:8a:d6:bf:64:4b:8e:ca:8a:b2:b0:e9:21:32:9e:aa:
-        a8:85:98:34:81:39:21:3b:a8:3a:52:32:3d:f6:6b:37:86:06:
-        5a:15:98:dc:f0:11:66:fe:34:20:b7:03:f4:41:10:7d:39:84:
-        79:96:72:63:b6:96:02:e5:6b:b9:ad:19:4d:bb:c6:44:db:36:
-        cb:2a:9c:8e
+         7b:c1:18:94:53:a2:09:f3:fe:26:67:9a:50:e4:c3:05:2f:2b:
+         35:78:91:4c:7c:a8:11:11:79:4c:49:59:ac:c8:f7:85:65:5c:
+         46:bb:3b:10:a0:02:af:cd:4f:b5:cc:36:2a:ec:5d:fe:ef:a0:
+         91:c9:b6:93:6f:7c:80:54:ec:c7:08:70:0d:8e:fb:82:ec:2a:
+         60:78:69:36:36:d1:c5:9c:8b:69:b5:40:c8:94:65:77:f2:57:
+         21:66:3b:ce:85:40:b6:33:63:1a:bf:79:1e:fc:5c:1d:d3:1d:
+         93:1b:8b:0c:5d:85:bd:99:30:32:18:09:91:52:e9:7c:a1:ba:
+         ff:64:92:9a:ec:fe:35:ee:8c:2f:ae:fc:20:86:ec:4a:de:1b:
+         78:32:37:a6:81:d2:9d:af:5a:12:16:ca:99:5b:fc:6f:6d:0e:
+         c5:a0:1e:86:c9:91:d0:5c:98:82:5f:63:0c:8a:5a:ab:d8:95:
+         a6:cc:cb:8a:d6:bf:64:4b:8e:ca:8a:b2:b0:e9:21:32:9e:aa:
+         a8:85:98:34:81:39:21:3b:a8:3a:52:32:3d:f6:6b:37:86:06:
+         5a:15:98:dc:f0:11:66:fe:34:20:b7:03:f4:41:10:7d:39:84:
+         79:96:72:63:b6:96:02:e5:6b:b9:ad:19:4d:bb:c6:44:db:36:
+         cb:2a:9c:8e
 SHA1 Fingerprint=40:9D:4B:D9:17:B5:5C:27:B6:9B:64:CB:98:22:44:0D:CD:09:B8:89

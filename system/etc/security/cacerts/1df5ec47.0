@@ -26,7 +26,7 @@ Certificate:
         Version: 3 (0x2)
         Serial Number:
             63:25:00:01:00:02:14:8d:33:15:02:e4:6c:f4
-        Signature Algorithm: sha1WithRSAEncryption
+    Signature Algorithm: sha1WithRSAEncryption
         Issuer: C=DE, O=TC TrustCenter GmbH, OU=TC TrustCenter Universal CA, CN=TC TrustCenter Universal CA III
         Validity
             Not Before: Sep  9 08:15:27 2009 GMT
@@ -34,8 +34,8 @@ Certificate:
         Subject: C=DE, O=TC TrustCenter GmbH, OU=TC TrustCenter Universal CA, CN=TC TrustCenter Universal CA III
         Subject Public Key Info:
             Public Key Algorithm: rsaEncryption
-            RSA Public Key: (2048 bit)
-                Modulus (2048 bit):
+                Public-Key: (2048 bit)
+                Modulus:
                     00:c2:da:9c:62:b0:b9:71:12:b0:0b:c8:1a:57:b2:
                     ae:83:14:99:b3:34:4b:9b:90:a2:c5:e7:e7:2f:02:
                     a0:4d:2d:a4:fa:85:da:9b:25:85:2d:40:28:20:6d:
@@ -66,19 +66,19 @@ Certificate:
             X509v3 Subject Key Identifier: 
                 56:E7:E1:5B:25:43:80:E0:F6:8C:E1:71:BC:8E:E5:80:2F:C4:48:E2
     Signature Algorithm: sha1WithRSAEncryption
-        83:c7:af:ea:7f:4d:0a:3c:39:b1:68:be:7b:6d:89:2e:e9:b3:
-        09:e7:18:57:8d:85:9a:17:f3:76:42:50:13:0f:c7:90:6f:33:
-        ad:c5:49:60:2b:6c:49:58:19:d4:e2:be:b7:bf:ab:49:bc:94:
-        c8:ab:be:28:6c:16:68:e0:c8:97:46:20:a0:68:67:60:88:39:
-        20:51:d8:68:01:11:ce:a7:f6:11:07:f6:ec:ec:ac:1a:1f:b2:
-        66:6e:56:67:60:7a:74:5e:c0:6d:97:36:ae:b5:0d:5d:66:73:
-        c0:25:32:45:d8:4a:06:07:8f:c4:b7:07:b1:4d:06:0d:e1:a5:
-        eb:f4:75:ca:ba:9c:d0:bd:b3:d3:32:24:4c:ee:7e:e2:76:04:
-        4b:49:53:d8:f2:e9:54:33:fc:e5:71:1f:3d:14:5c:96:4b:f1:
-        3a:f2:00:bb:6c:b4:fa:96:55:08:88:09:c1:cc:91:19:29:b0:
-        20:2d:ff:cb:38:a4:40:e1:17:be:79:61:80:ff:07:03:86:4c:
-        4e:7b:06:9f:11:86:8d:89:ee:27:c4:db:e2:bc:19:8e:0b:c3:
-        c3:13:c7:2d:03:63:3b:d3:e8:e4:a2:2a:c2:82:08:94:16:54:
-        f0:ef:1f:27:90:25:b8:0d:0e:28:1b:47:77:47:bd:1c:a8:25:
-        f1:94:b4:66
+         83:c7:af:ea:7f:4d:0a:3c:39:b1:68:be:7b:6d:89:2e:e9:b3:
+         09:e7:18:57:8d:85:9a:17:f3:76:42:50:13:0f:c7:90:6f:33:
+         ad:c5:49:60:2b:6c:49:58:19:d4:e2:be:b7:bf:ab:49:bc:94:
+         c8:ab:be:28:6c:16:68:e0:c8:97:46:20:a0:68:67:60:88:39:
+         20:51:d8:68:01:11:ce:a7:f6:11:07:f6:ec:ec:ac:1a:1f:b2:
+         66:6e:56:67:60:7a:74:5e:c0:6d:97:36:ae:b5:0d:5d:66:73:
+         c0:25:32:45:d8:4a:06:07:8f:c4:b7:07:b1:4d:06:0d:e1:a5:
+         eb:f4:75:ca:ba:9c:d0:bd:b3:d3:32:24:4c:ee:7e:e2:76:04:
+         4b:49:53:d8:f2:e9:54:33:fc:e5:71:1f:3d:14:5c:96:4b:f1:
+         3a:f2:00:bb:6c:b4:fa:96:55:08:88:09:c1:cc:91:19:29:b0:
+         20:2d:ff:cb:38:a4:40:e1:17:be:79:61:80:ff:07:03:86:4c:
+         4e:7b:06:9f:11:86:8d:89:ee:27:c4:db:e2:bc:19:8e:0b:c3:
+         c3:13:c7:2d:03:63:3b:d3:e8:e4:a2:2a:c2:82:08:94:16:54:
+         f0:ef:1f:27:90:25:b8:0d:0e:28:1b:47:77:47:bd:1c:a8:25:
+         f1:94:b4:66
 SHA1 Fingerprint=96:56:CD:7B:57:96:98:95:D0:E1:41:46:68:06:FB:B8:C6:11:06:87

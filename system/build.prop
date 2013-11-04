@@ -4,12 +4,12 @@
 ro.build.id=JLS36I
 ro.build.display.id=ArchiDroid 2.2.4 EXPERIMENTAL
 ro.archidroid.version=2.2.4 EXPERIMENTAL
-ro.build.version.incremental=3382590bb2
+ro.build.version.incremental=c6fb9811ce
 ro.build.version.sdk=18
 ro.build.version.codename=REL
 ro.build.version.release=4.3.1
-ro.build.date=sob, 2 lis 2013, 19:12:29 CET
-ro.build.date.utc=1383415949
+ro.build.date=pon, 4 lis 2013, 19:49:31 CET
+ro.build.date.utc=1383590971
 ro.build.type=userdebug
 ro.build.user=root
 ro.build.host=ArchiDroid
@@ -41,7 +41,7 @@ ro.cm.device=i9300
 dalvik.vm.dexopt-data-only=1
 rild.libpath=/system/lib/libsec-ril.so
 rild.libargs=-d /dev/ttyS0
-#ro.sf.lcd_density=320
+ro.sf.lcd_density=320
 ro.lcd_min_brightness=20
 
 #
@@ -58,8 +58,8 @@ ro.com.android.dateformat=MM-dd-yyyy
 ro.com.android.dataroaming=false
 ro.build.selinux=1
 persist.sys.root_access=1
-ro.cm.version=10.2-20131102-UNOFFICIAL-i9300
-ro.modversion=10.2-20131102-UNOFFICIAL-i9300
+ro.cm.version=10.2-20131104-UNOFFICIAL-i9300
+ro.modversion=10.2-20131104-UNOFFICIAL-i9300
 ro.config.ringtone=Orion.ogg
 ro.config.notification_sound=Argon.ogg
 ro.config.alarm_alert=Hassium.ogg

@@ -251,7 +251,8 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 	 
     "theme","<#selectbg_g>Theme</#>","","group",
     #"dreamtheme","Dream Theme","<~archidroid.theme.dreamtheme.desc>","select.selected",
-    "stock","Stock Theme","<~archidroid.theme.stock.desc>","select",
+    #"stock","Stock Theme","<~archidroid.theme.stock.desc>","select",
+    "stock","Stock Theme","<~archidroid.theme.stock.desc>","select.selected",
 
     "dpi","<#selectbg_g>DPI</#>","","group",
     "240","240 DPI","<~archidroid.dpi.240.desc>","select.selected",
@@ -270,11 +271,12 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
     "stock","Stock Samsung","<~archidroid.keyboard.stock.desc>","select",
     "none","<~common.none>","<~archidroid.keyboard.none.desc>","select",
 
-    #"bootanimation","<#selectbg_g><~archidroid.bootanimation></#>","","group",
+    "bootanimation","<#selectbg_g><~archidroid.bootanimation></#>","","group",
     #"archi","ArchiDroid","<~archidroid.bootanimation.archi.desc>","select.selected",
     #"archilegacy","ArchiDroid Legacy","<~archidroid.bootanimation.archilegacy.desc>","select",
     #"logcat","Logcat","<~archidroid.bootanimation.logcat.desc>","select",
-    "stock","Samsung","<~archidroid.bootanimation.stock.desc>","select",
+    #"stock","Samsung","<~archidroid.bootanimation.stock.desc>","select",
+    "stock","Samsung","<~archidroid.bootanimation.stock.desc>","select.selected",
     "none","<~common.none>","<~archidroid.bootanimation.none.desc>","select",
 
     "other","<#selectbg_g><~archidroid.other></#>","","group",

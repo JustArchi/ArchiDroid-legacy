@@ -530,16 +530,16 @@ if file_getprop("/tmp/aroma-data/archidroid.prop","bootanimation") == "archi" th
 	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying ArchiDroid Bootanimation");
 	delete("/system/media/audio/ui/PowerOn.ogg");
 	package_extract_dir("_archidroid/bootanimations/archi", "/");
-	package_extract_file("_archidroid/bootanimations/bootanimation", "/system/bin/bootanimation");
-	set_perm(0, 2000, 0755, "/system/bin/bootanimation");
+	#package_extract_file("_archidroid/bootanimations/bootanimation", "/system/bin/bootanimation");
+	#set_perm(0, 2000, 0755, "/system/bin/bootanimation");
 endif;
 
 if file_getprop("/tmp/aroma-data/archidroid.prop","bootanimation") == "archilegacy" then
 	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying ArchiDroid Legacy Bootanimation");
 	delete("/system/media/audio/ui/PowerOn.ogg");
 	package_extract_dir("_archidroid/bootanimations/archilegacy", "/");
-	package_extract_file("_archidroid/bootanimations/bootanimation", "/system/bin/bootanimation");
-	set_perm(0, 2000, 0755, "/system/bin/bootanimation");
+	#package_extract_file("_archidroid/bootanimations/bootanimation", "/system/bin/bootanimation");
+	#set_perm(0, 2000, 0755, "/system/bin/bootanimation");
 endif;
 
 if file_getprop("/tmp/aroma-data/archidroid.prop","bootanimation") == "logcat" then
@@ -552,7 +552,7 @@ if file_getprop("/tmp/aroma-data/archidroid.prop","bootanimation") == "logcat" t
 endif;
 
 if file_getprop("/tmp/aroma-data/archidroid.prop","bootanimation") == "stock" then
-  ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying CyanogenMod Bootanimation");
+  ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying Stock Bootanimation");
   # Not needed, haha!
 endif;
 

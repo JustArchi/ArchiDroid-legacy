@@ -1,0 +1,17 @@
+﻿<?xml  version="1.0" encoding="UTF-8" ?>
+<CustomerData>
+ <DefaultApn>
+   <ProfileName>VIBO Internet</ProfileName>
+ </DefaultApn>
+  <LatinIME>
+    <VibrateOn>on</VibrateOn>
+    <SoundOn>on</SoundOn>
+  </LatinIME>
+  <SettingsData>
+
+    <TimeZone>Asia/Taipei</TimeZone>
+  </SettingsData>
+  <DefaultInputMethod>
+    <input_method>com.samsung.inputmethod</input_method>
+  </DefaultInputMethod>
+</CustomerData>

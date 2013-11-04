@@ -1,0 +1,14 @@
+﻿<?xml  version="1.0" encoding="UTF-8" ?>
+<SamsungMobileFeauture>
+  <Version>ED001</Version>
+  <Country>TUNISIA</Country>
+  <CountryISO>TN</CountryISO>
+  <SalesCode>TUN</SalesCode>
+  <FeatureSet>
+    <CscFeature_Clock_DisableIsraelCountry>TRUE</CscFeature_Clock_DisableIsraelCountry>
+    <CscFeature_Message_UseSingleShiftTableWhenComposeSMS>TRUE</CscFeature_Message_UseSingleShiftTableWhenComposeSMS>
+    <CscFeature_Email_AlignmentForRTL>TRUE</CscFeature_Email_AlignmentForRTL>
+    <CscFeature_Framework_EnableBidirection>TRUE</CscFeature_Framework_EnableBidirection>
+<CscFeature_Email_DisableFontAttributeDuringComposing>Bold,Italic</CscFeature_Email_DisableFontAttributeDuringComposing>
+  </FeatureSet>
+</SamsungMobileFeauture>

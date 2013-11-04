@@ -1,0 +1,37 @@
+﻿<?xml  version="1.0" encoding="UTF-8" ?>
+<SamsungMobileFeauture>
+  <Version>ED004</Version>
+  <Country>CHILE</Country>
+  <CountryISO>CL</CountryISO>
+  <SalesCode>CHL</SalesCode>
+  <FeatureSet>
+    <CscFeature_Contact_EnableDynCallerIdMatchingDigitWithAutoSim>TRUE</CscFeature_Contact_EnableDynCallerIdMatchingDigitWithAutoSim>
+    <CscFeature_Setting_RemoveMenuInLockScreenTicker>0,1</CscFeature_Setting_RemoveMenuInLockScreenTicker>
+    <CscFeature_Launcher_TotalPageCount>4</CscFeature_Launcher_TotalPageCount>
+    <CscFeature_Launcher_DefaultPageNumber>1</CscFeature_Launcher_DefaultPageNumber>
+    <CscFeature_Launcher_FixedStkTitleAs>Claro</CscFeature_Launcher_FixedStkTitleAs>
+    <CscFeature_VoiceCall_EnableBeepVibration4UssdAlert>TRUE</CscFeature_VoiceCall_EnableBeepVibration4UssdAlert>
+    <CscFeature_Message_DisableSmscEditable>TRUE</CscFeature_Message_DisableSmscEditable>
+    <CscFeature_Message_CMASOperator>la-cho</CscFeature_Message_CMASOperator>
+    <CscFeature_Email_ReplaceHintDomainAs>iclaro.com</CscFeature_Email_ReplaceHintDomainAs>
+    <CscFeature_Camera_CameraFlicker>50hz</CscFeature_Camera_CameraFlicker>
+    <CscFeature_Music_TranslateUnknownTitle>TRUE</CscFeature_Music_TranslateUnknownTitle>
+    <CscFeature_Web_SetUAProfile>http://wap.samsungmobile.com/uaprof/%s.xml</CscFeature_Web_SetUAProfile>
+    <CscFeature_Web_EnableAutoSimHomeUrlInProfile>TRUE</CscFeature_Web_EnableAutoSimHomeUrlInProfile>
+    <CscFeature_Web_bool_EnablePriorityUserBookmark>false</CscFeature_Web_bool_EnablePriorityUserBookmark>
+    <CscFeature_Web_DisableAllSearchEngineExceptGoogle>TRUE</CscFeature_Web_DisableAllSearchEngineExceptGoogle>
+    <CscFeature_Web_EnableSecDrmConverter4ExternalApk>TRUE</CscFeature_Web_EnableSecDrmConverter4ExternalApk>
+    <CscFeature_Web_RemoveBrowserIconInBookmarkThumbnailWidget>TRUE</CscFeature_Web_RemoveBrowserIconInBookmarkThumbnailWidget>
+    <CscFeature_GMS_SetClientIDBaseMs>android-americamovil-{country}</CscFeature_GMS_SetClientIDBaseMs>
+    <CscFeature_GMS_SetClientIDBaseGmm>android-samsung</CscFeature_GMS_SetClientIDBaseGmm>
+    <CscFeature_GMS_SetClientIDBaseYt>android-samsung</CscFeature_GMS_SetClientIDBaseYt>
+    <CscFeature_GMS_SetClientIDBaseAm>android-americamovil-{country}</CscFeature_GMS_SetClientIDBaseAm>
+    <CscFeature_RIL_DisableEditingVMNumber>TRUE</CscFeature_RIL_DisableEditingVMNumber>
+    <CscFeature_RIL_EnableTotalCallTime>TRUE</CscFeature_RIL_EnableTotalCallTime>
+    <CscFeature_RIL_FixedStkMenu>TRUE</CscFeature_RIL_FixedStkMenu>
+    <CscFeature_RIL_DisplaySpnOnlyInCaseSamePlmn>TRUE</CscFeature_RIL_DisplaySpnOnlyInCaseSamePlmn>
+    <CscFeature_RIL_CheckNetLockMccOnly4>LTN</CscFeature_RIL_CheckNetLockMccOnly4>
+  	<CscFeature_Web_BookmarkPreloadOnChrome>NONE</CscFeature_Web_BookmarkPreloadOnChrome>
+  	<CscFeature_Setting_DisableMenuInternetCallSetting>true</CscFeature_Setting_DisableMenuInternetCallSetting>
+  </FeatureSet>
+</SamsungMobileFeauture>

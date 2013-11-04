@@ -1,0 +1,384 @@
+﻿<?xml  version="1.0" encoding="UTF-8" ?>
+<CustomerData>
+  <GeneralInfo>
+    <CSCEdition>ED017</CSCEdition>
+    <Country>The Netherlands</Country>
+    <CountryISO>NL</CountryISO>
+    <Region>EUR</Region>
+    <SalesCode>PHN</SalesCode>
+    <NbNetworkInfo>4</NbNetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>20404</MCCMNC>
+      <NetworkName>vodafone NL</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>20412</MCCMNC>
+      <NetworkName>NL Telfort</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>20416</MCCMNC>
+      <NetworkName>T-Mobile NL</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>20408</MCCMNC>
+      <NetworkName>NL KPN</NetworkName>
+    </NetworkInfo>
+  </GeneralInfo>
+  <Settings>
+    <Main>
+      <Network>
+        <NbFastDormancy>1</NbFastDormancy>
+        <FastDormancy>
+          <NetworkName>default</NetworkName>
+          <FastDormancyEnableStatus>off</FastDormancyEnableStatus>
+        </FastDormancy>
+        <NbWbAmr>1</NbWbAmr>
+        <WbAmr>
+          <NetworkName>default</NetworkName>
+          <WbAmrCodec>on</WbAmrCodec>
+        </WbAmr>
+        <AutoProfile>on</AutoProfile>
+        <AutoVoicemail>off</AutoVoicemail>
+        <AutoEmailAccount>off</AutoEmailAccount>
+        <AutoBookmark>off</AutoBookmark>
+        <AutoLink>off</AutoLink>
+        <AutoSyncML>off</AutoSyncML>
+        <AutoFastDormancy>off</AutoFastDormancy>
+        <AutoWbAmr>off</AutoWbAmr>
+        <AutoFOTA>off</AutoFOTA>
+      </Network>
+      <Sound>
+        <ExtraSound>
+          <ConnectTone>off</ConnectTone>
+          <CallEndTone>off</CallEndTone>
+          <MinuteMind>off</MinuteMind>
+        </ExtraSound>
+        <AMRVoiceCodec>on</AMRVoiceCodec>
+      </Sound>
+      <Phone>
+        <AlertOnCall>on</AlertOnCall>
+        <DefLanguage>nl_NL</DefLanguage>
+        <DefLanguageNoSIM>nl_NL</DefLanguageNoSIM>
+        <T9Enabling>enable</T9Enabling>
+        <ContinuousInput>enable</ContinuousInput>
+        <T9Language>dutch</T9Language>
+        <KeypadType>qwerty</KeypadType>
+        <DateTimeFormat>
+          <DateFormat>ddmmyyyy</DateFormat>
+          <TimeFormat>24h</TimeFormat>
+        </DateTimeFormat>
+        <WeekendSetting>satsun</WeekendSetting>
+        <SmartStay>on</SmartStay>
+        <Motion>
+          <DirectCall>on</DirectCall>
+          <DoubleTapToTop>on</DoubleTapToTop>
+          <SmartAlert>on</SmartAlert>
+        </Motion>
+      </Phone>
+      <Security />
+    </Main>
+    <Messages>
+      <SMS>
+        <DeliveryReport>off</DeliveryReport>
+        <CharSupport>automatic</CharSupport>
+        <SSMS>off</SSMS>
+        <CellBroadcast>on</CellBroadcast>
+        <NbCellBroadcastChannel>2</NbCellBroadcastChannel>
+        <CellBroadcastChannel>919</CellBroadcastChannel>
+        <CellBroadcastChannel>519</CellBroadcastChannel>
+      </SMS>
+      <MMS>
+        <MmsSending>
+          <ReqDeliveryRep>off</ReqDeliveryRep>
+          <ReqReadRep>off</ReqReadRep>
+          <CreationMode>warning</CreationMode>
+        </MmsSending>
+        <MmsReceiving>
+          <Home>auto</Home>
+          <Roaming>manual</Roaming>
+          <SendReadRep>prompt</SendReadRep>
+          <SendDeliveryRep>off</SendDeliveryRep>
+        </MmsReceiving>
+      </MMS>
+      <Email>
+        <EmailReceiving>
+          <AutoPoll>off</AutoPoll>
+          <PollTime>off</PollTime>
+          <KeepServer>on</KeepServer>
+        </EmailReceiving>
+      </Email>
+    </Messages>
+    <Multimedia>
+      <Camera>
+        <ShutterSound>on</ShutterSound>
+      </Camera>
+    </Multimedia>
+    <GPS>
+      <GPSActivation>on</GPSActivation>
+    </GPS>
+    <Browser>
+      <NbBookmark>12</NbBookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>no</Editable>
+        <Index>1</Index>
+        <Folder>Bookmarks</Folder>
+        <BookmarkName>Samsung Mobile</BookmarkName>
+        <URL>http://mmm.samsung.nl/fav</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>yes</Editable>
+        <Index>2</Index>
+        <Folder>Bookmarks</Folder>
+        <BookmarkName>Yahoo</BookmarkName>
+        <URL>http://m.yahoo.com/?tsrc=samsungbm</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>yes</Editable>
+        <Index>3</Index>
+        <Folder>Bookmarks</Folder>
+        <BookmarkName>Shop Games</BookmarkName>
+        <URL>http://mmm.samsung.nl/ShopGames</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>yes</Editable>
+        <Index>4</Index>
+        <Folder>Bookmarks</Folder>
+        <BookmarkName>Shop Ringtones</BookmarkName>
+        <URL>http://mmm.samsung.nl/ShopRT</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>yes</Editable>
+        <Index>5</Index>
+        <Folder>Bookmarks</Folder>
+        <BookmarkName>Shop Wallpapers</BookmarkName>
+        <URL>http://mmm.samsung.nl/ShopWP</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>yes</Editable>
+        <Index>6</Index>
+        <Folder>Bookmarks</Folder>
+        <BookmarkName>Shop Videos</BookmarkName>
+        <URL>http://mmm.samsung.nl/ShopVideo</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>yes</Editable>
+        <Index>7</Index>
+        <Folder>Bookmarks</Folder>
+        <BookmarkName>Laatste nieuws</BookmarkName>
+        <URL>http://mmm.samsung.nl/InfoNews</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>yes</Editable>
+        <Index>8</Index>
+        <Folder>Bookmarks</Folder>
+        <BookmarkName>Verkeersinformatie</BookmarkName>
+        <URL>http://mmm.samsung.nl/InfoTraffic</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>yes</Editable>
+        <Index>9</Index>
+        <Folder>Bookmarks</Folder>
+        <BookmarkName>Weersverwachting</BookmarkName>
+        <URL>http://mmm.samsung.nl/InfoWeather</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>yes</Editable>
+        <Index>10</Index>
+        <Folder>Bookmarks</Folder>
+        <BookmarkName>Regen Radar</BookmarkName>
+        <URL>http://mmm.samsung.nl/InfoRain</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>yes</Editable>
+        <Index>11</Index>
+        <Folder>Bookmarks</Folder>
+        <BookmarkName>Financieel Nieuws</BookmarkName>
+        <URL>http://mmm.samsung.nl/InfoFinancial</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>yes</Editable>
+        <Index>12</Index>
+        <Folder>Bookmarks</Folder>
+        <BookmarkName>Google</BookmarkName>
+        <URL>http://www.google.nl</URL>
+      </Bookmark>
+      <eManual>
+        <URL>http://www.samsung.com/m-manual/common</URL>
+      </eManual>
+    </Browser>
+    <Connections>
+      <NbProfileHandle>4</NbProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>vodafone NL</NetworkName>
+        <ProfBrowser>Vodafone Internet</ProfBrowser>
+        <ProfMMS>Vodafone MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>NL Telfort</NetworkName>
+        <ProfBrowser>Telfort Internet</ProfBrowser>
+        <ProfMMS>Telfort MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>T-Mobile NL</NetworkName>
+        <ProfBrowser>T-Mobile Internet</ProfBrowser>
+        <ProfMMS>T-Mobile MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>NL KPN</NetworkName>
+        <ProfBrowser>KPN Internet</ProfBrowser>
+        <ProfMMS>KPN MMS</ProfMMS>
+      </ProfileHandle>
+      <NbProfile>8</NbProfile>
+      <Profile>
+        <NetworkName>vodafone NL</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Vodafone MMS</ProfileName>
+        <URL>http://mmsc.mms.vodafone.nl</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>192.168.251.150</ServAddr>
+          <Port>8799</Port>
+        </Proxy>
+        <PSparam>
+          <APN>live.vodafone.com</APN>
+          <UserId>vodafone</UserId>
+          <Password>vodafone</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>vodafone NL</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Vodafone Internet</ProfileName>
+        <URL>http://mmm.samsung.nl/vodafone</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>live.vodafone.com</APN>
+          <UserId>vodafone</UserId>
+          <Password>vodafone</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>NL Telfort</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Telfort MMS</ProfileName>
+        <URL>http://mms</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>193.113.200.195</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>internet</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>NL Telfort</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Telfort Internet</ProfileName>
+        <URL>http://mmm.samsung.nl/telfort</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>internet</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>T-Mobile NL</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>T-Mobile Internet</ProfileName>
+        <URL>http://mmm.samsung.nl/t-mobile</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>internet</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>T-Mobile NL</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>T-Mobile MMS</ProfileName>
+        <URL>http://t-mobilemms</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>10.10.10.11</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mms</APN>
+          <UserId>tmobilemms</UserId>
+          <Password>tmobilemms</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>NL KPN</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>KPN Internet</ProfileName>
+        <URL>http://mmm.samsung.nl/kpn</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>portalmmm.nl</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>NL KPN</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>KPN MMS</ProfileName>
+        <URL>http://mp.mobiel.kpn/mmsc</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>10.10.100.20</ServAddr>
+          <Port>5080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>portalmmm.nl</APN>
+        </PSparam>
+      </Profile>
+    </Connections>
+  </Settings>
+</CustomerData>

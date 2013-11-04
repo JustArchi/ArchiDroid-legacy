@@ -1,0 +1,12 @@
+﻿<?xml  version="1.0" encoding="UTF-8" ?>
+<SamsungMobileFeauture>
+  <Version>ED002</Version>
+  <Country>SERBIA</Country>
+  <CountryISO>RS</CountryISO>
+  <SalesCode>SEE</SalesCode>
+  <FeatureSet>
+    <CscFeature_Web_EnableAutoBookmarkSetBySim>TRUE</CscFeature_Web_EnableAutoBookmarkSetBySim>
+    <CscFeature_Web_EnableAutoSimHomeUrlInProfile>TRUE</CscFeature_Web_EnableAutoSimHomeUrlInProfile>
+    <CscFeature_RIL_DisplayRatInfoInManualNetSearchList>TRUE</CscFeature_RIL_DisplayRatInfoInManualNetSearchList>
+  </FeatureSet>
+</SamsungMobileFeauture>

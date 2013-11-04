@@ -1,0 +1,606 @@
+﻿<?xml  version="1.0" encoding="UTF-8" ?>
+<CustomerData>
+  <GeneralInfo>
+    <CSCEdition>ED005</CSCEdition>
+    <Country>JAMAICA</Country>
+    <CountryISO>JM</CountryISO>
+    <Region>LA</Region>
+    <SalesCode>JDI</SalesCode>
+    <NbNetworkInfo>12</NbNetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>338050</MCCMNC>
+      <NetworkName>Profile Digicel</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>338050</MCCMNC>
+      <NetworkName>Profile Haiti</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>338050</MCCMNC>
+      <NetworkName>Profile Samoa</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>36302</MCCMNC>
+      <NetworkName>Aruba Digicel</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>36269</MCCMNC>
+      <NetworkName>Curacao Digicel</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>73801</MCCMNC>
+      <NetworkName>Guyana Digicel</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>37413</MCCMNC>
+      <NetworkName>Trinidad Digicel</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>74603</MCCMNC>
+      <NetworkName>Suriname Digicel</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>71404</MCCMNC>
+      <NetworkName>Panama Digicel</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>348770</MCCMNC>
+      <NetworkName>British Virgin Islands Digicel</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>70602</MCCMNC>
+      <NetworkName>El Salvador Digicel</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>37201</MCCMNC>
+      <NetworkName>Haiti Voila</NetworkName>
+    </NetworkInfo>
+  </GeneralInfo>
+  <Settings>
+    <Main>
+      <Security>
+        <UnlockCnt>5</UnlockCnt>
+        <NbNetworkLock>21</NbNetworkLock>
+        <NetworkLock>33805</NetworkLock>
+        <NetworkLock>37413</NetworkLock>
+        <NetworkLock>36302</NetworkLock>
+        <NetworkLock>34275</NetworkLock>
+        <NetworkLock>36269</NetworkLock>
+        <NetworkLock>35203</NetworkLock>
+        <NetworkLock>35805</NetworkLock>
+        <NetworkLock>36007</NetworkLock>
+        <NetworkLock>37202</NetworkLock>
+        <NetworkLock>37201</NetworkLock>
+        <NetworkLock>34020</NetworkLock>
+        <NetworkLock>73801</NetworkLock>
+        <NetworkLock>31038</NetworkLock>
+        <NetworkLock>74603</NetworkLock>
+        <NetworkLock>70602</NetworkLock>
+        <NetworkLock>53988</NetworkLock>
+        <NetworkLock>54105</NetworkLock>
+        <NetworkLock>34877</NetworkLock>
+        <NetworkLock>53703</NetworkLock>
+        <NetworkLock>71404</NetworkLock>
+        <NetworkLock>54202</NetworkLock>
+      </Security>
+      <Network>
+        <NbSOSNumber>2</NbSOSNumber>
+        <SOSNumber>911</SOSNumber>
+        <SOSNumber>112</SOSNumber>
+      </Network>
+      <Phone>
+        <DefLanguage>english_us</DefLanguage>
+        <DefLanguageNoSIM>english_us</DefLanguageNoSIM>
+        <T9Enabling>disable</T9Enabling>
+        <DateTimeFormat>
+          <DateFormat>ddmmyyyy</DateFormat>
+          <TimeFormat>12h</TimeFormat>
+          <TimezoneUpdate>on</TimezoneUpdate>
+        </DateTimeFormat>
+      </Phone>
+      <Display>
+        <NbWallpaper>1</NbWallpaper>
+        <Wallpaper src="/Customer/JDI/Wallpaper/wallpaper_digicel.jpg" width="1280" height="1280" default="true">
+          <Position>1</Position>
+          <FileType>JPG</FileType>
+        </Wallpaper>
+      </Display>
+    </Main>
+    <Messages>
+      <NbVoicemail>12</NbVoicemail>
+      <Voicemail>
+        <NetworkName>Profile Digicel</NetworkName>
+        <TelNum>123</TelNum>
+      </Voicemail>
+      <Voicemail>
+        <NetworkName>Profile Haiti</NetworkName>
+        <TelNum>123</TelNum>
+      </Voicemail>
+      <Voicemail>
+        <NetworkName>Profile Samoa</NetworkName>
+        <TelNum>123</TelNum>
+      </Voicemail>
+      <Voicemail>
+        <NetworkName>Aruba Digicel</NetworkName>
+        <TelNum>144</TelNum>
+      </Voicemail>
+      <Voicemail>
+        <NetworkName>Curacao Digicel</NetworkName>
+        <TelNum>144</TelNum>
+      </Voicemail>
+      <Voicemail>
+        <NetworkName>Guyana Digicel</NetworkName>
+        <TelNum>123</TelNum>
+      </Voicemail>
+      <Voicemail>
+        <NetworkName>Trinidad Digicel</NetworkName>
+        <TelNum>123</TelNum>
+      </Voicemail>
+      <Voicemail>
+        <NetworkName>Suriname Digicel</NetworkName>
+        <TelNum>143</TelNum>
+      </Voicemail>
+      <Voicemail>
+        <NetworkName>Panama Digicel</NetworkName>
+        <TelNum>123</TelNum>
+      </Voicemail>
+      <Voicemail>
+        <NetworkName>British Virgin Islands Digicel</NetworkName>
+        <TelNum>123</TelNum>
+      </Voicemail>
+      <Voicemail>
+        <NetworkName>El Salvador Digicel</NetworkName>
+        <TelNum>*123</TelNum>
+      </Voicemail>
+      <Voicemail>
+        <NetworkName>Haiti Voila</NetworkName>
+        <TelNum>*166</TelNum>
+      </Voicemail>
+      <SMS>
+        <DeliveryReport>off</DeliveryReport>
+        <CharSupport>gsmalpha</CharSupport>
+        <CellBroadcast>off</CellBroadcast>
+      </SMS>
+      <MMS>
+        <MmsReceiving>
+          <Home>auto</Home>
+        </MmsReceiving>
+      </MMS>
+    </Messages>
+    <Browser>
+      <NbBookmark>1</NbBookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>yes</Editable>
+        <BookmarkName>Yahoo!</BookmarkName>
+        <URL>http://m.yahoo.com/?tsrc=samsungbm</URL>
+      </Bookmark>
+      <eManual>
+        <URL>http://www.samsung.com/m-manual/common</URL>
+      </eManual>
+    </Browser>
+    <SyncML>
+      <NbDataSync>1</NbDataSync>
+      <DataSync>
+        <SyncDSVersion>1.1</SyncDSVersion>
+        <NetworkName>default</NetworkName>
+      </DataSync>
+    </SyncML>
+    <Connections>
+      <NbProfileHandle>12</NbProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>Profile Digicel</NetworkName>
+        <ProfBrowser>Web Digicel</ProfBrowser>
+        <ProfMMS>MMS Digicel</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>Profile Haiti</NetworkName>
+        <ProfBrowser>Web Digicel</ProfBrowser>
+        <ProfMMS>MMS Digicel</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>Profile Samoa</NetworkName>
+        <ProfBrowser>Web Digicel</ProfBrowser>
+        <ProfMMS>MMS Digicel</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>Aruba Digicel</NetworkName>
+        <ProfBrowser>Web Digicel</ProfBrowser>
+        <ProfMMS>MMS Digicel</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>Curacao Digicel</NetworkName>
+        <ProfBrowser>Web Digicel</ProfBrowser>
+        <ProfMMS>MMS Digicel</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>Guyana Digicel</NetworkName>
+        <ProfBrowser>Web Digicel</ProfBrowser>
+        <ProfMMS>MMS Digicel</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>Trinidad Digicel</NetworkName>
+        <ProfBrowser>Web Digicel</ProfBrowser>
+        <ProfMMS>MMS Digicel</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>Suriname Digicel</NetworkName>
+        <ProfBrowser>Web Digicel</ProfBrowser>
+        <ProfMMS>MMS Digicel</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>Panama Digicel</NetworkName>
+        <ProfBrowser>Web Digicel</ProfBrowser>
+        <ProfMMS>MMS Digicel</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>British Virgin Islands Digicel</NetworkName>
+        <ProfBrowser>Web Digicel</ProfBrowser>
+        <ProfMMS>MMS Digicel</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>El Salvador Digicel</NetworkName>
+        <ProfBrowser>Web Digicel</ProfBrowser>
+        <ProfMMS>MMS Digicel</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>1</NbNetProfile>
+        <NetworkName>Haiti Voila</NetworkName>
+        <ProfBrowser>Web Voila</ProfBrowser>
+      </ProfileHandle>
+      <NbProfile>23</NbProfile>
+      <Profile>
+        <NetworkName>Profile Digicel</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Web Digicel</ProfileName>
+        <URL>http://www.google.com</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <PSparam>
+          <APN>web</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Profile Digicel</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>MMS Digicel</ProfileName>
+        <URL>http://mms.digicelgroup.com</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>172.16.7.12</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>wap</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Profile Haiti</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Web Digicel</ProfileName>
+        <URL>http://www.google.com</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <PSparam>
+          <APN>web.digicelha.com</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Profile Haiti</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>MMS Digicel</ProfileName>
+        <URL>http://mmc.digicelhaiti.com/servlets/mms</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>172.20.200.12</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>wap.digicelha.com</APN>
+          <UserId>wapha</UserId>
+          <Password>wap01ha</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Profile Samoa</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Web Digicel</ProfileName>
+        <URL>http://www.google.com</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <PSparam>
+          <APN>web</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Profile Samoa</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>MMS Digicel</ProfileName>
+        <URL>http://mms.digicelsamoa.net:8990</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>10.148.122.12</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>wap.digicelsamoa.ws</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Aruba Digicel</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Web Digicel</ProfileName>
+        <URL>http://www.google.com</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <PSparam>
+          <APN>web</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Aruba Digicel</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>MMS Digicel</ProfileName>
+        <URL>http://mms.digicelgroup.com</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>172.16.7.12</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>wap</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Curacao Digicel</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Web Digicel</ProfileName>
+        <URL>http://www.google.com</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <PSparam>
+          <APN>web</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Curacao Digicel</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>MMS Digicel</ProfileName>
+        <URL>http://mms.digicelgroup.com</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>172.16.7.12</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>wap</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Guyana Digicel</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Web Digicel</ProfileName>
+        <URL>http://www.google.com</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <PSparam>
+          <APN>web.digicelgy.com</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Guyana Digicel</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>MMS Digicel</ProfileName>
+        <URL>http://mmc.digicelgy.com/servlets/mms</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>172.20.6.12</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>wap.digicelgy.com</APN>
+          <UserId>wap</UserId>
+          <Password>wap</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Trinidad Digicel</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Web Digicel</ProfileName>
+        <URL>http://www.google.com</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <PSparam>
+          <APN>web.digiceltt.com</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Trinidad Digicel</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>MMS Digicel</ProfileName>
+        <URL>http://mmc.digiceltt.com/servlets/mms</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>172.20.6.12</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>wap.digiceltt.com</APN>
+          <UserId>wap</UserId>
+          <Password>wap</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Suriname Digicel</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Web Digicel</ProfileName>
+        <URL>http://www.google.com</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <PSparam>
+          <APN>web.digicelsr.com</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Suriname Digicel</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>MMS Digicel</ProfileName>
+        <URL>http://mmc.digicelsr.com/servlets/mms</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>172.20.6.12</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>wap.digicelsr.com</APN>
+          <UserId>wap</UserId>
+          <Password>wap</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Panama Digicel</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Web Digicel</ProfileName>
+        <URL>http://www.google.com</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <PSparam>
+          <APN>web.digicelpanama.com</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Panama Digicel</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>MMS Digicel</ProfileName>
+        <URL>http://mmc.digicelpanama.com/servlets/mms</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>172.27.99.99</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>wap.digicelpanama.com</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>British Virgin Islands Digicel</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Web Digicel</ProfileName>
+        <URL>http://www.google.com</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <PSparam>
+          <APN>web</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>British Virgin Islands Digicel</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>MMS Digicel</ProfileName>
+        <URL>http://mmc.digiceljamaica.com/servlets/mms</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>172.16.7.12</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>wap.digicelbvi.com</APN>
+          <UserId>wapbvi</UserId>
+          <Password>wapbvi</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>El Salvador Digicel</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Web Digicel</ProfileName>
+        <URL>http://www.google.com</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <PSparam>
+          <APN>web.digicelsv.com</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>El Salvador Digicel</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>MMS Digicel</ProfileName>
+        <URL>http://172.26.5.132/servlets/mms</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>172.26.5.12</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>wap.digicelsv.com</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Haiti Voila</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Web Voila</ProfileName>
+        <URL>http://www.google.com</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <PSparam>
+          <APN>internet.voila.ht</APN>
+        </PSparam>
+      </Profile>
+    </Connections>
+  </Settings>
+</CustomerData>

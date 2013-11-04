@@ -1,0 +1,269 @@
+<?xml  version="1.0" encoding="UTF-8" ?>
+<CustomerData>
+  <GeneralInfo>
+    <CSCEdition>ED005</CSCEdition>
+    <Country>THAILAND</Country>
+    <CountryISO>TH</CountryISO>
+    <Region>SEA</Region>
+    <SalesCode>THL</SalesCode>
+    <NbNetworkInfo>5</NbNetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>52001</MCCMNC>
+      <NetworkName>AIS</NetworkName>
+      <SPName>TH GSM</SPName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>52018</MCCMNC>
+      <NetworkName>DTAC</NetworkName>
+      <SPName>DTAC</SPName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>52099</MCCMNC>
+      <NetworkName>True Move</NetworkName>
+      <SPName>TRUE</SPName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>52000</MCCMNC>
+      <NetworkName>True Move H</NetworkName>
+      <SPCode>20</SPCode>
+      <SPName>TRUE-H</SPName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>52000</MCCMNC>
+      <NetworkName>CAT</NetworkName>
+      <SPCode>19</SPCode>
+      <SPName>my</SPName>
+    </NetworkInfo>
+  </GeneralInfo>
+  <Settings>
+    <Main>
+      <Network>
+        <AutoProfile>on</AutoProfile>
+        <AutoVoicemail>off</AutoVoicemail>
+        <AutoEmailAccount>off</AutoEmailAccount>
+        <AutoBookmark>off</AutoBookmark>
+        <AutoLink>off</AutoLink>
+        <AutoSyncML>off</AutoSyncML>
+        <AutoFastDormancy>off</AutoFastDormancy>
+        <AutoWbAmr>off</AutoWbAmr>
+        <AutoFOTA>off</AutoFOTA>
+      </Network>
+      <Sound>
+        <RngToneAlertType>melody</RngToneAlertType>
+        <ExtraSound>
+          <ConnectTone>on</ConnectTone>
+          <MinuteMind>off</MinuteMind>
+        </ExtraSound>
+      </Sound>
+      <Phone>
+        <DefLanguage>th_TH</DefLanguage>
+        <DefLanguageNoSIM>th_TH</DefLanguageNoSIM>		<T9Enabling>disable</T9Enabling>
+      </Phone>
+      <Security />
+    </Main>
+    <Messages>
+      <SMS>
+        <DeliveryReport>off</DeliveryReport>
+        <CharSupport>automatic</CharSupport>
+        <SSMS>off</SSMS>
+      </SMS>
+      <MMS>
+        <MmsSending>
+          <ReqDeliveryRep>off</ReqDeliveryRep>
+          <ReqReadRep>off</ReqReadRep>
+        </MmsSending>
+        <MmsReceiving>
+          <Home>auto</Home>
+          <Roaming>manual</Roaming>
+        </MmsReceiving>
+      </MMS>
+    </Messages>
+    <Browser>
+      <NbBookmark>2</NbBookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>yes</Editable>
+        <Index>1</Index>
+        <BookmarkName>Samsung  Apps</BookmarkName>
+        <URL>http://m.th.samsungapps.com</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>yes</Editable>
+        <Index>2</Index>
+        <BookmarkName>Yahoo!</BookmarkName>
+        <URL>http://m.yahoo.com/?tsrc=samsungbm</URL>
+      </Bookmark>
+      <eManual>
+        <URL>http://www.samsung.com/m-manual/common</URL>
+      </eManual>
+    </Browser>
+    <Connections>
+      <NbProfileHandle>5</NbProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>AIS</NetworkName>
+        <ProfBrowser>AIS Internet</ProfBrowser>
+        <ProfMMS>AIS MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>DTAC</NetworkName>
+        <ProfBrowser>dtac internet</ProfBrowser>
+        <ProfMMS>dtac MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>True Move</NetworkName>
+        <ProfBrowser>True GPRS Inet</ProfBrowser>
+        <ProfMMS>True GPRS MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>True Move H</NetworkName>
+        <ProfBrowser>TRUE-H INTERNET</ProfBrowser>
+        <ProfMMS>TRUE-H MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>1</NbNetProfile>
+        <NetworkName>CAT</NetworkName>
+        <ProfBrowser>my</ProfBrowser>
+      </ProfileHandle>
+      <NbProfile>9</NbProfile>
+      <Profile>
+        <NetworkName>AIS</NetworkName>
+        <ProfileName>AIS MMS</ProfileName>
+        <URL>http://mms.mobilelife.co.th</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>203.170.229.34</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>multimedia</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>AIS</NetworkName>
+        <ProfileName>AIS Internet</ProfileName>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>internet</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>DTAC</NetworkName>
+        <ProfileName>dtac internet</ProfileName>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>www.dtac.co.th</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>DTAC</NetworkName>
+        <ProfileName>dtac MMS</ProfileName>
+        <URL>http://mms.dtac.co.th:8002/</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>203.155.200.133</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mms</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>True Move</NetworkName>
+        <ProfileName>True GPRS MMS</ProfileName>
+        <URL>http://mms.truelife.com:8002/</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>10.4.7.39</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mms</APN>
+          <UserId>true</UserId>
+          <Password>true</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>True Move</NetworkName>
+        <ProfileName>True GPRS Inet</ProfileName>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <PSparam>
+          <APN>internet</APN>
+          <UserId>true</UserId>
+          <Password>true</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>True Move H</NetworkName>
+        <ProfileName>TRUE-H INTERNET</ProfileName>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>internet</APN>
+          <UserId>true</UserId>
+          <Password>true</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>True Move H</NetworkName>
+        <ProfileName>TRUE-H MMS</ProfileName>
+        <URL>http://mms.trueh.com:8002/</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>010.004.007.039</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>hmms</APN>
+          <UserId>true</UserId>
+          <Password>true</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>CAT</NetworkName>
+        <ProfileName>my</ProfileName>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>internet</APN>
+        </PSparam>
+      </Profile>
+    </Connections>
+  </Settings>
+</CustomerData>

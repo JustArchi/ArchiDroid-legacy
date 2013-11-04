@@ -1,0 +1,289 @@
+﻿<?xml  version="1.0" encoding="UTF-8" ?>
+<CustomerData>
+  <GeneralInfo>
+    <CSCEdition>ED002</CSCEdition>
+    <Country>GHANA</Country>
+    <CountryISO>GH</CountryISO>
+    <Region>MEA</Region>
+    <SalesCode>ACR</SalesCode>
+    <NbNetworkInfo>10</NbNetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>62001</MCCMNC>
+      <NetworkName>MTN Ghana</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>62002</MCCMNC>
+      <NetworkName>Vodafone Ghana</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>62003</MCCMNC>
+      <NetworkName>Tigo Ghana</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>62006</MCCMNC>
+      <NetworkName>Airtel Ghana</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>62004</MCCMNC>
+      <NetworkName>Expresso Ghana</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>62007</MCCMNC>
+      <NetworkName>Glo Ghana</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>61205</MCCMNC>
+      <NetworkName>MTN Ivory Coast</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>61203</MCCMNC>
+      <NetworkName>Orange Ivory Coast</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>61202</MCCMNC>
+      <NetworkName>Moov Ivory Coast</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>61204</MCCMNC>
+      <NetworkName>KoZ Ivory Coast</NetworkName>
+    </NetworkInfo>
+  </GeneralInfo>
+  <Settings>
+    <Main>
+      <Security>        <NbNetworkLock>33</NbNetworkLock>        <NetworkLock>460BB</NetworkLock>        <NetworkLock>250BB</NetworkLock>        <NetworkLock>255BB</NetworkLock>        <NetworkLock>502BB</NetworkLock>        <NetworkLock>510BB</NetworkLock>        <NetworkLock>401BB</NetworkLock>        <NetworkLock>525BB</NetworkLock>        <NetworkLock>452BB</NetworkLock>        <NetworkLock>505BB</NetworkLock>        <NetworkLock>515BB</NetworkLock>        <NetworkLock>470BB</NetworkLock>        <NetworkLock>404BB</NetworkLock>        <NetworkLock>405BB</NetworkLock>        <NetworkLock>603BB</NetworkLock>        <NetworkLock>602BB</NetworkLock>        <NetworkLock>432BB</NetworkLock>        <NetworkLock>604BB</NetworkLock>        <NetworkLock>416BB</NetworkLock>        <NetworkLock>424BB</NetworkLock>        <NetworkLock>425BB</NetworkLock>        <NetworkLock>724BB</NetworkLock>        <NetworkLock>370BB</NetworkLock>        <NetworkLock>338BB</NetworkLock>        <NetworkLock>374BB</NetworkLock>        <NetworkLock>706BB</NetworkLock>        <NetworkLock>734BB</NetworkLock>        <NetworkLock>714BB</NetworkLock>        <NetworkLock>712BB</NetworkLock>        <NetworkLock>740BB</NetworkLock>        <NetworkLock>704BB</NetworkLock>        <NetworkLock>708BB</NetworkLock>        <NetworkLock>710BB</NetworkLock>        <NetworkLock>606BB</NetworkLock>
+      </Security>
+      <Network>
+        <AutoProfile>on</AutoProfile>
+        <AutoVoicemail>off</AutoVoicemail>
+        <AutoEmailAccount>off</AutoEmailAccount>
+        <AutoBookmark>off</AutoBookmark>
+        <AutoLink>off</AutoLink>
+        <AutoSyncML>off</AutoSyncML>
+        <AutoFastDormancy>off</AutoFastDormancy>
+        <AutoWbAmr>off</AutoWbAmr>
+        <AutoFOTA>off</AutoFOTA>
+      </Network>
+      <Phone>
+        <DefLanguage>en_GB</DefLanguage>
+        <DefLanguageNoSIM>en_GB</DefLanguageNoSIM>
+      </Phone>
+    </Main>
+    <Browser>
+      <NbBookmark>2</NbBookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>yes</Editable>
+        <Index>1</Index>
+        <BookmarkName>Samsung Apps Web</BookmarkName>
+        <URL>http://www.samsungapps.com</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>yes</Editable>
+        <Index>2</Index>
+        <BookmarkName>Yahoo!</BookmarkName>
+        <URL>http://m.yahoo.com/?tsrc=samsungbm</URL>
+      </Bookmark>
+      <eManual>
+        <URL>http://www.samsung.com/m-manual/common</URL>
+      </eManual>
+    </Browser>
+    <Connections>
+      <NbProfileHandle>5</NbProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>MTN Ghana</NetworkName>
+        <ProfBrowser>MTN Ghana Internet</ProfBrowser>
+        <ProfMMS>MTN Ghana MMS</ProfMMS>
+        <ProfEmail>MTN Ghana Internet</ProfEmail>
+        <ProfIM>MTN Ghana Internet</ProfIM>
+        <ProfStreaming>MTN Ghana Internet</ProfStreaming>
+        <ProfSyncDS>MTN Ghana Internet</ProfSyncDS>
+        <ProfActiveSync>MTN Ghana Internet</ProfActiveSync>
+        <ProfSyncDM>MTN Ghana Internet</ProfSyncDM>
+        <ProfAGPS>MTN Ghana Internet</ProfAGPS>
+        <ProfSGPS>MTN Ghana Internet</ProfSGPS>
+        <ProfIntSharing>MTN Ghana Internet</ProfIntSharing>
+        <ProfChatOn>MTN Ghana Internet</ProfChatOn>
+        <ProfIMS>MTN Ghana Internet</ProfIMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>Vodafone Ghana</NetworkName>
+        <ProfBrowser>Vodafone Ghana Internet</ProfBrowser>
+        <ProfMMS>Vodafone Ghana MMS</ProfMMS>
+        <ProfEmail>Vodafone Ghana Internet</ProfEmail>
+        <ProfIM>Vodafone Ghana Internet</ProfIM>
+        <ProfStreaming>Vodafone Ghana Internet</ProfStreaming>
+        <ProfSyncDS>Vodafone Ghana Internet</ProfSyncDS>
+        <ProfActiveSync>Vodafone Ghana Internet</ProfActiveSync>
+        <ProfSyncDM>Vodafone Ghana Internet</ProfSyncDM>
+        <ProfAGPS>Vodafone Ghana Internet</ProfAGPS>
+        <ProfSGPS>Vodafone Ghana Internet</ProfSGPS>
+        <ProfIntSharing>Vodafone Ghana Internet</ProfIntSharing>
+        <ProfChatOn>Vodafone Ghana Internet</ProfChatOn>
+        <ProfIMS>Vodafone Ghana Internet</ProfIMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>Tigo Ghana</NetworkName>
+        <ProfBrowser>Tigo Ghana Internet</ProfBrowser>
+        <ProfMMS>Tigo Ghana MMS</ProfMMS>
+        <ProfEmail>Tigo Ghana Internet</ProfEmail>
+        <ProfIM>Tigo Ghana Internet</ProfIM>
+        <ProfStreaming>Tigo Ghana Internet</ProfStreaming>
+        <ProfSyncDS>Tigo Ghana Internet</ProfSyncDS>
+        <ProfActiveSync>Tigo Ghana Internet</ProfActiveSync>
+        <ProfSyncDM>Tigo Ghana Internet</ProfSyncDM>
+        <ProfAGPS>Tigo Ghana Internet</ProfAGPS>
+        <ProfSGPS>Tigo Ghana Internet</ProfSGPS>
+        <ProfIntSharing>Tigo Ghana Internet</ProfIntSharing>
+        <ProfChatOn>Tigo Ghana Internet</ProfChatOn>
+        <ProfIMS>Tigo Ghana Internet</ProfIMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>Airtel Ghana</NetworkName>
+        <ProfBrowser>Airtel Ghana Internet</ProfBrowser>
+        <ProfMMS>Airtel Ghana MMS</ProfMMS>
+        <ProfEmail>Airtel Ghana Internet</ProfEmail>
+        <ProfIM>Airtel Ghana Internet</ProfIM>
+        <ProfStreaming>Airtel Ghana Internet</ProfStreaming>
+        <ProfSyncDS>Airtel Ghana Internet</ProfSyncDS>
+        <ProfActiveSync>Airtel Ghana Internet</ProfActiveSync>
+        <ProfSyncDM>Airtel Ghana Internet</ProfSyncDM>
+        <ProfAGPS>Airtel Ghana Internet</ProfAGPS>
+        <ProfSGPS>Airtel Ghana Internet</ProfSGPS>
+        <ProfIntSharing>Airtel Ghana Internet</ProfIntSharing>
+        <ProfChatOn>Airtel Ghana Internet</ProfChatOn>
+        <ProfIMS>Airtel Ghana Internet</ProfIMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>Glo Ghana</NetworkName>
+        <ProfBrowser>Glo Ghana Internet</ProfBrowser>
+        <ProfMMS>Glo Ghana MMS</ProfMMS>
+        <ProfEmail>Glo Ghana Internet</ProfEmail>
+        <ProfIM>Glo Ghana Internet</ProfIM>
+        <ProfStreaming>Glo Ghana Internet</ProfStreaming>
+        <ProfSyncDS>Glo Ghana Internet</ProfSyncDS>
+        <ProfActiveSync>Glo Ghana Internet</ProfActiveSync>
+        <ProfSyncDM>Glo Ghana Internet</ProfSyncDM>
+        <ProfAGPS>Glo Ghana Internet</ProfAGPS>
+        <ProfSGPS>Glo Ghana Internet</ProfSGPS>
+        <ProfIntSharing>Glo Ghana Internet</ProfIntSharing>
+        <ProfChatOn>Glo Ghana Internet</ProfChatOn>
+        <ProfIMS>Glo Ghana Internet</ProfIMS>
+      </ProfileHandle>
+      <NbProfile>10</NbProfile>
+      <Profile>
+        <NetworkName>MTN Ghana</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>MTN Ghana Internet</ProfileName>
+        <URL>www.mtnplay.com.gh</URL>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <PSparam>
+          <APN>internet</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>MTN Ghana</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>MTN Ghana MMS</ProfileName>
+        <MTUSize>1500</MTUSize>
+      </Profile>
+      <Profile>
+        <NetworkName>Vodafone Ghana</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Vodafone Ghana Internet</ProfileName>
+        <Auth>none</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <ServAddr>172.24.97.1</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>browse</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Vodafone Ghana</NetworkName>
+        <ProfileName>Vodafone Ghana MMS</ProfileName>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <ServAddr>172.24.97.1</ServAddr>
+          <Port>9201</Port>
+        </Proxy>
+      </Profile>
+      <Profile>
+        <NetworkName>Tigo Ghana</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Tigo Ghana Internet</ProfileName>
+        <URL>www.tigo.com.gh</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+          <ServAddr>10.4.1.7</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>web.tigo.com.gh</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Tigo Ghana</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Tigo Ghana MMS</ProfileName>
+        <URL>mmsc.tigo.com.gh/19090</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+          <ServAddr>10.4.1.7</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+      </Profile>
+      <Profile>
+        <NetworkName>Airtel Ghana</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Airtel Ghana Internet</ProfileName>
+        <URL>www.airtellive.com</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <PSparam>
+          <APN>internet</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Airtel Ghana</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Airtel Ghana MMS</ProfileName>
+        <MTUSize>1500</MTUSize>
+      </Profile>
+      <Profile>
+        <NetworkName>Glo Ghana</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Glo Ghana Internet</ProfileName>
+        <URL>www.google.com</URL>
+        <Auth>secure</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+      </Profile>
+      <Profile>
+        <NetworkName>Glo Ghana</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Glo Ghana MMS</ProfileName>
+        <Auth>secure</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+      </Profile>
+    </Connections>
+  </Settings>
+</CustomerData>

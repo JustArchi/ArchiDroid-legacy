@@ -1,0 +1,334 @@
+﻿<?xml  version="1.0" encoding="UTF-8" ?>
+<CustomerData>
+  <GeneralInfo>
+    <CSCEdition>ED013</CSCEdition>
+    <Country>Romania</Country>
+    <CountryISO>RO</CountryISO>
+    <Region>EUR</Region>
+    <SalesCode>CNX</SalesCode>
+    <NbNetworkInfo>2</NbNetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>22601</MCCMNC>
+      <NetworkName>Vodafone RO PREPAID</NetworkName>
+      <SPName>Vodafone RO</SPName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>22601</MCCMNC>
+      <NetworkName>Vodafone RO POSTPAID</NetworkName>
+      <SPName>Vodafone RO</SPName>
+    </NetworkInfo>
+  </GeneralInfo>
+  <Settings>
+    <Main>
+      <Security>
+        <NbNetworkLock>1</NbNetworkLock>
+        <NetworkLock>22601</NetworkLock>
+      </Security>
+      <Network>
+        <NbFastDormancy>4</NbFastDormancy>
+        <FastDormancy>
+          <NetworkName>Vodafone RO PREPAID</NetworkName>
+          <FastDormancyEnableStatus>off</FastDormancyEnableStatus>
+          <LCDStatus>on</LCDStatus>
+        </FastDormancy>
+        <FastDormancy>
+          <NetworkName>Vodafone RO PREPAID</NetworkName>
+          <FastDormancyEnableStatus>on</FastDormancyEnableStatus>
+          <TimeoutValue>5</TimeoutValue>
+          <LCDStatus>off</LCDStatus>
+        </FastDormancy>
+        <FastDormancy>
+          <NetworkName>Vodafone RO POSTPAID</NetworkName>
+          <FastDormancyEnableStatus>off</FastDormancyEnableStatus>
+          <LCDStatus>on</LCDStatus>
+        </FastDormancy>
+        <FastDormancy>
+          <NetworkName>Vodafone RO POSTPAID</NetworkName>
+          <FastDormancyEnableStatus>on</FastDormancyEnableStatus>
+          <TimeoutValue>5</TimeoutValue>
+          <LCDStatus>off</LCDStatus>
+        </FastDormancy>
+        <AutoProfile>on</AutoProfile>
+        <AutoVoicemail>off</AutoVoicemail>
+        <AutoEmailAccount>off</AutoEmailAccount>
+        <AutoBookmark>off</AutoBookmark>
+        <AutoLink>off</AutoLink>
+        <AutoSyncML>off</AutoSyncML>
+        <AutoFastDormancy>on</AutoFastDormancy>
+        <AutoWbAmr>off</AutoWbAmr>
+        <AutoFOTA>off</AutoFOTA>
+      </Network>
+      <Sound>
+        <ExtraSound>
+          <ConnectTone>off</ConnectTone>
+        </ExtraSound>
+      </Sound>
+      <Phone>
+        <DefLanguage>ro_RO</DefLanguage>
+        <DefLanguageNoSIM>ro_RO</DefLanguageNoSIM>
+        <DateTimeFormat>
+          <DateFormat>ddmmyyyy</DateFormat>
+          <TimeFormat>24h</TimeFormat>
+        </DateTimeFormat>
+      </Phone>
+    </Main>
+    <Messages>
+      <NbVoicemail>1</NbVoicemail>
+      <Voicemail>
+        <NetworkName>default</NetworkName>
+        <TelNum>+40722033334</TelNum>
+      </Voicemail>
+      <PushMsg>
+        <PushLoading>prompt</PushLoading>
+      </PushMsg>
+      <SMS>
+        <MsgTypeThreshold>
+          <ThresholdValue>5</ThresholdValue>
+          <ThresholdType>pagecount</ThresholdType>
+        </MsgTypeThreshold>
+        <MaxRecipient>20</MaxRecipient>
+      </SMS>
+      <MMS>
+        <MmsSending>
+          <ReqDeliveryRep>on</ReqDeliveryRep>
+          <ReqReadRep>on</ReqReadRep>
+          <CreationMode>restricted</CreationMode>
+        </MmsSending>
+        <MmsReceiving>
+          <Home>auto</Home>
+          <Roaming>manual</Roaming>
+        </MmsReceiving>
+      </MMS>
+      <Email>
+        <NbAccount>3</NbAccount>
+        <Account>
+          <NetworkName>default</NetworkName>
+          <AccountName>Yahoo! Mail</AccountName>
+          <Incoming>
+            <MailboxType>pop3</MailboxType>
+            <ServAddr>plus.pop.mail.yahoo.com</ServAddr>
+            <Port>995</Port>
+            <Secure>ssl</Secure>
+          </Incoming>
+          <Outgoing>
+            <ServAddr>plus.smtp.mail.yahoo.com</ServAddr>
+            <Port>465</Port>
+            <Secure>ssl</Secure>
+          </Outgoing>
+        </Account>
+        <Account>
+          <NetworkName>default</NetworkName>
+          <AccountName>Gmail</AccountName>
+          <Incoming>
+            <MailboxType>pop3</MailboxType>
+            <ServAddr>pop.gmail.com</ServAddr>
+            <Port>995</Port>
+            <Secure>ssl</Secure>
+          </Incoming>
+          <Outgoing>
+            <ServAddr>smtp.gmail.com</ServAddr>
+            <Port>465</Port>
+            <Secure>ssl</Secure>
+          </Outgoing>
+        </Account>
+        <Account>
+          <NetworkName>default</NetworkName>
+          <AccountName>Hotmail</AccountName>
+          <Incoming>
+            <MailboxType>pop3</MailboxType>
+            <ServAddr>pop3.live.com</ServAddr>
+            <Port>995</Port>
+            <Secure>ssl</Secure>
+          </Incoming>
+          <Outgoing>
+            <ServAddr>smtp.live.com</ServAddr>
+            <Port>587</Port>
+            <Secure>ssl</Secure>
+          </Outgoing>
+        </Account>
+      </Email>
+    </Messages>
+    <Browser>
+      <NbBookmark>13</NbBookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>no</Editable>
+        <BookmarkName>Vodafone live!</BookmarkName>
+        <URL>http://myweb.360.com</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>no</Editable>
+        <BookmarkName>Cauta</BookmarkName>
+        <URL>http://live.vodafone.com/search</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>no</Editable>
+        <BookmarkName>My Vodafone</BookmarkName>
+        <URL>http://live.vodafone.com/myvodafone</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>no</Editable>
+        <BookmarkName>Tonuri de apel</BookmarkName>
+        <URL>http://live.vodafone.com/ringtonedownload</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>no</Editable>
+        <BookmarkName>Imagini</BookmarkName>
+        <URL>http://live.vodafone.com/picturedownload</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>no</Editable>
+        <BookmarkName>Jocuri</BookmarkName>
+        <URL>http://live.vodafone.com/games</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>no</Editable>
+        <BookmarkName>Stiri</BookmarkName>
+        <URL>http://live.vodafone.com/news</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>no</Editable>
+        <BookmarkName>Sport</BookmarkName>
+        <URL>http://live.vodafone.com/sport</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>no</Editable>
+        <BookmarkName>TV Mobil</BookmarkName>
+        <URL>http://live.vodafone.com/tv</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>no</Editable>
+        <BookmarkName>Muzica</BookmarkName>
+        <URL>http://live.vodafone.com/music</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>no</Editable>
+        <BookmarkName>Opera Mini</BookmarkName>
+        <URL>http://www.vodafone-live.ro/opera</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>no</Editable>
+        <BookmarkName>Facebook</BookmarkName>
+        <URL>http://m.facebook.com</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>no</Editable>
+        <BookmarkName>Yahoo!</BookmarkName>
+        <URL>http://m.yahoo.com</URL>
+      </Bookmark>
+      <eManual>
+        <URL>http://www.samsung.com/m-manual/voda</URL>
+      </eManual>
+    </Browser>
+    <GPS>
+      <NbAGPS>1</NbAGPS>
+      <AGPS>
+        <TLS>on</TLS>
+        <ServAddr>supl.vodafone.com</ServAddr>
+        <Port>7275</Port>
+      </AGPS>
+    </GPS>
+    <Connections>
+      <NbProfileHandle>2</NbProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>Vodafone RO POSTPAID</NetworkName>
+        <ProfBrowser>Vodafone live!</ProfBrowser>
+        <ProfMMS>Vodafone MMS</ProfMMS>
+        <ProfIntSharing>Vodafone live!</ProfIntSharing>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>Vodafone RO PREPAID</NetworkName>
+        <ProfBrowser>Vodafone live! PRE</ProfBrowser>
+        <ProfMMS>Vodafone MMS PRE</ProfMMS>
+        <ProfIntSharing>Vodafone live! PRE</ProfIntSharing>
+      </ProfileHandle>
+      <NbProfile>4</NbProfile>
+      <Profile>
+        <NetworkName>Vodafone RO POSTPAID</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Vodafone live!</ProfileName>
+        <URL>http://live.vodafone.com</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>live.vodafone.com</APN>
+          <UserId>live</UserId>
+          <Password>vodafone</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Vodafone RO PREPAID</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Vodafone live! PRE</ProfileName>
+        <URL>http://live.vodafone.com</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>live.pre.vodafone.com</APN>
+          <UserId>live</UserId>
+          <Password>vodafone</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Vodafone RO POSTPAID</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Vodafone MMS</ProfileName>
+        <URL>http://multimedia/servlets/mms</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>193.230.161.231</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mms.vodafone.ro</APN>
+          <UserId>mms</UserId>
+          <Password>vodafone</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Vodafone RO PREPAID</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Vodafone MMS PRE</ProfileName>
+        <URL>http://multimedia/servlets/mms</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>193.230.161.231</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mms.pre.vodafone.ro</APN>
+          <UserId>mms</UserId>
+          <Password>vodafone</Password>
+        </PSparam>
+      </Profile>
+    </Connections>
+  </Settings>
+</CustomerData>

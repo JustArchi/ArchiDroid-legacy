@@ -1,0 +1,54 @@
+<appOrder
+xmlns:launcher="http://schemas.android.com/apk/res/com.sec.android.app.launcher"
+>       
+  <favorite
+            launcher:packageName="com.vodafone.android.myweb.launcher"
+            launcher:className="com.vodafone.android.myweb.launcher.MyWebLauncherActivity" 
+            launcher:screen="0"/> 
+  <favorite
+            launcher:packageName="com.sfr.android.mobiletv"
+            launcher:className="com.sfr.android.mobiletv.MobileTV" 
+            launcher:screen="0"/> 
+  <favorite
+            launcher:packageName="com.sfr.android.vvm"
+            launcher:className="com.sfr.android.vvm.activity.SFRVVMMain" 
+            launcher:screen="0"/> 
+  <favorite
+            launcher:packageName="com.sfr.android.portail"
+            launcher:className="com.sfr.android.portail.SFRPortailMain" 
+            launcher:screen="0"/> 
+  <favorite
+            launcher:packageName="com.sfr.android.sfrwifi"
+            launcher:className="com.sfr.android.sfrwifi.activity.SFRWiFiStart" 
+            launcher:screen="0"/> 
+  <favorite
+            launcher:packageName="com.sfr.android.moncompte"
+            launcher:className="com.sfr.android.moncompte.MonCompteMain" 
+            launcher:screen="0"/> 
+  <favorite
+            launcher:packageName="com.sfr.android.sfrmultisurf"
+            launcher:className="com.sfr.android.sfrmultisurf.SFRMultisurfMain" 
+            launcher:screen="0"/> 
+  <favorite
+            launcher:packageName="com.sfr.android.sfrjeux"
+            launcher:className="com.sfr.android.sfrjeux.SFRJeuxMain" 
+            launcher:screen="0"/> 
+  <favorite
+            launcher:packageName="com.sfr.android.console"
+            launcher:className="com.sfr.android.console.wizard.WizardMain" 
+            launcher:screen="0"/>  
+  <favorite
+            launcher:packageName="com.sfr.android.cityzi"
+            launcher:className="com.sfr.android.cityzi.SFRCityziMain" 
+            launcher:screen="0"/>   
+  <favorite
+            launcher:packageName="com.gameloft.android.SFR.GloftF237"
+            launcher:className="com.gameloft.android.SFR.GloftF237.Start" 
+            launcher:screen="0"/>   
+  <favorite
+            launcher:packageName="com.ea.android.monopolyherenow"
+            launcher:className="com.ea.android.monopolyherenow.AndroidEntry" 
+            launcher:screen="0"/>
+
+</appOrder>
+

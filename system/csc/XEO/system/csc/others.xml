@@ -1,0 +1,13 @@
+<SamsungMobileFeauture> 
+<Version>ED002</Version>
+<Country>Poland</Country>
+<CountryISO>PL</CountryISO>
+<SalesCode>XEO</SalesCode>
+
+<FeatureSet>
+    <CscFeature_Web_EnableAutoSimHomeUrlInProfile>TRUE</CscFeature_Web_EnableAutoSimHomeUrlInProfile>
+    <CscFeature_Setting_DataRoamingOption>national</CscFeature_Setting_DataRoamingOption>
+    <CscFeature_Setting_EnableDataServicePopup>true</CscFeature_Setting_EnableDataServicePopup>
+    <CscFeature_RIL_DefaultDataStateFalse>true</CscFeature_RIL_DefaultDataStateFalse>
+</FeatureSet>
+</SamsungMobileFeauture>

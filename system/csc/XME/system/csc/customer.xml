@@ -1,0 +1,356 @@
+﻿<?xml  version="1.0" encoding="UTF-8" ?>
+<CustomerData>
+  <GeneralInfo>
+    <CSCEdition>ED004</CSCEdition>
+    <Country>MALAYSIA</Country>
+    <CountryISO>MY</CountryISO>
+    <Region>SEA</Region>
+    <SalesCode>XME</SalesCode>
+    <NbNetworkInfo>6</NbNetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>50219</MCCMNC>
+      <NetworkName>CELCOM3G</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>50219</MCCMNC>
+      <NetworkName>CELCOM2G</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>50212</MCCMNC>
+      <NetworkName>MAXIS3G</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>50212</MCCMNC>
+      <NetworkName>MAXIS2G</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>50216</MCCMNC>
+      <NetworkName>DIGI</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>50218</MCCMNC>
+      <NetworkName>U MOBILE</NetworkName>
+    </NetworkInfo>
+  </GeneralInfo>
+  <Settings>
+    <Main>
+      <Network>
+        <AutoProfile>on</AutoProfile>
+        <AutoVoicemail>on</AutoVoicemail>
+        <AutoEmailAccount>off</AutoEmailAccount>
+        <AutoBookmark>off</AutoBookmark>
+        <AutoLink>off</AutoLink>
+        <AutoSyncML>off</AutoSyncML>
+        <AutoFastDormancy>off</AutoFastDormancy>
+        <AutoWbAmr>off</AutoWbAmr>
+        <AutoFOTA>off</AutoFOTA>
+      </Network>
+      <Sound>
+        <RngToneAlertType>melody</RngToneAlertType>
+        <ExtraSound>
+          <ConnectTone>on</ConnectTone>
+          <CallEndTone>on</CallEndTone>
+          <MinuteMind>off</MinuteMind>
+        </ExtraSound>
+      </Sound>
+      <Phone>
+        <AlertOnCall>on</AlertOnCall>
+        <DefLanguage>en_GB</DefLanguage>
+        <DefLanguageNoSIM>en_GB</DefLanguageNoSIM>
+      </Phone>
+      <Security />
+    </Main>
+    <Contact>
+      <ViewFrom>both</ViewFrom>
+    </Contact>
+    <Messages>
+      <NbVoicemail>6</NbVoicemail>
+      <Voicemail>
+        <NetworkName>CELCOM3G</NetworkName>
+        <TelNum>1313</TelNum>
+      </Voicemail>
+      <Voicemail>
+        <NetworkName>CELCOM2G</NetworkName>
+        <TelNum>1313</TelNum>
+      </Voicemail>
+      <Voicemail>
+        <NetworkName>MAXIS3G</NetworkName>
+        <TelNum>121</TelNum>
+      </Voicemail>
+      <Voicemail>
+        <NetworkName>MAXIS2G</NetworkName>
+        <TelNum>121</TelNum>
+      </Voicemail>
+      <Voicemail>
+        <NetworkName>DIGI</NetworkName>
+        <TelNum>121</TelNum>
+      </Voicemail>
+      <Voicemail>
+        <NetworkName>U MOBILE</NetworkName>
+        <TelNum>1311</TelNum>
+      </Voicemail>
+      <SMS>
+        <DeliveryReport>off</DeliveryReport>
+        <CharSupport>automatic</CharSupport>
+        <SSMS>off</SSMS>
+      </SMS>
+      <MMS>
+        <MmsSending>
+          <ReqDeliveryRep>off</ReqDeliveryRep>
+          <ReqReadRep>off</ReqReadRep>
+        </MmsSending>
+        <MmsReceiving>
+          <Home>auto</Home>
+          <Roaming>manual</Roaming>
+        </MmsReceiving>
+      </MMS>
+    </Messages>
+    <Browser>
+      <NbBookmark>5</NbBookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>yes</Editable>
+        <Index>1</Index>
+        <BookmarkName>Samsung Apps</BookmarkName>
+        <URL>http://m.my.samsungapps.com</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>yes</Editable>
+        <Index>2</Index>
+        <BookmarkName>Google Search</BookmarkName>
+        <URL>http://www.google.com/m</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>yes</Editable>
+        <Index>3</Index>
+        <BookmarkName>Google Mail</BookmarkName>
+        <URL>http://mail.google.com/mail/x/</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>yes</Editable>
+        <Index>4</Index>
+        <BookmarkName>Yahoo!</BookmarkName>
+        <URL>http://m.yahoo.com/?tsrc=samsungbm</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>yes</Editable>
+        <Index>5</Index>
+        <BookmarkName>Gameloft Special Promotion</BookmarkName>
+        <URL>http://sms.gameloft.com/ab3622aa</URL>
+      </Bookmark>
+      <eManual>
+        <URL>http://www.samsung.com/m-manual/common</URL>
+      </eManual>
+    </Browser>
+    <Connections>
+      <NbProfileHandle>6</NbProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>CELCOM3G</NetworkName>
+        <ProfBrowser>Celcom 3G Internet</ProfBrowser>
+        <ProfMMS>Celcom 3G MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>MAXIS3G</NetworkName>
+        <ProfBrowser>Maxis 3G Internet</ProfBrowser>
+        <ProfMMS>Maxis 3G MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>U MOBILE</NetworkName>
+        <ProfBrowser>U Mobile Internet</ProfBrowser>
+        <ProfMMS>U Mobile MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>CELCOM2G</NetworkName>
+        <ProfBrowser>Celcom Internet</ProfBrowser>
+        <ProfMMS>Celcom MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>MAXIS2G</NetworkName>
+        <ProfBrowser>Maxis Internet</ProfBrowser>
+        <ProfMMS>Maxis MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>DIGI</NetworkName>
+        <ProfBrowser>DiGi Internet</ProfBrowser>
+        <ProfMMS>DiGi MMS</ProfMMS>
+      </ProfileHandle>
+      <NbProfile>12</NbProfile>
+      <Profile>
+        <NetworkName>CELCOM3G</NetworkName>
+        <ProfileName>Celcom 3G MMS</ProfileName>
+        <URL>http://mms.celcom.net.my</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>10.128.1.242</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>celcom3g</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>MAXIS3G</NetworkName>
+        <ProfileName>Maxis 3G MMS</ProfileName>
+        <URL>http://172.16.74.100:10021/mmsc</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>202.75.133.49</ServAddr>
+          <Port>80</Port>
+        </Proxy>
+        <PSparam>
+          <APN>unet</APN>
+          <UserId>maxis</UserId>
+          <Password>wap</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>U MOBILE</NetworkName>
+        <ProfileName>U Mobile MMS</ProfileName>
+        <URL>http://10.30.3.11/servlets/mms</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>10.30.5.11</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>my3g</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>CELCOM2G</NetworkName>
+        <ProfileName>Celcom MMS</ProfileName>
+        <URL>http://mms.celcom.net.my</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>10.128.1.242</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mms.celcom.net.my</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>MAXIS2G</NetworkName>
+        <ProfileName>Maxis MMS</ProfileName>
+        <URL>http://172.16.74.100:10021/mmsc</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>202.75.133.49</ServAddr>
+          <Port>80</Port>
+        </Proxy>
+        <PSparam>
+          <APN>net</APN>
+          <UserId>maxis</UserId>
+          <Password>wap</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>DIGI</NetworkName>
+        <ProfileName>DiGi MMS</ProfileName>
+        <URL>http://mms.digi.com.my/servlets/mms</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>203.92.128.160</ServAddr>
+          <Port>80</Port>
+        </Proxy>
+        <PSparam>
+          <APN>digimms</APN>
+          <UserId>mms</UserId>
+          <Password>mms</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>CELCOM3G</NetworkName>
+        <ProfileName>Celcom 3G Internet</ProfileName>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <PSparam>
+          <APN>celcom3g</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>MAXIS3G</NetworkName>
+        <ProfileName>Maxis 3G Internet</ProfileName>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <PSparam>
+          <APN>unet</APN>
+          <UserId>maxis</UserId>
+          <Password>wap</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>U MOBILE</NetworkName>
+        <ProfileName>U Mobile Internet</ProfileName>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <PSparam>
+          <APN>my3g</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>CELCOM2G</NetworkName>
+        <ProfileName>Celcom Internet</ProfileName>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <PSparam>
+          <APN>celcom.net.my</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>MAXIS2G</NetworkName>
+        <ProfileName>Maxis Internet</ProfileName>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <PSparam>
+          <APN>net</APN>
+          <UserId>maxis</UserId>
+          <Password>wap</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>DIGI</NetworkName>
+        <ProfileName>DiGi Internet</ProfileName>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <PSparam>
+          <APN>diginet</APN>
+        </PSparam>
+      </Profile>
+    </Connections>
+  </Settings>
+</CustomerData>

@@ -1,0 +1,368 @@
+<?xml  version="1.0" encoding="UTF-8" ?>
+<!-- It can be added for each operators like below form
+
+<ABC>                       -> sales code
+<sapient>true</sapient>         -> feature1
+<burton>false</burton>          -> feature2
+<libtech>true</libtech>         -> feature3
+.
+.
+</ABC>
+
+each name of tags are will be environment variable with "ro.csc."
+ex) "ro.csc.sapient", "ro.csc.burton", "ro.csc.libtech" <== you could use them at any section.
+also, should be added between <FeatureSet>
+ and </FeatureSet> .
+jhwan.kim@hdlnc.com  -->
+<SamsungMobileFeature>
+
+<Country></Country>
+<CountryISO></CountryISO>
+<SalesCode></SalesCode>
+
+<!-- Default Values -->
+<FeatureSet>
+
+<!-- Common -->
+<CscFeature_Common_DisablePhoneNumberFormatting>true</CscFeature_Common_DisablePhoneNumberFormatting>
+<CscFeature_Common_EnableRingtoneFromMusicLibrary>true</CscFeature_Common_EnableRingtoneFromMusicLibrary>
+
+<!-- Camera -->
+<CscFeature_Camera_CameraFlicker>50hz</CscFeature_Camera_CameraFlicker>
+
+<!-- Message -->
+<CscFeature_Message_EnableScheduledMessage>true</CscFeature_Message_EnableScheduledMessage>
+<CscFeature_Message_EnableSaveVMessage>true</CscFeature_Message_EnableSaveVMessage>
+<CscFeature_Message_EmbeddedTextTemplateType>csc</CscFeature_Message_EmbeddedTextTemplateType>
+<CscFeature_Message_EnableTextTemplateButton>true</CscFeature_Message_EnableTextTemplateButton>
+<CscFeature_Message_EnablePreloadTextTemplate>true</CscFeature_Message_EnablePreloadTextTemplate>
+<CscFeature_Message_PositionTextTemplateMenu>false</CscFeature_Message_PositionTextTemplateMenu>
+<CscFeature_Message_EnableBlackList>true</CscFeature_Message_EnableBlackList>
+<CscFeature_Message_DisableOptionAttachLocation>true</CscFeature_Message_DisableOptionAttachLocation>
+<CscFeature_Message_DisableInputMode>true</CscFeature_Message_DisableInputMode>
+<CscFeature_Message_DisableMenuSmsInputMode>true</CscFeature_Message_DisableMenuSmsInputMode>
+<CscFeature_Message_DisableMenuCBChannel>true</CscFeature_Message_DisableMenuCBChannel>
+<CscFeature_Message_DisableMenuCBLanguage>true</CscFeature_Message_DisableMenuCBLanguage>
+<CscFeature_Message_EnableAllContextMenuInMsgViewer>true</CscFeature_Message_EnableAllContextMenuInMsgViewer>
+<CscFeature_Message_EnableMmsOnePageViewer>true</CscFeature_Message_EnableMmsOnePageViewer>
+<CscFeature_Message_AddSendOptionInComposer>true</CscFeature_Message_AddSendOptionInComposer>
+<CscFeature_Message_EnableMmsAutoDownload4Spam>true</CscFeature_Message_EnableMmsAutoDownload4Spam>
+<CscFeature_Message_EnableMMSReadreportV10>false</CscFeature_Message_EnableMMSReadreportV10>
+
+<!-- KIES -->
+<CscFeature_Kies_SupportCategory>Device,Calendar,Contents,Phonebook,Memo,Message,Phonebook_com.android.exchange,Phonebook_com.google,Phonebook_com.osp.app.signin</CscFeature_Kies_SupportCategory>
+<CscFeature_Kies_DrCategory>SN_IMEI_FILE,Ril_Sales,Normal,MSISDN_File,Normal,GT-I9100,Normal,Normal,Normal</CscFeature_Kies_DrCategory>
+<CscFeature_Kies_WifiCategory>Phone,Normal,Normal,1280X720,20,Kies_via_WLAN</CscFeature_Kies_WifiCategory>
+<CscFeature_Kies_NpsCategory>Splanner,Smemo,Normal,Normal,none_Memo,Normal,Normal,Normal,Normal,Normal,Normal,Normal,Normal,Normal,Normal,Normal</CscFeature_Kies_NpsCategory>
+
+
+<!-- Contacts -->
+<CscFeature_Contact_ExportAllNumberToSIM>true</CscFeature_Contact_ExportAllNumberToSIM>
+<CscFeature_Contact_DisableMergeWithGoogle>true</CscFeature_Contact_DisableMergeWithGoogle>
+<CscFeature_Contact_DisableGoogleMapIntegration>true</CscFeature_Contact_DisableGoogleMapIntegration>
+<CscFeature_Contact_DisableGoogleTalk>true</CscFeature_Contact_DisableGoogleTalk>
+<CscFeature_Contact_ImProviderFirstPostion_As>QQ</CscFeature_Contact_ImProviderFirstPostion_As>
+<CscFeature_Contact_SetLinkCountMaxAs>5</CscFeature_Contact_SetLinkCountMaxAs>
+<CscFeature_Contact_AddPreloadedSpeedDialAs>None,0,None,None</CscFeature_Contact_AddPreloadedSpeedDialAs>
+<CscFeature_Contact_ANRConfig>1</CscFeature_Contact_ANRConfig>
+<CscFeature_Contact_EnableNotificationWhenDeviceMemoryFull>true</CscFeature_Contact_EnableNotificationWhenDeviceMemoryFull>
+<CscFeature_Contact_UseUniNameField>true</CscFeature_Contact_UseUniNameField>
+<CscFeature_Contact_EnableMenuStorageStatus>true</CscFeature_Contact_EnableMenuStorageStatus>
+<CscFeature_Contact_DisableMenuNameOrder>true</CscFeature_Contact_DisableMenuNameOrder>
+<CscFeature_Contact_CheckSimAlphaLength4UnicodeName>true</CscFeature_Contact_CheckSimAlphaLength4UnicodeName>
+<CscFeature_Contact_EnableIPCall>true</CscFeature_Contact_EnableIPCall>
+<CscFeature_Contact_EnableDialerSearchList4China>true</CscFeature_Contact_EnableDialerSearchList4China>
+<CscFeature_Contact_EnablePuzzySearch>CHNGSM</CscFeature_Contact_EnablePuzzySearch>
+<CscFeature_Contact_EnableMultiplePinyinSearch>true</CscFeature_Contact_EnableMultiplePinyinSearch>
+<CscFeature_Contact_SeparateLookupTable4ChinaDialerSearch>true</CscFeature_Contact_SeparateLookupTable4ChinaDialerSearch>
+<CscFeature_Contact_EnableCopyToDialer>true</CscFeature_Contact_EnableCopyToDialer>
+<CscFeature_Contact_DisableDigitFormattingByLocale >true</CscFeature_Contact_DisableDigitFormattingByLocale>
+<CscFeature_Contact_DisableTriggerInternetCall>true</CscFeature_Contact_DisableTriggerInternetCall>
+<CscFeature_Contact_LimitNameLength>250</CscFeature_Contact_LimitNameLength>
+<CscFeature_Contact_FixedEngModeInListBrowsing>true</CscFeature_Contact_FixedEngModeInListBrowsing>
+<CscFeature_Contact_RemoveLog4DeletedMsg>true</CscFeature_Contact_RemoveLog4DeletedMsg>
+
+<!-- Calendar -->
+<CscFeature_Calendar_DisplayHoliday>CHN</CscFeature_Calendar_DisplayHoliday>
+<CscFeature_Calendar_SetDaysInFirstWeek>EUR</CscFeature_Calendar_SetDaysInFirstWeek>
+<CscFeature_Calendar_DisplayLunarCalendar>true</CscFeature_Calendar_DisplayLunarCalendar>
+<CscFeature_Calendar_SupportSDCardImEx>true</CscFeature_Calendar_SupportSDCardImEx>
+<CscFeature_Calendar_SupportEAS>EUR</CscFeature_Calendar_SupportEAS>
+<CscFeature_Calendar_SupportGateMsg>false</CscFeature_Calendar_SupportGateMsg>
+<CscFeature_Calendar_DisplaySimplifiedUX>true</CscFeature_Calendar_DisplaySimplifiedUX>
+<CscFeature_Calendar_SupportSMemo>true</CscFeature_Calendar_SupportSMemo>
+<CscFeature_Calendar_SupportSNote>false</CscFeature_Calendar_SupportSNote>
+<CscFeature_Calendar_SupportGoogleMap>false</CscFeature_Calendar_SupportGoogleMap>
+<CscFeature_Calendar_SupportSMSRemider>false</CscFeature_Calendar_SupportSMSRemider>
+
+<!-- New Calendar -->
+<CscFeature_Calendar_EnableLocalHolidayDisplay>CHINA</CscFeature_Calendar_EnableLocalHolidayDisplay>
+<CscFeature_Calendar_EnableLunar>true</CscFeature_Calendar_EnableLunar>
+<CscFeature_Calendar_EnableSDCardImport>true</CscFeature_Calendar_EnableSDCardImport>
+<CscFeature_Calendar_DisableGoogleMapIntegration>true</CscFeature_Calendar_DisableGoogleMapIntegration>
+<CscFeature_Calendar_ReplaceMenuAutoNavi>false</CscFeature_Calendar_ReplaceMenuAutoNavi>
+<CscFeature_Calendar_EnableShiftedWeekNumber>false</CscFeature_Calendar_EnableShiftedWeekNumber>
+<CscFeature_Calendar_AddItem4SearchApp>false</CscFeature_Calendar_AddItem4SearchApp>
+<CscFeature_Calendar_SetColorOfDays>XXXXXBR</CscFeature_Calendar_SetColorOfDays>
+
+<!-- Call -->
+<CscFeature_VoiceCall_IPCallPrefix>false</CscFeature_VoiceCall_IPCallPrefix>
+<CscFeature_VoiceCall_TotalCallTime>false</CscFeature_VoiceCall_TotalCallTime>
+<CscFeature_VoiceCall_ServiceNumberDisplay>false</CscFeature_VoiceCall_ServiceNumberDisplay>
+<CscFeature_VT_CallendCauseTelephonica>false</CscFeature_VT_CallendCauseTelephonica>
+<CscFeature_VT_CallendCauseVAU>false</CscFeature_VT_CallendCauseVAU>
+<CscFeature_VoiceCall_EnableSeparateCallReject>true</CscFeature_VoiceCall_EnableSeparateCallReject>
+
+<!-- Clock -->
+<CscFeature_Clock_DisableAccWeatherInfo>true</CscFeature_Clock_DisableAccWeatherInfo>
+<CscFeature_Clock_DisableGoogleLocationInfo>true</CscFeature_Clock_DisableGoogleLocationInfo>
+<CscFeature_Clock_EnableAutoPowerOnOffMenu>true</CscFeature_Clock_EnableAutoPowerOnOffMenu>
+<CscFeature_Clock_ReplaceName_TaiwanWithTaipei>true</CscFeature_Clock_ReplaceName_TaiwanWithTaipei>
+<CscFeature_Clock_ReplaceNameTaiwanWithTaipei>true</CscFeature_Clock_ReplaceNameTaiwanWithTaipei>
+<CscFeature_Clock_EnablePinyinSortList>true</CscFeature_Clock_EnablePinyinSortList>
+<CscFeature_Clocks_DisableSortByCityName>false</CscFeature_Clocks_DisableSortByCityName>
+<CscFeature_Clock_ExclusiveEnablingAutoPowerSetting>false</CscFeature_Clock_ExclusiveEnablingAutoPowerSetting>
+<CscFeature_Clock_DisableIsraelCountry>false</CscFeature_Clock_DisableIsraelCountry>
+
+<!-- Mini Diary -->
+<CscFeature_MiniDiary_DisableAccWeatherInfo>true</CscFeature_MiniDiary_DisableAccWeatherInfo>
+<CscFeature_MiniDiary_DisableGoogleLocationInfo>true</CscFeature_MiniDiary_DisableGoogleLocationInfo>
+<CscFeature_MiniDiary_DisableChinaSns>false</CscFeature_MiniDiary_DisableChinaSns>
+<CscFeature_MiniDiary_EnableLocalSns>China</CscFeature_MiniDiary_EnableLocalSns>
+
+<!-- Memo -->
+<CscFeature_Memo_DisableMemoSync>false</CscFeature_Memo_DisableMemoSync>
+
+<!-- Dialer / Logs -->
+<CscFeature_Dialer_PhonebookNdigitsMatching>false</CscFeature_Dialer_PhonebookNdigitsMatching>
+
+<!-- Log -->
+
+<!-- RIL -->
+<CscFeature_RIL_DisplayPlmnByLURejectCause>true</CscFeature_RIL_DisplayPlmnByLURejectCause>
+<CscFeature_RIL_FixVoiceMailNum>false</CscFeature_RIL_FixVoiceMailNum>
+<CscFeature_RIL_OperatorUSSD>false</CscFeature_RIL_OperatorUSSD>
+<CscFeature_RIL_Enable2DigitCall>false</CscFeature_RIL_Enable2DigitCall>
+<CscFeature_RIL_SupportUssdWithSharpChar>false</CscFeature_RIL_SupportUssdWithSharpChar>
+<CscFeature_RIL_ForceConnectMMS>true</CscFeature_RIL_ForceConnectMMS>
+<CscFeature_RIL_ShowRatInNetworkList>true</CscFeature_RIL_ShowRatInNetworkList>
+<CscFeature_RIL_DisplayRatInfoInManualNetSearchList>true</CscFeature_RIL_DisplayRatInfoInManualNetSearchList>
+
+<!-- Settings -->
+<CscFeature_Settings_FindMyMobile>true</CscFeature_Settings_FindMyMobile>
+<CscFeature_Settings_FOTA>false</CscFeature_Settings_FOTA>
+<CscFeature_Settings_GMS_Disable>false</CscFeature_Settings_GMS_Disable>
+<CscFeature_Settings_Airplane_Wifi_Dependency>false</CscFeature_Settings_Airplane_Wifi_Dependency>
+<CscFeature_Settings_Silent_Feedback>false</CscFeature_Settings_Silent_Feedback>
+<CscFeature_Settings_HWVersion>false</CscFeature_Settings_HWVersion>
+<CscFeature_Settings_Reset_Password>false</CscFeature_Settings_Reset_Password>
+<CscFeature_Settings_VZWDeviceInfo>false</CscFeature_Settings_VZWDeviceInfo>
+<CscFeature_Settings_GOTA>false</CscFeature_Settings_GOTA>
+<CscFeature_Settings_4GProvisioning>false</CscFeature_Settings_4GProvisioning>
+<CscFeature_Settings_HW_Version>false</CscFeature_Settings_HW_Version>
+<CscFeature_Settings_Software_Update_Settings>false</CscFeature_Settings_Software_Update_Settings>
+<CscFeature_Setting_DisableMenuSoftwareUpdate>false</CscFeature_Setting_DisableMenuSoftwareUpdate>
+<CscFeature_Settings_DeviceID_Convert>false</CscFeature_Settings_DeviceID_Convert>
+<CscFeature_Setting_DisableIsraelCountry>false</CscFeature_Setting_DisableIsraelCountry>
+<CscFeature_Setting_EnableMenuBlockCallMsg>true</CscFeature_Setting_EnableMenuBlockCallMsg>
+<CscFeature_Setting_EnableMyPhonebookAccount>false</CscFeature_Setting_EnableMyPhonebookAccount>
+<CscFeature_Setting_UseMyPhonebookAppNameAs>Myphonebook</CscFeature_Setting_UseMyPhonebookAppNameAs>
+<CscFeature_Setting_UseDefaultTtsEngineAs>true</CscFeature_Setting_UseDefaultTtsEngineAs>
+
+<!-- MMApp -->
+<CscFeature_FMRadioRTPlus>false</CscFeature_FMRadioRTPlus>
+<CscFeature_FMRadioSEASetting>false</CscFeature_FMRadioSEASetting>
+<CscFeature_FMRadioCHNSetting>true</CscFeature_FMRadioCHNSetting>
+<CscFeature_FMRadio_DisableMenuAf>true</CscFeature_FMRadio_DisableMenuAf>
+<CscFeature_FMRadio_DisableMenuRds>true</CscFeature_FMRadio_DisableMenuRds>
+
+<!-- MyFiles -->
+<CscFeature_MyFiles_SupportRmvbFileFormat>true</CscFeature_MyFiles_SupportRmvbFileFormat>
+<CscFeature_MyFiles_ProtectDataFolder>true</CscFeature_MyFiles_ProtectDataFolder>
+<CscFeature_MyFiles_EnablePinyinSort>true</CscFeature_MyFiles_EnablePinyinSort>
+
+<!-- Gallery -->
+<CscFeature_Gallery_Delete_Location_Info>true</CscFeature_Gallery_Delete_Location_Info>
+<CscFeature_Gallery_ReplaceMenu_AutoNavi>true</CscFeature_Gallery_ReplaceMenu_AutoNavi>
+<CscFeature_Gallery_ChinaGsm_Change_Time_Format>false</CscFeature_Gallery_ChinaGsm_Change_Time_Format>
+<CscFeature_Gallery_Delete_Menu_Offline>true</CscFeature_Gallery_Delete_Menu_Offline>
+
+<!-- Music -->
+<CscFeature_Music_SupportPinyinSort>true</CscFeature_Music_SupportPinyinSort>
+<CscFeature_Music_DisableFindTag>true</CscFeature_Music_DisableFindTag>
+<CscFeature_Music_SupportChinaMusicHub>true</CscFeature_Music_SupportChinaMusicHub>
+<CscFeature_Music_TranslateUnknownTitle>false</CscFeature_Music_TranslateUnknownTitle>
+
+<!-- VoiceRecorder -->
+<CscFeature_VoiceRecorder_UseEnglishDefaultName>false</CscFeature_VoiceRecorder_UseEnglishDefaultName>
+
+<!-- MMFW -->
+<CscFeature_MediaScanner_FixLocaleTo></CscFeature_MediaScanner_FixLocaleTo>
+<CscFeature_MediaScanner_SkipFolder4>/mnt/sdcard/autonavidata50/,/mnt/sdcard/DioDict3B/</CscFeature_MediaScanner_SkipFolder4>
+<CscFeature_MediaProvider_AddTable4VT>false</CscFeature_MediaProvider_AddTable4VT>
+<CscFeature_MediaProvider_AddDB4VAS>false</CscFeature_MediaProvider_AddDB4VAS>
+<CscFeature_MediaScanner_MultipleEncoding></CscFeature_MediaScanner_MultipleEncoding>
+
+<!-- MTP -->
+<CscFeature_MTP_UseUnicodeDeviceFriendlyName>true</CscFeature_MTP_UseUnicodeDeviceFriendlyName>
+
+<!-- NFC -->
+<CscFeature_NFC_SetOffAsDefault>true</CscFeature_NFC_SetOffAsDefault>
+<CscFeature_NFC_BeamUrlToSamsungApps>true</CscFeature_NFC_BeamUrlToSamsungApps>
+
+<!-- WEB -->
+<CscFeature_Web_SetUserAgent></CscFeature_Web_SetUserAgent>
+<CscFeature_Web_SetUAProfile></CscFeature_Web_SetUAProfile>
+<CscFeature_Web_Bool_EnableDRM>true</CscFeature_Web_Bool_EnableDRM>
+<CscFeature_Web_SetHomepageURL>about:blank</CscFeature_Web_SetHomepageURL>
+<CscFeature_Web_Str_homeurl>about:blank</CscFeature_Web_Str_homeurl>
+<CscFeature_Web_DisableRSS>true</CscFeature_Web_DisableRSS>
+<CscFeature_Web_DisableVoiceSearch>true</CscFeature_Web_DisableVoiceSearch>
+<CscFeature_Web_DisableRedirectionChooser>true</CscFeature_Web_DisableRedirectionChooser>
+<CscFeature_Web_Bool_Disable_Chooser_For_APPLICATION_X_APPLICATIONFOLDER>false
+</CscFeature_Web_Bool_Disable_Chooser_For_APPLICATION_X_APPLICATIONFOLDER>
+<CscFeature_Web_Bool_StartWIFISettingInAirplaneMode>false</CscFeature_Web_Bool_StartWIFISettingInAirplaneMode>
+<CscFeature_Web_Bool_SkipSettingDefaultBookmarkImage>false</CscFeature_Web_Bool_SkipSettingDefaultBookmarkImage>
+<CscFeature_Web_Bool_EnableUAProfile>false</CscFeature_Web_Bool_EnableUAProfile>
+<CscFeature_Web_Bool_RemoveVideoDownload>false</CscFeature_Web_Bool_RemoveVideoDownload>
+<CscFeature_Web_Bool_DisableSaveLink>false</CscFeature_Web_Bool_DisableSaveLink>
+<CscFeature_Web_Bool_EnableGateConfig>false</CscFeature_Web_Bool_EnableGateConfig>
+<CscFeature_Web_OverrideUserAgent>false</CscFeature_Web_OverrideUserAgent>
+<CscFeature_Web_EnableDeletingTodayHistory>false</CscFeature_Web_EnableDeletingTodayHistory>
+<CscFeature_Web_EnableOptionEditTextDuringFullHwr>true</CscFeature_Web_EnableOptionEditTextDuringFullHwr>
+<CscFeature_Web_DisableGoogleInBrowserSearchEngine>true</CscFeature_Web_DisableGoogleInBrowserSearchEngine>
+
+<!-- AppFW -->
+<CscFeature_AppFW_FolderKey>false</CscFeature_AppFW_FolderKey>
+<CscFeature_AppFW_FullScreenHandwritingMode>false</CscFeature_AppFW_FullScreenHandwritingMode>
+<CscFeature_LockScreen_CHN_Rest_With_Wrong_Password>false</CscFeature_LockScreen_CHN_Rest_With_Wrong_Password>
+<CscFeature_LockScreen_CHN_Clock_Time_Format_12H>false</CscFeature_LockScreen_CHN_Clock_Time_Format_12H>
+<CscFeature_LockScreen_CHN_Music_Controller_Stop_Button>false</CscFeature_LockScreen_CHN_Music_Controller_Stop_Button>
+<CscFeature_LockScreen_COM_Puk_Simple_Insert_Method>false</CscFeature_LockScreen_COM_Puk_Simple_Insert_Method>
+<CscFeature_LockScreen_COM_Emergency_Call_Feature>false</CscFeature_LockScreen_COM_Emergency_Call_Feature>
+<CscFeature_LockScreen_COM_PLMN_Display_Feature>false</CscFeature_LockScreen_COM_PLMN_Display_Feature>
+<CscFeature_LockScreen_COM_SPN_Display_Feature>false</CscFeature_LockScreen_COM_SPN_Display_Feature>
+<CscFeature_LockScreen_COM_CSC_Lockscreen_Wallpaper_Feature>false</CscFeature_LockScreen_COM_CSC_Lockscreen_Wallpaper_Feature>
+<CscFeature_LockScreen_COM_Custom_Screen_Saver_Feature>false</CscFeature_LockScreen_COM_Custom_Screen_Saver_Feature>
+<CscFeature_QUICKPANEL_GGSMRssi></CscFeature_QUICKPANEL_GGSMRssi>
+<CscFeature_QUICKPANEL_GGSMStatusBarIcon></CscFeature_QUICKPANEL_GGSMStatusBarIcon>
+<CscFeature_QUICKPANEL_GGSMQuickSettings></CscFeature_QUICKPANEL_GGSMQuickSettings>
+<CscFeature_QUICKPANEL_GGSMCarrierLabel>false</CscFeature_QUICKPANEL_GGSMCarrierLabel>
+<CscFeature_QUICKPANEL_CHINAGSMQuickSettings></CscFeature_QUICKPANEL_CHINAGSMQuickSettings>
+<CscFeature_QUICKPANEL_CHINAGSMStatusBarIcon></CscFeature_QUICKPANEL_CHINAGSMStatusBarIcon>
+<CscFeature_QUICKPANEL_CHINAGSMFlightMode>false</CscFeature_QUICKPANEL_CHINAGSMFlightMode>
+<CscFeature_QUICKPANEL_USGSMStatusBarIcon></CscFeature_QUICKPANEL_USGSMStatusBarIcon>
+<CscFeature_QUICKPANEL_USGSMRssi></CscFeature_QUICKPANEL_USGSMRssi>
+<CscFeature_QUICKPANEL_USGSMSplitSoundVibrationIcon>false</CscFeature_QUICKPANEL_USGSMSplitSoundVibrationIcon>
+<CscFeature_QUICKPANEL_CHINACDMADualStandBy>false</CscFeature_QUICKPANEL_CHINACDMADualStandBy>
+<CscFeature_QUICKPANEL_CHINACDMADateFormat>false</CscFeature_QUICKPANEL_CHINACDMADateFormat>
+<CscFeature_QUICKPANEL_CHINACDMACarrierLabel>false</CscFeature_QUICKPANEL_CHINACDMACarrierLabel>
+<CscFeature_QUICKPANEL_USCDMARssi></CscFeature_QUICKPANEL_USCDMARssi>
+<CscFeature_QUICKPANEL_USCDMAStatusBarIcon></CscFeature_QUICKPANEL_USCDMAStatusBarIcon>
+<CscFeature_QUICKPANEL_USCDMAQuickSettings></CscFeature_QUICKPANEL_USCDMAQuickSettings>
+<CscFeature_QUICKPANEL_KoreaStatusBarIcon></CscFeature_QUICKPANEL_KoreaStatusBarIcon>
+<CscFeature_QUICKPANEL_KoreaCarrierLabel>false</CscFeature_QUICKPANEL_KoreaCarrierLabel>
+<CscFeature_LockScreen_CHN_Dual_Plmn_Feature>false</CscFeature_LockScreen_CHN_Dual_Plmn_Feature>
+<CscFeature_LockScreen_COM_Auto_Unlock_Feature>false</CscFeature_LockScreen_COM_Auto_Unlock_Feature>
+<CscFeature_Screencapture_COM_Flag_Capture_Enable>false</CscFeature_Screencapture_COM_Flag_Capture_Enable>
+<CscFeature_Framework_HyperLinkDigit>5</CscFeature_Framework_HyperLinkDigit>
+
+<!-- Email -->
+<CscFeature_Email_SaveUrltoContact>false</CscFeature_Email_SaveUrltoContact>
+<CscFeature_Email_AlignmentForHebrew>false</CscFeature_Email_AlignmentForHebrew>
+<CscFeature_Email_AribicDisplayDay>false</CscFeature_Email_AribicDisplayDay>
+<CscFeature_Email_DefaultCharChn>false</CscFeature_Email_DefaultCharChn>
+<CscFeature_Email_EmojiInputDisplay>false</CscFeature_Email_EmojiInputDisplay>
+<CscFeature_Email_PermanentAccount>false</CscFeature_Email_PermanentAccount>
+<CscFeature_Email_SelectComposerApp>false</CscFeature_Email_SelectComposerApp>
+<CscFeature_Email_UseDefaultPort587>false</CscFeature_Email_UseDefaultPort587>
+<CscFeature_Email_UseSyncTimeNever>false</CscFeature_Email_UseSyncTimeNever>
+<CscFeature_Email_UseEmptyServerValue>false</CscFeature_Email_UseEmptyServerValue>
+<CscFeature_Email_UseGoogleSupport>false</CscFeature_Email_UseGoogleSupport>
+<CscFeature_Email_UseKeepAll>false</CscFeature_Email_UseKeepAll>
+<CscFeature_Email_UseSyncScheduleNotiPopup>false</CscFeature_Email_UseSyncScheduleNotiPopup>
+<CscFeature_Email_UseBaiduSearch>false</CscFeature_Email_UseBaiduSearch>
+<CscFeature_Email_BackgroundColorWhite>false</CscFeature_Email_BackgroundColorWhite>
+<CscFeature_Email_GateMessage>false</CscFeature_Email_GateMessage>
+<CscFeature_Email_MissedEventWidget>false</CscFeature_Email_MissedEventWidget>
+<CscFeature_Email_ChinaCtc189PredefinedAccount>false</CscFeature_Email_ChinaCtc189PredefinedAccount>
+<CscFeature_Email_SupportDmOption>false</CscFeature_Email_SupportDmOption>
+<CscFeature_Email_NotiAttachmentDownAtForward>false</CscFeature_Email_NotiAttachmentDownAtForward>
+<CscFeature_Email_ConfirmBeforeSendIfSubjectEmpty>false</CscFeature_Email_ConfirmBeforeSendIfSubjectEmpty>
+<CscFeature_Email_ChangeFileNameUnsupportedCharExists>false</CscFeature_Email_ChangeFileNameUnsupportedCharExists>
+<CscFeature_Email_ReceivieOptionCtc>false</CscFeature_Email_ReceivieOptionCtc>
+<CscFeature_Email_DefaultFolderToSaveAttachments>false</CscFeature_Email_DefaultFolderToSaveAttachments>
+<CscFeature_Email_SaveAsAttachments>false</CscFeature_Email_SaveAsAttachments>
+<CscFeature_Email_ShowRetrieveErrorEmailNotExist>false</CscFeature_Email_ShowRetrieveErrorEmailNotExist>
+<CscFeature_Email_KoreaISPAccountSetup>false</CscFeature_Email_KoreaISPAccountSetup>
+<CscFeature_Email_KoreaISPAccountSetupForSKT>false</CscFeature_Email_KoreaISPAccountSetupForSKT>
+<CscFeature_Email_KoreaISPAccountSetupForKT>false</CscFeature_Email_KoreaISPAccountSetupForKT>
+<CscFeature_Email_KoreaISPAccountSetupForLGT>false</CscFeature_Email_KoreaISPAccountSetupForLGT>
+<CscFeature_Email_AnotherResolutionDisplay>false</CscFeature_Email_AnotherResolutionDisplay>
+<CscFeature_Eas_DefaultSyncInterval15Mins>false</CscFeature_Eas_DefaultSyncInterval15Mins>
+<CscFeature_Email_EnableSNCForVZW>false</CscFeature_Email_EnableSNCForVZW>
+<CscFeature_Eas_DefaultWhileRoamingUseAboveSettings>false</CscFeature_Eas_DefaultWhileRoamingUseAboveSettings>
+<CscFeature_Eas_DefaultSyncInterval5Mins>false</CscFeature_Eas_DefaultSyncInterval5Mins>
+<CscFeature_Eas_AccountSettingsOrangeRequirement>false</CscFeature_Eas_AccountSettingsOrangeRequirement>
+<CscFeature_Eas_NotUseProxy>false</CscFeature_Eas_NotUseProxy>
+<CscFeature_Eas_DefaultSyncInterval>-2</CscFeature_Eas_DefaultSyncInterval>
+<CscFeature_Eas_RemoveSyncInterval12Hours>false</CscFeature_Eas_RemoveSyncInterval12Hours>
+<CscFeature_Eas_SyncServiceCommandTimeoutValue>60</CscFeature_Eas_SyncServiceCommandTimeoutValue>
+<CscFeature_Eas_SyncServiceConnectionTimeoutValue>20</CscFeature_Eas_SyncServiceConnectionTimeoutValue>
+
+<!-- SEC FMRadio -->
+<CscFeature_SecFMRadioSilicon>true</CscFeature_SecFMRadioSilicon>
+
+<!-- BT -->
+<CscFeature_BT_SupportEucKrCharSetInVcard>false</CscFeature_BT_SupportEucKrCharSetInVcard>
+<CscFeature_BT_SecurityMdmService>false</CscFeature_BT_SecurityMdmService>
+<CscFeature_BT_RemoveInternationalTelNumPrefix>false</CscFeature_BT_RemoveInternationalTelNumPrefix>
+<CscFeature_BT_ReplacePhoneTypeAsCdmaInMAP>false</CscFeature_BT_ReplacePhoneTypeAsCdmaInMAP>
+
+<!-- SEC LiveWallpaper -->
+<CscFeature_LiveWallpaper_TopicWallNewsCPName>sinanews</CscFeature_LiveWallpaper_TopicWallNewsCPName>
+<CscFeature_LiveWallpaper_TopicWallStockCPName>sinastock</CscFeature_LiveWallpaper_TopicWallStockCPName>
+<CscFeature_LiveWallpaper_WeatherWallCPName>sinaweather</CscFeature_LiveWallpaper_WeatherWallCPName>
+
+<!-- SEC Framework -->
+<CscFeature_Framework_EnableBidirection>false</CscFeature_Framework_EnableBidirection>
+<CscFeature_Framework_EnableHarfbuzz>false</CscFeature_Framework_EnableHarfbuzz>
+<CscFeature_Framework_EnableThaiVietReshaping>false</CscFeature_Framework_EnableThaiVietReshaping>
+<CscFeature_Framework_CheckValidApp4SpecificMccMnc>46001</CscFeature_Framework_CheckValidApp4SpecificMccMnc>
+
+<!-- Streaming -->
+<CscFeature_Streaming_SupportMultiAPN>false</CscFeature_Streaming_SupportMultiAPN>
+<CscFeature_Streaming_AddCommandCondition4MusicholicApp>false</CscFeature_Streaming_AddCommandCondition4MusicholicApp>
+<CscFeature_Streaming_DrivingTestTunning4></CscFeature_Streaming_DrivingTestTunning4>
+<CscFeature_Streaming_ReduceTimeSwitchingTcp4>CU</CscFeature_Streaming_ReduceTimeSwitchingTcp4>
+
+<!-- IMS -->
+<CscFeature_IMS_EnableIMS>false</CscFeature_IMS_EnableIMS>
+<CscFeature_IMS_EnableRCSe>false</CscFeature_IMS_EnableRCSe>
+<CscFeature_IMS_EnableVoLTE>false</CscFeature_IMS_EnableVoLTE>
+<CscFeature_IMS_EnableLTEVideoCall>false</CscFeature_IMS_EnableLTEVideoCall>
+<CscFeature_IMS_EnableRCSPresence>false</CscFeature_IMS_EnableRCSPresence>
+<!-- Wifi -->
+<CscFeature_Wifi_UseRandom4digitCombinationAsSSID>false</CscFeature_Wifi_UseRandom4digitCombinationAsSSID>
+<CscFeature_Wifi_UseDefaultSecurityAs>OPEN</CscFeature_Wifi_UseDefaultSecurityAs>
+<CscFeature_Wifi_EnableShowPasswordAsDefault>false</CscFeature_Wifi_EnableShowPasswordAsDefault>
+
+<!-- GMS -->
+<CscFeature_GMS_DisableSetupWizard>false</CscFeature_GMS_DisableSetupWizard>
+<CscFeature_GMS_ReplaceGMailBrandForGermany>false</CscFeature_GMS_ReplaceGMailBrandForGermany>
+<CscFeature_GMS_SetClientIDBaseMs></CscFeature_GMS_SetClientIDBaseMs>
+<CscFeature_GMS_SetClientIDBaseAm></CscFeature_GMS_SetClientIDBaseAm>
+<CscFeature_GMS_SetClientIDBaseGmm></CscFeature_GMS_SetClientIDBaseGmm>
+<CscFeature_GMS_SetClientIDBaseYt></CscFeature_GMS_SetClientIDBaseYt>
+
+<!-- SEC Launcher -->
+<CscFeature_Launcher_TotalPageCount>-1</CscFeature_Launcher_TotalPageCount>
+<CscFeature_Launcher_DefaultPageNumber>-1</CscFeature_Launcher_DefaultPageNumber>
+<CscFeature_Launcher_DisableGoogleOption>true</CscFeature_Launcher_DisableGoogleOption>
+<CscFeature_Launcher_DisableFastScrollIndex>true</CscFeature_Launcher_DisableFastScrollIndex>
+
+<!-- SIP -->
+<CscFeature_Sip_NotIncludeSamsungKeypad>true</CscFeature_Sip_NotIncludeSamsungKeypad>
+
+</FeatureSet>
+</SamsungMobileFeature>

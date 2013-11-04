@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2009 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<favorites xmlns:launcher="http://schemas.android.com/apk/res/com.sec.android.app.launcher">
+    <home>
+
+        <!-- Left screen [2] -->      
+
+        <favorite
+        launcher:packageName="com.android.vending"
+        launcher:className="com.android.vending.AssetBrowserActivity"
+        launcher:screen="2"
+        launcher:x="0"
+        launcher:y="3" />
+              
+        <favorite
+        launcher:packageName="com.google.android.apps.maps"
+        launcher:className="com.google.android.maps.MapsActivity"
+        launcher:screen="2"
+        launcher:x="1"
+        launcher:y="3" />
+
+        <favorite
+        launcher:packageName="com.sec.android.app.camera"
+        launcher:className="com.sec.android.app.camera.Camera"
+        launcher:screen="2"
+        launcher:x="2"
+        launcher:y="3" />
+
+        <favorite
+        launcher:packageName="com.google.android.gm"
+        launcher:className="com.google.android.gm.ConversationListActivityGmail"
+        launcher:screen="2"
+        launcher:x="3"
+        launcher:y="3" />        
+        
+        <!-- Middle screen [3] -->  
+                   
+    	<sactivitywidget
+        launcher:packageName="com.sec.android.widgetapp.ap.hero.accuweather.widget"
+        launcher:className="com.sec.android.widgetapp.ap.hero.accuweather.widget.WeatherClock"
+        launcher:screen="3"
+        launcher:x="0"
+        launcher:y="0"
+        launcher:spanX="4"
+        launcher:spanY="2" /> 
+        
+    	<search
+        launcher:screen="3"
+        launcher:x="0"
+        launcher:y="2" />              
+        
+        <!-- Right screen [4] -->
+
+	<appwidget
+        launcher:packageName="com.vodafone.smhs"
+        launcher:className="com.vodafone.smhs.SMHSDashboardProvider"
+        launcher:screen="4"
+        launcher:x="0"
+        launcher:y="0" 
+        launcher:spanX="4"
+        launcher:spanY="3" /> 
+
+        <!-- Right screen [5] -->
+        <appwidget 
+ launcher:packageName="com.sec.android.app.music" 
+ launcher:className="com.sec.android.app.music.appwidget.MusicAppWidgetProvider" 
+ launcher:screen="5" 
+ launcher:x="0" 
+ launcher:y="1" 
+ launcher:spanX="4" 
+ launcher:spanY="1"/>
+    </home>        
+    
+    <!-- Hotseat (We use the screen as the position of the item in the hotseat) -->
+    <hotseat>
+        <favorite
+            launcher:packageName="com.android.contacts"
+            launcher:className="com.android.contacts.activities.DialtactsActivity"
+            launcher:screen="0" />
+        <favorite
+            launcher:packageName="com.android.contacts"
+            launcher:className="com.android.contacts.activities.PeopleActivity"
+            launcher:screen="1" />
+        <favorite
+            launcher:packageName="com.android.mms"
+            launcher:className="com.android.mms.ui.ConversationComposer"
+            launcher:screen="2" />
+        <favorite
+       	 	launcher:packageName="com.android.browser"
+        	launcher:className="com.android.browser.BrowserActivity"
+            launcher:screen="3" />
+     </hotseat>
+</favorites>

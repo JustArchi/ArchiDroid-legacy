@@ -1,0 +1,1231 @@
+﻿<?xml  version="1.0" encoding="UTF-8" ?>
+<CustomerData>
+  <GeneralInfo>
+	<CSCEdition>ED002</CSCEdition>
+	<Country>TUNISIA</Country>
+    <CountryISO>TN</CountryISO>
+    <Region>MEA</Region>
+    <SalesCode>OTU</SalesCode>
+    <NbNetworkInfo>20</NbNetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>60501</MCCMNC>
+      <NetworkName>Orange TN</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>64114</MCCMNC>
+      <NetworkName>Orange UG</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>60801</MCCMNC>
+      <NetworkName>Orange SN</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>61404</MCCMNC>
+      <NetworkName>Orange NE</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>61701</MCCMNC>
+      <NetworkName>Orange MU</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>61002</MCCMNC>
+      <NetworkName>Orange ML</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>64602</MCCMNC>
+      <NetworkName>Orange MG</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>63907</MCCMNC>
+      <NetworkName>Orange KE</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>41677</MCCMNC>
+      <NetworkName>Orange JO</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>61101</MCCMNC>
+      <NetworkName>Orange GN</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>37001</MCCMNC>
+      <NetworkName>Orange DO</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>61203</MCCMNC>
+      <NetworkName>Orange CI</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>62402</MCCMNC>
+      <NetworkName>Orange CM</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>65202</MCCMNC>
+      <NetworkName>Orange BW</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>63203</MCCMNC>
+      <NetworkName>Orange BS</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>62303</MCCMNC>
+      <NetworkName>Orange RCA</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>60201</MCCMNC>
+      <NetworkName>Mobinil</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>63086</MCCMNC>
+      <NetworkName>Orange CD</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>62701</MCCMNC>
+      <NetworkName>Orange GQ</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>60400</MCCMNC>
+      <NetworkName>Meditel</NetworkName>
+    </NetworkInfo>
+  </GeneralInfo>
+  <Settings>
+    <Main>
+      <Security>
+        <NbNetworkLock>20</NbNetworkLock>
+        <NetworkLock>60501</NetworkLock>
+        <NetworkLock>64114</NetworkLock>
+        <NetworkLock>60801</NetworkLock>
+        <NetworkLock>61404</NetworkLock>
+        <NetworkLock>61701</NetworkLock>
+        <NetworkLock>61002</NetworkLock>
+        <NetworkLock>64602</NetworkLock>
+        <NetworkLock>63907</NetworkLock>
+        <NetworkLock>41677</NetworkLock>
+        <NetworkLock>61101</NetworkLock>
+        <NetworkLock>37001</NetworkLock>
+        <NetworkLock>61203</NetworkLock>
+        <NetworkLock>62402</NetworkLock>
+        <NetworkLock>65202</NetworkLock>
+        <NetworkLock>63203</NetworkLock>
+        <NetworkLock>62303</NetworkLock>
+        <NetworkLock>60201</NetworkLock>
+        <NetworkLock>63086</NetworkLock>
+        <NetworkLock>62701</NetworkLock>
+        <NetworkLock>60400</NetworkLock>
+      </Security>
+      <Network>
+        <NbWbAmr>1</NbWbAmr>
+        <WbAmr>
+          <NetworkName>default</NetworkName>
+          <WbAmrCodec>on</WbAmrCodec>
+        </WbAmr>
+      </Network>
+      <Phone>
+        <DefLanguage>english</DefLanguage>
+        <DefLanguageNoSIM>english</DefLanguageNoSIM>
+      </Phone>
+    </Main>
+    <Browser>
+      <NbBookmark>2</NbBookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>yes</Editable>
+        <Index>1</Index>
+        <BookmarkName>Orange</BookmarkName>
+        <URL>http://www.orange.com</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>yes</Editable>
+        <Index>2</Index>
+        <BookmarkName>Yahoo!</BookmarkName>
+        <URL>http://www.yahoo.com</URL>
+      </Bookmark>
+    </Browser>
+    <Connections>
+      <NbProfileHandle>20</NbProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>Orange TN</NetworkName>
+        <ProfBrowser>weborange</ProfBrowser>
+        <ProfMMS>Orange TN MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>Orange UG</NetworkName>
+        <ProfBrowser>Orange Internet UG</ProfBrowser>
+        <ProfMMS>Orange MMS UG</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>3</NbNetProfile>
+        <NetworkName>Orange SN</NetworkName>
+        <ProfBrowser>Orange WAP SN</ProfBrowser>
+        <ProfMMS>Orange SN MMS</ProfMMS>
+        <ProfIntSharing>Orange WEB</ProfIntSharing>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>3</NbNetProfile>
+        <NetworkName>Orange NE</NetworkName>
+        <ProfBrowser>Orange NE</ProfBrowser>
+        <ProfMMS>Orange NE MMS</ProfMMS>
+        <ProfIntSharing>Orange Internet NE</ProfIntSharing>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>3</NbNetProfile>
+        <NetworkName>Orange MU</NetworkName>
+        <ProfBrowser>Orange MU</ProfBrowser>
+        <ProfMMS>Orange MU MMS</ProfMMS>
+        <ProfIntSharing>Orange Internet MU</ProfIntSharing>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>3</NbNetProfile>
+        <NetworkName>Orange ML</NetworkName>
+        <ProfBrowser>Orange WAP ML</ProfBrowser>
+        <ProfMMS>Orange ML MMS</ProfMMS>
+        <ProfIntSharing>Orange GPRS ML</ProfIntSharing>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>3</NbNetProfile>
+        <NetworkName>Orange MG</NetworkName>
+        <ProfBrowser>Orange World MG</ProfBrowser>
+        <ProfMMS>Orange MG MMS</ProfMMS>
+        <ProfIntSharing>Orangenet</ProfIntSharing>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>Orange KE</NetworkName>
+        <ProfBrowser>Orange internet KE</ProfBrowser>
+        <ProfMMS>Orange KE MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>3</NbNetProfile>
+        <NetworkName>Orange JO</NetworkName>
+        <ProfBrowser>Orange Internet JO</ProfBrowser>
+        <ProfMMS>Orange JO MMS</ProfMMS>
+        <ProfIntSharing>Orange net JO</ProfIntSharing>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>3</NbNetProfile>
+        <NetworkName>Orange GN</NetworkName>
+        <ProfBrowser>Wap</ProfBrowser>
+        <ProfMMS>Orange GN MMS</ProfMMS>
+        <ProfIntSharing>Internet GN</ProfIntSharing>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>Orange DO</NetworkName>
+        <ProfBrowser>Orange net</ProfBrowser>
+        <ProfMMS>Orange DO MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>3</NbNetProfile>
+        <NetworkName>Orange CI</NetworkName>
+        <ProfBrowser>Oweb</ProfBrowser>
+        <ProfMMS>Omms</ProfMMS>
+        <ProfIntSharing>Odata</ProfIntSharing>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>3</NbNetProfile>
+        <NetworkName>Orange CM</NetworkName>
+        <ProfBrowser>OrangeCM WAP</ProfBrowser>
+        <ProfMMS>Orange CM MMS</ProfMMS>
+        <ProfIntSharing>Orange</ProfIntSharing>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>3</NbNetProfile>
+        <NetworkName>Orange BW</NetworkName>
+        <ProfBrowser>Orange World</ProfBrowser>
+        <ProfMMS>Orange BW MMS</ProfMMS>
+        <ProfIntSharing>Orange Internet BW</ProfIntSharing>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>3</NbNetProfile>
+        <NetworkName>Orange GQ</NetworkName>
+        <ProfBrowser>Orange WAP GQ</ProfBrowser>
+        <ProfMMS>Orange GQ MMS</ProfMMS>
+        <ProfIntSharing>Orange Internet GQ</ProfIntSharing>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>3</NbNetProfile>
+        <NetworkName>Meditel</NetworkName>
+        <ProfBrowser>Internet ME</ProfBrowser>
+        <ProfMMS>GPRS MMS</ProfMMS>
+        <ProfIntSharing>Internet ME</ProfIntSharing>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>Mobinil</NetworkName>
+        <ProfBrowser>Mobinil Internet</ProfBrowser>
+        <ProfMMS>Mobinil MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>3</NbNetProfile>
+        <NetworkName>Orange CD</NetworkName>
+        <ProfBrowser>Orange RDC Wap</ProfBrowser>
+        <ProfMMS>Orange RDC MMS</ProfMMS>
+        <ProfIntSharing>Orange Internet RDC</ProfIntSharing>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>3</NbNetProfile>
+        <NetworkName>Orange BS</NetworkName>
+        <ProfBrowser>WAP GPRS</ProfBrowser>
+        <ProfMMS>Orange BS MMS</ProfMMS>
+        <ProfIntSharing>WEB GPRS</ProfIntSharing>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>3</NbNetProfile>
+        <NetworkName>Orange RCA</NetworkName>
+        <ProfBrowser>Internet browsing</ProfBrowser>
+        <ProfMMS>Orange RCA MMS</ProfMMS>
+        <ProfIntSharing>Orange RCA</ProfIntSharing>
+      </ProfileHandle>
+      <NbProfile>57</NbProfile>
+      <Profile>
+        <NetworkName>Orange TN</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>weborange</ProfileName>
+        <URL>http://m.orange.tn</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>weborange</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Orange UG</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Orange Internet UG</ProfileName>
+        <URL>http://mobile.orange.ug</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>orange.ug</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Orange UG</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Orange MMS UG</ProfileName>
+        <URL>http://10.101.73.88:38090/was</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>10.101.73.214</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>orange.ug</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Orange SN</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Orange SN MMS</ProfileName>
+        <URL>http://mmsalize/servlets/mms</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>172.16.30.9</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mms</APN>
+          <UserId>mms</UserId>
+          <Password>mms</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Orange NE</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Orange Internet NE</ProfileName>
+        <URL>http://www.orange.ne/</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>orange.ne</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Orange NE</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Orange NE MMS</ProfileName>
+        <URL>http://10.10.10.35:38090/was</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>10.10.10.36</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>orange.mms</APN>
+          <UserId>orange</UserId>
+          <Password>orange</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Orange MU</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Orange Internet MU</ProfileName>
+        <URL>http://www.orange.mu</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>orange</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Orange MU</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Orange MU MMS</ProfileName>
+        <URL>http://10.2.1.20:8514</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>10.2.1.20</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>orangemms</APN>
+          <UserId>mmsc</UserId>
+          <Password>mmsc</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Orange ML</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Orange GPRS ML</ProfileName>
+        <URL>http://wap.orangemali.com</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>internet ML</APN>
+          <UserId>internet</UserId>
+          <Password>internet</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Orange ML</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Orange ML MMS</ProfileName>
+        <URL>http://10.109.6.2/servlets/mms</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>10.109.4.35</ServAddr>
+          <Port>9201</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mms</APN>
+          <UserId>mms</UserId>
+          <Password>mms</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Orange MG</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Orangenet</ProfileName>
+        <URL>www.orange.mg</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <PSparam>
+          <APN>orangenet</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Orange MG</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Orange MG MMS</ProfileName>
+        <URL>http://10.152.10.70.38090</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>10.150.0.115</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>orangemms</APN>
+          <UserId>mms</UserId>
+          <Password>mms</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Orange KE</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Orange internet KE</ProfileName>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>bew.orange.co.ke</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Orange KE</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Orange KE MMS</ProfileName>
+        <URL>http://10.36.16.5/servlets/mms</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>10.36.16.5</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mms.orange.co.ke</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Orange JO</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Orange net JO</ProfileName>
+        <URL>http://www.orangeworld.jo</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>net.orange.jo</APN>
+          <UserId>net</UserId>
+          <Password>net</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Orange JO</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Orange JO MMS</ProfileName>
+        <URL>http://172.16.1.96/servlets/mms</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>172.16.1.2</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mms.orange.jo</APN>
+          <UserId>mmc</UserId>
+          <Password>mmc</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Orange GN</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>internet</ProfileName>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>wapogn</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Orange DO</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Orange net</ProfileName>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>172.16.126.70</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>orangenet.com.do</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Orange DO</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Orange DO MMS</ProfileName>
+        <URL>http://mmr.orangewi.com/servlets/mms</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>172.16.126.70</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>OrangeMMS</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Orange CI</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Odata</ProfileName>
+        <URL>http://www.orange.ci</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>orangecidata</APN>
+          <UserId>data</UserId>
+          <Password>data</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Orange CI</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>OWEB</ProfileName>
+        <URL>http://www.orange.ci</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <PSparam>
+          <APN>orangeciweb</APN>
+          <UserId>web</UserId>
+          <Password>web</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Orange CI</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Omms</ProfileName>
+        <URL>http://172.20.6.1/servlets/mms</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>172.20.4.33</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>orangecimms</APN>
+          <UserId>mms</UserId>
+          <Password>mms</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Orange CM</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Orange</ProfileName>
+        <URL>http://www.orange.cm</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>orangecmgprs</APN>
+          <UserId>orange</UserId>
+          <Password>orange</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Orange CM</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Orange CM MMS</ProfileName>
+        <URL>http://mms.orange.cm</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>192.168.122.101</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>orangecmgprs</APN>
+          <UserId>orange</UserId>
+          <Password>orange</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Orange BW</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Orange World</ProfileName>
+        <URL>http://portal.orange.co.bw</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>10.0.0.226</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>internet.orange.co.bw</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Orange BW</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Orange BW MMS</ProfileName>
+        <URL>http://10.0.0.242/servlets/mms</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>10.0.0.226</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mms.orange.co.bw</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Orange SN</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Orange WAP SN</ProfileName>
+        <URL>http://wap.orange.sn</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>172.16.30.9</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>wap</APN>
+          <UserId>wap</UserId>
+          <Password>wap</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Orange BW</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Orange World</ProfileName>
+        <URL>http://portal.orange.co.bw</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>10.0.0.226</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>internet.orange.co.bw</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Orange SN</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Orange WEB</ProfileName>
+        <URL>http://www.orange.sn</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>internet</APN>
+          <UserId>internet</UserId>
+          <Password>internet</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Orange NE</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Orange NE</ProfileName>
+        <URL>http://www.orange.ne/</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>10.10.10.36</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>orange.ne</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Meditel</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>GPRS MMS</ProfileName>
+        <URL>http://mms.meditel.ma:8088/mms</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>10.8.8.9</ServAddr>
+          <Port>9201</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mms.meditel.ma</APN>
+          <UserId>MEDIMMS</UserId>
+          <Password>MEDIMMS</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Meditel</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Internet ME</ProfileName>
+        <URL>http://www.google.com</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>internet1.meditel.ma</APN>
+          <UserId>MEDINET</UserId>
+          <Password>MEDINET</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Orange MU</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Orange MU</ProfileName>
+        <URL>www.orange.mu</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>orange</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Orange ML</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Orange Wap ML</ProfileName>
+        <URL>http://wap.orangemali.com</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>10.109.4.35</ServAddr>
+          <Port>9201</Port>
+        </Proxy>
+        <PSparam>
+          <APN>orange</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Orange GQ</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Orange GQ MMS</ProfileName>
+        <URL>http://192.168.17.34/servlets/mms</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>192.168.17.2</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>orangemms</APN>
+          <UserId>mms</UserId>
+          <Password>mms</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Orange GQ</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Orange Internet GQ</ProfileName>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>orangenet</APN>
+          <UserId>net</UserId>
+          <Password>net</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Orange GQ</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Orange Wap GQ</ProfileName>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>192/168/17/2</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>orangeworld</APN>
+          <UserId>wap</UserId>
+          <Password>wap</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Mobinil</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Mobinil Internet</ProfileName>
+        <URL>http://www.mobinil.com</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>mobinilweb</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Mobinil</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Mobinil MMS</ProfileName>
+        <URL>http://10.7.13.24:8002</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>http://62.241.155.45</ServAddr>
+          <Port>9201</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mobinilmms</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Orange TN</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Orange TN MMS</ProfileName>
+        <URL>http://mms.orange.tn</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>10.12.1.52</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mms.otun</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Orange CM</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>OrangeCM WAP</ProfileName>
+        <URL>http://wap.orangeworld.com</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>orangecmgprs</APN>
+          <UserId>orange</UserId>
+          <Password>orange</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Orange CD</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Orange RDC MMS</ProfileName>
+        <URL>41.77.220.26</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>41.77.220.30</ServAddr>
+          <Port>5000</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mms.orange.cd</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Orange JO</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Orange Internet JO</ProfileName>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>net.orange.jo</APN>
+          <UserId>net</UserId>
+          <Password>net</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Orange JO</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Orange Internet JO</ProfileName>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>net.orange.jo</APN>
+          <UserId>net</UserId>
+          <Password>net</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Orange BW</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Orange Internet BW</ProfileName>
+        <URL>http://www.orange.co.bw</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>internet.orange.co.bw</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Orange MG</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Orange World MG</ProfileName>
+        <URL>http://wap.orangeworld.mg</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>10.150.0.115</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>orangeworld</APN>
+          <UserId>orange</UserId>
+          <Password>orange</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Orange RCA</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Orange RCA MMS</ProfileName>
+        <URL>http://41.223.184.133/was</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>41.223.184.133</ServAddr>
+        </Proxy>
+        <PSparam>
+          <APN>orangecawap</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Orange RCA</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Orange RCA</ProfileName>
+        <URL>http://www.orangerca.com</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>192.168.235.68</ServAddr>
+          <Port>80</Port>
+        </Proxy>
+        <PSparam>
+          <APN>orangecawap</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Orange RCA</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Internet browsing</ProfileName>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>orangeca3g</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Internet GN</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Internet GN</ProfileName>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>internetogn</APN>
+          <UserId>orange</UserId>
+          <Password>orange</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Internet GN</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Internet GN</ProfileName>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>internetogn</APN>
+          <UserId>orange</UserId>
+          <Password>orange</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Orange CD</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Orange RDC Wap</ProfileName>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>41.77.220.25</ServAddr>
+          <Port>8000</Port>
+        </Proxy>
+        <PSparam>
+          <APN>wap.orange.cd</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Orange CD</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Orange Internet RDC</ProfileName>
+        <URL>http://www.orange-rdc.com</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>iew.orange.cd</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Orange BS</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>WAP GPRS</ProfileName>
+        <URL>http://wap.google.com</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>172,16,30,9</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>WAP GPRS</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Orange GN</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>WEB GPRS</ProfileName>
+        <URL>http://www.google.com</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>WEB GPRS</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Orange BS</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Orange BS MMS</ProfileName>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>Orange BS MMS</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Orange GN</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Orange GN MMS</ProfileName>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>Orange GN MMS</APN>
+        </PSparam>
+      </Profile>
+    </Connections>
+  </Settings>
+</CustomerData>

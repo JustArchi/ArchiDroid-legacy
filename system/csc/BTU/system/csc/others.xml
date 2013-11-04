@@ -1,0 +1,13 @@
+﻿<?xml  version="1.0" encoding="UTF-8" ?>
+<SamsungMobileFeauture>
+  <Version>ED002</Version>
+  <Country>UNITED KINGDOM</Country>
+  <CountryISO>GB</CountryISO>
+  <SalesCode>BTU</SalesCode>
+  <FeatureSet>
+    <CscFeature_Launcher_EnableViewByAlphabetAsDefault>TRUE</CscFeature_Launcher_EnableViewByAlphabetAsDefault>
+    <CscFeature_VoiceCall_EnableVmsNumberAsDefaultInCallForwarding>TRUE</CscFeature_VoiceCall_EnableVmsNumberAsDefaultInCallForwarding>
+    <CscFeature_Wifi_UseDefaultSecurityAs>WPA2/PSK</CscFeature_Wifi_UseDefaultSecurityAs>
+    <CscFeature_Setting_EnableAutoSimApkInstaller>TRUE</CscFeature_Setting_EnableAutoSimApkInstaller>
+  </FeatureSet>
+</SamsungMobileFeauture>

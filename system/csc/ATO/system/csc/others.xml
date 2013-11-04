@@ -1,0 +1,12 @@
+﻿<?xml  version="1.0" encoding="UTF-8" ?>
+<SamsungMobileFeauture>
+  <Version>ED001</Version>
+  <Country>AUSTRIA</Country>
+  <CountryISO>AT</CountryISO>
+  <SalesCode>ATO</SalesCode>
+  <FeatureSet>
+    <CscFeature_Common_DisablePhoneNumberFormatting>TRUE</CscFeature_Common_DisablePhoneNumberFormatting>
+    <CscFeature_Web_EnableAutoSimHomeUrlInProfile>TRUE</CscFeature_Web_EnableAutoSimHomeUrlInProfile>
+    <CscFeature_RIL_IgnoreUselessCallForwardFacility>TRUE</CscFeature_RIL_IgnoreUselessCallForwardFacility>
+  </FeatureSet>
+</SamsungMobileFeauture>

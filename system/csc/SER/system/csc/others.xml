@@ -1,0 +1,14 @@
+﻿<?xml  version="1.0" encoding="UTF-8" ?>
+<SamsungMobileFeauture>
+  <Version>ED001</Version>
+  <Country>RUSSIA</Country>
+  <CountryISO>RU</CountryISO>
+  <SalesCode>SER</SalesCode>
+  <FeatureSet>
+    <CscFeature_Common_DisablePhoneNumberFormatting>TRUE</CscFeature_Common_DisablePhoneNumberFormatting>
+    <CscFeature_SIP_EnablePreferredEnglishTypeAsUS>TRUE</CscFeature_SIP_EnablePreferredEnglishTypeAsUS>
+    <CscFeatureRILSetDefaultTimezoneWithoutNITZ>TRUE</CscFeatureRILSetDefaultTimezoneWithoutNITZ>
+    <CscFeature_Contact_FullCountryPrefixSearchSupport>TRUE</CscFeature_Contact_FullCountryPrefixSearchSupport>
+    <CscFeature_Setting_UninstallablePackageListInHidden>com.samsung.docapp</CscFeature_Setting_UninstallablePackageListInHidden>	
+  </FeatureSet>
+</SamsungMobileFeauture>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2009 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<favorites xmlns:launcher="http://schemas.android.com/apk/res/com.sec.android.app.launcher">
+    <home>
+
+        <appwidget
+        launcher:packageName="android.googleSearch.googleSearchWidget" 
+        launcher:className="android.googleSearch.googleSearchWidget.GoogleSearchProvider" 
+        launcher:screen="0"
+        launcher:x="0"
+        launcher:y="0"
+        launcher:spanX="4"
+        launcher:spanY="1" />
+
+		<appwidget
+        launcher:packageName="com.sec.android.app.ideasmusik"
+        launcher:className="com.sec.android.app.ideasmusik.IdeasmusikWidget"
+        launcher:screen="0"
+        launcher:x="0"
+        launcher:y="1"
+        launcher:spanX="4"
+        launcher:spanY="1" />  
+   
+        <appwidget 
+        launcher:packageName="android.googleSearch.googleSearchWidget" 
+        launcher:className="android.googleSearch.googleSearchWidget.GoogleSearchProvider" 
+        launcher:screen="1" 
+        launcher:x="0" 
+        launcher:y="0" 
+        launcher:spanX="4" 
+        launcher:spanY="1" />
+
+        <sactivitywidget
+		launcher:packageName="com.sec.android.widgetapp.ap.hero.accuweather"
+		launcher:className="com.sec.android.widgetapp.ap.hero.accuweather.SurfaceWidgetWeather"
+		launcher:themeName="Accuweather2013"
+		launcher:screen="1"
+		launcher:x="0"
+		launcher:y="1"
+		launcher:spanX="4"
+		launcher:spanY="2" />
+
+		<favorite
+		launcher:packageName="com.android.vending"
+		launcher:className="com.android.vending.AssetBrowserActivity"
+        launcher:screen="1"
+        launcher:x="0"
+        launcher:y="3" />
+
+		<favorite
+        launcher:packageName="com.sec.android.app.camera"
+        launcher:className="com.sec.android.app.camera.Camera"
+        launcher:screen="1"
+        launcher:x="1"
+        launcher:y="3" />
+
+		<favorite
+        launcher:packageName="com.android.stk"
+        launcher:className="com.android.stk.StkLauncherActivity"
+        launcher:screen="1"
+        launcher:x="2"
+        launcher:y="3" />
+
+		<favorite
+        launcher:packageName="com.sec.android.app.music"
+        launcher:className="com.sec.android.app.music.MusicActionTabActivity"
+        launcher:screen="1"
+        launcher:x="3"
+        launcher:y="3" />
+
+				<appwidget
+            launcher:packageName="com.sec.everglades" 
+            launcher:className="com.sec.everglades.widget.EvergladesWidgetProvider"
+            launcher:screen="2" 
+            launcher:x="0" 
+            launcher:y="0" 
+            launcher:spanX="4" 
+            launcher:spanY="4" />  
+
+        <appwidget
+        launcher:packageName="android.googleSearch.googleSearchWidget" 
+        launcher:className="android.googleSearch.googleSearchWidget.GoogleSearchProvider" 
+        launcher:screen="3"
+        launcher:x="0"
+        launcher:y="0"
+        launcher:spanX="4"
+        launcher:spanY="1" />
+
+		<sactivitywidget
+        launcher:packageName="com.samsung.android.app.storyalbumwidget"
+        launcher:className="com.samsung.android.app.storyalbumwidget.StoryAlbumWidget"
+        launcher:screen="3"
+        launcher:x="0"
+        launcher:y="1"
+        launcher:spanX="4"
+        launcher:spanY="3" />  
+
+        </home>    
+
+  <hotseat>
+    <favorite 
+	launcher:packageName="com.android.contacts" 
+	launcher:className="com.android.contacts.activities.DialtactsActivity" 
+	launcher:screen="0" />
+    <favorite 
+	launcher:packageName="com.sec.android.app.latin.launcher.ideasmenu" 
+	launcher:className="com.sec.android.app.latin.launcher.ideasmenu.Launcher" 
+	launcher:screen="1" />
+    <favorite 
+    launcher:packageName="com.android.mms" 
+	launcher:className="com.android.mms.ui.ConversationComposer" 
+	launcher:screen="2" />
+    <favorite 
+	launcher:packageName="com.sec.android.app.sbrowser" 
+	launcher:className="com.sec.android.app.sbrowser.SBrowserMainActivity" 
+	launcher:screen="3" />
+  </hotseat>
+
+</favorites>

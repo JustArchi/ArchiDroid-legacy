@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2009 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<favorites xmlns:launcher="http://schemas.android.com/apk/res/com.sec.android.app.launcher">
+    <home>
+    <!--  Contextual Page  -->
+        <!-- S Pen -->
+        <appwidget
+        launcher:packageName="com.sec.android.app.snotebook"
+        launcher:className="com.infraware.widget.SNoteWidgetProvider"
+        launcher:screen="1"
+        launcher:isContextualPage="1"
+        launcher:x="0"
+        launcher:y="1"
+        launcher:spanX="4"
+        launcher:spanY="3" />
+	    
+        <!-- EarPhone -->        
+        <appwidget
+        launcher:packageName="com.sec.android.app.music"
+        launcher:className="com.sec.android.app.music.appwidget.MusicAppWidgetProvider"
+        launcher:screen="2"
+        launcher:isContextualPage="1"
+        launcher:x="0"
+        launcher:y="1"
+        launcher:spanX="4"
+        launcher:spanY="1" />
+		
+        <appwidget
+        launcher:packageName="com.sec.android.app.videoplayer"        
+        launcher:className="com.sec.android.app.videoplayer.appwidget.VideoWidget"
+        launcher:screen="2"
+        launcher:isContextualPage="1"
+        launcher:x="0"
+        launcher:y="2"
+        launcher:spanX="4"
+        launcher:spanY="2" />
+	
+        <!-- Dock -->    
+        <appwidget
+        launcher:packageName="com.sec.android.widgetapp.SPlannerAppWidget"
+        launcher:className="com.sec.android.widgetapp.SPlannerAppWidget.AgendaWidget.CalendarAppWidgetProvider"
+        launcher:screen="3"
+        launcher:isContextualPage="1"
+        launcher:x="0"
+        launcher:y="1"
+        launcher:spanX="4"
+        launcher:spanY="2" />
+		
+        <appwidget
+        launcher:packageName="com.sec.android.app.music"
+        launcher:className="com.sec.android.app.music.appwidget.MusicAppWidgetProvider"
+        launcher:screen="3"
+        launcher:isContextualPage="1"
+        launcher:x="0"
+        launcher:y="3"
+        launcher:spanX="4"
+        launcher:spanY="1" />
+        
+        <!-- Roaming -->        
+        <appwidget
+        launcher:packageName="com.sec.android.widgetapp.dualclockanalog"
+        launcher:className="com.sec.android.widgetapp.dualclockanalog.DualClockAppWidgetProvider"
+        launcher:screen="4"
+        launcher:isContextualPage="1"
+        launcher:x="0"
+        launcher:y="1"
+        launcher:spanX="4"
+        launcher:spanY="2" /> 
+        <!--
+        launcher:spanX="4"
+        launcher:spanY="2" 
+        -->
+        
+    </home>    
+    
+    
+    <!-- Hotseat (We use the screen as the position of the item in the hotseat) -->
+    
+    <hotseat>
+        <!-- S Pen -->
+        <favorite
+            launcher:packageName="com.sec.android.app.snotebook"
+            launcher:className="com.infraware.filemanager.FmFileTreeListActivity"
+            launcher:screen="1"
+            launcher:x="0" />
+        <favorite
+            launcher:packageName="com.sec.android.gallery3d"
+            launcher:className="com.sec.android.gallery3d.app.Gallery"
+            launcher:screen="1"
+            launcher:x="1" />
+        <favorite
+            launcher:packageName="com.android.email"
+            launcher:className="com.android.email.activity.Welcome"
+            launcher:screen="1"
+            launcher:x="2" />
+        <favorite
+            launcher:packageName="com.android.calendar"
+            launcher:className="com.android.calendar.AllInOneActivity"
+            launcher:screen="1"
+            launcher:x="3" />
+
+        <!-- EarPhone -->
+        <favorite
+            launcher:packageName="com.sec.android.app.music"
+            launcher:className="com.sec.android.app.music.MusicActionTabActivity"
+            launcher:screen="2"
+            launcher:x="0" />
+        <favorite
+            launcher:packageName="com.samsung.everglades.video"
+            launcher:className="com.samsung.everglades.video.VideoMain"
+            launcher:screen="2"
+            launcher:x="1" />
+        <favorite
+            launcher:packageName="com.android.contacts"
+            launcher:className="com.android.contacts.activities.DialtactsActivity"
+            launcher:screen="2"
+            launcher:x="2" />
+        <favorite
+            launcher:packageName="com.google.android.youtube"
+            launcher:className="com.google.android.youtube.app.honeycomb.Shell$HomeActivity"
+            launcher:screen="2"
+            launcher:x="3" />
+    
+        <!-- Dock -->
+        <favorite
+            launcher:packageName="com.sec.android.app.clockpackage"
+            launcher:className="com.sec.android.app.clockpackage.ClockPackage"
+            launcher:screen="3"
+            launcher:x="0" />
+        <favorite
+            launcher:packageName="com.sec.android.gallery3d"
+            launcher:className="com.sec.android.gallery3d.app.Gallery"
+            launcher:screen="3"
+            launcher:x="1" />
+        <favorite
+            launcher:packageName="com.google.android.youtube"
+            launcher:className="com.google.android.youtube.app.honeycomb.Shell$HomeActivity"
+            launcher:screen="3"
+            launcher:x="2" />
+        <favorite
+            launcher:packageName="com.samsung.everglades.video"
+            launcher:className="com.samsung.everglades.video.VideoMain"
+            launcher:screen="3"
+            launcher:x="3" />
+
+        <!-- Roaming -->
+        <favorite
+            launcher:packageName="com.sec.android.app.camera"
+            launcher:className="com.sec.android.app.camera.Camera"
+            launcher:screen="4"
+            launcher:x="0" />
+        <favorite
+            launcher:packageName="com.sec.android.app.popupcalculator"
+            launcher:className="com.sec.android.app.popupcalculator.Calculator"
+            launcher:screen="4"
+            launcher:x="1" />
+        <favorite
+            launcher:packageName="com.google.android.apps.maps"
+            launcher:className="com.google.android.maps.MapsActivity"
+            launcher:screen="4"
+            launcher:x="2" />
+        <favorite
+            launcher:packageName="com.sec.android.widgetapp.diotek.smemo"
+            launcher:className="com.sec.android.widgetapp.q1_penmemo.MemoListActivity"
+            launcher:screen="4"
+            launcher:x="3" />
+        
+    </hotseat>
+</favorites>

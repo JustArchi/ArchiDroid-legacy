@@ -1,0 +1,67 @@
+﻿<?xml  version="1.0" encoding="UTF-8" ?>
+<CustomerData>
+  <SamsungKeypad>
+
+    <inputmethod_type>QwertyKeypad</inputmethod_type>
+
+	<xt9_enabled>off</xt9_enabled>
+
+	<word_completion>on</word_completion>
+
+	<word_completion_point>2</word_completion_point>
+
+	<spell_correction>on</spell_correction>
+    
+	<next_word_prediction>on</next_word_prediction>
+
+	<auto_append>off</auto_append>
+
+	<auto_subtitution>off</auto_subtitution>
+
+	<regional_correction>off</regional_correction>
+
+	<recapture>off</recapture>
+
+	<keypad_sweeping>on</keypad_sweeping>
+
+	<Auto_capitalization>on</Auto_capitalization>
+
+	<recognition_time>500</recognition_time>
+
+	<Auto_period>off</Auto_period>
+
+	<voice_input_enabled>on</voice_input_enabled>
+
+	<lang_en_gb>off</lang_en_gb>
+
+	<lang_en_us>off</lang_en_us>
+
+	<lang_de>off</lang_de>
+
+	<lang_nl>off</lang_nl>
+
+	<lang_pl>off</lang_pl>
+
+	<lang_fr>off</lang_fr>
+
+	<lang_it>off</lang_it>
+
+	<lang_pt>off</lang_pt>
+
+	<lang_es>off</lang_es>
+
+	<lang_tr>off</lang_tr>
+
+	<lang_ko>off</lang_ko>
+  </SamsungKeypad>
+
+  <LatinIME>
+    <VibrateOn>on</VibrateOn>
+    <SoundOn>on</SoundOn>
+  </LatinIME>
+
+  <DefaultInputMethod>
+	<input_method>com.sec.android.inputmethod</input_method>
+  </DefaultInputMethod>
+
+</CustomerData>

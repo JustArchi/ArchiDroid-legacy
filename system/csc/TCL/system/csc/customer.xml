@@ -1,0 +1,311 @@
+﻿<?xml  version="1.0" encoding="UTF-8" ?>
+<CustomerData>
+  <GeneralInfo>
+    <CSCEdition>ED013</CSCEdition>
+    <Country>Portugal</Country>
+    <CountryISO>PT</CountryISO>
+    <Region>EUR</Region>
+    <SalesCode>TCL</SalesCode>
+    <NbNetworkInfo>1</NbNetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>26801</MCCMNC>
+      <NetworkName>vodafone P</NetworkName>
+    </NetworkInfo>
+  </GeneralInfo>
+  <Settings>
+    <Main>
+      <Security>
+        <NbNetworkLock>1</NbNetworkLock>
+        <NetworkLock>26801</NetworkLock>
+      </Security>
+      <Network>
+        <NbFastDormancy>2</NbFastDormancy>
+        <FastDormancy>
+          <NetworkName>vodafone P</NetworkName>
+          <FastDormancyEnableStatus>off</FastDormancyEnableStatus>
+          <LCDStatus>on</LCDStatus>
+        </FastDormancy>
+        <FastDormancy>
+          <NetworkName>vodafone P</NetworkName>
+          <FastDormancyEnableStatus>on</FastDormancyEnableStatus>
+          <TimeoutValue>5</TimeoutValue>
+          <LCDStatus>off</LCDStatus>
+        </FastDormancy>
+        <NbWbAmr>1</NbWbAmr>
+        <WbAmr>
+          <NetworkName>vodafone P</NetworkName>
+          <WbAmrCodec>on</WbAmrCodec>
+        </WbAmr>
+      </Network>
+      <Sound>
+        <ExtraSound>
+          <ConnectTone>off</ConnectTone>
+        </ExtraSound>
+        <AMRVoiceCodec>on</AMRVoiceCodec>
+      </Sound>
+      <Phone>
+        <DefLanguage>portuguese</DefLanguage>
+        <DefLanguageNoSIM>portuguese</DefLanguageNoSIM>
+        <DateTimeFormat>
+          <DateFormat>ddmmyyyy</DateFormat>
+          <TimeFormat>24h</TimeFormat>
+        </DateTimeFormat>
+      </Phone>
+    </Main>
+    <Messages>
+      <NbVoicemail>1</NbVoicemail>
+      <Voicemail>
+        <NetworkName>default</NetworkName>
+        <TelNum>123</TelNum>
+      </Voicemail>
+      <PushMsg>
+        <PushLoading>prompt</PushLoading>
+      </PushMsg>
+      <SMS>
+        <MsgTypeThreshold>
+          <ThresholdValue>5</ThresholdValue>
+          <ThresholdType>pagecount</ThresholdType>
+        </MsgTypeThreshold>
+        <MaxRecipient>20</MaxRecipient>
+        <CharSupport>gsmalpha</CharSupport>
+        <SSMS>off</SSMS>
+      </SMS>
+      <MMS>
+        <MmsSending>
+          <ReqDeliveryRep>off</ReqDeliveryRep>
+          <ReqReadRep>off</ReqReadRep>
+          <CreationMode>free</CreationMode>
+        </MmsSending>
+        <MmsReceiving>
+          <Home>auto</Home>
+          <Roaming>auto</Roaming>
+        </MmsReceiving>
+      </MMS>
+      <Email>
+        <NbAccount>5</NbAccount>
+        <Account>
+          <NetworkName>vodafone P</NetworkName>
+          <AccountName>Gmail</AccountName>
+          <EmailAddr>@gmail.com</EmailAddr>
+          <LoginType>domain_type</LoginType>
+          <Incoming>
+            <MailboxType>pop3</MailboxType>
+            <ServAddr>pop.gmail.com</ServAddr>
+            <Port>995</Port>
+            <Secure>ssl</Secure>
+          </Incoming>
+          <Outgoing>
+            <ServAddr>smtp.gmail.com</ServAddr>
+            <Port>465</Port>
+            <SmtpAuth>on</SmtpAuth>
+            <Secure>ssl</Secure>
+          </Outgoing>
+        </Account>
+        <Account>
+          <NetworkName>vodafone P</NetworkName>
+          <AccountName>Sapo</AccountName>
+          <EmailAddr>@sapo.pt</EmailAddr>
+          <LoginType>domain_type</LoginType>
+          <Incoming>
+            <MailboxType>pop3</MailboxType>
+            <ServAddr>pop.sapo.pt</ServAddr>
+            <Port>110</Port>
+            <Secure>off</Secure>
+          </Incoming>
+          <Outgoing>
+            <ServAddr>smtp.sapo.pt</ServAddr>
+            <Port>25</Port>
+            <SmtpAuth>on</SmtpAuth>
+          </Outgoing>
+        </Account>
+        <Account>
+          <NetworkName>vodafone P</NetworkName>
+          <AccountName>Vodafone Mail</AccountName>
+          <EmailAddr>@vodafone.pt</EmailAddr>
+          <LoginType>domain_type</LoginType>
+          <Incoming>
+            <MailboxType>pop3</MailboxType>
+            <ServAddr>mail.vodafone.pt</ServAddr>
+            <Port>110</Port>
+            <Secure>off</Secure>
+          </Incoming>
+          <Outgoing>
+            <ServAddr>mail.vodafone.pt</ServAddr>
+            <Port>25</Port>
+            <SmtpAuth>on</SmtpAuth>
+            <Secure>off</Secure>
+          </Outgoing>
+        </Account>
+        <Account>
+          <NetworkName>vodafone P</NetworkName>
+          <AccountName>IOL</AccountName>
+          <EmailAddr>@iol.pt</EmailAddr>
+          <LoginType>domain_type</LoginType>
+          <Incoming>
+            <MailboxType>imap4</MailboxType>
+            <ServAddr>imap.iol.pt</ServAddr>
+            <Port>143</Port>
+            <Secure>off</Secure>
+          </Incoming>
+          <Outgoing>
+            <ServAddr>smtp.vodafone.pt</ServAddr>
+            <Port>25</Port>
+            <SmtpAuth>on</SmtpAuth>
+            <Secure>off</Secure>
+          </Outgoing>
+        </Account>
+        <Account>
+          <NetworkName>vodafone P</NetworkName>
+          <AccountName>Netcabo</AccountName>
+          <EmailAddr>@netcabo.pt</EmailAddr>
+          <LoginType>domain_type</LoginType>
+          <Incoming>
+            <MailboxType>pop3</MailboxType>
+            <ServAddr>pop.netcabo.pt</ServAddr>
+            <Port>110</Port>
+            <Secure>off</Secure>
+          </Incoming>
+          <Outgoing>
+            <ServAddr>smtp.netcabo.pt</ServAddr>
+            <Port>25</Port>
+            <SmtpAuth>on</SmtpAuth>
+            <Secure>off</Secure>
+          </Outgoing>
+        </Account>
+      </Email>
+    </Messages>
+    <Browser>
+      <NbBookmark>10</NbBookmark>
+      <Bookmark>
+        <NetworkName>vodafone P</NetworkName>
+        <Editable>no</Editable>
+        <BookmarkName>Vodafone live!</BookmarkName>
+        <URL>http://live.vodafone.com</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>vodafone P</NetworkName>
+        <Editable>no</Editable>
+        <BookmarkName>My Vodafone</BookmarkName>
+        <URL>http://live.vodafone.com/myvodafone</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>vodafone P</NetworkName>
+        <Editable>yes</Editable>
+        <BookmarkName>Notícias</BookmarkName>
+        <URL>http://live.vodafone.com/news</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>vodafone P</NetworkName>
+        <Editable>yes</Editable>
+        <BookmarkName>Pesquisa</BookmarkName>
+        <URL>http://live.vodafone.com/search</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>vodafone P</NetworkName>
+        <Editable>yes</Editable>
+        <BookmarkName>Futebol</BookmarkName>
+        <URL>http://live.vodafone.com/sport</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>vodafone P</NetworkName>
+        <Editable>yes</Editable>
+        <BookmarkName>Mobile TV</BookmarkName>
+        <URL>http://live.vodafone.com/tv</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>vodafone P</NetworkName>
+        <Editable>yes</Editable>
+        <BookmarkName>Vodafone Mail</BookmarkName>
+        <URL>http://live.vodafone.com/um</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>vodafone P</NetworkName>
+        <Editable>yes</Editable>
+        <BookmarkName>Toques</BookmarkName>
+        <URL>http://live.vodafone.com/ringtonedownload</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>vodafone P</NetworkName>
+        <Editable>yes</Editable>
+        <BookmarkName>Wallpapers</BookmarkName>
+        <URL>http://live.vodafone.com/picturedownload</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>vodafone P</NetworkName>
+        <Editable>yes</Editable>
+        <BookmarkName>Jogos</BookmarkName>
+        <URL>http://live.vodafone.com/games</URL>
+      </Bookmark>
+    </Browser>
+    <GPS>
+      <NbAGPS>1</NbAGPS>
+      <AGPS>
+        <TLS>on</TLS>
+        <ServAddr>supl.vodafone.com</ServAddr>
+        <Port>7275</Port>
+      </AGPS>
+    </GPS>
+    <Connections>
+      <NbProfileHandle>1</NbProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>3</NbNetProfile>
+        <NetworkName>vodafone P</NetworkName>
+        <ProfBrowser>Vodafone Net2</ProfBrowser>
+        <ProfMMS>Vodafone mms</ProfMMS>
+        <ProfAGPS>Vodafone Net2</ProfAGPS>
+        <ProfIntSharing>Internet vodafone</ProfIntSharing>
+      </ProfileHandle>
+      <NbProfile>3</NbProfile>
+      <Profile>
+        <NetworkName>vodafone P</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Vodafone mms</ProfileName>
+        <URL>http://mms.vodafone.pt/servlets/mms</URL>
+        <Auth>none</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>iproxy.vodafone.pt</ServAddr>
+          <Port>80</Port>
+        </Proxy>
+        <PSparam>
+          <APN>net2.vodafone.pt</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>vodafone P</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Internet vodafone</ProfileName>
+        <Auth>normal</Auth>
+        <Protocol>other</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>internet.vodafone.pt</APN>
+          <UserId>vodafone</UserId>
+          <Password>vodafone</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>vodafone P</NetworkName>
+        <Editable>no</Editable>
+        <ProfileName>Vodafone Net2</ProfileName>
+        <URL>http://myweb.vodafone.pt</URL>
+        <Auth>none</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>iproxy.vodafone.pt</ServAddr>
+          <Port>80</Port>
+        </Proxy>
+        <PSparam>
+          <APN>net2.vodafone.pt</APN>
+        </PSparam>
+      </Profile>
+    </Connections>
+  </Settings>
+</CustomerData>

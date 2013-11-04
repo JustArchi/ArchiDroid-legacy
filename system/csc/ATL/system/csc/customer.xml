@@ -1,0 +1,260 @@
+﻿<?xml  version="1.0" encoding="UTF-8" ?>
+<CustomerData>
+  <GeneralInfo>
+    <CSCEdition>ED019</CSCEdition>
+    <Country>Spain</Country>
+    <CountryISO>ES</CountryISO>
+    <Region>EUR</Region>
+    <SalesCode>ATL</SalesCode>
+    <NbNetworkInfo>1</NbNetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>21401</MCCMNC>
+      <NetworkName>vodafone ES</NetworkName>
+    </NetworkInfo>
+  </GeneralInfo>
+  <Settings>
+    <Main>
+      <Security>
+        <NbNetworkLock>1</NbNetworkLock>
+        <NetworkLock>21401</NetworkLock>
+      </Security>
+      <Network>
+        <NbFastDormancy>2</NbFastDormancy>
+        <FastDormancy>
+          <NetworkName>vodafone ES</NetworkName>
+          <FastDormancyEnableStatus>off</FastDormancyEnableStatus>
+          <LCDStatus>on</LCDStatus>
+        </FastDormancy>
+        <FastDormancy>
+          <NetworkName>vodafone ES</NetworkName>
+          <FastDormancyEnableStatus>on</FastDormancyEnableStatus>
+          <TimeoutValue>5</TimeoutValue>
+          <LCDStatus>off</LCDStatus>
+        </FastDormancy>
+        <NbWbAmr>1</NbWbAmr>
+        <WbAmr>
+          <NetworkName>vodafone ES</NetworkName>
+          <WbAmrCodec>on</WbAmrCodec>
+        </WbAmr>
+      </Network>
+      <Sound>
+        <ExtraSound>
+          <ConnectTone>off</ConnectTone>
+          <CallEndTone>off</CallEndTone>
+          <MinuteMind>off</MinuteMind>
+        </ExtraSound>
+        <AMRVoiceCodec>on</AMRVoiceCodec>
+      </Sound>
+      <Phone>
+        <DefLanguage>es_ES</DefLanguage>
+        <DefLanguageNoSIM>es_ES</DefLanguageNoSIM>
+        <DateTimeFormat>
+          <DateFormat>ddmmyyyy</DateFormat>
+          <TimeFormat>24h</TimeFormat>
+          <TimezoneUpdate>off</TimezoneUpdate>
+        </DateTimeFormat>
+      </Phone>
+    </Main>
+    <Messages>
+      <NbVoicemail>1</NbVoicemail>
+      <Voicemail>
+        <NetworkName>vodafone ES</NetworkName>
+        <TelNum>177</TelNum>
+      </Voicemail>
+      <PushMsg>
+        <PushLoading>prompt</PushLoading>
+      </PushMsg>
+      <SMS>
+        <DeliveryReport>off</DeliveryReport>
+        <MsgTypeThreshold>
+          <ThresholdValue>5</ThresholdValue>
+          <ThresholdType>pagecount</ThresholdType>
+        </MsgTypeThreshold>
+        <MaxRecipient>20</MaxRecipient>
+        <CharSupport>gsmalpha</CharSupport>
+        <SSMS>off</SSMS>
+        <NbTextTemplate>5</NbTextTemplate>
+        <TextTemplate>Llego tarde</TextTemplate>
+        <TextTemplate>Estoy ocupado, luego te llamo</TextTemplate>
+        <TextTemplate>Estoy reunido</TextTemplate>
+        <TextTemplate>Estoy en un atasco</TextTemplate>
+        <TextTemplate>Ahora te llamo</TextTemplate>
+      </SMS>
+      <MMS>
+        <MmsSending>
+          <ReqDeliveryRep>off</ReqDeliveryRep>
+          <ReqReadRep>off</ReqReadRep>
+          <ImageResizeResolution>uxga</ImageResizeResolution>
+        </MmsSending>
+        <MmsReceiving>
+          <Home>auto</Home>
+          <Roaming>manual</Roaming>
+        </MmsReceiving>
+      </MMS>
+      <Email>
+        <EmailReceiving>
+          <PollTime>off</PollTime>
+        </EmailReceiving>
+        <NbAccount>4</NbAccount>
+        <Account>
+          <NetworkName>vodafone ES</NetworkName>
+          <AccountName>Gmail</AccountName>
+          <EmailAddr>@gmail.com</EmailAddr>
+          <Incoming>
+            <MailboxType>pop3</MailboxType>
+            <ServAddr>pop.gmail.com</ServAddr>
+            <Port>995</Port>
+            <Secure>ssl</Secure>
+          </Incoming>
+          <Outgoing>
+            <ServAddr>smtp.gmail.com</ServAddr>
+            <Port>465</Port>
+            <SmtpAuth>on</SmtpAuth>
+            <Secure>ssl</Secure>
+          </Outgoing>
+        </Account>
+        <Account>
+          <NetworkName>vodafone ES</NetworkName>
+          <AccountName>Yahoo! Mail</AccountName>
+          <EmailAddr>@yahoo.es</EmailAddr>
+          <Incoming>
+            <MailboxType>pop3</MailboxType>
+            <ServAddr>pop.correo.yahoo.es</ServAddr>
+            <Port>110</Port>
+          </Incoming>
+          <Outgoing>
+            <ServAddr>smtp.correo.yahoo.es</ServAddr>
+            <Port>25</Port>
+            <SmtpAuth>on</SmtpAuth>
+          </Outgoing>
+        </Account>
+        <Account>
+          <NetworkName>vodafone ES</NetworkName>
+          <AccountName>Hotmail</AccountName>
+          <EmailAddr>@hotmail.com</EmailAddr>
+          <LoginType>domain_type</LoginType>
+          <Incoming>
+            <MailboxType>pop3</MailboxType>
+            <ServAddr>pop3.live.com</ServAddr>
+            <Port>995</Port>
+            <Secure>ssl</Secure>
+          </Incoming>
+          <Outgoing>
+            <ServAddr>smtp.live.com</ServAddr>
+            <Port>587</Port>
+            <SmtpAuth>on</SmtpAuth>
+            <Secure>tls</Secure>
+          </Outgoing>
+        </Account>
+        <Account>
+          <NetworkName>vodafone ES</NetworkName>
+          <AccountName>Vodafone Mail</AccountName>
+          <EmailAddr>@vodafone.es</EmailAddr>
+          <LoginType>username_type</LoginType>
+          <Incoming>
+            <MailboxType>pop3</MailboxType>
+            <ServAddr>pop3.vodafone.es</ServAddr>
+            <Port>110</Port>
+          </Incoming>
+          <Outgoing>
+            <ServAddr>smtp.vodafone.es</ServAddr>
+            <Port>25</Port>
+            <SmtpAuth>off</SmtpAuth>
+          </Outgoing>
+        </Account>
+      </Email>
+    </Messages>
+    <Browser>
+      <NbBookmark>2</NbBookmark>
+      <Bookmark>
+        <NetworkName>vodafone ES</NetworkName>
+        <BookmarkName>Mi Vodafone</BookmarkName>
+        <URL>http://m.vodafone.es/</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>vodafone ES</NetworkName>
+        <BookmarkName>Mi Web</BookmarkName>
+        <URL>http://miweb.vodafone.es/</URL>
+      </Bookmark>
+    </Browser>
+    <NbWifiProfile>1</NbWifiProfile>
+    <WifiProfile>
+      <WifiSSID>VodafoneWiFi</WifiSSID>
+      <WifiKeyMgmt>WPA-EAP IEEE8021X</WifiKeyMgmt>
+      <WifiEAPMethod>sim</WifiEAPMethod>
+      <WifiPriority>1</WifiPriority>
+    </WifiProfile>
+    <GPS>
+      <NbAGPS>1</NbAGPS>
+      <AGPS>
+        <TLS>on</TLS>
+        <ServAddr>supl.vodafone.com</ServAddr>
+        <Port>7275</Port>
+      </AGPS>
+    </GPS>
+    <Connections>
+      <NbProfileHandle>1</NbProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>3</NbNetProfile>
+        <NetworkName>vodafone ES</NetworkName>
+        <ProfBrowser>Internet móvil</ProfBrowser>
+        <ProfMMS>MMS VODAFONE</ProfMMS>
+        <ProfAGPS>Internet móvil</ProfAGPS>
+        <ProfIntSharing>INTERNET</ProfIntSharing>
+      </ProfileHandle>
+      <NbProfile>3</NbProfile>
+      <Profile>
+        <NetworkName>vodafone ES</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Internet móvil</ProfileName>
+        <URL>http://myweb.vodafone.com</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>airtelwap.es</APN>
+          <UserId>wap@wap</UserId>
+          <Password>wap125</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>vodafone ES</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>MMS VODAFONE</ProfileName>
+        <URL>http://mmsc.vodafone.es/servlets/mms</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>212.73.32.10</ServAddr>
+          <Port>80</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mms.vodafone.net</APN>
+          <UserId>wap@wap</UserId>
+          <Password>wap125</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>vodafone ES</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>INTERNET</ProfileName>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>airtelnet.es</APN>
+          <UserId>vodafone</UserId>
+          <Password>vodafone</Password>
+        </PSparam>
+      </Profile>
+    </Connections>
+  </Settings>
+</CustomerData>

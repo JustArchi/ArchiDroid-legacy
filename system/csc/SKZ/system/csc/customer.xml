@@ -1,0 +1,222 @@
+﻿<?xml  version="1.0" encoding="UTF-8" ?>
+<CustomerData>
+  <GeneralInfo>
+    <CSCEdition>ED005</CSCEdition>
+    <Country>Kazakhstan</Country>
+    <CountryISO>KZ</CountryISO>
+    <Region>CIS</Region>
+    <SalesCode>SKZ</SalesCode>
+    <NbNetworkInfo>4</NbNetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>40101</MCCMNC>
+      <NetworkName>Beeline</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>40102</MCCMNC>
+      <NetworkName>Kcell</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>40177</MCCMNC>
+      <NetworkName>Tele2</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>42899</MCCMNC>
+      <NetworkName>MobiCom</NetworkName>
+    </NetworkInfo>
+  </GeneralInfo>
+  <Settings>
+    <Main>
+      <Network>
+        <AutoProfile>on</AutoProfile>
+        <AutoVoicemail>off</AutoVoicemail>
+        <AutoEmailAccount>off</AutoEmailAccount>
+        <AutoBookmark>off</AutoBookmark>
+        <AutoLink>off</AutoLink>
+        <AutoSyncML>off</AutoSyncML>
+        <AutoFastDormancy>off</AutoFastDormancy>
+        <AutoWbAmr>off</AutoWbAmr>
+        <AutoFOTA>off</AutoFOTA>
+      </Network>
+      <Sound>
+        <ExtraSound>
+          <ConnectTone>on</ConnectTone>
+        </ExtraSound>
+      </Sound>
+      <Phone>
+        <DefLanguage>ru_RU</DefLanguage>
+        <DefLanguageNoSIM>ru_RU</DefLanguageNoSIM>
+        <DateTimeFormat>
+          <DateFormat>ddmmyyyy</DateFormat>
+          <TimeFormat>24h</TimeFormat>
+        </DateTimeFormat>
+      </Phone>
+      <Security />
+    </Main>
+    <Calendar>
+      <StartDay>monday</StartDay>
+    </Calendar>
+    <Messages>
+      <SMS>
+        <CharSupport>automatic</CharSupport>
+      </SMS>
+      <MMS>
+        <MmsReceiving>
+          <Home>auto</Home>
+          <Roaming>manual</Roaming>
+        </MmsReceiving>
+      </MMS>
+    </Messages>
+    <Browser>
+      <NbBookmark>2</NbBookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <BookmarkName>Samsung Fun Club</BookmarkName>
+        <URL>http://wap.kz.samsungmobile.com</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <BookmarkName>Yahoo!</BookmarkName>
+        <URL>http://m.yahoo.com/?tsrc=samsungbm</URL>
+      </Bookmark>
+      <eManual>
+        <URL>http://www.samsung.com/m-manual/common</URL>
+      </eManual>
+    </Browser>
+    <Connections>
+      <NbProfileHandle>4</NbProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>Beeline</NetworkName>
+        <ProfBrowser>Beeline Internet</ProfBrowser>
+        <ProfMMS>Beeline MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>Kcell</NetworkName>
+        <ProfBrowser>Kcell Internet</ProfBrowser>
+        <ProfMMS>Kcell MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>Tele2</NetworkName>
+        <ProfBrowser>Tele2 Internet</ProfBrowser>
+        <ProfMMS>Tele2 MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>MobiCom</NetworkName>
+        <ProfBrowser>MobiCom Internet</ProfBrowser>
+        <ProfMMS>MobiCom MMS</ProfMMS>
+      </ProfileHandle>
+      <NbProfile>8</NbProfile>
+      <Profile>
+        <NetworkName>Beeline</NetworkName>
+        <ProfileName>Beeline MMS</ProfileName>
+        <URL>http://mms.beeline.kz/mms/wapenc</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>172.27.6.93</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mms.beeline.kz</APN>
+          <UserId>@mms.beeline</UserId>
+          <Password>beeline</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Beeline</NetworkName>
+        <ProfileName>Beeline Internet</ProfileName>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <PSparam>
+          <APN>internet.beeline.kz</APN>
+          <UserId>@internet.beeline</UserId>
+          <Password>beeline</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Kcell</NetworkName>
+        <ProfileName>Kcell MMS</ProfileName>
+        <URL>http://mms.kcell.kz/post</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>195.47.255.7</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mms</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Kcell</NetworkName>
+        <ProfileName>Kcell Internet</ProfileName>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <PSparam>
+          <APN>internet</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Tele2</NetworkName>
+        <ProfileName>Tele2 MMS</ProfileName>
+        <URL>http://mms.neogsm.kz/mms/wapenc</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>10.1.26.10</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mms</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Tele2</NetworkName>
+        <ProfileName>Tele2 Internet</ProfileName>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <PSparam>
+          <APN>internet</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>MobiCom</NetworkName>
+        <ProfileName>MobiCom MMS</ProfileName>
+        <URL>http://mms</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>10.10.10.10</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mms</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>MobiCom</NetworkName>
+        <ProfileName>MobiCom Internet</ProfileName>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <PSparam>
+          <APN>internet</APN>
+        </PSparam>
+      </Profile>
+    </Connections>
+  </Settings>
+</CustomerData>

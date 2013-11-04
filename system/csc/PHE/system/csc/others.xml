@@ -1,0 +1,10 @@
+﻿<?xml  version="1.0" encoding="UTF-8" ?>
+<SamsungMobileFeauture>
+  <Version>ED001</Version>
+  <Country>SPAIN</Country>
+  <CountryISO>ES</CountryISO>
+  <SalesCode>PHE</SalesCode>
+  <FeatureSet>
+    <CscFeature_Web_EnableAutoSimHomeUrlInProfile>TRUE</CscFeature_Web_EnableAutoSimHomeUrlInProfile>	<CscFeature_Web_SetUAProfile>http://wap.samsungmobile.com/uaprof/%s.xml</CscFeature_Web_SetUAProfile>	<CscFeature_SyncML_ActionOmaCpApn>AddNew</CscFeature_SyncML_ActionOmaCpApn>	<CscFeature_Setting_CustNetworkSelMenu4>YOG</CscFeature_Setting_CustNetworkSelMenu4>       <CscFeature_Setting_EnableAutoSimApkInstaller>TRUE</CscFeature_Setting_EnableAutoSimApkInstaller>
+  </FeatureSet>
+</SamsungMobileFeauture>

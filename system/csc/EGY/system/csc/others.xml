@@ -1,0 +1,17 @@
+﻿<?xml  version="1.0" encoding="UTF-8" ?>
+<SamsungMobileFeauture>
+  <Version>ED001</Version>
+  <Country>EGYPT</Country>
+  <CountryISO>EG</CountryISO>
+  <SalesCode>EGY</SalesCode>
+  <FeatureSet>
+    <CscFeature_Framework_EnableBidirection>TRUE</CscFeature_Framework_EnableBidirection>
+    <CscFeature_SIP_EnablePreferredEnglishTypeAsUS>TRUE</CscFeature_SIP_EnablePreferredEnglishTypeAsUS>
+    <CscFeature_Sip_LangQwertyType4HwKey>HW_KEYBOARD_COUNTRY_TYPE_ARAB_QWERTY</CscFeature_Sip_LangQwertyType4HwKey>
+    <CscFeature_Clock_DisableIsraelCountry>TRUE</CscFeature_Clock_DisableIsraelCountry>
+    <CscFeature_Email_AlignmentForRTL>TRUE</CscFeature_Email_AlignmentForRTL>
+    <CscFeature_Email_DisableFontAttributeDuringComposing>Bold, Italic</CscFeature_Email_DisableFontAttributeDuringComposing>
+    <CscFeature_RIL_SupportUssdWithSharpChar>TRUE</CscFeature_RIL_SupportUssdWithSharpChar>
+    <CscFeature_Calendar_EnableLocalHolidayDisplay>ARABIC</CscFeature_Calendar_EnableLocalHolidayDisplay>
+  </FeatureSet>
+</SamsungMobileFeauture>

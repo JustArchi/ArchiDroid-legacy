@@ -1,0 +1,12 @@
+﻿<?xml  version="1.0" encoding="UTF-8" ?>
+<SamsungMobileFeauture>
+  <Version>ED001</Version>
+  <Country>UNITED ARAB EMIRAT</Country>
+  <CountryISO>AE</CountryISO>
+  <SalesCode>AFR</SalesCode>
+  <FeatureSet>
+    <CscFeature_Framework_EnableBidirection>TRUE</CscFeature_Framework_EnableBidirection>
+    <CscFeature_SIP_EnablePreferredEnglishTypeAsUS>TRUE</CscFeature_SIP_EnablePreferredEnglishTypeAsUS>
+    <CscFeature_Email_AlignmentForRTL>TRUE</CscFeature_Email_AlignmentForRTL>
+  </FeatureSet>
+</SamsungMobileFeauture>

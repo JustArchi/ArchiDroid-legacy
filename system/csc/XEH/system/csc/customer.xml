@@ -1,0 +1,434 @@
+﻿<?xml  version="1.0" encoding="UTF-8" ?>
+<CustomerData>
+  <GeneralInfo>
+    <CSCEdition>ED006</CSCEdition>
+    <Country>Hungary</Country>
+    <CountryISO>HU</CountryISO>
+    <Region>EUR</Region>
+    <SalesCode>XEH</SalesCode>
+    <NbNetworkInfo>5</NbNetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>21630</MCCMNC>
+      <NetworkName>T-Mobile H</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>21630</MCCMNC>
+      <NetworkName>Blue Mobile</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>21601</MCCMNC>
+      <NetworkName>Telenor</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>21670</MCCMNC>
+      <NetworkName>vodafone HU</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>21670</MCCMNC>
+      <NetworkName>Tesco Mobile</NetworkName>
+    </NetworkInfo>
+  </GeneralInfo>
+  <Settings>
+    <Main>
+      <Security>
+        <NbNetworkLock>38</NbNetworkLock>
+        <NetworkLock>460BB</NetworkLock>
+        <NetworkLock>250BB</NetworkLock>
+        <NetworkLock>255BB</NetworkLock>
+        <NetworkLock>502BB</NetworkLock>
+        <NetworkLock>510BB</NetworkLock>
+        <NetworkLock>401BB</NetworkLock>
+        <NetworkLock>525BB</NetworkLock>
+        <NetworkLock>452BB</NetworkLock>
+        <NetworkLock>505BB</NetworkLock>
+        <NetworkLock>515BB</NetworkLock>
+        <NetworkLock>470BB</NetworkLock>
+        <NetworkLock>404BB</NetworkLock>
+        <NetworkLock>405BB</NetworkLock>
+        <NetworkLock>603BB</NetworkLock>
+        <NetworkLock>602BB</NetworkLock>
+        <NetworkLock>432BB</NetworkLock>
+        <NetworkLock>604BB</NetworkLock>
+        <NetworkLock>416BB</NetworkLock>
+        <NetworkLock>424BB</NetworkLock>
+        <NetworkLock>425BB</NetworkLock>
+        <NetworkLock>724BB</NetworkLock>
+        <NetworkLock>370BB</NetworkLock>
+        <NetworkLock>338BB</NetworkLock>
+        <NetworkLock>374BB</NetworkLock>
+        <NetworkLock>706BB</NetworkLock>
+        <NetworkLock>734BB</NetworkLock>
+        <NetworkLock>714BB</NetworkLock>
+        <NetworkLock>712BB</NetworkLock>
+        <NetworkLock>740BB</NetworkLock>
+        <NetworkLock>704BB</NetworkLock>
+        <NetworkLock>708BB</NetworkLock>
+        <NetworkLock>710BB</NetworkLock>
+        <NetworkLock>744BB</NetworkLock>
+        <NetworkLock>748BB</NetworkLock>
+        <NetworkLock>736BB</NetworkLock>
+        <NetworkLock>621BB</NetworkLock>
+        <NetworkLock>620BB</NetworkLock>
+        <NetworkLock>639BB</NetworkLock>
+      </Security>
+      <Network>
+        <AutoProfile>on</AutoProfile>
+        <AutoVoicemail>on</AutoVoicemail>
+        <AutoEmailAccount>on</AutoEmailAccount>
+        <AutoBookmark>off</AutoBookmark>
+        <AutoLink>off</AutoLink>
+        <AutoSyncML>off</AutoSyncML>
+        <AutoFastDormancy>off</AutoFastDormancy>
+        <AutoWbAmr>off</AutoWbAmr>
+        <AutoFOTA>off</AutoFOTA>
+      </Network>
+      <Sound>
+        <ExtraSound>
+          <ConnectTone>on</ConnectTone>
+          <CallEndTone>off</CallEndTone>
+          <MinuteMind>off</MinuteMind>
+        </ExtraSound>
+      </Sound>
+      <Phone>
+        <AlertOnCall>on</AlertOnCall>
+        <DefLanguage>hu_HU</DefLanguage>
+        <DefLanguageNoSIM>hu_HU</DefLanguageNoSIM>
+        <T9Enabling>disable</T9Enabling>
+        <KeypadType>qwerty</KeypadType>
+        <DateTimeFormat>
+          <DateFormat>yyyymmdd</DateFormat>
+          <TimeFormat>24h</TimeFormat>
+        </DateTimeFormat>
+      </Phone>
+    </Main>
+    <Contact>
+      <ContactSort>lastname</ContactSort>
+    </Contact>
+    <Calendar>
+      <StartDay>monday</StartDay>
+    </Calendar>
+    <Messages>
+      <NbVoicemail>5</NbVoicemail>
+      <Voicemail>
+        <NetworkName>T-Mobile H</NetworkName>
+        <VoicemailName>Hangposta</VoicemailName>
+        <TelNum>+36309888444</TelNum>
+      </Voicemail>
+      <Voicemail>
+        <NetworkName>Blue Mobile</NetworkName>
+        <VoicemailName>Hangposta</VoicemailName>
+        <TelNum>+36309888440</TelNum>
+      </Voicemail>
+      <Voicemail>
+        <NetworkName>Telenor</NetworkName>
+        <VoicemailName>Hangposta</VoicemailName>
+        <TelNum>+36209400404</TelNum>
+      </Voicemail>
+      <Voicemail>
+        <NetworkName>vodafone HU</NetworkName>
+        <VoicemailName>Hangposta</VoicemailName>
+        <TelNum>170</TelNum>
+      </Voicemail>
+      <Voicemail>
+        <NetworkName>Tesco Mobile</NetworkName>
+        <VoicemailName>Hangposta</VoicemailName>
+        <TelNum>170</TelNum>
+      </Voicemail>
+      <PushMsg>
+        <RecOption>on</RecOption>
+        <PushLoading>prompt</PushLoading>
+      </PushMsg>
+      <SMS>
+        <DeliveryReport>off</DeliveryReport>
+        <CharSupport>gsmalpha</CharSupport>
+        <SSMS>off</SSMS>
+      </SMS>
+      <MMS>
+        <MmsSending>
+          <ReqDeliveryRep>off</ReqDeliveryRep>
+          <ReqReadRep>off</ReqReadRep>
+          <MessageSize>300</MessageSize>
+          <CreationMode>free</CreationMode>
+        </MmsSending>
+        <MmsReceiving>
+          <Home>auto</Home>
+          <Roaming>manual</Roaming>
+        </MmsReceiving>
+      </MMS>
+      <Email>
+        <NbAccount>3</NbAccount>
+        <Account>
+          <NetworkName>T-Mobile H</NetworkName>
+          <AccountName>t-email</AccountName>
+          <LoginType>domain_type</LoginType>
+          <Incoming>
+            <MailboxType>imap4</MailboxType>
+            <ServAddr>mail.t-email.hu</ServAddr>
+            <Port>143</Port>
+          </Incoming>
+          <Outgoing>
+            <ServAddr>mail.t-email.hu</ServAddr>
+            <Port>25</Port>
+            <SmtpAuth>on</SmtpAuth>
+            <Secure>off</Secure>
+          </Outgoing>
+        </Account>
+        <Account>
+          <NetworkName>Telenor</NetworkName>
+          <AccountName>Email Studio</AccountName>
+          <EmailAddr>@telenormail.hu</EmailAddr>
+          <Incoming>
+            <MailboxType>pop3</MailboxType>
+            <ServAddr>mail.telenormail.hu</ServAddr>
+            <Port>110</Port>
+          </Incoming>
+          <Outgoing>
+            <ServAddr>mail.telenormail.hu</ServAddr>
+            <Port>25</Port>
+            <SmtpAuth>on</SmtpAuth>
+            <Secure>off</Secure>
+          </Outgoing>
+        </Account>
+        <Account>
+          <NetworkName>vodafone HU</NetworkName>
+          <AccountName>Vodafone Mail</AccountName>
+          <EmailAddr>@vodafone.hu</EmailAddr>
+          <LoginType>username_type</LoginType>
+          <Incoming>
+            <MailboxType>pop3</MailboxType>
+            <ServAddr>mail.vodafone.hu</ServAddr>
+            <Port>995</Port>
+            <Secure>off</Secure>
+          </Incoming>
+          <Outgoing>
+            <ServAddr>mail.vodafone.hu</ServAddr>
+            <Port>587</Port>
+            <SmtpAuth>on</SmtpAuth>
+            <Secure>off</Secure>
+          </Outgoing>
+        </Account>
+      </Email>
+    </Messages>
+    <Wifi>
+      <SleepPolicy>always</SleepPolicy>
+    </Wifi>
+    <Multimedia>
+      <Camera>
+        <ShutterSound>off</ShutterSound>
+      </Camera>
+    </Multimedia>
+    <Browser>
+      <NbBookmark>2</NbBookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>yes</Editable>
+        <Index>1</Index>
+        <BookmarkName>Samsung Apps</BookmarkName>
+        <URL>http://m.hu.samsungapps.com</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>yes</Editable>
+        <Index>2</Index>
+        <BookmarkName>Yahoo!</BookmarkName>
+        <URL>http://m.yahoo.com/?tsrc=samsungbm</URL>
+      </Bookmark>
+      <eManual>
+        <URL>http://www.samsung.com/m-manual/common</URL>
+      </eManual>
+    </Browser>
+    <Connections>
+      <NbProfileHandle>5</NbProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>Tesco Mobile</NetworkName>
+        <ProfBrowser>Tesco Mobile Internet</ProfBrowser>
+        <ProfMMS>Tesco Mobile MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>T-Mobile H</NetworkName>
+        <ProfBrowser>T-Mobile H</ProfBrowser>
+        <ProfMMS>T-Mobile H MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>Telenor</NetworkName>
+        <ProfBrowser>Telenor Online</ProfBrowser>
+        <ProfMMS>Telenor MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>vodafone HU</NetworkName>
+        <ProfBrowser>Vodafone Internet</ProfBrowser>
+        <ProfMMS>Vodafone MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>Blue Mobile</NetworkName>
+        <ProfBrowser>Blue Mobile</ProfBrowser>
+        <ProfMMS>Blue Mobile MMS</ProfMMS>
+      </ProfileHandle>
+      <NbProfile>10</NbProfile>
+      <Profile>
+        <NetworkName>Tesco Mobile</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Tesco Mobile MMS</ProfileName>
+        <URL>http://mms.vodafone.hu/servlets/mms</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>080.244.097.002</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mms.vodafone.net</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Tesco Mobile</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Tesco Mobile Internet</ProfileName>
+        <URL>http://mobilecom.samsung.hu</URL>
+        <Auth>normal</Auth>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>internet.tescomobile.hu</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>T-Mobile H</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>T-Mobile H</ProfileName>
+        <URL>http://mobilecom.samsung.hu</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>internet.telekom</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>T-Mobile H</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>T-Mobile H MMS</ProfileName>
+        <URL>http://mms.t-mobile.hu/servlets/mms</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>212.051.126.010</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>internet.telekom</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Telenor</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Telenor Online</ProfileName>
+        <URL>http://mobilecom.samsung.hu</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>online</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Telenor</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Telenor MMS</ProfileName>
+        <URL>http://mmsc.telenor.hu/</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>84.225.255.1</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mms</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>vodafone HU</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Vodafone MMS</ProfileName>
+        <URL>http://mms.vodafone.hu/servlets/mms</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>080.244.097.002</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mms.vodafone.net</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>vodafone HU</NetworkName>
+        <IpVersion>ipv4</IpVersion>
+        <Editable>yes</Editable>
+        <ProfileName>Vodafone Internet</ProfileName>
+        <URL>http://mobilecom.samsung.hu</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <PSparam>
+          <APN>internet.vodafone.net</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Blue Mobile</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Blue Mobile MMS</ProfileName>
+        <URL>http://mms.t-mobile.hu/servlets/mms</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>212.051.126.010</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mms</APN>
+          <UserId>mms</UserId>
+          <Password>mms</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Blue Mobile</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Blue Mobile</ProfileName>
+        <URL>http://mobilecom.samsung.hu</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>wnw</APN>
+        </PSparam>
+      </Profile>
+    </Connections>
+  </Settings>
+</CustomerData>

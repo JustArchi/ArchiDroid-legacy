@@ -1,0 +1,25 @@
+﻿<?xml  version="1.0" encoding="UTF-8" ?>
+<SamsungMobileFeauture>
+  <Version>ED001</Version>
+  <Country>SERBIA</Country>
+  <CountryISO>RS</CountryISO>
+  <SalesCode>TOP</SalesCode>
+  <FeatureSet>
+    <CscFeature_Email_UseFixedSmtpPortAs>25</CscFeature_Email_UseFixedSmtpPortAs>
+    <CscFeature_Streaming_SendBandwidthInfo>TRUE</CscFeature_Streaming_SendBandwidthInfo>
+    <CscFeature_Web_SetUserAgent>VODA</CscFeature_Web_SetUserAgent>
+    <CscFeature_Web_SetUAProfile>http://wap.samsungmobile.com/uaprof/%s.xml</CscFeature_Web_SetUAProfile>
+    <CscFeature_Web_OverrideUserAgent>TRUE</CscFeature_Web_OverrideUserAgent>
+    <CscFeature_GMS_SetClientIDBaseMs>android-hms-vf-{country}</CscFeature_GMS_SetClientIDBaseMs>
+    <CscFeature_GMS_SetClientIDBaseGmm>android-samsung</CscFeature_GMS_SetClientIDBaseGmm>
+    <CscFeature_GMS_SetClientIDBaseYt>android-samsung</CscFeature_GMS_SetClientIDBaseYt>
+    <CscFeature_GMS_SetClientIDBaseAm>android-samsung</CscFeature_GMS_SetClientIDBaseAm>
+    <CscFeature_Wifi_UseRandom4digitCombinationAsSSID>TRUE</CscFeature_Wifi_UseRandom4digitCombinationAsSSID>
+    <CscFeature_Wifi_UseDefaultSecurityAs>WPA2/PSK</CscFeature_Wifi_UseDefaultSecurityAs>
+    <CscFeature_SyncML_EnableShowVersionNameAferSuccessfulUpdate>TRUE</CscFeature_SyncML_EnableShowVersionNameAferSuccessfulUpdate>
+    <CscFeature_SyncML_EnableNotiDeltaBinarySizeBeforeDownload>TRUE</CscFeature_SyncML_EnableNotiDeltaBinarySizeBeforeDownload>
+    <CscFeature_RIL_UssdConnectToCall>45,46,132,153</CscFeature_RIL_UssdConnectToCall>
+    <CscFeature_VoiceCall_EnableCallButtonInFdnList>TRUE</CscFeature_VoiceCall_EnableCallButtonInFdnList>
+    <CscFeature_Setting_ShortcutListInLockScreen>Phone,Messaging,S Voice,Camera</CscFeature_Setting_ShortcutListInLockScreen>
+  </FeatureSet>
+</SamsungMobileFeauture>

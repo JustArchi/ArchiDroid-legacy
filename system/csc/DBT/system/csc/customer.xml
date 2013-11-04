@@ -1,0 +1,517 @@
+﻿<?xml  version="1.0" encoding="UTF-8" ?>
+<CustomerData>
+  <GeneralInfo>
+    <CSCEdition>ED008</CSCEdition>
+    <Country>Germany</Country>
+    <CountryISO>DE</CountryISO>
+    <Region>EUR</Region>
+    <SalesCode>DBT</SalesCode>
+    <NbNetworkInfo>8</NbNetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>26201</MCCMNC>
+      <NetworkName>T-Mobile D</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>26202</MCCMNC>
+      <NetworkName>Vodafone.de</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>26203</MCCMNC>
+      <NetworkName>E-Plus</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>26207</MCCMNC>
+      <NetworkName>o2 - de</NetworkName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>26201</MCCMNC>
+      <NetworkName>T-Mobile D (md.de)</NetworkName>
+      <SPName>debitel</SPName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>26202</MCCMNC>
+      <NetworkName>Vodafone.de (md.de)</NetworkName>
+      <SPName>Debitel</SPName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>26203</MCCMNC>
+      <NetworkName>E-Plus (md.de)</NetworkName>
+      <SPName>debitel</SPName>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>26207</MCCMNC>
+      <NetworkName>o2 - de (md.de)</NetworkName>
+    </NetworkInfo>
+  </GeneralInfo>
+  <Settings>
+    <Main>
+      <Network>
+        <AutoProfile>on</AutoProfile>
+        <AutoVoicemail>off</AutoVoicemail>
+        <AutoEmailAccount>off</AutoEmailAccount>
+        <AutoBookmark>off</AutoBookmark>
+        <AutoLink>off</AutoLink>
+        <AutoSyncML>off</AutoSyncML>
+        <AutoFastDormancy>off</AutoFastDormancy>
+        <AutoWbAmr>off</AutoWbAmr>
+        <AutoFOTA>off</AutoFOTA>
+      </Network>
+      <Sound>
+        <TouchTone>off</TouchTone>
+        <ExtraSound>
+          <ConnectTone>off</ConnectTone>
+          <MinuteMind>off</MinuteMind>
+        </ExtraSound>
+      </Sound>
+      <Phone>
+        <DefLanguage>german</DefLanguage>
+        <DefLanguageNoSIM>german</DefLanguageNoSIM>
+        <T9Enabling>enable</T9Enabling>
+        <DateTimeFormat>
+          <DateFormat>ddmmyyyy</DateFormat>
+          <TimeFormat>24h</TimeFormat>
+        </DateTimeFormat>
+      </Phone>
+      <Security />
+    </Main>
+    <Calendar>
+      <StartDay>monday</StartDay>
+    </Calendar>
+    <Messages>
+      <SMS>
+        <DeliveryReport>off</DeliveryReport>
+        <MsgTypeThreshold>
+          <ThresholdValue>5</ThresholdValue>
+        </MsgTypeThreshold>
+        <CharSupport>gsmalpha</CharSupport>
+        <SSMS>off</SSMS>
+      </SMS>
+      <MMS>
+        <MmsSending>
+          <CreationMode>free</CreationMode>
+        </MmsSending>
+        <MmsReceiving>
+          <Home>auto</Home>
+          <Roaming>manual</Roaming>
+        </MmsReceiving>
+      </MMS>
+      <Email>
+        <NbAccount>3</NbAccount>
+        <Account>
+          <NetworkName>default</NetworkName>
+          <AccountName>1 &amp; 1 Mail</AccountName>
+          <EmailAddr>@1und1.de</EmailAddr>
+          <Incoming>
+            <MailboxType>pop3</MailboxType>
+            <ServAddr>pop.1und1.de</ServAddr>
+            <Port>110</Port>
+          </Incoming>
+          <Outgoing>
+            <ServAddr>smtp.1und1.de</ServAddr>
+            <Port>25</Port>
+            <SmtpAuth>on</SmtpAuth>
+          </Outgoing>
+        </Account>
+        <Account>
+          <NetworkName>default</NetworkName>
+          <AccountName>Google Mail</AccountName>
+          <EmailAddr>@googlemail.com</EmailAddr>
+          <Incoming>
+            <MailboxType>imap4</MailboxType>
+            <ServAddr>imap.googlemail.com</ServAddr>
+            <Port>993</Port>
+            <Secure>ssl</Secure>
+          </Incoming>
+          <Outgoing>
+            <ServAddr>smtp.googlemail.com</ServAddr>
+            <Port>465</Port>
+            <SmtpAuth>on</SmtpAuth>
+            <Secure>ssl</Secure>
+          </Outgoing>
+        </Account>
+        <Account>
+          <NetworkName>default</NetworkName>
+          <AccountName>WEB.DE</AccountName>
+          <EmailAddr>@web.de</EmailAddr>
+          <Incoming>
+            <MailboxType>pop3</MailboxType>
+            <ServAddr>pop3.web.de</ServAddr>
+            <Port>110</Port>
+          </Incoming>
+          <Outgoing>
+            <ServAddr>smtp.web.de</ServAddr>
+            <Port>25</Port>
+            <SmtpAuth>on</SmtpAuth>
+          </Outgoing>
+        </Account>
+      </Email>
+    </Messages>
+    <Browser>
+      <NbBookmark>6</NbBookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>no</Editable>
+        <BookmarkName>Handyspiele</BookmarkName>
+        <URL>http://m.de.samsungapps.com/games</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>no</Editable>
+        <BookmarkName>Video</BookmarkName>
+        <URL>http://m.de.samsungapps.com/video</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>no</Editable>
+        <BookmarkName>Musik</BookmarkName>
+        <URL>http://m.de.samsungapps.com/music</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>no</Editable>
+        <BookmarkName>Theme</BookmarkName>
+        <URL>http://m.de.samsungapps.com/themes</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>no</Editable>
+        <BookmarkName>Klingeltöne</BookmarkName>
+        <URL>http://m.de.samsungapps.com/sounds</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>no</Editable>
+        <BookmarkName>Yahoo!</BookmarkName>
+        <URL>http://m.yahoo.com/?tsrc=samsungbm</URL>
+      </Bookmark>
+      <eManual>
+        <URL>http://www.samsung.com/m-manual/common</URL>
+      </eManual>
+    </Browser>
+    <Connections>
+      <NbProfileHandle>8</NbProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>T-Mobile D</NetworkName>
+        <ProfBrowser>T-Mobile Internet</ProfBrowser>
+        <ProfMMS>T-Mobile MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>Vodafone.de</NetworkName>
+        <ProfBrowser>Vodafone Internet</ProfBrowser>
+        <ProfMMS>Vodafone MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>E-Plus</NetworkName>
+        <ProfBrowser>E-Plus Internet</ProfBrowser>
+        <ProfMMS>E-Plus MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>o2 - de</NetworkName>
+        <ProfBrowser>o2 Internet</ProfBrowser>
+        <ProfMMS>o2 MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>T-Mobile D (md.de)</NetworkName>
+        <ProfBrowser>T-Mobile Internet</ProfBrowser>
+        <ProfMMS>T-Mobile MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>Vodafone.de (md.de)</NetworkName>
+        <ProfBrowser>Vodafone WEB md</ProfBrowser>
+        <ProfMMS>Vodafone MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>E-Plus (md.de)</NetworkName>
+        <ProfBrowser>E-Plus WEB md</ProfBrowser>
+        <ProfMMS>E-Plus MMS</ProfMMS>
+      </ProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>2</NbNetProfile>
+        <NetworkName>o2 - de (md.de)</NetworkName>
+        <ProfBrowser>o2 WEB debitel</ProfBrowser>
+        <ProfMMS>debitel-o2 MMS</ProfMMS>
+      </ProfileHandle>
+      <NbProfile>16</NbProfile>
+      <Profile>
+        <NetworkName>T-Mobile D</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>T-Mobile Internet</ProfileName>
+
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>internet.t-mobile</APN>
+          <UserId>t-mobile</UserId>
+          <Password>tm</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>T-Mobile D</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>T-Mobile MMS</ProfileName>
+        <URL>http://mms.t-mobile.de/servlets/mms</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>172.28.23.131</ServAddr>
+          <Port>8008</Port>
+        </Proxy>
+        <PSparam>
+          <APN>internet.t-mobile</APN>
+          <UserId>t-mobile</UserId>
+          <Password>tm</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Vodafone.de</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Vodafone MMS</ProfileName>
+        <URL>http://139.7.24.1/servlets/mms</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>139.7.29.17</ServAddr>
+          <Port>80</Port>
+        </Proxy>
+        <PSparam>
+          <APN>event.vodafone.de</APN>
+          <UserId>VDF2</UserId>
+          <Password>MMS</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Vodafone.de</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Vodafone Internet</ProfileName>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>web.vodafone.de</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>o2 - de</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>o2 MMS</ProfileName>
+        <URL>http://10.81.0.7:8002</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>82.113.100.5</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>internet</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>o2 - de</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>o2 Internet</ProfileName>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>internet</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>E-Plus</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>E-Plus MMS</ProfileName>
+        <URL>http://mms/eplus/</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>212.23.97.153</ServAddr>
+          <Port>5080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mms.eplus.de</APN>
+          <UserId>mms</UserId>
+          <Password>eplus</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>E-Plus</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>E-Plus Internet</ProfileName>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>internet.eplus.de</APN>
+          <UserId>eplus</UserId>
+          <Password>internet</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>T-Mobile D (md.de)</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>T-Mobile Internet</ProfileName>
+
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>internet.t-mobile</APN>
+          <UserId>t-mobile</UserId>
+          <Password>tm</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>T-Mobile D (md.de)</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>T-Mobile MMS</ProfileName>
+        <URL>http://mms.t-mobile.de/servlets/mms</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>172.28.23.131</ServAddr>
+          <Port>8008</Port>
+        </Proxy>
+        <PSparam>
+          <APN>internet.t-mobile</APN>
+          <UserId>t-mobile</UserId>
+          <Password>tm</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Vodafone.de (md.de)</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Vodafone MMS</ProfileName>
+        <URL>http://139.7.24.1/servlets/mms</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>139.7.29.17</ServAddr>
+          <Port>80</Port>
+        </Proxy>
+        <PSparam>
+          <APN>event.vodafone.de</APN>
+          <UserId>VDF2</UserId>
+          <Password>MMS</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Vodafone.de (md.de)</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>Vodafone WEB md</ProfileName>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>web.vodafone.de</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>o2 - de (md.de)</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>debitel-o2 MMS</ProfileName>
+        <URL>http://10.81.0.7:8002</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>193.168.128.127</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>wap.debitel.de</APN>
+          <UserId>debitel</UserId>
+          <Password>mms</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>o2 - de (md.de)</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>o2 WEB debitel</ProfileName>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>internet.debitel</APN>
+          <UserId>freenet</UserId>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>E-Plus (md.de)</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>E-Plus MMS</ProfileName>
+        <URL>http://mms/eplus/</URL>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>212.23.97.153</ServAddr>
+          <Port>5080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>mms.eplus.de</APN>
+          <UserId>mms</UserId>
+          <Password>eplus</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>E-Plus (md.de)</NetworkName>
+        <Editable>yes</Editable>
+        <ProfileName>E-Plus WEB md</ProfileName>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>internet.eplus.de</APN>
+          <UserId>eplus</UserId>
+          <Password>internet</Password>
+        </PSparam>
+      </Profile>
+    </Connections>
+  </Settings>
+</CustomerData>

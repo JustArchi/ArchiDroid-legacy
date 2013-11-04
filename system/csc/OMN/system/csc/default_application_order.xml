@@ -1,0 +1,32 @@
+<appOrder
+xmlns:launcher="http://schemas.android.com/apk/res/com.sec.android.app.launcher"
+>              
+  <favorite
+            launcher:packageName="com.vodafone.shop"
+            launcher:className="com.vodafone.shop.activities.IntentReceiver" 
+            launcher:screen="0"/> 
+  <favorite
+            launcher:packageName="com.vodafone.smhs"
+            launcher:className="com.vodafone.smhs.activities.HostActivity" 
+            launcher:screen="0"/> 
+  <favorite
+            launcher:packageName="com.vodafone.android.app.music"
+            launcher:className="com.vodafone.android.app.music.VodafoneSplashActivity" 
+            launcher:screen="0"/> 
+  <favorite
+            launcher:packageName="com.vodafone.android.myweb.launcher"
+            launcher:className="com.vodafone.android.myweb.launcher.MyWebLauncherActivity" 
+            launcher:screen="0"/>
+  <favorite
+            launcher:packageName="com.vodafone.vodafone360updates"
+            launcher:className="com.vodafone.vodafone360updates.gui.activity.AllServicesActivity" 
+            launcher:screen="0"/>  
+  <favorite
+            launcher:packageName="com.joelapenna.foursquared"
+            launcher:className="com.joelapenna.foursquared.MainActivity" 
+            launcher:screen="0"/>  
+  <favorite
+            launcher:packageName="com.twitter.android"
+            launcher:className="com.twitter.android.StartActivity" 
+            launcher:screen="0"/>  
+</appOrder>

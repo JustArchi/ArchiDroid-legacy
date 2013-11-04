@@ -1,0 +1,51 @@
+﻿<?xml  version="1.0" encoding="UTF-8" ?>
+<SamsungMobileFeauture>
+  <Version>ED001</Version>
+  <Country>GERMANY</Country>
+  <CountryISO>DE</CountryISO>
+  <SalesCode>DTM</SalesCode>
+  <FeatureSet>
+    <CscFeature_LockScreen_DisplayPlmn>TRUE</CscFeature_LockScreen_DisplayPlmn>
+    <CscFeature_Setting_OperatorSpecificPreConfigKeyString>NatCo</CscFeature_Setting_OperatorSpecificPreConfigKeyString>
+    <CscFeature_Launcher_EnableViewByAlphabetAsDefault>TRUE</CscFeature_Launcher_EnableViewByAlphabetAsDefault>
+    <CscFeature_VoiceCall_EnableVmsNumberAsDefaultInCallForwarding>TRUE</CscFeature_VoiceCall_EnableVmsNumberAsDefaultInCallForwarding>
+    <CscFeature_Message_EnableReplyAll>TRUE</CscFeature_Message_EnableReplyAll>
+    <CscFeature_Message_EnableMmsUaUapAutoCreate>ggsm-tmo</CscFeature_Message_EnableMmsUaUapAutoCreate>
+    <CscFeature_Message_EnableCheckFDNContactWhenMMSSend>TRUE</CscFeature_Message_EnableCheckFDNContactWhenMMSSend>
+    <CscFeature_Message_KeepSmilPlayerToolbar>TRUE</CscFeature_Message_KeepSmilPlayerToolbar>
+    <CscFeature_Message_ReplaceLabelOnRequestedStatus>TRUE</CscFeature_Message_ReplaceLabelOnRequestedStatus>
+    <CscFeature_Email_UseFixedSmtpPortAs>25</CscFeature_Email_UseFixedSmtpPortAs>
+    <CscFeature_Email_EnablePopupWhenChangingSyncSchedule>TRUE</CscFeature_Email_EnablePopupWhenChangingSyncSchedule>
+    <CscFeature_Streaming_SetUAProfile>BO</CscFeature_Streaming_SetUAProfile>
+    <CscFeature_Web_SetUserAgent>TMO</CscFeature_Web_SetUserAgent>
+    <CscFeature_Web_SetUAProfile>http://wap.samsungmobile.com/uaprof/%sBO.xml</CscFeature_Web_SetUAProfile>
+    <CscFeature_Web_OverrideUserAgent>TRUE</CscFeature_Web_OverrideUserAgent>
+    <CscFeature_Web_DisableRedirectionChooser>TRUE</CscFeature_Web_DisableRedirectionChooser>
+    <CscFeature_Web_EnableAutoSimHomeUrlInProfile>TRUE</CscFeature_Web_EnableAutoSimHomeUrlInProfile>
+    <CscFeature_GMS_DisableSetupWizard>FALSE</CscFeature_GMS_DisableSetupWizard>
+    <CscFeature_GMS_SetClientIDBaseMs>android-tmobile-{country}</CscFeature_GMS_SetClientIDBaseMs>
+    <CscFeature_GMS_SetClientIDBaseGmm>android-samsung</CscFeature_GMS_SetClientIDBaseGmm>
+    <CscFeature_GMS_SetClientIDBaseYt>android-samsung</CscFeature_GMS_SetClientIDBaseYt>
+    <CscFeature_GMS_SetClientIDBaseAm>android-tmobile-{country}</CscFeature_GMS_SetClientIDBaseAm>
+    <CscFeature_Wifi_EnableShowPasswordAsDefault>TRUE</CscFeature_Wifi_EnableShowPasswordAsDefault>
+    <CscFeature_Wifi_UseDefaultSecurityAs>WPA/PSK</CscFeature_Wifi_UseDefaultSecurityAs>
+    <CscFeature_SyncML_MyPhonebookISD>MyPhonebook,Kontakte,Kalender,http://www.t-mobile-favoriten.de/de/home/myphonebook.html</CscFeature_SyncML_MyPhonebookISD>
+    <CscFeature_SyncML_DiscardCpSecurityType4>Userpin,Usernetwpin,None</CscFeature_SyncML_DiscardCpSecurityType4>
+    <CscFeature_SyncML_EnableCpValidiationSecurityType4>Userpin,Netwpin,Usernetwpin</CscFeature_SyncML_EnableCpValidiationSecurityType4>
+    <CscFeature_SyncML_DeleteCpAfterTryingToInstall>true</CscFeature_SyncML_DeleteCpAfterTryingToInstall>
+    <CscFeature_RIL_ForceConnectMMS>TRUE</CscFeature_RIL_ForceConnectMMS>
+    <CscFeature_Common_MyPhonebookBrandName>MyPhonebook</CscFeature_Common_MyPhonebookBrandName>
+    <CscFeature_RIL_EnableBIP>true</CscFeature_RIL_EnableBIP>
+    <CscFeature_Music_TranslateUnknownTitle>TRUE</CscFeature_Music_TranslateUnknownTitle>
+    <CscFeature_SyncML_DiscardInvalidNetwpinCp>true</CscFeature_SyncML_DiscardInvalidNetwpinCp>
+    <CscFeature_NFC_StatusBarIconType>DEFAULT</CscFeature_NFC_StatusBarIconType>
+    <CscFeature_Contact_UseSeparateAddressField>TRUE</CscFeature_Contact_UseSeparateAddressField>
+    <CscFeature_Framework_InvalidateFlag4SplitTouch>FALSE</CscFeature_Framework_InvalidateFlag4SplitTouch>
+    <CscFeature_Web_DisableMostVisitedHomepage>TRUE</CscFeature_Web_DisableMostVisitedHomepage>
+    <CscFeature_NFC_EnableSecurityPromptPopup>all</CscFeature_NFC_EnableSecurityPromptPopup>
+
+    <CscFeature_Framework_DisableForceClosePopup>true</CscFeature_Framework_DisableForceClosePopup>
+    <CscFeature_Setting_CustNetworkSelMenu4>ADDAUTO</CscFeature_Setting_CustNetworkSelMenu4>
+
+  </FeatureSet>
+</SamsungMobileFeauture>

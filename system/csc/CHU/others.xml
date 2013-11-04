@@ -1,0 +1,15 @@
+﻿<?xml  version="1.0" encoding="UTF-8" ?>
+<CustomerData>
+	<MMS>
+        <max_recipient>100</max_recipient>
+     <auto_delete>on</auto_delete>
+     <enable_notifications>on</enable_notifications>     
+    </MMS>
+    <DefaultApn>
+    <ProfileName>中国移动 GPRS</ProfileName>
+    </DefaultApn>
+    <SettingsData>
+        <AutoTimeUpdate>0</AutoTimeUpdate>
+	<TimeZone>Asia/Shanghai</TimeZone>
+    </SettingsData>
+</CustomerData>

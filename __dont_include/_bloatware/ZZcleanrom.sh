@@ -28,7 +28,8 @@ mv ../..$line bloatware$line2/ > /dev/null 2>&1
 done
 
 cat delete.txt | while read line; do
-rm -rf ../../system/app/$line > /dev/null 2>&1
+rm -rf ../../system/app/$line
+rm -rf bloatware/system/app/$line
 done
 
 exit 0

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ideas_items>
+	<app_item 
+		package="com.portal" 
+	class="com.portal.Portal" 
+	description="Descargas, servicios e información desde tu Claro." /> 
+	<link_item
+		title="Mi Claro"
+		url="http://www.clarochile.cl/"
+		description="Administra tu línea Claro desde tu dispositivo." /> 
+	<link_item
+		title="ideasmusik"
+		url="http://clarochile.imusica.com.br/m2"
+		description="¿Música? Escucha y descarga millones de canciones." /> 
+	<app_item 
+		package="com.ijuegos" 
+		class="com.ijuegos.IJuegos"
+		description="Desafía, enfrenta y compite con los mejores juegos." /> 
+	<app_item 
+		package="com.iapps" 
+		class="com.iapps.iApps"
+		description="Descarga las mejores Apps totalmente gratis." /> 
+	<app_item 
+		package="com.msngr" 
+		class="com.msngr.MSNGR" 
+		description="Mucho más que chat. La nueva forma de comunicarte." /> 
+	<app_item 
+		package="com.ipromociones" 
+		class="com.ipromociones.iPromociones" 
+		description="Participa y gana autos, viajes, celulares y más." />
+	<link_item
+		title="Plugger"
+		url="http://cl.plugger.com"
+		description="Facebook y Twitter sin costo. Solo aquí." />
+</ideas_items>

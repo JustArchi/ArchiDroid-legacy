@@ -1,0 +1,13 @@
+﻿<?xml  version="1.0" encoding="UTF-8" ?>
+<SamsungMobileFeauture>
+  <Version>ED003</Version>
+  <Country>FRANCE</Country>
+  <CountryISO>FR</CountryISO>
+  <SalesCode>FTM</SalesCode>
+  <FeatureSet>
+    <CscFeature_Framework_EnableBidirection>TRUE</CscFeature_Framework_EnableBidirection>
+    <CscFeature_Sip_LangQwertyType4HwKey>HW_KEYBOARD_COUNTRY_TYPE_ARAB_AZERTY</CscFeature_Sip_LangQwertyType4HwKey>
+    <CscFeature_Email_AlignmentForRTL>TRUE</CscFeature_Email_AlignmentForRTL>
+    <CscFeature_Email_DisableFontAttributeDuringComposing>Bold, Italic</CscFeature_Email_DisableFontAttributeDuringComposing>
+  </FeatureSet>
+</SamsungMobileFeauture>

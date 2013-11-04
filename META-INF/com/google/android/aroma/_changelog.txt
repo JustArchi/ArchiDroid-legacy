@@ -1,14 +1,5 @@
-ArchiDroid 1.7
+ArchiDroid 1.7.1
 
-- [!] Based on Wanam Lite 7.2 (XXUFMJ9)
-
-- Sammy's 4.3 fixes
-# This includes 4.3-specific fixes to things destroyed by Samsung
-* Removed even more bloatware in comparision with 1.6.X
-* Fixed custom bootanimations
-* Fixed ADMANY (RunOnce component)
-* Fixed root access
-
-- ArchiDroid Upstream sync
-# Common things shared between 2.X and 1.X
-* Updated Google Play to 4.4.22 (Multi-DPI patched, Inverted)
+- Fixed ADMANY permissions
+# It cause CoolTool's settings to be sticky
+# You need forced update or full wipe to fix it

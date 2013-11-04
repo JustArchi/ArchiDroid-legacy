@@ -85,7 +85,7 @@ set_progress(0.09);
 set_progress(0.1);
 
 ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Flashing ArchiDroid Core");
-show_progress(0.4, 1698);
+show_progress(0.4, 3264);
 package_extract_dir("system", "/system");
 
 run_program("/sbin/sync");
@@ -341,7 +341,7 @@ if file_getprop("/tmp/aroma-data/archidroid.prop","theme") == "dreamtheme" then
 endif;
 
 if file_getprop("/tmp/aroma-data/archidroid.prop","theme") == "stock" then
-	ui_print("root@ArchiDroid:~# Installing Stock Theme");
+	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Stock Theme");
 	# Not needed, haha!
 endif;
 

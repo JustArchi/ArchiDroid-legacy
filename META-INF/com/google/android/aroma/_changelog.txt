@@ -1,6 +1,14 @@
 ArchiDroid 1.7
 
-- Based on XXUGMJ9 (Deodexed, Zipaligned, Busyboxed, init.d support)
-# Waiting for Wanam's release, until then only experimental release
+- [!] Based on Wanam Lite 7.2 (XXUFMJ9)
 
-- Updated Google Play to 4.4.22
+- Sammy's 4.3 fixes
+# This includes 4.3-specific fixes to things destroyed by Samsung
+* Removed even more bloatware in comparision with 1.6.X
+* Fixed custom bootanimations
+* Fixed ADMANY (RunOnce component)
+* Fixed root access
+
+- ArchiDroid Upstream sync
+# Common things shared between 2.X and 1.X
+* Updated Google Play to 4.4.22 (Multi-DPI patched, Inverted)

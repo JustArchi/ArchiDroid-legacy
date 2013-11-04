@@ -221,7 +221,7 @@ set_perm_recursive(0, 2000, 0755, 0644, "/system/vendor/etc");
 set_perm_recursive(0, 0, 0755, 0644, "/system/vendor/firmware");
 set_perm(0, 2000, 0755, "/system/vendor/firmware");
 set_perm(0, 2000, 0755, "/system/vendor/lib");
-set_perm(0, 2000, 0755, "/system/vendor/lib/egl");
+#set_perm(0, 2000, 0755, "/system/vendor/lib/egl");
 set_perm(0, 2000, 0755, "/system/vendor/lib/hw");
 set_perm_recursive(0, 2000, 0755, 0755, "/system/xbin");
 set_perm_recursive(0, 0, 0755, 0755, "/system/etc/init.d");

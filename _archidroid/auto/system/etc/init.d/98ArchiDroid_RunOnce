@@ -246,9 +246,8 @@ while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 					if [ $SAMMY -eq 1 ]; then
 						# We're on Sammy's 4.3, which uses root everywhere, what the hell? Screw security, alright?
 						# It may not be required in near future, but as for now it is
-						echo "WARNING: We're on Sammy's 4.3, which doesn't care about security, using semi-dirty chmod permissions!" >> $LOG
-						busybox chmod 771 /data/data/$FOLDER/shared_prefs
-						busybox chmod 666 /data/data/$FOLDER/shared_prefs/*
+						echo "WARNING: We're on Sammy's 4.3, which doesn't care about security, falling back to dirty chmod permissions!" >> $LOG
+						busybox chmod -R 777 /data/data/$FOLDER/*
 					fi
 					echo "INFO: It looks like everything ended successfully on $FOLDER" >> $LOG
 				else

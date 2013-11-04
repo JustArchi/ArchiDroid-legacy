@@ -186,6 +186,7 @@ while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 			if [ $SAMMY -eq 1 ]; then
 				echo "INFO: Applying Samsung-specific DBUPDATE" >> $LOG
 				
+				DBUPDATE system lockscreen_ripple_effect 0
 				DBUPDATE system screen_mode_automatic_setting 0
 				DBUPDATE system screen_mode_setting 2
 			else

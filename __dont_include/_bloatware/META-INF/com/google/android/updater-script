@@ -3,43 +3,54 @@
 #
 ui_print(">>> ArchiDroid is now loading...");
 sleep (1);
-# TODO some checks
-ui_print("root@ArchiDroid:~# Ready!");
+assert(getprop("ro.product.device") == "m0" || getprop("ro.build.product") == "m0" || 
+       getprop("ro.product.device") == "i9300" || getprop("ro.build.product") == "i9300" || 
+       getprop("ro.product.device") == "GT-I9300" || getprop("ro.build.product") == "GT-I9300");
+ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Ready!");
 set_progress(0.01);
 sleep (2);
 
-ui_print("root@ArchiDroid:~# Mounting Partitions");
+ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Mounting Partitions");
 assert(mount("ext4", "EMMC", "/dev/block/mmcblk0p9", "/system") || ui_print("(system is mounted already)"));
 assert(mount("ext4", "EMMC", "/dev/block/mmcblk0p12", "/data") || ui_print("(data is mounted already)"));
 
 set_progress(0.1);
 
-show_progress(0.88, 229);
-if file_getprop("/tmp/aroma-data/mode.prop","selected.0") == "1" then
-	ui_print("root@ArchiDroid:~# Restoring Full Bloatware");
-	package_extract_dir("bloatware", "/");
+if file_getprop("/tmp/aroma-data/archidroid.prop","wipedalvik") == "1" then
+	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Cleaning cache, dalvik cache and resource cache");
+	delete_recursive("/data/dalvik-cache");
+	delete_recursive("/dalvik/dalvik-cache");
+	delete_recursive("/data/resource-cache");
 endif;
-if file_getprop("/tmp/aroma-data/mode.prop","selected.0") == "2" then
-	ui_print("root@ArchiDroid:~# Restoring Custom Bloatware");
-	package_extract_dir("custom_bloatware", "/");
+
+show_progress(0.88, 229);
+if file_getprop("/tmp/aroma-data/archidroid.prop","mode") == "full" then
+	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Restoring Full Bloatware");
+	package_extract_dir("bloatware", "/system");
+endif;
+if file_getprop("/tmp/aroma-data/archidroid.prop","mode") == "custom" then
+	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Restoring Custom Bloatware");
+	package_extract_dir("custom_bloatware", "/system");
 endif;
 
 set_progress(0.98);
 
-ui_print("root@ArchiDroid:~# Syncing System");
+ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Setting Permissions");
+set_perm_recursive(0, 0, 0755, 0644, "/system/app");
+set_perm_recursive(0, 2000, 0755, 0644, "/system/vendor");
+set_perm_recursive(0, 2000, 0755, 0755, "/system/vendor/bin");
+set_perm_recursive(0, 2000, 0755, 0644, "/system/vendor/etc");
+
+ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Syncing System");
 run_program("/sbin/sync");
 
 set_progress(0.99);
 
-ui_print("root@ArchiDroid:~# Unmounting partitions");
+ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Unmounting partitions");
 assert(unmount("/data") || ui_print("(data is unmounted already)"));
 assert(unmount("/system") || ui_print("(system is unmounted already)"));
 
 ui_print("===================================");
-ui_print("  Bloatware Flashed Successfully  ");
+ui_print("  Bloatware Restored Successfully  ");
 ui_print("===================================");
-ui_print("");
-ui_print("");
-ui_print(">>> ArchiDroid PermFix will now make sure that you have correct permissions");
-ui_print(">>> Press PermFix and wait. It shouldn't take longer than two minutes");
 set_progress(1.0);

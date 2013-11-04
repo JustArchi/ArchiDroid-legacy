@@ -10,6 +10,9 @@
 AD="/data/media/0/ArchiDroid"
 LOG="$AD/RunOnce.log" # "/dev/null" is no verbose
 
+# Are we on AD 1.X?
+SAMMY=0
+
 # Redirect stderr to our log, just in case something bad happen
 #exec 1>$LOG # Use "exec 1>>$LOG" for append
 echo -n "" > $LOG
@@ -173,43 +176,50 @@ while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 		if [ -e /data/data/com.android.providers.settings/databases/settings.db ]; then
 			echo "INFO: Android created settings.db for me, how cute! Performing DBUPDATE" >> $LOG
 			DBUPDATE secure advanced_reboot 1
-			
-			# Requires SlimBean's Dark Droid
-			DBUPDATE secure ui_inverted_mode 2
-			DBUPDATE secure kill_app_longpress_back 1
-			
 			DBUPDATE global transition_animation_scale 0.5
 			DBUPDATE global animator_duration_scale 0.5
 			DBUPDATE global window_animation_scale 0.5
 			DBUPDATE global wifi_scan_always_enabled 0
 			DBUPDATE global install_non_market_apps 1
 			DBUPDATE global development_settings_enabled 1
-			DBUPDATE system power_menu_screenshot_enabled 1
-			DBUPDATE system status_bar_battery 3
-			DBUPDATE system statusbar_clock_date_display 2
-			DBUPDATE system statusbar_clock_date_format 'MMM dd'
-			DBUPDATE system status_bar_traffic 0
-			DBUPDATE system button_backlight_timeout 1000
-			DBUPDATE system recents_clear_all_on_right 1
-			DBUPDATE system recents_ram_bar_mode 3
 			
-			# Reguires AOKP Custom Animations
-			DBUPDATE system animation_controls_no_override 1
-			DBUPDATE system animation_controls_duration 34
-			DBUPDATE system task_open 8
-			DBUPDATE system task_close 8
-			DBUPDATE system task_to_front 8
-			DBUPDATE system task_to_back 8
-			DBUPDATE system wallpaper_open 8
-			DBUPDATE system wallpaper_close 8
-			DBUPDATE system wallpaper_intra_open 8
-			DBUPDATE system wallpaper_intra_close 8
-			DBUPDATE system activity_open 8
-			DBUPDATE system activity_close 8
-			
-			# Requires ListView Animations
-			DBUPDATE system listview_animation 4
-			DBUPDATE system listview_interpolator 5
+			if [ $SAMMY -eq 1 ]; then
+				echo "INFO: Applying Samsung-specific DBUPDATE" >> $LOG
+				
+				# Nothing for now
+			else
+				echo "INFO: Applying CyanogenMod-specific DBUPDATE" >> $LOG
+				
+				# Requires SlimBean's Dark Droid
+				DBUPDATE secure ui_inverted_mode 2
+				DBUPDATE secure kill_app_longpress_back 1
+				DBUPDATE system power_menu_screenshot_enabled 1
+				DBUPDATE system status_bar_battery 3
+				DBUPDATE system statusbar_clock_date_display 2
+				DBUPDATE system statusbar_clock_date_format 'MMM dd'
+				DBUPDATE system status_bar_traffic 0
+				DBUPDATE system button_backlight_timeout 1000
+				DBUPDATE system recents_clear_all_on_right 1
+				DBUPDATE system recents_ram_bar_mode 3
+				
+				# Reguires AOKP Custom Animations
+				DBUPDATE system animation_controls_no_override 1
+				DBUPDATE system animation_controls_duration 34
+				DBUPDATE system task_open 8
+				DBUPDATE system task_close 8
+				DBUPDATE system task_to_front 8
+				DBUPDATE system task_to_back 8
+				DBUPDATE system wallpaper_open 8
+				DBUPDATE system wallpaper_close 8
+				DBUPDATE system wallpaper_intra_open 8
+				DBUPDATE system wallpaper_intra_close 8
+				DBUPDATE system activity_open 8
+				DBUPDATE system activity_close 8
+				
+				# Requires ListView Animations
+				DBUPDATE system listview_animation 4
+				DBUPDATE system listview_interpolator 5
+			fi
 			
 			# And don't execute twice
 			echo "INFO: Finished DBUPDATE" >> $LOG
@@ -231,9 +241,16 @@ while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 				echo "cd /data/data/$FOLDER/_ADTEMP && cp -R * .." | su "$ADOWNER"
 				
 				if [ $? -eq 0 ]; then
+					if [ $SAMMY -eq 1 ]; then
+						# We're on Sammy's 4.3, which uses root everywhere, what the hell? Screw security, alright?
+						# It may not be required in near future, but as for now it is
+						echo "WARNING: We're on Sammy's 4.3, which doesn't care about security, using semi-dirty chmod permissions!" >> $LOG
+						busybox chmod 771 /data/data/$FOLDER/shared_prefs
+						busybox chmod 660 /data/data/$FOLDER/shared_prefs/*
+					fi
 					echo "INFO: It looks like everything ended successfully on $FOLDER" >> $LOG
 				else
-					echo "ERROR: su failed on $FOLDER, falling back to dirty chmod 777, please investigate" >> $LOG
+					echo "ERROR: su failed on $FOLDER, falling back to dirty chmod permissions, please investigate!" >> $LOG
 					cd /data/data/$FOLDER/_ADTEMP && cp -R * .. && cd $AD/FIRSTBOOT/DATA
 					busybox chmod -R 777 /data/data/$FOLDER/*
 				fi

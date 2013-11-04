@@ -247,7 +247,7 @@ while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 						# It may not be required in near future, but as for now it is
 						echo "WARNING: We're on Sammy's 4.3, which doesn't care about security, using semi-dirty chmod permissions!" >> $LOG
 						busybox chmod 771 /data/data/$FOLDER/shared_prefs
-						busybox chmod 660 /data/data/$FOLDER/shared_prefs/*
+						busybox chmod 666 /data/data/$FOLDER/shared_prefs/*
 					fi
 					echo "INFO: It looks like everything ended successfully on $FOLDER" >> $LOG
 				else

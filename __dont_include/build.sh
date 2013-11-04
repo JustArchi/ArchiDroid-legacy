@@ -163,9 +163,7 @@ rm $FILE
 ### BLOATWARE ###
 #################
 
-bash openpdroid.sh
-if [ $? -ne 0 ]; then
-	exit 1
-else
-	exit 0
+if [ $MODE -eq 1 ]; then
+	bash zipalign.sh
 fi
+bash openpdroid.sh

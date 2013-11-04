@@ -17,7 +17,6 @@ if [ $MODE -eq 0 ]; then
 else
 	VERSION="$VERSION STABLE"
 fi
-DENSITY="ro.sf.lcd_density=320"
 
 function zamien {
 	FILEO=wynik.txt
@@ -102,7 +101,7 @@ cat $FILE >> $FILEO
 cp $FILEO $FILE
 rm $FILEO
 
-sed -i "s/$DENSITY/#$DENSITY/g" ../system/build.prop
+sed -i 's/ro.sf.lcd_density=320/#ro.sf.lcd_density=320/g' ../system/build.prop
 
 GDZIE=`grep -n "ro.build.display.id=" $FILE | cut -f1 -d:`
 ILE=`cat $FILE | wc -l`

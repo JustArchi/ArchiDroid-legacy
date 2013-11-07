@@ -1,5 +1,18 @@
 ArchiDroid 1.7.1
 
+- [!] Added Multi-DPI fixes, thanks to MyLifeRocks10
+# In most scenarios you don't need to use App Settings anymore
+
+- Added Yank555.lu Kernel (beta2+)
+# It comes already pre-tweaked with my preset
+# If you want to use your own settings please reflash the kernel
+
 - Fixed ADMANY permissions
-# It cause CoolTool's settings to be sticky
-# You need forced update or full wipe to fix it
+# It caused CoolTool's settings to be sticky
+# You need forced update or full wipe to apply new ADMANY
+
+- Fixed root issues, updated SuperSU to 1.65
+
+- ArchiDroid Common
+* Updated Titanium Backup to 6.1.3
+* Updated MX Player to 1.7.20

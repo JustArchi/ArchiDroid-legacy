@@ -3,6 +3,17 @@
 # Yank555.lu - generated kernel options init script
 #--------------------------------------------------
 
+#--------------------------------------------------
+# Custom Boot Animation Support (AndiP71)
+#--------------------------------------------------
+
+# check whether custom boot animation is available to be played
+if [ -f /data/local/bootanimation.zip ] || [ -f /system/media/bootanimation.zip ]; then
+        /system/bin/bootanimation &
+else
+        /system/bin/samsungani &
+fi
+
 log_file="/data/kernel-boot.log"
 
 echo "----------------------------------------------------" >$log_file
@@ -24,12 +35,11 @@ sleep 10
 
 echo `date +"%F %R:%S : Starting kernel configuration..."` >>$log_file
 
-# Script generated on 23/10/2013 at 15:52
+# Script generated on 07/11/2013 at 16:53
 #----------------------------------------------------
 
 # - init.d support by kernel/ramdisk not installed
 echo `date +"%F %R:%S : Init.d script execution support disabled."` >>$log_file
-ls -al /system/etc/init.d >>$log_file
 
 # - Set governor to zzmoove
 echo "zzmoove" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
@@ -139,6 +149,7 @@ if [ -e /sys/block/zram0/disksize ] ; then
   echo 1 > /sys/block/zram0/reset
   echo 209715200 > /sys/block/zram0/disksize
   echo 1 > /sys/block/zram0/initstate
+  mkswap /dev/block/zram0
   swapon /dev/block/zram0
 fi
 echo `date +"%F %R:%S : 200Mb Zram Support enabled."` >>$log_file
@@ -160,6 +171,11 @@ echo `date +"%F %R:%S : Fast Charge - AC charge level set to 1000mA/h."` >>$log_
 
 echo 475 > /sys/kernel/fast_charge/wireless_charge_level
 echo `date +"%F %R:%S : Fast Charge - Wireless charge level set to 475mA/h."` >>$log_file
+# - Disable early suspend delay
+#     When turning off the screen, don't wait for any kind of CRT animation.
+echo 0 > /sys/kernel/early_suspend/early_suspend_delay
+echo `date +"%F %R:%S : Early Suspend Delay set to 0ms."` >>$log_file
+
 # - Enable dynamic deferred file sync (by faux123)
 #     While screen is on, file sync is temporarily deferred, when screen
 #     is turned off, a flush is called to synchronize all outstanding writes.
@@ -169,14 +185,6 @@ echo `date +"%F %R:%S : Dynamic Deferred File Sync enabled."` >>$log_file
 # - Disable touch wake
 echo 0 > /sys/class/misc/touchwake/disabled
 echo `date +"%F %R:%S : Touch Wake disabled."` >>$log_file
-
-# - Disable Hardwarekeys light on screen touch
-echo 0 > /sys/class/sec/sec_touchkey/touch_led_on_screen_touch
-echo `date +"%F %R:%S : Hardwarekeys light on screen touch disabled."` >>$log_file
-
-# - Handle Hardwarekeys light by ROM (newer CM)
-echo 0 > /sys/class/sec/sec_touchkey/touch_led_handling
-echo `date +"%F %R:%S : Hardwarekeys light handled by ROM (newer CM)."` >>$log_file
 
 # - Enable fading notification LED
 echo 1 > /sys/class/sec/led/led_fade
@@ -211,18 +219,6 @@ echo `date +"%F %R:%S : UDF kernel module not loaded."` >>$log_file
 
 # - Do not load XBOX 360 gamepad kernel module on boot
 echo `date +"%F %R:%S : XBOX 360 gamepad support kernel module not loaded."` >>$log_file
-
-# - Load frandom kernel module on boot
-insmod /system/lib/modules/frandom.ko
-echo `date +"%F %R:%S : frandom kernel module loaded."` >>$log_file
-
-# - Set GPU frequencies to high (160MHz, 266MHz, 350MHz, 440MHz, 533MHz)
-echo "160 266 350 440 533" > /sys/class/misc/gpu_clock_control/gpu_control
-echo `date +"%F %R:%S : GPU frequencies set to low (160MHz, 266MHz, 350MHz, 440MHz, 533MHz) - Careful !"` >>$log_file
-
-# - Set GPU frequency thresholds to stock-like (19%, 16%, 19%, 25%, 27%, 27%, 31%, 31%)
-echo "19% 16% 19% 25% 27% 27% 31% 31%" > /sys/class/misc/gpu_clock_control/gpu_control
-echo `date +"%F %R:%S : GPU frequency thresholds set to stock-like (19%, 16%, 19%, 25%, 27%, 27%, 31%, 31%)."` >>$log_file
 
 # Wait for everything to become ready
 echo `date +"%F %R:%S : Waiting 60 seconds..."` >>$log_file

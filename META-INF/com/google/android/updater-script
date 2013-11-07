@@ -226,6 +226,12 @@ set_perm(0, 2000, 0755, "/system/vendor/lib/hw");
 set_perm_recursive(0, 2000, 0755, 0755, "/system/xbin");
 set_perm_recursive(0, 0, 0755, 0755, "/system/etc/init.d");
 
+set_perm(0, 0, 0777, "/system/bin/.ext");
+set_perm(0, 0, 06755, "/system/bin/.ext/.su");
+set_perm(0, 0, 06755, "/system/xbin/su");
+set_perm(0, 0, 06755, "/system/xbin/daemonsu");
+set_perm(0, 0, 0755, "/system/etc/install-recovery.sh");
+
 set_progress(0.54);
 
 

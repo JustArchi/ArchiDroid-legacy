@@ -21,10 +21,10 @@ addUpstream () {
 }
 
 # Packages in perfect sync with CM. We should pull them directly from CyanogenMod and merge any conflicts (if any)
-inPerfectSyncWithCM=("android_vendor_cm" "android_frameworks_native" "android_packages_apps_Nfc" "android_packages_providers_MediaProvider" "android_packages_inputmethods_LatinIME" "android_packages_apps_Phone" "android_packages_apps_Mms" "android_packages_apps_Gallery2" "android_packages_apps_Email" "android_packages_apps_Dialer" "android_packages_apps_Contacts" "android_packages_apps_ContactsCommon" "android_packages_apps_Calculator")
+inPerfectSyncWithCM=("android_frameworks_base" "android_packages_apps_Settings" "android_vendor_cm" "android_frameworks_native" "android_packages_apps_Nfc" "android_packages_providers_MediaProvider" "android_packages_inputmethods_LatinIME" "android_packages_apps_Phone" "android_packages_apps_Mms" "android_packages_apps_Gallery2" "android_packages_apps_Email" "android_packages_apps_Dialer" "android_packages_apps_Contacts" "android_packages_apps_ContactsCommon" "android_packages_apps_Calculator")
 
 # Packages not in perfect sync with CM but still good enough. For these we should sync automatically only non-conflicting commits and eventually cherry-pick the rest, as we should stay in sync with the upstream.
-inSyncWithCM=("android_frameworks_base" "android_packages_apps_Settings")
+inSyncWithCM=("")
 
 # Packages NOT in great sync with CM, we should wait for upstream merges
 NOTinSyncWithCM=("")

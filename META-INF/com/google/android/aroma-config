@@ -282,7 +282,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
     "archidroidota","ArchiDroid OTA","<~archidroid.ota.desc>","check.checked",
     "xposed","Xposed Framework","<~archidroid.xposed.desc>","check.checked",
     "crossbreeder","Crossbreeder [EOL]","<~archidroid.crossbreeder.desc>","check.checked",
-    "updatemodem","<~archidroid.updatemodem> [XXEMG4]","<~archidroid.updatemodem.desc>","check",
+    "updatemodem","<~archidroid.updatemodem> [XXUGMJ9]","<~archidroid.updatemodem.desc>","check",
     "updaterecovery","<~archidroid.updaterecovery> [PhilZ Touch Recovery]","<~archidroid.updaterecovery.desc>","check",
 
     "googleapps","<#selectbg_g>Google Apps</#>","","group",

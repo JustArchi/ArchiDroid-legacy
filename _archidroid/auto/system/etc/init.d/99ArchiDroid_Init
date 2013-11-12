@@ -94,10 +94,12 @@ if [ -e /data/media/0/ArchiDroid/HARD_REBOOT_REQUIRED ]; then
 	echo "INFO: HARD_REBOOT_REQUIRED found, I'm rebooting device now..." >> $LOG
 	rm -f /data/media/0/ArchiDroid/SOFT_REBOOT_REQUIRED
 	rm -f /data/media/0/ArchiDroid/HARD_REBOOT_REQUIRED
+	tinyplay $AD/System/reboot.wav > /dev/null 2>&1
 	reboot
 elif [ -e /data/media/0/ArchiDroid/SOFT_REBOOT_REQUIRED ]; then
 	echo "INFO: SOFT_REBOOT_REQUIRED found, I'm rebooting android interface now..." >> $LOG
 	rm -f /data/media/0/ArchiDroid/SOFT_REBOOT_REQUIRED
+	tinyplay $AD/System/reboot.wav > /dev/null 2>&1
 	killall system_server
 fi
 

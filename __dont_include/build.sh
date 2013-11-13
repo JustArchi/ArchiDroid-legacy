@@ -46,10 +46,8 @@ if [ $SOURCE -eq 1 ]; then
 		fi
 	done
   fi
-  cd /root/android/system
-	OLD=`md5sum /root/android/system/device/samsung/i9300/proprietary-files.txt | awk '{print $1}'`
-	OLD2=`md5sum /root/android/system/device/samsung/smdk4412-common/proprietary-files.txt | awk '{print $1}'`
-	#repo selfupdate
+	cd /root/android/system
+	repo selfupdate
 	repo sync
 	if [ $? -ne 0 ]; then
 		read -p "Something went wrong, please check and tell me when you're done, master!" -n1 -s
@@ -59,16 +57,9 @@ if [ $SOURCE -eq 1 ]; then
 	cd /root/android/system
 	source build/envsetup.sh
 	breakfast i9300
-	NEW=`md5sum /root/android/system/device/samsung/i9300/proprietary-files.txt | awk '{print $1}'`
-	NEW2=`md5sum /root/android/system/device/samsung/smdk4412-common/proprietary-files.txt | awk '{print $1}'`
-	if [ $OLD != $NEW ] || [ $OLD2 != $NEW2 ]; then
-		echo "/root/android/system/device/samsung/i9300/proprietary-files.txt" $OLD $NEW
-		echo "/root/android/system/device/samsung/smdk4412-common/proprietary-files.txt" $OLD2 $NEW2
-		read -p "Something went wrong, please check and tell me when you're done, master!" -n1 -s
-	fi
 	brunch i9300
 	cd $OUT
-	cp cm-10.2-*.zip /root/shared/git/ArchiDroid
+	cp cm-*.zip /root/shared/git/ArchiDroid
 fi
 
 cd /root/shared/git/ArchiDroid

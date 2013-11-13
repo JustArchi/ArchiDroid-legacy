@@ -10,7 +10,10 @@ ArchiDroid 2.2.5
 !! WARNING, ARCHIDROID IS NOT YET MERGED SUCCESSFULLY, NO TESTS APART FROM BAREBONES PRESET WERE MADE
 !! In other words choose barebones preset or you're on your own. Don't expect anything from first experimentals.
 
-- Camera works, Wi-Fi works, looks good (?)
+- KNOWN BUGS / ISSUES:
+a) Full Wipe doesn't work correctly in new recovery, format /data doesn't work (ArchiDroid fails as well with it)
+b) Google Apps are not updated yet
+c) External SD Cards don't work, at least exFAT-formatted ones
 </tempchangelog>
 
 - [!] OpenPDroid is now available once again
@@ -24,4 +27,5 @@ ArchiDroid 2.2.5
 # It includes enabled AdBlock (yes, don't use AdAway, it slows your device with such big hosts file) and disabled non-universal tweaks, like readahead (no more forced 4096)
 
 - Updated Modem to XXUGMJ9
+- Updated Onandroid to 9.20
 - Updated sources

@@ -20,6 +20,7 @@ BOUND|INFORM|REBIND|REBOOT|RENEW|TIMEOUT)
     setprop dhcp.${intf}.leasetime  "${new_dhcp_lease_time}"
     setprop dhcp.${intf}.server     "${new_dhcp_server_identifier}"
     setprop dhcp.${intf}.vendorInfo "${new_vendor_encapsulated_options}"
+    setprop dhcp.${intf}.mtu        "${new_interface_mtu}"
 
     setprop dhcp.${intf}.result "ok"
     ;;

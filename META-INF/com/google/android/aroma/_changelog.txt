@@ -1,6 +1,17 @@
 ArchiDroid 2.2.5
 
+<tempchangelog>
 - SCREW CHANGELOG, WE HAVE KITKAT
+- It SEEMS stable enough to put it in experimental, however take care anyway
+
+- WARNING! YOU NEED REQUIRED RECOVERY TO FLASH THIS EXPERIMENTAL
+!! Flash required_recovery.zip and then restart your recovery, this is MANDATORY (or you'll get set_perm errors). PhilZ doesn't work yet, sorry
+
+!! WARNING, ARCHIDROID IS NOT YET MERGED SUCCESSFULLY, NO TESTS APART FROM BAREBONES PRESET WERE MADE
+!! In other words choose barebones preset or you're on your own. Don't expect anything from first experimentals.
+
+- Camera works, Wi-Fi works, looks good (?)
+</tempchangelog>
 
 - [!] OpenPDroid is now available once again
 

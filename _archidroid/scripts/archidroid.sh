@@ -34,9 +34,8 @@ fi
 if [ -e $AD/Backups/efs.tar.gz ]; then
 	mv $AD/Backups/efs.tar.gz $AD/Backups/efs_OLD.tar.gz
 fi
-mount /dev/block/mmcblk0p3 /efs
+
 busybox tar zcvf $AD/Backups/efs.tar.gz /efs
-umount /efs
 
 DATE1=`stat $AD/Backups/efs.tar.gz | tail -n 2 | head -n 1`
 echo "efs.tar.gz $DATE1" >  $AD/Backups/efs.txt

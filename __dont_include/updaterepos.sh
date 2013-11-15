@@ -1,7 +1,6 @@
 #!/bin/bash
 
 INIT=0
-KEEPSYNC=0
 
 contains () {
 	local e
@@ -21,9 +20,10 @@ addUpstream () {
 }
 
 # Packages in perfect sync with CM. We should pull them directly from CyanogenMod and merge any conflicts (if any)
-inPerfectSyncWithCM=("android_vendor_cm" "android_frameworks_native" "android_packages_apps_Nfc" "android_packages_providers_MediaProvider" "android_packages_inputmethods_LatinIME" "android_packages_apps_Phone" "android_packages_apps_Mms" "android_packages_apps_Gallery2" "android_packages_apps_Email" "android_packages_apps_Dialer" "android_packages_apps_Contacts" "android_packages_apps_ContactsCommon" "android_packages_apps_Calculator")
+# This won't happen in near future, unless crDroid project is finished for some reason
+inPerfectSyncWithCM=("")
 
-# Packages NOT in great sync with CM, we should wait for upstream merges
+# Packages in sync with CM, we can try to merge them automatically, if it fails wait for upstream changes
 inSyncWithCM=("android_frameworks_base" "android_packages_apps_Settings")
 
 # Branches
@@ -44,15 +44,24 @@ for folder in `find . -mindepth 1 -maxdepth 1 -type d` ; do
 	else
 		git pull $crDroidRepo $crDroid
 		if [ $? -ne 0 ]; then
+			# This is mandatory, we MUST stay in sync with upstream
 			read -p "Something went wrong, please check and tell me when you're done, master!" -n1 -s
 		fi
-		if `contains "$ourName" "${inPerfectSyncWithCM[@]}"`; then
+		if `contains "$ourName" "${inSyncWithCM[@]}"`; then
 			git pull $CMRepo $CM
-		elif `contains "$ourName" "${inSyncWithCM[@]}"` && [ $KEEPSYNC -eq 1 ]; then
+			if [ $? -ne 0 ]; then
+				# This is optional, we don't wan to resolve conflicts in different way and create desync
+				# Reset progress and wait for upstream
+				echo "Automatic Merge Failed"
+				git reset --hard
+				git clean -fd
+			fi
+		elif `contains "$ourName" "${inPerfectSyncWithCM[@]}"`; then
+			# We don't want to pull upstream anymore, syncing CM is mandatory then
 			git pull $CMRepo $CM
-		fi
-		if [ $? -ne 0 ]; then
-			read -p "Something went wrong, please check and tell me when you're done, master!" -n1 -s
+			if [ $? -ne 0 ]; then
+				read -p "Something went wrong, please check and tell me when you're done, master!" -n1 -s
+			fi
 		fi
 		git push $ourRepo $ourBranch
 		if [ $? -ne 0 ]; then

@@ -15,15 +15,15 @@
 
 # Mounts
 # Used by ArchiDroid for providing universal device-based paths
-fs="ext4" # Filesystem of blocks
-efs="/dev/block/mmcblk0p3" # Ultra important, USED
+fs="ext4" # Filesystem of blocks [USED]
+efs="/dev/block/mmcblk0p3" # Ultra important, [USED]
 boot="/dev/block/mmcblk0p5" # ROM's kernel image, not used
 recovery="/dev/block/mmcblk0p6" # Recovery image, not used
-radio="/dev/block/mmcblk0p7" # Modem image, not USED
+radio="/dev/block/mmcblk0p7" # Modem image, not used
 cache="/dev/block/mmcblk0p8" # Temporary cache, not used
-system="/dev/block/mmcblk0p9" # Main system partition, used
+system="/dev/block/mmcblk0p9" # Main system partition, [USED]
 preload="/dev/block/mmcblk0p10" # Preload, SELinux, not used
-data="/dev/block/mmcblk0p12" # Internal SD Card, USED
+data="/dev/block/mmcblk0p12" # Internal SD Card, [USED]
 extsd="/dev/block/mmcblk1p1" # External SD Card, not used
 
 case $1 in

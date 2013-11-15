@@ -11,30 +11,16 @@ set_progress(0.01);
 sleep (2);
 ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Unmounting Partitions");
 assert(unmount("/system") || ui_print("(system is unmounted already)"));
-#assert(unmount("/data") || ui_print("(data is unmounted already)"));
-#assert(unmount("/cache") || ui_print("(cache is unmounted already)"));
-#assert(unmount("/preload") || ui_print("(preload is unmounted already)"));
 
 set_progress(0.03);
 
 ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Formatting Partitions");
-#format("ext4", "EMMC", "/dev/block/mmcblk0p8", "0");
 format("ext4", "EMMC", "/dev/block/mmcblk0p9", "0", "/system");
-#format("ext4", "EMMC", "/dev/block/mmcblk0p10", "0");
-
-set_progress(0.05);
-
-ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Checking Partitions For Errors");
-#run_program("/sbin/e2fsck", "-p", "/dev/block/mmcblk0p8");
-run_program("/sbin/e2fsck", "-p", "/dev/block/mmcblk0p9");
-#run_program("/sbin/e2fsck", "-p", "/dev/block/mmcblk0p10");
-#run_program("/sbin/e2fsck", "-p", "/dev/block/mmcblk0p12");
 
 set_progress(0.06);
 
 ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Mounting Partitions");
 assert(mount("ext4", "EMMC", "/dev/block/mmcblk0p9", "/system") || ui_print("(system is mounted already)"));
-assert(mount("ext4", "EMMC", "/dev/block/mmcblk0p12", "/data") || ui_print("(data is mounted already)"));
 
 set_progress(0.07);
 #package_extract_file("_archidroid/scripts/bash", "/tmp/bash");

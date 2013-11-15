@@ -4,8 +4,8 @@
 # If you're porting ArchiDroid to another device then you should edit all of these files:
 
 # MANDATORY
-# _archidroid/scripts/adpath - Mounts (Recovery part)
 # _archidroid/auto/system/bin/adpath - Mounts (ROM part)
+# META-INF/com/google/android/aroma/exec/archidroid_init.sh (Recovery part)
 # META-INF/com/google/android/updater-script - Mounts (updater-script)
 
 # HIGHLY SUGGESTED

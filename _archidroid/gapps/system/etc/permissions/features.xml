@@ -17,5 +17,7 @@
 <!-- This is the standard set of features for an auto-focus camera. -->
 <permissions>
     <feature name="com.google.android.feature.GOOGLE_BUILD" />
+<!-- This should be added to all Nexus and GPe devices -->
+    <feature name="com.google.android.feature.GOOGLE_EXPERIENCE" />
 </permissions>
 

@@ -24,7 +24,7 @@ sleep 10
 
 echo `date +"%F %R:%S : Starting kernel configuration..."` >>$log_file
 
-# Script generated on 23/10/2013 at 15:52
+# Script generated on 16/11/2013 at 23:45
 #----------------------------------------------------
 
 # - init.d support by kernel/ramdisk not installed
@@ -39,6 +39,14 @@ echo `date +"%F %R:%S : CPU governor set to zzmoove."` >>$log_file
 echo "1" > /sys/devices/virtual/misc/touchboost_switch/touchboost_switch
 echo "600000" > /sys/devices/virtual/misc/touchboost_switch/touchboost_freq
 echo `date +"%F %R:%S : Touchboost enabled at 600MHz."` >>$log_file
+
+# - CPU Idle Mode
+echo "2" > /sys/module/cpuidle_exynos4/parameters/enable_mask
+echo `date +"%F %R:%S : CPU Idle mode set to Idle + LPA."` >>$log_file
+
+# - Multicore Powersave Mode
+echo "0" > /sys/devices/system/cpu/sched_mc_power_savings
+echo `date +"%F %R:%S : CPU Multicore Powersave mode set to Off."` >>$log_file
 
 # - Set CPU max frequencies for all 4 cores
 echo 1600000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
@@ -150,9 +158,9 @@ echo `date +"%F %R:%S : Hardswap Support disabled."` >>$log_file
 echo 80 > /proc/sys/vm/swappiness;
 echo `date +"%F %R:%S : Swappiness set to 80."` >>$log_file
 
-# - Enable custom current forced fast charge
-echo 2 > /sys/kernel/fast_charge/force_fast_charge
-echo `date +"%F %R:%S : Fast Charge - Custom Current Mode enabled."` >>$log_file
+# - Enable substitute forced fast charge - AC current on USB
+echo 1 > /sys/kernel/fast_charge/force_fast_charge
+echo `date +"%F %R:%S : Fast Charge - Substitute Mode enabled."` >>$log_file
 echo 1000 > /sys/kernel/fast_charge/usb_charge_level
 echo `date +"%F %R:%S : Fast Charge - USB charge level set to 1000mA/h."` >>$log_file
 echo 1000 > /sys/kernel/fast_charge/ac_charge_level

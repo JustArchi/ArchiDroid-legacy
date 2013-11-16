@@ -45,7 +45,7 @@ for folder in `find . -mindepth 1 -maxdepth 1 -type d` ; do
 	if [ $INIT -eq 1 ]; then
 		addUpstream
 	else
-		git pull $ourRepo $ourName
+		git pull $ourRepo $ourBranch
 		if ! `contains "$ourName" "${droppedFromUpstream[@]}"`; then
 			git pull $crDroidRepo $crDroid
 			if [ $? -ne 0 ]; then

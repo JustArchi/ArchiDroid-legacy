@@ -1,7 +1,7 @@
-echo 'zzmoove' > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
-echo 'zzmoove - battery extreme yank' > /dev/bk_governor_profile
-/sbin/busybox usleep 300000
-/res/bc/bccontroller.sh apply_governor_profile 'zzmoove - battery extreme yank'
+echo 'pegasusq' > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+echo 'pegasusq - boeffla battery saving' > /dev/bk_governor_profile
+busybox usleep 300000
+/res/bc/bccontroller.sh apply_governor_profile 'pegasusq - boeffla battery saving'
 echo 'row' > /sys/block/mmcblk0/queue/scheduler
 echo 'cfq' > /sys/block/mmcblk1/queue/scheduler
 echo '512' > /sys/block/mmcblk0/bdi/read_ahead_kb
@@ -14,7 +14,7 @@ echo '1375 1338 1275 1213 1175 1125 1050 1000 950 925 913 875 875 850 825' > /sy
 echo '3' > /sys/module/cpuidle_exynos4/parameters/enable_mask
 echo '2' > /sys/devices/system/cpu/sched_mc_power_savings
 echo '' > /dev/bk_gpu_frequencies_profile
-echo '54 108 160 266 400' > /sys/class/misc/gpu_clock_control/gpu_control
+echo '108 160 200 266 400' > /sys/class/misc/gpu_clock_control/gpu_control
 echo 'undervolt medium' > /dev/bk_gpu_voltages_profile
 echo '875000 900000 950000 987000 1050000' > /sys/class/misc/gpu_voltage_control/gpu_control
 echo '1' > /sys/class/misc/boeffla_sound/boeffla_sound
@@ -68,4 +68,5 @@ echo '0' > /sys/kernel/logger_mode/logger_mode
 echo '' > /sys/kernel/printk_mode/printk_mode
 echo '12288,15360,18432,21504,24576,30720,' > /sys/module/lowmemorykiller/parameters/minfree
 echo 'Archi_UltraPowerSave' >/data/.boeffla/startconfig_done
-/sbin/busybox chmod 666 /data/.boeffla/startconfig_done
+busybox chmod 666 /data/.boeffla/startconfig_done
+

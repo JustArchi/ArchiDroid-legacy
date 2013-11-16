@@ -1,6 +1,6 @@
 echo 'zzmoove' > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
 echo 'zzmoove - battery yank' > /dev/bk_governor_profile
-/sbin/busybox usleep 300000
+busybox usleep 300000
 /res/bc/bccontroller.sh apply_governor_profile 'zzmoove - battery yank'
 echo 'row' > /sys/block/mmcblk0/queue/scheduler
 echo 'cfq' > /sys/block/mmcblk1/queue/scheduler
@@ -68,4 +68,4 @@ echo '0' > /sys/kernel/logger_mode/logger_mode
 echo '' > /sys/kernel/printk_mode/printk_mode
 echo '12288,15360,18432,21504,24576,30720,' > /sys/module/lowmemorykiller/parameters/minfree
 echo 'Archi' >/data/.boeffla/startconfig_done
-/sbin/busybox chmod 666 /data/.boeffla/startconfig_done
+busybox chmod 666 /data/.boeffla/startconfig_done

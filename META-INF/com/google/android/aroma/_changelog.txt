@@ -11,12 +11,9 @@ ArchiDroid 2.2.5
 !! In other words choose barebones preset or you're on your own. Don't expect anything from first experimentals.
 
 - KNOWN BUGS / ISSUES:
-a) Recovery is not working properly right now. Some block-related things are broken, it includes format of /data and also ArchiDroid_Detect and wipe.sh (ArchiDroid Install Mode)
-Workaround: If you need full wipe format /data in previous recovery or manualy delete everything APART FROM /data/media from /data folder
+1) Google Apps are not updated yet
 
-b) Google Apps are not updated yet
-
-c) External SD Cards don't work, at least exFAT-formatted ones
+b) External SD Cards don't work, at least exFAT-formatted ones
 </tempchangelog>
 
 - [!] OpenPDroid is now available once again

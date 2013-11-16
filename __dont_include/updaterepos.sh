@@ -21,10 +21,13 @@ addUpstream () {
 
 # Packages in perfect sync with CM. We should pull them directly from CyanogenMod and merge any conflicts (if any)
 # This won't happen in near future, unless crDroid project is finished for some reason
-inPerfectSyncWithCM=("")
+inPerfectSyncWithCM=("android_vendor_cm")
 
 # Packages in sync with CM, we can try to merge them automatically, if it fails wait for upstream changes
 inSyncWithCM=("android_frameworks_base" "android_packages_apps_Settings")
+
+# Packages not available in our upstream
+droppedFromUpstream=("android_vendor_cm")
 
 # Branches
 crDroid="cm-4.4"
@@ -42,10 +45,13 @@ for folder in `find . -mindepth 1 -maxdepth 1 -type d` ; do
 	if [ $INIT -eq 1 ]; then
 		addUpstream
 	else
-		git pull $crDroidRepo $crDroid
-		if [ $? -ne 0 ]; then
-			# This is mandatory, we MUST stay in sync with upstream
-			read -p "Something went wrong, please check and tell me when you're done, master!" -n1 -s
+		git pull $ourRepo $ourName
+		if ! `contains "$ourName" "${droppedFromUpstream[@]}"`; then
+			git pull $crDroidRepo $crDroid
+			if [ $? -ne 0 ]; then
+				# This is mandatory, we MUST stay in sync with upstream
+				read -p "Something went wrong, please check and tell me when you're done, master!" -n1 -s
+			fi
 		fi
 		if `contains "$ourName" "${inSyncWithCM[@]}"`; then
 			git pull $CMRepo $CM

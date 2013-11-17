@@ -26,16 +26,16 @@ if [ -e /system/etc/init.d/98ArchiDroid_RunOnce ]; then
 fi
 
 # Now we need to make sure that this is background process to prevent slowing down bootup
-if [ ! -e /data/media/0/ArchiDroid/INIT_BACKGROUND ]; then
+if [ "$1" != "background" ]; then
 	# We're not running in background, let's start a child and tell him that he's running in background
-	touch /data/media/0/ArchiDroid/INIT_BACKGROUND
-	sh $0 &
+	echo "INFO: Spawning child!" >> $LOG
+	sh $0 "background" &
 	
 	# Nothing to do here anymore, exit call
 	exit 1
 else
 	# We're running in background so let's proceed
-	rm -f /data/media/0/ArchiDroid/INIT_BACKGROUND
+	echo "INFO: I'm a child!" >> $LOG
 fi
 
 # Cool ArchiDroid Banner
@@ -83,11 +83,6 @@ if [ $LOOP -ge 150 ]; then
 else
 	echo "INFO: I looped $LOOP times and didn't have to exit from infinite loop, that's nice (Init Semaphore)" >> $LOG
 fi
-
-# Now that is checked, let's just wait another tiny little bit
-sleep 5
-
-# If we have any more init scripts then it's the right place for that
 
 # Execute a reboot if we need it
 if [ -e /data/media/0/ArchiDroid/HARD_REBOOT_REQUIRED ]; then

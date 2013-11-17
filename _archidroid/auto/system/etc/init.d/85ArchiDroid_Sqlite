@@ -13,6 +13,19 @@ LOG="$AD/SQLite.log" # "/dev/null" is no verbose
 exec 1>$LOG # Use "exec 1>>$LOG" for append
 exec 2>&1
 
+# Now we need to make sure that this is background process to prevent slowing down bootup
+if [ "$1" != "background" ]; then
+	# We're not running in background, let's start a child and tell him that he's running in background
+	echo "INFO: Spawning child!"
+	sh $0 "background" &
+
+	# Nothing to do here anymore, exit call
+	exit 1
+else
+	# We're running in background so let's proceed
+	echo "INFO: I'm a child!"
+fi
+
 echo "INFO: SQLite database VACUUM and REINDEX started at `date`"
 for i in `busybox find /data -iname "*.db"`; do
 	echo "INFO: VACUUM & REINDEX $i"

@@ -280,16 +280,6 @@ fi
 # Post-Installation functions
 if [ $INSTALLMODE -eq 1 ]; then
 	echo "INFO: Calling Post-Installation functions (if any)" >> $LOG
-	if [ -d /system/etc/CrossBreeder ]; then
-		echo "INFO: CrossBreeder has been found, tweaking..." >> $LOG
-		sysrw
-		rm -f /system/etc/CrossBreeder/START_TWEAKING_IO
-		busybox sync
-		#sysro
-		/system/etc/CrossBreeder/DISABLE_GOVERNOR_TWEAKS
-		/system/etc/CrossBreeder/ENABLE_ADBLOCK
-		ADRELOAD=1
-	fi
 fi
 
 # I'm runonce script so let's clean everything and delete myself

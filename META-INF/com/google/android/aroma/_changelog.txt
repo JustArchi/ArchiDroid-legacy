@@ -11,12 +11,11 @@ ArchiDroid 2.2.5
 !! In other words choose barebones preset or you're on your own. Don't expect anything from first experimentals.
 
 - KNOWN BUGS / ISSUES:
-1) Google Apps are not updated yet
-
-b) External SD Cards don't work, at least exFAT-formatted ones
+a) External SD Cards don't work, at least exFAT-formatted ones
 </tempchangelog>
 
 - [!] OpenPDroid is now available once again
+- [!] Updated GAPPS to PA GAPPS 4.4 (ultra-clean mini package)
 
 - RunOnce (ArchiDroid Backend) Update
 * Hot Reboot has been replaced by Standard Reboot (required for new parts)
@@ -26,10 +25,16 @@ b) External SD Cards don't work, at least exFAT-formatted ones
 # (yo dawg I heard you like tweaking, so I'm tweaking your tweaker so it could tweak while I tweak it)
 # It includes enabled AdBlock (yes, don't use AdAway, it slows your device with such big hosts file) and disabled non-universal tweaks, like readahead (no more forced 4096)
 
+- Disabled Xposed, as it's not compatible with Android 4.4 yet
 - Updated Boeffla kernel to CM11.0-beta1
 - Updated Temasek kernel to 121113
 - Updated Yank kernel to 1.6g-beta1
 - Updated Googy Max kernel to 1.7.9
 - Updated Modem to XXUGMJ9
 - Updated Onandroid to 9.20
+- Updated BetterBatteryStats to 1.15.0.0 RC1
+- Updated LMT to 2.0 RC5
+- Updated XPrivacy to 1.10.16
+- Updated TouchPal X
+- Nova Launcher to 2.3 beta3
 - Updated sources

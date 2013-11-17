@@ -270,6 +270,12 @@ if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "googy" then
 	package_extract_file("_archidroid/kernels/googymax/boot.img", "/tmp/googymax.img");
     write_raw_image("/tmp/googymax.img", "/dev/block/mmcblk0p5");
     delete("/tmp/googymax.img");
+
+	if file_getprop("/tmp/aroma-data/archidroidwipe.prop","wipe") == "yes" then
+		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying ArchiDroid Googy Max Preset");
+		package_extract_dir("_archidroid/kernels/googymax/preset", "/data/.googy");
+	endif;
+
 	package_extract_dir("_archidroid/apps/stweaks", "/");
 endif;
 

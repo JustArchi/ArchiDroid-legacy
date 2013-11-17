@@ -17,18 +17,17 @@ exec 1>$LOG # Use "exec 1>>$LOG" for append
 exec 2>&1
 
 # Now we need to make sure that this is background process to prevent slowing down bootup
-if [ ! -e /data/media/0/ArchiDroid/PERMFIX_BACKGROUND ]; then
+if [ "$1" != "background" ]; then
 	# We're not running in background, let's start a child and tell him that he's running in background
-	touch /data/media/0/ArchiDroid/PERMFIX_BACKGROUND
-	sh $0 &
-	
+	echo "INFO: Spawning child!"
+	sh $0 "background" &
+
 	# Nothing to do here anymore, exit call
 	exit 1
 else
 	# We're running in background so let's proceed
-	rm -f /data/media/0/ArchiDroid/PERMFIX_BACKGROUND
+	echo "INFO: I'm a child!"
 fi
-
 
 # ArchiDroid Semaphore
 # Wait until we see some android processes to consider boot is more or less complete (credits to AndiP71)

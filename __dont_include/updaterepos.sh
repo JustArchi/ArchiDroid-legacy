@@ -31,7 +31,7 @@ droppedFromUpstream=("android_vendor_cm")
 
 # Branches
 crDroid="cr-4.4"
-crDroidExtra="cm-4.4"
+#crDroidExtra="cm-4.4"
 crDroidRepo="upstream"
 crDroidRepoLink="https://github.com/cristianomatos"
 CM="cm-11.0"
@@ -49,11 +49,6 @@ for folder in `find . -mindepth 1 -maxdepth 1 -type d` ; do
 		git pull $ourRepo $ourBranch
 		if ! `contains "$ourName" "${droppedFromUpstream[@]}"`; then
 			git pull $crDroidRepo $crDroid
-			if [ $? -ne 0 ]; then
-				# This is mandatory, we MUST stay in sync with upstream
-				read -p "Something went wrong, please check and tell me when you're done, master!" -n1 -s
-			fi
-			git pull $crDroidRepo $crDroidExtra
 			if [ $? -ne 0 ]; then
 				# This is mandatory, we MUST stay in sync with upstream
 				read -p "Something went wrong, please check and tell me when you're done, master!" -n1 -s

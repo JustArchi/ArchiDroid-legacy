@@ -2,19 +2,17 @@ ArchiDroid 2.2.5
 
 <tempchangelog>
 - SCREW CHANGELOG, WE HAVE KITKAT
-- It SEEMS stable enough to put it in experimental, however take care anyway
 
 - WARNING! YOU NEED REQUIRED RECOVERY TO FLASH THIS EXPERIMENTAL
 !! Flash required_recovery.zip and then restart your recovery, this is MANDATORY (or you'll get set_perm errors). PhilZ doesn't work yet, sorry
-
-!! WARNING, ARCHIDROID IS NOT YET MERGED SUCCESSFULLY, NO TESTS APART FROM BAREBONES PRESET WERE MADE
-!! In other words choose barebones preset or you're on your own. Don't expect anything from first experimentals.
 
 - KNOWN BUGS / ISSUES:
 a) External SD Cards don't work, at least exFAT-formatted ones
 </tempchangelog>
 
 - [!] OpenPDroid is now available once again
+# It's fully working, with brand new OpenPDroid manager, hooray!
+
 - [!] Updated GAPPS to PA GAPPS 4.4 (ultra-clean mini package)
 
 - RunOnce (ArchiDroid Backend) Update
@@ -25,16 +23,21 @@ a) External SD Cards don't work, at least exFAT-formatted ones
 # (yo dawg I heard you like tweaking, so I'm tweaking your tweaker so it could tweak while I tweak it)
 # It includes enabled AdBlock (yes, don't use AdAway, it slows your device with such big hosts file) and disabled non-universal tweaks, like readahead (no more forced 4096)
 
+- Small changes in Archi's presets for Boeffla kernel
+# Ultra PowerSave is now based on Power Saving PegasusQ instead of Yank's Extreme Battery ZZMoove
+# Additionally audio preset has been changed from "custom" to "Archis audiphile". Huge thanks to @Lord Boeffla for implementing this!
+
 - Disabled Xposed, as it's not compatible with Android 4.4 yet
 - Updated Boeffla kernel to CM11.0-beta1
 - Updated Temasek kernel to 121113
 - Updated Yank kernel to 1.6g-beta1
-- Updated Googy Max kernel to 1.7.9
+- Updated Googy Max kernel to 1.7.9 (No Android 4.4 support, disabled in Aroma)
 - Updated Modem to XXUGMJ9
 - Updated Onandroid to 9.20
 - Updated BetterBatteryStats to 1.15.0.0 RC1
 - Updated LMT to 2.0 RC6
 - Updated XPrivacy to 1.10.16
+- Updated Greenify to 1.97
 - Updated TouchPal X
 - Nova Launcher to 2.3 beta3
 - Updated sources

@@ -173,7 +173,7 @@ form(
 ### PREVIOUS PRESET ###
 #######################
 
-setvar("preset_version","2");
+setvar("preset_version","3");
 if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "previous" then
   setvar("preset_version_probe",read("/data/media/0/ArchiDroid/AromaPreset/1.X/version.txt"));
   if getvar("preset_version")!=getvar("preset_version_probe") then
@@ -250,7 +250,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
     "stock","Stock","<~archidroid.kernel.stock.desc>","select",
 	 
     "theme","<#selectbg_g>Theme</#>","","group",
-    "foxhound","Fox Hound All Black","<~archidroid.theme.foxhound.desc>","select.selected",
+    "foxhound","FoxHound All Black","<~archidroid.theme.foxhound.desc>","select.selected",
     "stock","Stock Theme","<~archidroid.theme.stock.desc>","select",
 
     "dpi","<#selectbg_g>DPI</#>","","group",

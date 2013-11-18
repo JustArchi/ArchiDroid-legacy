@@ -362,20 +362,6 @@ if file_getprop("/tmp/aroma-data/archidroid.prop","dpi") == "320" then
 	run_program("/tmp/320dpi.sh");
 endif;
 
-### Multi-DPI Fixes ###
-if file_getprop("/tmp/aroma-data/archidroid.prop","dpi") != "320" then
-	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying Multi-DPI Fixes");
-	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> It can take some time!");
-	package_extract_dir("_archidroid/themes/multidpi", "/sdcard/vrtheme");
-	package_extract_dir("_archidroid/themes/vrtheme", "/sdcard/vrtheme");
-	set_perm(0, 0, 0755, "/sdcard/vrtheme/installtheme.sh");
-	set_perm(0, 0, 0755, "/sdcard/vrtheme/zip");
-	set_perm(0, 0, 0755, "/sdcard/vrtheme/cleanup.sh");
-	set_perm(0, 0, 0755, "/sdcard/vrtheme/zipalign");
-	run_program("/sdcard/vrtheme/installtheme.sh");
-	run_program("/sdcard/vrtheme/cleanup.sh");
-endif;
-	
 set_progress(0.69);
 
 #############

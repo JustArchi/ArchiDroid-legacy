@@ -25,7 +25,7 @@ echo '1' > /sys/class/misc/boeffla_sound/privacy_mode
 echo '2' > /sys/class/misc/boeffla_sound/eq
 /res/bc/bccontroller.sh apply_eq_bands 
 echo '8 4 4 2 6' > /sys/class/misc/boeffla_sound/eq_gains
-echo '' > /dev/bk_eq_gains_profile
+echo 'Archis audiophile' > /dev/bk_eq_gains_profile
 echo '0' > /sys/class/misc/boeffla_sound/dac_direct
 echo '1' > /sys/class/misc/boeffla_sound/dac_oversampling
 echo '1' > /sys/class/misc/boeffla_sound/fll_tuning

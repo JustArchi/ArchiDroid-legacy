@@ -1,0 +1,46 @@
+<?xml  version="1.0" encoding="UTF-8" ?>
+<!-- It can be added for each operators like below form
+<ABC>                       -> sales code
+<sapient>true</sapient>         -> feature1
+<burton>false</burton>          -> feature2
+<libtech>true</libtech>         -> feature3
+.
+.
+</ABC>
+
+each name of tags are will be environment variable with "ro.csc."
+ex) "ro.csc.sapient", "ro.csc.burton", "ro.csc.libtech" <== you could use them at any section.
+also, should be added between <FeatureSet>
+ and </FeatureSet> .
+jhwan.kim@hdlnc.com
+by Wanam  -->
+<SamsungMobileFeature>
+
+<Country></Country>
+<CountryISO></CountryISO>
+<SalesCode></SalesCode>
+
+<!-- KOR -->
+<FeatureSet>
+<CscFeature_Contact_EnableCallButtonInList>true</CscFeature_Contact_EnableCallButtonInList>
+<CscFeature_Contact_DisableAccountIconsInContactList>false</CscFeature_Contact_DisableAccountIconsInContactList>
+<CscFeature_Email_UseFixedBgColorAsWhite>false</CscFeature_Email_UseFixedBgColorAsWhite>
+<CscFeature_Email_BackgroundColorWhite>false</CscFeature_Email_BackgroundColorWhite>
+<CscFeature_Message_SmsInputMode>automatic</CscFeature_Message_SmsInputMode>
+<CscFeature_Message_DisableSmsToMmsConversionByTextInput>true</CscFeature_Message_DisableSmsToMmsConversionByTextInput>
+<CscFeature_Message_DisableConvertingEffectBetweenSMSMMS>true</CscFeature_Message_DisableConvertingEffectBetweenSMSMMS>
+<CscFeature_Message_SmsMaxByte>999</CscFeature_Message_SmsMaxByte>
+<CscFeature_Message_RecipientLimit>999</CscFeature_Message_RecipientLimit>
+<CscFeature_Message_SmsToMmsTextThreshold>999</CscFeature_Message_SmsToMmsTextThreshold>
+<CscFeature_Launcher_DisablePageRotation>false</CscFeature_Launcher_DisablePageRotation>
+<CscFeature_Web_AddOptionToTerminate>false</CscFeature_Web_AddOptionToTerminate>
+<CscFeature_Web_EnableDesktopSiteAsDefault>false</CscFeature_Web_EnableDesktopSiteAsDefault>
+<CscFeature_Wifi_MaxClient4MobileAp>4</CscFeature_Wifi_MaxClient4MobileAp>
+<CscFeature_Sip_UseSymbolInCMKey>false</CscFeature_Sip_UseSymbolInCMKey>
+<CscFeature_Sip_EnableSymbolInSecondary></CscFeature_Sip_EnableSymbolInSecondary>
+<CscFeature_Gallery_AddAutoRotationIcon>false</CscFeature_Gallery_AddAutoRotationIcon>
+<CscFeature_Contact_SetLinkCountMaxAs>999</CscFeature_Contact_SetLinkCountMaxAs>
+<CscFeature_Contact_UseSeparateAddressField>false</CscFeature_Contact_UseSeparateAddressField>
+<CscFeature_Camera_EnableCameraDuringCall>false</CscFeature_Camera_EnableCameraDuringCall>
+</FeatureSet>
+</SamsungMobileFeature>

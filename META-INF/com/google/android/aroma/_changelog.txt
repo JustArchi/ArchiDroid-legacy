@@ -1,5 +1,13 @@
 ArchiDroid 1.7.2
 
+- [!] Implemented Xposed, Wanam's Xposed and App Settings into ADMANY (ArchiDroid RunOnce)
+# This is HUGE improvement, xposed is now integreated into ArchiDroid (if you select it). That means it's auto-activated now.
+# First of all we don't need Multi-DPI fixes anymore, proper universal DPI fixes are now applied automatically, thanks to App Settings
+# Secondly I pre-activated Wanam's Xposed according to my taste. This gives you f.e. Call Recording, Circled battery and many more features, thanks to Wanam's Xposed
+# Lastly everything above is possible thanks to ArchiDroid ADMANY feature, which applies presets in universal way. Now you can feel it's magic, not only in Cool Tool and Boeffla settings
+# I'm very happy to implement that, it really makes life easier, especially because you don't need to click anything anymore. You just need to keep xposed and proper modules selected in aroma
+# Keep in mind that you need Install mode (full wipe) or at least Forced Update mode to apply above improvements
+
 - Added Boeffla presets (configurable in aroma)
 - Added Googy Max preset (auto-apply only on install mode)
 - Updated (and enabled as default) Boeffla Kernel 5.0 alpha2

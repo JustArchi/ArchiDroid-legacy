@@ -93,7 +93,7 @@
     <string name="customDateFormat">EEEE
 MMMM d, yyyy</string>
     <boolean name="hideBlockingModeIcon" value="false" />
-    <boolean name="hideSmartStayIcon" value="true" />
+    <boolean name="hideSmartStayIcon" value="false" />
     <boolean name="disableNumberFormating" value="false" />
     <boolean name="disableSmsToMmsConversion" value="true" />
     <boolean name="detailedSMSSentTime" value="true" />

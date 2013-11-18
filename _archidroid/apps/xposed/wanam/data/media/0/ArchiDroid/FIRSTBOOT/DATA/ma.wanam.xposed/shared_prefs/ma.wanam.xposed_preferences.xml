@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8' standalone='yes' ?>
 <map>
-    <boolean name="enableCallButtonLogs" value="true" />
     <boolean name="enableBoosMod" value="false" />
+    <boolean name="enableCallButtonLogs" value="true" />
     <boolean name="disableBluetoothScanDialog" value="false" />
     <boolean name="secureSamsungKeyBoard" value="true" />
     <boolean name="showScreenOnToggle" value="true" />
@@ -9,16 +9,16 @@
     <string name="clockSize">Medium</string>
     <string name="amPmStyle">Large</string>
     <boolean name="removedAds" value="true" />
-    <string name="batterySize">Medium</string>
     <boolean name="hideNfcIcon" value="false" />
+    <string name="batterySize">Medium</string>
     <boolean name="disableTetherProvisioning" value="false" />
     <boolean name="hideFullBatteryNotification" value="false" />
     <boolean name="allCallDefaultView" value="false" />
     <boolean name="makeMeTooLegit" value="true" />
     <boolean name="quickSettingsHideTextLabels" value="false" />
     <boolean name="enableAllRotation" value="false" />
-    <boolean name="enable4WayReboot" value="false" />
     <boolean name="disableEscalatingRingtone" value="false" />
+    <boolean name="enable4WayReboot" value="false" />
     <boolean name="hideEmergencyCallButton" value="false" />
     <boolean name="hideHeadsetNotificationIcon" value="false" />
     <boolean name="disableVolumeControlSound" value="false" />
@@ -27,7 +27,7 @@
     <int name="wifiAPClients" value="4" />
     <boolean name="hideDockLabels" value="false" />
     <boolean name="hideImeSwitcher" value="false" />
-    <boolean name="launcherScrollWallpaper" value="false" />
+    <boolean name="launcherScrollWallpaper" value="true" />
     <boolean name="hideNoNotificationsTitleBar" value="false" />
     <string name="statusbarTextFace">Regular</string>
     <boolean name="disableWakeOnHome" value="false" />
@@ -35,28 +35,28 @@
     <boolean name="disableBootSound" value="false" />
     <int name="configCriticalBatteryWarningLevel" value="5" />
     <boolean name="useAutoBrightnessDetail" value="true" />
-    <boolean name="selectedBatteryIcon" value="true" />
     <boolean name="raiseRecipientLimit" value="true" />
+    <boolean name="selectedBatteryIcon" value="true" />
     <boolean name="disableLauncherPageRotation" value="false" />
-    <boolean name="disableLoudVolumeWarning" value="false" />
-    <boolean name="notificationRemoveGaps" value="false" />
+    <boolean name="disableLoudVolumeWarning" value="true" />
     <boolean name="disableKnox" value="false" />
+    <boolean name="notificationRemoveGaps" value="false" />
     <boolean name="useSeparateAddressField" value="false" />
     <string name="statusbarTextStyle">Normal</string>
     <boolean name="enableCallRecordingMenu" value="true" />
-    <int name="numSignalBars" value="5" />
+    <int name="numSignalBars" value="6" />
     <boolean name="persistDataIcon" value="false" />
-    <boolean name="enableKeyBoardSymbols" value="false" />
+    <boolean name="enableKeyBoardSymbols" value="true" />
     <boolean name="enableMwDarkTheme" value="false" />
     <boolean name="hideHeadsetAppsNotification" value="false" />
-    <boolean name="unplugScreenOn" value="true" />
     <boolean name="notificationHideCloseHandleDivider" value="false" />
+    <boolean name="unplugScreenOn" value="true" />
     <boolean name="disableLowBatterySound" value="false" />
     <boolean name="quickSettingsHideIndicators" value="false" />
     <string name="customCarrierLockscreen"></string>
-    <string name="carrierSize">Medium</string>
     <boolean name="useAnimatedBrightnessIcon" value="true" />
-    <boolean name="addBrowserTerminateButton" value="false" />
+    <string name="carrierSize">Medium</string>
+    <boolean name="addBrowserTerminateButton" value="true" />
     <boolean name="keepMyExtraCscFeatures" value="true" />
     <boolean name="automaticInputMode" value="true" />
     <boolean name="hideWifiConnected" value="false" />
@@ -67,14 +67,14 @@
     <int name="longHomePressBehaviour" value="2" />
     <long name="drt_ts" value="0" />
     <boolean name="hideCarrierLabel" value="false" />
-    <boolean name="addGalleryAutoRotationIcon" value="false" />
     <boolean name="unlimittedContactsJoining" value="true" />
+    <boolean name="addGalleryAutoRotationIcon" value="false" />
     <boolean name="enableLongBackKill" value="true" />
     <boolean name="showClockDate" value="true" />
     <boolean name="disableExchangeLockSecurity" value="false" />
     <boolean name="hideBatteryIcon" value="false" />
-    <boolean name="disableCameraShutterSound" value="true" />
     <boolean name="disableAccountIconsList" value="false" />
+    <boolean name="disableCameraShutterSound" value="true" />
     <boolean name="raiseMmsRecipientLimit" value="true" />
     <boolean name="enableWhiteEmailBackgroung" value="false" />
     <boolean name="saveLogsViewBy" value="false" />
@@ -83,8 +83,8 @@
     <boolean name="enableCameraDuringCall" value="false" />
     <string name="customCarrierLabel"></string>
     <boolean name="disableAirplaneModeDialog" value="false" />
-    <boolean name="hideCarrierLockscreen" value="false" />
     <boolean name="enableCallAdd" value="true" />
+    <boolean name="hideCarrierLockscreen" value="false" />
     <boolean name="enableLockscreenRotation" value="false" />
     <boolean name="quickSettingsCollapseOnToggle" value="false" />
     <boolean name="adjustsignals" value="false" />
@@ -92,15 +92,15 @@
     <boolean name="quickPinUnlockEnabled" value="false" />
     <string name="customDateFormat">EEEE
 MMMM d, yyyy</string>
-    <boolean name="hideSmartStayIcon" value="false" />
     <boolean name="hideBlockingModeIcon" value="false" />
+    <boolean name="hideSmartStayIcon" value="true" />
     <boolean name="disableNumberFormating" value="false" />
     <boolean name="disableSmsToMmsConversion" value="true" />
     <boolean name="detailedSMSSentTime" value="true" />
     <string name="drt"></string>
     <boolean name="hideAlarmClockIcon" value="false" />
-    <int name="quickSettingsColumns" value="6" />
-    <boolean name="disableScrollingCache" value="false" />
     <boolean name="disbaleLowBatteryCloseWarningLevel" value="false" />
+    <boolean name="disableScrollingCache" value="false" />
+    <int name="quickSettingsColumns" value="6" />
     <boolean name="clockDateTwoLineFormat" value="false" />
 </map>

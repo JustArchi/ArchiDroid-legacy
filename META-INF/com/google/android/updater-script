@@ -314,9 +314,10 @@ endif;
 ### THEME ###
 #############
 
-if file_getprop("/tmp/aroma-data/archidroid.prop","theme") == "dreamtheme" then
-	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing DreamTheme AOSP. Notice: This can take up to 5 minutes!");
-	package_extract_dir("_archidroid/themes/dreamtheme", "/sdcard/vrtheme");
+if file_getprop("/tmp/aroma-data/archidroid.prop","theme") == "foxhound" then
+	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Foxhound All Black Theme");
+	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Notice: This can take up to 5 minutes!");
+	package_extract_dir("_archidroid/themes/foxhound", "/sdcard/vrtheme");
 	package_extract_dir("_archidroid/themes/vrtheme", "/sdcard/vrtheme");
 	set_perm(0, 0, 0755, "/sdcard/vrtheme/installtheme.sh");
 	set_perm(0, 0, 0755, "/sdcard/vrtheme/zip");

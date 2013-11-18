@@ -6,6 +6,7 @@ Thanks to developers of:
 - Aroma & Aroma File Manager
 - ROMS: Wanam Lite
 - Kernels: Boeffla Kernel | Yank555.lu Kernel | Googy Max Kernel
+- Themes: Foxhound All Black
 - All available ArchiDroid apps, especially BetterBatteryStats, SpiritFM, CoolTool.
 - GApps: Paranoid Android GApps | Team BlackOut Inverts
 - Launcher: Nova Launcher

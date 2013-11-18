@@ -250,9 +250,8 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
     "stock","Stock","<~archidroid.kernel.stock.desc>","select",
 	 
     "theme","<#selectbg_g>Theme</#>","","group",
-    #"dreamtheme","Dream Theme","<~archidroid.theme.dreamtheme.desc>","select.selected",
-    #"stock","Stock Theme","<~archidroid.theme.stock.desc>","select",
-    "stock","Stock Theme","<~archidroid.theme.stock.desc>","select.selected",
+    "foxhound","Fox Hound All Black","<~archidroid.theme.foxhound.desc>","select.selected",
+    "stock","Stock Theme","<~archidroid.theme.stock.desc>","select",
 
     "dpi","<#selectbg_g>DPI</#>","","group",
     "240","240 DPI","<~archidroid.dpi.240.desc>","select.selected",

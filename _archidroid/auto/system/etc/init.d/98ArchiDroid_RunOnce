@@ -174,6 +174,18 @@ while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 	if [ $DBUPDATE -eq 1 ]; then
 		if [ -e /data/data/com.android.providers.settings/databases/settings.db ]; then
 			echo "INFO: Android created settings.db for me, how cute! Performing DBUPDATE" >> $LOG
+			
+			# Let's update selected keyboard according to our choice
+			# TODO: We should handle this internally, according to FIRSTBOOT instead of hardcoding keyboards
+			# TODO: Also we shouldn't select just one keyboard, but all of them (if found)
+			for KEYBOARD in "org.pocketworkstation.pckeyboard com.cootek.smartinputv5" ; do
+				if [ -e /data/data/$KEYBOARD ]; then
+					echo "INFO: $KEYBOARD Keyboard found!" >> $LOG
+					DBUPDATE secure default_input_method $KEYBOARD
+					DBUPDATE secure enabled_input_methods $KEYBOARD
+				fi
+			done
+			
 			DBUPDATE secure advanced_reboot 1
 			DBUPDATE global transition_animation_scale 0.5
 			DBUPDATE global animator_duration_scale 0.5

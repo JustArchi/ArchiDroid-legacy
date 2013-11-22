@@ -217,7 +217,6 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "bareb
     "gplus=0\n"+
     "gtranslate=0\n"+
     "titaniumbackup=0\n"+
-    "zram=0\n"+
     "greenify=0\n"+
     "lmt=0\n"+
     "mxplayer=0\n"+
@@ -297,7 +296,6 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 
     "archiapps","<#selectbg_g>ArchiDroid Apps</#>","","group",
     "titaniumbackup","Titanium Backup","<~archidroid.apps.titaniumbackup.desc>","check.checked",
-    "zram","ZRAM Status","<~archidroid.apps.zram.desc>","check",
     "greenify","Greenify","<~archidroid.apps.greenify.desc>","check.checked",
     "lmt","LMT","<~archidroid.apps.lmt.desc>","check.checked",
     "mxplayer","MXPlayer","<~archidroid.apps.mxplayer.desc>","check.checked",

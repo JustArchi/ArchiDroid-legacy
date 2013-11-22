@@ -653,11 +653,6 @@ if file_getprop("/tmp/aroma-data/archidroid.prop","titaniumbackup") == "1" then
 	package_extract_dir("_archidroid/apps/titaniumbackup", "/");
 endif;
 
-if file_getprop("/tmp/aroma-data/archidroid.prop","zram") == "1" then
-	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing ZRAM Status");
-	package_extract_dir("_archidroid/apps/zramstatus", "/");
-endif;
-
 if file_getprop("/tmp/aroma-data/archidroid.prop","greenify") == "1" then
 	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Greenify");
 	package_extract_dir("_archidroid/apps/greenify", "/");

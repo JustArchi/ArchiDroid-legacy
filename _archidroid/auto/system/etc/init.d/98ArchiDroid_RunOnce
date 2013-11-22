@@ -207,7 +207,7 @@ while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 				DBUPDATE secure ui_inverted_mode 2
 				DBUPDATE secure kill_app_longpress_back 1
 				DBUPDATE system power_menu_screenshot_enabled 1
-				DBUPDATE system status_bar_battery 3
+				DBUPDATE system status_bar_battery 4
 				DBUPDATE system statusbar_clock_date_display 2
 				DBUPDATE system statusbar_clock_date_format 'MMM dd'
 				DBUPDATE system status_bar_traffic 0

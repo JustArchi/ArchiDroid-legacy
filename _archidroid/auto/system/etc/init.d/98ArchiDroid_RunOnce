@@ -18,8 +18,51 @@ SAMMY=0
 echo -n "" > $LOG
 exec 2>>$LOG
 
+# Parse args to variables
+if [ "echo $@ | grep background" -ge 1 ]; then
+	BACKGROUND=1
+else
+	BACKGROUND=0
+fi
+if [ "echo $@ | grep forcedsemaphore" -ge 1 ]; then
+	FORCEDSEMAPHORE=1
+else
+	FORCEDSEMAPHORE=0
+fi
 
 # Main code
+
+ADTRY() {
+	# We try to execute $1 (and $3) multiple times, checking condition $2
+	# In case of typical race conditions, also maximum of 5 times to avoid infinite loop
+	TRY=0
+	CMD="$1"
+	CONDITION="$2"
+	if [ -z "$3" ]; then
+		FALLBACK=0
+	else
+		FALLBACK=1
+		FALLBACKCMD="$3"
+	fi
+	while [ $DONE -ne 1 ] ; do
+		TRY=`expr $TRY + 1`
+		if [ `$CONDITION` -ge 1 ]; then
+			DONE=1
+			return 0
+		else
+			if [ $TRY -gt 5 ]; then
+				echo "ERROR: Couldn't execute $CMD $FALLBACKCMD $CONDITION , please investigate!" >> $LOG
+				DONE=1
+				return 1
+			elif [ $FALLBACK -eq 1 ]; then
+				$CMD || $FALLBACKCMD
+			else
+				$CMD
+			fi
+			sleep 1
+		fi
+	done
+}
 
 DBUPDATE() {
 	# Thanks to idcrisis, modified by JustArchi
@@ -85,7 +128,7 @@ echo "`uname -a`" >> $LOG
 echo "INFO: ArchiDroid_RunOnce executed!" >> $LOG
 
 # Now we need to make sure that this is background process to prevent slowing down bootup
-if [ "$1" != "background" ]; then
+if [ $BACKGROUND -eq 1 ]; then
 	# We're not running in background, let's start a child and tell him that he's running in background
 	echo "INFO: Spawning child!" >> $LOG
 	sh $0 "background" &
@@ -139,6 +182,9 @@ elif [ -e $AD/UPDATE ]; then
 else
 	# Panic
 	echo "FATAL ERROR: Could not detect Install/Update mode, ABORTING RUNONCE, PLEASE INVESTIGATE" >> $LOG
+	ADTRY "sysrw" "mount | grep /system | grep rw" "mount -o remount,rw /system"
+	rm -f $0
+	ADTRY "sysro" "mount | grep /system | grep ro" "mount -o remount,ro /system"
 	exit 2
 fi
 
@@ -147,7 +193,7 @@ fi
 # Also respect number of loops, maybe something went wrong
 echo "INFO: RunOnce Semaphore started" >> $LOG
 LOOP=0
-while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
+while (! pgrep com.android && [ $LOOP -lt 150 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ; do
 
 	if [ $ADBANNER -eq 1 ]; then
 		echo "
@@ -279,12 +325,17 @@ while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 	fi
 
 	# Sleeping time
+	FORCEDSEMAPHORE=0
 	LOOP=`expr $LOOP + 1`
 	sleep 2
 done
 
 if [ $LOOP -ge 150 ]; then
 	echo "ERROR: I looped $LOOP times and needed to exit from infinite loop, not good (RunOnce Semaphore)" >> $LOG
+elif [ $LOOP -eq 0 ]; then
+	echo "ERROR: I didn't even entered semaphore, forcing it this time, it may cause unexpected behaviour!" >> $LOG
+	sh $0 "background" "forcedsemaphore" &
+	exit 3
 else
 	echo "INFO: I looped $LOOP times and didn't have to exit from infinite loop, that's nice (RunOnce Semaphore)" >> $LOG
 fi
@@ -300,10 +351,10 @@ rm -f $AD/UPDATE
 rm -f $AD/FORCE
 rm -Rf $AD/FIRSTBOOT
 rm -Rf /data/media/0/vrtheme-backup
-sysrw
+ADTRY "sysrw" "mount | grep /system | grep rw" "mount -o remount,rw /system"
 rm -f $0
 busybox sync
-#sysro
+#ADTRY "sysro" "mount | grep /system | grep ro" "mount -o remount,ro /system"
 
 if [ ! -e "$0" ]; then
 	echo "INFO: Could not detect RunOnce in init.d after cleanup, that's good" >> $LOG
@@ -323,7 +374,7 @@ if [ $ADRELOAD -eq 1 ]; then
 	#sleep 10
 else
 	sleep 20
-	sysro
+	ADTRY "sysro" "mount | grep /system | grep ro" "mount -o remount,ro /system"
 	# Finish
 	echo "INFO: ArchiDroid RunOnce finished" >> $LOG
 	echo "`date`" >> $LOG

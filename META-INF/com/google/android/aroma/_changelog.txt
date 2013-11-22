@@ -1,15 +1,5 @@
 ArchiDroid 2.2.5
 
-<tempchangelog>
-- SCREW CHANGELOG, WE HAVE KITKAT
-
-- WARNING! YOU NEED REQUIRED RECOVERY TO FLASH THIS EXPERIMENTAL
-!! Flash required_recovery.zip and then restart your recovery, this is MANDATORY (or you'll get set_perm errors). PhilZ doesn't work yet, sorry
-
-- KNOWN BUGS / ISSUES:
-a) External SD Cards don't work, at least exFAT-formatted ones
-</tempchangelog>
-
 - [!] OpenPDroid is now available once again
 # It's fully working, with brand new OpenPDroid manager, hooray!
 
@@ -35,9 +25,9 @@ a) External SD Cards don't work, at least exFAT-formatted ones
 - Updated Googy Max kernel to 1.7.9 (No Android 4.4 support, disabled in Aroma)
 - Updated Modem to XXUGMJ9
 - Updated Onandroid to 9.20
-- Updated BetterBatteryStats to 1.15.0.0 RC3 (+ converted to system app)
+- Updated BetterBatteryStats to 1.15.0.0 RC6 (+ converted to system app)
 - Updated LMT to 2.0 RC6
-- Updated XPrivacy to 1.10.18
+- Updated XPrivacy to 1.10.21
 - Updated Greenify to 1.97
 - Updated Titanium Backup to 6.1.4
 - Updated TouchPal X

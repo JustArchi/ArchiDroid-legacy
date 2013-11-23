@@ -16,6 +16,10 @@ if [ -e /system/etc/CHANGELOG-CM.txt ]; then
 	SAMMY=0
 fi
 
+if [ -e $AD/RunOnce.log ] && [ ! -e $AD/RunOnce.log.0 ]; then
+	mv $AD/RunOnce.log $AD/RunOnce.log.0
+fi
+
 # Redirect stderr to our log, just in case something bad happen
 #exec 1>$LOG # Use "exec 1>>$LOG" for append
 echo -n "" > $LOG
@@ -157,6 +161,8 @@ else
 	exit 2
 fi
 
+rm -f $AD/RunOnce.log.0
+
 # Cool ArchiDroid Banner
 if [ -e /system/bin/boot-dmesg ]; then
 	echo "INFO: boot-dmesg detected, turning on logcat banner" >> $LOG
@@ -202,14 +208,12 @@ while (! pgrep com.android && [ $LOOP -lt 150 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 			# Let's update selected keyboard according to our choice
 			# TODO: We should handle this internally, according to FIRSTBOOT instead of hardcoding keyboards
 			ONESHOT=1
-			for KEYBOARD in "org.pocketworkstation.pckeyboard com.cootek.smartinputv5" ; do
+			for KEYBOARD in "org.pocketworkstation.pckeyboard" "com.cootek.smartinputv5" ; do
 				if [ -e /data/data/$KEYBOARD ] && [ ONESHOT -eq 1 ]; then
 					echo "INFO: $KEYBOARD Keyboard found!" >> $LOG
-					DBUPDATE secure default_input_method $KEYBOARD/.LatinIME
-					DBUPDATE secure enabled_input_methods $KEYBOARD/.LatinIME
+					DBUPDATE secure default_input_method "$KEYBOARD/.LatinIME"
 					ONESHOT=0
 				elif [ -e /data/data/$KEYBOARD ]; then
-					# TODO
 					echo "INFO: Additional $KEYBOARD Keyboard found!" >> $LOG
 				fi
 			done

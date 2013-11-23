@@ -18,6 +18,9 @@ ArchiDroid 2.2.5
 # Ultra PowerSave is now based on Power Saving PegasusQ instead of Yank's Extreme Battery ZZMoove
 # Additionally audio preset has been changed from "custom" to "Archis audiphile". Huge thanks to @Lord Boeffla for implementing this!
 
+- Updated PhilZ Touch Recovery to 6.0.0 (works with kitkat)
+# Unfortunately you need to flash it manualy because ArchiDroid flashes recovery as the last step
+
 - Disabled Xposed, as it's not compatible with Android 4.4 yet
 - Updated Inverts (Facebook, Google Calendar/Chrome/Keep/Plus)
 - Updated Boeffla kernel to 2.1-beta1
@@ -31,7 +34,7 @@ ArchiDroid 2.2.5
 - Updated XPrivacy to 1.10.23
 - Updated Greenify to 1.97
 - Updated Titanium Backup to 6.1.4
-- Updated TouchPal X
 - Updated Nova Launcher to 2.3 beta3
+- Updated TouchPal X
 - Removed ZRAM Status (as it's not working, neither useful in latest kernels)
 - Updated sources

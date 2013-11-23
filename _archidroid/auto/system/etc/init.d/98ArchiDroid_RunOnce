@@ -110,7 +110,7 @@ echo "`uname -a`" >> $LOG
 echo "INFO: ArchiDroid_RunOnce executed!" >> $LOG
 
 # Now we need to make sure that this is background process to prevent slowing down bootup
-if [ $BACKGROUND -eq 1 ]; then
+if [ $BACKGROUND -ne 1 ]; then
 	# We're not running in background, let's start a child and tell him that he's running in background
 	echo "INFO: Spawning child!" >> $LOG
 	sh $0 "background" &

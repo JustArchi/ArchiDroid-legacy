@@ -5,13 +5,14 @@ ArchiDroid 2.2.5
 
 - [!] Updated GAPPS to PA GAPPS 4.4 (ultra-clean mini package)
 
-- RunOnce (ArchiDroid Backend) Update
+- [!] RunOnce (ArchiDroid Backend) Update
 * Hot Reboot has been replaced by Standard Reboot (required for new parts)
 * Reboot (called by backend) now plays a sound to let you know that it's intended
 * Code Clean-Up
 * CrossBreeder's Tweaks are now active in Install and Forced Update modes
 # (yo dawg I heard you like tweaking, so I'm tweaking your tweaker so it could tweak while I tweak it)
 # It includes enabled AdBlock (yes, don't use AdAway, it slows your device with such big hosts file) and disabled non-universal tweaks, like readahead (no more forced 4096)
+* Added MANY Android 4.4-specific fixes, for example default keyboard handling
 
 - Small changes in Archi's presets for Boeffla kernel
 # Ultra PowerSave is now based on Power Saving PegasusQ instead of Yank's Extreme Battery ZZMoove

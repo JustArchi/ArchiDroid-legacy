@@ -21,57 +21,16 @@ fi
 echo -n "" > $LOG
 exec 2>>$LOG
 
-# Parse args to variables
-if ADARGS "background" "$@" ; then
-	BACKGROUND=1
-else
-	BACKGROUND=0
-fi
-if ADARGS "forcedsemaphore" "$@" ; then
-	FORCEDSEMAPHORE=1
-else
-	FORCEDSEMAPHORE=0
-fi
-
 # Main code
 
 ADARGS() {
 	# $1 - what we're looking for
 	# $2 - where we're looking for
-	if [ `echo "$2" | grep "$1" | wc -l` -ge 1 ]; then
+	if [ ! -z `echo "$2" | grep "$1"` ]; then
 		return 0
 	else
 		return 1
 	fi
-}
-
-ADTRY() {
-	# We try to execute $1 (and $3) multiple times, checking condition $2
-	# In case of typical race conditions, also maximum of 5 times to avoid infinite loop
-	local TRY=0
-	local FALLBACK=0
-	local DONE=0
-	if [ ! -z "$3" ]; then
-		FALLBACK=1
-	fi
-	while [ $DONE -ne 1 ] ; do
-		TRY=`expr $TRY + 1`
-		if [ `$2` -ge 1 ]; then
-			DONE=1
-			return 0
-		else
-			if [ $TRY -gt 5 ]; then
-				echo "ERROR: Couldn't execute $1 $3 $2, please investigate!" >> $LOG
-				DONE=1
-				return 1
-			elif [ $FALLBACK -eq 1 ]; then
-				$1 || $3
-			else
-				$1
-			fi
-			sleep 1
-		fi
-	done
 }
 
 DBUPDATE() {
@@ -130,6 +89,18 @@ DBUPDATE() {
 	done
 }
 
+# Parse args to variables
+if ADARGS "background" "$@" ; then
+	BACKGROUND=1
+else
+	BACKGROUND=0
+fi
+if ADARGS "forcedsemaphore" "$@" ; then
+	FORCEDSEMAPHORE=1
+else
+	FORCEDSEMAPHORE=0
+fi
+
 echo "`date`" >> $LOG
 echo "`uname -a`" >> $LOG
 echo "INFO: ArchiDroid_RunOnce executed!" >> $LOG
@@ -149,15 +120,6 @@ fi
 
 # We don't need to reload anything for now
 ADRELOAD=0
-
-# Cool ArchiDroid Banner
-if [ -e /system/bin/boot-dmesg ]; then
-	echo "INFO: boot-dmesg detected, turning on logcat banner" >> $LOG
-	ADBANNER=1
-else
-	echo "INFO: boot-dmesg NOT detected, turning off logcat banner" >> $LOG
-	ADBANNER=0
-fi
 
 # Don't force install mode, unless FORCE file exists
 if [ -e $AD/FORCE ]; then
@@ -189,10 +151,19 @@ elif [ -e $AD/UPDATE ]; then
 else
 	# Panic
 	echo "FATAL ERROR: Could not detect Install/Update mode, ABORTING RUNONCE, PLEASE INVESTIGATE" >> $LOG
-	ADTRY "sysrw" "mount | grep /system | grep rw" "mount -o remount,rw /system"
+	sysrw || mount -o remount,rw /system
 	rm -f $0
-	ADTRY "sysro" "mount | grep /system | grep ro" "mount -o remount,ro /system"
+	sysro || mount -o remount,ro /system
 	exit 2
+fi
+
+# Cool ArchiDroid Banner
+if [ -e /system/bin/boot-dmesg ]; then
+	echo "INFO: boot-dmesg detected, turning on logcat banner" >> $LOG
+	ADBANNER=1
+else
+	echo "INFO: boot-dmesg NOT detected, turning off logcat banner" >> $LOG
+	ADBANNER=0
 fi
 
 # ArchiDroid Semaphore
@@ -362,10 +333,10 @@ rm -f $AD/UPDATE
 rm -f $AD/FORCE
 rm -Rf $AD/FIRSTBOOT
 rm -Rf /data/media/0/vrtheme-backup
-ADTRY "sysrw" "mount | grep /system | grep rw" "mount -o remount,rw /system"
+sysrw || mount -o remount,rw /system
 rm -f $0
 busybox sync
-#ADTRY "sysro" "mount | grep /system | grep ro" "mount -o remount,ro /system"
+#sysro || mount -o remount,ro /system
 
 if [ ! -e "$0" ]; then
 	echo "INFO: Could not detect RunOnce in init.d after cleanup, that's good" >> $LOG
@@ -385,7 +356,7 @@ if [ $ADRELOAD -eq 1 ]; then
 	#sleep 10
 else
 	sleep 20
-	ADTRY "sysro" "mount | grep /system | grep ro" "mount -o remount,ro /system"
+	sysro || mount -o remount,ro /system
 	# Finish
 	echo "INFO: ArchiDroid RunOnce finished" >> $LOG
 	echo "`date`" >> $LOG

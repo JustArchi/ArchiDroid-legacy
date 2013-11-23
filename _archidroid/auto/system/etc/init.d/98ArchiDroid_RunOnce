@@ -18,13 +18,7 @@ SAMMY=0
 echo -n "" > $LOG
 exec 2>>$LOG
 
-# Parse args to variables
-if [ "echo $@ | grep background" -ge 1 ]; then
-	BACKGROUND=1
-else
-	BACKGROUND=0
-fi
-if [ "echo $@ | grep forcedsemaphore" -ge 1 ]; then
+if [ "$2" == "forcedsemaphore" ]; then
 	FORCEDSEMAPHORE=1
 else
 	FORCEDSEMAPHORE=0
@@ -128,7 +122,7 @@ echo "`uname -a`" >> $LOG
 echo "INFO: ArchiDroid_RunOnce executed!" >> $LOG
 
 # Now we need to make sure that this is background process to prevent slowing down bootup
-if [ $BACKGROUND -eq 1 ]; then
+if [ "$1" != "background" ]; then
 	# We're not running in background, let's start a child and tell him that he's running in background
 	echo "INFO: Spawning child!" >> $LOG
 	sh $0 "background" &

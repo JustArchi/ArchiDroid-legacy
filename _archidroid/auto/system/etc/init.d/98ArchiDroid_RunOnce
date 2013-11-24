@@ -162,6 +162,11 @@ else
 fi
 
 rm -f $AD/RunOnce.log.0
+if [ -e $AD/WORKING ]; then
+	exit 9
+else
+	touch $AD/WORKING
+fi
 
 # Cool ArchiDroid Banner
 if [ -e /system/bin/boot-dmesg ]; then
@@ -332,6 +337,7 @@ if [ $INSTALLMODE -eq 1 ]; then
 fi
 
 # I'm runonce script so let's clean everything and delete myself
+rm -f $AD/WORKING
 rm -f $AD/INSTALL
 rm -f $AD/UPDATE
 rm -f $AD/FORCE

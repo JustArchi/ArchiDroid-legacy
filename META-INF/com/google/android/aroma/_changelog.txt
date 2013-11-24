@@ -21,6 +21,7 @@ ArchiDroid 2.2.5
 - Updated PhilZ Touch Recovery to 6.0.0 (works with kitkat)
 # Unfortunately you need to flash it manualy because ArchiDroid flashes recovery as the last step
 
+- Changed default ringtone, notification sound and alarm sound to *better* ones
 - Disabled Xposed, as it's not compatible with Android 4.4 yet
 - Updated Inverts (Facebook, Google Calendar/Chrome/Keep/Plus)
 - Updated Boeffla kernel to 2.1-beta1

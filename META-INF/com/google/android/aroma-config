@@ -280,7 +280,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 
     "other","<#selectbg_g><~archidroid.other></#>","","group",
     "archidroidota","ArchiDroid OTA","<~archidroid.ota.desc>","check.checked",
-    #"xposed","Xposed Framework","<~archidroid.xposed.desc>","check.checked",
+    "xposed","Xposed Framework","<~archidroid.xposed.desc>","check.checked",
     "crossbreeder","Crossbreeder [EOL]","<~archidroid.crossbreeder.desc>","check.checked",
     "updatemodem","<~archidroid.updatemodem> [XXUGMJ9]","<~archidroid.updatemodem.desc>","check",
     "updaterecovery","<~archidroid.updaterecovery> [PhilZ Touch Recovery]","<~archidroid.updaterecovery.desc>","check",
@@ -375,21 +375,21 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
     );
   endif;
 
-  #if file_getprop("/tmp/aroma-data/archidroid.prop","xposed") == "1" then
-    #form(
-      #"<~archidroid.custom.extra>",
-      #"<~archidroid.custom.desc>",
-      #"@apps",
-      #"archidroidxposed.prop",
+  if file_getprop("/tmp/aroma-data/archidroid.prop","xposed") == "1" then
+    form(
+      "<~archidroid.custom.extra>",
+      "<~archidroid.custom.desc>",
+      "@apps",
+      "archidroidxposed.prop",
 
-      #"modules","<#selectbg_g>Xposed Modules</#>","","group",
-      #"appsettings","App Settings","<~archidroid.xposed.appsettings.desc>","check.checked",
-      #"xprivacy","XPrivacy","<~archidroid.xposed.xprivacy.desc>","check.checked"
-    #);
-    #write("/data/media/0/ArchiDroid/AromaPreset/2.X/archidroidxposed.prop",
-      #readtmpfile("archidroidxposed.prop");
-    #);
-  #endif;
+      "modules","<#selectbg_g>Xposed Modules</#>","","group",
+      "appsettings","App Settings","<~archidroid.xposed.appsettings.desc>","check.checked",
+      "xprivacy","XPrivacy","<~archidroid.xposed.xprivacy.desc>","check.checked"
+    );
+    write("/data/media/0/ArchiDroid/AromaPreset/2.X/archidroidxposed.prop",
+      readtmpfile("archidroidxposed.prop");
+    );
+  endif;
   if file_getprop("/tmp/aroma-data/archidroid.prop","buildtweaks") == "1" then
     form(
       "<~archidroid.custom.extra>",

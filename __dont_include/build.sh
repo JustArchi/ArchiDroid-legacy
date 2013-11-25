@@ -6,13 +6,47 @@
 
 # Common
 VERSION=2.2.6
-MODE=0 # 0 - Experimental | 1 - Stable
+STABLE=0
+NOSYNC=0
+SAMMY=0
+NOOPD=0
+TEMP=0
 
-# From source? Sure!
-SOURCE=1
+for ARG in "$@" ; do
+	if [ $TEMP -eq 0 ]; then
+		case "$ARG" in
+			sammy)
+				SAMMY=1
+				NOOPD=1
+				echo "Building ArchiDroid 1.X!"
+				;;
+			stable)
+				STABLE=1
+				echo "WARNING: Building stable release!"
+				;;
+			nosync)
+				NOSYNC=1
+				echo "WARNING: Not updating repos!"
+				;;
+			noopd)
+				NOOPD=1
+				echo "WARNING: Disabling OpenPDroid!"
+				;;
+			version)
+				echo "WARNING: Version override!"
+				TEMP=1
+				;;
+			*)
+		esac
+	else
+		VERION=$ARG
+		TEMP=0
+		echo "Version: $VERSION"
+	fi
+done
 
 OTA="echo \"updateme.version=$VERSION\" >> /system/build.prop"
-if [ $MODE -eq 0 ]; then
+if [ $STABLE -eq 0 ]; then
 	VERSION="$VERSION EXPERIMENTAL"
 else
 	VERSION="$VERSION STABLE"
@@ -35,20 +69,24 @@ function zamien {
 	rm $FILEO
 }
 
-if [ $SOURCE -eq 1 ]; then
-	cd /root/git/auto
-	bash updaterepos.sh
-	cd /root/android/system/out/target/product/i9300
-	if [ $? -eq 0 ]; then
-		for f in `ls` ; do
-		if [[ "$f" != "obj" ]]; then
-			rm -rf $f
+if [ $SAMMY -eq 0 ]; then
+	if [ $NOSYNC -eq 0 ]; then
+		cd /root/git/auto
+		bash updaterepos.sh
+		cd /root/android/system/out/target/product/i9300
+		if [ $? -eq 0 ]; then
+			for f in `ls` ; do
+				if [[ "$f" != "obj" ]]; then
+					rm -rf $f
+				fi
+			done
 		fi
-	done
-  fi
-	cd /root/android/system
-	repo selfupdate
-	repo sync
+		cd /root/android/system
+		repo selfupdate
+		repo sync
+	else
+		cd /root/android/system
+	fi
 	if [ $? -ne 0 ]; then
 		read -p "Something went wrong, please check and tell me when you're done, master!" -n1 -s
 	fi
@@ -64,7 +102,7 @@ fi
 
 cd /root/shared/git/ArchiDroid
 
-if [ ! -e cm-*.zip ]; then
+if [ ! -e *.zip ]; then
 	exit 1
 fi
 
@@ -163,7 +201,18 @@ rm $FILE
 ### BLOATWARE ###
 #################
 
-if [ $MODE -eq 1 ]; then
+if [ $SAMMY -eq 1 ]; then
+	cd framework-res
+	zip -0 -r ../../system/framework/framework-res.apk *
+	cd ..
+fi
+
+if [ $STABLE -eq 1 ]; then
 	bash zipalign.sh
 fi
-bash openpdroid.sh
+if [ $NOOPD -eq 0 ]; then
+	bash openpdroid.sh
+else
+	rm -f ../cm-*.zip
+fi
+exit 0

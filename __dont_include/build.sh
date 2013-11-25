@@ -6,13 +6,47 @@
 
 # Common
 VERSION=1.7.3
-MODE=0 # 0 - Experimental | 1 - Stable
+STABLE=0
+NOSYNC=0
+SAMMY=0
+NOOPD=0
+TEMP=0
 
-# From source? Nope!
-SOURCE=0
+for ARG in "$@" ; do
+	if [ $TEMP -eq 0 ]; then
+		case "$ARG" in
+			sammy)
+				SAMMY=1
+				NOOPD=1
+				echo "Building ArchiDroid 1.X!"
+				;;
+			stable)
+				STABLE=1
+				echo "WARNING: Building stable release!"
+				;;
+			nosync)
+				NOSYNC=1
+				echo "WARNING: Not updating repos!"
+				;;
+			noopd)
+				NOOPD=1
+				echo "WARNING: Disabling OpenPDroid!"
+				;;
+			version)
+				echo "WARNING: Version override!"
+				TEMP=1
+				;;
+			*)
+		esac
+	else
+		VERION=$ARG
+		TEMP=0
+		echo "Version: $VERSION"
+	fi
+done
 
 OTA="echo \"updateme.version=$VERSION\" >> /system/build.prop"
-if [ $MODE -eq 0 ]; then
+if [ $STABLE -eq 0 ]; then
 	VERSION="$VERSION EXPERIMENTAL"
 else
 	VERSION="$VERSION STABLE"
@@ -34,22 +68,24 @@ function zamien {
 	rm $FILEO
 }
 
-if [ $SOURCE -eq 1 ]; then
-	cd /root/shared/git/auto
-	bash updaterepos.sh
-	cd /root/android/system/out/target/product/i9300
-	if [ $? -eq 0 ]; then
-		for f in `ls` ; do
-		if [[ "$f" != "obj" ]]; then
-			rm -rf $f
+if [ $SAMMY -eq 0 ]; then
+	if [ $NOSYNC -eq 0 ]; then
+		cd /root/git/auto
+		bash updaterepos.sh
+		cd /root/android/system/out/target/product/i9300
+		if [ $? -eq 0 ]; then
+			for f in `ls` ; do
+				if [[ "$f" != "obj" ]]; then
+					rm -rf $f
+				fi
+			done
 		fi
-	done
-  fi
-  cd /root/android/system
-	OLD=`md5sum /root/android/system/device/samsung/i9300/proprietary-files.txt | awk '{print $1}'`
-	OLD2=`md5sum /root/android/system/device/samsung/smdk4412-common/proprietary-files.txt | awk '{print $1}'`
-	#repo selfupdate
-	repo sync
+		cd /root/android/system
+		repo selfupdate
+		repo sync
+	else
+		cd /root/android/system
+	fi
 	if [ $? -ne 0 ]; then
 		read -p "Something went wrong, please check and tell me when you're done, master!" -n1 -s
 	fi
@@ -67,7 +103,35 @@ if [ $SOURCE -eq 1 ]; then
 	fi
 	brunch i9300
 	cd $OUT
-	cp cm-10.2-*.zip /root/shared/git/ArchiDroid
+	cp cm-*.zip /root/shared/git/ArchiDroid
+fi
+
+cd /root/shared/git/ArchiDroid
+
+if [ ! -e *.zip ]; then
+	exit 1
+fi
+
+unzip cm-*.zip -d __newtemasek
+rm -Rf system/
+cd __newtemasek
+for i in `ls` ; do
+	if [ $i != "META-INF" ]; then
+		cp -R $i ..
+	fi
+done
+cd ..
+OLD=`md5sum __dont_include/_updater-scripts/temasek/updater-script | awk '{print $1}'`
+NEW=`md5sum __newtemasek/META-INF/com/google/android/updater-script | awk '{print $1}'`
+
+if [ $OLD != $NEW ]; then
+	echo "Warning! New $NEW does not equal old $OLD."
+	echo "Probably just symlink or permissions stuff"
+	diff __dont_include/_updater-scripts/temasek/updater-script __newtemasek/META-INF/com/google/android/updater-script
+	cp __newtemasek/META-INF/com/google/android/updater-script __dont_include/_updater-scripts/temasek/updater-script
+	read -p "Tell me when you're done, master!" -n1 -s
+else
+	echo "MD5 Sums matches, no further action required, automatic mode goes on..."
 fi
 
 ##################
@@ -126,11 +190,18 @@ rm $FILE
 ### BLOATWARE ###
 #################
 
-cd framework-res
-zip -0 -r ../../system/framework/framework-res.apk *
-cd ..
+if [ $SAMMY -eq 1 ]; then
+	cd framework-res
+	zip -0 -r ../../system/framework/framework-res.apk *
+	cd ..
+fi
 
-if [ $MODE -eq 1 ]; then
+if [ $STABLE -eq 1 ]; then
 	bash zipalign.sh
 fi
-bash openpdroid.sh
+if [ $NOOPD -eq 0 ]; then
+	bash openpdroid.sh
+else
+	rm -f ../cm-*.zip
+fi
+exit 0

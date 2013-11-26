@@ -5,7 +5,7 @@
 #exit 1
 
 # Common
-VERSION=2.2.6
+VERSION=2.3.0
 STABLE=0
 NOSYNC=0
 SAMMY=0
@@ -73,7 +73,7 @@ if [ $SAMMY -eq 0 ]; then
 	if [ $NOSYNC -eq 0 ]; then
 		cd /root/git/auto
 		bash updaterepos.sh
-		cd /root/android/system/out/target/product/i9300
+		cd /root/android/omni/out/target/product/i9300
 		if [ $? -eq 0 ]; then
 			for f in `ls` ; do
 				if [[ "$f" != "obj" ]]; then
@@ -81,23 +81,19 @@ if [ $SAMMY -eq 0 ]; then
 				fi
 			done
 		fi
-		cd /root/android/system
+		cd /root/android/omni
 		repo selfupdate
-		repo sync
+		repo sync -j16
 	else
-		cd /root/android/system
+		cd /root/android/omni
 	fi
 	if [ $? -ne 0 ]; then
 		read -p "Something went wrong, please check and tell me when you're done, master!" -n1 -s
 	fi
-	cd /root/android/system/vendor/cm
-	./get-prebuilts
-	cd /root/android/system
 	source build/envsetup.sh
-	breakfast i9300
 	brunch i9300
 	cd $OUT
-	cp cm-*.zip /root/shared/git/ArchiDroid
+	cp omni-*.zip /root/shared/git/ArchiDroid
 fi
 
 cd /root/shared/git/ArchiDroid
@@ -106,28 +102,28 @@ if [ ! -e *.zip ]; then
 	exit 1
 fi
 
-unzip cm-*.zip -d __newtemasek
+unzip cm-*.zip -d __adtemp
 rm -Rf system/
-cd __newtemasek
-for i in `ls` ; do
-	if [ $i != "META-INF" ]; then
-		cp -R $i ..
-	fi
-done
+cd __adtemp
+mv META-INF/com/google/android/updater-script META-INF/com/google/android/updater-script2
+mv META-INF/com/google/android/update-binary META-INF/com/google/android/update-binary2
+cp -R $i ..
+rm -f META-INF/com/google/android/updater-script && mv META-INF/com/google/android/updater-script2 META-INF/com/google/android/updater-script
+rm -f META-INF/com/google/android/update-binary-installer && mv META-INF/com/google/android/update-binary META-INF/com/google/android/update-binary-installer && mv META-INF/com/google/android/update-binary2 META-INF/com/google/android/update-binary
 cd ..
-OLD=`md5sum __dont_include/_updater-scripts/temasek/updater-script | awk '{print $1}'`
-NEW=`md5sum __newtemasek/META-INF/com/google/android/updater-script | awk '{print $1}'`
+OLD=`md5sum __dont_include/_updater-scripts/archidroid/updater-script | awk '{print $1}'`
+NEW=`md5sum __adtemp/META-INF/com/google/android/updater-script | awk '{print $1}'`
 
 if [ $OLD != $NEW ]; then
 	echo "Warning! New $NEW does not equal old $OLD."
 	echo "Probably just symlink or permissions stuff"
-	diff __dont_include/_updater-scripts/temasek/updater-script __newtemasek/META-INF/com/google/android/updater-script
-	cp __newtemasek/META-INF/com/google/android/updater-script __dont_include/_updater-scripts/temasek/updater-script
+	diff __dont_include/_updater-scripts/archidroid/updater-script __adtemp/META-INF/com/google/android/updater-script
+	cp __adtemp/META-INF/com/google/android/updater-script __dont_include/_updater-scripts/archidroid/updater-script
 	read -p "Tell me when you're done, master!" -n1 -s
 else
 	echo "MD5 Sums matches, no further action required, automatic mode goes on..."
 fi
-rm -Rf __newtemasek
+rm -Rf __adtemp
 #rm -f cm-*.zip
 
 cd __dont_include/

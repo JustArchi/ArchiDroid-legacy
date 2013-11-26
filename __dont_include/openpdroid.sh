@@ -11,7 +11,7 @@ cd /root/git/auto-patcher
 rm -rf tmp* adpatch*
 rm -f log*.txt *.zip
 rm -f *.tgz
-mv ../../shared/git/ArchiDroid/cm-*.zip rom.zip
+mv ../../shared/git/ArchiDroid/omni-*.zip rom.zip
 git pull origin master
 ./batch.sh
 ./auto_patcher rom.zip openpdroid cm

@@ -451,8 +451,9 @@
   <apn carrier="GaduAIR MMS" mcc="260" mnc="01" apn="mms.gadu-gadu.pl" mmsc="http://mms.gadu-gadu.pl:8002/" mmsproxy="212.002.096.016" mmsport="8080" type="mms" />
   <apn carrier="mBank mobile MMS" mcc="260" mnc="01" apn="mms.mobile.pl" user="true" password="true" mmsc="http://mms.mobile.pl:8080" mmsproxy="212.2.96.16" mmsport="8080" type="mms" />
   <apn carrier="Carrefour Mova MMS" mcc="260" mnc="01" apn="mms.mova.pl" mmsc="http://mms.mova.pl:8002/" mmsproxy="212.002.096.016" mmsport="8080" type="mms" />
-  <apn carrier="Plus MMS" mcc="260" mnc="01" apn="mms.plusgsm.pl" mmsc="http://mms.plusgsm.pl:8002" mmsproxy="212.2.96.16" mmsport="8080" type="mms" />
-  <apn carrier="PlusGSM MMS" mcc="260" mnc="01" apn="mms" mmsc="http://mms.plusgsm.pl:8002" mmsproxy="212.002.096.016" mmsport="8080" type="mms" />
+  <apn carrier="Plus MMS" mcc="260" mnc="01" apn="mms.plusgsm.pl" mmsc="http://mms.plusgsm.pl:8002" mmsproxy="212.2.96.16" mmsport="8080" authenticationtype="PAP" type="mms" />
+  <apn carrier="PlusGSM MMS" mcc="260" mnc="01" apn="mms" mmsc="http://mms.plusgsm.pl:8002" mmsproxy="212.002.096.016" mmsport="8080" authenticationtype="PAP" type="mms" />
+  <apn carrier="Njumobile MMS" mcc="260" mnc="03" apn="mms" user="mms" password="mms" mmsc="http://mms.njumobile.pl" mmsproxy="192.168.6.104" mmsport="8080" type="mms" />
   <apn carrier="FM Group Mobile" mcc="260" mnc="01" apn="www.fmgmobie.pl" type="default,supl" />
   <apn carrier="mBank mobile" mcc="260" mnc="01" apn="www.mobile.pl" type="default,supl" />
   <apn carrier="mBank mobile MMS" mcc="260" mnc="01" apn="mms.mobile.pl" user="" password="" mmsproxy="212.2.96.16" mmsport="8080" mmsc="http://mms.mobile.pl:8002" type="mms"/>

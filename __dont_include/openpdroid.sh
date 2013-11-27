@@ -14,7 +14,7 @@ rm -f *.tgz
 mv ../../shared/git/ArchiDroid/omni-*.zip rom.zip
 git pull origin master
 ./batch.sh
-./auto_patcher rom.zip openpdroid cm
+./auto_patcher rom.zip openpdroid
 
 # Not a good way to check that but we can have maximum of 1 file so it's acceptable
 if [ ! `ls | grep "update-openpdroid" | wc -l` -eq 1 ]; then

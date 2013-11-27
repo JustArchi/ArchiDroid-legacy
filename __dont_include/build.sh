@@ -102,12 +102,13 @@ if [ ! -e *.zip ]; then
 	exit 1
 fi
 
-unzip cm-*.zip -d __adtemp
+unzip omni-*.zip -d __adtemp
 rm -Rf system/
-cd __adtemp
 mv META-INF/com/google/android/updater-script META-INF/com/google/android/updater-script2
 mv META-INF/com/google/android/update-binary META-INF/com/google/android/update-binary2
-cp -R $i ..
+cd __adtemp
+cp -R * ..
+cd ..
 rm -f META-INF/com/google/android/updater-script && mv META-INF/com/google/android/updater-script2 META-INF/com/google/android/updater-script
 rm -f META-INF/com/google/android/update-binary-installer && mv META-INF/com/google/android/update-binary META-INF/com/google/android/update-binary-installer && mv META-INF/com/google/android/update-binary2 META-INF/com/google/android/update-binary
 cd ..
@@ -209,6 +210,6 @@ fi
 if [ $NOOPD -eq 0 ]; then
 	bash openpdroid.sh
 else
-	rm -f ../cm-*.zip
+	rm -f ../omni-*.zip
 fi
 exit 0

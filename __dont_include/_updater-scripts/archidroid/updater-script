@@ -1,6 +1,8 @@
-assert(getprop("ro.product.device") == "m0" || getprop("ro.build.product") == "m0" || 
-       getprop("ro.product.device") == "i9300" || getprop("ro.build.product") == "i9300" || 
-       getprop("ro.product.device") == "GT-I9300" || getprop("ro.build.product") == "GT-I9300" || abort("This package is for \"m0,i9300,GT-I9300\" devices; this is a \"" + getprop("ro.product.device") + "\"."););
+(!less_than_int(1385506543, getprop("ro.build.date.utc"))) || abort("Can't install this package (wto, 26 lis 2013, 23:55:43 CET) over newer build (" + getprop("ro.build.date") + ").");
+(getprop("ro.product.device") == "m0" || getprop("ro.build.product") == "m0" || 
+ getprop("ro.product.device") == "i9300" || getprop("ro.build.product") == "i9300" || 
+ getprop("ro.product.device") == "GT-I9300" || getprop("ro.build.product") == "GT-I9300") || abort("This package is for \"m0,i9300,GT-I9300\" devices
+this is a \"" + getprop("ro.product.device") + "\".");
 mount("ext4", "EMMC", "/dev/block/mmcblk0p9", "/system");
 package_extract_file("system/bin/backuptool.sh", "/tmp/backuptool.sh");
 package_extract_file("system/bin/backuptool.functions", "/tmp/backuptool.functions");
@@ -9,10 +11,23 @@ set_perm(0, 0, 0644, "/tmp/backuptool.functions");
 run_program("/tmp/backuptool.sh", "backup");
 unmount("/system");
 show_progress(0.500000, 0);
+ui_print("#######################################");
+ui_print("# _____            __  __  ______     #");
+ui_print("#/\  __`\  /'\_/`\/\ \/\ \/\__  _\    #");
+ui_print("#\ \ \/\ \/\  ``  \ \ ` \ \/_/\ \/    #");
+ui_print("# \ \ \ \ \ \ \__\ \ \ . ` \ \ \ \    #");
+ui_print("#  \ \ \_\ \ \ \_/\ \ \ \`\ \ \_\ \__ #");
+ui_print("#   \ \_____\ \_\, \_\ \_\ \_\/\_____\#");
+ui_print("#    \/_____/\/_/ \/_/\/_/\/_/\/_____/#");
+ui_print("#                                     #");
+ui_print("#######################################");
+ui_print("Formatting /system");
 format("ext4", "EMMC", "/dev/block/mmcblk0p9", "0", "/system");
 mount("ext4", "EMMC", "/dev/block/mmcblk0p9", "/system");
+package_extract_dir("recovery", "/system");
+ui_print("Extracting /system");
 package_extract_dir("system", "/system");
-symlink("../xbin/su", "/system/bin/su");
+ui_print("Symlinking");
 symlink("Roboto-Bold.ttf", "/system/fonts/DroidSans-Bold.ttf");
 symlink("Roboto-Regular.ttf", "/system/fonts/DroidSans.ttf");
 symlink("busybox", "/system/xbin/[", "/system/xbin/[[",
@@ -91,11 +106,7 @@ symlink("busybox", "/system/xbin/[", "/system/xbin/[[",
         "/system/xbin/yes",
         "/system/xbin/zcat");
 symlink("libGLESv2.so", "/system/lib/libGLESv3.so");
-symlink("logcat", "/system/bin/lolcat");
 symlink("mksh", "/system/bin/sh");
-symlink("mount.exfat", "/system/bin/fsck.exfat",
-        "/system/bin/mkfs.exfat");
-symlink("pigz", "/system/xbin/unpigz");
 symlink("toolbox", "/system/bin/cat", "/system/bin/chcon",
         "/system/bin/chmod", "/system/bin/chown", "/system/bin/clear",
         "/system/bin/cmp", "/system/bin/cp", "/system/bin/date",
@@ -111,19 +122,17 @@ symlink("toolbox", "/system/bin/cat", "/system/bin/chcon",
         "/system/bin/mv", "/system/bin/nandread", "/system/bin/netstat",
         "/system/bin/newfs_msdos", "/system/bin/notify", "/system/bin/printenv",
         "/system/bin/ps", "/system/bin/r", "/system/bin/readlink",
-        "/system/bin/renice", "/system/bin/restart", "/system/bin/restorecon",
-        "/system/bin/rm", "/system/bin/rmdir", "/system/bin/rmmod",
-        "/system/bin/route", "/system/bin/runcon", "/system/bin/schedtop",
-        "/system/bin/sendevent", "/system/bin/setconsole",
-        "/system/bin/setenforce", "/system/bin/setfattr", "/system/bin/setprop",
-        "/system/bin/setsebool", "/system/bin/sleep", "/system/bin/smd",
-        "/system/bin/start", "/system/bin/stop", "/system/bin/swapoff",
-        "/system/bin/swapon", "/system/bin/sync", "/system/bin/top",
-        "/system/bin/touch", "/system/bin/umount", "/system/bin/uptime",
-        "/system/bin/vmstat", "/system/bin/watchprops",
+        "/system/bin/renice", "/system/bin/restorecon", "/system/bin/rm",
+        "/system/bin/rmdir", "/system/bin/rmmod", "/system/bin/route",
+        "/system/bin/runcon", "/system/bin/schedtop", "/system/bin/sendevent",
+        "/system/bin/setconsole", "/system/bin/setenforce",
+        "/system/bin/setprop", "/system/bin/setsebool", "/system/bin/sleep",
+        "/system/bin/smd", "/system/bin/start", "/system/bin/stop",
+        "/system/bin/swapoff", "/system/bin/swapon", "/system/bin/sync",
+        "/system/bin/top", "/system/bin/touch", "/system/bin/umount",
+        "/system/bin/uptime", "/system/bin/vmstat", "/system/bin/watchprops",
         "/system/bin/wipe");
 set_metadata_recursive("/system", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
-set_metadata_recursive("/system/addon.d", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
 set_metadata_recursive("/system/bin", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
 set_metadata("/system/bin/app_process", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:zygote_exec:s0");
 set_metadata("/system/bin/clatd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:clatd_exec:s0");
@@ -141,7 +150,6 @@ set_metadata("/system/bin/netcfg", "uid", 0, "gid", 3003, "mode", 02750, "capabi
 set_metadata("/system/bin/netd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:netd_exec:s0");
 set_metadata("/system/bin/ping", "uid", 0, "gid", 0, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:ping_exec:s0");
 set_metadata("/system/bin/pppd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:ppp_exec:s0");
-set_metadata("/system/bin/qemud", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:qemud_exec:s0");
 set_metadata("/system/bin/racoon", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:racoon_exec:s0");
 set_metadata("/system/bin/rild", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:rild_exec:s0");
 set_metadata("/system/bin/run-as", "uid", 0, "gid", 2000, "mode", 0750, "capabilities", 0xc0, "selabel", "u:object_r:runas_exec:s0");
@@ -154,7 +162,6 @@ set_metadata_recursive("/system/etc/dhcpcd", "uid", 0, "gid", 0, "dmode", 0755, 
 set_metadata("/system/etc/dhcpcd/dhcpcd-run-hooks", "uid", 1014, "gid", 2000, "mode", 0550, "capabilities", 0x0, "selabel", "u:object_r:dhcp_system_file:s0");
 set_metadata_recursive("/system/etc/init.d", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
 set_metadata("/system/etc/init.d", "uid", 0, "gid", 0, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
-set_metadata("/system/etc/init.goldfish.sh", "uid", 0, "gid", 2000, "mode", 0550, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
 set_metadata_recursive("/system/etc/ppp", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0555, "capabilities", 0x0, "selabel", "u:object_r:ppp_system_file:s0");
 set_metadata_recursive("/system/vendor", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:firmware_camera:s0");
 set_metadata("/system/vendor", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
@@ -181,6 +188,8 @@ run_program("/tmp/backuptool.sh", "restore");
 delete("/system/bin/backuptool.sh");
 delete("/system/bin/backuptool.functions");
 show_progress(0.200000, 10);
+ui_print("Flashing boot.img");
 package_extract_file("boot.img", "/dev/block/mmcblk0p5");
 show_progress(0.100000, 0);
+ui_print("Enjoy OMNI ROM!");
 unmount("/system");

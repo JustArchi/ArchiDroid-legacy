@@ -83,7 +83,7 @@ if [ $SAMMY -eq 0 ]; then
 		fi
 		cd /root/android/omni
 		repo selfupdate
-		repo sync -j16
+		repo sync -c -j16
 	else
 		cd /root/android/omni
 	fi

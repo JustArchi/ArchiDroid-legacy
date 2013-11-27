@@ -11,7 +11,6 @@
 list_files() {
 cat <<EOF
 app/FaceLock.apk
-app/FaceLock.odex
 lib/libfacelock_jni.so
 vendor/pittpatt/models/detection/multi_pose_face_landmark_detectors.7/left_eye-y0-yi45-p0-pi45-r0-ri20.lg_32.bin
 vendor/pittpatt/models/detection/multi_pose_face_landmark_detectors.7/nose_base-y0-yi45-p0-pi45-r0-ri20.lg_32.bin

@@ -19,6 +19,7 @@ good_ffc_device() {
 if good_ffc_device && [ -e /system/etc/permissions/android.hardware.camera.front.xml ]; then
   echo "Installing face detection support"
   rm  -f /system/addon.d/71-gapps-faceunlock.sh
+  rm  -f /system/app/FaceLock.odex
   cp -a /tmp/face/* /system/
   chmod 755 /system/addon.d/71-faceunlock.sh
 elif  [ -d /system/vendor/pittpatt/ ]; then

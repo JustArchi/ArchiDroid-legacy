@@ -21,6 +21,7 @@ if [ ! `ls | grep "update-openpdroid" | wc -l` -eq 1 ]; then
 	echo "Patch Failed"
 	rm -f *.tgz
 	rm -f *.zip
+	rm -rf ../../shared/git/ArchiDroid/_archidroid/tweaks/openpdroid/system
 	exit 1
 fi
 

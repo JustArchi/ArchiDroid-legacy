@@ -10,6 +10,7 @@ STABLE=0
 NOSYNC=0
 SAMMY=0
 NOOPD=0
+NOBUILD=0
 TEMP=0
 
 for ARG in "$@" ; do
@@ -31,6 +32,10 @@ for ARG in "$@" ; do
 			noopd)
 				NOOPD=1
 				echo "WARNING: Disabling OpenPDroid!"
+				;;
+			nobuild)
+				NOBUILD=1
+				echo "WARNING: Assuimg build is already complete!"
 				;;
 			version)
 				echo "WARNING: Version override!"
@@ -69,7 +74,7 @@ function zamien {
 	rm $FILEO
 }
 
-if [ $SAMMY -eq 0 ]; then
+if [ $SAMMY -eq 0 ] && [ $NOBUILD -eq 0 ]; then
 	if [ $NOSYNC -eq 0 ]; then
 		cd /root/git/auto
 		bash updaterepos.sh
@@ -111,7 +116,6 @@ cp -R * ..
 cd ..
 rm -f META-INF/com/google/android/updater-script && mv META-INF/com/google/android/updater-script2 META-INF/com/google/android/updater-script
 rm -f META-INF/com/google/android/update-binary-installer && mv META-INF/com/google/android/update-binary META-INF/com/google/android/update-binary-installer && mv META-INF/com/google/android/update-binary2 META-INF/com/google/android/update-binary
-cd ..
 OLD=`md5sum __dont_include/_updater-scripts/archidroid/updater-script | awk '{print $1}'`
 NEW=`md5sum __adtemp/META-INF/com/google/android/updater-script | awk '{print $1}'`
 

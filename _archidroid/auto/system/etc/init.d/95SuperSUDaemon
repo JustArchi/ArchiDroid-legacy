@@ -1,10 +1,4 @@
 #!/system/bin/sh
-# Daemon SU
-# Modified a bit by JustArchi
-
-if [ ! -e /system/xbin/daemonsu ]; then
-	ln -s /system/xbin/su /system/xbin/daemonsu
-fi
 
 /system/xbin/daemonsu --auto-daemon &
 exit 0

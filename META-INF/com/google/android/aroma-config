@@ -157,6 +157,19 @@ agreebox(
     "<~terms.confirm2>"
 );
 
+confirm(
+			#-- Title
+			"ALLAH AKBAR",
+			#-- Text
+			"Allah Akbar?",
+			#-- Icon (Optional)
+			"@alert",
+			#-- Yes Text
+			"Allah Akbar!",
+			#-- No Text
+			"*hides*"
+		);
+
 form(
   "<~archidroid.preset>",
   "<~archidroid.preset.desc>",

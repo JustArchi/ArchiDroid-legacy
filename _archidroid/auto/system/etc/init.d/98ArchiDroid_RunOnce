@@ -11,9 +11,11 @@ AD="/data/media/0/ArchiDroid"
 LOG="$AD/RunOnce.log" # "/dev/null" is no verbose
 
 # Are we on AD 1.X?
-SAMMY=1
-if [ -e /system/etc/CHANGELOG-CM.txt ]; then
+SAMMY=0
+if [ `cat /system/build.prop | grep "ro.omni.version" | wc -l` -gt 0 ]; then
 	SAMMY=0
+elif [ `cat /system/build.prop | grep "ro.build.user=se.infra" | wc -l` -gt 0 ]; then
+	SAMMY=1
 fi
 
 if [ -e $AD/RunOnce.log ] && [ ! -e $AD/RunOnce.log.0 ]; then
@@ -230,6 +232,7 @@ while (! pgrep com.android && [ $LOOP -lt 150 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 			DBUPDATE global wifi_scan_always_enabled 0
 			DBUPDATE global install_non_market_apps 1
 			DBUPDATE global development_settings_enabled 1
+			DBUPDATE global adb_enabled 0
 			
 			if [ $SAMMY -eq 1 ]; then
 				echo "INFO: Applying Samsung-specific DBUPDATE" >> $LOG
@@ -238,10 +241,10 @@ while (! pgrep com.android && [ $LOOP -lt 150 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 				DBUPDATE system screen_mode_automatic_setting 0
 				DBUPDATE system screen_mode_setting 2
 			else
-				echo "INFO: Applying CyanogenMod-specific DBUPDATE" >> $LOG
+				echo "INFO: Applying AOSP-specific DBUPDATE" >> $LOG
 				
-				# Requires SlimBean's Dark Droid
-				DBUPDATE secure ui_inverted_mode 2
+				DBUPDATE system screen_off_animation 0
+				DBUPDATE status_bar_notif_count 1
 				DBUPDATE secure kill_app_longpress_back 1
 				DBUPDATE system power_menu_screenshot_enabled 1
 				DBUPDATE system status_bar_battery 4
@@ -251,6 +254,9 @@ while (! pgrep com.android && [ $LOOP -lt 150 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 				DBUPDATE system button_backlight_timeout 1000
 				DBUPDATE system recents_clear_all_on_right 1
 				DBUPDATE system recents_ram_bar_mode 3
+				
+				# Requires SlimBean's Dark Droid
+				DBUPDATE secure ui_inverted_mode 2
 				
 				# Reguires AOKP Custom Animations
 				DBUPDATE system animation_controls_no_override 1

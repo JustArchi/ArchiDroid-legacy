@@ -24,7 +24,7 @@ sleep 10
 
 echo `date +"%F %R:%S : Starting kernel configuration..."` >>$log_file
 
-# Script generated on 16/11/2013 at 23:45
+# Script generated on 30/11/2013 at 19:33
 #----------------------------------------------------
 
 # - init.d support by kernel/ramdisk not installed
@@ -45,8 +45,8 @@ echo "2" > /sys/module/cpuidle_exynos4/parameters/enable_mask
 echo `date +"%F %R:%S : CPU Idle mode set to Idle + LPA."` >>$log_file
 
 # - Multicore Powersave Mode
-echo "0" > /sys/devices/system/cpu/sched_mc_power_savings
-echo `date +"%F %R:%S : CPU Multicore Powersave mode set to Off."` >>$log_file
+echo "1" > /sys/devices/system/cpu/sched_mc_power_savings
+echo `date +"%F %R:%S : CPU Multicore Powersave mode set to On."` >>$log_file
 
 # - Set CPU max frequencies for all 4 cores
 echo 1600000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
@@ -223,14 +223,6 @@ echo `date +"%F %R:%S : XBOX 360 gamepad support kernel module not loaded."` >>$
 # - Load frandom kernel module on boot
 insmod /system/lib/modules/frandom.ko
 echo `date +"%F %R:%S : frandom kernel module loaded."` >>$log_file
-
-# - Set GPU frequencies to high (160MHz, 266MHz, 350MHz, 440MHz, 533MHz)
-echo "160 266 350 440 533" > /sys/class/misc/gpu_clock_control/gpu_control
-echo `date +"%F %R:%S : GPU frequencies set to low (160MHz, 266MHz, 350MHz, 440MHz, 533MHz) - Careful !"` >>$log_file
-
-# - Set GPU frequency thresholds to stock-like (19%, 16%, 19%, 25%, 27%, 27%, 31%, 31%)
-echo "19% 16% 19% 25% 27% 27% 31% 31%" > /sys/class/misc/gpu_clock_control/gpu_control
-echo `date +"%F %R:%S : GPU frequency thresholds set to stock-like (19%, 16%, 19%, 25%, 27%, 27%, 31%, 31%)."` >>$log_file
 
 # Wait for everything to become ready
 echo `date +"%F %R:%S : Waiting 60 seconds..."` >>$log_file

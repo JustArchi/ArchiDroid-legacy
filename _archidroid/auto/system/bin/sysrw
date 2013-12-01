@@ -1,1 +1,6 @@
-mount -o remount,rw /system
+if [ -e /system/bin/mount ]; then
+	MOUNT="/system/bin/mount"
+else
+	MOUNT=`which mount`
+fi
+$MOUNT -o remount,rw /system

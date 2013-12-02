@@ -255,7 +255,7 @@ while (! pgrep com.android && [ $LOOP -lt 150 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 					ONESHOT=0
 				elif [ -e /data/data/$KEYBOARD ]; then
 					echo "INFO: Additional $KEYBOARD Keyboard found!" >> $LOG
-					DBUPDATE secure enabled_input_methods "$KEYBOARDFULL" APPEND ":"
+					#DBUPDATE secure enabled_input_methods "$KEYBOARDFULL" APPEND ":"
 				fi
 			done
 			

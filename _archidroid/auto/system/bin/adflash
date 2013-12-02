@@ -1,0 +1,67 @@
+#!/system/bin/sh
+
+VERSION=""
+AD="/data/media/0/ArchiDroid"
+if [ $# -eq 0 ]; then
+	echo "Welcome to ArchiDroid Command Line Flasher!"
+	echo "Usage: $0 [VERSION]"
+	echo ""
+	echo "Available versions:"
+	echo "2e	2.X-EXPERIMENTAL"
+	echo "2s	2.X-STABLE"
+	echo "1e	1.X-EXPERIMENTAL"
+	echo "1s	1.X-STABLE"
+	echo ""
+	echo -n "Your choice: "
+	read $VERSION
+else
+	VERSION="$1"
+fi
+
+echo "Checking access to $AD"
+(mkdir -p $AD/tmp && touch $AD/test && rm -f $AD/test && echo "Test passed, we're ready to go!") || echo "Sorry, access test failed. It looks like I need root" && exit 1
+
+case "$VERSION" in
+	"2e")
+		VERSION="2.X-EXPERIMENTAL"
+		;;
+	"2s")
+		VERSION="2.X-STABLE"
+		;;
+	"1e")
+		VERSION="1.X-EXPERIMENTAL"
+		;;
+	"1s")
+		VERSION="1.X-STABLE"
+		;;
+	*)
+		echo "Sorry, could not detect any valid version, exiting"
+		exit 1
+esac
+
+(cd $AD/tmp && rm -rf _adflash && rm -f $AD/ArchiDroid.zip) || (echo "Unknown error, aborting" && exit 1)
+
+cd $AD/tmp
+echo "Ok, starting download from GitHub"
+echo "Warning, it may take long time. Make sure that you have stable Wi-Fi connection"
+SIZE=`curl -kISs https://codeload.github.com/JustArchi/ArchiDroid/zip/$VERSION`
+SIZE=`expr $SIZE / 1000000`
+echo "It's about $SIZE Megabytes"
+echo "Downloading right now..."
+curl -Sk https://codeload.github.com/JustArchi/ArchiDroid/zip/$VERSION > archidroid_github.zip || (echo "Download failed, aborting" && exit 1)
+echo "Download completed, it took some time..."
+echo "Repacking downloaded ArchiDroid"
+echo "Unzipping ArchiDroid in GitHub version"
+mkdir _adflash
+unzip -q archidroid_github.zip -d _adflash || (echo "Unzipping failed, aborting" && exit 1)
+(cd _adflash && cd `ls`) || (echo "Moving to unzipped folder failed, aborting" && exit 1)
+echo "Removing __dont_include folder..."
+rm -rf __dont_include
+echo "Zipping ArchiDroid to flashable version..."
+zip -qry -1 ArchiDroid.zip . || (echo "Zipping failed, aborting" && exit 1)
+mv ArchiDroid.zip $AD/ArchiDroid.zip
+echo "Done, you can find your flashable rom in $AD/ArchiDroid.zip"
+cd $AD/tmp
+rm -rf *
+echo "Happy Flashing!"
+exit 0

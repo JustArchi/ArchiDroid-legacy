@@ -41,6 +41,9 @@ esac
 
 (cd $AD/tmp && rm -rf _adflash && rm -f $AD/ArchiDroid.zip) || (echo "Unknown error, aborting" && exit 1)
 
+curl -kSs https://raw.github.com/JustArchi/ArchiDroid/$VERSION/META-INF/com/google/android/aroma/_changelog.txt
+echo ""
+echo ""
 cd $AD/tmp
 echo "Ok, starting download from GitHub"
 echo "Warning, it may take long time. Make sure that you have stable Wi-Fi connection"

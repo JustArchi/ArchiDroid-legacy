@@ -14,7 +14,7 @@ if [ $# -eq 0 ]; then
 	echo "1s	1.X-STABLE"
 	echo ""
 	echo -n "Your choice: "
-	read $VERSION
+	read VERSION
 else
 	VERSION="$1"
 fi

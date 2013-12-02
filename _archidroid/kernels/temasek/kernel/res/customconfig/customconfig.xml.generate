@@ -753,10 +753,79 @@ echo '
 echo '
   </settingsTab>'  >> $XML
 else
-		echo '
+echo '
   <settingsTab name="GPU">
-    <settingsPane description="Currently not configurable." name="GPU Settings"/> 
-  </settingsTab>' >> $XML
+
+    <settingsPane description="' >> $XML
+	cat /sys/class/misc/gpu_voltage_control/asv_level >> $XML
+	echo '. Please note that kernel automatically recalculates voltage based on ASV level if you change a frequency in any of steps." 
+                  name="GPU Control">
+      <spinner description="Default: 160 MHz  Suggested: [53 MHz]--[200 MHz]" name="Step 0 Frequency" action="gpufreqgeneric /sys/class/misc/gpu_clock_control/gpu_freq_0">' >> $XML
+
+	  for FREQ in `cat /sys/class/misc/gpu_clock_control/available_frequencies` ; do
+	  echo "<spinnerItem name=\"$FREQ MHz\" value=\"$FREQ\"/>" >> $XML
+	  done
+
+      echo '</spinner>
+	  <seekBar  description="Default: 19%. Defines needed threshold for changing to higher step" name="Step 0 Up Threshold" action="generic /sys/class/misc/gpu_clock_control/gpu_upthreshold_0" unit="%" min="0" reversed="false" step="1" max="100"/>
+	  <seekBar  description="Default: 0. Staycount defines an additional delay before changing this step" name="Step 0 Staycount" action="generic /sys/class/misc/gpu_clock_control/gpu_staycount_0" unit="" min="0" reversed="false" step="1" max="255"/>
+	  <spinner description="Default: 266 MHz  Suggested: [200 MHz]--[300 MHz]" name="Step 1 Frequency" action="gpufreqgeneric /sys/class/misc/gpu_clock_control/gpu_freq_1">' >> $XML
+
+	  for FREQ in `cat /sys/class/misc/gpu_clock_control/available_frequencies` ; do
+	  echo "<spinnerItem name=\"$FREQ MHz\" value=\"$FREQ\"/>" >> $XML
+	  done
+
+      echo '</spinner>
+	  <seekBar  description="Default: 16%. Defines needed threshold for changing to lower step" name="Step 1 Down Threshold" action="generic /sys/class/misc/gpu_clock_control/gpu_downthreshold_1" unit="%" min="0" reversed="false" step="1" max="100"/>
+	  <seekBar  description="Default: 19%. Defines needed threshold for changing to higher step" name="Step 1 Up Threshold" action="generic /sys/class/misc/gpu_clock_control/gpu_upthreshold_1" unit="%" min="0" reversed="false" step="1" max="100"/>
+	  <seekBar  description="Default: 0. Staycount defines an additional delay before changing this step" name="Step 1 Staycount" action="generic /sys/class/misc/gpu_clock_control/gpu_staycount_1" unit="" min="0" reversed="false" step="1" max="255"/>
+	  <spinner description="Default: 350 MHz  Suggested: [300 MHz]--[400 MHz]" name="Step 2 Frequency" action="gpufreqgeneric /sys/class/misc/gpu_clock_control/gpu_freq_2">' >> $XML
+
+	  for FREQ in `cat /sys/class/misc/gpu_clock_control/available_frequencies` ; do
+	  echo "<spinnerItem name=\"$FREQ MHz\" value=\"$FREQ\"/>" >> $XML
+	  done
+
+      echo '</spinner>
+	  <seekBar  description="Default: 25%. Defines needed threshold for changing to lower step" name="Step 2 Down Threshold" action="generic /sys/class/misc/gpu_clock_control/gpu_downthreshold_2" unit="%" min="0" reversed="false" step="1" max="100"/>
+	  <seekBar  description="Default: 27%. Defines needed threshold for changing to higher step" name="Step 2 Up Threshold" action="generic /sys/class/misc/gpu_clock_control/gpu_upthreshold_2" unit="%" min="0" reversed="false" step="1" max="100"/>
+	  <seekBar  description="Default: 0. Staycount defines an additional delay before changing this step" name="Step 2 Staycount" action="generic /sys/class/misc/gpu_clock_control/gpu_staycount_2" unit="" min="0" reversed="false" step="1" max="255"/>
+	  <spinner description="Default: 440 MHz  Suggested: [400 MHz]--[500 MHz]" name="Step 3 Frequency" action="gpufreqgeneric /sys/class/misc/gpu_clock_control/gpu_freq_3">' >> $XML
+
+	  for FREQ in `cat /sys/class/misc/gpu_clock_control/available_frequencies` ; do
+	  echo "<spinnerItem name=\"$FREQ MHz\" value=\"$FREQ\"/>" >> $XML
+	  done
+
+      echo '</spinner>
+	  <seekBar  description="Default: 27%. Defines needed threshold for changing to lower step" name="Step 3 Down Threshold" action="generic /sys/class/misc/gpu_clock_control/gpu_downthreshold_3" unit="%" min="0" reversed="false" step="1" max="100"/>
+	  <seekBar  description="Default: 31%. Defines needed threshold for changing to higher step" name="Step 3 Up Threshold" action="generic /sys/class/misc/gpu_clock_control/gpu_upthreshold_3" unit="%" min="0" reversed="false" step="1" max="100"/>
+	  <seekBar  description="Default: 0. Staycount defines an additional delay before changing this step" name="Step 3 Staycount" action="generic /sys/class/misc/gpu_clock_control/gpu_staycount_3" unit="" min="0" reversed="false" step="1" max="255"/>
+	  <spinner description="Default: 533 MHz  Suggested: [500 MHz]--[600 MHz]" name="Step 4 Frequency" action="gpufreqgeneric /sys/class/misc/gpu_clock_control/gpu_freq_4">' >> $XML
+
+	  for FREQ in `cat /sys/class/misc/gpu_clock_control/available_frequencies` ; do
+	  echo "<spinnerItem name=\"$FREQ MHz\" value=\"$FREQ\"/>" >> $XML
+	  done
+
+      echo '</spinner>
+			<seekBar  description="Default: 31%. Defines needed threshold for changing to lower step" name="Step 4 Down Threshold" action="generic /sys/class/misc/gpu_clock_control/gpu_downthreshold_4" unit="%" min="0" reversed="false" step="1" max="100"/>
+			<seekBar  description="Default: 0. Staycount defines an additional delay before changing this step" name="Step 4 Staycount" action="generic /sys/class/misc/gpu_clock_control/gpu_staycount_4" unit="" min="0" reversed="false" step="1" max="255"/>
+    </settingsPane>
+	<settingsPane description="WARNING! These values will get automatically recalculated and purged if you change any frequency above, because of that DO NOT FORGET to restart STweaks to reload these values if you in fact changed any frequency above." 
+                  name="GPU Control">
+      <checkbox description="If enabled, the below settings will be applied at boot. Please take care and make proper tests before enabling this switch." 
+                name="Set GPU settings on boot" 
+                action="controlswitch GPU" 
+                label="Set on boot"/>
+    </settingsPane>
+	<settingsPane description="" 
+                  name="GPU Voltage Control">
+      <seekBar  description="" name="Step 0 Voltage" action="gpugeneric /sys/class/misc/gpu_voltage_control/gpu_voltage_0" unit="µV" min="800000" reversed="false" step="2500" max="1300000"/>
+	  <seekBar  description="" name="Step 1 Voltage" action="gpugeneric /sys/class/misc/gpu_voltage_control/gpu_voltage_1" unit="µV" min="800000" reversed="false" step="2500" max="1300000"/>
+	  <seekBar  description="" name="Step 2 Voltage" action="gpugeneric /sys/class/misc/gpu_voltage_control/gpu_voltage_2" unit="µV" min="800000" reversed="false" step="2500" max="1300000"/>
+	  <seekBar  description="" name="Step 3 Voltage" action="gpugeneric /sys/class/misc/gpu_voltage_control/gpu_voltage_3" unit="µV" min="800000" reversed="false" step="2500" max="1300000"/>
+	  <seekBar  description="" name="Step 4 Voltage" action="gpugeneric /sys/class/misc/gpu_voltage_control/gpu_voltage_4" unit="µV" min="800000" reversed="false" step="2500" max="1300000"/>
+    </settingsPane>' >> $XML
+echo '
+  </settingsTab>'  >> $XML
 fi
 
 if [ -e /sys/devices/system/abb/abb_info ]; then
@@ -1200,15 +1269,6 @@ echo '
 		name="Touch-to-Wake Delay" 
                 action="generic /sys/class/misc/touchwake/delay" 
                 unit=" ms" min="0" reversed="false" step="1000" max="60000"/>
-
-    </settingsPane>
-    <settingsPane description="" 
-                  name="Hardware Key backlight on screen touch">
-
-     <checkbox  description="Hardware Key backlight on screen touch" name="Hardware Key backlight on screen touch"
-                name="Touch-led-on-screen-touch" 
-                action="generic01 /sys/class/sec/sec_touchkey/touch_led_on_screen_touch"
-                label="Enable Touch-led-on-screen-touch"/>
 
     </settingsPane>
     <settingsPane description="mobile Digital Natural Image engine control. Samsungs hardware image post-processor controls virtually any image manipulation. All control master switches, if left as delta controls, will negate the sequence setting if checked. Master sequence has SCR and CS enabled by default."

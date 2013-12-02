@@ -248,7 +248,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
     
     "kernel","<#selectbg_g>Kernel</#>","","group",
     "boeffla","Boeffla Kernel","<~archidroid.kernel.boeffla.desc>","select.selected",
-    "temasek","Temasek Kernel [Boeffla/No ABB]","<~archidroid.kernel.temasek.desc>","select",
+    "temasek","Temasek Kernel [Wolfson/No ABB]","<~archidroid.kernel.temasek.desc>","select",
     "yank","Yank555.lu Kernel","<~archidroid.kernel.yank.desc>","select",
     #"googy","Googy-Max Kernel","<~archidroid.kernel.googy.desc>","select",
     "stock","Stock CM","<~archidroid.kernel.stock.desc>","select",
@@ -335,24 +335,6 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
     );
     write("/data/media/0/ArchiDroid/AromaPreset/2.X/archidroidboeffla.prop",
       readtmpfile("archidroidboeffla.prop");
-    );
-  endif;
-  
-  if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "temasek" then
-    form(
-      "<~archidroid.custom.extra>",
-      "<~archidroid.custom.desc>",
-      "icons/apps",
-      "archidroidtemasek.prop",
-
-      "preset","<#selectbg_g>Temasek Kernel Preset</#>","","group",
-      "balanced","<~archidroid.preset.kernel.temasek.balanced> [<~common.obsolete>]","<~archidroid.preset.kernel.temasek.balanced.desc>","select",
-      "powersave","<~archidroid.preset.kernel.temasek.powersave>","<~archidroid.preset.kernel.temasek.powersave.desc>","select.selected",
-      "ultra","<~archidroid.preset.kernel.temasek.ultra>","<~archidroid.preset.kernel.temasek.ultra.desc>","select",
-      "no","<~archidroid.preset.no>","<~archidroid.preset.no.desc>","select"
-    );
-    write("/data/media/0/ArchiDroid/AromaPreset/2.X/archidroidtemasek.prop",
-      readtmpfile("archidroidtemasek.prop");
     );
   endif;
 

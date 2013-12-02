@@ -51,7 +51,7 @@ echo ""
 cd $AD/tmp
 echo "Ok, starting download from GitHub"
 echo "Warning, it may take long time. Make sure that you have stable Wi-Fi connection"
-TEMP=`curl -kISs https://codeload.github.com/JustArchi/ArchiDroid/zip/$VERSION`
+TEMP=`curl -kISs https://codeload.github.com/JustArchi/ArchiDroid/zip/$VERSION | grep "Content-Length" | awk '{print $2}'`
 TEMP=`expr $TEMP / 1000000`
 echo "It's about $TEMP Megabytes"
 TEMP=""

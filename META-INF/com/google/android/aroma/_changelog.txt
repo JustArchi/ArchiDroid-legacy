@@ -2,6 +2,11 @@ ArchiDroid 2.3
 FULL WIPE REQUIRED
 
 - [!] ArchiDroid is now based on OmniROM Android 4.4
+- [!] Added built-in ArchiDroid flasher, which allows you to flash any version directly from github
+# Write adflash command in terminal to get more info
+
+- All inverted apps are disabled in default preset now
+- Removed 241 DPI, as it's no longer needed
 - Included SuperSU 1.80
 - OpenPDroid tweak is not experimental anymore, it's stable now
 - Updated Boeffla Kernel to 2.1-beta1a

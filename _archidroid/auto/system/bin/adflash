@@ -1,6 +1,7 @@
 #!/system/bin/sh
 
 VERSION=""
+TEMP=""
 AD="/data/media/0/ArchiDroid"
 if [ $# -eq 0 ]; then
 	echo "Welcome to ArchiDroid Command Line Flasher!"
@@ -23,21 +24,24 @@ echo "Checking access to $AD"
 
 case "$VERSION" in
 	"2e")
-		VERSION="2.X-EXPERIMENTAL"
+		TEMP="2.X-EXPERIMENTAL"
 		;;
 	"2s")
-		VERSION="2.X-STABLE"
+		TEMP="2.X-STABLE"
 		;;
 	"1e")
-		VERSION="1.X-EXPERIMENTAL"
+		TEMP="1.X-EXPERIMENTAL"
 		;;
 	"1s")
-		VERSION="1.X-STABLE"
+		TEMP="1.X-STABLE"
 		;;
 	*)
 		echo "Sorry, could not detect any valid version, exiting"
 		exit 1
 esac
+VERSION=$TEMP
+TEMP=""
+echo "Ok, detected $VERSION"
 
 (cd $AD/tmp && rm -rf _adflash && rm -f $AD/ArchiDroid.zip) || (echo "Unknown error, aborting" && exit 1)
 
@@ -47,9 +51,10 @@ echo ""
 cd $AD/tmp
 echo "Ok, starting download from GitHub"
 echo "Warning, it may take long time. Make sure that you have stable Wi-Fi connection"
-SIZE=`curl -kISs https://codeload.github.com/JustArchi/ArchiDroid/zip/$VERSION`
-SIZE=`expr $SIZE / 1000000`
-echo "It's about $SIZE Megabytes"
+TEMP=`curl -kISs https://codeload.github.com/JustArchi/ArchiDroid/zip/$VERSION`
+TEMP=`expr $TEMP / 1000000`
+echo "It's about $TEMP Megabytes"
+TEMP=""
 echo "Downloading right now..."
 curl -Sk https://codeload.github.com/JustArchi/ArchiDroid/zip/$VERSION > archidroid_github.zip || (echo "Download failed, aborting" && exit 1)
 echo "Download completed, it took some time..."

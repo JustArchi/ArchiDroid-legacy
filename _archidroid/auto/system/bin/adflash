@@ -74,7 +74,7 @@ echo "Repacking downloaded ArchiDroid"
 echo "Unzipping ArchiDroid in GitHub version"
 mkdir _adflash
 unzip -q archidroid_github.zip -d _adflash || (echo "Unzipping failed, aborting" && exit 1)
-(cd _adflash && cd `ls`) || (echo "Moving to unzipped folder failed, aborting" && exit 1)
+cd _adflash && cd `ls`
 echo "Removing __dont_include folder..."
 rm -rf __dont_include
 echo "Zipping ArchiDroid to flashable version..."

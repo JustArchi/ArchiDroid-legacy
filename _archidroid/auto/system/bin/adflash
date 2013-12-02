@@ -20,7 +20,7 @@ else
 fi
 
 echo "Checking access to $AD"
-(mkdir -p $AD/tmp && touch $AD/test && rm -f $AD/test && echo "Test passed, we're ready to go!") || echo "Sorry, access test failed. It looks like I need root" && exit 1
+(mkdir -p $AD/tmp && touch $AD/test && rm -f $AD/test && echo "Test passed, we're ready to go!") || (echo "Sorry, access test failed. It looks like I need root" && exit 1)
 
 case "$VERSION" in
 	"2e")

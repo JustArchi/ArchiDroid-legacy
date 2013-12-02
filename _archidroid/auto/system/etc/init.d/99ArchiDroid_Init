@@ -15,6 +15,25 @@ LOG="$AD/Init.log" # "/dev/null" is no verbose
 echo -n "" > $LOG
 exec 2>>$LOG
 
+# Main code
+
+ADARGS() {
+	# $1 - what we're looking for
+	# $2 - where we're looking for
+	if [ ! -z `echo "$2" | grep -i "$1"` ]; then
+		return 0
+	else
+		return 1
+	fi
+}
+
+# Parse args to variables
+if ADARGS "background" "$@" ; then
+	BACKGROUND=1
+else
+	BACKGROUND=0
+fi
+
 echo "`date`" >> $LOG
 echo "`uname -a`" >> $LOG
 echo "INFO: ArchiDroid_Init executed!" >> $LOG
@@ -26,7 +45,7 @@ if [ -e /system/etc/init.d/98ArchiDroid_RunOnce ]; then
 fi
 
 # Now we need to make sure that this is background process to prevent slowing down bootup
-if [ "$1" != "background" ]; then
+if [ $BACKGROUND -ne 1 ]; then
 	# We're not running in background, let's start a child and tell him that he's running in background
 	echo "INFO: Spawning child!" >> $LOG
 	sh $0 "background" &
@@ -36,6 +55,22 @@ if [ "$1" != "background" ]; then
 else
 	# We're running in background so let's proceed
 	echo "INFO: I'm a child!" >> $LOG
+fi
+
+# Which mode are we using?
+# 0 - CyanogenMod
+# 1 - Sammy
+# 2 - Omni
+ROM=0
+if [ `cat /system/build.prop | grep "ro.omni.version" | wc -l` -gt 0 ]; then
+	ROM=2
+elif [ `cat /system/build.prop | grep "ro.build.user=se.infra" | wc -l` -gt 0 ]; then
+	ROM=1
+fi
+
+# Custom boot sound support
+if [ -e $AD/PowerOn.wav ]; then
+	tinyplay $AD/PowerOn.wav > /dev/null 2>&1 &
 fi
 
 # Cool ArchiDroid Banner

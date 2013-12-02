@@ -10,12 +10,15 @@
 AD="/data/media/0/ArchiDroid"
 LOG="$AD/RunOnce.log" # "/dev/null" is no verbose
 
-# Are we on AD 1.X?
-SAMMY=0
+# Which mode are we using?
+# 0 - CyanogenMod
+# 1 - Sammy
+# 2 - Omni
+ROM=0
 if [ `cat /system/build.prop | grep "ro.omni.version" | wc -l` -gt 0 ]; then
-	SAMMY=0
+	ROM=2
 elif [ `cat /system/build.prop | grep "ro.build.user=se.infra" | wc -l` -gt 0 ]; then
-	SAMMY=1
+	ROM=1
 fi
 
 if [ -e $AD/RunOnce.log ] && [ ! -e $AD/RunOnce.log.0 ]; then
@@ -32,7 +35,7 @@ exec 2>>$LOG
 ADARGS() {
 	# $1 - what we're looking for
 	# $2 - where we're looking for
-	if [ ! -z `echo "$2" | grep "$1"` ]; then
+	if [ ! -z `echo "$2" | grep -i "$1"` ]; then
 		return 0
 	else
 		return 1
@@ -155,6 +158,11 @@ else
 	echo "INFO: I'm a child!" >> $LOG
 fi
 
+# Custom boot sound support
+if [ -e $AD/PowerOn.wav ]; then
+	tinyplay $AD/PowerOn.wav > /dev/null 2>&1 &
+fi
+
 # We don't need to reload anything for now
 ADRELOAD=0
 
@@ -263,7 +271,7 @@ while (! pgrep com.android && [ $LOOP -lt 150 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 			DBUPDATE global development_settings_enabled 1
 			DBUPDATE global adb_enabled 0
 			
-			if [ $SAMMY -eq 1 ]; then
+			if [ $ROM -eq 1 ]; then
 				echo "INFO: Applying Samsung-specific DBUPDATE" >> $LOG
 				DBUPDATE system lockscreen_ripple_effect 0
 				DBUPDATE system screen_mode_automatic_setting 0
@@ -329,10 +337,10 @@ while (! pgrep com.android && [ $LOOP -lt 150 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 				echo "cd /data/data/$FOLDER/_ADTEMP && cp -R * .." | su "$ADOWNER"
 				
 				if [ $? -eq 0 ]; then
-					if [ $SAMMY -eq 1 ]; then
-						# We're on Sammy's 4.3, which uses root everywhere, what the hell? Screw security, alright?
+					if [ $ROM -ne 0 ]; then
+						# Screw security, alright?
 						# It may not be required in near future, but as for now it is
-						echo "WARNING: We're on Sammy's 4.3, which doesn't care about security, falling back to dirty chmod permissions!" >> $LOG
+						echo "WARNING: This ROM doesn't care about security, falling back to dirty chmod permissions!" >> $LOG
 						busybox chmod -R 777 /data/data/$FOLDER/*
 					fi
 					echo "INFO: It looks like everything ended successfully on $FOLDER" >> $LOG

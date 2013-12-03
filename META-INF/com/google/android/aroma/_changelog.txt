@@ -8,6 +8,13 @@ ArchiDroid 1.7.3
 ^ [!] Added built-in ArchiDroid flasher, which allows you to flash any version directly from github
 # Write adflash command in terminal to get more info
 
+^ ArchiDroid Backend Update
+* [2.X] Added custom boot sound support. ArchiDroid will now play /data/media/0/ArchiDroid/PowerOn.wav if available. It's for you if you'd like to have boot sound instead of silence. Other formats are NOT available, only .wav.
+* Added Keyboard handling. ArchiDroid will now set your keyboard according to your aroma choice. This is extremely important because Android doesn't do it automatically now (in 4.4)
+* [2.X] Some new DBUPDATE values based on OmniROM.
+
+^ Silent CrossBreeder update, which fixes network buffers and some related problems
+^ All inverted apps are disabled in default preset now
 ^ Updated BetterBatteryStats to 1.15.0.0 RC8
 ^ Updated Inverts (Facebook + Messenger, Google Chrome/Calendar/Hangouts/Keep/Plus, Youtube)
 ^ Updated XPrivacy to 1.10.33

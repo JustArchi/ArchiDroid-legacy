@@ -355,36 +355,36 @@ fi
 
 #V6 Supercharger settings
 
-#setprop net.tcp.buffersize.default 6144,87380,110208,6144,16384,110208
-#setprop net.tcp.buffersize.wifi 262144,524288,1048576,262144,524288,1048576
-#setprop net.tcp.buffersize.lte 262144,524288,3145728,262144,524288,3145728
-#setprop net.tcp.buffersize.hsdpa 6144,262144,1048576,6144,262144,1048576
-#setprop net.tcp.buffersize.evdo_b 6144,262144,1048576,6144,262144,1048576
-#setprop net.tcp.buffersize.umts 6144,87380,110208,6144,16384,110208
-#setprop net.tcp.buffersize.hspa 6144,87380,262144,6144,16384,262144
-#setprop net.tcp.buffersize.gprs 6144,8760,11680,6144,8760,11680
-#setprop net.tcp.buffersize.edge 6144,26280,35040,6144,16384,35040
+setprop net.tcp.buffersize.default 6144,87380,110208,6144,16384,110208
+setprop net.tcp.buffersize.wifi 262144,524288,1048576,262144,524288,1048576
+setprop net.tcp.buffersize.lte 262144,524288,3145728,262144,524288,3145728
+setprop net.tcp.buffersize.hsdpa 6144,262144,1048576,6144,262144,1048576
+setprop net.tcp.buffersize.evdo_b 6144,262144,1048576,6144,262144,1048576
+setprop net.tcp.buffersize.umts 6144,87380,110208,6144,16384,110208
+setprop net.tcp.buffersize.hspa 6144,87380,262144,6144,16384,262144
+setprop net.tcp.buffersize.gprs 6144,8760,11680,6144,8760,11680
+setprop net.tcp.buffersize.edge 6144,26280,35040,6144,16384,35040
 
 # If RAM < 512 then think of setting these below
 
-setprop net.tcp.buffersize.hspa 4096,32768,65536,4096,32768,65536
-setprop net.tcp.buffersize.umts 4096,32768,65536,4096,32768,65536
-setprop net.tcp.buffersize.edge 4096,32768,65536,4096,32768,65536
-setprop net.tcp.buffersize.gprs 4096,32768,65536,4096,32768,65536
-setprop net.tcp.buffersize.hsdpa 4096,32768,65536,4096,32768,65536
-setprop net.tcp.buffersize.wifi 4096,32768,65536,4096,32768,65536
-setprop net.tcp.buffersize.evdo_b 4096,32768,65536,4096,32768,65536
-setprop net.tcp.buffersize.lte 4096,32768,65536,4096,32768,65536
-setprop net.tcp.buffersize.default 4096,32768,12582912,4096,32768,12582912
+#setprop net.tcp.buffersize.hspa 4096,32768,65536,4096,32768,65536
+#setprop net.tcp.buffersize.umts 4096,32768,65536,4096,32768,65536
+#setprop net.tcp.buffersize.edge 4096,32768,65536,4096,32768,65536
+#setprop net.tcp.buffersize.gprs 4096,32768,65536,4096,32768,65536
+#setprop net.tcp.buffersize.hsdpa 4096,32768,65536,4096,32768,65536
+#setprop net.tcp.buffersize.wifi 4096,32768,65536,4096,32768,65536
+#setprop net.tcp.buffersize.evdo_b 4096,32768,65536,4096,32768,65536
+#setprop net.tcp.buffersize.lte 4096,32768,65536,4096,32768,65536
+#setprop net.tcp.buffersize.default 4096,32768,12582912,4096,32768,12582912
 
-ECHO 32768 > /proc/sys/net/core/rmem_default
-ECHO 65536 > /proc/sys/net/core/rmem_max
-ECHO 32768 > /proc/sys/net/core/wmem_default
-ECHO 65536 > /proc/sys/net/core/wmem_max
-ECHO 1024 > /proc/sys/net/core/somaxconn
-ECHO 3000 > /proc/sys/net/core/netdev_max_backlog
-ECHO "4096 32768 65536" > /proc/sys/net/ipv4/tcp_rmem
-ECHO "4096 32768 65536" > /proc/sys/net/ipv4/tcp_wmem
+#ECHO 32768 > /proc/sys/net/core/rmem_default
+#ECHO 65536 > /proc/sys/net/core/rmem_max
+#ECHO 32768 > /proc/sys/net/core/wmem_default
+#ECHO 65536 > /proc/sys/net/core/wmem_max
+#ECHO 1024 > /proc/sys/net/core/somaxconn
+#ECHO 3000 > /proc/sys/net/core/netdev_max_backlog
+#ECHO "4096 32768 65536" > /proc/sys/net/ipv4/tcp_rmem
+#ECHO "4096 32768 65536" > /proc/sys/net/ipv4/tcp_wmem
 
 #if [ "x$1" != "xFORCE" ]; then return 0; fi
 

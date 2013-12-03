@@ -285,41 +285,42 @@ while (! pgrep com.android && [ $LOOP -lt 150 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 				echo "INFO: Applying AOSP-specific DBUPDATE" >> $LOG
 				# OMNI
 				DBUPDATE system screen_off_animation 0
-				DBUPDATE status_bar_notif_count 1
-				DBUPDATE system power_menu_screenshot_enabled 1
+				#DBUPDATE system power_menu_screenshot_enabled 1
 				DBUPDATE system screenshot_in_power_menu 1
 				DBUPDATE system clear_recents_button_location 3
+				#DBUPDATE system non_intrusive_incall 1
+				DBUPDATE system screen_off_timeout 15000
 				
 				# Currently Inactive
-				DBUPDATE secure kill_app_longpress_back 1
-				DBUPDATE system status_bar_battery 4
-				DBUPDATE system statusbar_clock_date_display 2
-				DBUPDATE system statusbar_clock_date_format 'MMM dd'
-				DBUPDATE system status_bar_traffic 0
-				DBUPDATE system button_backlight_timeout 1000
-				DBUPDATE system recents_clear_all_on_right 1
-				DBUPDATE system recents_ram_bar_mode 3
+				#DBUPDATE secure kill_app_longpress_back 1
+				#DBUPDATE system status_bar_battery 4
+				#DBUPDATE system statusbar_clock_date_display 2
+				#DBUPDATE system statusbar_clock_date_format 'MMM dd'
+				#DBUPDATE system status_bar_traffic 0
+				#DBUPDATE system button_backlight_timeout 1000
+				#DBUPDATE system recents_clear_all_on_right 1
+				#DBUPDATE system recents_ram_bar_mode 3
 				
 				# Requires SlimBean's Dark Droid
-				DBUPDATE secure ui_inverted_mode 2
+				#DBUPDATE secure ui_inverted_mode 2
 				
 				# Reguires AOKP Custom Animations
-				DBUPDATE system animation_controls_no_override 1
-				DBUPDATE system animation_controls_duration 34
-				DBUPDATE system task_open 8
-				DBUPDATE system task_close 8
-				DBUPDATE system task_to_front 8
-				DBUPDATE system task_to_back 8
-				DBUPDATE system wallpaper_open 8
-				DBUPDATE system wallpaper_close 8
-				DBUPDATE system wallpaper_intra_open 8
-				DBUPDATE system wallpaper_intra_close 8
-				DBUPDATE system activity_open 8
-				DBUPDATE system activity_close 8
+				#DBUPDATE system animation_controls_no_override 1
+				#DBUPDATE system animation_controls_duration 34
+				#DBUPDATE system task_open 8
+				#DBUPDATE system task_close 8
+				#DBUPDATE system task_to_front 8
+				#DBUPDATE system task_to_back 8
+				#DBUPDATE system wallpaper_open 8
+				#DBUPDATE system wallpaper_close 8
+				#DBUPDATE system wallpaper_intra_open 8
+				#DBUPDATE system wallpaper_intra_close 8
+				#DBUPDATE system activity_open 8
+				#DBUPDATE system activity_close 8
 				
 				# Requires ListView Animations
-				DBUPDATE system listview_animation 4
-				DBUPDATE system listview_interpolator 5
+				#DBUPDATE system listview_animation 4
+				#DBUPDATE system listview_interpolator 5
 			fi
 			
 			# And don't execute twice

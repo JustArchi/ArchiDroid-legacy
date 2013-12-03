@@ -5,12 +5,20 @@ FULL WIPE REQUIRED
 - [!] Added built-in ArchiDroid flasher, which allows you to flash any version directly from github
 # Write adflash command in terminal to get more info
 
+- ArchiDroid Backend Update
+* Added custom boot sound support. ArchiDroid will now play /data/media/0/ArchiDroid/PowerOn.wav if available. It's for you if you'd like to have boot sound instead of silence. Other formats are NOT available, only .wav.
+* Added Keyboard handling. ArchiDroid will now set your keyboard according to your aroma choice. This is extremely important because Android doesn't do it automatically now (in 4.4)
+* Some new DBUPDATE values based on OmniROM.
+
+- Silent CrossBreeder update, which fixes network buffers and some related problems
 - All inverted apps are disabled in default preset now
 - Removed 241 DPI, as it's no longer needed
 - Included SuperSU 1.80
 - OpenPDroid tweak is not experimental anymore, it's stable now
-- Updated Boeffla Kernel to 2.1-beta1a
+- Updated Boeffla Kernel to 2.1-beta1a (Omni)
+- Updated Temasek Kernel to 201113 (Omni)
 - Updated Yank Kernel to 1.6g-beta2 (Omni)
+- Updated Googy Max Kernel to 2.0.7
 - Updated Xposed to 2.4
 - Updated XPrivacy to 1.10.33
 - Updated App Settings to 1.6

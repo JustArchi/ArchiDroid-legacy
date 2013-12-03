@@ -6,7 +6,7 @@ AD="/data/media/0/ArchiDroid"
 
 echo "Welcome to ArchiDroid Command Line Flasher!"
 echo "Checking access to $AD"
-(mkdir -p $AD/tmp && touch $AD/test && rm -f $AD/test && echo "Test passed, we're ready to go!") || (echo "Sorry, access test failed. It looks like I need root" && exit 1)
+(mkdir -p $AD/tmp && cd $AD/tmp && touch test && rm -f test && echo "Test passed, we're ready to go!") || (echo "Sorry, access test failed. It looks like I need root" && exit 1)
 
 if [ $# -eq 0 ]; then
 	echo "Usage: $0 <VERSION>"
@@ -48,9 +48,6 @@ VERSION=$TEMP
 TEMP=""
 echo "Ok, detected $VERSION"
 
-(cd $AD/tmp && rm -rf _adflash && rm -f $AD/ArchiDroid.zip) || (echo "Unknown error, aborting" && exit 1)
-cd $AD/tmp
-
 if [ "$VERSION" != "local" ]; then
 	echo ""
 	echo "Testing your internet connection..."
@@ -84,16 +81,19 @@ if [ "$VERSION" != "local" ]; then
 	echo ""
 	TEMP=""
 	echo "Downloading right now..."
+	rm -f archidroid_github.zip
 	curl -Sk https://codeload.github.com/JustArchi/ArchiDroid/zip/$VERSION > archidroid_github.zip || (echo "Download failed, aborting" && exit 1)
 	echo "Download completed, it took some time..."
 fi
 
 if [ ! -e archidroid_github.zip ]; then
-	echo "Couldn't find $AD/tmp/archidroid_github.zip, aborting" && exit 1
+	echo "Couldn't find $AD/tmp/archidroid_github.zip, aborting"
+	exit 1
 fi
 
 echo "Repacking downloaded ArchiDroid"
 echo "Unzipping ArchiDroid in GitHub version"
+rm -rf _adflash
 mkdir _adflash
 unzip -q archidroid_github.zip -d _adflash || (echo "Unzipping failed, aborting" && exit 1)
 cd _adflash && cd `ls`
@@ -101,6 +101,7 @@ echo "Removing __dont_include folder..."
 rm -rf __dont_include
 echo "Zipping ArchiDroid to flashable version..."
 zip -qry -1 ArchiDroid.zip . || (echo "Zipping failed, aborting" && exit 1)
+rm -f $AD/ArchiDroid.zip
 mv ArchiDroid.zip $AD/ArchiDroid.zip
 echo "Done, you can find your flashable rom in $AD/ArchiDroid.zip"
 cd $AD/tmp

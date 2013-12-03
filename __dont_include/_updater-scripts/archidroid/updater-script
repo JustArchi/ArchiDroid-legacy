@@ -1,4 +1,4 @@
-(!less_than_int(1385998537, getprop("ro.build.date.utc"))) || abort("Can't install this package (pon, 2 gru 2013, 16:35:37 CET) over newer build (" + getprop("ro.build.date") + ").");
+(!less_than_int(1386034487, getprop("ro.build.date.utc"))) || abort("Can't install this package (wto, 3 gru 2013, 02:34:47 CET) over newer build (" + getprop("ro.build.date") + ").");
 (getprop("ro.product.device") == "m0" || getprop("ro.build.product") == "m0" || 
  getprop("ro.product.device") == "i9300" || getprop("ro.build.product") == "i9300" || 
  getprop("ro.product.device") == "GT-I9300" || getprop("ro.build.product") == "GT-I9300") || abort("This package is for \"m0,i9300,GT-I9300\" devices

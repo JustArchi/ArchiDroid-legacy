@@ -9,7 +9,7 @@ echo "Checking access to $AD"
 (mkdir -p $AD/tmp && touch $AD/test && rm -f $AD/test && echo "Test passed, we're ready to go!") || (echo "Sorry, access test failed. It looks like I need root" && exit 1)
 
 if [ $# -eq 0 ]; then
-	echo "Usage: $0 [VERSION]"
+	echo "Usage: $0 <VERSION>"
 	echo ""
 	echo "Available versions:"
 	echo "2e	2.X-EXPERIMENTAL"
@@ -52,14 +52,36 @@ echo "Ok, detected $VERSION"
 cd $AD/tmp
 
 if [ "$VERSION" != "local" ]; then
+	echo ""
+	echo "Testing your internet connection..."
+	curl google.com > /dev/null 2>&1
+	CHECK=$?
+	if [ $CHECK -ne 0 ]; then
+		echo "Something went wrong, test returned error code $CHECK.
+		echo "Sorry but I can't let you pass, either you don't have a valid connection with the internet or required components aren't working properly"
+		exit 1
+	else
+		echo "Test passed successfully!"
+		echo ""
+	fi
+	echo "CHANGELOG START"
+	echo ""
 	curl -kSs https://raw.github.com/JustArchi/ArchiDroid/$VERSION/META-INF/com/google/android/aroma/_changelog.txt
 	echo ""
 	echo ""
+	echo "CHANGELOG EOF"
+	echo ""
 	echo "Ok, starting download from GitHub"
 	echo "Warning, it may take long time. Make sure that you have stable Wi-Fi connection"
+	echo ""
 	TEMP=`curl -kISs https://codeload.github.com/JustArchi/ArchiDroid/zip/$VERSION | grep "Content-Length" | awk '{print $2}'`
-	TEMP=`expr $TEMP / 1000000`
-	echo "It's about $TEMP Megabytes"
+	if [ ! -z "$TEMP" ]; then
+		TEMP=`expr $TEMP / 1048576`
+		echo "It's about $TEMP Megabytes"
+	else
+		echo "Couldn't retrieve remote ArchiDroid size, sorry"
+	fi
+	echo ""
 	TEMP=""
 	echo "Downloading right now..."
 	curl -Sk https://codeload.github.com/JustArchi/ArchiDroid/zip/$VERSION > archidroid_github.zip || (echo "Download failed, aborting" && exit 1)
@@ -83,5 +105,12 @@ mv ArchiDroid.zip $AD/ArchiDroid.zip
 echo "Done, you can find your flashable rom in $AD/ArchiDroid.zip"
 cd $AD/tmp
 rm -rf *
-echo "Happy Flashing!"
+echo ""
+echo -n "Would you like to reboot to recovery now? [y/n]: "
+read CHOICE
+if [ "$CHOICE" == "y" ]; then
+	su -c "reboot recovery" || echo "reboot recovery" | su
+else
+	echo "Ok, Happy Flashing!"
+fi
 exit 0

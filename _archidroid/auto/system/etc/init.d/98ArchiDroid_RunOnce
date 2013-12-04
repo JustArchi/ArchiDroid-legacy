@@ -289,7 +289,6 @@ while (! pgrep com.android && [ $LOOP -lt 150 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 				DBUPDATE system screenshot_in_power_menu 1
 				DBUPDATE system clear_recents_button_location 3
 				DBUPDATE system non_intrusive_incall 1
-				DBUPDATE system screen_off_timeout 15000
 				
 				# Currently Inactive
 				#DBUPDATE secure kill_app_longpress_back 1

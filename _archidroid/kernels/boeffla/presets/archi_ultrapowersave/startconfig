@@ -13,10 +13,6 @@ echo 'undervolt medium' > /dev/bk_cpu_voltages_profile
 echo '1375 1338 1275 1213 1175 1125 1050 1000 950 925 913 875 875 850 825' > /sys/devices/system/cpu/cpu0/cpufreq/UV_mV_table
 echo '3' > /sys/module/cpuidle_exynos4/parameters/enable_mask
 echo '2' > /sys/devices/system/cpu/sched_mc_power_savings
-echo '' > /dev/bk_gpu_frequencies_profile
-echo '108 160 200 266 400' > /sys/class/misc/gpu_clock_control/gpu_control
-echo 'undervolt medium' > /dev/bk_gpu_voltages_profile
-echo '875000 900000 950000 987000 1050000' > /sys/class/misc/gpu_voltage_control/gpu_control
 echo '1' > /sys/class/misc/boeffla_sound/boeffla_sound
 echo '55 55' > /sys/class/misc/boeffla_sound/headphone_volume
 echo '57 57' > /sys/class/misc/boeffla_sound/speaker_volume
@@ -34,16 +30,20 @@ echo '0' > /sys/class/misc/boeffla_sound/mono_downmix
 echo '28' > /sys/class/misc/boeffla_sound/mic_level_general
 echo '25' > /sys/class/misc/boeffla_sound/mic_level_call
 echo '1' > /sys/class/sec/led/led_fade
-echo '40' > /sys/class/sec/led/led_intensity
-echo '2' > /sys/class/sec/led/led_speed
+echo '60' > /sys/class/sec/led/led_intensity
+echo '1' > /sys/class/sec/led/led_speed
 echo '1' > /sys/class/misc/touchboost_switch/touchboost_switch
 echo '600000' > /sys/class/misc/touchboost_switch/touchboost_freq
 echo '0' > /sys/class/misc/touchwake/enabled
 echo '0' > /sys/class/misc/touchwake/delay
 echo '0' > /sys/kernel/early_suspend/early_suspend_delay
-echo '1' > /sys/class/misc/mdnie_preset/mdnie_preset
-echo '0' > /dev/bk_mdnie_overwrite
-echo '0' > /sys/class/sec/sec_touchkey/touch_led_handling
+echo '' > /sys/class/misc/mdnie_preset/mdnie_preset
+echo '1' > /dev/bk_mdnie_overwrite
+echo '' > /sys/class/mdnie/mdnie/outdoor
+echo '' > /sys/class/mdnie/mdnie/negative
+echo '1' > /sys/class/mdnie/mdnie/scenario
+echo '2' > /sys/class/mdnie/mdnie/mode
+echo '1' > /sys/class/sec/sec_touchkey/touch_led_handling
 echo '0' > /sys/class/sec/sec_touchkey/touch_led_on_screen_touch
 echo 'Off' > /dev/bk_system_tweaks
 echo '4' > cat /proc/swaps
@@ -62,10 +62,11 @@ echo '0' > /sys/kernel/charge_levels/ignore_unstable_power
 /res/bc/bccontroller.sh apply_cifs 0
 /res/bc/bccontroller.sh apply_nfs 0
 /res/bc/bccontroller.sh apply_xbox 0
-/res/bc/bccontroller.sh apply_exfat 1
+/res/bc/bccontroller.sh apply_exfat 0
 /res/bc/bccontroller.sh apply_ntfs 0
 echo '0' > /sys/kernel/logger_mode/logger_mode
 echo '' > /sys/kernel/printk_mode/printk_mode
 echo '12288,15360,18432,21504,24576,30720,' > /sys/module/lowmemorykiller/parameters/minfree
 echo 'Archi_UltraPowerSave' >/data/.boeffla/startconfig_done
 busybox chmod 666 /data/.boeffla/startconfig_done
+

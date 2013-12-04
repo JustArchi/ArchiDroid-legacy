@@ -166,13 +166,6 @@ archidroid.preset.kernel.boeffla.archipowersave.desc=Oletuasetus, joka sopii use
 archidroid.preset.kernel.boeffla.archiultrapowersave=ArchiDroid Ultravirransäästö
 archidroid.preset.kernel.boeffla.archiultrapowersave.desc=Esiasetus maksimaalista virransäästöä varten, kohtalaisesti lasketut jännitetasot. Odotettavissa parempaa akunkestoa pienemmällä suorituskyvyllä
 
-archidroid.preset.kernel.temasek.balanced=ArchiDroid tasapainoinen säätö
-archidroid.preset.kernel.temasek.balanced.desc=Perustuu optimoituun zzmooveen, mukana zram, boeffla-ääni and muuta. Vanhentunut zzmoove 0.7:n myötä
-archidroid.preset.kernel.temasek.powersave=ArchiDroid virransäästösäätö
-archidroid.preset.kernel.temasek.powersave.desc=Erityisen virtapihi säätö perustuu Yankin Battery zzmooveen alemmilla hotplug-ssädöillä
-archidroid.preset.kernel.temasek.ultra=ArchiDroid ULTRA virransäästösäätö
-archidroid.preset.kernel.temasek.ultra.desc=ULTRA virransäästöä perustuen Archin Ultra Battery zzmooveen LCDFreqin kanssa
-
 archidroid.boeffla.yesarchi=Kyllä Archi's Audiophile -säädöllä
 archidroid.boeffla.yesarchi.desc=Suositeltu. Parantaa äänenlaatua asentamalla Boeffla SC:n ja säätämällä Archin maun mukaan
 archidroid.boeffla.yes.desc=Jos haluat tehdä omat Boeffla SC -säätösi myöhemmin

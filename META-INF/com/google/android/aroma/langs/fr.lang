@@ -166,13 +166,6 @@ archidroid.preset.kernel.boeffla.archipowersave.desc=Configuration par défaut p
 archidroid.preset.kernel.boeffla.archiultrapowersave=UltraPowerSave ArchiDroid 
 archidroid.preset.kernel.boeffla.archiultrapowersave.desc=Une configuration conçue et optimisée pour obtenir la meilleure consommation batterie, avec sous voltage modéré. Permet une une bonne consommation batterie, mais avec moins de performance
 
-archidroid.preset.kernel.temasek.balanced=Configuration ArchiDroid équilibrée
-archidroid.preset.kernel.temasek.balanced.desc=Optimisation zzmoove, zram, boeffla sound, etc. Obsolète depuis zzmoove 0,7
-archidroid.preset.kernel.temasek.powersave=Configuration ArchiDroid PowerSave
-archidroid.preset.kernel.temasek.powersave.desc=Très économme en batterie, basée sur la gestion zzmoove de Yank avec moins de hotplugging
-archidroid.preset.kernel.temasek.ultra=Configuration ArchiDroid  ULTRA PowerSave
-archidroid.preset.kernel.temasek.ultra.desc=Extrèmement économme en batterie, basée sur le zzmoove Ultra Battery  d'Archi avec LCDFreq
-
 archidroid.boeffla.yesarchi=Configuration Audiophile d'Archi 
 archidroid.boeffla.yesarchi.desc=Hautement recommandé. Améliore la qualité audio en installant Boeffla SC avec configuration optimisée par Archi
 archidroid.boeffla.yes.desc=Si vous voulez configurer Boeffla SC vous même

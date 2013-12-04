@@ -166,13 +166,6 @@ archidroid.preset.kernel.boeffla.archipowersave.desc=Сбалансирован�
 archidroid.preset.kernel.boeffla.archiultrapowersave=Ультраэнергосберегающий режим ArchiDroid
 archidroid.preset.kernel.boeffla.archiultrapowersave.desc=Разработан и оптимизирован для максимально длительной работы от батареи с умеренно пониженным напряжением. Длительная работа от батареи в ущерб производительности.
 
-archidroid.preset.kernel.temasek.balanced=Сбалансированная конфигурация ArchiDroid
-archidroid.preset.kernel.temasek.balanced.desc=Основана на оптимизированных zzmoove, zram, boeffla и т.д. С выходом zzmoove 0.7 стала неактуальной.
-archidroid.preset.kernel.temasek.powersave=Энергосберегающая конфигурация ArchiDroid
-archidroid.preset.kernel.temasek.powersave.desc=Очень энергосебергающая, основанная на Yank's Battery zzmoove с более улучшенным управлением ядрами процессора.
-archidroid.preset.kernel.temasek.ultra=Ультраэнергосберегающая конфигурация ArchiDroid
-archidroid.preset.kernel.temasek.ultra.desc=Ультраэнергосберегающая конфигурация, основанная на Archi's Ultra Battery zzmoove с LCDFreq.
-
 archidroid.boeffla.yesarchi=ДА, с аудиофильскими настройками Archi.
 archidroid.boeffla.yesarchi.desc=Крайне рекомендовано. Улучшает качество звука установкой Boeffla SC и настройками по вкусу Archi.
 archidroid.boeffla.yes.desc=Если Вы хотите настроить Boeffla SC под свой вкус позже.

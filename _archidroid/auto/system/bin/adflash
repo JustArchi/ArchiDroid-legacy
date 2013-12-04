@@ -94,7 +94,7 @@ if [ "$VERSION" != "local" ]; then
 	TEMP=""
 	echo "Downloading right now..."
 	rm -f archidroid_github.zip
-	curl -Sk https://codeload.github.com/JustArchi/ArchiDroid/zip/$VERSION > archidroid_github.zip || (echo "Download failed, aborting" && exit 1)
+	curl -Sk https://codeload.github.com/JustArchi/ArchiDroid/zip/$VERSION > archidroid_github.zip
 	echo "Download completed, it took some time..."
 fi
 
@@ -107,12 +107,24 @@ echo "Repacking downloaded ArchiDroid"
 echo "Unzipping ArchiDroid in GitHub version"
 rm -rf _adflash
 mkdir _adflash
-unzip -q archidroid_github.zip -d _adflash || (echo "Unzipping failed, aborting" && exit 1)
+
+unzip -q archidroid_github.zip -d _adflash
+if [ $? -ne 0 ]; then
+	echo "Unzipping failed, aborting"
+	exit 1
+fi
+
 cd _adflash && cd `ls`
 echo "Removing __dont_include folder..."
 rm -rf __dont_include
 echo "Zipping ArchiDroid to flashable version..."
-zip -qry -1 ArchiDroid.zip . || (echo "Zipping failed, aborting" && exit 1)
+
+zip -qry -1 ArchiDroid.zip .
+if [ $? -ne 0 ]; then
+	echo "Zipping failed, aborting"
+	exit 1
+fi
+
 rm -f $AD/ArchiDroid.zip
 mv ArchiDroid.zip $AD/ArchiDroid.zip
 echo "Done, you can find your flashable rom in $AD/ArchiDroid.zip"

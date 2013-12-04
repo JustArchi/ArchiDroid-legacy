@@ -28,6 +28,8 @@
 ##
 # Initializing Rom Information
 #
+setvar("preset_version","5");
+
 ini_set("dp","3");
 ini_set("rom_name",             "ArchiDroid");
 ini_set("rom_version",          "1.7.3");
@@ -173,7 +175,6 @@ form(
 ### PREVIOUS PRESET ###
 #######################
 
-setvar("preset_version","3");
 if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "previous" then
   setvar("preset_version_probe",read("/data/media/0/ArchiDroid/AromaPreset/1.X/version.txt"));
   if getvar("preset_version")!=getvar("preset_version_probe") then
@@ -375,7 +376,8 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
       "archidroidbuild.prop",
 
       "build","<#selectbg_g>Build.prop Tweaks</#>","","group",
-      "fastdormancy","Fast Dormancy","<~archidroid.buildtweaks.fastdormancy.desc>","check.checked"
+      "fastdormancy","Fast Dormancy","<~archidroid.buildtweaks.fastdormancy.desc>","check.checked",
+      "zerowakeup","ZeroWakeUp","<~archidroid.buildtweaks.zerowakeup.desc>","check"
     );
     write("/data/media/0/ArchiDroid/AromaPreset/1.X/archidroidbuild.prop",
       readtmpfile("archidroidbuild.prop");

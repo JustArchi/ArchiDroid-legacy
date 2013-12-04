@@ -5,6 +5,16 @@ FULL WIPE REQUIRED
 - [!] Added built-in ArchiDroid flasher, which allows you to flash any version directly from github
 # Write adflash command in terminal to get more info
 
+- Introduced ZeroWakeUp build.prop tweak
+# Actually, it was possible to do so manualy since introducing of build.prop tweaks but I left it as an option for some time
+# It reduces wake up lag from 2 seconds up to 0.5 second, with an average of reducing to 1 second. Of course for some cost of your battery. However if your phone doesn't sleep that much (You have more than 0.5% / hour in deep sleep) then it doesn't really matter for you, it may even reduce your battery drain due to no wakelocks (perma active). This is experimental feature, same as fast dormancy toggle. You need to find out yourself if you like it or not.
+
+# This value controls deep sleep function in your ROM
+#sleep_mode=0 (default) -> Collapse Suspend. Standard deep sleep. Default value
+#sleep_mode=1 (build.prop tweak) -> Full Collapse. Deeper sleep. It'll aggresively try to power off as much cpu cores as possible, improving battery life in deep sleep. Default ArchiDroid value
+#sleep_mode=2 (NEW!) -> Sleep. CPU is still on, but put into low power mode, all registers are still saved, thus all apps are in fact working and they're not suspended.
+
+
 - ArchiDroid Backend Update
 * Added custom boot sound support. ArchiDroid will now play /data/media/0/ArchiDroid/PowerOn.wav if available. It's for you if you'd like to have boot sound instead of silence. Other formats are NOT available, only .wav.
 * Added Keyboard handling. ArchiDroid will now set your keyboard according to your aroma choice. This is extremely important because Android doesn't do it automatically now (in 4.4)

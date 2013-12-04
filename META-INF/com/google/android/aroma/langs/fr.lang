@@ -203,3 +203,4 @@ archidroid.install.finish=L'assistant ArchiDroid a flashé <b>ArchiDroid<b> avec
 Appuyer sur <b>Terminer</b> pour continuer.
 
 archidroid.buildtweaks.fastdormancy.desc=Décoché pour désactiver le fast dormancy, peut améliorer la consommation batterie si votre opérateur ne le supporte pas
+archidroid.buildtweaks.zerowakeup.desc=Tick to enable ZeroWakeUp, it will put CPU into sleep mode (instead of deep/deeper sleep), reducing wake up delay to the minimum

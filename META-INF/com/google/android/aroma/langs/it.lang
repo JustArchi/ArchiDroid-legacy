@@ -203,3 +203,4 @@ archidroid.install.finish=ArchiDroid wizard ha flashato con successo <b>ArchiDro
 Premi <b>Finito</b> per continuare.
 
 archidroid.buildtweaks.fastdormancy.desc=Togli la spunta per disabilitare fastdormancy, potrebbe migliorare la vita della batteria se il tuo provider non lo supporta
+archidroid.buildtweaks.zerowakeup.desc=Tick to enable ZeroWakeUp, it will put CPU into sleep mode (instead of deep/deeper sleep), reducing wake up delay to the minimum

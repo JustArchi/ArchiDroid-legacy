@@ -203,3 +203,4 @@ archidroid.install.finish=Установщик ArchiDroid успешно про�
 Нажмите <b>Закончить</b> для продолжения.
 
 archidroid.buildtweaks.fastdormancy.desc=Снимите отметку, чтобы выключить быстрое засыпание. Может уменьшить расход батареи, если активровано и подерживатся оператором связи.
+archidroid.buildtweaks.zerowakeup.desc=Tick to enable ZeroWakeUp, it will put CPU into sleep mode (instead of deep/deeper sleep), reducing wake up delay to the minimum

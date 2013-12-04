@@ -54,7 +54,7 @@ if [ "$VERSION" != "local" ]; then
 	curl google.com > /dev/null 2>&1
 	CHECK=$?
 	if [ $CHECK -ne 0 ]; then
-		echo "Something went wrong, test returned error code $CHECK.
+		echo "Something went wrong, test returned error code $CHECK."
 		echo "Sorry but I can't let you pass, either you don't have a valid connection with the internet or required components aren't working properly"
 		exit 1
 	else

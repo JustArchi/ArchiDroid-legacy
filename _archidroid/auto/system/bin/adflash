@@ -6,7 +6,18 @@ AD="/data/media/0/ArchiDroid"
 
 echo "Welcome to ArchiDroid Command Line Flasher!"
 echo "Checking access to $AD"
-(mkdir -p $AD/tmp && cd $AD/tmp && touch test && rm -f test && echo "Test passed, we're ready to go!") || (echo "Sorry, access test failed. It looks like I need root" && exit 1)
+mkdir -p $AD/tmp
+cd $AD/tmp
+touch test
+CHECK1=$?
+rm -f test
+CHECK2=$?
+if [ $CHECK1 -ne 0 ] || [ $CHECK2 -ne 0 ]; then
+	echo "Sorry, access test failed. Make sure that $AD/tmp is not being owned by root or give me root access"
+	exit 1
+else
+	echo "Access test passed, we're ready to go!"
+fi
 
 if [ $# -eq 0 ]; then
 	echo "Usage: $0 <VERSION>"
@@ -49,6 +60,7 @@ TEMP=""
 echo "Ok, detected $VERSION"
 
 if [ "$VERSION" != "local" ]; then
+	cd $AD/tmp
 	echo ""
 	echo "Testing your internet connection..."
 	curl google.com > /dev/null 2>&1

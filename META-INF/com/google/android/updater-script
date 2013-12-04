@@ -295,22 +295,14 @@ if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "temasek" then
 	run_program("/tmp/unpackbootimg", "-i", "/tmp/boot.img", "-o", "/tmp/");
 	run_program("/tmp/mkbootimg.sh");
 	run_program("/sbin/busybox", "dd", "if=/tmp/newboot.img", "of=/dev/block/mmcblk0p5");
-	
-	if file_getprop("/tmp/aroma-data/archidroidtemasek.prop","preset") == "balanced" then
-		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying ArchiDroid Balanced kernel config");
-		package_extract_dir("_archidroid/presets/temasek/archi", "/data/.temasek");
+
+	if file_getprop("/tmp/aroma-data/archidroidwipe.prop","wipe") == "yes" then
+		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying ArchiDroid Temasek Preset");
+		package_extract_dir("_archidroid/kernels/temasek/preset", "/data/.temasek");
 	endif;
-	if file_getprop("/tmp/aroma-data/archidroidtemasek.prop","preset") == "powersave" then
-		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying ArchiDroid PowerSave kernel config");
-		package_extract_dir("_archidroid/presets/temasek/archi_powersave", "/data/.temasek");
-	endif;
-	if file_getprop("/tmp/aroma-data/archidroidtemasek.prop","preset") == "ultra" then
-		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying ArchiDroid ULTRA PowerSave kernel config");
-		package_extract_dir("_archidroid/presets/temasek/archi_ultra_powersave", "/data/.temasek");
-	endif;
-	
+
 	package_extract_dir("_archidroid/apps/stweaks", "/");
-	
+
 endif;
 
 ### YANK ###

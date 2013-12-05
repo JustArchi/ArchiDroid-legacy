@@ -1022,7 +1022,7 @@
   <apn carrier="AL JA WAL" mcc="420" mnc="01" apn="jawalnet.com.sa" type="default,supl" />
   <apn carrier="AL JA WAL MMS" mcc="420" mnc="01" apn="mms.net.sa" mmsc="http://mms.net.sa:8002" mmsproxy="10.1.1.1" mmsport="9201" type="mms" />
   <apn carrier="Mobily MMS" mcc="420" mnc="03" apn="mms1" mmsc="http://10.3.3.133:9090/was" mmsproxy="10.3.2.133" mmsport="9201" type="mms" />
-  <apn carrier="Mobily" mcc="420" mnc="03" apn="web1" type="default,supl" />
+  <apn carrier="Mobily" mcc="420" mnc="03" apn="web2" type="default,supl" />
   <apn carrier="Zain SA" mcc="420" mnc="04" apn="zain" mmsc="http://10.122.200.12:8002" mmsproxy="10.122.200.10" mmsport="8080" type="default,supl,mms" />
   <apn carrier="Oman Mobile MMS" mcc="422" mnc="02" apn="mms" user="mms" password="mms" mmsc="http://mmsc.omanmobile.com:10021/mmsc" mmsproxy="192.168.203.35" mmsport="9201" type="mms" />
   <apn carrier="Oman Mobile" mcc="422" mnc="02" apn="wap" user="wap" password="wap" type="default,supl" />
@@ -1151,7 +1151,7 @@
   <apn carrier="TransAsia" mcc="466" mnc="99" apn="internet" type="default,supl" />
   <apn carrier="TransAsia MMS" mcc="466" mnc="99" apn="mms" mmsc="http://mms" mmsproxy="10.1.1.2" mmsport="80" type="mms" />
   <apn carrier="台灣大哥大(TW Mobile) (twm)" mcc="466" mnc="99" apn="twm" type="default,supl" />
-  <apn carrier="Grameenphone" mcc="470" mnc="01" apn="gpinterneth" type="default,supl" />
+  <apn carrier="Grameenphone" mcc="470" mnc="01" apn="gpinternet" type="default,supl" />
   <apn carrier="Robi MMS" mcc="470" mnc="02" apn="WAP" mmsc="http://192.168.23.4/was" mmsproxy="192.168.023.007" mmsport="9028" type="mms" />
   <apn carrier="Robi" mcc="470" mnc="02" apn="internet" port="9201" type="default,supl" />
   <apn carrier="Banglalink MMS" mcc="470" mnc="03" apn="blmms" mmsc="http://" mmsproxy="10.10.55.34" mmsport="8799" type="mms" />
@@ -1269,10 +1269,11 @@
   <apn carrier="Internet OPT KNC" mcc="546" mnc="01" apn="internet" user="internet" type="default,supl" />
   <apn carrier="3g OPT KNC" mcc="546" mnc="01" apn="3g" user="3g" type="default,supl" />
   <apn carrier="Mms OPT KNC" mcc="546" mnc="01" apn="mms" user="mms" password="mms123" mmsproxy="192.168.39.201" mmsport="3130" mmsc="http://mms.mobitag.nc/mmsc/" type="mms" />
-  <apn carrier="Mobinil MMS" mcc="602" mnc="01" apn="mobinilmms" mmsc="http://10.7.13.24:8002" mmsproxy="62.241.155.54" mmsport="8080" type="mms" />
+  <apn carrier="Mobinil MMS" mcc="602" mnc="01" apn="mobinilmms" mmsc="http://10.7.13.24:8002" mmsproxy="62.241.155.45" mmsport="8080" type="mms" />
   <apn carrier="Mobinil" mcc="602" mnc="01" apn="mobinilweb" type="default,supl" />
   <apn carrier="Vodafone EG" mcc="602" mnc="02" apn="internet.vodafone.net" user="internet" password="internet" type="default,supl" />
   <apn carrier="Vodafone EG MMS" mcc="602" mnc="02" apn="mms.vodafone.com.eg" user="mms" password="mms" mmsc="http://mms.vodafone.com.eg/servlets/mms" mmsproxy="163.121.178.002" mmsport="8080" type="mms" />
+  <apn carrier="Etisalat internet" mcc="602" mnc="03" apn="Etisalat" mmsc="http://10.71.131.7:38090" mmsproxy="10.71.130.29" mmsport="8080" type="default,supl,mms" />
   <apn carrier="Mobilis" mcc="603" mnc="01" apn="internet" user="internet" password="internet" type="default,supl" />
   <apn carrier="Mobilis MMS" mcc="603" mnc="01" apn="mms" user="mms" password="mms" mmsc="http://172.025.049.009/servlets/mms" mmsproxy="172.25.49.2" mmsport="8080" type="mms" />
   <apn carrier="Djezzy" mcc="603" mnc="02" apn="djezzy.internet" type="default,supl,mms" />

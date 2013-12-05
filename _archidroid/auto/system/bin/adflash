@@ -114,7 +114,7 @@ if [ $? -ne 0 ]; then
 	exit 1
 fi
 
-cd _adflash && cd `ls`
+cd _adflash && cd ArchiDroid-$VERSION
 echo "Removing __dont_include folder..."
 rm -rf __dont_include
 echo "Zipping ArchiDroid to flashable version..."

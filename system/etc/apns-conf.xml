@@ -410,6 +410,7 @@
   <apn carrier="Orange IMO" apn="wap.orange.md" proxy="192.168.127.124" mmsport="3128" mcc="259" mnc="01" type="default,supl" />
   <apn carrier="GaduAIR" mcc="260" mnc="01" apn="internet.gadu-gadu.pl" type="default,supl" />
   <apn carrier="PlusGSM" mcc="260" mnc="01" apn="internet" type="default,supl" />
+  <apn carrier="Njumobile MMS" mcc="260" mnc="03" apn="mms" user="mms" password="mms" mmsc="http://mms.njumobile.pl" mmsproxy="192.168.6.104" mmsport="8080" type="mms" />
   <apn carrier="FM Group Mobile MMS" mcc="260" mnc="01" apn="mms.fmgmobile.pl" mmsc="http://mms.fmgmobile.pl:8002/" mmsproxy="212.002.096.016" mmsport="8080" type="mms" />
   <apn carrier="GaduAIR MMS" mcc="260" mnc="01" apn="mms.gadu-gadu.pl" mmsc="http://mms.gadu-gadu.pl:8002/" mmsproxy="212.002.096.016" mmsport="8080" type="mms" />
   <apn carrier="mBank mobile MMS" mcc="260" mnc="01" apn="mms.mobile.pl" user="true" password="true" mmsc="http://mms.mobile.pl:8080" mmsproxy="212.2.96.16" mmsport="8080" type="mms" />
@@ -1238,7 +1239,7 @@
   <apn carrier="SingTel MMS" mcc="525" mnc="02" apn="e-ideas" user="65IDEAS" password="65ideas" mmsc="http://mms.singtel.com:10021/mmsc" mmsproxy="165.21.42.84" mmsport="8080" type="mms" />
   <apn carrier="M1 MMS" mcc="525" mnc="03" apn="Miworld" proxy="172.16.1.23" port="9201" mmsc="http://mmsgw:8002" mmsproxy="172.16.14.10" mmsport="9201" type="mms" />
   <apn carrier="MiWorld WAP (GPRS)" mcc="525" mnc="03" apn="miworld" user="65" password="user123" proxy="172.16.1.23" port="8081" type="default,supl" />
-  <apn carrier="M1 MMS" mcc="525" mnc="03" apn="miworld" user="65" password="user123" mmsc="http://mmsgw:8002" mmsproxy="172.16.14.10" mmsport="8080" authenticatiotype="PAP" type="mms" />
+  <apn carrier="M1 MMS" mcc="525" mnc="03" apn="miworld" user="65" password="user123" mmsc="http://mmsgw:8002" mmsproxy="172.16.14.10" mmsport="8080" authenticationtype="PAP" type="mms" />
   <apn carrier="M1" mcc="525" mnc="03" apn="sunsurf" type="default,supl" />
   <apn carrier="Sunsurf Internet" mcc="525" mnc="03" apn="sunsurf" type="default,supl" />
   <apn carrier="StarHub" mcc="525" mnc="05" apn="internet" type="default,supl" />

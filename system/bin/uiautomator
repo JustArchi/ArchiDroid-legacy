@@ -69,9 +69,12 @@ jars=
 if [ "${cmd}" == "runtest" ]; then
   # first parse the jar paths
   while [ true ]; do
-    if [ -z "${1}" ]; then
+    if [ -z "${1}" ] && [ -z "${jars}" ]; then
       echo "Error: more parameters expected for runtest; please see usage for details"
       cmd="help"
+      break
+    fi
+    if [ -z "${1}" ]; then
       break
     fi
     jar=${1}

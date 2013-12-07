@@ -10,6 +10,17 @@
 AD="/data/media/0/ArchiDroid"
 LOG="$AD/Init.log" # "/dev/null" is no verbose
 
+# Which mode are we using?
+# 0 - CyanogenMod
+# 1 - Sammy
+# 2 - Omni
+ROM=0
+if [ `cat /system/build.prop | grep "ro.omni.version" | wc -l` -gt 0 ]; then
+	ROM=2
+elif [ `cat /system/build.prop | grep "ro.build.user=se.infra" | wc -l` -gt 0 ]; then
+	ROM=1
+fi
+
 # Redirect stderr to our log, just in case something bad happen
 #exec 1>$LOG # Use "exec 1>>$LOG" for append
 echo -n "" > $LOG
@@ -131,6 +142,23 @@ elif [ -e /data/media/0/ArchiDroid/SOFT_REBOOT_REQUIRED ]; then
 	rm -f /data/media/0/ArchiDroid/SOFT_REBOOT_REQUIRED
 	tinyplay $AD/System/reboot.wav > /dev/null 2>&1
 	killall system_server
+fi
+
+if [ $ROM -eq 2 ]; then
+	# Temporary workaround for mounting exFAT-formatted cards
+	# Huge Thanks to AndiP71, aka Lord Boeffla
+	if [ `mount | grep "sdcard1" | wc -l` -eq 0 ]; then
+		echo "INFO: External sd card not mounted already, trying Andi's workaround!" >> $LOG
+		sleep 45
+		mount -t exfat -o rw,dirsync,nosuid,nodev,noexec,noatime,nodiratime, uid=1000,gid=1023,fmask=0002,dmask=0002,allow_utim e=0020 /dev/block/vold/179:49 /storage/sdcard1
+		if [ `mount | grep "sdcard1" | wc -l` -eq 0 ]; then
+			echo "WARNING: Workaround failed or non-exfat formatted sd card!" >> $LOG
+		else
+			echo "INFO: Success!" >> $LOG
+		fi
+	else
+		echo "INFO: External sd card already mounted!" >> $LOG
+	fi
 fi
 
 # Finish

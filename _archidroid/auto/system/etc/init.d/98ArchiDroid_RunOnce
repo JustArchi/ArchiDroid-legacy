@@ -414,8 +414,12 @@ if [ $ADRELOAD -eq 1 ]; then
 	#killall system_server
 	#sleep 10
 else
+	# We should call Init if reboot isn't required
+	sh /system/etc/init.d/99ArchiDroid_Init "background" &
+
 	sleep 20
 	sysro || mount -o remount,ro /system
+
 	# Finish
 	echo "INFO: ArchiDroid RunOnce finished" >> $LOG
 	echo "`date`" >> $LOG

@@ -130,6 +130,24 @@ else
 	echo "INFO: I looped $LOOP times and didn't have to exit from infinite loop, that's nice (Init Semaphore)" >> $LOG
 fi
 
+if [ `mount | grep "sdcard1" | wc -l` -eq 0 ] && [ $ROM -eq 2 ] && [ -e /dev/block/mmcblk1p1 ]; then
+	# Temporary workaround for mounting exFAT-formatted cards
+	# Huge Thanks to AndiP71, aka Lord Boeffla
+	# Further improvements by JustArchi
+		echo "INFO: We're on OmniROM, we have external sd card but it's not mounted already, trying Andi's workaround!" >> $LOG
+		if [ `lsmod | grep "exfat" | wc -l` -eq 0 ]; then
+			echo "INFO: No exfat module found, it's either compiled in kernel or not loaded. Blindly loading..." >> $LOG
+			busybox insmod /system/lib/modules/exfat_core.ko >/dev/null 2>&1
+			busybox insmod /system/lib/modules/exfat_fs.ko >/dev/null 2>&1
+		fi
+		mount -o rw,dirsync,nosuid,nodev,noexec,noatime,nodiratime,uid=1000,gid=1023,fmask=0002,dmask=0002,allow_utime=0020 -t exfat /dev/block/vold/179:49 /storage/sdcard1
+		if [ `mount | grep "sdcard1" | wc -l` -eq 0 ]; then
+			echo "WARNING: Workaround failed or non-exfat formatted sd card!" >> $LOG
+		else
+			echo "INFO: Success!" >> $LOG
+		fi
+fi
+
 # Execute a reboot if we need it
 if [ -e /data/media/0/ArchiDroid/HARD_REBOOT_REQUIRED ]; then
 	echo "INFO: HARD_REBOOT_REQUIRED found, I'm rebooting device now..." >> $LOG
@@ -142,23 +160,6 @@ elif [ -e /data/media/0/ArchiDroid/SOFT_REBOOT_REQUIRED ]; then
 	rm -f /data/media/0/ArchiDroid/SOFT_REBOOT_REQUIRED
 	tinyplay $AD/System/reboot.wav > /dev/null 2>&1
 	killall system_server
-fi
-
-if [ $ROM -eq 2 ]; then
-	# Temporary workaround for mounting exFAT-formatted cards
-	# Huge Thanks to AndiP71, aka Lord Boeffla
-	if [ `mount | grep "sdcard1" | wc -l` -eq 0 ]; then
-		echo "INFO: External sd card not mounted already, trying Andi's workaround!" >> $LOG
-		sleep 45
-		mount -t exfat -o rw,dirsync,nosuid,nodev,noexec,noatime,nodiratime, uid=1000,gid=1023,fmask=0002,dmask=0002,allow_utim e=0020 /dev/block/vold/179:49 /storage/sdcard1
-		if [ `mount | grep "sdcard1" | wc -l` -eq 0 ]; then
-			echo "WARNING: Workaround failed or non-exfat formatted sd card!" >> $LOG
-		else
-			echo "INFO: Success!" >> $LOG
-		fi
-	else
-		echo "INFO: External sd card already mounted!" >> $LOG
-	fi
 fi
 
 # Finish

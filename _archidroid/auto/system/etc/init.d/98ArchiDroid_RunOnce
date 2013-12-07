@@ -289,15 +289,13 @@ while (! pgrep com.android && [ $LOOP -lt 150 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 				DBUPDATE system screenshot_in_power_menu 1
 				DBUPDATE system clear_recents_button_location 3
 				DBUPDATE system non_intrusive_incall 1
+				DBUPDATE system status_bar_battery_style 3
 				
 				# Currently Inactive
 				#DBUPDATE secure kill_app_longpress_back 1
-				#DBUPDATE system status_bar_battery 4
 				#DBUPDATE system statusbar_clock_date_display 2
 				#DBUPDATE system statusbar_clock_date_format 'MMM dd'
-				#DBUPDATE system status_bar_traffic 0
 				#DBUPDATE system button_backlight_timeout 1000
-				#DBUPDATE system recents_clear_all_on_right 1
 				#DBUPDATE system recents_ram_bar_mode 3
 				
 				# Requires SlimBean's Dark Droid

@@ -52,7 +52,6 @@ if [ ! -e $mnt/bin/bash ]; then
 	rm -f archidroid_debian.zip
 	curl -Sk https://codeload.github.com/JustArchi/ArchiDroid/zip/debian > archidroid_debian.zip
 	echo "Download completed, it took some time..."
-	fi
 
 	if [ ! -e archidroid_debian.zip ]; then
 		echo "Couldn't find $AD/tmp/archidroid_debian.zip, aborting"

@@ -1,0 +1,110 @@
+#!/system/bin/sh
+
+# ArchiDroid Debian/Linux Booter
+
+TEMP=""
+AD="/data/media/0/ArchiDroid"
+mnt=$AD/debian
+
+echo "Welcome to ArchiDroid Debian/Linux Booter!"
+echo "Checking access to $AD"
+mkdir -p $AD/tmp
+cd $AD/tmp
+touch test
+CHECK1=$?
+rm -f test
+CHECK2=$?
+if [ $CHECK1 -ne 0 ] || [ $CHECK2 -ne 0 ]; then
+	echo "Sorry, access test failed. Make sure that $AD/tmp is not being owned by root or give me root access"
+	exit 1
+else
+	echo "Access test passed, we're ready to go!"
+fi
+
+if [ ! -e $mnt/bin/bash ]; then
+	echo "It looks like you don't have debian environment yet, downloading..."
+	cd $AD/tmp
+	echo ""
+	echo "Testing your internet connection..."
+	curl google.com > /dev/null 2>&1
+	CHECK=$?
+	if [ $CHECK -ne 0 ]; then
+		echo "Something went wrong, test returned error code $CHECK."
+		echo "Sorry but I can't let you pass, either you don't have a valid connection with the internet or required components aren't working properly"
+		exit 1
+	else
+		echo "Test passed successfully!"
+		echo ""
+	fi
+	echo "Ok, starting download from GitHub"
+	echo "Warning, it may take long time. Make sure that you have stable Wi-Fi connection"
+	echo ""
+	TEMP=`curl -kISs https://codeload.github.com/JustArchi/ArchiDroid/zip/debian | grep "Content-Length" | awk '{print $2}'`
+	if [ ! -z "$TEMP" ]; then
+		TEMP=`expr $TEMP / 1048576`
+		echo "It's about $TEMP Megabytes"
+	else
+		echo "Couldn't retrieve remote ArchiDroid size, sorry"
+	fi
+	echo ""
+	TEMP=""
+	echo "Downloading right now..."
+	rm -f archidroid_debian.zip
+	curl -Sk https://codeload.github.com/JustArchi/ArchiDroid/zip/debian > archidroid_debian.zip
+	echo "Download completed, it took some time..."
+	fi
+
+	if [ ! -e archidroid_debian.zip ]; then
+		echo "Couldn't find $AD/tmp/archidroid_debian.zip, aborting"
+		exit 1
+	fi
+
+	echo "Unzipping ArchiDroid Debian in GitHub version"
+	rm -rf _debian
+	mkdir _debian
+
+	unzip -q archidroid_debian.zip -d _debian
+	if [ $? -ne 0 ]; then
+		echo "Unzipping failed, aborting"
+		exit 1
+	fi
+
+	echo "Moving debian to proper location..."
+	rm -rf $mnt
+	cd _debian
+	mv ArchiDroid-debian $mnt
+	cd $AD/tmp
+	rm -rf *
+else
+	echo "It looks like you have debian downloaded already, great!"
+fi
+
+echo "Booting debian..."
+
+if [ ! -e $mnt/proc/cpuinfo ]; then
+	if [ `echo $PATH | grep "/usr/local/sbin" | wc -l` -eq 0 ]; then
+			export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH
+	fi
+
+	export TERM=linux
+	export HOME=/root
+
+	# Mount core filesystems
+	busybox mount --bind /dev $mnt/dev
+	busybox mount --bind /dev/pts $mnt/dev/pts
+	mkdir -p $mnt/dev/shm
+	busybox mount --bind /dev/shm $mnt/dev/shm
+	busybox mount -t proc proc $mnt/proc
+	busybox mount -t sysfs sysfs $mnt/sys
+
+	# Mount optional filesystems
+	busybox mount --bind /system $mnt/system
+	busybox mount --bind /data $mnt/data
+	busybox mount --bind /storage/sdcard0 $mnt/storage/sdcard0
+	busybox mount --bind /storage/sdcard1 $mnt/storage/sdcard1
+fi
+
+echo "ArchiDroid Debian environment ready!"
+echo "Type debian to enter chroot"
+
+exit 0

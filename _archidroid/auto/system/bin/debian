@@ -1,0 +1,12 @@
+#!/system/bin/sh
+
+AD="/data/media/0/ArchiDroid"
+mnt=$AD/debian
+
+if [ ! -e $mnt/proc/cpuinfo ]; then
+	adlinux
+fi
+
+chroot $mnt /bin/bash
+
+exit 0

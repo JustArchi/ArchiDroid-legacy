@@ -3,8 +3,8 @@
 AD="/data/media/0/ArchiDroid"
 mnt=$AD/debian
 
-if [ ! -e $mnt/proc/cpuinfo ]; then
-	adlinux
+if [ ! -e $mnt/proc/uptime ]; then
+	adlinux "unsafe"
 fi
 
 chroot $mnt /bin/bash

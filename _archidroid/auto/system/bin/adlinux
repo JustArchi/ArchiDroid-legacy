@@ -2,7 +2,12 @@
 
 # ArchiDroid Debian/Linux Booter
 
-TEMP=""
+if [ `whoami` != "root" ]; then
+	echo "Sorry, but I require root access, trying to fork a rooted child..."
+	su -c "sh $0 $@" || echo "Failed!"
+	exit 1
+fi
+
 AD="/data/media/0/ArchiDroid"
 mnt=$AD/debian
 
@@ -21,86 +26,99 @@ else
 	echo "Access test passed, we're ready to go!"
 fi
 
-if [ ! -e $mnt/bin/bash ]; then
-	echo "It looks like you don't have debian environment yet, downloading..."
-	cd $AD/tmp
+if [ $# -eq 0 ]; then
+	echo "Usage: $0 <MODE>"
 	echo ""
-	echo "Testing your internet connection..."
-	curl google.com > /dev/null 2>&1
-	CHECK=$?
-	if [ $CHECK -ne 0 ]; then
-		echo "Something went wrong, test returned error code $CHECK."
-		echo "Sorry but I can't let you pass, either you don't have a valid connection with the internet or required components aren't working properly"
-		exit 1
-	else
-		echo "Test passed successfully!"
-		echo ""
-	fi
-	echo "Ok, starting download from GitHub"
-	echo "Warning, it may take long time. Make sure that you have stable Wi-Fi connection"
-	echo ""
-	TEMP=`curl -kISs https://codeload.github.com/JustArchi/ArchiDroid/zip/debian | grep "Content-Length" | awk '{print $2}'`
-	if [ ! -z "$TEMP" ]; then
-		TEMP=`expr $TEMP / 1048576`
-		echo "It's about $TEMP Megabytes"
-	else
-		echo "Couldn't retrieve remote ArchiDroid size, sorry"
-	fi
-	echo ""
-	TEMP=""
-	echo "Downloading right now..."
-	rm -f archidroid_debian.zip
-	curl -Sk https://codeload.github.com/JustArchi/ArchiDroid/zip/debian > archidroid_debian.zip
-	echo "Download completed, it took some time..."
-
-	if [ ! -e archidroid_debian.zip ]; then
-		echo "Couldn't find $AD/tmp/archidroid_debian.zip, aborting"
-		exit 1
-	fi
-
-	echo "Unzipping ArchiDroid Debian in GitHub version"
-	rm -rf _debian
-	mkdir _debian
-
-	unzip -q archidroid_debian.zip -d _debian
-	if [ $? -ne 0 ]; then
-		echo "Unzipping failed, aborting"
-		exit 1
-	fi
-
-	echo "Moving debian to proper location..."
-	rm -rf $mnt
-	cd _debian
-	mv ArchiDroid-debian $mnt
-	cd $AD/tmp
-	rm -rf *
+	echo "Available modes:"
+	echo "unsafe	Will mount /data /system /storage/sdcard0 and /storage/sdcard1 in chroot. Default suggested mode"
+	echo "safe	Won't mount above directories. In this mode chrooted debian won't be able to read/write to above android directories. Keep in mind that it'll still share /dev /proc and /sys with Android"
+	echo "bare	Won't mount even required filesystems such as /proc /dev or /sys. In this mode debian won't be able to do nearly anything. Suggested only for testing purposes"
+	echo "unmount	Will call force unmount/shutdown of previously mounted debian environment, required if you want to change mode of already booted debian."
+	echo -n "Your choice: "
+	read CHOICE
 else
-	echo "It looks like you have debian downloaded already, great!"
+	CHOICE="$1"
 fi
 
-echo "Booting debian..."
+case "$CHOICE" in
+	"unmount")
+		busybox umount -f $mnt/storage/sdcard0 >/dev/null 2>&1
+		busybox umount -f $mnt/storage/sdcard1 >/dev/null 2>&1
+		busybox umount -f $mnt/system >/dev/null 2>&1
+		busybox umount -f $mnt/data >/dev/null 2>&1
+		busybox umount -f $mnt/sys >/dev/null 2>&1
+		busybox umount $mnt/proc >/dev/null 2>&1
+		busybox umount $mnt/dev/shm >/dev/null 2>&1
+		busybox umount $mnt/dev/pts >/dev/null 2>&1
+		busybox umount $mnt/dev >/dev/null 2>&1
+		echo "Done, your debian environment is fully unmounted now"
+		exit 0
+		;;
+	"unsafe")
+		echo "Ok, detected $CHOICE"
+		;;
+	"safe")
+		echo "Ok, detected $CHOICE"
+		;;
+	"bare")
+		echo "Ok, detected $CHOICE"
+		;;
+	*)
+		echo "Sorry, could not detect any valid choice, exiting"
+		exit 1
+esac
 
-if [ ! -e $mnt/proc/cpuinfo ]; then
+if [ -e $mnt/proc/uptime ]; then
+	echo "It looks like your debian is already booted, skipping booting and mode selection..."
+else
+	echo "It looks like your debian isn't booted yet, booting..."
+
+	if [ ! -e $mnt/bin/bash ]; then
+		mkdir -p $mnt
+		echo "It looks like it's your first installation. Unpacking your debian..."
+		busybox tar -xf $AD/System/debian.tar.bz2 -C $mnt
+		echo "Done!"
+	fi
+
+	echo "Booting debian..."
+
+	export TERM=linux
+	export HOME=/root
+		
 	if [ `echo $PATH | grep "/usr/local/sbin" | wc -l` -eq 0 ]; then
 			export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH
 	fi
 
-	export TERM=linux
-	export HOME=/root
-
-	# Mount core filesystems
-	busybox mount --bind /dev $mnt/dev
-	busybox mount --bind /dev/pts $mnt/dev/pts
-	mkdir -p $mnt/dev/shm
-	busybox mount --bind /dev/shm $mnt/dev/shm
-	busybox mount -t proc proc $mnt/proc
-	busybox mount -t sysfs sysfs $mnt/sys
-
-	# Mount optional filesystems
-	busybox mount --bind /system $mnt/system
-	busybox mount --bind /data $mnt/data
-	busybox mount --bind /storage/sdcard0 $mnt/storage/sdcard0
-	busybox mount --bind /storage/sdcard1 $mnt/storage/sdcard1
+	case "$CHOICE" in
+	"unsafe")
+		echo "Mounting /dev /dev/pts /dev/shm /proc /sys /system /data /storage/sdcard0 /storage/sdcard1"
+		busybox mount --bind /dev $mnt/dev
+		busybox mount --bind /dev/pts $mnt/dev/pts
+		mkdir -p $mnt/dev/shm
+		busybox mount --bind /dev/shm $mnt/dev/shm
+		busybox mount -t proc proc $mnt/proc
+		busybox mount -t sysfs sysfs $mnt/sys
+		busybox mount --bind /system $mnt/system
+		busybox mount --bind /data $mnt/data
+		busybox mount --bind /storage/sdcard0 $mnt/storage/sdcard0
+		busybox mount --bind /storage/sdcard1 $mnt/storage/sdcard1
+		;;
+	"safe")
+		echo "Mounting /dev /dev/pts /dev/shm /proc /sys, SKIPPING /system /data /storage/sdcard0 /storage/sdcard1"
+		busybox mount --bind /dev $mnt/dev
+		busybox mount --bind /dev/pts $mnt/dev/pts
+		mkdir -p $mnt/dev/shm
+		busybox mount --bind /dev/shm $mnt/dev/shm
+		busybox mount -t proc proc $mnt/proc
+		busybox mount -t sysfs sysfs $mnt/sys
+		;;
+	"bare")
+		echo "Not mounting anything!"
+		;;
+	*)
+		echo "Sorry, could not detect any valid choice, exiting"
+		exit 1
+	esac
 fi
 
 echo "ArchiDroid Debian environment ready!"

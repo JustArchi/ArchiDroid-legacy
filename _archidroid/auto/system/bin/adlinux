@@ -47,10 +47,10 @@ case "$CHOICE" in
 		busybox umount -f $mnt/system >/dev/null 2>&1
 		busybox umount -f $mnt/data >/dev/null 2>&1
 		busybox umount -f $mnt/sys >/dev/null 2>&1
-		busybox umount $mnt/proc >/dev/null 2>&1
-		busybox umount $mnt/dev/shm >/dev/null 2>&1
-		busybox umount $mnt/dev/pts >/dev/null 2>&1
-		busybox umount $mnt/dev >/dev/null 2>&1
+		busybox umount -f $mnt/proc >/dev/null 2>&1
+		busybox umount -f $mnt/dev/shm >/dev/null 2>&1
+		busybox umount -f $mnt/dev/pts >/dev/null 2>&1
+		busybox umount -f $mnt/dev >/dev/null 2>&1
 		echo "Done, your debian environment is fully unmounted now"
 		exit 0
 		;;

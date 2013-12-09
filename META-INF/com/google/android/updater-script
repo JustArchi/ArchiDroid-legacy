@@ -351,6 +351,16 @@ if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "boeffla" then
 	endif;
 endif;
 
+### DEVIL ###
+if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "devil" then
+	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Flashing Devil Kernel");
+	package_extract_file("_archidroid/kernels/devil/boot.img", "/tmp/devil.img");
+	write_raw_image("/tmp/devil.img", "/dev/block/mmcblk0p5");
+	delete("/tmp/devil.img");
+	
+	package_extract_dir("_archidroid/kernels/devil/data", "/data");
+endif;
+
 ### STOCK CM ###
 if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "stock" then
 	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Flashing CM Kernel");

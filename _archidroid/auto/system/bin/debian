@@ -7,6 +7,12 @@ if [ ! -e $mnt/proc/uptime ]; then
 	adlinux "unsafe"
 fi
 
-chroot $mnt /bin/bash
+export TERM=linux
+export HOME=/root
+		
+if [ `echo $PATH | grep "/usr/local/sbin" | wc -l` -eq 0 ]; then
+		export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH
+fi
 
+chroot $mnt /bin/bash
 exit 0

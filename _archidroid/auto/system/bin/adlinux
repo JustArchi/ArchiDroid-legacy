@@ -82,13 +82,6 @@ else
 
 	echo "Booting debian..."
 
-	export TERM=linux
-	export HOME=/root
-		
-	if [ `echo $PATH | grep "/usr/local/sbin" | wc -l` -eq 0 ]; then
-			export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH
-	fi
-
 	case "$CHOICE" in
 	"unsafe")
 		echo "Mounting /dev /dev/pts /dev/shm /proc /sys /system /data /storage/sdcard0 /storage/sdcard1"

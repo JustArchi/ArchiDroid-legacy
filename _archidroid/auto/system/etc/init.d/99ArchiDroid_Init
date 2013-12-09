@@ -136,17 +136,33 @@ if [ `mount | grep "sdcard1" | wc -l` -eq 0 ] && [ $ROM -eq 2 ] && [ -e /dev/blo
 	# Further improvements by JustArchi
 
 	echo "INFO: We're on OmniROM, we have external sd card but it's not mounted already, trying Andi's workaround!" >> $LOG
-	if [ `lsmod | grep "exfat" | wc -l` -eq 0 ]; then
-		echo "INFO: No exfat module found, it's either compiled in kernel or not loaded. Blindly loading..." >> $LOG
-		busybox insmod /system/lib/modules/exfat_core.ko >/dev/null 2>&1
-		busybox insmod /system/lib/modules/exfat_fs.ko >/dev/null 2>&1
-	fi
-
-	mount -o rw,dirsync,nosuid,nodev,noexec,noatime,nodiratime,uid=1000,gid=1023,fmask=0002,dmask=0002,allow_utime=0020 -t exfat /dev/block/vold/179:49 /storage/sdcard1
+	echo "INFO: Giving Android 20 more seconds to initialize external sd card..." >> $LOG
+	sleep 20
+	echo "INFO: Time passed!" >> $LOG
 	if [ `mount | grep "sdcard1" | wc -l` -eq 0 ]; then
-		echo "WARNING: Workaround failed or non-exfat formatted sd card!" >> $LOG
+		echo "INFO: External sd card is still not mounted, let's mount it then...!" >> $LOG
+		if [ `lsmod | grep "exfat" | wc -l` -eq 0 ]; then
+			echo "INFO: No exfat module found, it's either compiled in kernel or not loaded. Blindly loading..." >> $LOG
+			busybox insmod /system/lib/modules/exfat_core.ko >/dev/null 2>&1
+			busybox insmod /system/lib/modules/exfat_fs.ko >/dev/null 2>&1
+		fi
+
+		busybox mount -o rw,dirsync,nosuid,nodev,noexec,noatime,nodiratime,uid=1000,gid=1023,fmask=0002,dmask=0002,allow_utime=0020 -t auto /dev/block/mmcblk1p1 /storage/sdcard1
+		if [ `mount | grep "sdcard1" | wc -l` -eq 0 ]; then
+			echo "WARNING: Workaround failed on automatic filesystem detection! Blindly mounting!" >> $LOG
+			busybox mount -o rw,dirsync,nosuid,nodev,noexec,noatime,nodiratime,uid=1000,gid=1023,fmask=0002,dmask=0002,allow_utime=0020 -t exfat /dev/block/mmcblk1p1 /storage/sdcard1
+			busybox mount -o rw,dirsync,nosuid,nodev,noexec,noatime,nodiratime,uid=1000,gid=1023,fmask=0002,dmask=0002,allow_utime=0020 -t ext4 /dev/block/mmcblk1p1 /storage/sdcard1
+			busybox mount -o rw,dirsync,nosuid,nodev,noexec,noatime,nodiratime,uid=1000,gid=1023,fmask=0002,dmask=0002,allow_utime=0020 -t vfat /dev/block/mmcblk1p1 /storage/sdcard1
+			if [ `mount | grep "sdcard1" | wc -l` -eq 0 ]; then
+				echo "FATAL: I failed to mount external sd card with exfat, ext4 and vfat. Giving up here!" >> $LOG
+			else
+				echo "INFO: Success!" >> $LOG
+			fi
+		else
+			echo "INFO: Success!" >> $LOG
+		fi
 	else
-		echo "INFO: Success!" >> $LOG
+		echo "INFO: OK, Android mounted our external sd card in given 20 seconds, aborting workaround" >> $LOG
 	fi
 fi
 

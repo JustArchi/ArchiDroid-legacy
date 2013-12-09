@@ -276,7 +276,6 @@ package_extract_file("boot.img", "/dev/block/mmcblk0p5");
 ### TEMASEK ###
 if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "temasek" then
 	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Flashing Temasek Kernel");
-	#delete_recursive("/data/.temasek");
 	delete("/data/.temasek/config.version");
 	delete("/data/.temasek/customconfig.xml");
 	delete_recursive("/system/lib/modules");

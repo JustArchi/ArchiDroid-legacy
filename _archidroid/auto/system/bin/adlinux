@@ -3,9 +3,9 @@
 # ArchiDroid Debian/Linux Booter
 
 if [ `whoami` != "root" ]; then
-	echo "Sorry, but I require root access, trying to fork a rooted child..."
-	su -c "sh $0 $@" || echo "Failed!"
-	exit 1
+	echo "Sorry, but I require root access, trying to fork a rooted shell..."
+	su || echo "Failed!"
+	exit 0
 fi
 
 AD="/data/media/0/ArchiDroid"

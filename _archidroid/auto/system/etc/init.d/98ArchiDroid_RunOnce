@@ -255,7 +255,7 @@ while (! pgrep com.android && [ $LOOP -lt 150 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 			ONESHOT=1
 			for KEYBOARDFULL in "org.pocketworkstation.pckeyboard/.LatinIME" "com.cootek.smartinputv5/com.cootek.smartinput5.TouchPalIME" "com.google.android.googlequicksearchbox/com.google.android.voicesearch.ime.VoiceInputMethodService" ; do
 				KEYBOARD=`echo $KEYBOARDFULL | cut -d '/' -f 1`
-				if [ -e /data/data/$KEYBOARD ] && [ ONESHOT -eq 1 ]; then
+				if [ -e /data/data/$KEYBOARD ] && [ $ONESHOT -eq 1 ]; then
 					echo "INFO: $KEYBOARD Keyboard found!" >> $LOG
 					DBUPDATE secure default_input_method "$KEYBOARDFULL"
 					DBUPDATE secure enabled_input_methods "$KEYBOARDFULL"

@@ -12,13 +12,14 @@
     <boolean name="battCurrent" value="false" />
     <int name="graphAlpha" value="120" />
     <int name="exclusionMode" value="0" />
-    <boolean name="showProcess" value="false" />
+    <boolean name="showProcess" value="true" />
+    <boolean name="separateNetwork" value="false" />
     <boolean name="tabulation" value="false" />
     <boolean name="cpuPlate" value="false" />
     <int name="netBandwidth" value="50" />
     <int name="logInterval" value="4" />
     <boolean name="showKbps" value="true" />
-    <boolean name="forceEstimated" value="false" />
+    <boolean name="forceEstimated" value="true" />
     <boolean name="cellSignal" value="true" />
     <int name="textAlpha" value="0" />
     <boolean name="battPlate" value="false" />
@@ -29,8 +30,8 @@
     <boolean name="netPlate" value="false" />
     <boolean name="internalSDCard" value="false" />
     <boolean name="gpsPlate" value="false" />
-    <int name="widthSeek" value="0" />
-    <int name="xCoord" value="173" />
+    <int name="widthSeek" value="5" />
+    <int name="xCoord" value="211" />
     <boolean name="showTime" value="false" />
     <int name="gaugeAlpha" value="20" />
     <boolean name="debug" value="false" />
@@ -38,17 +39,18 @@
     <int name="numOfRows" value="1" />
     <int name="themePos" value="0" />
     <boolean name="currentPlate" value="false" />
-    <int name="heavyProcessThreshold" value="0" />
+    <int name="heavyProcessThreshold" value="80" />
     <int name="longtapAction3" value="1" />
     <string name="secondSDPath2">sdcard/external_sd</string>
     <boolean name="showBatt" value="false" />
     <boolean name="showFreq" value="true" />
-    <int name="backDraw" value="0" />
+    <int name="backDraw" value="12" />
     <boolean name="dnd" value="false" />
-    <boolean name="notification" value="true" />
+    <boolean name="notification" value="false" />
     <boolean name="hackICS" value="true" />
     <boolean name="colorize" value="true" />
     <int name="preset" value="0" />
+    <boolean name="classicUI" value="false" />
     <boolean name="showNet" value="true" />
     <int name="ioMaxSpeed" value="2000" />
     <boolean name="ioPlate" value="false" />

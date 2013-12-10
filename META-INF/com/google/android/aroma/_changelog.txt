@@ -1,5 +1,9 @@
 ArchiDroid 2.3.1
 
+- Updated Cool Tool to 5.1.1 + Archi's preset for Cool Tool
+# It'll now show you the most resource-intensive process if it takes more than 80% of available resources. May be useful if you notice 100% CPU consumption
+# Additionally deleted cpu graph, hidden annoying notification, fixed iostat (showing null I/O after full wipe) and various other misc improvements
+
 - Updated Boeffla Kernel to 2.1-beta3
 - Updated Google Play to 4.5.10
 - Updated sources (Android 4.4.1)

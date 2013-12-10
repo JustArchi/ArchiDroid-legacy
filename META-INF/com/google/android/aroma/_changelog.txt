@@ -22,6 +22,10 @@ ArchiDroid 1.7.3
 * Added Keyboard handling. ArchiDroid will now set your keyboard according to your aroma choice. This is extremely important because Android doesn't do it automatically now (in 4.4)
 * [2.X] Some new DBUPDATE values based on OmniROM.
 
+^ Updated Cool Tool to 5.1.1 + Archi's preset for Cool Tool
+# It'll now show you the most resource-intensive process if it takes more than 80% of available resources. May be useful if you notice 100% CPU consumption
+# Additionally deleted cpu graph, hidden annoying notification, fixed iostat (showing null I/O after full wipe) and various other misc improvements
+
 ^ Silent CrossBreeder update, which fixes network buffers and some related problems
 ^ All inverted apps are disabled in default preset now
 ^ Updated Google Play to 4.5.10

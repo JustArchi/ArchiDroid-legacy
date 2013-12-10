@@ -180,8 +180,12 @@ if [ -e $AD/INSTALL ] || [ $FORCE -eq 1 ]; then
 	echo "INFO: Install mode detected, I'm either after full wipe or forced to think so. Turning on ADMANY and DBUPDATE" >> $LOG
 	INSTALLMODE=1
 	if [ -d $AD/FIRSTBOOT/DATA ]; then
+		ADMANY=0
 		cd $AD/FIRSTBOOT/DATA
-		ADMANY=`ls | wc -l`
+		for folder in `find . -mindepth 1 -maxdepth 1 -type d` ; do
+			echo "I found $folder which need merging (data)" >> $LOG
+			ADMANY=`expr $ADMANY + 1`
+		done
 	else
 		ADMANY=0
 	fi
@@ -326,37 +330,30 @@ while (! pgrep com.android && [ $LOOP -lt 150 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 		cd $AD/FIRSTBOOT/DATA
 		for FOLDER in * ; do
 			if [ -d /data/data/$FOLDER ]; then
-				echo "INFO: I'm merging $FOLDER, called by ADMANY" >> $LOG
+				echo "INFO: I'm currently merging $FOLDER, called by ADMANY" >> $LOG
 				ADOWNER=`ls -ld /data/data/$FOLDER | awk '{print $3}'`
 				mkdir /data/data/$FOLDER/_ADTEMP
 				cp -R $FOLDER/* /data/data/$FOLDER/_ADTEMP/
 				
-				# I hate using implementations like this one, our shell is very limited. Forgive me
-				echo "cd /data/data/$FOLDER/_ADTEMP && cp -R * .." | su "$ADOWNER"
+				su "$ADOWNER" -c "cd /data/data/$FOLDER/_ADTEMP && cp -R * .. && touch /data/data/$FOLDER/DONE"
 				
-				if [ $? -eq 0 ]; then
-					if [ $ROM -ne 0 ]; then
-						# Screw security, alright?
-						# It may not be required in near future, but as for now it is
-						echo "WARNING: This ROM doesn't care about security, falling back to dirty chmod permissions!" >> $LOG
-						busybox chmod -R 777 /data/data/$FOLDER/*
-					fi
+				if [ ! -e /data/data/$FOLDER/DONE ]; then
 					echo "INFO: It looks like everything ended successfully on $FOLDER" >> $LOG
+					rm -f /data/data/$FOLDER/DONE
 				else
 					echo "ERROR: su failed on $FOLDER, falling back to dirty chmod permissions, please investigate!" >> $LOG
 					cd /data/data/$FOLDER/_ADTEMP && cp -R * .. && cd $AD/FIRSTBOOT/DATA
-					busybox chmod -R 777 /data/data/$FOLDER/*
+					busybox chmod -R 777 /data/data/$FOLDER/* >/dev/null 2>&1
 				fi
 
 				# And we're done!
 				rm -Rf $FOLDER
 				rm -Rf /data/data/$FOLDER/_ADTEMP
 				ADOWNER=""
-				ADMANY=`ls | wc -l`
+				ADMANY=`expr $ADMANY - 1`
 				echo "INFO: $ADMANY to go" >> $LOG
 			fi
 		done
-		#ADMANY=`ls | wc -l`
 	fi
 
 	# Sleeping time

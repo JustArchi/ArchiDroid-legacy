@@ -83,7 +83,7 @@ exit 0" > /system/etc/init.d/91ArchiDroid_RebuildDebian
 		exit 1
 esac
 
-if [ -e $mnt/proc/uptime ] && [ -e $mnt/dev/urandom ] && [ -e /sys/kernel ]; then
+if [ -e $mnt/proc/uptime ] && [ -e $mnt/dev/urandom ] && [ -e $mnt/sys/kernel ]; then
 	echo "It looks like your debian is already booted, skipping booting and mode selection..."
 else
 	echo "It looks like your debian isn't booted yet, booting..."

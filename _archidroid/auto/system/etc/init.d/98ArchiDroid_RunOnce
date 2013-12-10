@@ -10,27 +10,10 @@
 AD="/data/media/0/ArchiDroid"
 LOG="$AD/RunOnce.log" # "/dev/null" is no verbose
 
-# Which mode are we using?
-# 0 - CyanogenMod
-# 1 - Sammy
-# 2 - Omni
-ROM=0
-if [ `cat /system/build.prop | grep "ro.omni.version" | wc -l` -gt 0 ]; then
-	ROM=2
-elif [ `cat /system/build.prop | grep "ro.build.user=se.infra" | wc -l` -gt 0 ]; then
-	ROM=1
-fi
-
-if [ -e $AD/RunOnce.log ] && [ ! -e $AD/RunOnce.log.0 ]; then
-	mv $AD/RunOnce.log $AD/RunOnce.log.0
-fi
-
 # Redirect stderr to our log, just in case something bad happen
 #exec 1>$LOG # Use "exec 1>>$LOG" for append
 echo -n "" > $LOG
 exec 2>>$LOG
-
-# Main code
 
 ADARGS() {
 	# $1 - what we're looking for
@@ -158,9 +141,28 @@ else
 	echo "INFO: I'm a child!" >> $LOG
 fi
 
+
+#   ____
+#  / ___| ___   _ __  ___
+# | |    / _ \ | '__|/ _ \
+# | |___| (_) || |  |  __/
+#  \____|\___/ |_|   \___|
+#
+
 # Custom boot sound support
 if [ -e $AD/PowerOn.wav ]; then
 	tinyplay $AD/PowerOn.wav > /dev/null 2>&1 &
+fi
+
+# Which mode are we using?
+# 0 - CyanogenMod
+# 1 - Sammy
+# 2 - Omni
+ROM=0
+if [ `cat /system/build.prop | grep "ro.omni.version" | wc -l` -gt 0 ]; then
+	ROM=2
+elif [ `cat /system/build.prop | grep "ro.build.user=se.infra" | wc -l` -gt 0 ]; then
+	ROM=1
 fi
 
 # We don't need to reload anything for now

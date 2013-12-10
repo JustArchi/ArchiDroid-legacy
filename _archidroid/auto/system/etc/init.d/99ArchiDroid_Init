@@ -10,23 +10,10 @@
 AD="/data/media/0/ArchiDroid"
 LOG="$AD/Init.log" # "/dev/null" is no verbose
 
-# Which mode are we using?
-# 0 - CyanogenMod
-# 1 - Sammy
-# 2 - Omni
-ROM=0
-if [ `cat /system/build.prop | grep "ro.omni.version" | wc -l` -gt 0 ]; then
-	ROM=2
-elif [ `cat /system/build.prop | grep "ro.build.user=se.infra" | wc -l` -gt 0 ]; then
-	ROM=1
-fi
-
 # Redirect stderr to our log, just in case something bad happen
 #exec 1>$LOG # Use "exec 1>>$LOG" for append
 echo -n "" > $LOG
 exec 2>>$LOG
-
-# Main code
 
 ADARGS() {
 	# $1 - what we're looking for
@@ -67,6 +54,14 @@ else
 	# We're running in background so let's proceed
 	echo "INFO: I'm a child!" >> $LOG
 fi
+
+
+#   ____
+#  / ___| ___   _ __  ___
+# | |    / _ \ | '__|/ _ \
+# | |___| (_) || |  |  __/
+#  \____|\___/ |_|   \___|
+#
 
 # Which mode are we using?
 # 0 - CyanogenMod

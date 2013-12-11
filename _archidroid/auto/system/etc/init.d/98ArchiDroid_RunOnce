@@ -344,7 +344,7 @@ while (! pgrep com.android && [ $LOOP -lt 150 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 				
 				su "$ADOWNER" -c "cd /data/data/$FOLDER/_ADTEMP && cp -R * .. && touch /data/data/$FOLDER/DONE"
 				
-				if [ ! -e /data/data/$FOLDER/DONE ]; then
+				if [ -e /data/data/$FOLDER/DONE ]; then
 					echo "INFO: It looks like everything ended successfully on $FOLDER" >> $LOG
 					rm -f /data/data/$FOLDER/DONE
 				else

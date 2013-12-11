@@ -1,6 +1,7 @@
 #!/system/bin/sh
 
 VERSION=""
+MODE="git"
 TEMP=""
 AD="/data/media/0/ArchiDroid"
 
@@ -31,9 +32,26 @@ if [ $# -eq 0 ]; then
 	echo ""
 	echo -n "Your choice: "
 	read VERSION
+	echo ""
+	echo ""
+	echo "ArchiDroid Flasher is compatible with two modes: git and direct"
+	echo "direct	Downloads targeted branch as .zip file directly from github. Simple and reliable, default mode"
+	echo "git	Sets up local git repository, which gives you delta upgrades and bandwidth saving. Advanced mode (WORK IN PROGRESS)"
+	echo -n "Your choice: "
+	read MODE
 else
 	VERSION="$1"
+	MODE="$2"
 fi
+
+case "$MODE" in
+	"direct")
+		;;
+	"git")
+		;;
+	*)
+		MODE="direct"
+esac
 
 case "$VERSION" in
 	"2e")
@@ -59,69 +77,75 @@ VERSION=$TEMP
 TEMP=""
 echo "Ok, detected $VERSION"
 
-if [ "$VERSION" != "local" ]; then
-	cd $AD/tmp
-	echo ""
-	echo "Testing your internet connection..."
-	curl google.com > /dev/null 2>&1
-	CHECK=$?
-	if [ $CHECK -ne 0 ]; then
-		echo "Something went wrong, test returned error code $CHECK."
-		echo "Sorry but I can't let you pass, either you don't have a valid connection with the internet or required components aren't working properly"
-		exit 1
-	else
-		echo "Test passed successfully!"
+if [ "$MODE" == "direct" ]; then
+	if [ "$VERSION" != "local" ]; then
+		cd $AD/tmp
 		echo ""
+		echo "Testing your internet connection..."
+		curl google.com > /dev/null 2>&1
+		CHECK=$?
+		if [ $CHECK -ne 0 ]; then
+			echo "Something went wrong, test returned error code $CHECK."
+			echo "Sorry but I can't let you pass, either you don't have a valid connection with the internet or required components aren't working properly"
+			exit 1
+		else
+			echo "Test passed successfully!"
+			echo ""
+		fi
+		echo "CHANGELOG START"
+		echo ""
+		curl -kSs https://raw.github.com/JustArchi/ArchiDroid/$VERSION/META-INF/com/google/android/aroma/_changelog.txt
+		echo ""
+		echo ""
+		echo "CHANGELOG EOF"
+		echo ""
+		echo "Ok, starting download from GitHub"
+		echo "Warning, it may take long time. Make sure that you have stable Wi-Fi connection"
+		echo ""
+		TEMP=`curl -kISs https://codeload.github.com/JustArchi/ArchiDroid/zip/$VERSION | grep "Content-Length" | awk '{print $2}'`
+		if [ ! -z "$TEMP" ]; then
+			TEMP=`expr $TEMP / 1048576`
+			echo "It's about $TEMP Megabytes"
+		else
+			echo "Couldn't retrieve remote ArchiDroid size, sorry"
+		fi
+		echo ""
+		TEMP=""
+		echo "Downloading right now..."
+		rm -f archidroid_github.zip
+		curl -Sk https://codeload.github.com/JustArchi/ArchiDroid/zip/$VERSION > archidroid_github.zip
+		echo "Download completed, it took some time..."
 	fi
-	echo "CHANGELOG START"
-	echo ""
-	curl -kSs https://raw.github.com/JustArchi/ArchiDroid/$VERSION/META-INF/com/google/android/aroma/_changelog.txt
-	echo ""
-	echo ""
-	echo "CHANGELOG EOF"
-	echo ""
-	echo "Ok, starting download from GitHub"
-	echo "Warning, it may take long time. Make sure that you have stable Wi-Fi connection"
-	echo ""
-	TEMP=`curl -kISs https://codeload.github.com/JustArchi/ArchiDroid/zip/$VERSION | grep "Content-Length" | awk '{print $2}'`
-	if [ ! -z "$TEMP" ]; then
-		TEMP=`expr $TEMP / 1048576`
-		echo "It's about $TEMP Megabytes"
-	else
-		echo "Couldn't retrieve remote ArchiDroid size, sorry"
+
+	if [ ! -e archidroid_github.zip ]; then
+		echo "Couldn't find $AD/tmp/archidroid_github.zip, aborting"
+		exit 1
 	fi
-	echo ""
-	TEMP=""
-	echo "Downloading right now..."
-	rm -f archidroid_github.zip
-	curl -Sk https://codeload.github.com/JustArchi/ArchiDroid/zip/$VERSION > archidroid_github.zip
-	echo "Download completed, it took some time..."
-fi
 
-if [ ! -e archidroid_github.zip ]; then
-	echo "Couldn't find $AD/tmp/archidroid_github.zip, aborting"
-	exit 1
-fi
+	echo "Repacking downloaded ArchiDroid"
+	echo "Unzipping ArchiDroid in GitHub version"
+	rm -rf _adflash
+	mkdir _adflash
 
-echo "Repacking downloaded ArchiDroid"
-echo "Unzipping ArchiDroid in GitHub version"
-rm -rf _adflash
-mkdir _adflash
+	unzip -q archidroid_github.zip -d _adflash
+	if [ $? -ne 0 ]; then
+		echo "Unzipping failed, aborting"
+		exit 1
+	fi
 
-unzip -q archidroid_github.zip -d _adflash
-if [ $? -ne 0 ]; then
-	echo "Unzipping failed, aborting"
-	exit 1
-fi
+	cd _adflash && cd ArchiDroid-$VERSION
+	echo "Removing __dont_include folder..."
+	rm -rf __dont_include
+	echo "Zipping ArchiDroid to flashable version..."
 
-cd _adflash && cd ArchiDroid-$VERSION
-echo "Removing __dont_include folder..."
-rm -rf __dont_include
-echo "Zipping ArchiDroid to flashable version..."
-
-zip -qry -1 ArchiDroid.zip .
-if [ $? -ne 0 ]; then
-	echo "Zipping failed, aborting"
+	zip -qry -1 ArchiDroid.zip .
+	if [ $? -ne 0 ]; then
+		echo "Zipping failed, aborting"
+		exit 1
+	fi
+elif [ "$MODE" == "git" ]; then
+	//TODO
+	echo "WORK IN PROGRESS!"
 	exit 1
 fi
 

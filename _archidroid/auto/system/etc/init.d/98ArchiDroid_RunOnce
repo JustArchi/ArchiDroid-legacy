@@ -293,6 +293,7 @@ while (! pgrep com.android && [ $LOOP -lt 150 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 				DBUPDATE system screen_off_animation 0
 				#DBUPDATE system power_menu_screenshot_enabled 1
 				DBUPDATE system screenshot_in_power_menu 1
+				DBUPDATE system clear_recents_button 1
 				DBUPDATE system clear_recents_button_location 3
 				DBUPDATE system non_intrusive_incall 1
 				DBUPDATE system status_bar_battery_style 3

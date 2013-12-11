@@ -144,9 +144,26 @@ if [ "$MODE" == "direct" ]; then
 		exit 1
 	fi
 elif [ "$MODE" == "git" ]; then
-	//TODO
-	echo "WORK IN PROGRESS!"
-	exit 1
+	echo "Booting pocket debian..."
+	adlinux "default"
+	
+	echo "Setting up git repository..."
+	debian "cmd" "cd $AD/GitHub && bash github.sh $VERSION"
+	
+	# Expect that repo is ready
+	cd $AD/GitHub/$VERSION
+	if [ $? -ne 0 ]; then
+		echo "Something went wrong, aborting"
+		exit 1
+	fi
+	
+	echo "Zipping ArchiDroid to flashable version..."
+	
+	zip -qry -1 ArchiDroid.zip . # TODO: get rid of __dont_include
+	if [ $? -ne 0 ]; then
+		echo "Zipping failed, aborting"
+		exit 1
+	fi
 fi
 
 rm -f $AD/ArchiDroid.zip

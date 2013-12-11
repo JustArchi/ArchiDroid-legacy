@@ -15,6 +15,7 @@ if [ -d $ourFolder/$VERSION ]; then
 	git pull $ourRepo $VERSION
 else
 	echo "Repository isn't available yet, cloning ArchiDroid repository branch $VERSION"
+	cd $ourFolder
 	git clone --branch $VERSION --depth 1 $ourLink $VERSION
 	cd $ourFolder/$VERSION
 	git pull $ourRepo $VERSION

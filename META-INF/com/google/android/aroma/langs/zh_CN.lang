@@ -56,95 +56,95 @@ text_quit_msg=确认退出安装？
 #
 common.for=for
 common.none=None
-common.replaces=Replaces
-common.inverted=Inverted
+common.replaces=替换
+common.inverted=转为
 common.experimental=实验（功能）
-common.deprecated=DEPRECATED
-common.obsolete=OBSOLETE
+common.deprecated=已废弃
+common.obsolete=已过时
 terms.check=我同意授权许可条款
 terms.confirm=请阅读许可协议!
 terms.check2=我完全理解并遵守它
 terms.confirm2=尊敬开发者劳动!
 
-archidroid.tos=ArchiDroid Terms and Conditions
+archidroid.tos=ArchiDroid 许可协议条款
 
-archidroid.detect.fail=ArchiDroid could not detect itself being running. Did you make full wipe or you're coming from other ROM?
-archidroid.detect.fail.yes=Yes, I don't have ArchiDroid
-archidroid.detect.fail.no=No, I'm running ArchiDroid!
-archidroid.detect.fail.alert.yes=OK, I've selected ArchiDroid Install mode for you then.
-archidroid.detect.fail.alert.no=That's not good. I'll fake results but do not use Update mode if you don't have ArchiDroid running!
-archidroid.detect.pass=ArchiDroid successfully detected itself being running. Would you like to try Update mode?
-archidroid.detect.pass.yes=Yes, Try Update
-archidroid.detect.pass.no=No, Full Wipe
-archidroid.detect.pass.alert.no=OK, I'll proceed with full wipe and ArchiDroid Install mode
-archidroid.detect.force=Would you like to use forced update mode? This tells ArchiDroid RunOnce to perform advanced tweaks, which normally would be executed only during install mode. Select No if you're unsure
+archidroid.detect.fail=没有检测到ArchiDroid运行. 做过全部擦除或者从其他ROM转到ArchiDroid?
+archidroid.detect.fail.yes=我原来没有ArchiDroid
+archidroid.detect.fail.no=我已经运行 ArchiDroid!
+archidroid.detect.fail.alert.yes=好, 我为你选择了 ArchiDroid 安装模式.
+archidroid.detect.fail.alert.no=这不太好. 如果你没有运行ArchiDroid我将伪造结果 but do not use Update mode!
+archidroid.detect.pass=成功检测到ArchiDroid运行. 想要用升级模式么?
+archidroid.detect.pass.yes=好，升级模式
+archidroid.detect.pass.no=不, 全部擦除
+archidroid.detect.pass.alert.no=好, 将全部擦除数据并使用 ArchiDroid 安装模式
+archidroid.detect.force=想要用强制升级模式? ArchiDroid 启动一次来进行高级微调, which normally would be executed only during install mode. Select No if you're unsure
 
-archidroid.preset=ArchiDroid Installation Preset
-archidroid.preset.desc=Please select installation preset:
-archidroid.preset.group=Preset
-archidroid.preset.custom=Custom
-archidroid.preset.custom.desc=You'll be able to customize every aspect of the installation
-archidroid.preset.barebones=Bare Bones
-archidroid.preset.barebones.desc=Clean ROM. Only for testing purposes, not recommended
-archidroid.preset.previous=Previous Preset
-archidroid.preset.previous.desc=Loads your previous custom installation preset (if available)
+archidroid.preset=ArchiDroid 安装预设
+archidroid.preset.desc=请选择安装预设:
+archidroid.preset.group=预设
+archidroid.preset.custom=自定义
+archidroid.preset.custom.desc=你可以自定义安装的全部内容
+archidroid.preset.barebones=纯净ROM
+archidroid.preset.barebones.desc=纯净ROM. 只为测试, 不推荐
+archidroid.preset.previous=使用之前的预设
+archidroid.preset.previous.desc=载入之前的自定义安装预设 (如果存在的话)
 
-archidroid.detect.previouspreset.fail=Could not load your previous preset, either it failed integrity check or doesn't exist
+archidroid.detect.previouspreset.fail=不能载入之前的安装预设, 不存在或者完整性检测失败
 
-archidroid.custom=ArchiDroid Customization
-archidroid.custom.extra=ArchiDroid Extra Customization
-archidroid.custom.desc=Please modify settings to your liking
+archidroid.custom=ArchiDroid 自定义
+archidroid.custom.extra=ArchiDroid 额外自定义
+archidroid.custom.desc=请修改设置，怎么习惯怎么来
 
 archidroid.kernel.temasek.desc=Recommended for perfect peformance, powersave, high flexibility and boeffla sound
 archidroid.kernel.boeffla.desc=Highly recommended masterpiece perfect for everyone, featuring boeffla sound and many more features
-archidroid.kernel.yank.desc=Recommended as an alternative
-archidroid.kernel.devil.desc=Based on Perseus sources. Unique for dual-boot feature
-archidroid.kernel.googy.desc=Based on Siyah sources. Unique for dual-boot feature
-archidroid.kernel.stock.desc=Comes as a default kernel with ROM
+archidroid.kernel.yank.desc=推荐作为替代选择
+archidroid.kernel.devil.desc=基于Perseus源码. 适合双启动特性
+archidroid.kernel.googy.desc=基于Siyah 源码. 适合双启动特性
+archidroid.kernel.stock.desc=使用ROM默认内核
 
-archidroid.theme.foxhound.desc=Dark AOSP blue theme
-archidroid.theme.stock.desc=Stock theme
+archidroid.theme.foxhound.desc=暗蓝色 AOSP 主题
+archidroid.theme.stock.desc=原生主题
 
-archidroid.dpi.240w.desc=WARNING! Keep in mind some minor graphic glitches on this DPI
-archidroid.dpi.240.desc=Everything will be smaller, it includes buttons, icons, texts etc. Suggested for best experience with ArchiDroid!
-archidroid.dpi.280.desc=A nice balance between stock and 240 DPI mode
-archidroid.dpi.320.desc=Stock value
+archidroid.dpi.240w.desc=警告! 记住在这个DPI下有一些轻微的图形故障
+archidroid.dpi.240.desc=所有都会变小, 包含按钮、图标和文本等等. 建议使用，能有最好的体验!
+archidroid.dpi.280.desc=能在原生和240 DPI模式之间好的平衡
+archidroid.dpi.320.desc=默认DPI设置
 
 archidroid.launcher.nova.desc=Recommended for extra flexibility and performance
-archidroid.launcher.stock.desc=Coming from ROM
-archidroid.launcher.none.desc=No launcher. WARNING! Don't tick if you're after full wipe! You need at least one custom launcher before first boot!
+archidroid.launcher.stock.desc=ROM自带
+archidroid.launcher.none.desc=不含启动器.警告! 在完全擦除之后不要勾选! 第一次启动之前你需要至少一个第三方启动器!
 
-archidroid.keyboard=Keyboard
+archidroid.keyboard=键盘
 archidroid.keyboard.touchpal.desc=Recommended as great and very flexible Swype/Curve keyboard
 archidroid.keyboard.hackers.desc=Great alternative to TouchPal if you're not going to use swype/curve function
 archidroid.keyboard.both.desc=If you want to use both TouchPal and Hacker's (for example in terminal)
 archidroid.keyboard.stock.desc=If you want to keep default ROM keyboard
 archidroid.keyboard.none.desc=No keyboard. WARNING! Don't tick if you're after full wipe! You need at least one custom keyboard before first boot!
 
-archidroid.bootanimation=Bootanimation
+archidroid.bootanimation=开机动画
 archidroid.bootanimation.archi.desc=New fancy ArchiDroid bootanimation
-archidroid.bootanimation.archilegacy.desc=Old ArchiDroid 1.X bootanimation
-archidroid.bootanimation.logcat.desc=Changes default bootaimation to logcat output - powered by logcat lite
-archidroid.bootanimation.stock.desc=Stock bootanimation provided by ROM
-archidroid.bootanimation.none.desc=No bootanimation, for slightly faster bootup
+archidroid.bootanimation.archilegacy.desc=旧 1.X 开机动画
+archidroid.bootanimation.logcat.desc=更改默认开机动画为 logcat 输出 - 使用 logcat lite 构建
+archidroid.bootanimation.stock.desc=ROM自带原生开机动画
+archidroid.bootanimation.none.desc=无开机动画, 启动速度轻微提高
 
-archidroid.other=Other
-archidroid.ota.desc=Recommended by ArchiDroid. We'll install UpdateMe apk and enable OTA updates via build.prop
-archidroid.xposed.desc=Allows using various of Xposed modules. Needs to be enabled manualy
-archidroid.crossbreeder.desc=Recommended for extra performance and flexibility, not compatible with Seeder
-archidroid.updatemodem=Update Modem
-archidroid.updatemodem.desc=If you want to have latest modem
-archidroid.updaterecovery=Update Recovery
-archidroid.updaterecovery.desc=If you want to have latest recovery
+archidroid.other=其他
+archidroid.ota.desc=ArchiDroid 推荐. 安装 UpdateMe 应用并通过build.prop开启OTA更新
+archidroid.xposed.desc=允许使用大量 Xposed 模块. 需要手动开启
+archidroid.crossbreeder.desc=Recommended for extra performance and flexibility, 与 Seeder 不兼容
+archidroid.updatemodem=更新基带
+archidroid.updatemodem.desc=如果你想用最新基带的话
+archidroid.updaterecovery=更新 Recovery
+archidroid.updaterecovery.desc=如果你想使用最新recovery
 
-archidroid.gapps.desc=Core functions and apps from Google. DON'T DESELECT THIS
-archidroid.gapps.gquick.desc=May break Google Voice!
+archidroid.gapps.desc=Google核心服务包和app. 不要取消勾选这个！
+archidroid.gapps.gquick.desc=可能破坏掉 Google Voice!
 
-archidroid.apps.titaniumbackup.desc=Perfect solution for saving personal/app data between updates
-archidroid.apps.greenify.desc=Useful if you want to hibernate any app, which saves your battery
+archidroid.apps.titaniumbackup.desc=刷机/更新保存个人数据和app的最佳方案
+archidroid.apps.greenify.desc=休眠任何app的利器, 能增强电池续航
 archidroid.apps.lmt.desc=Useful tool for executing a command binded to specific gesture on the screen, also known as pie from SlimBean
-archidroid.apps.mxplayer.desc=Probably best video player for Android
-archidroid.apps.spiritfm.desc=Free FM radio app working with CyanogenMod
+archidroid.apps.mxplayer.desc=应该是安卓下最好的视频播放器
+archidroid.apps.spiritfm.desc=能在 CyanogenMod 下工作的免费收音机
 archidroid.apps.bbs.desc=Gives you power to view more specific battery stats - especially wakelocks
 archidroid.apps.cooltool.desc=Shows some useful statistics on the top bar
 archidroid.apps.rootbrowser.desc=Very cool browser extended by optional root access
@@ -152,15 +152,15 @@ archidroid.apps.adobeflash.desc=Adds flash content support. Does not work with G
 archidroid.apps.youtube.desc=Inverted version of YouTube app
 archidroid.apps.facebook.desc=Inverted version of Facebook and Messenger
 
-archidroid.tweaks.hdvoice.desc=Enables HD Voice if available
-archidroid.tweaks.buildtweaks.desc=Many build.prop tweaks, including deeper sleep, performance tweaks and more
-archidroid.tweaks.openpdroid.desc=Apply OpenPDroid patch after install if available
-archidroid.tweaks.nocell.desc=In general considered as bloatware. Uncheck if you want to keep this
+archidroid.tweaks.hdvoice.desc=如果可以，开启 HD Voice
+archidroid.tweaks.buildtweaks.desc=诸多 build.prop 微调, 包含深度睡眠、性能微调及其他
+archidroid.tweaks.openpdroid.desc=如果可以，安装结束后应用 OpenPDroid 补丁
+archidroid.tweaks.nocell.desc=通常被认为是臃肿软件. 如果想保留这个取消选择
 
-archidroid.preset.no=No Preset
-archidroid.preset.no.desc=Not recommended because you'll miss most of the Archi's optimizations
+archidroid.preset.no=不使用预设设置
+archidroid.preset.no.desc=不推荐，你会错过绝大多数Archi的优化
 
-archidroid.preset.kernel.boeffla.archiperformance=ArchiDroid Performance
+archidroid.preset.kernel.boeffla.archiperformance=ArchiDroid 性能设置
 archidroid.preset.kernel.boeffla.archiperformance.desc=A profile optimized and designed mostly for gamers, including overclock CPU & GPU. Expect better performance for a cost of battery life
 archidroid.preset.kernel.boeffla.archipowersave=ArchiDroid PowerSave
 archidroid.preset.kernel.boeffla.archipowersave.desc=Default preset proposed for most users, including light uV. Provides a very good balance between battery life and performance. Recommended by Archi
@@ -196,5 +196,5 @@ archidroid.install.desc=<b>ArchiDroid</b> 正在安装.\
 archidroid.install.finish=ArchiDroid 向导已经成功刷入 <b>ArchiDroid<b>\
 按下 <b>Finish</b> 继续.
 
-archidroid.buildtweaks.fastdormancy.desc=Untick to disable fast dormancy, may improve battery life if your provider doesn't support it
-archidroid.buildtweaks.zerowakeup.desc=Tick to enable ZeroWakeUp, it will put CPU into sleep mode (instead of deep/deeper sleep), reducing wake up delay to the minimum
+archidroid.buildtweaks.fastdormancy.desc=取消勾选来关闭 fast dormancy, 如果运营商不支持，可能延长电池寿命
+archidroid.buildtweaks.zerowakeup.desc=勾选开启 ZeroWakeUp, 让CPU工作在睡眠模式 (不是深度睡眠), 把唤醒延迟降到最低

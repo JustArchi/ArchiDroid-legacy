@@ -129,14 +129,9 @@ if [ "$MODE" == "direct" ]; then
 		exit 1
 	fi
 
-	cd _adflash && cd ArchiDroid-$VERSION
-	echo "Removing __dont_include folder..."
-	rm -rf __dont_include
-	echo "Zipping ArchiDroid to flashable version..."
-
-	zip -qry -1 ArchiDroid.zip .
+	cd _adflash/ArchiDroid-$VERSION
 	if [ $? -ne 0 ]; then
-		echo "Zipping failed, aborting"
+		echo "Something went wrong, aborting"
 		exit 1
 	fi
 elif [ "$MODE" == "git" ]; then
@@ -152,21 +147,23 @@ elif [ "$MODE" == "git" ]; then
 		echo "Something went wrong, aborting"
 		exit 1
 	fi
-	
-	echo "Zipping ArchiDroid to flashable version..."
-	
-	zip -qry -1 ArchiDroid.zip . # TODO: get rid of __dont_include
-	if [ $? -ne 0 ]; then
-		echo "Zipping failed, aborting"
-		exit 1
-	fi
 fi
 
+echo "Zipping ArchiDroid to flashable version..."
+zip -qry -1 ArchiDroid.zip -x ".git/*" "__dont_include/*"
+if [ $? -ne 0 ]; then
+	echo "Zipping failed, aborting"
+	exit 1
+fi
+	
 rm -f $AD/ArchiDroid.zip
 mv ArchiDroid.zip $AD/ArchiDroid.zip
 echo "Done, you can find your flashable rom in $AD/ArchiDroid.zip"
-cd $AD/tmp
-rm -rf *
+
+if [ "$MODE" == "direct" ]; then
+	cd $AD/tmp && rm -rf *
+fi
+
 echo ""
 echo -n "Would you like to reboot to recovery now? [y/n]: "
 read CHOICE

@@ -28,15 +28,16 @@ if [ $# -eq 0 ]; then
 	echo "2s	2.X-STABLE"
 	echo "1e	1.X-EXPERIMENTAL"
 	echo "1s	1.X-STABLE"
-	echo "local	If you have $AD/tmp/archidroid_github.zip downloaded already"
 	echo ""
 	echo -n "Your choice: "
 	read VERSION
 	echo ""
 	echo ""
 	echo "ArchiDroid Flasher is compatible with two modes: git and direct"
-	echo "direct	Downloads targeted branch as .zip file directly from github. Simple and reliable, default mode"
-	echo "git	Sets up local git repository, which gives you delta upgrades and bandwidth saving. Advanced mode (WORK IN PROGRESS)"
+	echo ""
+	echo "direct		Downloads targeted branch as .zip file directly from github. Simple and reliable"
+	echo "git		Sets up local git repository, which gives you delta upgrades and bandwidth saving. Advanced, default mode"
+	echo ""
 	echo -n "Your choice: "
 	read MODE
 else
@@ -50,7 +51,7 @@ case "$MODE" in
 	"git")
 		;;
 	*)
-		MODE="direct"
+		MODE="git"
 esac
 
 case "$VERSION" in
@@ -66,9 +67,6 @@ case "$VERSION" in
 	"1s")
 		TEMP="1.X-STABLE"
 		;;
-	"local")
-		TEMP="local"
-		;;
 	*)
 		echo "Sorry, could not detect any valid version, exiting"
 		exit 1
@@ -78,44 +76,42 @@ TEMP=""
 echo "Ok, detected $VERSION"
 
 if [ "$MODE" == "direct" ]; then
-	if [ "$VERSION" != "local" ]; then
-		cd $AD/tmp
+	cd $AD/tmp
+	echo ""
+	echo "Testing your internet connection..."
+	curl google.com > /dev/null 2>&1
+	CHECK=$?
+	if [ $CHECK -ne 0 ]; then
+		echo "Something went wrong, test returned error code $CHECK."
+		echo "Sorry but I can't let you pass, either you don't have a valid connection with the internet or required components aren't working properly"
+		exit 1
+	else
+		echo "Test passed successfully!"
 		echo ""
-		echo "Testing your internet connection..."
-		curl google.com > /dev/null 2>&1
-		CHECK=$?
-		if [ $CHECK -ne 0 ]; then
-			echo "Something went wrong, test returned error code $CHECK."
-			echo "Sorry but I can't let you pass, either you don't have a valid connection with the internet or required components aren't working properly"
-			exit 1
-		else
-			echo "Test passed successfully!"
-			echo ""
-		fi
-		echo "CHANGELOG START"
-		echo ""
-		curl -kSs https://raw.github.com/JustArchi/ArchiDroid/$VERSION/META-INF/com/google/android/aroma/_changelog.txt
-		echo ""
-		echo ""
-		echo "CHANGELOG EOF"
-		echo ""
-		echo "Ok, starting download from GitHub"
-		echo "Warning, it may take long time. Make sure that you have stable Wi-Fi connection"
-		echo ""
-		TEMP=`curl -kISs https://codeload.github.com/JustArchi/ArchiDroid/zip/$VERSION | grep "Content-Length" | awk '{print $2}'`
-		if [ ! -z "$TEMP" ]; then
-			TEMP=`expr $TEMP / 1048576`
-			echo "It's about $TEMP Megabytes"
-		else
-			echo "Couldn't retrieve remote ArchiDroid size, sorry"
-		fi
-		echo ""
-		TEMP=""
-		echo "Downloading right now..."
-		rm -f archidroid_github.zip
-		curl -Sk https://codeload.github.com/JustArchi/ArchiDroid/zip/$VERSION > archidroid_github.zip
-		echo "Download completed, it took some time..."
 	fi
+	echo "CHANGELOG START"
+	echo ""
+	curl -kSs https://raw.github.com/JustArchi/ArchiDroid/$VERSION/META-INF/com/google/android/aroma/_changelog.txt
+	echo ""
+	echo ""
+	echo "CHANGELOG EOF"
+	echo ""
+	echo "Ok, starting download from GitHub"
+	echo "Warning, it may take long time. Make sure that you have stable Wi-Fi connection"
+	echo ""
+	TEMP=`curl -kISs https://codeload.github.com/JustArchi/ArchiDroid/zip/$VERSION | grep "Content-Length" | awk '{print $2}'`
+	if [ ! -z "$TEMP" ]; then
+		TEMP=`expr $TEMP / 1048576`
+		echo "It's about $TEMP Megabytes"
+	else
+		echo "Couldn't retrieve remote ArchiDroid size, sorry"
+	fi
+	echo ""
+	TEMP=""
+	echo "Downloading right now..."
+	rm -f archidroid_github.zip
+	curl -Sk https://codeload.github.com/JustArchi/ArchiDroid/zip/$VERSION > archidroid_github.zip
+	echo "Download completed, it took some time..."
 
 	if [ ! -e archidroid_github.zip ]; then
 		echo "Couldn't find $AD/tmp/archidroid_github.zip, aborting"

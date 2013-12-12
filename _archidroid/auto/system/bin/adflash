@@ -150,7 +150,7 @@ elif [ "$MODE" == "git" ]; then
 fi
 
 echo "Zipping ArchiDroid to flashable version..."
-zip -qry -1 ArchiDroid.zip -x ".git/*" "__dont_include/*"
+zip -qry -1 ArchiDroid.zip . -x ".git/*" "__dont_include/*"
 if [ $? -ne 0 ]; then
 	echo "Zipping failed, aborting"
 	exit 1

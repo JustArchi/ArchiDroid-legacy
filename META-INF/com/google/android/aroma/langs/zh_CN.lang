@@ -1,0 +1,200 @@
+﻿### LICENSE:
+#
+# Copyright (C) 2011 Ahmad Amarullah ( http://amarullz.com/ )
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+#
+#
+### ArchiDroid Language File
+#
+# How to create your own language translation
+# 1. Copy en.lang file to your own language.lang, f.e. fr.lang if you're creating French language.
+# 2. Start translating strings (everything after "=" should be translated)
+# 3. Change language and author information below when you're done
+# 4. Send pull request with your updated strings, wait for approval and adding to aroma
+# 5. Thank you for contributing to ArchiDroid project!
+#
+# Please note that you can use language-specific chars, f.e. ą ę ó ć ü ń or any non-standard letters.
+# All of them should be displayed properly in aroma
+#
+# Files should have UNIX-style endings (LF) and should be encoded in UTF-8 format.
+# Typically any file copied from en.lang should be already well formatted. Otherwise make sure that they're right.
+# In Notepad++ it's: Format -> UTF-8 and Edit -> EOL Conversion -> Convert to UNIX format
+#
+### LANGUAGE STRING RESOURCE FILE
+#
+#   Language  : Chinese(Simplified)
+#   By        : Syrone Wong
+#
+
+#
+#--- AROMA STRINGS
+#
+text_ok=确认
+text_next=下一步
+text_back=后退
+text_yes=是
+text_no=否
+text_about=关于
+text_calibrating=校准工具
+text_quit=退出安装
+text_quit_msg=确认退出安装？
+
+#
+#-- ARCHIDROID STRINGS
+#
+common.for=为了
+common.none=没有
+common.replaces=替换
+common.inverted=转为
+common.experimental=实验（功能）
+common.deprecated=已废弃
+common.obsolete=已过时
+terms.check=我同意授权许可条款
+terms.confirm=请阅读许可协议!
+terms.check2=我完全理解并遵守它
+terms.confirm2=尊敬开发者劳动!
+
+archidroid.tos=ArchiDroid 许可协议条款
+
+archidroid.detect.fail=没有检测到ArchiDroid运行. 做过全部擦除或者从其他ROM转到ArchiDroid?
+archidroid.detect.fail.yes=我原来没有ArchiDroid
+archidroid.detect.fail.no=我已经运行 ArchiDroid!
+archidroid.detect.fail.alert.yes=好, 我为你选择了 ArchiDroid 安装模式.
+archidroid.detect.fail.alert.no=这不太好. 如果你没有运行ArchiDroid我将伪造结果，但是如果没安装过ArchiDroid不要使用更新模式!
+archidroid.detect.pass=成功检测到ArchiDroid运行. 想要用升级模式么?
+archidroid.detect.pass.yes=好，升级模式
+archidroid.detect.pass.no=不, 全部擦除
+archidroid.detect.pass.alert.no=好, 将全部擦除数据并使用 ArchiDroid 安装模式
+archidroid.detect.force=想要用强制升级模式? ArchiDroid 启动一次来进行高级微调, 通常只会在安装模式执行. 不确定的话选择 否
+
+archidroid.preset=ArchiDroid 安装预设
+archidroid.preset.desc=请选择安装预设:
+archidroid.preset.group=预设
+archidroid.preset.custom=自定义
+archidroid.preset.custom.desc=你可以自定义安装的全部内容
+archidroid.preset.barebones=纯净ROM
+archidroid.preset.barebones.desc=纯净ROM. 只为测试, 不推荐
+archidroid.preset.previous=使用之前的预设
+archidroid.preset.previous.desc=载入之前的自定义安装预设 (如果存在的话)
+
+archidroid.detect.previouspreset.fail=不能载入之前的安装预设, 不存在或者完整性检测失败
+
+archidroid.custom=ArchiDroid 自定义
+archidroid.custom.extra=ArchiDroid 额外自定义
+archidroid.custom.desc=请修改设置，怎么习惯怎么来
+
+archidroid.kernel.temasek.desc=极佳性能，省电，高度顺滑和 boeffla sound，推荐！
+archidroid.kernel.boeffla.desc=高度推荐的杰作，适合每个人, 包含 boeffla sound和更多特性
+archidroid.kernel.yank.desc=推荐作为替代选择
+archidroid.kernel.devil.desc=基于Perseus源码. 适合双启动特性
+archidroid.kernel.googy.desc=基于Siyah 源码. 适合双启动特性
+archidroid.kernel.stock.desc=使用ROM默认内核
+
+archidroid.theme.foxhound.desc=暗蓝色 AOSP 主题
+archidroid.theme.stock.desc=原生主题
+
+archidroid.dpi.240w.desc=警告! 记住在这个DPI下有一些轻微的图形故障
+archidroid.dpi.240.desc=所有都会变小, 包含按钮、图标和文本等等. 建议使用，能有最好的体验!
+archidroid.dpi.280.desc=能在原生和240 DPI模式之间好的平衡
+archidroid.dpi.320.desc=默认DPI设置
+
+archidroid.launcher.nova.desc=更加顺滑，性能更好，推荐！
+archidroid.launcher.stock.desc=ROM自带
+archidroid.launcher.none.desc=不含启动器.警告! 在完全擦除之后不要勾选! 第一次启动之前你需要至少一个第三方启动器!
+
+archidroid.keyboard=键盘
+archidroid.keyboard.touchpal.desc=推荐强大顺滑的 Swype/Curve 键盘
+archidroid.keyboard.hackers.desc=TouchPal 的极好的替代选择，如果用不到 swype/curve 的功能
+archidroid.keyboard.both.desc=同时使用 TouchPal 和 Hacker键盘 (例如在终端中)
+archidroid.keyboard.stock.desc=如果你想保留ROM自带键盘
+archidroid.keyboard.none.desc=无键盘. 警告! 在完全擦除之后不要勾选! 第一次启动之前你需要至少一个第三方键盘!
+
+archidroid.bootanimation=开机动画
+archidroid.bootanimation.archi.desc=全新花哨 ArchiDroid 开机动画
+archidroid.bootanimation.archilegacy.desc=旧 1.X 开机动画
+archidroid.bootanimation.logcat.desc=更改默认开机动画为 logcat 输出 - 使用 logcat lite 构建
+archidroid.bootanimation.stock.desc=ROM自带原生开机动画
+archidroid.bootanimation.none.desc=无开机动画, 启动速度轻微提高
+
+archidroid.other=其他
+archidroid.ota.desc=ArchiDroid 推荐. 安装 UpdateMe 应用并通过build.prop开启OTA更新
+archidroid.xposed.desc=允许使用大量 Xposed 模块. 需要手动开启
+archidroid.crossbreeder.desc=性能更好，更加顺滑，推荐, 与 Seeder 不兼容
+archidroid.updatemodem=更新基带
+archidroid.updatemodem.desc=如果你想用最新基带的话
+archidroid.updaterecovery=更新 Recovery
+archidroid.updaterecovery.desc=如果你想使用最新recovery
+
+archidroid.gapps.desc=Google核心服务包和app. 不要取消勾选这个！
+archidroid.gapps.gquick.desc=可能破坏掉 Google Voice!
+
+archidroid.apps.titaniumbackup.desc=刷机/更新保存个人数据和app的最佳方案
+archidroid.apps.greenify.desc=休眠任何app的利器, 能增强电池续航
+archidroid.apps.lmt.desc=执行绑定到特定屏幕手势的命令的工具, 在SlimBean也被称为 pie
+archidroid.apps.mxplayer.desc=应该是安卓下最好的视频播放器
+archidroid.apps.spiritfm.desc=能在 CyanogenMod 下工作的免费收音机
+archidroid.apps.bbs.desc=查看更具体的电池信息-特别是 wakelocks
+archidroid.apps.cooltool.desc=在通知栏显示使用情况（如 CPU百分比，内存用量等）
+archidroid.apps.rootbrowser.desc=可选 root 权限拓展，非常酷的Root浏览器
+archidroid.apps.adobeflash.desc=增加flash内容支持. 与 Google Chrome 不兼容
+archidroid.apps.youtube.desc=安装 YouTube 应用
+archidroid.apps.facebook.desc=安装 Facebook 和 Messenger
+
+archidroid.tweaks.hdvoice.desc=如果可以，开启 HD Voice
+archidroid.tweaks.buildtweaks.desc=诸多 build.prop 微调, 包含深度睡眠、性能微调及其他
+archidroid.tweaks.openpdroid.desc=如果可以，安装结束后应用 OpenPDroid 补丁
+archidroid.tweaks.nocell.desc=通常被认为是臃肿软件. 如果想保留这个取消选择
+
+archidroid.preset.no=不使用预设设置
+archidroid.preset.no.desc=不推荐，你会错过绝大多数Archi的优化
+
+archidroid.preset.kernel.boeffla.archiperformance=ArchiDroid 性能模式
+archidroid.preset.kernel.boeffla.archiperformance.desc=为游戏玩家定制优化的profile,包含CPU/GPU超频. 以消耗电池寿命为代价换取更好的性能
+archidroid.preset.kernel.boeffla.archipowersave=ArchiDroid 节能模式
+archidroid.preset.kernel.boeffla.archipowersave.desc=为大多数人设置的默认预设, 包含轻微降压. 在电池寿命和性能间的平衡.Archi推荐
+archidroid.preset.kernel.boeffla.archiultrapowersave=ArchiDroid 超级节能模式
+archidroid.preset.kernel.boeffla.archiultrapowersave.desc=为最佳电池寿命而设计优化的预设设置, 包含普通降压. 以性能为代价换取电池寿命的延长
+
+archidroid.boeffla.yesarchi=体验Archi的音乐发烧享受
+archidroid.boeffla.yesarchi.desc=高度推荐. 安装Boeffla Sound Control 和Archi喜欢的音质设置来增强音乐体验
+archidroid.boeffla.yes.desc=如果你之后想创建自己的 Boeffla Sound Control 预设
+archidroid.boeffla.no.desc=如果不想安装 Boeffla Sound Control
+
+archidroid.xposed.appsettings.desc=允许更改app设置. 特别有用的工具
+archidroid.xposed.xprivacy.desc=能防止泄露个人数据,限制权限，拥有更多功能的极佳模块
+archidroid.xposed.wanam.desc=Wanam 杰作. 增强ArchiDroid顺滑度提供大量自定义选项
+
+archidroid.wizard.reboot=ArchiDroid 已经成功刷入，要立即自动重启吗?
+
+archidroid.prepinstall=准备好刷入过程
+common.flash=刷入
+common.back=后退
+
+archidroid.prepinstall.desc=现在你已经准备好刷机过程.\
+按下 <b>Flash</b> 开始刷入.\
+如果你想检视或者修改安装设置, 按下 <b>Back</b>.
+
+common.finish=完成
+common.flashing=正在刷入
+
+archidroid.install.desc=<b>ArchiDroid</b> 正在安装.\
+请等待... 正在为你安装 <b>ArchiDroid</b>\
+<b>以防冻结问题出现，等待recovery过程并再试一遍</b>
+
+archidroid.install.finish=ArchiDroid 向导已经成功刷入 <b>ArchiDroid<b>\
+按下 <b>Finish</b> 继续.
+
+archidroid.buildtweaks.fastdormancy.desc=取消勾选来关闭 fast dormancy, 如果运营商不支持，可能延长电池寿命
+archidroid.buildtweaks.zerowakeup.desc=勾选开启 ZeroWakeUp, 让CPU工作在睡眠模式 (不是深度睡眠), 把唤醒延迟降到最低

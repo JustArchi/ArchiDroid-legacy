@@ -343,15 +343,33 @@ while (! pgrep com.android && [ $LOOP -lt 150 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 				mkdir /data/data/$FOLDER/_ADTEMP
 				cp -R $FOLDER/* /data/data/$FOLDER/_ADTEMP/
 				
-				su "$ADOWNER" -c "cd /data/data/$FOLDER/_ADTEMP && cp -R * .. && touch /data/data/$FOLDER/DONE"
-				
-				if [ -e /data/data/$FOLDER/DONE ]; then
-					echo "INFO: It looks like everything ended successfully on $FOLDER" >> $LOG
-					rm -f /data/data/$FOLDER/DONE
+				# Check if there is a sense in what we're doing
+				if [ "$ADOWNER" == `su "$ADOWNER" -c "whoami"` ]; then
+					su "$ADOWNER" -c "cd /data/data/$FOLDER/_ADTEMP && cp -R * .. && touch /data/data/$FOLDER/DONE"
+					
+					if [ -e /data/data/$FOLDER/DONE ]; then
+						echo "INFO: It looks like everything ended successfully on $FOLDER" >> $LOG
+						rm -f /data/data/$FOLDER/DONE
+					else
+						echo "ERROR: su failed on $FOLDER, falling back to dirty chmod permissions, please investigate!" >> $LOG
+						cd /data/data/$FOLDER/_ADTEMP && cp -R * ..
+						
+						# Actually we can chmod only copied things...
+						for FILE in * ; do
+							busybox chmod -R 777 /data/data/$FOLDER/$FILE >/dev/null 2>&1
+						done
+						cd $AD/FIRSTBOOT/DATA
+					fi
 				else
-					echo "ERROR: su failed on $FOLDER, falling back to dirty chmod permissions, please investigate!" >> $LOG
-					cd /data/data/$FOLDER/_ADTEMP && cp -R * .. && cd $AD/FIRSTBOOT/DATA
-					busybox chmod -R 777 /data/data/$FOLDER/* >/dev/null 2>&1
+					# There is no sense (Android 4.4.2), fallback to workaround until we find a better way
+					echo "WARNING: we can't su as $ADOWNER, falling back to dirty chmod permissions, please investigate!" >> $LOG
+					cd /data/data/$FOLDER/_ADTEMP && cp -R * ..
+					
+					# Actually we can chmod only copied things...
+					for FILE in * ; do
+						busybox chmod -R 777 /data/data/$FOLDER/$FILE >/dev/null 2>&1
+					done
+					cd $AD/FIRSTBOOT/DATA
 				fi
 
 				# And we're done!

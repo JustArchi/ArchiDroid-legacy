@@ -339,9 +339,18 @@ while (! pgrep com.android && [ $LOOP -lt 150 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 		for FOLDER in * ; do
 			if [ -d /data/data/$FOLDER ]; then
 				echo "INFO: I'm currently merging $FOLDER, called by ADMANY" >> $LOG
-				ADOWNER=`ls -ld /data/data/$FOLDER | awk '{print $3}'`
+				ADOWNER=`busybox ls -ld /data/data/$FOLDER | awk '{print $3}'`
 				mkdir /data/data/$FOLDER/_ADTEMP
 				cp -R $FOLDER/* /data/data/$FOLDER/_ADTEMP/
+				
+				# Let's make it as safe as possible
+				cd /data/data/$FOLDER/_ADTEMP
+				for FILE in `find . -type d -mindepth 1`; do
+					busybox chmod 771 $FILE
+				done
+				for FILE in `find . -type f -mindepth 1`; do
+					busybox chmod 660 $FILE
+				done
 				
 				su "$ADOWNER" -c "cd /data/data/$FOLDER/_ADTEMP && cp -R * .. && touch /data/data/$FOLDER/DONE"
 				
@@ -349,11 +358,23 @@ while (! pgrep com.android && [ $LOOP -lt 150 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 					echo "INFO: It looks like everything ended successfully on $FOLDER" >> $LOG
 					rm -f /data/data/$FOLDER/DONE
 				else
-					echo "ERROR: su failed on $FOLDER, falling back to dirty chmod permissions, please investigate!" >> $LOG
-					cd /data/data/$FOLDER/_ADTEMP && cp -R * .. && cd $AD/FIRSTBOOT/DATA
-					busybox chmod -R 777 /data/data/$FOLDER/* >/dev/null 2>&1
+					echo "INFO: su failed on $FOLDER, trying chown!" >> $LOG
+					cd /data/data/$FOLDER/_ADTEMP
+					
+					cp -R * .. && cd ..
+					busybox chown -hR $ADOWNER.$ADOWNER *
+					
+					echo "INFO: Checking errors..." >> $LOG
+					for FILE in *; do
+						TEST=`busybox ls -ld $FILE | awk '{print $3}'`
+						if [ "$TEST" != "$ADOWNER" ]; then
+							echo "ERROR: $TEST does not match $ADOWNER IN $FILE. Using dirty chmod workaround, please investigate!" >> $LOG
+							busybox chmod -R 777 $FILE >/dev/null 2>&1
+						fi
+					done
 				fi
 
+				cd $AD/FIRSTBOOT/DATA
 				# And we're done!
 				rm -Rf $FOLDER
 				rm -Rf /data/data/$FOLDER/_ADTEMP

@@ -61,7 +61,7 @@
     <boolean name="autoBandwidth" value="false" />
     <boolean name="ramPlate" value="false" />
     <boolean name="keepInMemory" value="true" />
-    <boolean name="showIO" value="true" />
+    <boolean name="showIO" value="false" />
     <boolean name="showGps" value="false" />
     <boolean name="showMem" value="true" />
     <int name="backAlpha" value="200" />

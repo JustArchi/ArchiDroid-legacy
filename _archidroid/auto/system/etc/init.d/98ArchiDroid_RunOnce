@@ -184,7 +184,7 @@ if [ -e $AD/INSTALL ] || [ $FORCE -eq 1 ]; then
 	if [ -d $AD/FIRSTBOOT/DATA ]; then
 		ADMANY=0
 		cd $AD/FIRSTBOOT/DATA
-		for folder in `find . -mindepth 1 -maxdepth 1 -type d` ; do
+		for folder in `busybox find . -mindepth 1 -maxdepth 1 -type d` ; do
 			echo "I found $folder which need merging (data)" >> $LOG
 			ADMANY=`expr $ADMANY + 1`
 		done
@@ -342,13 +342,14 @@ while (! pgrep com.android && [ $LOOP -lt 150 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 				ADOWNER=`busybox ls -ld /data/data/$FOLDER | awk '{print $3}'`
 				mkdir /data/data/$FOLDER/_ADTEMP
 				cp -R $FOLDER/* /data/data/$FOLDER/_ADTEMP/
+				busybox chown -hR $ADOWNER.$ADOWNER /data/data/$FOLDER/_ADTEMP/
 				
 				# Let's make it as safe as possible
 				cd /data/data/$FOLDER/_ADTEMP
-				for FILE in `find . -type d -mindepth 1`; do
+				for FILE in `busybox find . -type d -mindepth 1`; do
 					busybox chmod 771 $FILE
 				done
-				for FILE in `find . -type f -mindepth 1`; do
+				for FILE in `busybox find . -type f -mindepth 1`; do
 					busybox chmod 660 $FILE
 				done
 				

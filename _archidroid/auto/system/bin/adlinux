@@ -2,7 +2,7 @@
 
 # ArchiDroid Debian/Linux Booter
 
-if [ `whoami` != "root" ]; then
+if [ -z `whoami | grep -i "root"` ] && [ -z `whoami | grep -i "uid 0"` ]; then
 	echo "Sorry, but I require root access, forking a rooted shell for you..."
 	su || echo "Failed!"
 	exit 0

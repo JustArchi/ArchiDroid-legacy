@@ -9,6 +9,36 @@ ArchiDroid 1.7.3
 ^ [!] Added built-in ArchiDroid flasher, which allows you to flash any version directly from github
 # Write adflash command in terminal to get more info
 
+^ [!] Added built-in Debian "Jessie" 8.0 into ArchiDroid
+# Okay, this is big. In general you can jump into debian's chroot and execute 
+# any program compatible with armhf/armel architecture. Thanks to chroot you
+# don't need to waste precious resources for emulating or virtualization
+# to gain everything what debian offers. I tried to make as feature-rich
+# environment as possible, including pre-tweaked environment, full apt-get
+# support, services support and Android compatibility. As for now I couldn't
+# find an app/binary which doesn't work well with my "pocket debian".
+# Yes. You can launch (nearly) EVERYTHING in my pocket debian, as long as it's
+# compiled for armhf/armel architecture. That's why I selected debian as my
+# pocket environment, because it has best armhf/armel support.
+#
+# I even ran nginx, mysql and php-fpm web server, serving dynamic content
+# to the clients over standard 80 port, without any problems. It's impossible 
+# to do so in Android environment.
+#
+# It's mostly targeted at very advanced linux users, who know exactly what to do
+# with such great power which ArchiDroid offers right now. Please take care because
+# environment still directly connected with Android (unless you launched debian with
+# bare mode), so in fact you CAN damage your system if you have no idea what you're doing.
+# (Same goes with root and super user by the way, so it's not that scary)
+#
+# Write "adlinux" and "debian" commands to start the party.
+# More will be described in the main thread on xda soon
+
+^ Removed Googy Max kernel (for good)
+# Because it doesn't work with Omni and I'm not sure if googy is interested in Omni support...
+^ Added Devil kernel
+# ... As a perfect replacement for Googy Max with working dual boot. Credits to @DerTeufel1980
+
 ^ Introduced ZeroWakeUp build.prop tweak
 # Actually, it was possible to do so manualy since introducing of build.prop tweaks but I left it as an option for some time
 # It reduces wake up lag from 2 seconds up to 0.5 second, with an average of reducing to 1 second. Of course for some cost of your battery. However if your phone doesn't sleep that much (You have more than 0.5% / hour in deep sleep) then it doesn't really matter for you, it may even reduce your battery drain due to no wakelocks (perma active). This is experimental feature, same as fast dormancy toggle. You need to find out yourself if you like it or not.
@@ -23,8 +53,10 @@ ArchiDroid 1.7.3
 * [2.X] Some new DBUPDATE values based on OmniROM.
 
 ^ Updated Cool Tool to 5.1.1 + Archi's preset for Cool Tool
-# It'll now show you the most resource-intensive process if it takes more than 80% of available resources. May be useful if you notice 100% CPU consumption
-# Additionally deleted cpu graph, hidden annoying notification, fixed iostat (showing null I/O after full wipe) and various other misc improvements
+# It'll now show you the most resource-intensive process if it takes more than
+# 80% of available resources. May be useful if you notice 100% CPU consumption
+# Additionally deleted cpu graph, hidden annoying notification, fixed iostat
+# (showing proper I/O after full wipe) and various other misc improvements
 
 ^ Silent CrossBreeder update, which fixes network buffers and some related problems
 ^ All inverted apps are disabled in default preset now

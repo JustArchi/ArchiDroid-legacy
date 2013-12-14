@@ -340,40 +340,29 @@ while (! pgrep com.android && [ $LOOP -lt 150 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 			if [ -d /data/data/$FOLDER ]; then
 				echo "INFO: I'm currently merging $FOLDER, called by ADMANY" >> $LOG
 				ADOWNER=`busybox ls -ld /data/data/$FOLDER | awk '{print $3}'`
-				mkdir /data/data/$FOLDER/_ADTEMP
-				cp -R $FOLDER/* /data/data/$FOLDER/_ADTEMP/
-				busybox chown -hR $ADOWNER.$ADOWNER /data/data/$FOLDER/_ADTEMP/
-				
+				cp -R $FOLDER/* /data/data/$FOLDER/
+				busybox chown -hR $ADOWNER.$ADOWNER /data/data/$FOLDER
+				#busybox chmod -R 777 /data/data/$FOLDER
+
 				# Let's make it as safe as possible
-				cd /data/data/$FOLDER/_ADTEMP
+				cd /data/data/$FOLDER
 				for FILE in `busybox find . -type d -mindepth 1`; do
-					busybox chmod 771 $FILE
+					busybox chmod 775 $FILE
 				done
 				for FILE in `busybox find . -type f -mindepth 1`; do
-					busybox chmod 660 $FILE
+					EXTENSION=`echo $FILE | awk -F '.' '{print $NF}'`
+
+					# Try to apply correct permissions for specific files
+					# For example XposedBridge requires at least 644, so it doesn't work with generic 660
+					case "$EXTENSION" in
+						"jar")
+							busybox chmod 664 $FILE
+							;;
+						*)
+							busybox chmod 660 $FILE
+					esac
 				done
-				
-				su "$ADOWNER" -c "cd /data/data/$FOLDER/_ADTEMP && cp -R * .. && touch /data/data/$FOLDER/DONE"
-				
-				if [ -e /data/data/$FOLDER/DONE ]; then
-					echo "INFO: It looks like everything ended successfully on $FOLDER" >> $LOG
-					rm -f /data/data/$FOLDER/DONE
-				else
-					echo "INFO: su failed on $FOLDER, trying chown!" >> $LOG
-					cd /data/data/$FOLDER/_ADTEMP
-					
-					cp -R * .. && cd ..
-					busybox chown -hR $ADOWNER.$ADOWNER *
-					
-					echo "INFO: Checking errors..." >> $LOG
-					for FILE in *; do
-						TEST=`busybox ls -ld $FILE | awk '{print $3}'`
-						if [ "$TEST" != "$ADOWNER" ]; then
-							echo "ERROR: $TEST does not match $ADOWNER IN $FILE. Using dirty chmod workaround, please investigate!" >> $LOG
-							busybox chmod -R 777 $FILE >/dev/null 2>&1
-						fi
-					done
-				fi
+				echo "INFO: Done!" >> $LOG
 
 				cd $AD/FIRSTBOOT/DATA
 				# And we're done!

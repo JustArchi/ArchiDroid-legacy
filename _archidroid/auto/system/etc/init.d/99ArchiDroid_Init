@@ -158,7 +158,7 @@ if [ -e /dev/block/mmcblk1p1 ] && [ `mount | grep -i "sdcard1" | wc -l` -eq 0 ] 
 		echo "INFO: OK, Android mounted our external sd card in given 20 seconds, aborting workaround" >> $LOG
 	fi
 else
-	"INFO: OK, I don't need to mount external sd card" >> $LOG
+	echo "INFO: OK, I don't need to mount external sd card" >> $LOG
 fi
 
 # Execute a reboot if we need it

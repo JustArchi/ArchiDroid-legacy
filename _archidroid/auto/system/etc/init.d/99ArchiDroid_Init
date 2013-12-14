@@ -125,16 +125,16 @@ else
 	echo "INFO: I looped $LOOP times and didn't have to exit from infinite loop, that's nice (Init Semaphore)" >> $LOG
 fi
 
-if [ `mount | grep "sdcard1" | wc -l` -eq 0 ] && [ $ROM -eq 2 ] && [ -e /dev/block/mmcblk1p1 ]; then
+if [ -e /dev/block/mmcblk1p1 ] && [ `mount | grep -i "sdcard1" | wc -l` -eq 0 ] && [ `mount | grep -i "extSdCard" | wc -l` -eq 0 ]; then
 	# Temporary workaround for mounting exFAT-formatted cards
 	# Initial idea by AndiP71, aka Lord Boeffla
 	# Further improvements by JustArchi
 
-	echo "INFO: We're on OmniROM, we have external sd card but it's not mounted already, trying workaround!" >> $LOG
+	echo "INFO: Detected sd card but it's not mounted yet" >> $LOG
 	echo "INFO: Giving Android 20 more seconds to initialize external sd card..." >> $LOG
 	sleep 20
 	echo "INFO: Time passed!" >> $LOG
-	if [ `mount | grep "sdcard1" | wc -l` -eq 0 ]; then
+	if [ `mount | grep -i "sdcard1" | wc -l` -eq 0 ] && [ `mount | grep -i "extSdCard" | wc -l` -eq 0 ]; then
 		echo "INFO: External sd card is still not mounted, mounting..." >> $LOG
 		if [ `lsmod | grep "exfat" | wc -l` -eq 0 ]; then
 			echo "WARNING: No exfat module found, it's either compiled in kernel or not loaded. Blindly loading..." >> $LOG
@@ -143,7 +143,7 @@ if [ `mount | grep "sdcard1" | wc -l` -eq 0 ] && [ $ROM -eq 2 ] && [ -e /dev/blo
 			echo "INFO: Blind load completed, proceeding with mounting now..."
 		fi
 
-		busybox mount -o rw,dirsync,nosuid,nodev,noexec,noatime,nodiratime,uid=1000,gid=1023,fmask=0002,dmask=0002,allow_utime=0020 -t auto /dev/block/mmcblk1p1 /storage/sdcard1
+		busybox mount -t auto /dev/block/mmcblk1p1 /storage/sdcard1
 
 		if [ `mount | grep "sdcard1" | wc -l` -eq 0 ]; then
 				echo "ERROR: I failed to mount external sd card with automatic filesystem. Giving up here!" >> $LOG
@@ -153,6 +153,8 @@ if [ `mount | grep "sdcard1" | wc -l` -eq 0 ] && [ $ROM -eq 2 ] && [ -e /dev/blo
 	else
 		echo "INFO: OK, Android mounted our external sd card in given 20 seconds, aborting workaround" >> $LOG
 	fi
+else
+	"INFO: OK, I don't need to mount external sd card" >> $LOG
 fi
 
 # Execute a reboot if we need it

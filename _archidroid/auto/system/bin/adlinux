@@ -109,7 +109,12 @@ else
 		busybox mount --bind /system $mnt/system
 		busybox mount --bind /data $mnt/data
 		busybox mount --bind /storage/sdcard0 $mnt/storage/sdcard0
-		busybox mount --bind /storage/sdcard1 $mnt/storage/sdcard1
+		
+		if [ -e /storage/sdcard1 ]; then
+			busybox mount --bind /storage/sdcard1 $mnt/storage/sdcard1
+		elif [ -e /storage/extSdCard ]; then
+			busybox mount --bind /storage/extSdCard $mnt/storage/sdcard1
+		fi
 		;;
 	"safe")
 		echo "Mounting /dev /dev/pts /dev/shm /proc /sys, SKIPPING /system /data /storage/sdcard0 /storage/sdcard1"

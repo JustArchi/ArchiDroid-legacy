@@ -396,6 +396,8 @@ set_progress(0.70);
 if file_getprop("/tmp/aroma-data/archidroid.prop","xposed") == "1" then
 
 	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Including Xposed Framework");
+	run_program("/sbin/busybox","cp","-f","/system/bin/app_process","/system/bin/app_process.orig");
+	set_perm(0, 2000, 0755, "/system/bin/app_process.orig");
 	package_extract_dir("_archidroid/apps/xposed/xposed", "/");
 	
 	if file_getprop("/tmp/aroma-data/archidroidxposed.prop","appsettings") == "1" then

@@ -1,10 +1,8 @@
 ﻿<?xml  version="1.0" encoding="UTF-8" ?>
 <CustomerData>
   <GeneralInfo>
-    <CSCEdition>ED001</CSCEdition>
+    <CSCEdition>ED003</CSCEdition>
     <Country>UK &amp; IRE</Country>
-    <CountryISO>GB</CountryISO>
-    <Region>EUR</Region>
     <SalesCode>CPW</SalesCode>
     <NbNetworkInfo>20</NbNetworkInfo>
     <NetworkInfo>
@@ -91,14 +89,56 @@
   <Settings>
     <Main>
       <Network>
-        <NbFastDormancy>2</NbFastDormancy>
+        <NbFastDormancy>10</NbFastDormancy>
         <FastDormancy>
           <NetworkName>O2 UK Pay Monthly</NetworkName>
           <FastDormancyEnableStatus>off</FastDormancyEnableStatus>
+          <LCDStatus>on</LCDStatus>
+        </FastDormancy>
+        <FastDormancy>
+          <NetworkName>O2 UK Pay Monthly</NetworkName>
+          <FastDormancyEnableStatus>off</FastDormancyEnableStatus>
+          <LCDStatus>off</LCDStatus>
         </FastDormancy>
         <FastDormancy>
           <NetworkName>O2 UK Pay &amp; Go</NetworkName>
           <FastDormancyEnableStatus>off</FastDormancyEnableStatus>
+          <LCDStatus>on</LCDStatus>
+        </FastDormancy>
+        <FastDormancy>
+          <NetworkName>O2 UK Pay &amp; Go</NetworkName>
+          <FastDormancyEnableStatus>off</FastDormancyEnableStatus>
+          <LCDStatus>off</LCDStatus>
+        </FastDormancy>
+        <FastDormancy>
+          <NetworkName>H3G</NetworkName>
+          <FastDormancyEnableStatus>off</FastDormancyEnableStatus>
+          <LCDStatus>on</LCDStatus>
+        </FastDormancy>
+        <FastDormancy>
+          <NetworkName>H3G</NetworkName>
+          <FastDormancyEnableStatus>off</FastDormancyEnableStatus>
+          <LCDStatus>off</LCDStatus>
+        </FastDormancy>
+        <FastDormancy>
+          <NetworkName>H3G IE</NetworkName>
+          <FastDormancyEnableStatus>off</FastDormancyEnableStatus>
+          <LCDStatus>on</LCDStatus>
+        </FastDormancy>
+        <FastDormancy>
+          <NetworkName>H3G IE</NetworkName>
+          <FastDormancyEnableStatus>off</FastDormancyEnableStatus>
+          <LCDStatus>off</LCDStatus>
+        </FastDormancy>
+        <FastDormancy>
+          <NetworkName>O2 IRL</NetworkName>
+          <FastDormancyEnableStatus>off</FastDormancyEnableStatus>
+          <LCDStatus>on</LCDStatus>
+        </FastDormancy>
+        <FastDormancy>
+          <NetworkName>O2 IRL</NetworkName>
+          <FastDormancyEnableStatus>off</FastDormancyEnableStatus>
+          <LCDStatus>off</LCDStatus>
         </FastDormancy>
         <NbSOSNumber>3</NbSOSNumber>
         <SOSNumber>999</SOSNumber>
@@ -114,16 +154,9 @@
         <AutoWbAmr>off</AutoWbAmr>
         <AutoFOTA>off</AutoFOTA>
       </Network>
-      <Sound>
-        <ExtraSound>
-          <ConnectTone>on</ConnectTone>
-          <MinuteMind>off</MinuteMind>
-        </ExtraSound>
-      </Sound>
       <Phone>
-        <DefLanguage>en_GB</DefLanguage>
-        <DefLanguageNoSIM>en_GB</DefLanguageNoSIM>
-        <T9Enabling>enable</T9Enabling>
+        <DefLanguage>english</DefLanguage>
+        <DefLanguageNoSIM>english</DefLanguageNoSIM>
         <DateTimeFormat>
           <DateFormat>ddmmyyyy</DateFormat>
           <TimeFormat>24h</TimeFormat>
@@ -141,7 +174,6 @@
         <MmsSending>
           <ReqDeliveryRep>off</ReqDeliveryRep>
           <ReqReadRep>off</ReqReadRep>
-          <MessageSize>300</MessageSize>
           <CreationMode>free</CreationMode>
         </MmsSending>
         <MmsReceiving>
@@ -169,8 +201,8 @@
           </Outgoing>
         </Account>
         <Account>
-          <NetworkName>O2 Pay Monthly</NetworkName>
-          <AccountName>O2 Email</AccountName>
+          <NetworkName>O2 UK Pay Monthly</NetworkName>
+          <AccountName>O2 UK Email</AccountName>
           <EmailAddr>changeme@o2.co.uk</EmailAddr>
           <Incoming>
             <MailboxType>pop3</MailboxType>
@@ -237,59 +269,43 @@
       </Email>
     </Messages>
     <Browser>
-      <NbBookmark>7</NbBookmark>
+      <NbBookmark>6</NbBookmark>
       <Bookmark>
         <NetworkName>default</NetworkName>
-        <Editable>yes</Editable>
         <Index>1</Index>
         <BookmarkName>Games</BookmarkName>
         <URL>http://wap.uk.samsungmobile.com/bm/games</URL>
       </Bookmark>
       <Bookmark>
         <NetworkName>default</NetworkName>
-        <Editable>yes</Editable>
         <Index>2</Index>
         <BookmarkName>Ringtones</BookmarkName>
         <URL>http://wap.uk.samsungmobile.com/bm/ringtones</URL>
       </Bookmark>
       <Bookmark>
         <NetworkName>default</NetworkName>
-        <Editable>yes</Editable>
         <Index>3</Index>
         <BookmarkName>Screensavers</BookmarkName>
         <URL>http://wap.uk.samsungmobile.com/bm/screensavers</URL>
       </Bookmark>
       <Bookmark>
         <NetworkName>default</NetworkName>
-        <Editable>yes</Editable>
         <Index>4</Index>
         <BookmarkName>Videos</BookmarkName>
         <URL>http://wap.uk.samsungmobile.com/bm/videos</URL>
       </Bookmark>
       <Bookmark>
         <NetworkName>default</NetworkName>
-        <Editable>yes</Editable>
         <Index>5</Index>
         <BookmarkName>Wallpapers</BookmarkName>
         <URL>http://wap.uk.samsungmobile.com/bm/wallpapers</URL>
       </Bookmark>
       <Bookmark>
         <NetworkName>default</NetworkName>
-        <Editable>yes</Editable>
         <Index>6</Index>
         <BookmarkName>What's New</BookmarkName>
         <URL>http://wap.uk.samsungmobile.com/bm/whatsnew</URL>
       </Bookmark>
-      <Bookmark>
-        <NetworkName>default</NetworkName>
-        <Editable>yes</Editable>
-        <Index>7</Index>
-        <BookmarkName>Yahoo!</BookmarkName>
-        <URL>http://m.yahoo.com/?tsrc=samsungbm</URL>
-      </Bookmark>
-      <eManual>
-        <URL>http://www.samsung.com/m-manual/common</URL>
-      </eManual>
     </Browser>
     <Connections>
       <NbProfileHandle>18</NbProfileHandle>
@@ -318,11 +334,10 @@
         <ProfMMS>O2 Pay &amp; Go MMS</ProfMMS>
       </ProfileHandle>
       <ProfileHandle>
-        <NbNetProfile>3</NbNetProfile>
+        <NbNetProfile>2</NbNetProfile>
         <NetworkName>Orange UK</NetworkName>
         <ProfBrowser>Orange UK Internet</ProfBrowser>
         <ProfMMS>Orange UK MMS</ProfMMS>
-        <ProfIntSharing>Orange UK WAP</ProfIntSharing>
       </ProfileHandle>
       <ProfileHandle>
         <NbNetProfile>2</NbNetProfile>
@@ -337,11 +352,10 @@
         <ProfMMS>VM Picture messaging</ProfMMS>
       </ProfileHandle>
       <ProfileHandle>
-        <NbNetProfile>3</NbNetProfile>
+        <NbNetProfile>2</NbNetProfile>
         <NetworkName>BT Mobile</NetworkName>
         <ProfBrowser>BT Mobile Internet</ProfBrowser>
         <ProfMMS>BT Mobile MMS</ProfMMS>
-        <ProfIntSharing>BT Mobile WAP</ProfIntSharing>
       </ProfileHandle>
       <ProfileHandle>
         <NbNetProfile>2</NbNetProfile>
@@ -403,10 +417,9 @@
         <ProfBrowser>H3G IE WAP</ProfBrowser>
         <ProfMMS>H3G IE MMS</ProfMMS>
       </ProfileHandle>
-      <NbProfile>39</NbProfile>
+      <NbProfile>36</NbProfile>
       <Profile>
         <NetworkName>Vodafone Contract</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>Vodafone Contract MMS</ProfileName>
         <URL>http://mms.vodafone.co.uk/servlets/mms</URL>
         <Auth>normal</Auth>
@@ -425,9 +438,7 @@
       </Profile>
       <Profile>
         <NetworkName>Vodafone Contract</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>Vodafone Contract Internet</ProfileName>
-        <URL>http://wap.uk.samsungmobile.com/vodafone</URL>
         <Auth>normal</Auth>
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>
@@ -439,7 +450,6 @@
       </Profile>
       <Profile>
         <NetworkName>Vodafone PAYG</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>Vodafone PAYG MMS</ProfileName>
         <URL>http://mms.vodafone.co.uk/servlets/mms</URL>
         <Auth>normal</Auth>
@@ -458,9 +468,7 @@
       </Profile>
       <Profile>
         <NetworkName>Vodafone PAYG</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>Vodafone PAYG Internet</ProfileName>
-        <URL>http://wap.uk.samsungmobile.com/vodafone</URL>
         <Auth>normal</Auth>
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>
@@ -472,7 +480,6 @@
       </Profile>
       <Profile>
         <NetworkName>Talk Mobile Contract</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>Talkmob MMS</ProfileName>
         <URL>http://mms.talkmobile.co.uk/servlets/mms</URL>
         <Auth>normal</Auth>
@@ -491,7 +498,6 @@
       </Profile>
       <Profile>
         <NetworkName>Talk Mobile Contract</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>Talkmob Internet</ProfileName>
         <URL>http://wap.uk.samsungmobile.com/</URL>
         <Auth>normal</Auth>
@@ -502,11 +508,12 @@
         </Proxy>
         <PSparam>
           <APN>talkmobile.co.uk</APN>
+          <UserId>wap</UserId>
+          <Password>wap</Password>
         </PSparam>
       </Profile>
       <Profile>
         <NetworkName>Talk Mobile PAYG</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>Talkmob PAYG MMS</ProfileName>
         <URL>http://mms.talkmobile.co.uk/servlets/mms</URL>
         <Auth>normal</Auth>
@@ -525,7 +532,6 @@
       </Profile>
       <Profile>
         <NetworkName>Talk Mobile PAYG</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>Talkmob PAYG Int</ProfileName>
         <URL>http://wap.uk.samsungmobile.com/</URL>
         <Auth>normal</Auth>
@@ -536,11 +542,27 @@
         </Proxy>
         <PSparam>
           <APN>payg.talkmobile.co.uk</APN>
+          <UserId>wap</UserId>
+          <Password>wap</Password>
         </PSparam>
       </Profile>
       <Profile>
         <NetworkName>O2 UK Pay Monthly</NetworkName>
-        <Editable>no</Editable>
+        <ProfileName>O2 Mobile Web</ProfileName>
+        <Auth>normal</Auth>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>off</EnableFlag>
+        </Proxy>
+        <PSparam>
+          <APN>mobile.o2.co.uk</APN>
+          <UserId>o2web</UserId>
+          <Password>password</Password>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>O2 UK Pay Monthly</NetworkName>
         <ProfileName>O2 Pay Monthly MMS</ProfileName>
         <URL>http://mmsc.mms.o2.co.uk:8002</URL>
         <Auth>normal</Auth>
@@ -558,24 +580,7 @@
         </PSparam>
       </Profile>
       <Profile>
-        <NetworkName>O2 UK Pay Monthly</NetworkName>
-        <Editable>no</Editable>
-        <ProfileName>O2 Mobile Web</ProfileName>
-        <Auth>normal</Auth>
-        <Protocol>http</Protocol>
-        <MTUSize>1500</MTUSize>
-        <Proxy>
-          <EnableFlag>off</EnableFlag>
-        </Proxy>
-        <PSparam>
-          <APN>mobile.o2.co.uk</APN>
-          <UserId>o2web</UserId>
-          <Password>password</Password>
-        </PSparam>
-      </Profile>
-      <Profile>
         <NetworkName>O2 UK Pay &amp; Go</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>O2 Pay &amp; Go Internet</ProfileName>
         <URL>http://wap.uk.samsungmobile.com/o2</URL>
         <Auth>normal</Auth>
@@ -583,7 +588,7 @@
         <MTUSize>1500</MTUSize>
         <Proxy>
           <EnableFlag>on</EnableFlag>
-          <ServAddr>82.132.254.1</ServAddr>
+          <ServAddr>193.113.200.195</ServAddr>
           <Port>8080</Port>
         </Proxy>
         <PSparam>
@@ -594,7 +599,6 @@
       </Profile>
       <Profile>
         <NetworkName>O2 UK Pay &amp; Go</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>O2 Pay &amp; Go MMS</ProfileName>
         <URL>http://mmsc.mms.o2.co.uk:8002</URL>
         <Auth>normal</Auth>
@@ -613,24 +617,6 @@
       </Profile>
       <Profile>
         <NetworkName>Orange UK</NetworkName>
-        <Editable>no</Editable>
-        <ProfileName>Orange UK WAP</ProfileName>
-        <URL>http://wap.uk.samsungmobile.com/orange</URL>
-        <Auth>normal</Auth>
-        <Protocol>http</Protocol>
-        <MTUSize>1500</MTUSize>
-        <Proxy>
-          <EnableFlag>on</EnableFlag>
-          <ServAddr>192.168.71.35</ServAddr>
-          <Port>8080</Port>
-        </Proxy>
-        <PSparam>
-          <APN>orangewap</APN>
-        </PSparam>
-      </Profile>
-      <Profile>
-        <NetworkName>Orange UK</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>Orange UK MMS</ProfileName>
         <URL>http://mms.orange.co.uk/</URL>
         <Auth>normal</Auth>
@@ -647,7 +633,6 @@
       </Profile>
       <Profile>
         <NetworkName>Orange UK</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>Orange UK Internet</ProfileName>
         <URL>http://wap.uk.samsungmobile.com/orange</URL>
         <Auth>normal</Auth>
@@ -662,7 +647,6 @@
       </Profile>
       <Profile>
         <NetworkName>T-Mobile</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>T-Mobile Internet</ProfileName>
         <URL>http://wap.uk.samsungmobile.com/t-mobile</URL>
         <Auth>normal</Auth>
@@ -679,7 +663,6 @@
       </Profile>
       <Profile>
         <NetworkName>T-Mobile</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>T-Mobile PictureMessage</ProfileName>
         <URL>http://mmsc.t-mobile.co.uk:8002</URL>
         <Auth>normal</Auth>
@@ -698,7 +681,6 @@
       </Profile>
       <Profile>
         <NetworkName>Virgin</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>Virgin Media Mobile Internet</ProfileName>
         <URL>http://wap.uk.samsungmobile.com/virgin</URL>
         <Auth>normal</Auth>
@@ -714,7 +696,6 @@
       </Profile>
       <Profile>
         <NetworkName>Virgin</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>VM Picture messaging</ProfileName>
         <URL>http://mms.virginmobile.co.uk:8002</URL>
         <Auth>normal</Auth>
@@ -732,26 +713,6 @@
       </Profile>
       <Profile>
         <NetworkName>BT Mobile</NetworkName>
-        <Editable>no</Editable>
-        <ProfileName>BT Mobile WAP</ProfileName>
-        <URL>http://wap.uk.samsungmobile.com/btm</URL>
-        <Auth>normal</Auth>
-        <Protocol>http</Protocol>
-        <MTUSize>1500</MTUSize>
-        <Proxy>
-          <EnableFlag>on</EnableFlag>
-          <ServAddr>212.183.137.12</ServAddr>
-          <Port>8799</Port>
-        </Proxy>
-        <PSparam>
-          <APN>btmobile.bt.com</APN>
-          <UserId>bt</UserId>
-          <Password>bt</Password>
-        </PSparam>
-      </Profile>
-      <Profile>
-        <NetworkName>BT Mobile</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>BT Mobile MMS</ProfileName>
         <URL>http://mms.bt.com/servlets/mms</URL>
         <Auth>normal</Auth>
@@ -770,7 +731,6 @@
       </Profile>
       <Profile>
         <NetworkName>BT Mobile</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>BT Mobile Internet</ProfileName>
         <URL>http://wap.uk.samsungmobile.com/btm</URL>
         <Auth>normal</Auth>
@@ -787,7 +747,6 @@
       </Profile>
       <Profile>
         <NetworkName>TESCO</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>TESCO Mobile</ProfileName>
         <URL>http://wap.uk.samsungmobile.com/tesco</URL>
         <Auth>normal</Auth>
@@ -806,7 +765,6 @@
       </Profile>
       <Profile>
         <NetworkName>TESCO</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>TESCO MMS</ProfileName>
         <URL>http://mmsc.mms.o2.co.uk:8002</URL>
         <Auth>normal</Auth>
@@ -825,7 +783,6 @@
       </Profile>
       <Profile>
         <NetworkName>Tesco Mobile Ireland</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Tesco Mobile Internet</ProfileName>
         <URL>http://www.tescomobile.ie</URL>
         <Protocol>http</Protocol>
@@ -841,7 +798,6 @@
       </Profile>
       <Profile>
         <NetworkName>Tesco Mobile Ireland</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Tesco MMS</ProfileName>
         <URL>http://10.1.11.68/servlets/mms</URL>
         <Protocol>http</Protocol>
@@ -857,7 +813,6 @@
       </Profile>
       <Profile>
         <NetworkName>Vodafone IE</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Vodafone IE Live!</ProfileName>
         <URL>http://live.vodafone.com</URL>
         <Protocol>http</Protocol>
@@ -873,7 +828,6 @@
       </Profile>
       <Profile>
         <NetworkName>Vodafone IE</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Vodafone IE MMS</ProfileName>
         <URL>http://www.vodafone.ie/mms</URL>
         <Protocol>http</Protocol>
@@ -888,24 +842,7 @@
         </PSparam>
       </Profile>
       <Profile>
-        <NetworkName>Vodafone IE</NetworkName>
-        <Editable>yes</Editable>
-        <ProfileName>Vodafone IE Mail</ProfileName>
-        <URL>http://live.vodafone.com</URL>
-        <Protocol>http</Protocol>
-        <MTUSize>1500</MTUSize>
-        <Proxy>
-          <EnableFlag>on</EnableFlag>
-          <ServAddr>10.24.59.100</ServAddr>
-          <Port>80</Port>
-        </Proxy>
-        <PSparam>
-          <APN>live.vodafone.com</APN>
-        </PSparam>
-      </Profile>
-      <Profile>
         <NetworkName>O2 IRL</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>O2.ie Mobile Internet</ProfileName>
         <URL>http://m.o2.ie</URL>
         <Auth>normal</Auth>
@@ -922,7 +859,6 @@
       </Profile>
       <Profile>
         <NetworkName>O2 IRL</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>O2.ie MMS</ProfileName>
         <URL>http://mmsc.mms.o2.ie:8002</URL>
         <Auth>normal</Auth>
@@ -939,7 +875,6 @@
       </Profile>
       <Profile>
         <NetworkName>Meteor</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>Meteor STUFF</ProfileName>
         <URL>http://wap.mymeteor.ie</URL>
         <Auth>normal</Auth>
@@ -958,7 +893,6 @@
       </Profile>
       <Profile>
         <NetworkName>Meteor</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>Meteor MMS</ProfileName>
         <URL>http://mms.mymeteor.ie</URL>
         <Auth>normal</Auth>
@@ -977,7 +911,6 @@
       </Profile>
       <Profile>
         <NetworkName>H3G</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>3 WAP</ProfileName>
         <URL>http://mobile.three.co.uk/hb/HutchKey</URL>
         <Auth>normal</Auth>
@@ -993,7 +926,6 @@
       </Profile>
       <Profile>
         <NetworkName>H3G</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>3 MMS</ProfileName>
         <URL>http://mms.um.three.co.uk:10021/mmsc</URL>
         <Auth>normal</Auth>
@@ -1010,7 +942,6 @@
       </Profile>
       <Profile>
         <NetworkName>Asda</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>Asda WAP</ProfileName>
         <URL>http://www.asda-mobile.com/wap</URL>
         <Auth>normal</Auth>
@@ -1029,7 +960,6 @@
       </Profile>
       <Profile>
         <NetworkName>Asda</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>Asda MMS</ProfileName>
         <URL>http://mms.asdamobiles.co.uk/servlets/mms</URL>
         <Auth>normal</Auth>
@@ -1048,7 +978,6 @@
       </Profile>
       <Profile>
         <NetworkName>H3G IE</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>H3G IE WAP</ProfileName>
         <URL>http://mobile.3ireland.ie/hb/HutchKey</URL>
         <Auth>normal</Auth>
@@ -1061,7 +990,6 @@
       </Profile>
       <Profile>
         <NetworkName>H3G IE</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>H3G IE MMS</ProfileName>
         <URL>http://mms.um.3ireland.ie:10021/mmsc</URL>
         <Auth>normal</Auth>

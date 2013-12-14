@@ -137,7 +137,8 @@ examples:
     <spnOverride numeric="23801" imsi_subset="71" fake_home_on="24201" fake_roaming_on="23801" />
     <spnOverride numeric="24208" imsi_subset="71" fake_home_on="24201" fake_roaming_on="23801" />
 
-    <spnOverride numeric="24205" spn_display_rule="SPN_RULE_SHOW_PLMN" spn_override_only_on="24205" />
+    <spnOverride numeric="24205" spn_display_rule="SPN_RULE_SHOW_PLMN" spn_override_only_on="24205" fake_home_on="24201"/>
+    <spnOverride numeric="24007" imsi_subset="68" fake_home_on="24202,24205"/>
 
 <!-- TDC Finland -->
     <spnOverride numeric="24412" imsi_subset="2400" fake_home_on="24412" fake_roaming_on="23801" />

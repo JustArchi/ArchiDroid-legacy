@@ -1,12 +1,12 @@
 ﻿<?xml  version="1.0" encoding="UTF-8" ?>
 <CustomerData>
   <GeneralInfo>
-    <CSCEdition>ED014</CSCEdition>
+    <CSCEdition>ED013</CSCEdition>
     <Country>Poland</Country>
     <CountryISO>PL</CountryISO>
     <Region>EUR</Region>
     <SalesCode>XEO</SalesCode>
-    <NbNetworkInfo>6</NbNetworkInfo>
+    <NbNetworkInfo>5</NbNetworkInfo>
     <NetworkInfo>
       <MCCMNC>26001</MCCMNC>
       <NetworkName>Plus</NetworkName>
@@ -27,56 +27,11 @@
       <MCCMNC>26006</MCCMNC>
       <NetworkName>Play</NetworkName>
     </NetworkInfo>
-    <NetworkInfo>
-      <MCCMNC>26012</MCCMNC>
-      <NetworkName>Cyfrowy Polsat</NetworkName>
-    </NetworkInfo>
   </GeneralInfo>
   <Settings>
     <Main>
-      <Security>
-        <NbNetworkLock>38</NbNetworkLock>
-        <NetworkLock>460BB</NetworkLock>
-        <NetworkLock>250BB</NetworkLock>
-        <NetworkLock>255BB</NetworkLock>
-        <NetworkLock>502BB</NetworkLock>
-        <NetworkLock>510BB</NetworkLock>
-        <NetworkLock>401BB</NetworkLock>
-        <NetworkLock>525BB</NetworkLock>
-        <NetworkLock>452BB</NetworkLock>
-        <NetworkLock>505BB</NetworkLock>
-        <NetworkLock>515BB</NetworkLock>
-        <NetworkLock>470BB</NetworkLock>
-        <NetworkLock>404BB</NetworkLock>
-        <NetworkLock>405BB</NetworkLock>
-        <NetworkLock>603BB</NetworkLock>
-        <NetworkLock>602BB</NetworkLock>
-        <NetworkLock>432BB</NetworkLock>
-        <NetworkLock>604BB</NetworkLock>
-        <NetworkLock>416BB</NetworkLock>
-        <NetworkLock>424BB</NetworkLock>
-        <NetworkLock>425BB</NetworkLock>
-        <NetworkLock>724BB</NetworkLock>
-        <NetworkLock>370BB</NetworkLock>
-        <NetworkLock>338BB</NetworkLock>
-        <NetworkLock>374BB</NetworkLock>
-        <NetworkLock>706BB</NetworkLock>
-        <NetworkLock>734BB</NetworkLock>
-        <NetworkLock>714BB</NetworkLock>
-        <NetworkLock>712BB</NetworkLock>
-        <NetworkLock>740BB</NetworkLock>
-        <NetworkLock>704BB</NetworkLock>
-        <NetworkLock>708BB</NetworkLock>
-        <NetworkLock>710BB</NetworkLock>
-        <NetworkLock>744BB</NetworkLock>
-        <NetworkLock>748BB</NetworkLock>
-        <NetworkLock>736BB</NetworkLock>
-        <NetworkLock>621BB</NetworkLock>
-        <NetworkLock>620BB</NetworkLock>
-        <NetworkLock>639BB</NetworkLock>
-      </Security>
       <Network>
-        <NbFastDormancy>5</NbFastDormancy>
+        <NbFastDormancy>4</NbFastDormancy>
         <FastDormancy>
           <NetworkName>T-Mobile.pl</NetworkName>
           <FastDormancyEnableStatus>on</FastDormancyEnableStatus>
@@ -93,11 +48,7 @@
           <NetworkName>Orange</NetworkName>
           <FastDormancyEnableStatus>on</FastDormancyEnableStatus>
         </FastDormancy>
-        <FastDormancy>
-          <NetworkName>Cyfrowy Polsat</NetworkName>
-          <FastDormancyEnableStatus>on</FastDormancyEnableStatus>
-        </FastDormancy>
-        <NbWbAmr>5</NbWbAmr>
+        <NbWbAmr>4</NbWbAmr>
         <WbAmr>
           <NetworkName>Plus</NetworkName>
           <WbAmrCodec>on</WbAmrCodec>
@@ -114,13 +65,6 @@
           <NetworkName>Play</NetworkName>
           <WbAmrCodec>on</WbAmrCodec>
         </WbAmr>
-        <WbAmr>
-          <NetworkName>Cyfrowy Polsat</NetworkName>
-          <WbAmrCodec>on</WbAmrCodec>
-        </WbAmr>
-        <NbSOSNumber>2</NbSOSNumber>
-        <SOSNumber>112</SOSNumber>
-        <SOSNumber>911</SOSNumber>
         <AutoProfile>on</AutoProfile>
         <AutoVoicemail>off</AutoVoicemail>
         <AutoEmailAccount>off</AutoEmailAccount>
@@ -131,15 +75,27 @@
         <AutoWbAmr>on</AutoWbAmr>
         <AutoFOTA>off</AutoFOTA>
       </Network>
+      <Sound>
+        <ExtraSound>
+          <ConnectTone>on</ConnectTone>
+          <CallEndTone>off</CallEndTone>
+          <MinuteMind>off</MinuteMind>
+        </ExtraSound>
+      </Sound>
       <Phone>
-        <DefLanguage>pl_PL</DefLanguage>
-        <DefLanguageNoSIM>pl_PL</DefLanguageNoSIM>
-        <BackLightTime>30sec</BackLightTime>
+        <AlertOnCall>on</AlertOnCall>
+        <DefLanguage>polish</DefLanguage>
+        <DefLanguageNoSIM>polish</DefLanguageNoSIM>
+        <T9Enabling>enable</T9Enabling>
+        <BackLightTime>15sec</BackLightTime>
         <DateTimeFormat>
           <DateFormat>ddmmyyyy</DateFormat>
           <TimeFormat>24h</TimeFormat>
         </DateTimeFormat>
+        <UnknownSource>off</UnknownSource>
+        <UsePacketData>off</UsePacketData>
       </Phone>
+      <Security />
     </Main>
     <Calendar>
       <StartDay>monday</StartDay>
@@ -151,16 +107,14 @@
       </PushMsg>
       <SMS>
         <DeliveryReport>off</DeliveryReport>
-        <CellBroadcast>off</CellBroadcast>
-        <DeleteOldMessage>off</DeleteOldMessage>
-        <PreviewMessage>off</PreviewMessage>
+        <CharSupport>gsmalpha</CharSupport>
+        <SSMS>off</SSMS>
       </SMS>
       <MMS>
-        <MmsSending>
-          <ReqDeliveryRep>off</ReqDeliveryRep>
-          <ReqReadRep>off</ReqReadRep>
-          <CreationMode>warning</CreationMode>
-        </MmsSending>
+        <MmsReceiving>
+          <Home>auto</Home>
+          <Roaming>manual</Roaming>
+        </MmsReceiving>
       </MMS>
     </Messages>
     <Browser>
@@ -184,7 +138,7 @@
       </eManual>
     </Browser>
     <Connections>
-      <NbProfileHandle>6</NbProfileHandle>
+      <NbProfileHandle>5</NbProfileHandle>
       <ProfileHandle>
         <NbNetProfile>2</NbNetProfile>
         <NetworkName>Plus</NetworkName>
@@ -215,13 +169,7 @@
         <ProfBrowser>Play INTERNET</ProfBrowser>
         <ProfMMS>Play MMS</ProfMMS>
       </ProfileHandle>
-      <ProfileHandle>
-        <NbNetProfile>2</NbNetProfile>
-        <NetworkName>Cyfrowy Polsat</NetworkName>
-        <ProfBrowser>Cyfrowy Polsat INTERNET</ProfBrowser>
-        <ProfMMS>Cyfrowy Polsat MMS</ProfMMS>
-      </ProfileHandle>
-      <NbProfile>12</NbProfile>
+      <NbProfile>10</NbProfile>
       <Profile>
         <NetworkName>Plus</NetworkName>
         <Editable>yes</Editable>
@@ -257,7 +205,6 @@
         <NetworkName>T-Mobile.pl</NetworkName>
         <Editable>yes</Editable>
         <ProfileName>T-Mobile.pl INTERNET</ProfileName>
-        <URL>http://m.samsungapps.pl</URL>
         <Auth>none</Auth>
         <Protocol>other</Protocol>
         <MTUSize>1500</MTUSize>
@@ -380,37 +327,6 @@
         </Proxy>
         <PSparam>
           <APN>mms</APN>
-        </PSparam>
-      </Profile>
-      <Profile>
-        <NetworkName>Cyfrowy Polsat</NetworkName>
-        <Editable>yes</Editable>
-        <ProfileName>Cyfrowy Polsat INTERNET</ProfileName>
-        <Auth>none</Auth>
-        <Protocol>other</Protocol>
-        <MTUSize>1500</MTUSize>
-        <Proxy>
-          <EnableFlag>off</EnableFlag>
-        </Proxy>
-        <PSparam>
-          <APN>internet.cp</APN>
-        </PSparam>
-      </Profile>
-      <Profile>
-        <NetworkName>Cyfrowy Polsat</NetworkName>
-        <Editable>yes</Editable>
-        <ProfileName>Cyfrowy Polsat MMS</ProfileName>
-        <URL>http://mms.cyfrowypolsat.pl:8002</URL>
-        <Auth>none</Auth>
-        <Protocol>http</Protocol>
-        <MTUSize>1500</MTUSize>
-        <Proxy>
-          <EnableFlag>on</EnableFlag>
-          <ServAddr>79.171.2.33</ServAddr>
-          <Port>8080</Port>
-        </Proxy>
-        <PSparam>
-          <APN>mms.cyfrowypolsat.pl</APN>
         </PSparam>
       </Profile>
     </Connections>

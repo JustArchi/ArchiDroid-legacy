@@ -346,7 +346,7 @@ package_extract_file("_archidroid/modem/flash_image", "/tmp/flash_image");
 set_perm(0, 0, 0777, "/tmp/flash_image");
 
 if file_getprop("/tmp/aroma-data/archidroid.prop","updatemodem") == "1" then
-	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Flashing XXUGMJ9 Modem");
+	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Flashing Modem");
 	assert(package_extract_file("_archidroid/modem/modem.bin", "/tmp/modem.bin"),
 	run_program("/tmp/flash_image", "/dev/block/mmcblk0p7", "/tmp/modem.bin"),
 	delete("/tmp/modem.bin"));

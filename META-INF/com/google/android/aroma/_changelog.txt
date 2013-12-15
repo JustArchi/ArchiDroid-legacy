@@ -31,6 +31,15 @@ ArchiDroid 2.3.1
 # Additionally deleted cpu graph, hidden annoying notification, fixed iostat
 # (showing proper I/O after full wipe) and various other misc improvements
 
+- [!] Added long-awaited delta upgrades integrated into ArchiDroid
+# This is a mode called "git" for adflasher implemented in version 2.3
+# Delta upgrades use ArchiDroid's Pocket Debian described above
+# The whole magic is in creating local ArchiDroid github repository and then pulling
+# changes between local and upstream repository instead of downloading static zip file
+# used in now called "direct" method. Keep in mind that this mode requires additional
+# space on your internal sd card to create a repo, it's about double of ArchiDroid's size
+# 1 GB for 2.X, and 2 GB for 1.X.
+
 - Removed Googy Max kernel (for good)
 # Because it doesn't work with Omni and I'm not sure if googy is interested in Omni support...
 - Added Devil kernel

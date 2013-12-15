@@ -181,7 +181,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "previ
     writetmpfile("archidroidinstallmode.prop","preset=custom\n");
   else
     writetmpfile("archidroid.prop",read("/data/media/0/ArchiDroid/AromaPreset/1.X/archidroid.prop"));
-    #writetmpfile("archidroidboeffla.prop",read("/data/media/0/ArchiDroid/AromaPreset/1.X/archidroidboeffla.prop"));
+    writetmpfile("archidroidboeffla.prop",read("/data/media/0/ArchiDroid/AromaPreset/1.X/archidroidboeffla.prop"));
     writetmpfile("archidroidboefflasound.prop",read("/data/media/0/ArchiDroid/AromaPreset/1.X/archidroidboefflasound.prop"));
     writetmpfile("archidroidxposed.prop",read("/data/media/0/ArchiDroid/AromaPreset/1.X/archidroidxposed.prop"));
     writetmpfile("archidroidbuild.prop",read("/data/media/0/ArchiDroid/AromaPreset/1.X/archidroidbuild.prop"));

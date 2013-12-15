@@ -194,6 +194,8 @@ if [ $SAMMY -eq 1 ]; then
 	cd framework-res
 	zip -0 -r ../../system/framework/framework-res.apk *
 	cd ..
+	./zipalign -v -f 4 ../system/framework/framework-res.apk TEMP.apk
+	mv -f TEMP.apk ../system/framework/framework-res.apk
 fi
 
 if [ $STABLE -eq 1 ]; then

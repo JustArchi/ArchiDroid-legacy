@@ -35,7 +35,7 @@
 ### LANGUAGE STRING RESOURCE FILE
 #
 # Language : Русский
-# By : egotheist
+# By : egotheist, aglab2
 #
 
 #
@@ -77,7 +77,7 @@ archidroid.detect.pass=ArchiDroid обнаружил себя на Вашем у
 archidroid.detect.pass.yes=Да, давайте обновимся!
 archidroid.detect.pass.no=Нет, делаем полный сброс!
 archidroid.detect.pass.alert.no=OK, я продолжу в режиме установки ArchiDroid с полным сбросом.
-archidroid.detect.force=Would you like to use forced update mode? This tells ArchiDroid RunOnce to perform advanced tweaks, which normally would be executed only during install mode. Select No if you're unsure
+archidroid.detect.force=Желаете ли использовать ускоренное обновление? Это запустит скрипты, которые обычно используются во время установки. Выберите нет, если вы не уверены
 
 archidroid.preset=Режим установки ArchiDroid
 archidroid.preset.desc=Пожалуйста, выберите режим установки:
@@ -97,13 +97,13 @@ archidroid.custom.desc=Выберите установки на свой вку�
 
 archidroid.kernel.temasek.desc=Рекомнедовано для высокой производительности, энергосбережения, гибкости и звука boeffla.
 archidroid.kernel.boeffla.desc=Крайне рекомендованный всем шедевр, включающий в себя звук boeffla и множество других особенностей.
-archidroid.kernel.yank.desc=Recommended as an alternative
-archidroid.kernel.devil.desc=Based on Perseus sources. Unique for dual-boot feature
+archidroid.kernel.yank.desc=Рекомендуется в качестве альтернативы
+archidroid.kernel.devil.desc=Основан на ядре Perseus. Уникален благодаря возможности двойной загрузки
 archidroid.kernel.googy.desc=Основан на Siyah. Уникален возможностью dual-boot.
 archidroid.kernel.stock.desc=Ядро по умлочанию из ROM.
 
-archidroid.theme.aosp.desc=AOSP theme
-archidroid.theme.stock.desc=Stock theme
+archidroid.theme.aosp.desc=Тема AOSP\
+archidroid.theme.stock.desc=Стоковая тема
 
 archidroid.dpi.240w.desc=Внимание! Помните о вероятности незначительных графических искажений на этом DPI.
 archidroid.dpi.240.desc=Все будет меньше, включая кнопки, иконки, шрифт и т.д. Рекомендовано для лучшего опыта использования ArchiDroid!
@@ -112,14 +112,14 @@ archidroid.dpi.320.desc=Значение по умолчанию
 
 archidroid.launcher.nova.desc=Рекомендуется для ультра гибкости и прозводительности.
 archidroid.launcher.stock.desc=Родной лончер ROM
-archidroid.launcher.none.desc=No launcher. WARNING! Don't tick if you're after full wipe! You need at least one custom launcher before first boot!
+archidroid.launcher.none.desc=Без лончера. ВНИМАНИЕ! Не используйте после полного сброса! Необходим хотя бы один лончер!
 
 archidroid.keyboard=Клавиатура
 archidroid.keyboard.touchpal.desc=Рекомендована как очень гибкая в настройках клавиатура с поддержкой жестов.
 archidroid.keyboard.hackers.desc=Отличная альтернатива TouchPal, если Вы не собираетесь использовать жесты.
 archidroid.keyboard.both.desc=Если Вы хотите использовать и TouchPal, и Hacker's (например в Терминале).
 archidroid.keyboard.stock.desc=Если Вы хотите использовать клавитуру по умолчанию из ROM.
-archidroid.keyboard.none.desc=No keyboard. WARNING! Don't tick if you're after full wipe! You need at least one custom keyboard before first boot!
+archidroid.keyboard.none.desc=Без клавиатуры. ВНИМАНИЕ! Не используйте после полного сброса! Необходима хотя бы одна клавиатура!
 
 archidroid.bootanimation=Анимация загрузки
 archidroid.bootanimation.archi.desc=Новая красивая анимация ArchiDroid.
@@ -174,7 +174,7 @@ archidroid.boeffla.no.desc=Если Вы не хотите устанавлив�
 
 archidroid.xposed.appsettings.desc=Позволяет изменять установки приложений. Крайне полезный инструмент.
 archidroid.xposed.xprivacy.desc=Модуль, позволяющий предотвратить утечку личный данных, запрещает доступ к ним и т.д.
-archidroid.xposed.wanam.desc=Masterpiece from Wanam. Enhances ArchiDroid's flexibility and provides a ton of customization options
+archidroid.xposed.wanam.desc=Шедевр Wanam`а. Улучшает гибкость ArchiDroid и дает множество изменений
 
 archidroid.wizard.reboot=ArchiDroid был установлен на Ваше устройство. Хотите выполнить перезагрузку?
 
@@ -197,4 +197,4 @@ archidroid.install.finish=Установщик ArchiDroid успешно про�
 Нажмите <b>Закончить</b> для продолжения.
 
 archidroid.buildtweaks.fastdormancy.desc=Снимите отметку, чтобы выключить быстрое засыпание. Может уменьшить расход батареи, если активровано и подерживатся оператором связи.
-archidroid.buildtweaks.zerowakeup.desc=Tick to enable ZeroWakeUp, it will put CPU into sleep mode (instead of deep/deeper sleep), reducing wake up delay to the minimum
+archidroid.buildtweaks.zerowakeup.desc=Отметьте для включений ZeroWakeUp, этот режим заставит CPU перейти в режим сна (вместо глубокого сна), уменьшая время активации до минимума

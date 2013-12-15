@@ -1,7 +1,7 @@
-echo 'zzmoove' > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
-echo 'zzmoove - battery yank' > /dev/bk_governor_profile
+echo 'pegasusq' > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+echo 'pegasusq - boeffla moderate' > /dev/bk_governor_profile
 busybox usleep 300000
-/res/bc/bccontroller.sh apply_governor_profile 'zzmoove - battery yank'
+/res/bc/bccontroller.sh apply_governor_profile 'pegasusq - boeffla moderate'
 echo 'row' > /sys/block/mmcblk0/queue/scheduler
 echo 'cfq' > /sys/block/mmcblk1/queue/scheduler
 echo '512' > /sys/block/mmcblk0/bdi/read_ahead_kb
@@ -34,7 +34,7 @@ echo '0' > /sys/class/misc/boeffla_sound/mono_downmix
 echo '28' > /sys/class/misc/boeffla_sound/mic_level_general
 echo '25' > /sys/class/misc/boeffla_sound/mic_level_call
 echo '1' > /sys/class/sec/led/led_fade
-echo '40' > /sys/class/sec/led/led_intensity
+echo '60' > /sys/class/sec/led/led_intensity
 echo '1' > /sys/class/sec/led/led_speed
 echo '1' > /sys/class/misc/touchboost_switch/touchboost_switch
 echo '600000' > /sys/class/misc/touchboost_switch/touchboost_freq
@@ -69,4 +69,3 @@ echo '0' > /sys/kernel/printk_mode/printk_mode
 echo '6144,7987,9830,12288,14131,17203,' > /sys/module/lowmemorykiller/parameters/minfree
 echo 'Archi' >/data/.boeffla/startconfig_done
 busybox chmod 666 /data/.boeffla/startconfig_done
-

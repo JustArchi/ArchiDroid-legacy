@@ -9,6 +9,25 @@ SamsungLink18_stub.apk
 S-Voice_Android_phone_H.apk
 SecEmail_J.apk
 
+/system/voicebargeindata
+/system/wakeupdata
+
+libChatOn*.so
+libDio*.so
+libpolaris*.so
+liblifevibes_mediashare*.so
+libasf_mediashare.so
+libfacelock_jni.so
+libpaperartist.so
+libfacerecognition.so
+libgoogle_recognizer_jni_l.so
+libINDIAgent.so
+libINDIServer.so
+libmagnet.so
+libpatts_engine_jni_api.so
+libvideochat_jni.so
+libVideoHub.so
+
 BestGroupPose.apk
 com.sec.pcw-1.apk
 com.sec.spp.push-1.apk
@@ -182,11 +201,7 @@ DirectShareManager.apk
 DttSupport.apk
 /system/preloaddata/SNote
 FaceLock.apk
-/system/lib/libfacelock_jni.so
 /system/vendor/pittpatt
-/system/lib/libpaperartist.so
-/system/lib/libpolarisviewer4.so
-/system/lib/libpolarisofficedump.so
 /system/media/audio/ringtones/02_Fog_on_the_water.ogg
 /system/media/audio/ringtones/03_Rays_of_the_sun.ogg
 /system/media/audio/ringtones/04_Blowing_dandelion_seeds.ogg

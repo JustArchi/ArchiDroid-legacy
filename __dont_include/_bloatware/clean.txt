@@ -1,11 +1,3 @@
-/system/tts
-/system/vendor/pittpatt
-/system/voicebargeindata
-/system/wakeupdata
-
-ShareShotService.apk
-Fmm*
-Keystring*
 MusicLiveShare*
 SSuggest*
 GameHub*
@@ -17,7 +9,6 @@ SamsungLink18_stub.apk
 S-Voice_Android_phone_H.apk
 SecEmail_J.apk
 
-ChromeBookmarksSyncAdapter.apk
 BestGroupPose.apk
 com.sec.pcw-1.apk
 com.sec.spp.push-1.apk
@@ -186,11 +177,13 @@ SamsungTTS.apk
 VoiceSearch*.apk
 voicetalk*.apk
 S-Voice_Android_phone.apk
+/system/tts
 DirectShareManager.apk
 DttSupport.apk
 /system/preloaddata/SNote
 FaceLock.apk
 /system/lib/libfacelock_jni.so
+/system/vendor/pittpatt
 /system/lib/libpaperartist.so
 /system/lib/libpolarisviewer4.so
 /system/lib/libpolarisofficedump.so

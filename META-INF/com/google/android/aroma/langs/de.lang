@@ -35,7 +35,7 @@
 ### LANGUAGE STRING RESOURCE FILE
 #
 #   Language  : German
-#   By        : beyerservice, phoberus
+#   By        : beyerservice
 #
 
 #
@@ -77,7 +77,7 @@ archidroid.detect.pass=ArchiDroid hat eine ArchiDroid Installation gefunden. Wil
 archidroid.detect.pass.yes=Ja, versuch ein Update
 archidroid.detect.pass.no=Nein, Full Wipe (alles löschen)
 archidroid.detect.pass.alert.no=OK, ich mache einen Full Wipe (Datenlöschung) und starte dann den ArchiDroid Installations-Modus
-archidroid.detect.force=Would you like to use forced update mode? This tells ArchiDroid RunOnce to perform advanced tweaks, which normally would be executed only during install mode. Select No if you're unsure
+archidroid.detect.force=Soll ein Update erzwungen werden? Dies sagt ArchiDroid RunOnce spezielle Verbesserungen durchzuführen, die sonst nur bei einer Neuinstallation gemacht würden. Wähle nein, wenn du unsicher bist.
 
 archidroid.preset=ArchiDroid Installations-Voreinstellung
 archidroid.preset.desc=Bitte wähle eine Installations-Voreinstellung:
@@ -86,8 +86,8 @@ archidroid.preset.custom=Angepasst
 archidroid.preset.custom.desc=Du kannst jede Einstellung während der Installation selbst anpassen
 archidroid.preset.barebones=Bare Bones
 archidroid.preset.barebones.desc=Nur ROM. Nur zum testen, wird nicht empfohlen
-archidroid.preset.previous=Previous Preset
-archidroid.preset.previous.desc=Einstellungen von vorderer Installation behalten (wenn möglich)
+archidroid.preset.previous=letzte Voreinstellung
+archidroid.preset.previous.desc=Einstellungen von vor der Installation behalten (wenn möglich)
 
 archidroid.detect.previouspreset.fail=Konnte die Einstellungen nicht laden, wählen Sie bitte "Angepasst"
 
@@ -98,12 +98,12 @@ archidroid.custom.desc=Bitte wähle die Einstellungen, wie du sie möchtest
 archidroid.kernel.temasek.desc=Empfehlung für beste Performance, Energiesparen, hohe Flexibilität und Boeffla-Sound
 archidroid.kernel.boeffla.desc=Empfohlenes Meisterwerk perfekt für jeden, mit Boeffla Sound und vielen weiteren Funktionen
 archidroid.kernel.yank.desc=Empfohlen als Alternative
-archidroid.kernel.devil.desc=Based on Perseus sources. Unique for dual-boot feature
+archidroid.kernel.devil.desc=Basiert auf Perseus Quellen. Einzigartig mit Dual-Boot Funktionen
 archidroid.kernel.googy.desc=Basiert auf Siyah Quellen. Einzigartig mit Dual-Boot Funktionen
 archidroid.kernel.stock.desc=Der Standard-Kernel von ROM
 
-archidroid.theme.aosp.desc=AOSP theme
-archidroid.theme.stock.desc=Stock theme
+archidroid.theme.aosp.desc=AOSP Thema
+archidroid.theme.stock.desc=Stock Thema
 
 archidroid.dpi.240w.desc=WARNUNG! Bei dieser DPI kann es zu kleineren Grafikfehlern kommen
 archidroid.dpi.240.desc=Alles ist kleiner: Buttons, Icons, Text u.s.w.. empfohlen für die beste ArchiDroid-Erfahrung!
@@ -112,21 +112,21 @@ archidroid.dpi.320.desc=Standard
 
 archidroid.launcher.nova.desc=Empfohlen für extra Flexibilität und Performance
 archidroid.launcher.stock.desc=Von ROM
-archidroid.launcher.none.desc=No launcher. WARNING! Don't tick if you're after full wipe! You need at least one custom launcher before first boot!
+archidroid.launcher.none.desc=Kein Launcher. ACHTUNG! Nicht nach einem Full Wipe auswählen! Du brauchst mindestens einen eigenen Launcher vor dem 1. Start!
 
 archidroid.keyboard=Tastatur
 archidroid.keyboard.touchpal.desc=Empfohlen als eine tolle und flexible Swype/Curve Tastatur
 archidroid.keyboard.hackers.desc=Tolle Alternative zu TouchPal wenn du keine swype/curve Funktion benötigst
 archidroid.keyboard.both.desc=Wenn du beide benutzen willst, TouchPal und Hacker's (z.B. für Terminal)
 archidroid.keyboard.stock.desc=Wenn du die Standard ROM Tastatur nutzen möchtest
-archidroid.keyboard.none.desc=No keyboard. WARNING! Don't tick if you're after full wipe! You need at least one custom keyboard before first boot!
+archidroid.keyboard.none.desc=Keine Tastatur. ACHTUNG! Nicht nach einem Full Wipe auswählen! Du brauchst mindestens eine Tastatur vor dem 1. Start!
 
 archidroid.bootanimation=Bootanimation
 archidroid.bootanimation.archi.desc=Neue ausgefallene ArchiDroid Bootanimation
 archidroid.bootanimation.archilegacy.desc=Alte ArchiDroid 1.X Bootanimation
 archidroid.bootanimation.logcat.desc=Ersetzt die Standard Bootanimation durch eine logcat Ausgabe - powered by logcat lite
 archidroid.bootanimation.stock.desc=Standard Bootanimation von ROM
-archidroid.bootanimation.none.desc=No bootanimation, for slightly faster bootup
+archidroid.bootanimation.none.desc=Keine Bootanimation, für etwas schnellere Bootzeit
 
 archidroid.other=Anderes
 archidroid.ota.desc=Empfohlen von ArchiDroid. Installation von UpdateMe apk und Aktivierung von OTA-Updates durch build.prop
@@ -174,7 +174,7 @@ archidroid.boeffla.no.desc=Wenn du Boeffla SC nicht installieren möchtest
 
 archidroid.xposed.appsettings.desc=Erlaubt App-Einstellungen zu ändern. Sehr praktisches Tool
 archidroid.xposed.xprivacy.desc=Perfektes Modul um die Preisgabe persönlicher Daten zu verhintern,  Berechtigungen einschränken und vieles mehr
-archidroid.xposed.wanam.desc=Masterpiece from Wanam. Enhances ArchiDroid's flexibility and provides a ton of customization options
+archidroid.xposed.wanam.desc=Meisterstück von Wanam. Verbessert ArchiDroid's flexibilität und ermöglicht eine Menge Anpassungen
 
 archidroid.wizard.reboot=ArchiDroid wurde auf deinem Gerät installiert. Möchtest du automatisch neu starten?
 
@@ -196,5 +196,5 @@ Bitte warte bis der Installationsassistent dein <b>ArchiDroid</b> installiert ha
 archidroid.install.finish=Der ArchiDroid Installationsassistent hat <b>ArchiDroid<b> erfolgreich installiert.\
 Drücke <b>Beenden</b> um fortzufahren.
 
-archidroid.buildtweaks.fastdormancy.desc=Untick to disable fast dormancy, may improve battery life if your provider doesn't support it
-archidroid.buildtweaks.zerowakeup.desc=Tick to enable ZeroWakeUp, it will put CPU into sleep mode (instead of deep/deeper sleep), reducing wake up delay to the minimum
+archidroid.buildtweaks.fastdormancy.desc=Deaktivieren um Fast Dormancy zu deaktivieren, kann die Batterielaufzeit erhöhen, falls dein Provider das nicht unterstützt
+archidroid.buildtweaks.zerowakeup.desc=Anklicken um ZeroWakeUpzu aktivieren, dies setzt die CPU in Schlafmodus (an statt deep/deeper sleep), reduziert die Aufwachverzögerung auf ein Minimum.

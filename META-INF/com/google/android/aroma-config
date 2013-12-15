@@ -28,7 +28,7 @@
 ##
 # Initializing Rom Information
 #
-setvar("preset_version","5");
+setvar("preset_version","6");
 
 ini_set("dp","3");
 ini_set("rom_name",             "ArchiDroid");
@@ -249,7 +249,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
     "stock","Stock","<~archidroid.kernel.stock.desc>","select",
 	 
     "theme","<#selectbg_g>Theme</#>","","group",
-    "foxhound","FoxHound All Black","<~archidroid.theme.foxhound.desc>","select.selected",
+    "aosp","AOSP Theme","<~archidroid.theme.aosp.desc>","select.selected",
     "stock","Stock Theme","<~archidroid.theme.stock.desc>","select",
 
     "dpi","<#selectbg_g>DPI</#>","","group",

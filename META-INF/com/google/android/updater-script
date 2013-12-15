@@ -76,7 +76,7 @@ set_progress(0.09);
 set_progress(0.1);
 
 ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Flashing ArchiDroid Core");
-show_progress(0.4, 3264);
+show_progress(0.4, 1457);
 package_extract_dir("system", "/system");
 
 run_program("/sbin/sync");
@@ -287,10 +287,10 @@ endif;
 ### THEME ###
 #############
 
-if file_getprop("/tmp/aroma-data/archidroid.prop","theme") == "foxhound" then
-	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing FoxHound All Black Theme");
-	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Notice: This can take up to 5 minutes!");
-	package_extract_dir("_archidroid/themes/foxhound", "/sdcard/vrtheme");
+if file_getprop("/tmp/aroma-data/archidroid.prop","theme") == "aosp" then
+	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing AOSP Theme");
+	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Notice: This can take a longer while!");
+	package_extract_dir("_archidroid/themes/aosp", "/sdcard/vrtheme");
 	package_extract_dir("_archidroid/themes/vrtheme", "/sdcard/vrtheme");
 	set_perm(0, 0, 0755, "/sdcard/vrtheme/installtheme.sh");
 	set_perm(0, 0, 0755, "/sdcard/vrtheme/zip");

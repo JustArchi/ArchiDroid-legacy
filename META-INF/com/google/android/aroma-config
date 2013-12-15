@@ -369,7 +369,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 
       "modules","<#selectbg_g>Xposed Modules</#>","","group",
       "appsettings","App Settings","<~archidroid.xposed.appsettings.desc>","check.checked",
-      "xprivacy","XPrivacy","<~archidroid.xposed.xprivacy.desc>","check.checked"
+      "xprivacy","XPrivacy","<~archidroid.xposed.xprivacy.desc>","check"
     );
     write("/data/media/0/ArchiDroid/AromaPreset/2.X/archidroidxposed.prop",
       readtmpfile("archidroidxposed.prop");

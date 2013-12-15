@@ -68,7 +68,7 @@ terms.confirm2=Respektiere die Entwickler!
 
 archidroid.tos=ArchiDroid Bedingungen
 
-archidroid.detect.fail=ArchiDroid konnte keine ArchiDroid-Installation finden. Hast du alle Daten gelöscht oder hast ein anderes ROM installiert?
+archidroid.detect.fail=ArchiDroid konnte keine ArchiDroid-Installation finden. Hast du alle Daten gelöscht oder hast du eine andere ROM installiert?
 archidroid.detect.fail.yes=Ja, ich habe kein ArchiDroid!
 archidroid.detect.fail.no=Nein, ich habe ArchiDroid!
 archidroid.detect.fail.alert.yes=OK, dann wähle ich ArchiDroid Installations-Modus aus.
@@ -87,9 +87,9 @@ archidroid.preset.custom.desc=Du kannst jede Einstellung während der Installati
 archidroid.preset.barebones=Bare Bones
 archidroid.preset.barebones.desc=Nur ROM. Nur zum testen, wird nicht empfohlen
 archidroid.preset.previous=Previous Preset
-archidroid.preset.previous.desc=Loads your previous custom installation preset (if available)
+archidroid.preset.previous.desc=Einstellungen von vorderer Installation behalten (wenn möglich)
 
-archidroid.detect.previouspreset.fail=Could not load your previous preset, either it failed integrity check or doesn't exist
+archidroid.detect.previouspreset.fail=Konnte die Einstellungen nicht laden, wählen Sie bitte "Angepasst"
 
 archidroid.custom=ArchiDroid Anpassung
 archidroid.custom.extra=ArchiDroid Extra Anpassung

@@ -1,0 +1,78 @@
+#!/bin/bash
+GERRIT="https://gerrit.omnirom.org"
+
+cd /root/android/omni
+
+adpatch() {
+	# Prepare variables and path
+	NUMBER="$1"
+	PATCHSET="$2"
+	shift 2
+	GENERIC="android"
+	for i in "$@"; do
+		cd $i
+		GENERIC+="_$i"
+	done
+	
+	# Find latest patchset
+	git fetch $GERRIT/$GENERIC refs/changes/$NUMBER/$PATCHSET
+	while (true); do
+		PATCHSET=`expr $PATCHSET + 1`
+		git fetch $GERRIT/$GENERIC refs/changes/$NUMBER/$PATCHSET >/dev/null 2>&1
+		if [ $? -ne 0 ]; then
+			PATCHSET=`expr $PATCHSET - 1`
+			break
+		else
+			echo "$NUMBER" "$PATCHSET"
+			read -p "Tell me when you're done, master!" -n1 -s
+		fi
+	done
+	
+	# Finally apply patch
+	git fetch $GERRIT/$GENERIC refs/changes/$NUMBER/$PATCHSET
+	git cherry-pick FETCH_HEAD
+	
+	if [ $? -ne 0 ]; then
+		git reset --hard
+		git clean -fd
+		echo "FAILED WITH $NUMBER $GENERIC"
+		read -p "Tell me when you're done, master!" -n1 -s
+	fi
+	
+	# Back to root
+	for i in `seq 1 $#`; do
+		cd ..
+	done
+}
+
+# Multi-Window
+# https://gerrit.omnirom.org/#/c/1510/
+adpatch "10/1510" "14" "frameworks" "base"
+
+# ListView
+# https://gerrit.omnirom.org/#/c/2863/
+# https://gerrit.omnirom.org/#/c/2862/
+adpatch "63/2863" "6" "frameworks" "base"
+adpatch "62/2862" "7" "packages" "apps" "OmniGears"
+
+# Navigation bar
+# https://gerrit.omnirom.org/#/c/3761/ #Merged
+# https://gerrit.omnirom.org/#/c/3770/
+# https://gerrit.omnirom.org/#/c/3772/ #Needs Update
+# https://gerrit.omnirom.org/#/c/3151/ #Needs Update
+### https://gerrit.omnirom.org/#/c/3157/ #Merged
+# https://gerrit.omnirom.org/#/c/3156/ #Needs Update
+###adpatch "61/3761" "1" "packages" "apps" "OmniGears"
+#adpatch "70/3770" "1" "frameworks" "base"
+#adpatch "72/3772" "1" "packages" "apps" "OmniGears"
+#adpatch "51/3151" "4" "frameworks" "base"
+###adpatch "57/3157" "3" "packages" "apps" "Settings"
+#adpatch "56/3156" "5" "packages" "apps" "OmniGears"
+
+# QuickSettings
+# https://gerrit.omnirom.org/#/c/3065/
+# https://gerrit.omnirom.org/#/c/3081/ #Needs Update
+#adpatch "65/3065" "4" "frameworks" "base"
+#adpatch "81/3081" "3" "packages" "apps" "OmniGears"
+
+exit 0

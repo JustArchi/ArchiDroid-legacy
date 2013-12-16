@@ -95,6 +95,10 @@ if [ $SAMMY -eq 0 ] && [ $NOBUILD -eq 0 ]; then
 	if [ $? -ne 0 ]; then
 		read -p "Something went wrong, please check and tell me when you're done, master!" -n1 -s
 	fi
+	
+	# Apply all temporary patches
+	bash ../../shared/git/ArchiDroid/__dont_include/patches.sh
+	
 	source build/envsetup.sh
 	brunch i9300
 	cd $OUT

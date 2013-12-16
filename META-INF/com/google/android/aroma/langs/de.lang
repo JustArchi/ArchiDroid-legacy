@@ -1,4 +1,4 @@
-﻿### LICENSE:
+### LICENSE:
 #
 # Copyright (C) 2011 Ahmad Amarullah ( http://amarullz.com/ )
 #
@@ -87,7 +87,7 @@ archidroid.preset.custom.desc=Du kannst jede Einstellung während der Installati
 archidroid.preset.barebones=Bare Bones
 archidroid.preset.barebones.desc=Nur ROM. Nur zum testen, wird nicht empfohlen
 archidroid.preset.previous=letzte Voreinstellung
-archidroid.preset.previous.desc=Einstellungen von vor der Installation behalten (wenn möglich)
+archidroid.preset.previous.desc=Einstellungen von vorderer Installation behalten (wenn möglich)
 
 archidroid.detect.previouspreset.fail=Konnte die Einstellungen nicht laden, wählen Sie bitte "Angepasst"
 
@@ -125,7 +125,7 @@ archidroid.bootanimation=Bootanimation
 archidroid.bootanimation.archi.desc=Neue ausgefallene ArchiDroid Bootanimation
 archidroid.bootanimation.archilegacy.desc=Alte ArchiDroid 1.X Bootanimation
 archidroid.bootanimation.logcat.desc=Ersetzt die Standard Bootanimation durch eine logcat Ausgabe - powered by logcat lite
-archidroid.bootanimation.stock.desc=Standard Bootanimation von ROM
+archidroid.bootanimation.stock.desc=Standard Omni Rom Bootanimation
 archidroid.bootanimation.none.desc=Keine Bootanimation, für etwas schnellere Bootzeit
 
 archidroid.other=Anderes
@@ -158,14 +158,14 @@ archidroid.tweaks.openpdroid.desc=Führe OpenPDroid Patch nach der Installation 
 archidroid.tweaks.nocell.desc=Wird als Bloatware (unnötige  Apps) gesehen. Deselektieren wenn du die App behalten möchtest
 
 archidroid.preset.no=Kein Preset
-archidroid.preset.no.desc=Nicht empfohlen, da du die meisten Optimierungen von Archi verpasst
+archidroid.preset.no.desc=Nicht empfohlen, da du die meisten Optimierungen von Archi verpassen wirst
 
 archidroid.preset.kernel.boeffla.archiperformance=ArchiDroid Performance
-archidroid.preset.kernel.boeffla.archiperformance.desc=Ein Profil optimiert und angepasst für Spieler, mit Overclock CPU & GPU. Bessere Performance auf Kosten der Akkulaufzeit
+archidroid.preset.kernel.boeffla.archiperformance.desc=Ein Profil optimiert und angepasst für Spieler, mit Overclock(übertakterer) CPU & GPU. Bessere Performance auf Kosten der Akkulaufzeit
 archidroid.preset.kernel.boeffla.archipowersave=ArchiDroid PowerSave
-archidroid.preset.kernel.boeffla.archipowersave.desc=Standard Profil pfür die meisten Benutzer, mit leichtem uV. Stellt eine sehr gute Balance zwischen Akkulaufzeit und Performance her. Empfohlen von Archi
+archidroid.preset.kernel.boeffla.archipowersave.desc=Standard Profil für die meisten Benutzer, mit leichtem uV. Stellt eine sehr gute Balance zwischen Akkulaufzeit und Performance her. Empfohlen von Archi
 archidroid.preset.kernel.boeffla.archiultrapowersave=ArchiDroid UltraPowerSave
-archidroid.preset.kernel.boeffla.archiultrapowersave.desc=Ein Profil welches für die maximale Akkulaufzeit erstellt und optimiert wurde , mit mittlerem uV. Bessere Akkulaufzeit auf Kosten der Performance
+archidroid.preset.kernel.boeffla.archiultrapowersave.desc=Ein Profil für die maximale Akkulaufzeit auf Kosten der Performance
 
 archidroid.boeffla.yesarchi=Ja mit Archi's Audiophile
 archidroid.boeffla.yesarchi.desc=Unbedingt empfohlen. Dies verbessert die Audioualität durch die Installation von Boeffla SC und der Anpassung nach Archi's Geschmack
@@ -179,7 +179,7 @@ archidroid.xposed.wanam.desc=Meisterstück von Wanam. Verbessert ArchiDroid's fl
 archidroid.wizard.reboot=ArchiDroid wurde auf deinem Gerät installiert. Möchtest du automatisch neu starten?
 
 archidroid.prepinstall=Bereit zur Installation
-common.flash=Flash
+common.flash=Flashen
 common.back=Zurück
 
 archidroid.prepinstall.desc=Du hast alles zur Installation vorbereitet.\

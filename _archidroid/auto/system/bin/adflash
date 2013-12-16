@@ -40,9 +40,21 @@ if [ $# -eq 0 ]; then
 	echo ""
 	echo -n "Your choice: "
 	read MODE
+	if [ $MODE == "git" ]; then
+		echo ""
+		echo ""
+		echo "You may specify any extra options here. Eventually you can just skip this question"
+		echo ""
+		echo "nozip		Updates repo only"
+		echo ""
+		echo -n "Your choice: "
+		read EXTRA
+	fi
 else
 	VERSION="$1"
 	MODE="$2"
+	shift 2
+	EXTRA="$@"
 fi
 
 case "$MODE" in
@@ -135,6 +147,14 @@ if [ "$MODE" == "direct" ]; then
 		exit 1
 	fi
 elif [ "$MODE" == "git" ]; then
+	NOZIP=0
+
+	for arg in "$EXTRA"; do
+		if [ "$arg" == "nozip" ]; then
+			NOZIP=1
+			echo "Detected extra nozip option"
+		fi
+	done
 	echo "Booting pocket debian..."
 	adlinux "default"
 	
@@ -147,6 +167,11 @@ elif [ "$MODE" == "git" ]; then
 		echo "Something went wrong, aborting"
 		exit 1
 	fi
+fi
+
+if [ $NOZIP -eq 1 ]; then
+	"Nozip detected, finishing!"
+	exit 0
 fi
 
 echo "Zipping ArchiDroid to flashable version..."

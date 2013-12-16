@@ -52,8 +52,8 @@ adpatch "10/1510" "14" "frameworks" "base"
 # ListView
 # https://gerrit.omnirom.org/#/c/2863/
 # https://gerrit.omnirom.org/#/c/2862/
-adpatch "63/2863" "6" "frameworks" "base"
-adpatch "62/2862" "7" "packages" "apps" "OmniGears"
+#adpatch "63/2863" "6" "frameworks" "base"
+#adpatch "62/2862" "7" "packages" "apps" "OmniGears"
 
 # Navigation bar
 # https://gerrit.omnirom.org/#/c/3761/ #Merged

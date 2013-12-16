@@ -57,7 +57,7 @@ text_quit_msg=确认退出安装？
 common.for=为了
 common.none=没有
 common.replaces=替换
-common.inverted=转为
+common.inverted=内置
 common.experimental=实验（功能）
 common.deprecated=已废弃
 common.obsolete=已过时
@@ -68,16 +68,16 @@ terms.confirm2=尊敬开发者劳动!
 
 archidroid.tos=ArchiDroid 许可协议条款
 
-archidroid.detect.fail=没有检测到ArchiDroid运行. 做过全部擦除或者从其他ROM转到ArchiDroid?
+archidroid.detect.fail=没有检测到ArchiDroid在本机上运行. 你full wipe过吗，还是刚从其他的ROM转到ArchiDroid?
 archidroid.detect.fail.yes=我原来没有ArchiDroid
-archidroid.detect.fail.no=我已经运行 ArchiDroid!
+archidroid.detect.fail.no=我正在用 ArchiDroid!
 archidroid.detect.fail.alert.yes=好, 我为你选择了 ArchiDroid 安装模式.
 archidroid.detect.fail.alert.no=这不太好. 如果你没有运行ArchiDroid我将伪造结果，但是如果没安装过ArchiDroid不要使用更新模式!
-archidroid.detect.pass=成功检测到ArchiDroid运行. 想要用升级模式么?
-archidroid.detect.pass.yes=好，升级模式
-archidroid.detect.pass.no=不, 全部擦除
+archidroid.detect.pass=成功检测到您正在运行 ArchiDroid. 想要用升级模式么?
+archidroid.detect.pass.yes=好，使用升级模式
+archidroid.detect.pass.no=不, 全部擦除数据
 archidroid.detect.pass.alert.no=好, 将全部擦除数据并使用 ArchiDroid 安装模式
-archidroid.detect.force=想要用强制升级模式? ArchiDroid 启动一次来进行高级微调, 通常只会在安装模式执行. 不确定的话选择 否
+archidroid.detect.force=想要用强制升级模式吗? ArchiDroid 启动一次来进行高级tweaks, 通常只会在安装模式执行. 不确定的话选择 否
 
 archidroid.preset=ArchiDroid 安装预设
 archidroid.preset.desc=请选择安装预设:
@@ -100,18 +100,18 @@ archidroid.kernel.boeffla.desc=高度推荐的杰作，适合每个人, 包含 b
 archidroid.kernel.yank.desc=推荐作为替代选择
 archidroid.kernel.devil.desc=基于Perseus源码. 适合双启动特性
 archidroid.kernel.googy.desc=基于Siyah 源码. 适合双启动特性
-archidroid.kernel.stock.desc=使用ROM默认内核
+archidroid.kernel.stock.desc=使用 ROM 默认内核
 
-archidroid.theme.aosp.desc=AOSP theme
-archidroid.theme.stock.desc=原生主题
+archidroid.theme.aosp.desc=AOSP 主题
+archidroid.theme.stock.desc=原生系统主题
 
-archidroid.dpi.240w.desc=警告! 记住在这个DPI下有一些轻微的图形故障
-archidroid.dpi.240.desc=所有都会变小, 包含按钮、图标和文本等等. 建议使用，能有最好的体验!
-archidroid.dpi.280.desc=能在原生和240 DPI模式之间好的平衡
-archidroid.dpi.320.desc=默认DPI设置
+archidroid.dpi.240w.desc=警告! 在这个DPI下会有一些轻微的图形故障，小心使用
+archidroid.dpi.240.desc=所有可见都会变小, 包含按钮、图标和文本等等. 建议使用，能有最好的体验!
+archidroid.dpi.280.desc=原生和240 DPI模式之间的平衡选项
+archidroid.dpi.320.desc=默认 DPI 设置
 
 archidroid.launcher.nova.desc=更加顺滑，性能更好，推荐！
-archidroid.launcher.stock.desc=ROM自带
+archidroid.launcher.stock.desc=ROM 自带
 archidroid.launcher.none.desc=不含启动器.警告! 在完全擦除之后不要勾选! 第一次启动之前你需要至少一个第三方启动器!
 
 archidroid.keyboard=键盘
@@ -125,11 +125,11 @@ archidroid.bootanimation=开机动画
 archidroid.bootanimation.archi.desc=全新花哨 ArchiDroid 开机动画
 archidroid.bootanimation.archilegacy.desc=旧 1.X 开机动画
 archidroid.bootanimation.logcat.desc=更改默认开机动画为 logcat 输出 - 使用 logcat lite 构建
-archidroid.bootanimation.stock.desc=ROM自带原生开机动画
+archidroid.bootanimation.stock.desc=ROM 自带原生开机动画
 archidroid.bootanimation.none.desc=无开机动画, 启动速度轻微提高
 
 archidroid.other=其他
-archidroid.ota.desc=ArchiDroid 推荐. 安装 UpdateMe 应用并通过build.prop开启OTA更新
+archidroid.ota.desc=ArchiDroid 推荐. 安装 UpdateMe 应用并通过 build.prop 开启OTA更新
 archidroid.xposed.desc=允许使用大量 Xposed 模块. 需要手动开启
 archidroid.crossbreeder.desc=性能更好，更加顺滑，推荐, 与 Seeder 不兼容
 archidroid.updatemodem=更新基带

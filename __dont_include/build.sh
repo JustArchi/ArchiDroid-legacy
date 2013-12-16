@@ -89,9 +89,10 @@ if [ $SAMMY -eq 0 ]; then
 	if [ $? -ne 0 ]; then
 		read -p "Something went wrong, please check and tell me when you're done, master!" -n1 -s
 	fi
-	cd /root/android/system/vendor/cm
-	./get-prebuilts
-	cd /root/android/system
+	
+	# Apply all temporary patches
+	bash ../../shared/git/ArchiDroid/__dont_include/patches.sh
+	
 	source build/envsetup.sh
 	breakfast i9300
 	NEW=`md5sum /root/android/system/device/samsung/i9300/proprietary-files.txt | awk '{print $1}'`

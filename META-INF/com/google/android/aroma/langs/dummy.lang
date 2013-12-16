@@ -34,167 +34,167 @@
 #
 ### LANGUAGE STRING RESOURCE FILE
 #
-#   Language  : Danish / CHANGEME
-#   By        : WarCow / CHANGEME
+#   Language  : YourLanguage
+#   By        : ???
 #
 
 #
 #--- AROMA STRINGS
 #
 text_ok=OK
-text_next=Næste
-text_back=Tilbage
-text_yes=Ja
-text_no=Nej
-text_about=Om
-text_calibrating=Kalibreringsværktøjer
-text_quit=Afslut installation
-text_quit_msg=Er du sikker på du vil afslutte installationen?
+text_next=Next
+text_back=Back
+text_yes=Yes
+text_no=No
+text_about=About
+text_calibrating=Calibrating Tools
+text_quit=Quit Installation
+text_quit_msg=Are you sure to quit the installer?
 
 #
 #-- ARCHIDROID STRINGS
 #
 common.for=for
-common.none=Ingen
-common.replaces=Erstatter
-common.inverted=Omvendt
-common.experimental=EKSPERIMENTAL
-common.deprecated=AFSKREVET
-common.obsolete=FORÆLDET
-terms.check=Du erklærer dig enig i Betingelser og Vilkår.
-terms.confirm=Afkryds venligst betingelserne!
-terms.check2=Jeg forstår til fulde og respekterer at
-terms.confirm2=Vis respekt til udviklerne
+common.none=None
+common.replaces=Replaces
+common.inverted=Inverted
+common.experimental=EXPERIMENTAL
+common.deprecated=DEPRECATED
+common.obsolete=OBSOLETE
+terms.check=I agree with Terms and Conditions
+terms.confirm=Please check the agreement!
+terms.check2=I fully understand and respect that
+terms.confirm2=Respect the devs!
 
-archidroid.tos=ArchDroid Betingelser og Vilkår
+archidroid.tos=ArchiDroid Terms and Conditions
 
-archidroid.detect.fail=ArchiDroid kunne ikke genkende at det var installeret. Har du lavet en fuld formattering eller kommer du fra en anden ROM?
-archidroid.detect.fail.yes=Ja, jeg har ikke installeret ArchiDroid
-archidroid.detect.fail.no=Nej, jeg har skam installeret ArchiDroid
-archidroid.detect.fail.alert.yes=Ok, jeg har valgt ArchiDroid Installerings tilstand for dig så.
-archidroid.detect.fail.alert.no=Det var ikke godt. Jeg vil forfalske resultater, men undlad at bruge Opdaterings tilstanden hvis du ikke har ArchiDroid installeret!
-archidroid.detect.pass=ArchiDroid blev genkendt på enheden. Ønsker du at. Ønsker du at prøve Opdaterings tilstanden?
-archidroid.detect.pass.yes=Ja, prøv Opdatering
-archidroid.detect.pass.no=Nej, fuld formattering og Installering
-archidroid.detect.pass.alert.no=Ok, jeg vil fortsætte med fuld formattering og ArchiDroid Installerings tilstand
-archidroid.detect.force=Ønsker du at gennemtvinge Opdaterings tilstanden? Dette får ArchiDroid RunOnce til at udføre avancerede modifikationer, som ellers kun ville blive udført under Installerings tilstanden. Hvis du er i tvivl, så vælg nej.
+archidroid.detect.fail=ArchiDroid could not detect itself being running. Did you make full wipe or you're coming from other ROM?
+archidroid.detect.fail.yes=Yes, I don't have ArchiDroid
+archidroid.detect.fail.no=No, I'm running ArchiDroid!
+archidroid.detect.fail.alert.yes=OK, I've selected ArchiDroid Install mode for you then.
+archidroid.detect.fail.alert.no=That's not good. I'll fake results but do not use Update mode if you don't have ArchiDroid running!
+archidroid.detect.pass=ArchiDroid successfully detected itself being running. Would you like to try Update mode?
+archidroid.detect.pass.yes=Yes, Try Update
+archidroid.detect.pass.no=No, Full Wipe
+archidroid.detect.pass.alert.no=OK, I'll proceed with full wipe and ArchiDroid Install mode
+archidroid.detect.force=Would you like to use forced update mode? This tells ArchiDroid RunOnce to perform advanced tweaks, which normally would be executed only during install mode. Select No if you're unsure
 
-archidroid.preset=ArchiDroid Installerings Forvalg
-archidroid.preset.desc=Vælg venligst installerings forvalg:
-archidroid.preset.group=Forvalg
-archidroid.preset.custom=Brugerdefineret
-archidroid.preset.custom.desc=Du vil være i stand til at definere alle aspekter af installationen
-archidroid.preset.barebones=Skrabet udgave
-archidroid.preset.barebones.desc=Helt ren ROM. Kun til test formål, ikke anbefalet til daglig brug.
-archidroid.preset.previous=Forrige forvalg
-archidroid.preset.previous.desc=Indlæser dit forrige brugerdefinerede forvalg (hvis tilgængeligt)
+archidroid.preset=ArchiDroid Installation Preset
+archidroid.preset.desc=Please select installation preset:
+archidroid.preset.group=Preset
+archidroid.preset.custom=Custom
+archidroid.preset.custom.desc=You'll be able to customize every aspect of the installation
+archidroid.preset.barebones=Bare Bones
+archidroid.preset.barebones.desc=Clean ROM. Only for testing purposes, not recommended
+archidroid.preset.previous=Previous Preset
+archidroid.preset.previous.desc=Loads your previous custom installation preset (if available)
 
-archidroid.detect.previouspreset.fail=Kunne ikke indlæse dit forrige forvalg. Enten har det fejlet integritetstest eller også findes den ikke.
+archidroid.detect.previouspreset.fail=Could not load your previous preset, either it failed integrity check or doesn't exist
 
-archidroid.custom=ArchiDroid Tilpasning
-archidroid.custom.extra=ArchiDroid Ekstra Tilpasning
-archidroid.custom.desc=Du kan ændre indstillingerne til dine præferencer
+archidroid.custom=ArchiDroid Customization
+archidroid.custom.extra=ArchiDroid Extra Customization
+archidroid.custom.desc=Please modify settings to your liking
 
-archidroid.kernel.temasek.desc=Anbefalet for perfekt ydeevne, batteri levetid, høj fleksibilitet og Boeffla lyd.
-archidroid.kernel.boeffla.desc=Yderst anbefalet mesterstykke som er perfekt for alle, med Boeffla lyd og mange flere funktioner
-archidroid.kernel.yank.desc=Anbefalet som et alternativ
-archidroid.kernel.devil.desc=Baseret på Perseus kilder. Unik funktion er dens dual-boot funktionalitet.
-archidroid.kernel.googy.desc=Baseret på Siyah kilder. Unik funktion er dens dual-boot funktionalitet.
-archidroid.kernel.stock.desc=Standard kernel der følger med denne ROM.
+archidroid.kernel.temasek.desc=Recommended for perfect peformance, powersave, high flexibility and boeffla sound
+archidroid.kernel.boeffla.desc=Highly recommended masterpiece perfect for everyone, featuring boeffla sound and many more features
+archidroid.kernel.yank.desc=Recommended as an alternative
+archidroid.kernel.devil.desc=Based on Perseus sources. Unique for dual-boot feature
+archidroid.kernel.googy.desc=Based on Siyah sources. Unique for dual-boot feature
+archidroid.kernel.stock.desc=Comes as a default kernel with ROM
 
-archidroid.theme.aosp.desc=AOSP tema
-archidroid.theme.stock.desc=Standard tema
+archidroid.theme.aosp.desc=AOSP theme
+archidroid.theme.stock.desc=Stock theme
 
-archidroid.dpi.240w.desc=ADVARSEL! Husk at der kan forekomme små grafiske fejl ved brug af denne DPI
-archidroid.dpi.240.desc=Alt vil være mindre, det inkluderer knapper, ikoner, tekst osv. Anbefalet for bedste brugeroplevelse med ArchiDroid!
-archidroid.dpi.280.desc=En god balance mellem standard og 240 DPI
-archidroid.dpi.320.desc=Standard DPI
+archidroid.dpi.240w.desc=WARNING! Keep in mind some minor graphic glitches on this DPI
+archidroid.dpi.240.desc=Everything will be smaller, it includes buttons, icons, texts etc. Suggested for best experience with ArchiDroid!
+archidroid.dpi.280.desc=A nice balance between stock and 240 DPI mode
+archidroid.dpi.320.desc=Stock value
 
-archidroid.launcher.nova.desc=Anbefalet for ekstra fleksiblitet og ydeevne.
-archidroid.launcher.stock.desc=Standard launcher
-archidroid.launcher.none.desc=Ingen launcher. ADVARSEL! Vælg ikke dette hvis du kommer fra en fuld formattering eller en anden ROM! Der skal som minimum være 1 launcher installeret!
+archidroid.launcher.nova.desc=Recommended for extra flexibility and performance
+archidroid.launcher.stock.desc=Coming from ROM
+archidroid.launcher.none.desc=No launcher. WARNING! Don't tick if you're after full wipe! You need at least one custom launcher before first boot!
 
 archidroid.keyboard=Keyboard
-archidroid.keyboard.touchpal.desc=Anbefalet keyboard som er godt og fleksibelt med Swype/Curve funktionalitet.
-archidroid.keyboard.hackers.desc=Godt alternativ til TouchPal hvis du ikke har brug for Swype/Curve funktionalitet.
-archidroid.keyboard.both.desc=Begge ovenstående keyboards. Brugbart hvis du har tænkt dig at bruge dem i Terminal.
-archidroid.keyboard.stock.desc=Standard keyboard
-archidroid.keyboard.none.desc=Intet keyboard. ADVARSEL! Vælg ikke dette hvis du kommer fra en fuld formattering eller en anden ROM! Der skal som minimum være 1 keyboard installeret!
+archidroid.keyboard.touchpal.desc=Recommended as great and very flexible Swype/Curve keyboard
+archidroid.keyboard.hackers.desc=Great alternative to TouchPal if you're not going to use swype/curve function
+archidroid.keyboard.both.desc=If you want to use both TouchPal and Hacker's (for example in terminal)
+archidroid.keyboard.stock.desc=If you want to keep default ROM keyboard
+archidroid.keyboard.none.desc=No keyboard. WARNING! Don't tick if you're after full wipe! You need at least one custom keyboard before first boot!
 
-archidroid.bootanimation=Opstarts animation
-archidroid.bootanimation.archi.desc=New flot ArchiDroid opstarts animation
-archidroid.bootanimation.archilegacy.desc=Gammel ArchiDroid 1.X opstarts animation
-archidroid.bootanimation.logcat.desc=Opstarts animationen ændres til logcat output - drevet af logcat lite
-archidroid.bootanimation.stock.desc=Standard opstartsanimation
-archidroid.bootanimation.none.desc=Ingen opstarts animation - Giver en smule hurtigere opstart
+archidroid.bootanimation=Bootanimation
+archidroid.bootanimation.archi.desc=New fancy ArchiDroid bootanimation
+archidroid.bootanimation.archilegacy.desc=Old ArchiDroid 1.X bootanimation
+archidroid.bootanimation.logcat.desc=Changes default bootaimation to logcat output - powered by logcat lite
+archidroid.bootanimation.stock.desc=Stock bootanimation provided by ROM
+archidroid.bootanimation.none.desc=No bootanimation, for slightly faster bootup
 
-archidroid.other=Andet
-archidroid.ota.desc=Anbefalet af ArchiDroid. Vi installerer UpdateME apk og aktiverer OTA opdateringer via build.prop
-archidroid.xposed.desc=Tillader brug af diverse Xposed moduler. Skal aktiveres manuelt
-archidroid.crossbreeder.desc=Anbefalet for ekstra ydeevne og fleksibilitet, ikke kompatibelt med Seeder
-archidroid.updatemodem=Opdater Modem
-archidroid.updatemodem.desc=Hvis du ønsker at få de seneste modem
-archidroid.updaterecovery=Opdater Recovery
-archidroid.updaterecovery.desc=Hvis du ønsker at få den seneste Philz recovery
+archidroid.other=Other
+archidroid.ota.desc=Recommended by ArchiDroid. We'll install UpdateMe apk and enable OTA updates via build.prop
+archidroid.xposed.desc=Allows using various of Xposed modules. Needs to be enabled manualy
+archidroid.crossbreeder.desc=Recommended for extra performance and flexibility, not compatible with Seeder
+archidroid.updatemodem=Update Modem
+archidroid.updatemodem.desc=If you want to have latest modem
+archidroid.updaterecovery=Update Recovery
+archidroid.updaterecovery.desc=If you want to have latest recovery
 
-archidroid.gapps.desc=Kerne funktioner og apps fra Google. FRAVÆLG IKKE DETTE
-archidroid.gapps.gquick.desc=Kan ødelægge Google Voice funktionalitet!!
+archidroid.gapps.desc=Core functions and apps from Google. DON'T DESELECT THIS
+archidroid.gapps.gquick.desc=May break Google Voice!
 
-archidroid.apps.titaniumbackup.desc=Perfekt løsning for at gemme personlig/app data når du opdaterer
-archidroid.apps.greenify.desc=Brugbart hvis du vil sætte apps i dvale, hvilket giver mere batteri levetid
-archidroid.apps.lmt.desc=Brugbart værktøj for at udføre en kommando bundet til en specifik gestus på skærmen. Også kendt som PIE fra SlimBean.
-archidroid.apps.mxplayer.desc=Muligvis den bedste video afspiller til Android
-archidroid.apps.spiritfm.desc=Gratis FM radio app der virker med CyanogenMod
-archidroid.apps.bbs.desc=Giver dig adgang til at se mere specifik batteri statistik - især wakelocks
-archidroid.apps.cooltool.desc=Viser brugbar statistik på status linjen
-archidroid.apps.rootbrowser.desc=Meget cool fil-browser der kan udvides med root adgang
-archidroid.apps.adobeflash.desc=Giver Flash indhold understøttelse. Virker ikke med Google Chrome
-archidroid.apps.youtube.desc=Omvendt version af YouTube App
-archidroid.apps.facebook.desc=Omvendt version af Facebook og Messenger
+archidroid.apps.titaniumbackup.desc=Perfect solution for saving personal/app data between updates
+archidroid.apps.greenify.desc=Useful if you want to hibernate any app, which saves your battery
+archidroid.apps.lmt.desc=Useful tool for executing a command binded to specific gesture on the screen, also known as pie from SlimBean
+archidroid.apps.mxplayer.desc=Probably best video player for Android
+archidroid.apps.spiritfm.desc=Free FM radio app working with CyanogenMod
+archidroid.apps.bbs.desc=Gives you power to view more specific battery stats - especially wakelocks
+archidroid.apps.cooltool.desc=Shows some useful statistics on the top bar
+archidroid.apps.rootbrowser.desc=Very cool browser extended by optional root access
+archidroid.apps.adobeflash.desc=Adds flash content support. Does not work with Google Chrome
+archidroid.apps.youtube.desc=Inverted version of YouTube app
+archidroid.apps.facebook.desc=Inverted version of Facebook and Messenger
 
-archidroid.tweaks.hdvoice.desc=Aktiverer HD Voice hvis det er tilgængeligt
-archidroid.tweaks.buildtweaks.desc=Mange build.prop modifikationer, deriblandt dybere søvn, ydeevne modifikationer og mere
-archidroid.tweaks.openpdroid.desc=Anvend OpenPDroid patch efter installation hvis tilgængelig
-archidroid.tweaks.nocell.desc=Generelt betragtet som bloatware. Fjern afkrydsning hvis du ønsker at beholde dette.
+archidroid.tweaks.hdvoice.desc=Enables HD Voice if available
+archidroid.tweaks.buildtweaks.desc=Many build.prop tweaks, including deeper sleep, performance tweaks and more
+archidroid.tweaks.openpdroid.desc=Apply OpenPDroid patch after install if available
+archidroid.tweaks.nocell.desc=In general considered as bloatware. Uncheck if you want to keep this
 
-archidroid.preset.no=Ingen Forvalg
-archidroid.preset.no.desc=Ikke anbefalet fordi du går glip af de fleste af ArchiDroids optimeringer.
+archidroid.preset.no=No Preset
+archidroid.preset.no.desc=Not recommended because you'll miss most of the Archi's optimizations
 
-archidroid.preset.kernel.boeffla.archiperformance=ArchiDroid Ydeevne
-archidroid.preset.kernel.boeffla.archiperformance.desc=En profil optimeret og designet mest til spillere. Inkluderer overclocking af CPU og GPU. Forvent bedre ydeevne på bekostning af batteri levetid
-archidroid.preset.kernel.boeffla.archipowersave=ArchiDroid Batteri
-archidroid.preset.kernel.boeffla.archipowersave.desc=Standard forvalg som anbefales til de fleste brugere. Inkluderer let UV og tilvyder en god balance af batteri levetid og ydeevne. Anbefalet af Archi
-archidroid.preset.kernel.boeffla.archiultrapowersave=ArchiDroid Ultra Batteri
-archidroid.preset.kernel.boeffla.archiultrapowersave.desc=Et forvalg som er designet og optimereret til at give den længst mulige batteri levetid. Inkluderer moderat UV. Forvent bedre batteri levetid på bekostning af ydeevnen
+archidroid.preset.kernel.boeffla.archiperformance=ArchiDroid Performance
+archidroid.preset.kernel.boeffla.archiperformance.desc=A profile optimized and designed mostly for gamers, including overclock CPU & GPU. Expect better performance for a cost of battery life
+archidroid.preset.kernel.boeffla.archipowersave=ArchiDroid PowerSave
+archidroid.preset.kernel.boeffla.archipowersave.desc=Default preset proposed for most users, including light uV. Provides a very good balance between battery life and performance. Recommended by Archi
+archidroid.preset.kernel.boeffla.archiultrapowersave=ArchiDroid UltraPowerSave
+archidroid.preset.kernel.boeffla.archiultrapowersave.desc=A preset designed and optimized for getting maximum of battery life, including moderate uV. Expect better battery life for a cost of performance
 
-archidroid.boeffla.yesarchi=Ja, med Archi's Audiophile
-archidroid.boeffla.yesarchi.desc=Yderst anbefalet. Det forbedrer lydkvaliteten ved at installere Boeffla SC og modifikationer udvalgt af Archi selv.
-archidroid.boeffla.yes.desc=Hvis du vil lave din eget Boeffla SC forvalg senere
-archidroid.boeffla.no.desc=Hvis du ikke vil installere Boeffla SCI
+archidroid.boeffla.yesarchi=Yes with Archi's Audiophile
+archidroid.boeffla.yesarchi.desc=Highly recommended. It enhances audio quality by installing Boeffla SC and tweaking according to Archi's taste
+archidroid.boeffla.yes.desc=If you want to create your own Boeffla SC preset later
+archidroid.boeffla.no.desc=If you don't want to install Boeffla SC
 
-archidroid.xposed.appsettings.desc=Tillader ændringer af app indstillinger. Meget brugbart værktøj
-archidroid.xposed.xprivacy.desc=Perfekt modul der forhindrer læk af private data, begrænser app adgang og meget mere
-archidroid.xposed.wanam.desc=Mesterstykke fra Wanam. Forbedrer ArchiDroid's fleksiblitet og tilbyder en hel masse tilpasnings muligheder
+archidroid.xposed.appsettings.desc=Allows changing app settings. Extremely useful tool
+archidroid.xposed.xprivacy.desc=Perfect module which prevents leaking of private data, restricts access and more
+archidroid.xposed.wanam.desc=Masterpiece from Wanam. Enhances ArchiDroid's flexibility and provides a ton of customization options
 
-archidroid.wizard.reboot=ArchiDroid er blevet installeret på din enhed. Vil du gerne genstarte nu?
+archidroid.wizard.reboot=ArchiDroid has been flashed onto your device. Would you like to automatically reboot now?
 
-archidroid.prepinstall=Klar til installation
-common.flash=Installer
-common.back=Tilbage
+archidroid.prepinstall=Ready for flashing
+common.flash=Flash
+common.back=Back
 
-archidroid.prepinstall.desc=Du er nu klar til at begynde installationen.\
-Tryk på <b>Installer</b> for at begynde.\
-Hvis du ønsker at ændre nogle af dine installations valg, så tryk på <b>Tilbage</b>.
+archidroid.prepinstall.desc=You are now ready to begin installation.\
+Press <b>Flash</b> to start.\
+If you want to review or change any of your installation settings, press <b>Back</b>.
 
-common.finish=Afslut
-common.flashing=Installerer
+common.finish=Finish
+common.flashing=Flashing
 
-archidroid.install.desc=<b>ArchiDroid</b> bliver installeret nu.\
-Vent venligst mens installation guiden installerer <b>ArchiDroid</b>\
-<b>Hvis din enhed skulle fryse fast, så hold Recovery knapperne inde og prøv igen</b>
+archidroid.install.desc=<b>ArchiDroid</b> is now being installed.\
+Please wait while installation wizard installs your <b>ArchiDroid</b>\
+<b>In case of freezing issues hold on recovery combination and try again</b>
 
-archidroid.install.finish=ArchiDroid guiden har installeret <b>ArchiDroid<b>korrekt\
-Tryk på <b>Afslut</b> for at fortsætte.
+archidroid.install.finish=ArchiDroid wizard successfully flashed <b>ArchiDroid<b>\
+Press <b>Finish</b> to continue.
 
-archidroid.buildtweaks.fastdormancy.desc=Fjern afkrydsning for at deaktivere Fast Dormany - kan forbedre batteri levetiden hvis din udbyder ikke understøtter funktionaliteten.
-archidroid.buildtweaks.zerowakeup.desc=Kryds af for at aktivere ZeroWakeUp - det vil sætte din CPU into søvn tlstand (istedet for dyb/dybere søvn) og reducerer forsinkelser når du vækker enheden.
+archidroid.buildtweaks.fastdormancy.desc=Untick to disable fast dormancy, may improve battery life if your provider doesn't support it
+archidroid.buildtweaks.zerowakeup.desc=Tick to enable ZeroWakeUp, it will put CPU into sleep mode (instead of deep/deeper sleep), reducing wake up delay to the minimum

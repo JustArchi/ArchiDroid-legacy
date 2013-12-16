@@ -1,0 +1,205 @@
+﻿### LICENSE:
+#
+# Copyright (C) 2011 Ahmad Amarullah ( http://amarullz.com/ )
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+#
+#
+### ArchiDroid Language File
+#
+# How to create your own language translation
+# 1. Copy en.lang file to your own language.lang, f.e. fr.lang if you're creating French language.
+# 2. Start translating strings (everything after "=" should be translated)
+# 3. Change language and author information below when you're done
+# 4. Send pull request with your updated strings, wait for approval and adding to aroma
+# 5. Thank you for contributing to ArchiDroid project!
+#
+# Please note that you can use language-specific chars, f.e. ? ? ? ? ü ? or any non-standard letters.
+# All of them should be displayed properly in aroma
+#
+# Files should have UNIX-style endings (LF) and should be encoded in UTF-8 format.
+# Typically any file copied from en.lang should be already well formatted. Otherwise make sure that they're right.
+# In Notepad++ it's: Format -> UTF-8 and Edit -> EOL Conversion -> Convert to UNIX format
+#
+### LANGUAGE STRING RESOURCE FILE
+#
+
+### LANGUAGE STRING RESOURCE FILE
+#
+# Language : فارسي
+# By : m. amin mostafaei-Bonza
+#
+
+#
+#--- AROMA STRINGS
+#
+text_ok=تاييد
+text_next=بعدي
+text_back=قبلي
+text_yes=بله
+text_no=خير
+text_about=درباره
+text_calibrating=ابزار کاليبراسيون
+text_quit=لغو نصب
+text_quit_msg=آيا مطمئن هستيد که ميخواهيد نصب را لغو کنيد؟
+
+#
+#-- ARCHIDROID STRINGS
+#
+common.for=براي
+common.none=هيچ کدام
+common.replaces=جايگزين
+common.inverted=معکوس
+common.experimental=تجربي
+common.deprecated=توصيه شده
+common.obsolete=منسوخ
+terms.check=من با شرايط و ضوابط موافقم
+terms.confirm=لطفا مورد را بررسي کنيد!
+terms.check2=من به طور کامل فهميدم و به آن احترام ميگذارم!
+terms.confirm2=حقوق توسعه دهنده
+
+archidroid.tos=شرايط و ضوابط آرچي درويد
+
+archidroid.detect.fail=آرچي درويد نميتواند خودش را در حال اجرا تشخيص دهد.آيا فول وايپ انجام داديد يا از رام ديگري کوچ ميکنيد؟
+archidroid.detect.fail.yes=بله، من ArchiDroid ندارم
+archidroid.detect.fail.no=خير ، ArchiDroid در حال اجراست!
+archidroid.detect.fail.alert.yes=خُب، من انتخاب ميکنم حالت نصب براي آرچي درويد
+archidroid.detect.fail.alert.no=اين خوب نيست.نتايج جعلي پيدا شد!اگر آرچي درويد در حال اجرا نيست ، حالت بروز رساني را انتخاب نکنيد
+ archidroid.detect.pass=آرچي درويد بخوبي رام فعلي را (Archi Droid) تشخيص داد.آيا ميخواهيد بروز رساني نصب کنيد؟
+archidroid.detect.pass.yes=بله، بروز رساني ميکنم
+archidroid.detect.pass.no=خير ، فول وايپ ميکنم!
+archidroid.detect.pass.alert.no=خُب!من با فول وايپ و نصب رام ادامه ميدهم
+archidroid.detect.force=آيا ميخواهيد بصورت اجبار بروز رساني کنيد؟يکبار اجرا ميشود براي ابزار پيشرفته ، در حالت عادي اجرا ميشود يکبار در هنگام نصب.خير رو انتخاب کنيد اگر مطمئن نيستيد
+
+
+
+archidroid.preset=تنظيمات پيش فرض نصب
+archidroid.preset.desc=لطفا تنظيمات پيش فرض نصب را انتخاب کنيد :
+archidroid.preset.group=تنظيمات پيش فرض
+archidroid.preset.custom=انتخابي
+archidroid.preset.custom.desc=شما قادر خواهيد بود انتخاب کنيد هر حالت دلخواه را براي نصب
+archidroid.preset.barebones=فقط ساختار
+archidroid.preset.barebones.desc=توصيه نميشود،پاک کردن رام فقط براي تست کردن اهداف
+archidroid.preset.previous=تنظيمات پيش فرض قبلي
+archidroid.preset.previous.desc=بارگذاري تنظيمات پيش فرض قبلي براي نصب(در صورت وجود)
+
+archidroid.detect.previouspreset.fail=قادر به بارگذاري تنظيمات  پيش فرض قبلي نمي باشد، يا وجود ندارد يا مخدوش شده است
+
+archidroid.custom=حالت انتخابي آرچي درويد
+archidroid.custom.extra= موارد بيشتر براي حالت انتخابي آرچي درويد
+archidroid.custom.desc=لطفا  تنظيمات را طبق دلخواه تغيير بديد 
+
+archidroid.kernel.temasek.desc=توصيه ميشود براي کاملترين کارايي ، ذخيره انرژي ، انعطاف پذيري بالا ، و boeffla sound
+archidroid.kernel.boeffla.desc=اين براي همه افراد توصيه ميشود ، خصوصيات صداي بوفلا و خيلي خصوصيات ديگر
+archidroid.kernel.yank.desc=بعنوان جايگزين توصيه ميشود
+archidroid.kernel.devil.desc=بر پايه منابع پرسئوس، تنها براي اجراي 2 رام همزمان
+archidroid.kernel.googy.desc=بر پايه منابع سياه، تنها براي اجراي 2 رام همزمان
+archidroid.kernel.stock.desc=کرنل استوک ، برگرفته از خود رام
+
+archidroid.theme.aosp.desc= AOSP تم
+archidroid.theme.stock.desc=تم پيشفرض
+
+archidroid.dpi.240w.desc= اخطار! به خاطر داشته باشيد در حالت ريز ممکن است اشکالات گرافيکي کوچک در اين حالت بوجود آيد
+archidroid.dpi.240.desc=همه چيز کوچکتر ميشود ، کليد ها ، آيکون ها،متن و غيره. براي بهترين تجربه با آرچي درويد پيشنهاد ميشود
+archidroid.dpi.280.desc=تعادل زيبا بين استوک و حالت ريز 
+archidroid.dpi.320.desc=حالت استوک
+
+archidroid.launcher.nova.desc= براي انعطاف پذيري و بازدهي بيشتر توصيه ميشود
+ archidroid.launcher.stock.desc=برگرفته از خود رام
+archidroid.launcher.none.desc=بدون لانچر، اين گزينه را انتخاب نکنيد اگر فول وايپ کرديد!شما حداقل به يک لانچر انتخابي قبل از اولين راه اندازي نياز داريد.
+
+archidroid.keyboard=کيبورد
+archidroid.keyboard.touchpal.desc= بعنوان بهترين و بسيار انعطاف پذير بعنوان کيبورد هوشمند توصيه ميشود
+archidroid.keyboard.hackers.desc=جايگزين مناسب براي کيبوردtouchPal اگر قصد استفاده از توابع swype/curve را نداريد 
+archidroid.keyboard.both.desc=اگر ميخواهيد استفاده کنيد از دو کيبورد فوق!
+archidroid.keyboard.stock.desc=اگر ميخواهيد کيبورد پيش فرض رام را استفاده کنيد
+archidroid.keyboard.none.desc=بدون کيبورد. اخطار ! اين گزينه را انتخاب نکنيد اگر فول وايپ کرديد!شما حداقل به يک کيبورد قبل از اولين راه اندازي نياز داريد. 
+
+archidroid.bootanimation= انيميشن بوت 
+archidroid.bootanimation.archi.desc=  انيميشن بوت فانتزي Archi Droid
+archidroid.bootanimation.archilegacy.desc=بوت انيميشن قديمي ArchiDroid 1.X.
+archidroid.bootanimation.logcat.desc=تغيير انيميشن بوت پيش فرض به logcat ،برگرفته از logcat lite 
+archidroid.bootanimation.stock.desc=بوت انيميشن استوک،ارائه داده شده بر روي رام
+archidroid.bootanimation.none.desc=بدون بوت انيميشن ، به منظور راه اندازي سريع
+
+archidroid.other=بيشتر
+archidroid.ota.desc=آرچي درويد توصيه ميکند ما نصب خواهيم کرد نرم افزار update me و فعال ميکنيم OTA Updates را با build.prob
+archidroid.xposed.desc=اجازه استفاده از تعداد زيادي ماژول. احتياج به فعال سازي دستي دارد
+archidroid.crossbreeder.desc= اين توصيه ميشود براي بازدهي و انعطاف پذيري بيشتر با Seeder همخواني ندارد
+archidroid.updatemodem=بروز رساني مودم مخابراتي
+archidroid.updatemodem.desc=اگر ميخواهيد آخرين مودم مخابراتي را داشته باشيد
+archidroid.updaterecovery=بروز رساني Recovery
+archidroid.updaterecovery.desc= اگر ميخواهيد آخرين ريکاوري را داشته باشيد
+
+archidroid.gapps.desc=هسته اصلي توابع و برنامه هاي گوگل.اين گزينه را غير فعال نکنيد
+archidroid.gapps.gquick.desc=شايد Google Voice را از سرويس خارج کند!
+
+archidroid.apps.titaniumbackup.desc=بهترين روش براي ذخيره سازي برنامه ها ، اطلاعات برنامه ها واطلاعات شخصي در فاصله بين بروز رساني ها 
+archidroid.apps.greenify.desc=براي ذخيره سازي سازي باتري بکار ببريد.شما ميتوانيد برنامه ها را بحالت خاموش و آماده بکار ببريد.
+archidroid.apps.lmt.desc=ابزار کاربردي براي دستورات اجرايي وابسته به موقعيت هاي خاص بر روي صفحه نمايش،شناخته شده بعنوان pie از SlimBean   
+archidroid.apps.mxplayer.desc=بهترين نرم افزار اجراي فيلم بروي اندرويد
+archidroid.apps.spiritfm.desc=نرم افزار راديو اف ام رايگان ،کاربردي براي سيانوژن
+archidroid.apps.bbs.desc=به شما قدرت تماشاي بيشتري از وضعيت باتري ميدهد، مخصوصا هنگام باز کردن قفل صفحه 
+archidroid.apps.cooltool.desc=نمايشگر بعضي از وضعيت هاي سيستم بر روي استاتوس بار
+archidroid.apps.rootbrowser.desc=مرورگر فايل بسيار قدرتمند توسعه داده شده با دسترسي به روت
+archidroid.apps.adobeflash.desc=پشتيباني از فلش اضافه ميکند.با گوگل کروم کار نميکند
+archidroid.apps.youtube.desc= نسخه معکوس از نرم افزار YouTube
+archidroid.apps.facebook.desc= نسخه معکوس از فيس بوک و مسنجر
+
+archidroid.tweaks.hdvoice.desc=فعال سازي HD Voice در صورت در دسترس بودن
+archidroid.tweaks.buildtweaks.desc= بسياري از ترفند هاي build.prop، از جمله خواب عميق تر، ترفند عملکرد و بيشتر
+archidroid.tweaks.openpdroid.desc= اعمال کردن پچ OpenPDroid پس از نصب در صورت موجود بودن
+archidroid.tweaks.nocell.desc= به طور کلي به عنوان Bloatware ها در نظر گرفته شده است. اگر قصد استفاده از اين ابزار را داريد انتخاب نکنيد
+
+archidroid.preset.no=بدون تنظيمات پيش فرض
+archidroid.preset.no.desc= توصيه نمي شود زيرا شما بهينه سازي آرچي را از دست مي دهيد.
+
+archidroid.preset.kernel.boeffla.archiperformance=بهترين عملکرد آرچي درويد
+archidroid.preset.kernel.boeffla.archiperformance.desc= مشخصات بهينه سازي شده است و بيشتر براي علاقه مندان به بازي طراحي شده است، از جمله اورکلاک CPU و GPU. عملکرد بهتر با هزينه عمر باتري بيشتر انتظار مي رود
+archidroid.preset.kernel.boeffla.archipowersave=حالت ذخيره انرژي آرچي درويد
+archidroid.preset.kernel.boeffla.archipowersave.desc= به طور پيش فرض از پيش تعيين شده و ارائه شده براي اکثر کاربران. ارائه يک تعادل بسيار خوبي بين عمر باتري و عملکرد. توصيه شده توسط ارچي
+archidroid.preset.kernel.boeffla.archiultrapowersave=حالت فوق العاده ذخيره انرژي آرچي درويد
+archidroid.preset.kernel.boeffla.archiultrapowersave.desc= از پيش تعيين شده طراحي شده و بهينه شده براي گرفتن حداکثر عمر باتري، از جمله متوسط. عمر بهتر باتري براي عملکرد بهتر انتظار مي رود
+
+archidroid.boeffla.yesarchi=  بله همراه با استفاده audiophile
+archidroid.boeffla.yesarchi.desc=توصيه ميشود کيفيت موسيقي را افزايش ميدهد بوسيله نصب ابزار پيشرفته و Boeffla SC طبق وضعيت Archi 
+archidroid.boeffla.yes.desc=اگر ميخواهيد  Boeffla SC رو بر طبق دلخواه خود بسازيد ، بعدا دوباره تنظيم کنيد.
+archidroid.boeffla.no.desc=اگر نميخواهيد Boeffla SC را نصب کنيد
+
+archidroid.xposed.appsettings.desc=اجازه ميدهد تنظيمات نرم افزار را تغيير دهيد.ابزار بسيار کاربردي
+archidroid.xposed.xprivacy.desc=يک ماژوال کامل که از انتشار اطلاعات شخصي بوسيله محدود کردن دسترسي و بيشتر جلوگيري ميکند.
+archidroid.xposed.wanam.desc=قطعه اصلي از Wanam و افزايش دهنده انعطاف پذيري آرچي درويد و قابليت ايجاد تعداد زيادي تنضيمات اختياري  
+
+archidroid.wizard.reboot=ArchiDroid روي دستگاه شما با موفقيت نصب شده است،آيا تمايل به راه اندازي خودکار داريد؟
+
+archidroid.prepinstall=آماده نصب
+common.flash=نصب
+common.back=بازگشت
+
+archidroid.prepinstall.desc=شما الان آماده شروع نصب هستيد.\
+فشار دهيد <b>نصب را</b>, براي شروع نصب.\
+اگر ميخواهيد چک کنيد يا تغيير دهيد تنضيمات نصب را،کليک کنيد <b>بازگشت</b>.
+
+common.finish=پايان
+common.flashing=در حال نصب
+
+archidroid.install.desc=<b>ArchiDroid</b> نصب شده است.\
+لطفا تا پايان نصب منتظر بمانيد <b>ArchiDroid</b>\
+<b>در مواقع بروز مشکل يا هنگ کردن به ريکاوري برگشته و دوباره سعي کنيد</b>
+
+archidroid.install.finish=نصب Archi Droid wizard با موفقيت انجام شد <b>ArchiDroid<b>\
+کليک کنيد<b>بروي پايان </b>براي ادامه
+
+archidroid.buildtweaks.fastdormancy.desc=به منظور غير فعال کردن سريع حالت خواب اين گزينه را انتخاب نکنيد!ممکن است باعث افزايش عمر باتري شود اگر دستگاه شما آن را پشتيباني نکند. 
+ archidroid.buildtweaks.zerowakeup.desc= براي فعال کردن ZeroWakeUp اين گزينه را انتخاب کنيد، زيرا پردازنده را به حالت خواب ميبرد(در عوض خواب عميق/خواب عميق تر)،زمان تاخير بيدار کردن به حداقل کاهش ميابد.

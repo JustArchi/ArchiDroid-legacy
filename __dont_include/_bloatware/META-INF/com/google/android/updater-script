@@ -26,11 +26,11 @@ endif;
 show_progress(0.88, 229);
 if file_getprop("/tmp/aroma-data/archidroid.prop","mode") == "full" then
 	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Restoring Full Bloatware");
-	package_extract_dir("bloatware", "/system");
+	package_extract_dir("bloatware", "/");
 endif;
 if file_getprop("/tmp/aroma-data/archidroid.prop","mode") == "custom" then
 	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Restoring Custom Bloatware");
-	package_extract_dir("custom_bloatware", "/system");
+	package_extract_dir("custom_bloatware", "/");
 endif;
 
 set_progress(0.98);

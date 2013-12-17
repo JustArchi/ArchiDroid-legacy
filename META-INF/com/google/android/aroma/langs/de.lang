@@ -47,7 +47,7 @@ text_back=Zurück
 text_yes=Ja
 text_no=Nein
 text_about=Über
-text_calibrating=Calibrating Tools
+text_calibrating=Kalibrierungs-Werkzeug
 text_quit=Installation Beenden
 text_quit_msg=Willst du die Installation wirklich abbrechen?
 
@@ -82,14 +82,14 @@ archidroid.detect.force=Soll ein Update erzwungen werden? Dies sagt ArchiDroid R
 archidroid.preset=ArchiDroid Installations-Voreinstellung
 archidroid.preset.desc=Bitte wähle eine Installations-Voreinstellung:
 archidroid.preset.group=Voreinstellung
-archidroid.preset.custom=Angepasst
+archidroid.preset.custom=Anpassen
 archidroid.preset.custom.desc=Du kannst jede Einstellung während der Installation selbst anpassen
 archidroid.preset.barebones=Bare Bones
-archidroid.preset.barebones.desc=Nur ROM. Nur zum testen, wird nicht empfohlen
-archidroid.preset.previous=letzte Voreinstellung
+archidroid.preset.barebones.desc=reine ROM. Nur zum testen, wird nicht empfohlen
+archidroid.preset.previous=Letzte Voreinstellung
 archidroid.preset.previous.desc=Einstellungen von vorderer Installation behalten (wenn möglich)
 
-archidroid.detect.previouspreset.fail=Konnte die Einstellungen nicht laden, wählen Sie bitte "Angepasst"
+archidroid.detect.previouspreset.fail=Konnte die Einstellungen nicht laden, wählen Sie bitte "Anpassen"
 
 archidroid.custom=ArchiDroid Anpassung
 archidroid.custom.extra=ArchiDroid Extra Anpassung
@@ -130,14 +130,14 @@ archidroid.bootanimation.none.desc=Keine Bootanimation, für etwas schnellere Bo
 
 archidroid.other=Anderes
 archidroid.ota.desc=Empfohlen von ArchiDroid. Installation von UpdateMe apk und Aktivierung von OTA-Updates durch build.prop
-archidroid.xposed.desc=Erlaub die Verwendung verschiedener Xposed Module. Muss aber noch manuell aktiviert werden
+archidroid.xposed.desc=Erlaub die Verwendung verschiedener Xposed Module. Muss noch manuell aktiviert werden
 archidroid.crossbreeder.desc=Empfohlen für extra Performance und Flexibilität, nicht mit Seeder kompatibel
 archidroid.updatemodem=Aktualisiere Modem
 archidroid.updatemodem.desc=Wenn du das aktuellste Modem installieren möchtest
 archidroid.updaterecovery=Aktualisiere Recovery
 archidroid.updaterecovery.desc=Wenn du das neueste Recovery installieren möchtest
 
-archidroid.gapps.desc=Grundfunktionen und Apps von Google. NICHT ABWÄHLEN!
+archidroid.gapps.desc=Grundfunktionen und Apps(z.B. Play Store) von Google. NICHT ABWÄHLEN!
 archidroid.gapps.gquick.desc=Kann Google Voice stören!
 
 archidroid.apps.titaniumbackup.desc=Perfekte Lösung um persönliche Daten/Apps zwischen Updates zu sichern
@@ -152,7 +152,7 @@ archidroid.apps.adobeflash.desc=Fügt Flash-Player hinzu. Funtkioniert nicht mit
 archidroid.apps.youtube.desc=Invertierte Version der YouTube App
 archidroid.apps.facebook.desc=Invertierte Version von Facebook und Messenger
 
-archidroid.tweaks.hdvoice.desc=Aktiviert HD Voice wenn verfügbar
+archidroid.tweaks.hdvoice.desc=Aktiviert HD Voice, wenn verfügbar
 archidroid.tweaks.buildtweaks.desc=Viele build.prop Anpassungen, inklusiv tieferem Schlafmodus, Performance Verbesserungen und mehr
 archidroid.tweaks.openpdroid.desc=Führe OpenPDroid Patch nach der Installation aus (falls verfügbar)
 archidroid.tweaks.nocell.desc=Wird als Bloatware (unnötige  Apps) gesehen. Deselektieren wenn du die App behalten möchtest
@@ -176,7 +176,7 @@ archidroid.xposed.appsettings.desc=Erlaubt App-Einstellungen zu ändern. Sehr pr
 archidroid.xposed.xprivacy.desc=Perfektes Modul um die Preisgabe persönlicher Daten zu verhintern,  Berechtigungen einschränken und vieles mehr
 archidroid.xposed.wanam.desc=Meisterstück von Wanam. Verbessert ArchiDroid's flexibilität und ermöglicht eine Menge Anpassungen
 
-archidroid.wizard.reboot=ArchiDroid wurde auf deinem Gerät installiert. Möchtest du automatisch neu starten?
+archidroid.wizard.reboot=ArchiDroid wurde auf deinem Gerät installiert. Möchtest du jetzt neu starten?
 
 archidroid.prepinstall=Bereit zur Installation
 common.flash=Flashen
@@ -197,4 +197,4 @@ archidroid.install.finish=Der ArchiDroid Installationsassistent hat <b>ArchiDroi
 Drücke <b>Beenden</b> um fortzufahren.
 
 archidroid.buildtweaks.fastdormancy.desc=Deaktivieren um Fast Dormancy zu deaktivieren, kann die Batterielaufzeit erhöhen, falls dein Provider das nicht unterstützt
-archidroid.buildtweaks.zerowakeup.desc=Anklicken um ZeroWakeUpzu aktivieren, dies setzt die CPU in Schlafmodus (an statt deep/deeper sleep), reduziert die Aufwachverzögerung auf ein Minimum.
+archidroid.buildtweaks.zerowakeup.desc=Anklicken um ZeroWakeUp zu aktivieren, dies setzt die CPU in Schlafmodus (an statt deep/deeper sleep), reduziert die Aufwachverzögerung auf ein Minimum.

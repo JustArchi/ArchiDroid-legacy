@@ -67,7 +67,7 @@ adpatch "10/1510" "14" "frameworks" "base"
 #adpatch "72/3772" "1" "packages" "apps" "OmniGears"
 #adpatch "51/3151" "4" "frameworks" "base"
 ###adpatch "57/3157" "3" "packages" "apps" "Settings"
-#adpatch "56/3156" "5" "packages" "apps" "OmniGears"
+#adpatch "56/3156" "6" "packages" "apps" "OmniGears"
 
 # QuickSettings
 # https://gerrit.omnirom.org/#/c/3065/

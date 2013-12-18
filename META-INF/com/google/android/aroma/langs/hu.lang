@@ -1,0 +1,200 @@
+### LICENSE:
+#
+# Copyright (C) 2011 Ahmad Amarullah ( http://amarullz.com/ )
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+#
+#
+### ArchiDroid Language File
+#
+# How to create your own language translation
+# 1. Copy en.lang file to your own language.lang, f.e. fr.lang if you're creating French language.
+# 2. Start translating strings (everything after "=" should be translated)
+# 3. Change language and author information below when you're done
+# 4. Send pull request with your updated strings, wait for approval and adding to aroma
+# 5. Thank you for contributing to ArchiDroid project!
+#
+# Please note that you can use language-specific chars, f.e. ą ę ó ć ü ń or any non-standard letters.
+# All of them should be displayed properly in aroma
+#
+# Files should have UNIX-style endings (LF) and should be encoded in UTF-8 format.
+# Typically any file copied from en.lang should be already well formatted. Otherwise make sure that they're right.
+# In Notepad++ it's: Format -> UTF-8 and Edit -> EOL Conversion -> Convert to UNIX format
+#
+### LANGUAGE STRING RESOURCE FILE
+#
+#   Language  : Hungarian
+#   By        : Andy1210 (andy1210@gmail.com)
+#
+
+#
+#--- AROMA STRINGS
+#
+text_ok=OK
+text_next=Tovább
+text_back=Vissza
+text_yes=Igen
+text_no=Nem
+text_about=Névjegy
+text_calibrating=Kalibrációs eszközök
+text_quit=Kilépés a telepítőből
+text_quit_msg=Biztos vagy benne, hogy kilépsz a telepítőből?
+
+#
+#-- ARCHIDROID STRINGS
+#
+common.for=ehhez:
+common.none=Semmi
+common.replaces=Lecseréli
+common.inverted=Invertált
+common.experimental=KÍSÉRLETI
+common.deprecated=IDEJÉTMÚLT
+common.obsolete=ELAVULT
+terms.check=Egyetértek a Felhasználási Feltételekkel
+terms.confirm=A folytatáshoz kérlek fogadd el a feltételeket!
+terms.check2=Teljes mértékben megértem és tiszteletben tartom
+terms.confirm2=Tiszteld a fejlesztőket!
+
+archidroid.tos=ArchiDroid Felhasználási Feltételek
+
+archidroid.detect.fail=Ellenőriztem, a jelek szerint neked még nincs telepítve az ArchiDroid. Full wipe után jöttél, esetleg egy másik ROM-ról?
+archidroid.detect.fail.yes=Így van, nem rendelkezem ArchiDroid telepítéssel
+archidroid.detect.fail.no=Dehogy, már ArchiDroid fut a készülékemen!
+archidroid.detect.fail.alert.yes=OK, az ArchiDroid Telepítés módot választottam.
+archidroid.detect.fail.alert.no=Az nem jó. Eszerint tévedtem, de figyelmeztetlek, ne próbáld meg a Frissítés módot használni, ha nem rendelkezel ArchiDroid telepítéssel!
+archidroid.detect.pass=Ellenőriztem, a jelek szerint neked már telepítve van az ArchiDroid. Szeretnéd kipróbálni a Frissítés módot?
+archidroid.detect.pass.yes=Igen, próbáljuk meg a Frissítést!
+archidroid.detect.pass.no=Nem, Full Wipe
+archidroid.detect.pass.alert.no=OK, akkor full wipe lesz és az ArchiDroid Telepítés mód kerül futtatásra
+archidroid.detect.force=Szeretnéd az eröltetett frissítési módot használni? Ez megmondja az ArchiDroid RunOnce scriptnek, hogy az emelt szintű finomhangolásokat hajtsa végre, melyeket alapértelmezetten csak a Telepítés mód során tenne meg. Válaszd a Nem lehetőséget, ha nem vagy biztos benne!
+
+archidroid.preset=ArchiDroid Telepítés konfiguráció
+archidroid.preset.desc=Kérlek válaszz egy telepítés konfigurációt:
+archidroid.preset.group=Előre beállított
+archidroid.preset.custom=Egyéni
+archidroid.preset.custom.desc=A telepítés minden részletét meg tudod változtatni.
+archidroid.preset.barebones=Csupasz Csontok
+archidroid.preset.barebones.desc=Tiszta ROM. Csak tesztelés céljából ajánlott.
+archidroid.preset.previous=Előző konfiguráció
+archidroid.preset.previous.desc=Betölti az előző telepítésed konfigurációját (ha elérhető)
+
+archidroid.detect.previouspreset.fail=Nem lehet betölteni az előző konfigurációt, mert hibás, vagy nem létezik
+
+archidroid.custom=ArchiDroid Személyreszabás
+archidroid.custom.extra=ArchiDroid Extra Személyreszabás
+archidroid.custom.desc=Kérlek módosítsd a beállításokat kedved szerint
+
+archidroid.kernel.temasek.desc=Ajánlott a tökéletes teljesítményhez, akkukíméléshez, magas rugalmassághoz és a boeffla hanghoz
+archidroid.kernel.boeffla.desc=Erősen ajánlott, mesterien tökéletes mindenki számára, melyben a boeffla hang és még sok más funkció áll rendelkezésre
+archidroid.kernel.yank.desc=Alternatívaként ajánlott
+archidroid.kernel.devil.desc=A Perseus forráskódja alapján. Egyedi dual-boot lehetőség.
+archidroid.kernel.googy.desc=A Siyah forráskódja alapján. Egyedi dual-boot lehetőség.
+archidroid.kernel.stock.desc=Alapértelmezett kernel, mely jön a ROM-mal.
+
+archidroid.theme.aosp.desc=AOSP téma
+archidroid.theme.stock.desc=Gyári téma
+
+archidroid.dpi.240w.desc=FIGYELEM! Tartsd fejben, hogy néhány grafikai hiba jelenhet meg ezen a DPI beállításon.
+archidroid.dpi.240.desc=Minden kisebb lesz, beleértve a gombokat, ikonokat, szövegeket stb. Ezt javaslom a ArchiDroid-dal való legnagyobb élményhez!
+archidroid.dpi.280.desc=Tökéletes egyensúly a gyári és a 240 DPI mód között
+archidroid.dpi.320.desc=Gyári érték
+
+archidroid.launcher.nova.desc=Ajánlott az extra rugalmassághoz és teljesítményhez
+archidroid.launcher.stock.desc=Ami a ROM-mal jön
+archidroid.launcher.none.desc=Nincs launcher. FIGYELEM! Full wipe után ne ezt válaszd! Mindenképpen kell legyen minimum egy launcher az első bootkor!
+
+archidroid.keyboard=Billentyűzet
+archidroid.keyboard.touchpal.desc=Ajánlott, nagyon rugalmas és fejlett billentyűzet swype/curve funkciókkal
+archidroid.keyboard.hackers.desc=Jó alternatívája a TouchPal-nak, ha nincs szükséged a swype/curve funkciókra
+archidroid.keyboard.both.desc=Ha mindkettőt szeretnéd telepíteni (pl a terminal használata miatt a Hacker's hasznos)
+archidroid.keyboard.stock.desc=Ha szeretnéd megtartani a ROM-mal érkező gyári billentyűzetet
+archidroid.keyboard.none.desc=Nincs billentyűzet. FIGYELEM! Full wipe után ne ezt válaszd! Mindenképpen kell legyen minimum egy billentyűzet az első bootkor!
+
+archidroid.bootanimation=Bootanimáció
+archidroid.bootanimation.archi.desc=Új elképesztő ArchiDroid bootanimáció
+archidroid.bootanimation.archilegacy.desc=Régi ArchiDroid 1.X bootanimáció
+archidroid.bootanimation.logcat.desc=Az animációt logcat kimenetre cseréli - powered by logcat lite
+archidroid.bootanimation.stock.desc=Gyári bootanimáció, mely a ROM-mal érkezik
+archidroid.bootanimation.none.desc=Nincs bootanimáció, az elenyészően gyorsabb bootolás érdekében
+
+archidroid.other=Egyéb
+archidroid.ota.desc=Ajánlott az ArchiDroid-hoz. Telepíteni fogja az UpdateMe apk-t és bekapcsolja OTA frissítéseket a build.prop segítségével.
+archidroid.xposed.desc=Különböző Xposed modulok telepítését engedélyezi. Saját kezüleg kell őket bekapcsolni
+archidroid.crossbreeder.desc=Ajánlott az extra rugalmassághoz és teljesítményhez, nem kompatibilis a Seeder-rel
+archidroid.updatemodem=Modem frissítése
+archidroid.updatemodem.desc=Ha a legújabb modemmel akarsz rendelkezni
+archidroid.updaterecovery=Recovery frissítése
+archidroid.updaterecovery.desc=Ha a legújabb Recoveryvel akarsz rendelkezni
+
+archidroid.gapps.desc=A Google alkalmazások magja. MARADJON KIVÁLASZTVA
+archidroid.gapps.gquick.desc=A Google Voice-t tönkre teheti!
+
+archidroid.apps.titaniumbackup.desc=Tökéletes megoldás biztonsági mentések készítésére
+archidroid.apps.greenify.desc=Hasznos, ha az akku kímélése érdekében szeretnéd hibernálni az alkalmazásaidat
+archidroid.apps.lmt.desc=Hasznos, ha szeretnél különböző mozdulatokhoz parancsot társítani. A SlimBean ROM-okból pie-ként is ismerheted.
+archidroid.apps.mxplayer.desc=Esélyesen a legjobb videó lejátszó Androidra
+archidroid.apps.spiritfm.desc=Ingyenes FM radio alkalmazás
+archidroid.apps.bbs.desc=Különböző akkumlátor adatokat tekinthetsz meg vele - pl wakelocks
+archidroid.apps.cooltool.desc=Különböző statisztikákat, grafikonokat jeleníthetsz meg vele a státuszbar-on
+archidroid.apps.rootbrowser.desc=Nagyon király fájlkezelő, root képességekkel
+archidroid.apps.adobeflash.desc=Flash tartalmakhoz. Google Chrome-ban nem működik
+archidroid.apps.youtube.desc=Invertált Youtube alkalmazás
+archidroid.apps.facebook.desc=Invertált Facebook és Messenger
+
+archidroid.tweaks.hdvoice.desc=Bekapcsolja a HD Voice-ot ha elérhető
+archidroid.tweaks.buildtweaks.desc=Egy csomó build.prop finomhangolás, mélyebb alvás, teljesítmény finomhangolás és még sok más
+archidroid.tweaks.openpdroid.desc=OpenPDroid patch alkalmazása a telepítés után, ha elérhető
+archidroid.tweaks.nocell.desc=Ez egy bloatware-nek tekinthető alkalmazás. Vedd ki a pipát, ha meg szeretnéd tartani.
+
+archidroid.preset.no=Nincs konfiguráció
+archidroid.preset.no.desc=Nem ajánlott, mert lemaradsz az Archi féle optimalizálásokról
+
+archidroid.preset.kernel.boeffla.archiperformance=ArchiDroid Teljesítmény
+archidroid.preset.kernel.boeffla.archiperformance.desc=Ez a profil főleg játékosok számára van optimalizálva, maximális CPU & GPU overclock. Jobb teljesítmény érhető el vele az akkuidő kárára
+archidroid.preset.kernel.boeffla.archipowersave=ArchiDroid Energiatakarékos
+archidroid.preset.kernel.boeffla.archipowersave.desc=Alapértelmezett profil, a legtöbb ember számára tökéletes, enyhe uV-ot tartalmaz. Nagyon jó egyensúlyt biztosít a teljesítmény és az akku idő között. Archi által ajánlott
+archidroid.preset.kernel.boeffla.archiultrapowersave=ArchiDroid UltraEnergiatakarékos
+archidroid.preset.kernel.boeffla.archiultrapowersave.desc=Ez a profil a maximális akkuidőt nyújtja, uV-ot tartalmaz. Jobb akkuidő érhető el vele a teljesítmény kárára
+
+archidroid.boeffla.yesarchi=Igen, Archi Audiophile-jával
+archidroid.boeffla.yesarchi.desc=Erősen ajánlott. Ez felerősíti a hangok minőségét a Boeffla SC telepítésével és finomhangolja Archi kedvére valóan
+archidroid.boeffla.yes.desc=Ha szeretnél saját Boeffla SC profilt létrehozni a későbbiekben
+archidroid.boeffla.no.desc=Ha nem szeretnéd telepíteni a Boeffla SC-t
+
+archidroid.xposed.appsettings.desc=Az alkalmazások beállításainak módosításához használható. Nagyon hasznos alkalmazás
+archidroid.xposed.xprivacy.descAz alkalmazások engedélyeinek állítgatásához használható modul
+archidroid.xposed.wanam.desc=Mesterdarab Wanam-tól. Továbbfejleszti az ArchiDroid rugalmasságát és egy tonna funkciót biztosít személyreszabáshoz
+
+archidroid.wizard.reboot=ArchiDroid sikeresen telepítésre került. Szeretnéd újraindítani a készüléket?
+
+archidroid.prepinstall=Készen állok a telepítésre
+common.flash=Telepítés
+common.back=Vissza
+
+archidroid.prepinstall.desc=Készen állsz a telepítésre.\
+Nyomd meg a <b>Telepítés</b> gombot a kezdéshez.\
+Ha szeretnéd átnézni, vagy módosítani a beállításokat, válaszd a <b>Vissza</b> lehetőséget.
+
+common.finish=Befejezés
+common.flashing=Telepítés
+
+archidroid.install.desc=Az <b>ArchiDroid</b> most telepítésre kerül.\
+Kérlek várj, amíg a varázsló befejezi az <b>ArchiDroid</b> telepítését\
+<b>Ha valami oknál fogva a telepítő lefagyna, indítsd újra Recovery módban a készüléket és próbáld újra</b>
+
+archidroid.install.finish=Az ArchiDroid varázsló sikeresen telepítette az <b>ArchiDroid<b>-ot\
+Válaszd a <b>Befejezés</b> gombot a folytatáshoz.
+
+archidroid.buildtweaks.fastdormancy.desc=Vedd ki a pipát a fast dormancy kikapcsolásához, ez növelheti az akkuidőt, ha a mobil szolgáltató nem támogatja a funckiót
+archidroid.buildtweaks.zerowakeup.desc=Válasd ki a ZeroWakeUp bekapcsolásához, ez a CPU-t alvó módba teszi (mély/mélyebb alvó mód helyett), a felébresztés időtartamát a minimumra csökkentve

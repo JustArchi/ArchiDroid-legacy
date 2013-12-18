@@ -52,8 +52,8 @@ anisplash(
 #
 # Set Small Font to Support all fonts
 #
-fontresload( "0", "ttf/Roboto-Regular.ttf;ttf/DroidSansFallback.ttf;", "12" ); #-- Use sets of font (Font Family)
-fontresload( "1", "ttf/Roboto-Regular.ttf;ttf/DroidSansFallback.ttf;", "14" ); #-- Use sets of font (Font Family)
+fontresload( "0", "ttf/DroidSans.ttf;ttf/DroidSansFallback.ttf;ttf/DroidSansArabic.ttf;", "12" ); #-- Use sets of font (Font Family)
+fontresload( "1", "ttf/DroidSans.ttf;ttf/DroidSansFallback.ttf;ttf/DroidSansArabic.ttf;", "14" ); #-- Use sets of font (Font Family)
 
 theme("touchwiz");
 resexec("exec/archidroid_init.sh");

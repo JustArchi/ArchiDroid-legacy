@@ -31,12 +31,17 @@ if ADARGS "background" "$@" ; then
 else
 	BACKGROUND=0
 fi
+if ADARGS "force" "$@" ; then
+	FORCE=1
+else
+	FORCE=0
+fi
 
 echo "`date`" >> $LOG
 echo "`uname -a`" >> $LOG
 echo "INFO: ArchiDroid_Init executed!" >> $LOG
 
-if [ -e /system/etc/init.d/98ArchiDroid_RunOnce ]; then
+if [ -e /system/etc/init.d/98ArchiDroid_RunOnce ] && [ $FORCE -ne 1 ]; then
 	# This is our first boot, don't call init yet
 	echo "INFO: This is our first boot, I'll let RunOnce finish his job, exiting..." >> $LOG
 	exit 2
@@ -72,6 +77,11 @@ if [ `cat /system/build.prop | grep "ro.omni.version" | wc -l` -gt 0 ]; then
 	ROM=2
 elif [ `cat /system/build.prop | grep "ro.build.user=se.infra" | wc -l` -gt 0 ]; then
 	ROM=1
+fi
+
+# Bring su daemon if available
+if [ -e /system/xbin/daemonsu ]; then
+	/system/xbin/daemonsu --auto-daemon &
 fi
 
 # Custom boot sound support

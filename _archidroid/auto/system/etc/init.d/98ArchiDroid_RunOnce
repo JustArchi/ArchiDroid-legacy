@@ -205,6 +205,10 @@ else
 	sysrw || mount -o remount,rw /system
 	rm -f $0
 	sysro || mount -o remount,ro /system
+	
+	# Init depends on us
+	sh /system/etc/init.d/99ArchiDroid_Init "background" "force" &
+	
 	exit 2
 fi
 
@@ -420,7 +424,7 @@ if [ $ADRELOAD -eq 1 ]; then
 	#sleep 10
 else
 	# We should call Init if reboot isn't required
-	sh /system/etc/init.d/99ArchiDroid_Init "background" &
+	sh /system/etc/init.d/99ArchiDroid_Init "background" "force" &
 
 	sleep 20
 	sysro || mount -o remount,ro /system

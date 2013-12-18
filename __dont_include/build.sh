@@ -82,7 +82,7 @@ if [ $SAMMY -eq 0 ]; then
 		fi
 		cd /root/android/system
 		repo selfupdate
-		repo sync
+		repo sync -c -j8
 	else
 		cd /root/android/system
 	fi

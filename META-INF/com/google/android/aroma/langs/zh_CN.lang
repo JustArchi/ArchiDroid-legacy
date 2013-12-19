@@ -68,8 +68,8 @@ terms.confirm2=尊敬开发者劳动!
 
 archidroid.tos=ArchiDroid 许可协议条款
 
-archidroid.detect.fail=没有检测到ArchiDroid在本机上运行. 你full wipe过吗，还是刚从其他的ROM转到ArchiDroid?
-archidroid.detect.fail.yes=我原来没有ArchiDroid
+archidroid.detect.fail=没有检测到 ArchiDroid 在本机上运行. 你full wipe过吗，还是刚从其他的 ROM 转到ArchiDroid?
+archidroid.detect.fail.yes=我原来没有 ArchiDroid
 archidroid.detect.fail.no=我正在用 ArchiDroid!
 archidroid.detect.fail.alert.yes=好, 我为你选择了 ArchiDroid 安装模式.
 archidroid.detect.fail.alert.no=这不太好. 如果你没有运行ArchiDroid我将伪造结果，但是如果没安装过ArchiDroid不要使用更新模式!
@@ -84,8 +84,8 @@ archidroid.preset.desc=请选择安装预设:
 archidroid.preset.group=预设
 archidroid.preset.custom=自定义
 archidroid.preset.custom.desc=你可以自定义安装的全部内容
-archidroid.preset.barebones=纯净ROM
-archidroid.preset.barebones.desc=纯净ROM. 只为测试, 不推荐
+archidroid.preset.barebones=纯净 ROM
+archidroid.preset.barebones.desc=纯净 ROM 选项. 只为测试, 不推荐
 archidroid.preset.previous=使用之前的预设
 archidroid.preset.previous.desc=载入之前的自定义安装预设 (如果存在的话)
 
@@ -116,17 +116,17 @@ archidroid.launcher.none.desc=不含启动器.警告! 在完全擦除之后不�
 
 archidroid.keyboard=键盘
 archidroid.keyboard.touchpal.desc=推荐强大顺滑的 Swype/Curve 键盘
-archidroid.keyboard.hackers.desc=TouchPal 的极好的替代选择，如果用不到 swype/curve 的功能
-archidroid.keyboard.both.desc=同时使用 TouchPal 和 Hacker键盘 (例如在终端中)
-archidroid.keyboard.stock.desc=如果你想保留ROM自带键盘
+archidroid.keyboard.hackers.desc=TouchPal(触宝国际版) 的极好的替代选择，如果用不到 swype/curve 的功能
+archidroid.keyboard.both.desc=同时使用 TouchPal(触宝国际版) 和 Hacker键盘 (例如在终端中)
+archidroid.keyboard.stock.desc=如果你想保留 ROM 自带键盘
 archidroid.keyboard.none.desc=无键盘. 警告! 在完全擦除之后不要勾选! 第一次启动之前你需要至少一个第三方键盘!
 
 archidroid.bootanimation=开机动画
 archidroid.bootanimation.archi.desc=全新花哨 ArchiDroid 开机动画
-archidroid.bootanimation.archilegacy.desc=旧 1.X 开机动画
+archidroid.bootanimation.archilegacy.desc=旧 1.X 系列开机动画
 archidroid.bootanimation.logcat.desc=更改默认开机动画为 logcat 输出 - 使用 logcat lite 构建
 archidroid.bootanimation.stock.desc=ROM 自带原生开机动画
-archidroid.bootanimation.none.desc=无开机动画, 启动速度轻微提高
+archidroid.bootanimation.none.desc=无开机动画, 启动速度略微提高
 
 archidroid.other=其他
 archidroid.ota.desc=ArchiDroid 推荐. 安装 UpdateMe 应用并通过 build.prop 开启OTA更新
@@ -137,7 +137,7 @@ archidroid.updatemodem.desc=如果你想用最新基带的话
 archidroid.updaterecovery=更新 Recovery
 archidroid.updaterecovery.desc=如果你想使用最新recovery
 
-archidroid.gapps.desc=Google核心服务包和app. 不要取消勾选这个！
+archidroid.gapps.desc=Google核心服务包和APP. 不要取消勾选这个！
 archidroid.gapps.gquick.desc=可能破坏掉 Google Voice!
 
 archidroid.apps.titaniumbackup.desc=刷机/更新保存个人数据和app的最佳方案
@@ -145,10 +145,10 @@ archidroid.apps.greenify.desc=休眠任何app的利器, 能增强电池续航
 archidroid.apps.lmt.desc=执行绑定到特定屏幕手势的命令的工具, 在SlimBean也被称为 pie
 archidroid.apps.mxplayer.desc=应该是安卓下最好的视频播放器
 archidroid.apps.spiritfm.desc=能在 CyanogenMod 下工作的免费收音机
-archidroid.apps.bbs.desc=查看更具体的电池信息-特别是 wakelocks
+archidroid.apps.bbs.desc=查看更具体的电池信息, 特别是 wakelocks
 archidroid.apps.cooltool.desc=在通知栏显示使用情况（如 CPU百分比，内存用量等）
 archidroid.apps.rootbrowser.desc=可选 root 权限拓展，非常酷的Root浏览器
-archidroid.apps.adobeflash.desc=增加flash内容支持. 与 Google Chrome 不兼容
+archidroid.apps.adobeflash.desc=增加 flash 内容支持. 与 Google Chrome 不兼容
 archidroid.apps.youtube.desc=安装 YouTube 应用
 archidroid.apps.facebook.desc=安装 Facebook 和 Messenger
 
@@ -158,23 +158,23 @@ archidroid.tweaks.openpdroid.desc=如果可以，安装结束后应用 OpenPDroi
 archidroid.tweaks.nocell.desc=通常被认为是臃肿软件. 如果想保留这个取消选择
 
 archidroid.preset.no=不使用预设设置
-archidroid.preset.no.desc=不推荐，你会错过绝大多数Archi的优化
+archidroid.preset.no.desc=不推荐，你会错过绝大多数 Archi 的优化
 
 archidroid.preset.kernel.boeffla.archiperformance=ArchiDroid 性能模式
 archidroid.preset.kernel.boeffla.archiperformance.desc=为游戏玩家定制优化的profile,包含CPU/GPU超频. 以消耗电池寿命为代价换取更好的性能
 archidroid.preset.kernel.boeffla.archipowersave=ArchiDroid 节能模式
-archidroid.preset.kernel.boeffla.archipowersave.desc=为大多数人设置的默认预设, 包含轻微降压. 在电池寿命和性能间的平衡.Archi推荐
+archidroid.preset.kernel.boeffla.archipowersave.desc=为大多数人设置的默认预设, 包含轻微降压. 电池寿命和性能间的平衡选项 Archi推荐!
 archidroid.preset.kernel.boeffla.archiultrapowersave=ArchiDroid 超级节能模式
 archidroid.preset.kernel.boeffla.archiultrapowersave.desc=为最佳电池寿命而设计优化的预设设置, 包含普通降压. 以性能为代价换取电池寿命的延长
 
 archidroid.boeffla.yesarchi=体验Archi的音乐发烧享受
-archidroid.boeffla.yesarchi.desc=高度推荐. 安装Boeffla Sound Control 和Archi喜欢的音质设置来增强音乐体验
+archidroid.boeffla.yesarchi.desc=高度推荐. 安装 Boeffla Sound Control 和 Archi 喜欢的音质设置来增强音乐体验
 archidroid.boeffla.yes.desc=如果你之后想创建自己的 Boeffla Sound Control 预设
 archidroid.boeffla.no.desc=如果不想安装 Boeffla Sound Control
 
-archidroid.xposed.appsettings.desc=允许更改app设置. 特别有用的工具
+archidroid.xposed.appsettings.desc=允许更改 APP 设置. 特别有用的工具
 archidroid.xposed.xprivacy.desc=能防止泄露个人数据,限制权限，拥有更多功能的极佳模块
-archidroid.xposed.wanam.desc=Wanam 杰作. 增强ArchiDroid顺滑度提供大量自定义选项
+archidroid.xposed.wanam.desc=Wanam 杰作. 增强 ArchiDroid 顺滑度提供大量自定义选项
 
 archidroid.wizard.reboot=ArchiDroid 已经成功刷入，要立即自动重启吗?
 
@@ -183,8 +183,8 @@ common.flash=刷入
 common.back=后退
 
 archidroid.prepinstall.desc=现在你已经准备好刷机过程.\
-按下 <b>Flash</b> 开始刷入.\
-如果你想检视或者修改安装设置, 按下 <b>Back</b>.
+按下 <b>刷入</b> 开始刷机过程.\
+如果你想检视或者修改安装设置, 按下 <b>后退</b>.
 
 common.finish=完成
 common.flashing=正在刷入
@@ -193,8 +193,8 @@ archidroid.install.desc=<b>ArchiDroid</b> 正在安装.\
 请等待... 正在为你安装 <b>ArchiDroid</b>\
 <b>以防冻结问题出现，等待recovery过程并再试一遍</b>
 
-archidroid.install.finish=ArchiDroid 向导已经成功刷入 <b>ArchiDroid<b>\
-按下 <b>Finish</b> 继续.
+archidroid.install.finish=ArchiDroid 向导已经成功刷入 <b>ArchiDroid</b>\
+按下 <b>完成</b> 继续.
 
 archidroid.buildtweaks.fastdormancy.desc=取消勾选来关闭 fast dormancy, 如果运营商不支持，可能延长电池寿命
 archidroid.buildtweaks.zerowakeup.desc=勾选开启 ZeroWakeUp, 让CPU工作在睡眠模式 (不是深度睡眠), 把唤醒延迟降到最低

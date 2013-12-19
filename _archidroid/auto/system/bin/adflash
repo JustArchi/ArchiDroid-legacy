@@ -4,6 +4,7 @@ VERSION=""
 MODE="git"
 TEMP=""
 AD="/data/media/0/ArchiDroid"
+NOZIP=0
 
 echo "Welcome to ArchiDroid Command Line Flasher!"
 echo "Checking access to $AD"
@@ -33,59 +34,55 @@ if [ $# -eq 0 ]; then
 	read VERSION
 	echo ""
 	echo ""
-	echo "ArchiDroid Flasher is compatible with two modes: git and direct"
+	echo "You may specify any extra options here separated by a whitespace. Eventually you can just skip this question and apply defaults"
 	echo ""
-	echo "direct		Downloads targeted branch as .zip file directly from github. Simple and reliable"
-	echo "git		Sets up local git repository, which gives you delta upgrades and bandwidth saving. Advanced, default mode"
+	echo "git			[Default] Sets up local git repository, which gives you delta upgrades and bandwidth saving"
+	echo "direct		Downloads targeted branch as .zip file directly from github"
 	echo ""
-	echo -n "Your choice: "
-	read MODE
-	if [ $MODE == "git" ]; then
-		echo ""
-		echo ""
-		echo "You may specify any extra options here. Eventually you can just skip this question"
-		echo ""
-		echo "nozip		Updates repo only"
-		echo ""
-		echo -n "Your choice: "
-		read EXTRA
-	fi
+	echo "nozip			Shows changelog and changes only"
+	echo ""
+	echo -n "Your extra options: "
+	read EXTRA
 else
 	VERSION="$1"
-	MODE="$2"
-	shift 2
-	EXTRA="$@"
+	shift 1
 fi
-
-case "$MODE" in
-	"direct")
-		;;
-	"git")
-		;;
-	*)
-		MODE="git"
-esac
 
 case "$VERSION" in
 	"2e")
-		TEMP="2.X-EXPERIMENTAL"
+		VERSION="2.X-EXPERIMENTAL"
 		;;
 	"2s")
-		TEMP="2.X-STABLE"
+		VERSION="2.X-STABLE"
 		;;
 	"1e")
-		TEMP="1.X-EXPERIMENTAL"
+		VERSION="1.X-EXPERIMENTAL"
 		;;
 	"1s")
-		TEMP="1.X-STABLE"
+		VERSION="1.X-STABLE"
 		;;
 	*)
 		echo "Sorry, could not detect any valid version, exiting"
 		exit 1
 esac
-VERSION=$TEMP
-TEMP=""
 echo "Ok, detected $VERSION"
+
+# Parse args
+for arg in "$@"; do
+	case "$arg" in
+		"git")
+			MODE="git"
+			;;
+		"direct")
+			MODE="direct"
+			;;
+		"nozip")
+			NOZIP=1
+			;;
+		*)
+			continue
+	esac
+done
 
 if [ "$MODE" == "direct" ]; then
 	cd $AD/tmp
@@ -107,6 +104,12 @@ if [ "$MODE" == "direct" ]; then
 	echo ""
 	echo ""
 	echo "CHANGELOG EOF"
+
+	if [ $NOZIP -eq 1 ]; then
+		echo "Nozip detected, finishing!"
+		exit 0
+	fi
+
 	echo ""
 	echo "Ok, starting download from GitHub"
 	echo "Warning, it may take long time. Make sure that you have stable Wi-Fi connection"
@@ -146,15 +149,7 @@ if [ "$MODE" == "direct" ]; then
 		echo "Something went wrong, aborting"
 		exit 1
 	fi
-elif [ "$MODE" == "git" ]; then
-	NOZIP=0
-
-	for arg in "$EXTRA"; do
-		if [ "$arg" == "nozip" ]; then
-			NOZIP=1
-			echo "Detected extra nozip option"
-		fi
-	done
+else
 	echo "Booting pocket debian..."
 	adlinux "default"
 	

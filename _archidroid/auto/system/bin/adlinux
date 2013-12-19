@@ -92,6 +92,7 @@ else
 		mkdir -p $mnt
 		echo "It looks like it's your first installation. Unpacking your debian..."
 		busybox tar -xf $AD/System/debian.tar.gz -C $mnt
+		debian "force" "cmd" "ln -s /proc/mounts /etc/mtab"
 		echo "Done!"
 	fi
 

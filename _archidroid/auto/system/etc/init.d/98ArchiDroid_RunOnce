@@ -9,6 +9,29 @@
 # Initial variables, you should NOT change them unless you know what you're doing
 AD="/data/media/0/ArchiDroid"
 LOG="$AD/RunOnce.log" # "/dev/null" is no verbose
+ADSTATUS="/dev/ARCHIDROID_RUNONCE_STATUS"
+
+if [ ! -e $ADSTATUS ]; then
+	# First boot, good
+	echo -n $$ > $ADSTATUS
+else
+	ADSIGNAL=`cat $ADSTATUS`
+	if [ $ADSIGNAL == "FINISHED" ]; then
+		# Something tried to execute already finished init, halt
+		echo "This script has been executed already"
+		exit 0
+	else
+		kill -s 0 $ADSIGNAL >/dev/null 2>&1
+		ADSIGNAL=$?
+		if [ $ADSIGNAL -eq 0 ]; then
+			# Something tried to execute already running init, double-execution?
+			exit 3
+		else
+			# Old PID is dead and didn't exit properly, it looks like init re-executed itself f.e. for background purpose, allow that
+			echo -n $$ > $ADSTATUS
+		fi
+	fi
+fi
 
 # Redirect stderr to our log, just in case something bad happen
 #exec 1>$LOG # Use "exec 1>>$LOG" for append
@@ -432,5 +455,6 @@ else
 	# Finish
 	echo "INFO: ArchiDroid RunOnce finished" >> $LOG
 	echo "`date`" >> $LOG
+	echo -n "FINISHED" > $ADSTATUS
 fi
 exit 0

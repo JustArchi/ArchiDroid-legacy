@@ -13,10 +13,9 @@ echo "
 # Force using HW/GPU Acceleration even if apps don't support it
 # Warning! It may NOT be a good idea to enable this, use with caution
 #debug.composition.type=gpu
-#debug.performance.tuning=1
-#video.accelerate.hw=1
 
 # Allow purging of assets
+# CyanogenMod Only
 persist.sys.purgeable_assets=1
 
 # Make sure HD Voice is enabled if available
@@ -24,13 +23,6 @@ ro.ril.enable.amr.wideband=1
 
 # Fast Dormancy toggle. If your provider doesn't support it then it may be better for you to uncomment these lines
 #ro.ril.fast.dormancy.rule=0
-#ro.config.hw_fast_dormancy=0
-
-# Other RIL and Baseband tweaks, may cause better battery life and/or better signal, proceed with caution
-#persist.cust.tel.eons=1
-
-# Disable Sending Usage Data
-ro.config.nocheckin=1
 
 # This value controls deep sleep function in your ROM
 #sleep_mode=0 -> Collapse Suspend. Standard deep sleep. Default value
@@ -47,16 +39,13 @@ pm.sleep_mode=1
 # This value controls RIL deep sleep
 # Usually you don't want to change that
 ro.ril.power.collapse=1
-ro.ril.disable.power.collapse=0
 
 # Scan Wi-Fi less often
-wifi.supplicant_scan_interval=180
-#ro.mot.eri.losalert.delay=1000
+wifi.supplicant_scan_interval=300
 
 # Disable Error Checking, may improve performance for cost of stability
 # Kernel Side
 ro.kernel.android.checkjni=0
-ro.kernel.checkjni=0
 # Android Side
 dalvik.vm.checkjni=false
 #profiler.force_disable_err_rpt=1
@@ -86,16 +75,6 @@ alsa.mixer.playback.earpiece=Earpiece
 alsa.mixer.playback.headset=Headset
 alsa.mixer.playback.master=Speaker
 alsa.mixer.playback.speaker=Speaker
-
-# Probably not needed but who knows...
-htc.audio.alc.enable=1
-htc.audio.enable_dmic=1
-htc.audio.global.profile=0
-htc.audio.global.state=0
-htc.audio.lpa.a2dp=0
-htc.audio.q6.topology=0
-htc.audio.swalt.enable=1
-htc.audio.swalt.mingain=14512
 
 mpq.audio.decode=true
 

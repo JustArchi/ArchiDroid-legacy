@@ -1,5 +1,6 @@
 ArchiDroid 2.3.2
 
+- Added "nozip" adflash parameter. Useful if you want to read changelog and/or commits only
 - Added Danish language, thanks to WarCow
 - Added Persian language, thanks to blv1
 - Added Hungarian language, thanks to Andy1210
@@ -12,4 +13,8 @@ ArchiDroid 2.3.2
 - Updated Greenify to 1.99
 - Updated XPrivacy to 1.10.49
 - Updated Spirit2 to Dec19
-- Updated sources
+
+- Updated sources, including:
+* Hot-Patched: Exfat fixes for smdk4412, Multi-Window [WIP]. M-W is Work-In-Progress, don't expect from it to work flawlessly. From recents tab, long tap on activity and "Add to split view"
+* Cherry-Picked: ListView Animations, including RunOnce preset
+* Ported (also submitted to Omni's Gerrit): AOKP Custom Animations, including RunOnce preset

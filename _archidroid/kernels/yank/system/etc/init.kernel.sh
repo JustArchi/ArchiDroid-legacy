@@ -24,7 +24,7 @@ sleep 10
 
 echo `date +"%F %R:%S : Starting kernel configuration..."` >>$log_file
 
-# Script generated on 30/11/2013 at 19:33
+# Script generated on 21/12/2013 at 18:12
 #----------------------------------------------------
 
 # - init.d support by kernel/ramdisk not installed
@@ -143,13 +143,34 @@ echo `date +"%F %R:%S : zzmoove - early demand threshold set to 50%."` >>$log_fi
 
 # - zRam activation - 200Mb
 if [ -e /sys/block/zram0/disksize ] ; then
+
   swapoff /dev/block/zram0
+  swapoff /dev/block/zram1
+  swapoff /dev/block/zram2
+  swapoff /dev/block/zram3
+
   echo 1 > /sys/block/zram0/reset
-  echo 209715200 > /sys/block/zram0/disksize
-  echo 1 > /sys/block/zram0/initstate
-  swapon /dev/block/zram0
+  echo 1 > /sys/block/zram1/reset
+  echo 1 > /sys/block/zram2/reset
+  echo 1 > /sys/block/zram3/reset
+
+  echo 52428800 > /sys/block/zram0/disksize
+  echo 52428800 > /sys/block/zram1/disksize
+  echo 52428800 > /sys/block/zram2/disksize
+  echo 52428800 > /sys/block/zram3/disksize
+
+  mkswap /dev/block/zram0
+  mkswap /dev/block/zram1
+  mkswap /dev/block/zram2
+  mkswap /dev/block/zram3
+
+  swapon -p 2 /dev/block/zram0
+  swapon -p 2 /dev/block/zram1
+  swapon -p 2 /dev/block/zram2
+  swapon -p 2 /dev/block/zram3
+  
 fi
-echo `date +"%F %R:%S : 200Mb Zram Support enabled."` >>$log_file
+echo `date +"%F %R:%S : 200Mb (4x50Mb) Zram Support enabled."` >>$log_file
 
 # - Hardswap by Yank555.lu not installed
 echo `date +"%F %R:%S : Hardswap Support disabled."` >>$log_file
@@ -158,11 +179,11 @@ echo `date +"%F %R:%S : Hardswap Support disabled."` >>$log_file
 echo 80 > /proc/sys/vm/swappiness;
 echo `date +"%F %R:%S : Swappiness set to 80."` >>$log_file
 
-# - Enable substitute forced fast charge - AC current on USB
-echo 1 > /sys/kernel/fast_charge/force_fast_charge
-echo `date +"%F %R:%S : Fast Charge - Substitute Mode enabled."` >>$log_file
-echo 1000 > /sys/kernel/fast_charge/usb_charge_level
-echo `date +"%F %R:%S : Fast Charge - USB charge level set to 1000mA/h."` >>$log_file
+# - Disable USB forced fast charge
+echo 0 > /sys/kernel/fast_charge/force_fast_charge
+echo `date +"%F %R:%S : Fast Charge - disabled."` >>$log_file
+echo 475 > /sys/kernel/fast_charge/usb_charge_level
+echo `date +"%F %R:%S : Fast Charge - USB charge level set to 475mA/h."` >>$log_file
 echo 1000 > /sys/kernel/fast_charge/ac_charge_level
 echo `date +"%F %R:%S : Fast Charge - AC charge level set to 1000mA/h."` >>$log_file
 
@@ -182,9 +203,9 @@ echo `date +"%F %R:%S : Touch Wake disabled."` >>$log_file
 echo 0 > /sys/class/sec/sec_touchkey/touch_led_on_screen_touch
 echo `date +"%F %R:%S : Hardwarekeys light on screen touch disabled."` >>$log_file
 
-# - Handle Hardwarekeys light by ROM (newer CM)
-echo 0 > /sys/class/sec/sec_touchkey/touch_led_handling
-echo `date +"%F %R:%S : Hardwarekeys light handled by ROM (newer CM)."` >>$log_file
+# - Handle Hardwarekeys light by kernel in hybrid mode (older CM)
+echo 2 > /sys/class/sec/sec_touchkey/touch_led_handling
+echo `date +"%F %R:%S : Hardwarekeys light handled by kernel in hybrid mode (older CM)."` >>$log_file
 
 # - Enable fading notification LED
 echo 1 > /sys/class/sec/led/led_fade

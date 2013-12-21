@@ -569,6 +569,7 @@ set_progress(0.74);
 if file_getprop("/tmp/aroma-data/archidroid.prop","launcher") == "nova" then
 	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Nova Launcher");
 	delete("/system/app/Launcher3.apk");
+	delete("/system/priv-app/Launcher3.apk");
 	package_extract_dir("_archidroid/apps/nova", "/");
 endif;
 
@@ -583,6 +584,7 @@ if file_getprop("/tmp/aroma-data/archidroid.prop","launcher") == "none" then
 	# Just delete Launcher then
 	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Skipping Launcher");
 	delete("/system/app/Launcher3.apk");
+	delete("/system/priv-app/Launcher3.apk");
 endif;
 
 set_progress(0.75);

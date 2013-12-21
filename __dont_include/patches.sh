@@ -49,11 +49,16 @@ adpatch() {
 # https://gerrit.omnirom.org/#/c/1510/
 adpatch "10/1510" "14" "frameworks" "base"
 
-# ListView
-# https://gerrit.omnirom.org/#/c/2863/
-# https://gerrit.omnirom.org/#/c/2862/
-#adpatch "63/2863" "6" "frameworks" "base"
-#adpatch "62/2862" "7" "packages" "apps" "OmniGears"
+# Exfat-fix
+# https://gerrit.omnirom.org/#/c/3856/
+# https://gerrit.omnirom.org/#/c/3857/
+adpatch "56/3856" "1" "system" "vold"
+adpatch "57/3857" "1" "device" "samsung" "smdk4412-common"
+
+# ListView Animations
+# CHERRY-PICKED
+# https://gerrit.omnirom.org/#/c/2863/ | Patch Set 6 | https://github.com/JustArchi/android_frameworks_base/commit/26d81e4cfc6dabfd035e681e8638f84f5a2aeb23 
+# https://gerrit.omnirom.org/#/c/2862/ | Patch Set 7 | https://github.com/JustArchi/android_packages_apps_OmniGears/commit/0674dc8ac6a0a74dfcc6d2abc56f752985f8789a
 
 # Navigation bar
 # https://gerrit.omnirom.org/#/c/3761/ #Merged

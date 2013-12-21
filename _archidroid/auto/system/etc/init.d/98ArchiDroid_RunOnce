@@ -327,8 +327,8 @@ while (! pgrep com.android && [ $LOOP -lt 150 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 				#DBUPDATE system activity_close 8
 				
 				# Requires ListView Animations
-				#DBUPDATE system listview_animation 4
-				#DBUPDATE system listview_interpolator 5
+				DBUPDATE system listview_animation 4
+				DBUPDATE system listview_interpolator 5
 			fi
 			
 			# And don't execute twice

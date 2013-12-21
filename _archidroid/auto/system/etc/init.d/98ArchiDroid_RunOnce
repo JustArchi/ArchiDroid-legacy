@@ -331,18 +331,18 @@ while (! pgrep com.android && [ $LOOP -lt 150 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 				#DBUPDATE secure ui_inverted_mode 2
 				
 				# Reguires AOKP Custom Animations
-				#DBUPDATE system animation_controls_no_override 1
-				#DBUPDATE system animation_controls_duration 34
-				#DBUPDATE system task_open 8
-				#DBUPDATE system task_close 8
-				#DBUPDATE system task_to_front 8
-				#DBUPDATE system task_to_back 8
-				#DBUPDATE system wallpaper_open 8
-				#DBUPDATE system wallpaper_close 8
-				#DBUPDATE system wallpaper_intra_open 8
-				#DBUPDATE system wallpaper_intra_close 8
-				#DBUPDATE system activity_open 8
-				#DBUPDATE system activity_close 8
+				DBUPDATE system animation_controls_no_override 1
+				DBUPDATE system animation_controls_duration 34
+				DBUPDATE system task_open 8
+				DBUPDATE system task_close 8
+				DBUPDATE system task_to_front 8
+				DBUPDATE system task_to_back 8
+				DBUPDATE system wallpaper_open 8
+				DBUPDATE system wallpaper_close 8
+				DBUPDATE system wallpaper_intra_open 8
+				DBUPDATE system wallpaper_intra_close 8
+				DBUPDATE system activity_open 8
+				DBUPDATE system activity_close 8
 				
 				# Requires ListView Animations
 				DBUPDATE system listview_animation 4

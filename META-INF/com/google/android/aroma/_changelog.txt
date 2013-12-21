@@ -1,5 +1,6 @@
 ArchiDroid 1.7.4
 
+- Added mount points to debian. It's required for some programs which rely on /etc/mtab
 - Added "nozip" adflash parameter. Useful if you want to read changelog and/or commits only
 - Added Danish language, thanks to WarCow
 - Added Persian language, thanks to blv1

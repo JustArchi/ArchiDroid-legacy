@@ -1,6 +1,1 @@
-if [ -e /system/bin/mount ]; then
-	MOUNT="/system/bin/mount"
-else
-	MOUNT=`which mount`
-fi
-$MOUNT -o remount,ro /system
+busybox mount -o remount,ro /system

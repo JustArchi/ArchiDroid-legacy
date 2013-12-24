@@ -418,6 +418,11 @@ if [ $INSTALLMODE -eq 1 ]; then
 	echo "INFO: Calling Post-Installation functions (if any)" >> $LOG
 fi
 
+if [ ! -z `getprop ro.build.selinux` ] && [ -f /file_contexts ]; then
+	echo "INFO: Found SELinux build, relabeling /data" >> $LOG
+	restorecon -R /data
+fi
+
 # I'm runonce script so let's clean everything and delete myself
 rm -f $AD/INSTALL
 rm -f $AD/UPDATE

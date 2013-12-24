@@ -121,6 +121,37 @@ else
 	ADBANNER=0
 fi
 
+# Frandom support
+if [ ! -c /dev/frandom ]; then
+	echo "INFO: frandom device not found, searching for frandom.ko kernel module..." >> $LOG
+	for FRANDOMPATH in "/system/lib/modules" "/system/modules" "/lib/modules" "/modules"; do
+		if [ -f $FRANDOMPATH/frandom.ko ]; then
+			echo "INFO: Loading frandom using $FRANDOMPATH/frandom.ko!" >> $LOG
+			busybox insmod -f $FRANDOMPATH/frandom.ko
+			break
+		fi
+	done
+fi
+if [ -c /dev/frandom ]; then
+	echo "INFO: frandom device found, activating erandom!" >> $LOG
+	if [ ! -e /dev/urandom.ORIG ] && [ ! -e /dev/urandom.orig ] && [ ! -e /dev/urandom.ori ]; then
+		# For compatibility with various CrossBreeder checks
+		touch /dev/urandom.MOD
+		touch /dev/random.MOD 
+
+		mv /dev/urandom /dev/urandom.ORIG
+		ln /dev/erandom /dev/urandom
+		busybox chmod 644 /dev/urandom
+		mv /dev/random /dev/random.ORIG
+		ln /dev/erandom /dev/random
+		busybox chmod 644 /dev/random
+	else
+		echo "INFO: It looks like frandom has been already loaded" >> $LOG
+	fi
+else
+	echo "INFO: frandom device not found after loading, it looks like it's not provided by your kernel or failed to load!" >> $LOG
+fi
+
 # Sqlite VACUUM & REINDEX
 echo "INFO: Performing VACUUM & REINDEX of databases" >> $LOG
 busybox mount -o remount,rw /

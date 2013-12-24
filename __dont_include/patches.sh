@@ -49,10 +49,6 @@ adpatch() {
 # https://gerrit.omnirom.org/#/c/1510/
 adpatch "10/1510" "14" "frameworks" "base"
 
-# Wi-Fi Tethering fix
-# https://gerrit.omnirom.org/#/c/3970/
-adpatch "70/3970" "1" "device" "samsung" "smdk4412-common"
-
 # Exfat-fix
 # https://gerrit.omnirom.org/#/c/3856/
 # https://gerrit.omnirom.org/#/c/3857/

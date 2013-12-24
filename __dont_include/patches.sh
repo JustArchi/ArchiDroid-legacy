@@ -49,35 +49,28 @@ adpatch() {
 # https://gerrit.omnirom.org/#/c/1510/
 adpatch "10/1510" "14" "frameworks" "base"
 
+# Wi-Fi Tethering fix
+# https://gerrit.omnirom.org/#/c/3970/
+adpatch "70/3970" "1" "device" "samsung" "smdk4412-common"
+
 # Exfat-fix
 # https://gerrit.omnirom.org/#/c/3856/
 # https://gerrit.omnirom.org/#/c/3857/
 adpatch "56/3856" "1" "system" "vold"
 adpatch "57/3857" "1" "device" "samsung" "smdk4412-common"
 
+# Quick Settings (SlimBean)
+# https://gerrit.omnirom.org/#/c/3918/
+# https://gerrit.omnirom.org/#/c/3932/
+# CHERRY-PICKED
+# https://gerrit.omnirom.org/#/c/3941/ | Patch Set 6 | https://github.com/JustArchi/android_packages_apps_Settings/commit/c0e1f983fcb1464b52ea1a526ae1ba7595bda91a
+adpatch "18/3918" "8" "frameworks" "base"
+adpatch "32/3932" "3" "packages" "services" "Telephony"
+#adpatch "41/3941" "6" "packages" "apps" "Settings"
+
 # ListView Animations
 # CHERRY-PICKED
 # https://gerrit.omnirom.org/#/c/2863/ | Patch Set 6 | https://github.com/JustArchi/android_frameworks_base/commit/26d81e4cfc6dabfd035e681e8638f84f5a2aeb23 
 # https://gerrit.omnirom.org/#/c/2862/ | Patch Set 7 | https://github.com/JustArchi/android_packages_apps_OmniGears/commit/0674dc8ac6a0a74dfcc6d2abc56f752985f8789a
-
-# Navigation bar
-# https://gerrit.omnirom.org/#/c/3761/ #Merged
-# https://gerrit.omnirom.org/#/c/3770/
-# https://gerrit.omnirom.org/#/c/3772/ #Needs Update
-# https://gerrit.omnirom.org/#/c/3151/ #Needs Update
-### https://gerrit.omnirom.org/#/c/3157/ #Merged
-# https://gerrit.omnirom.org/#/c/3156/ #Needs Update
-###adpatch "61/3761" "1" "packages" "apps" "OmniGears"
-#adpatch "70/3770" "1" "frameworks" "base"
-#adpatch "72/3772" "1" "packages" "apps" "OmniGears"
-#adpatch "51/3151" "4" "frameworks" "base"
-###adpatch "57/3157" "3" "packages" "apps" "Settings"
-#adpatch "56/3156" "6" "packages" "apps" "OmniGears"
-
-# QuickSettings
-# https://gerrit.omnirom.org/#/c/3065/
-# https://gerrit.omnirom.org/#/c/3081/ #Needs Update
-#adpatch "65/3065" "4" "frameworks" "base"
-#adpatch "81/3081" "3" "packages" "apps" "OmniGears"
 
 exit 0

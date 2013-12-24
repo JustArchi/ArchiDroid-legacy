@@ -4,12 +4,12 @@
 ro.build.id=KOT49H
 ro.build.display.id=ArchiDroid 2.3.3 EXPERIMENTAL
 ro.archidroid.version=2.3.3 EXPERIMENTAL
-ro.build.version.incremental=eng.root.20131223.202109
+ro.build.version.incremental=eng.root.20131224.031809
 ro.build.version.sdk=19
 ro.build.version.codename=REL
 ro.build.version.release=4.4.2
-ro.build.date=pon, 23 gru 2013, 20:24:48 CET
-ro.build.date.utc=1387826688
+ro.build.date=wto, 24 gru 2013, 03:21:45 CET
+ro.build.date.utc=1387851705
 ro.build.type=userdebug
 ro.build.user=root
 ro.build.host=ArchiDroid
@@ -29,8 +29,8 @@ ro.board.platform=exynos4
 # ro.build.product is obsolete; use ro.product.device
 ro.build.product=i9300
 # Do not try to parse ro.build.description or .fingerprint
-ro.build.description=omni_i9300-userdebug 4.4.2 KOT49H eng.root.20131223.202109 test-keys
-ro.build.fingerprint=samsung/omni_i9300/i9300:4.4.2/KOT49H/eng.root.20131223.202109:userdebug/test-keys
+ro.build.description=omni_i9300-userdebug 4.4.2 KOT49H eng.root.20131224.031809 test-keys
+ro.build.fingerprint=samsung/omni_i9300/i9300:4.4.2/KOT49H/eng.root.20131224.031809:userdebug/test-keys
 ro.build.characteristics=default
 ro.omni.device=i9300
 # end build properties
@@ -62,8 +62,8 @@ ro.com.google.clientidbase=android-google
 ro.com.android.wifi-watchlist=GoogleGuest
 ro.setupwizard.enterprise_mode=1
 persist.sys.root_access=1
-ro.modversion=OmniROM-4.4.2-20131223-i9300-HOMEMADE
-ro.omni.version=4.4.2-20131223-i9300-HOMEMADE
+ro.modversion=OmniROM-4.4.2-20131224-i9300-HOMEMADE
+ro.omni.version=4.4.2-20131224-i9300-HOMEMADE
 wifi.interface=wlan0
 wifi.supplicant_scan_interval=15
 ro.opengles.version=131072

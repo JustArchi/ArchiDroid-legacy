@@ -1,0 +1,24 @@
+#!/system/bin/sh
+
+L="log -p i -t SELinuxLabel_SMDK"
+
+# Bail out early if not on a SELinux build
+getprop ro.build.selinux | grep -q 1 || exit
+if [ ! -f /file_contexts ]; then
+  exit
+fi
+
+LABELDATA=0
+
+# Test /data
+ls -Z /data/misc/wifi/wpa_supplicant.conf | grep -q "wifi_"
+if [ $? -eq 1 ]; then
+  $L "data is unlabled, fixing..."
+  LABELDATA=1
+fi
+
+if [ $LABELDATA = "1" ]; then
+  $L "/data relabel starting..."
+  restorecon -R /data
+  $L "/data relabel complete"
+fi

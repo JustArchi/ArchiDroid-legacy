@@ -27,8 +27,9 @@
 
 ##
 # Initializing Rom Information
-#
-setvar("preset_version","6");
+##
+
+setvar("preset_version","7");
 
 ini_set("dp","3");
 ini_set("rom_name",             "ArchiDroid");
@@ -184,54 +185,12 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "previ
     writetmpfile("archidroidinstallmode.prop","preset=custom\n");
   else
     writetmpfile("archidroid.prop",read("/data/media/0/ArchiDroid/AromaPreset/1.X/archidroid.prop"));
+    writetmpfile("archidroidbloatware.prop",read("/data/media/0/ArchiDroid/AromaPreset/1.X/archidroidbloatware.prop"));
     writetmpfile("archidroidboeffla.prop",read("/data/media/0/ArchiDroid/AromaPreset/1.X/archidroidboeffla.prop"));
     writetmpfile("archidroidboefflasound.prop",read("/data/media/0/ArchiDroid/AromaPreset/1.X/archidroidboefflasound.prop"));
     writetmpfile("archidroidxposed.prop",read("/data/media/0/ArchiDroid/AromaPreset/1.X/archidroidxposed.prop"));
     writetmpfile("archidroidbuild.prop",read("/data/media/0/ArchiDroid/AromaPreset/1.X/archidroidbuild.prop"));
   endif;
-endif;
-
-##################
-### BARE BONES ###
-##################
-
-if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "barebones" then
-  writetmpfile(
-    "archidroid.prop",
-
-    "kernel=stock\n"+
-    "theme=stock\n"+
-    "dpi=320\n"+
-    "launcher=stock\n"+
-    "keyboard=stock\n"+
-    "bootanimation=stock\n"+
-    "archidroidota=0\n"+
-    "xposed=0\n"+
-    "crossbreeder=0\n"+
-    "updatemodem=0\n"+
-    "updaterecovery=0\n"+
-    "gcalendar=0\n"+
-    "gchrome=0\n"+
-    "gkeep=0\n"+
-    "gmail=0\n"+
-    "gmaps=0\n"+
-    "gvoice=0\n"+
-    "ghangouts=0\n"+
-    "gplus=0\n"+
-    "gtranslate=0\n"+
-    "titaniumbackup=0\n"+
-    "greenify=0\n"+
-    "lmt=0\n"+
-    "mxplayer=0\n"+
-    "bbs=0\n"+
-    "cooltool=0\n"+
-    "rootbrowser=0\n"+
-    "adobeflash=0\n"+
-    "youtube=0\n"+
-    "facebook=0\n"+
-    "hdvoice=0\n"+
-    "buildtweaks=0\n"
-  );
 endif;
 
 ###############################
@@ -286,17 +245,6 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
     "updatemodem","<~archidroid.updatemodem> [XXUGMK6]","<~archidroid.updatemodem.desc>","check",
     "updaterecovery","<~archidroid.updaterecovery> [PhilZ Touch Recovery]","<~archidroid.updaterecovery.desc>","check",
 
-    "googleapps","<#selectbg_g>Google Apps</#>","","group",
-    "gcalendar","Google Calendar [<~common.inverted>]","<~common.replaces> Samsung Calendar","check",
-    "gchrome","Google Chrome [<~common.inverted>]","","check",
-    "gkeep","Google Keep [<~common.inverted>]","","check",
-    "gmail","Google Mail (Gmail) [<~common.inverted>]","","check",
-    "gmaps","Google Maps [<~common.inverted>]","","check",
-    "gvoice","Google Voice","","check.checked",
-    "ghangouts","Google Hangouts [<~common.inverted>]","","check",
-    "gplus","Google Plus [<~common.inverted>]","","check",
-    "gtranslate","Google Translate [<~common.inverted>]","","check",
-
     "archiapps","<#selectbg_g>ArchiDroid Apps</#>","","group",
     "titaniumbackup","Titanium Backup","<~archidroid.apps.titaniumbackup.desc>","check.checked",
     "greenify","Greenify","<~archidroid.apps.greenify.desc>","check.checked",
@@ -306,8 +254,6 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
     "cooltool","CoolTool","<~archidroid.apps.cooltool.desc>","check.checked",
     "rootbrowser","Root Browser","<~archidroid.apps.rootbrowser.desc>","check.checked",
     "adobeflash","Adobe Flash Player","<~archidroid.apps.adobeflash.desc>","check.checked",
-    "youtube","YouTube [<~common.inverted>]","<~archidroid.apps.youtube.desc>","check",
-    "facebook","Facebook + Messenger [<~common.inverted>]","<~archidroid.apps.facebook.desc>","check",
 
     "architweaks","<#selectbg_g>ArchiDroid Tweaks</#>","","group",
     "hdvoice","HD Voice","<~archidroid.tweaks.hdvoice.desc>","check.checked",

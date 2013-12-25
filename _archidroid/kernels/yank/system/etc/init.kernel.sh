@@ -24,7 +24,7 @@ sleep 10
 
 echo `date +"%F %R:%S : Starting kernel configuration..."` >>$log_file
 
-# Script generated on 07/11/2013 at 16:53
+# Script generated on 25/12/2013 at 16:38
 #----------------------------------------------------
 
 # - init.d support by kernel/ramdisk not installed
@@ -38,6 +38,14 @@ echo `date +"%F %R:%S : CPU governor set to zzmoove."` >>$log_file
 echo "1" > /sys/devices/virtual/misc/touchboost_switch/touchboost_switch
 echo "600000" > /sys/devices/virtual/misc/touchboost_switch/touchboost_freq
 echo `date +"%F %R:%S : Touchboost enabled at 600MHz."` >>$log_file
+
+# - CPU Idle Mode
+echo "2" > /sys/module/cpuidle_exynos4/parameters/enable_mask
+echo `date +"%F %R:%S : CPU Idle mode set to Idle + LPA."` >>$log_file
+
+# - Multicore Powersave Mode
+echo "1" > /sys/devices/system/cpu/sched_mc_power_savings
+echo `date +"%F %R:%S : CPU Multicore Powersave mode set to On."` >>$log_file
 
 # - Set CPU max frequencies for all 4 cores
 echo 1600000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
@@ -134,14 +142,34 @@ echo `date +"%F %R:%S : zzmoove - early demand threshold set to 50%."` >>$log_fi
 
 # - zRam activation - 200Mb
 if [ -e /sys/block/zram0/disksize ] ; then
+
   swapoff /dev/block/zram0
+  swapoff /dev/block/zram1
+  swapoff /dev/block/zram2
+  swapoff /dev/block/zram3
+
   echo 1 > /sys/block/zram0/reset
-  echo 209715200 > /sys/block/zram0/disksize
-  echo 1 > /sys/block/zram0/initstate
+  echo 1 > /sys/block/zram1/reset
+  echo 1 > /sys/block/zram2/reset
+  echo 1 > /sys/block/zram3/reset
+
+  echo 52428800 > /sys/block/zram0/disksize
+  echo 52428800 > /sys/block/zram1/disksize
+  echo 52428800 > /sys/block/zram2/disksize
+  echo 52428800 > /sys/block/zram3/disksize
+
   mkswap /dev/block/zram0
-  swapon /dev/block/zram0
+  mkswap /dev/block/zram1
+  mkswap /dev/block/zram2
+  mkswap /dev/block/zram3
+
+  swapon -p 2 /dev/block/zram0
+  swapon -p 2 /dev/block/zram1
+  swapon -p 2 /dev/block/zram2
+  swapon -p 2 /dev/block/zram3
+  
 fi
-echo `date +"%F %R:%S : 200Mb Zram Support enabled."` >>$log_file
+echo `date +"%F %R:%S : 200Mb (4x50Mb) Zram Support enabled."` >>$log_file
 
 # - Hardswap by Yank555.lu not installed
 echo `date +"%F %R:%S : Hardswap Support disabled."` >>$log_file
@@ -150,11 +178,11 @@ echo `date +"%F %R:%S : Hardswap Support disabled."` >>$log_file
 echo 80 > /proc/sys/vm/swappiness;
 echo `date +"%F %R:%S : Swappiness set to 80."` >>$log_file
 
-# - Enable custom current forced fast charge
-echo 2 > /sys/kernel/fast_charge/force_fast_charge
-echo `date +"%F %R:%S : Fast Charge - Custom Current Mode enabled."` >>$log_file
-echo 1000 > /sys/kernel/fast_charge/usb_charge_level
-echo `date +"%F %R:%S : Fast Charge - USB charge level set to 1000mA/h."` >>$log_file
+# - Disable USB forced fast charge
+echo 0 > /sys/kernel/fast_charge/force_fast_charge
+echo `date +"%F %R:%S : Fast Charge - disabled."` >>$log_file
+echo 475 > /sys/kernel/fast_charge/usb_charge_level
+echo `date +"%F %R:%S : Fast Charge - USB charge level set to 475mA/h."` >>$log_file
 echo 1000 > /sys/kernel/fast_charge/ac_charge_level
 echo `date +"%F %R:%S : Fast Charge - AC charge level set to 1000mA/h."` >>$log_file
 
@@ -174,6 +202,10 @@ echo `date +"%F %R:%S : Dynamic Deferred File Sync enabled."` >>$log_file
 # - Disable touch wake
 echo 0 > /sys/class/misc/touchwake/disabled
 echo `date +"%F %R:%S : Touch Wake disabled."` >>$log_file
+
+# - Enable Sharpness fix
+echo 1 > /sys/class/misc/mdnie_preset/mdnie_preset
+echo `date +"%F %R:%S : Sharpness fix enabled (blurrier)."` >>$log_file
 
 # - Enable fading notification LED
 echo 1 > /sys/class/sec/led/led_fade
@@ -208,6 +240,10 @@ echo `date +"%F %R:%S : UDF kernel module not loaded."` >>$log_file
 
 # - Do not load XBOX 360 gamepad kernel module on boot
 echo `date +"%F %R:%S : XBOX 360 gamepad support kernel module not loaded."` >>$log_file
+
+# - Load frandom kernel module on boot
+insmod /system/lib/modules/frandom.ko
+echo `date +"%F %R:%S : frandom kernel module loaded."` >>$log_file
 
 # Wait for everything to become ready
 echo `date +"%F %R:%S : Waiting 60 seconds..."` >>$log_file

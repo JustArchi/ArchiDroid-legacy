@@ -317,30 +317,31 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
     readtmpfile("archidroid.prop");
   );
 
-  form(
-    "<~archidroid.custom.extra>",
-    "<~archidroid.custom.desc>. Checked apps will be excluded (removed) from ROM",
-    "@apps",
-    "archidroidbloatware.prop",
+	form(
+		"<~archidroid.custom.extra>",
+		"<~archidroid.custom.desc>. Checked apps will be REMOVED from ROM",
+		"@apps",
+		"archidroidbloatware.prop",
 
-      "bloatware","<#selectbg_g>Samsung Bloatware TO REMOVE</#>","","group",
-	  "accuweather","Samsung Accuweather","Should be safe to remove","check.checked",
-	  "exchange","Samsung Exchange","Should be safe to remove","check.checked",
-      "videoplayer","Samsung Video Player","Should be safe to remove","check.checked",
-	  "calendar","Samsung Calendar","Should be safe to remove","check.checked",
-	  "voicerecorder","Samsung Voice Recorder","Should be safe to remove","check.checked",
-	  "myfiles","Samsung My Files","Should be safe to remove","check.checked",
-	  "music","Samsung Music","Should be safe to remove","check.checked",
-	  "allshare","Samsung Allshare","Breaks screen mirroring","check.checked",
-      "gallery","Samsung Gallery","Breaks camera's gallery functionality","check",
-      "kies","Samsung Kies","Breaks kies over wifi and all kies-related functions","check",
-	  "browser","Samsung Browser","Unknown side effects. Safe?","check.checked",
-	  "remotecontrol","Samsung Remote Control [<~common.experimental>]","Unknown functionality and side effects. Safe?","check.checked",
-	  "shareshotservice","Samsung ShareShotService [<~common.experimental>]","Unknown functionality and side effects. Safe?","check.checked",
-	  "keystring","Samsung Keystring [<~common.experimental>]","Unknown functionality and side effects. Safe?","check.checked",
-	  "secimsfw","secimsfw [<~common.experimental>]","Unknown functionality and side effects. Safe?","check.checked"
-    );
-    write("/data/media/0/ArchiDroid/AromaPreset/1.X/archidroidbloatware.prop",
+		"bloatware","<#selectbg_g>Samsung Bloatware [TO REMOVE]</#>","","group",
+		"accuweather","Samsung Accuweather","Should be safe to remove","check.checked",
+		"exchange","Samsung Exchange","Should be safe to remove","check.checked",
+		"videoplayer","Samsung Video Player","Should be safe to remove","check.checked",
+		"calendar","Samsung Calendar","Should be safe to remove","check.checked",
+		"voicerecorder","Samsung Voice Recorder","Should be safe to remove","check.checked",
+		"myfiles","Samsung My Files","Should be safe to remove","check.checked",
+		"music","Samsung Music","Should be safe to remove","check.checked",
+		"calculator","Samsung Calculator","Should be safe to remove","check.checked",
+		"allshare","Samsung Allshare","Breaks screen mirroring","check.checked",
+		"gallery","Samsung Gallery","Breaks camera's gallery functionality","check.checked",
+		"kies","Samsung Kies","Breaks kies over wifi and all kies-related functions","check.checked",
+		"browser","Samsung Browser","Unknown side effects. Safe?","check.checked",
+		"remotecontrol","Samsung Remote Control [<~common.experimental>]","Unknown functionality and side effects. Safe?","check.checked",
+		"shareshotservice","Samsung ShareShotService [<~common.experimental>]","Unknown functionality and side effects. Safe?","check.checked",
+		"keystring","Samsung Keystring [<~common.experimental>]","Unknown functionality and side effects. Safe?","check.checked",
+		"other","Other [<~common.experimental>]","Various other unknown apps with unknown functionality and side effects. Take care with this option!","check.checked"
+	);
+	write("/data/media/0/ArchiDroid/AromaPreset/1.X/archidroidbloatware.prop",
       readtmpfile("archidroidbloatware.prop");
     );
 

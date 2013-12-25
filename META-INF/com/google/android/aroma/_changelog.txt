@@ -1,6 +1,7 @@
 ArchiDroid 1.7.4
 
 - Fixed problem with some apps disappearing after reboot, thanks to @puhu
+- Updated Boeffla Kernel to 5.1-beta7
 
 * ArchiDroid Commons
 - Added mount points to debian. It's required for some programs which rely on /etc/mtab

@@ -165,6 +165,72 @@ package_extract_dir("_archidroid/auto", "/");
 
 set_progress(0.53);
 
+#################
+### BLOATWARE ###
+#################
+ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Removing Bloatware");
+if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","accuweather") == "1" then
+	delete("/system/app/AccuweatherDaemon.apk");
+	delete("/system/app/AccuweatherWidget.apk");
+	delete("/system/app/AccuweatherWidget_Main.apk");
+endif;
+if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","exchange") == "1" then
+	delete("/system/app/SecExchange.apk");
+	delete("/system/app/SecEmail_J.apk");
+endif;
+if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","videoplayer") == "1" then
+	delete("/system/app/SecVideoList.apk");
+	delete("/system/app/SecVideoPlayer.apk");
+endif;
+if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","calendar") == "1" then
+	delete("/system/app/SecCalendar.apk");
+	delete("/system/app/SecCalendarProviderM0.apk");
+endif;
+if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","voicerecorder") == "1" then
+	delete("/system/app/VoiceRecorder.apk");
+endif;
+if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","myfiles") == "1" then
+	delete("/system/app/SecNoteMyFiles.apk");
+endif;
+if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","music") == "1" then
+	delete("/system/app/MusicPlayerWT.apk");
+	delete("/system/app/MMAppFramework.apk");
+endif;
+if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","allshare") == "1" then
+	delete("/system/app/AllShareCastPlayer.apk");
+	delete("/system/app/AllshareControlShare.apk");
+	delete("/system/app/AllshareFileShare.apk");
+	delete("/system/app/AllshareFileShareClient.apk");
+	delete("/system/app/AllshareFileShareServer.apk");
+	delete("/system/app/AllshareMediaServer.apk");
+	delete("/system/app/AllshareMediaShare.apk");
+endif;
+if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","gallery") == "1" then
+	delete("/system/app/SecGallery2013.apk");
+endif;
+if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","kies") == "1" then
+	delete("/system/app/Kies.apk");
+endif;
+if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","browser") == "1" then
+	delete("/system/app/SecBrowser.apk");
+endif;
+if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","remotecontrol") == "1" then
+	delete("/system/app/FmmDM.apk");
+	delete("/system/app/FmmDS.apk");
+endif;
+if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","shareshotservice") == "1" then
+	delete("/system/app/ShareShotService.apk");
+endif;
+if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","keystring") == "1" then
+	delete("/system/app/Keystring_DFT.apk");
+	delete("/system/app/Keystring_factory.apk");
+	delete("/system/app/Keystring_misc.apk");
+endif;
+if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","secimsfw") == "1" then
+	delete("/system/app/secimsfw.apk");
+endif;
+
+
 ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Setting Permissions");
 set_perm_recursive(0, 0, 0755, 0644, "/system");
 set_perm_recursive(0, 0, 0777, 0777, "/system/etc/init.d");

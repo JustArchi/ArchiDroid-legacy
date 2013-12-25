@@ -217,9 +217,7 @@ if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","kies") == "1" then
 endif;
 if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","browser") == "1" then
 	delete("/system/app/SecBrowser.apk");
-	delete("/system/app/SecDownloadProvider.apk");
 	delete("/system/app/SecDownloadProviderUi.apk");
-	delete("/system/app/SecOmaDownloadProvider.apk");
 endif;
 if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","remotecontrol") == "1" then
 	delete("/system/app/FmmDM.apk");

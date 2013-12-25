@@ -278,6 +278,8 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 		"myfiles","Samsung My Files","Should be safe to remove","check.checked",
 		"music","Samsung Music","Should be safe to remove","check.checked",
 		"calculator","Samsung Calculator","Should be safe to remove","check.checked",
+		"radio","Samsung FM Radio","Should be safe to remove","check",
+		"cloud","Samsung Cloud","Should be safe to remove","check.checked",
 		"allshare","Samsung Allshare","Breaks screen mirroring","check.checked",
 		"gallery","Samsung Gallery","Breaks camera's gallery functionality","check.checked",
 		"kies","Samsung Kies","Breaks kies over wifi and all kies-related functions","check.checked",
@@ -285,7 +287,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 		"remotecontrol","Samsung Remote Control [<~common.experimental>]","Unknown functionality and side effects. Safe?","check.checked",
 		"shareshotservice","Samsung ShareShotService [<~common.experimental>]","Unknown functionality and side effects. Safe?","check.checked",
 		"keystring","Samsung Keystring [<~common.experimental>]","Unknown functionality and side effects. Safe?","check.checked",
-		"other","Other [<~common.experimental>]","Various other unknown apps with unknown functionality and side effects. Take care with this option!","check.checked"
+		"other","Other [<~common.experimental>]","Various other unknown apps with unknown functionality and side effects. May not be safe!","check.checked"
 	);
 	write("/data/media/0/ArchiDroid/AromaPreset/1.X/archidroidbloatware.prop",
       readtmpfile("archidroidbloatware.prop");

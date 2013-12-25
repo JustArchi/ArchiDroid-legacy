@@ -167,6 +167,9 @@ cp $FILEO $FILE
 rm $FILEO
 
 sed -i 's/ro.sf.lcd_density=320/#ro.sf.lcd_density=320/g' ../system/build.prop
+sed -i 's/S_Over_the_horizon.ogg/09_Underwater_world.ogg/g' ../system/build.prop
+sed -i 's/S_Whistle.ogg/S_Good_News.ogg/g' ../system/build.prop
+sed -i 's/Walk_in_the_forest.ogg/Dawn_chorus.ogg/g' ../system/build.prop
 
 GDZIE=`grep -n "ro.build.display.id=" $FILE | cut -f1 -d:`
 ILE=`cat $FILE | wc -l`

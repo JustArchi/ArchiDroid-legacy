@@ -1,6 +1,7 @@
 #!/bin/bash
 # Archi's cleaning script
 
+rm -rf bloatware
 mkdir -p bloatware/system/app > /dev/null 2>&1
 cat clean.txt | while read line; do
 	if [ -z $line ]; then
@@ -28,8 +29,10 @@ cat clean.txt | while read line; do
 				# Assume apk
 				dir="/system/app"
 		esac
-		if [ ! -e ../..$dir/$line ]; then
-			continue
+		if [ `echo $line | grep '*' | wc -l` -eq 0 ]; then
+			if [ ! -e ../..$dir/$line ]; then
+				continue
+			fi
 		fi
 		mkdir -p bloatware$dir
 		mv ../..$dir/$line bloatware$dir/ > /dev/null 2>&1

@@ -113,13 +113,17 @@ fi
 
 unzip *.zip -d __adtemp
 rm -Rf system/
-mv META-INF/com/google/android/updater-script META-INF/com/google/android/updater-script2
-mv META-INF/com/google/android/update-binary META-INF/com/google/android/update-binary2
+if [ $SAMMY -eq 0 ]; then
+	mv META-INF/com/google/android/updater-script META-INF/com/google/android/updater-script2
+	mv META-INF/com/google/android/update-binary META-INF/com/google/android/update-binary2
+fi
 cd __adtemp
 cp -R * ..
 cd ..
-rm -f META-INF/com/google/android/updater-script && mv META-INF/com/google/android/updater-script2 META-INF/com/google/android/updater-script
-rm -f META-INF/com/google/android/update-binary-installer && mv META-INF/com/google/android/update-binary META-INF/com/google/android/update-binary-installer && mv META-INF/com/google/android/update-binary2 META-INF/com/google/android/update-binary
+if [ $SAMMY -eq 0 ]; then
+	rm -f META-INF/com/google/android/updater-script && mv META-INF/com/google/android/updater-script2 META-INF/com/google/android/updater-script
+	rm -f META-INF/com/google/android/update-binary-installer && mv META-INF/com/google/android/update-binary META-INF/com/google/android/update-binary-installer && mv META-INF/com/google/android/update-binary2 META-INF/com/google/android/update-binary
+fi
 OLD=`md5sum __dont_include/_updater-scripts/archidroid/updater-script | awk '{print $1}'`
 NEW=`md5sum __adtemp/META-INF/com/google/android/updater-script | awk '{print $1}'`
 

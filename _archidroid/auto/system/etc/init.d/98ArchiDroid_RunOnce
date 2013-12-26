@@ -181,11 +181,11 @@ fi
 # 0 - CyanogenMod
 # 1 - Sammy
 # 2 - Omni
-ROM=0
+ROM=1 # Default to sammy
 if [ `cat /system/build.prop | grep "ro.omni.version" | wc -l` -gt 0 ]; then
-	ROM=2
-elif [ `cat /system/build.prop | grep "ro.build.user=se.infra" | wc -l` -gt 0 ]; then
-	ROM=1
+	ROM=2 # OK, definitely Omni
+elif [ `cat /system/build.prop | grep "ro.cm.version" | wc -l` -gt 0 ]; then
+	ROM=0 # OK, definitely CM
 fi
 
 # We don't need to reload anything for now
@@ -385,7 +385,6 @@ while (! pgrep com.android && [ $LOOP -lt 150 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 							busybox chmod 660 $FILE
 					esac
 				done
-				echo "INFO: Done!" >> $LOG
 
 				cd $AD/FIRSTBOOT/DATA
 				# And we're done!
@@ -393,7 +392,7 @@ while (! pgrep com.android && [ $LOOP -lt 150 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 				rm -Rf /data/data/$FOLDER/_ADTEMP
 				ADOWNER=""
 				ADMANY=`expr $ADMANY - 1`
-				echo "INFO: $ADMANY to go" >> $LOG
+				echo "INFO: Done! $ADMANY to go" >> $LOG
 			fi
 		done
 	fi

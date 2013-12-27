@@ -111,7 +111,7 @@ if [ ! -e *.zip ]; then
 	exit 1
 fi
 
-unzip omni-*.zip -d __adtemp
+unzip *.zip -d __adtemp
 rm -Rf system/
 mv META-INF/com/google/android/updater-script META-INF/com/google/android/updater-script2
 mv META-INF/com/google/android/update-binary META-INF/com/google/android/update-binary2
@@ -119,7 +119,11 @@ cd __adtemp
 cp -R * ..
 cd ..
 rm -f META-INF/com/google/android/updater-script && mv META-INF/com/google/android/updater-script2 META-INF/com/google/android/updater-script
-rm -f META-INF/com/google/android/update-binary-installer && mv META-INF/com/google/android/update-binary META-INF/com/google/android/update-binary-installer && mv META-INF/com/google/android/update-binary2 META-INF/com/google/android/update-binary
+if [ $SAMMY -eq 0 ]; then
+	rm -f META-INF/com/google/android/update-binary-installer && mv META-INF/com/google/android/update-binary META-INF/com/google/android/update-binary-installer && mv META-INF/com/google/android/update-binary2 META-INF/com/google/android/update-binary
+else
+	rm -f META-INF/com/google/android/update-binary && mv META-INF/com/google/android/update-binary2 META-INF/com/google/android/update-binary
+fi
 OLD=`md5sum __dont_include/_updater-scripts/archidroid/updater-script | awk '{print $1}'`
 NEW=`md5sum __adtemp/META-INF/com/google/android/updater-script | awk '{print $1}'`
 
@@ -133,7 +137,7 @@ else
 	echo "MD5 Sums matches, no further action required, automatic mode goes on..."
 fi
 rm -Rf __adtemp
-#rm -f cm-*.zip
+rm -f *.zip
 
 cd __dont_include/
 # Bo CM tez ma syf...
@@ -173,15 +177,13 @@ cat $FILE >> $FILEO
 cp $FILEO $FILE
 rm $FILEO
 
-GDZIE=`grep -n "ro.sf.lcd_density=320" $FILE | cut -f1 -d:`
-ILE=`cat $FILE | wc -l`
-ILE=`expr $ILE - $GDZIE`
-GDZIE=`expr $GDZIE - 1`
-cat $FILE | head -${GDZIE} > $FILEO
-echo $DENSITY >> $FILEO
-cat $FILE | tail -${ILE} >> $FILEO
-cp $FILEO $FILE
-rm $FILEO
+sed -i 's/ro.sf.lcd_density=320/#ro.sf.lcd_density=320/g' $FILE
+
+if [ $SAMMY -eq 1 ]; then
+	sed -i 's/S_Over_the_horizon.ogg/09_Underwater_world.ogg/g' $FILE
+	sed -i 's/S_Whistle.ogg/S_Good_News.ogg/g' $FILE
+	sed -i 's/Walk_in_the_forest.ogg/Dawn_chorus.ogg/g' $FILE
+fi
 
 GDZIE=`grep -n "ro.build.display.id=" $FILE | cut -f1 -d:`
 ILE=`cat $FILE | wc -l`
@@ -210,6 +212,11 @@ if [ $SAMMY -eq 1 ]; then
 	cd framework-res
 	zip -0 -r ../../system/framework/framework-res.apk *
 	cd ..
+	rm -f ../system/app/Superuser.apk
+	rm -f ../system/xbin/su
+	rm -f ../system/xbin/daemonsu
+	rm -f ../system/etc/init.d/99SuperSUDaemon
+	rm -f ../system/etc/install-recovery.sh
 fi
 
 if [ $STABLE -eq 1 ]; then

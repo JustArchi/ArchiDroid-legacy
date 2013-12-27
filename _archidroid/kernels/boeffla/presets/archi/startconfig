@@ -14,9 +14,9 @@ echo '1400 1363 1300 1238 1200 1150 1075 1025 975 950 938 900 900 875 850' > /sy
 echo '2' > /sys/module/cpuidle_exynos4/parameters/enable_mask
 echo '1' > /sys/devices/system/cpu/sched_mc_power_savings
 echo 'None' > /dev/bk_gpu_frequencies_profile
-echo '' > /sys/class/misc/gpu_clock_control/gpu_control
+echo '108 266 400 500 600' > /sys/class/misc/gpu_clock_control/gpu_control
 echo 'None' > /dev/bk_gpu_voltages_profile
-echo '' > /sys/class/misc/gpu_voltage_control/gpu_control
+echo '850000 900000 1000000 1050000 1100000' > /sys/class/misc/gpu_voltage_control/gpu_control
 echo '1' > /sys/class/misc/boeffla_sound/boeffla_sound
 echo '55 55' > /sys/class/misc/boeffla_sound/headphone_volume
 echo '57 57' > /sys/class/misc/boeffla_sound/speaker_volume
@@ -41,12 +41,11 @@ echo '600000' > /sys/class/misc/touchboost_switch/touchboost_freq
 echo '0' > /sys/class/misc/touchwake/enabled
 echo '45' > /sys/class/misc/touchwake/delay
 echo '0' > /sys/kernel/early_suspend/early_suspend_delay
-echo '' > /sys/class/misc/mdnie_preset/mdnie_preset
+echo '1' > /sys/class/misc/mdnie_preset/mdnie_preset
 echo '0' > /dev/bk_mdnie_overwrite
 echo '' > /sys/class/sec/sec_touchkey/touch_led_handling
 echo '' > /sys/class/sec/sec_touchkey/touch_led_on_screen_touch
 echo 'Off' > /dev/bk_system_tweaks
-echo '4' > cat /proc/swaps
 echo '52428800' > /sys/block/zram0/disksize
 echo '52428800' > /sys/block/zram1/disksize
 echo '52428800' > /sys/block/zram2/disksize
@@ -69,3 +68,4 @@ echo '0' > /sys/kernel/printk_mode/printk_mode
 echo '6144,7987,9830,12288,14131,17203,' > /sys/module/lowmemorykiller/parameters/minfree
 echo 'Archi' >/data/.boeffla/startconfig_done
 busybox chmod 666 /data/.boeffla/startconfig_done
+

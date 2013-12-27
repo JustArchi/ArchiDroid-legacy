@@ -1,15 +1,17 @@
 <?xml version='1.0' encoding='utf-8' standalone='yes' ?>
 <map>
     <boolean name="com.sec.android.app.camera/active" value="true" />
-    <int name="com.sec.android.app.popupcalculator/dpi" value="320" />
+    <int name="com.sec.android.app.camera/dpi" value="320" />
+    <boolean name="com.sec.android.app.launcher/active" value="true" />
+    <int name="com.sec.android.app.launcher/dpi" value="320" />
+    <boolean name="com.android.contacts/active" value="true" />
+    <int name="com.android.contacts/dpi" value="320" />
     <boolean name="com.sec.android.app.popupcalculator/active" value="true" />
+    <int name="com.sec.android.app.popupcalculator/dpi" value="320" />
+    <boolean name="com.android.phone/active" value="true" />
     <int name="com.android.phone/dpi" value="320" />
+    <boolean name="com.sec.android.gallery3d/active" value="true" />
     <int name="com.sec.android.gallery3d/dpi" value="320" />
     <boolean name="com.sec.android.app.voicerecorder/active" value="true" />
-    <boolean name="com.sec.android.gallery3d/active" value="true" />
-    <int name="com.android.contacts/dpi" value="320" />
-    <boolean name="com.android.phone/active" value="true" />
     <int name="com.sec.android.app.voicerecorder/dpi" value="320" />
-    <int name="com.sec.android.app.camera/dpi" value="320" />
-    <boolean name="com.android.contacts/active" value="true" />
 </map>

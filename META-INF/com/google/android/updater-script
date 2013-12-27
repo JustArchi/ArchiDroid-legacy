@@ -229,7 +229,6 @@ else
 	endif;
 	if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","calendar") == "1" then
 		delete("/system/app/SecCalendar.apk");
-		delete("/system/app/SecCalendarProviderM0.apk");
 		delete("/system/app/sCloudSyncCalendar.apk");
 	endif;
 	if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","voicerecorder") == "1" then
@@ -255,6 +254,8 @@ else
 		delete("/system/app/sCloudDataSync.apk");
 		delete("/system/app/sCloudQuotaApp.apk");
 		delete("/system/app/sCloudSyncContacts.apk");
+		delete("/system/app/sCloudSyncCalendar.apk");
+		delete("/system/app/sCloudSyncBrowser.apk");
 	endif;
 	if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","allshare") == "1" then
 		delete("/system/app/AllShareCastPlayer.apk");

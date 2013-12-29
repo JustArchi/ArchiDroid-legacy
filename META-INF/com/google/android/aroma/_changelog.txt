@@ -1,9 +1,24 @@
 ArchiDroid 2.3.3
 
-- Included fixed camera libs as a temporary workaround for camera's FCs, thanks to @RohanAJoshi
 - Updated Temasek Kernel to 231213
 - Updated Devil Kernel to 2.2.5b
 - Updated XPrivacy to 1.11
 - Updated Hacker's Keyboard to 1.37
 - Updated App Settings to 1.7.1
+
 - Updated sources
+* Added QuickSettings toggles (AOSPA)
+
+# ArchiDroid Boom-Boom release
+# Status: Boots!
+
+# Stage 1 [LIVE]
+* Updated/Changed ROM toolchain from GCC 4.7 to Linaro 4.8
+* Kernel remains GCC 4.7 #Note: Breaks with GCC 4.8
+* Updated/Changed Java 1.6 to Java 1.7 #Note: Breaks with Java 1.8-dev
+# Stage 2 [TODO]
++ Find best generic optimization flags, which won't break the build
++ Add SGS3-specific optimization flags, which won't break the build
+# Stage 3 [TODO]
++ Make dozen of stability and performance tests to prove that I wasted whole christmas on nothing
++ ??? PROFIT!

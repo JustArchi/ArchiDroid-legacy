@@ -47,22 +47,18 @@ adpatch() {
 
 # Multi-Window
 # https://gerrit.omnirom.org/#/c/1510/
-adpatch "10/1510" "14" "frameworks" "base"
+#adpatch "10/1510" "14" "frameworks" "base"
 
 # Exfat-fix
 # https://gerrit.omnirom.org/#/c/3856/
 # https://gerrit.omnirom.org/#/c/3857/
-adpatch "56/3856" "1" "system" "vold"
-adpatch "57/3857" "1" "device" "samsung" "smdk4412-common"
+#adpatch "56/3856" "1" "system" "vold"
+#adpatch "57/3857" "1" "device" "samsung" "smdk4412-common"
 
-# Quick Settings (SlimBean)
-# https://gerrit.omnirom.org/#/c/3918/
-# https://gerrit.omnirom.org/#/c/3932/
+# Quick Toggles (AOSPA)
 # CHERRY-PICKED
-# https://gerrit.omnirom.org/#/c/3941/ | Patch Set 6 | https://github.com/JustArchi/android_packages_apps_Settings/commit/c0e1f983fcb1464b52ea1a526ae1ba7595bda91a
-adpatch "18/3918" "8" "frameworks" "base"
-adpatch "32/3932" "3" "packages" "services" "Telephony"
-#adpatch "41/3941" "6" "packages" "apps" "Settings"
+# https://gerrit.omnirom.org/#/c/4211/
+#adpatch "11/4211" "24" "frameworks" "base"
 
 # ListView Animations
 # CHERRY-PICKED

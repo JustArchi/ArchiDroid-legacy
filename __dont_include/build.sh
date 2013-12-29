@@ -89,15 +89,15 @@ if [ $SAMMY -eq 0 ] && [ $NOBUILD -eq 0 ]; then
 		cd /root/android/omni
 		repo selfupdate
 		repo sync -c -j8
+
+		# Apply all temporary patches
+		bash ../../shared/git/ArchiDroid/__dont_include/patches.sh
 	else
 		cd /root/android/omni
 	fi
 	if [ $? -ne 0 ]; then
 		read -p "Something went wrong, please check and tell me when you're done, master!" -n1 -s
 	fi
-	
-	# Apply all temporary patches
-	bash ../../shared/git/ArchiDroid/__dont_include/patches.sh
 	
 	source build/envsetup.sh
 	brunch i9300

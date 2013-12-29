@@ -34,6 +34,14 @@
   <apn carrier="WIND GR MMS" mcc="202" mnc="10" apn="mnet.b-online.gr" user="mms" password="mms" mmsc="http://192.168.200.95/servlets/mms" mmsproxy="192.168.200.11" mmsport="9401" type="mms" />
   <apn carrier="Tele2 NL" mcc="204" mnc="02" apn="internet.tele2.nl" type="default,supl" />
   <apn carrier="Tele2 MMS NL" mcc="204" mnc="02" apn="internet.tele2.nl" mmsc="http://mmsc.tele2.nl" mmsproxy="193.12.40.64" mmsport="8080" type="mms" />
+  <apn carrier="LTE - VZW Roaming Internet" mcc="204" mnc="04" apn="VZWINTERNET" type="default,dun" protocol="IPV4V6" roaming_protocol="IPV4V6" bearer="14" />
+  <apn carrier="LTE - VZW Roaming FOTA" mcc="204" mnc="04" apn="VZWADMIN" type="fota" protocol="IPV4V6" roaming_protocol="IPV4V6" bearer="14" />
+  <apn carrier="LTE - VZW Roaming IMS" mcc="204" mnc="04" apn="VZWIMS" type="ims" protocol="IPV4V6" roaming_protocol="IPV4V6" bearer="14" />
+  <apn carrier="LTE - VZW Roaming CBS" mcc="204" mnc="04" apn="VZWAPP" type="cbs,mms" mmsc="http://mms.vtext.com/servlets/mms" protocol="IPV4V6" roaming_protocol="IPV4V6" bearer="14" />
+  <apn carrier="EHRPD - VZW Roaming Internet" mcc="204" mnc="04" apn="VZWINTERNET" type="default,dun" protocol="IPV4V6" roaming_protocol="IPV4V6" bearer="13" />
+  <apn carrier="EHRPD - VZW Roaming FOTA" mcc="204" mnc="04" apn="VZWADMIN" type="fota" protocol="IPV4V6" roaming_protocol="IPV4V6" bearer="13" />
+  <apn carrier="EHRPD - VZW Roaming IMS" mcc="204" mnc="04" apn="VZWIMS" type="ims" protocol="IPV4V6" roaming_protocol="IPV4V6" bearer="13" />
+  <apn carrier="EHRPD - VZW Roaming CBS" mcc="204" mnc="04" apn="VZWAPP" type="cbs,mms" mmsc="http://mms.vtext.com/servlets/mms" protocol="IPV4V6" roaming_protocol="IPV4V6" bearer="13" />
   <apn carrier="Vodafone NL" mcc="204" mnc="04" apn="live.vodafone.com" user="vodafone" password="vodafone" mmsc="http://mmsc.mms.vodafone.nl" mmsproxy="192.168.251.150" mmsport="8799" type="default,supl,mms" />
   <apn carrier="hollandsnieuwe int." mcc="204" mnc="04" apn="data.dataxs.mobi" type="default" />
   <apn carrier="Vodafone MMS Business" mcc="204" mnc="04" apn="office.vodafone.nl" user="vodafone" password="vodafone" mmsc="http://mmsc.mms.vodafone.nl" mmsproxy="192.168.251.150" mmsport="8799" type="mms" />
@@ -340,6 +348,22 @@
   <apn carrier="Elisa EE MMS" mcc="248" mnc="02" apn="mms" mmsc="http://194.204.2.10" mmsproxy="194.204.2.6" mmsport="8080" type="mms" />
   <apn carrier="Tele2 EE" mcc="248" mnc="03" apn="internet.tele2.ee" type="default,supl" />
   <apn carrier="Tele2 EE MMS" mcc="248" mnc="03" apn="mms.tele2.ee" mmsc="http://mmsc.tele2.ee" mmsproxy="193.12.40.6" mmsport="8080" type="mms" />
+  <apn carrier="LTE - VZW Test Internet" mcc="246" mnc="81" apn="VZWINTERNET" type="default,dun" protocol="IPV4V6" roaming_protocol="IPV4V6" bearer="14" />
+  <apn carrier="LTE - VZW Test FOTA" mcc="246" mnc="81" apn="VZWADMIN" type="fota" protocol="IPV4V6" roaming_protocol="IPV4V6" bearer="14" />
+  <apn carrier="LTE - VZW Test IMS" mcc="246" mnc="81" apn="VZWIMS" type="ims" protocol="IPV4V6" roaming_protocol="IPV4V6" bearer="14" />
+  <apn carrier="LTE - VZW Test CBS" mcc="246" mnc="81" apn="VZWAPP" type="cbs,mms" mmsc="http://mms.vtext.com/servlets/mms" protocol="IPV4V6" roaming_protocol="IPV4V6" bearer="14" />
+  <apn carrier="LTE - VZW Test Internet" mcc="246" mnc="081" apn="VZWINTERNET" type="default,dun" protocol="IPV4V6" roaming_protocol="IPV4V6" bearer="14" />
+  <apn carrier="LTE - VZW Test FOTA" mcc="246" mnc="081" apn="VZWADMIN" type="fota" protocol="IPV4V6" roaming_protocol="IPV4V6" bearer="14" />
+  <apn carrier="LTE - VZW Test IMS" mcc="246" mnc="081" apn="VZWIMS" type="ims" protocol="IPV4V6" roaming_protocol="IPV4V6" bearer="14" />
+  <apn carrier="LTE - VZW Test CBS" mcc="246" mnc="081" apn="VZWAPP" type="cbs,mms" mmsc="http://mms.vtext.com/servlets/mms" protocol="IPV4V6" roaming_protocol="IPV4V6" bearer="14" />
+  <apn carrier="EHRPD - VZW Test Internet" mcc="246" mnc="81" apn="VZWINTERNET" type="default,dun" protocol="IPV4V6" roaming_protocol="IPV4V6" bearer="13" />
+  <apn carrier="EHRPD - VZW Test FOTA" mcc="246" mnc="81" apn="VZWADMIN" type="fota" protocol="IPV4V6" roaming_protocol="IPV4V6" bearer="13" />
+  <apn carrier="EHRPD - VZW Test IMS" mcc="246" mnc="81" apn="VZWIMS" type="ims" protocol="IPV4V6" roaming_protocol="IPV4V6" bearer="13" />
+  <apn carrier="EHRPD - VZW Test CBS" mcc="246" mnc="81" apn="VZWAPP" type="cbs,mms" mmsc="http://mms.vtext.com/servlets/mms" protocol="IPV4V6" roaming_protocol="IPV4V6" bearer="13" />
+  <apn carrier="EHRPD - VZW Test Internet" mcc="246" mnc="081" apn="VZWINTERNET" type="default,dun" protocol="IPV4V6" roaming_protocol="IPV4V6" bearer="13" />
+  <apn carrier="EHRPD - VZW Test FOTA" mcc="246" mnc="081" apn="VZWADMIN" type="fota" protocol="IPV4V6" roaming_protocol="IPV4V6" bearer="13" />
+  <apn carrier="EHRPD - VZW Test IMS" mcc="246" mnc="081" apn="VZWIMS" type="ims" protocol="IPV4V6" roaming_protocol="IPV4V6" bearer="13" />
+  <apn carrier="EHRPD - VZW Test CBS" mcc="246" mnc="081" apn="VZWAPP" type="cbs,mms" mmsc="http://mms.vtext.com/servlets/mms" protocol="IPV4V6" roaming_protocol="IPV4V6" bearer="13" />
   <apn carrier="MTS RU" mcc="250" mnc="01" apn="internet.mts.ru" user="mts" password="mts" type="default,supl" />
   <apn carrier="ETK" mcc="250" mnc="01" apn="mms.etk.ru" user="mms" password="mms" mmsc="http://mmsc" mmsproxy="010.010.030.060" mmsport="8080" type="default,supl,mms" />
   <apn carrier="MTS RU MMS" mcc="250" mnc="01" apn="mms.mts.ru" user="mts" password="mts" mmsc="http://mmsc" mmsproxy="192.168.192.192" mmsport="8080" type="mms" />
@@ -549,7 +573,18 @@
   <apn carrier="Rogers LTE" mcc="302" mnc="720" apn="ltemobile.apn" mmsc="http://mms.gprs.rogers.com" mmsproxy="10.128.1.69" mmsport="80" type="default,supl,mms"/>
   <apn carrier="Sasktel 3G" mcc="302" mnc="780" apn="inet.stm.sk.ca" type="default,supl" />
   <apn carrier="Sasktel MMS" mcc="302" mnc="780" apn="proxy.stm.sk.ca" port="80" mmsc="http://mms.sasktel.com" mmsproxy="mig.sasktel.com" mmsport="80" type="mms" />
-  <apn carrier="Verizon" mcc="310" mnc="004" apn="internet" user="*" password="*" server="*" mmsc="http://mms.vtext.com/servlets/mms" type="default,supl,mms" />
+  <apn carrier="MobiPCS" mcc="310" mnc="00" apn="MobiPCS" user="@mobipcs.com" password="mobipcs" mmsc="http://mms.mobipcs.com" authtype="3" type="*" />
+  <apn carrier="Verizon" mcc="310" mnc="004" apn="internet" type="default,mms,dun" mmsc="http://mms.vtext.com/servlets/mms" protocol="IPV4V6" />
+  <apn carrier="Verizon Internet" mcc="310" mnc="004" apn="VZWINTERNET" type="default,dun" protocol="IPV4V6" roaming_protocol="IPV4V6" />
+  <apn carrier="Verizon FOTA" mcc="310" mnc="004" apn="VZWADMIN" type="fota" protocol="IPV4V6" roaming_protocol="IPV4V6" />
+  <apn carrier="Verizon IMS" mcc="310" mnc="004" apn="VZWIMS" type="ims" protocol="IPV4V6" roaming_protocol="IPV4V6" />
+  <apn carrier="Verizon CBS" mcc="310" mnc="004" apn="VZWAPP" type="cbs,mms" mmsc="http://mms.vtext.com/servlets/mms" protocol="IPV4V6" roaming_protocol="IPV4V6" />
+  <apn carrier="Verizon" mcc="310" mnc="006" apn="internet" type="default,mms,dun" mmsc="http://mms.vtext.com/servlets/mms" protocol="IPV4V6" />
+  <apn carrier="Verizon Internet" mcc="310" mnc="006" apn="VZWINTERNET" type="default,dun" protocol="IPV4V6" roaming_protocol="IPV4V6" />
+  <apn carrier="Verizon FOTA" mcc="310" mnc="006" apn="VZWADMIN" type="fota" protocol="IPV4V6" roaming_protocol="IPV4V6" />
+  <apn carrier="Verizon IMS" mcc="310" mnc="006" apn="VZWIMS" type="ims" protocol="IPV4V6" roaming_protocol="IPV4V6" />
+  <apn carrier="Verizon CBS" mcc="310" mnc="006" apn="VZWAPP" type="cbs,mms" mmsc="http://mms.vtext.com/servlets/mms" protocol="IPV4V6" roaming_protocol="IPV4V6" />
+  <apn carrier="Cricket" mcc="310" mnc="16" apn="wap.mycricket.com" user="@mycricket.com" password="cricket" mmsc="http://mms.mycricket.com/servlets/mms" mmsproxy="" mmsport="" proxy="wap.mycricket.com" port="8080" authtype="2" type="*" />
   <apn carrier="Cellular South" mcc="310" mnc="023" apn="internet" mmsc="http://pix.cellularsouth.com/servlets/mms" authtype="3" port="" mmsport="" type="mms" />
   <apn carrier="metropcs" mcc="310" mnc="027" apn="wap.metropcs.net" user="MDN@mymetropcs.com" password="metropcs" server="http://mms.metropcs.net/servlets/mmsc" mmsc="http://mms.metropcs.net/mmsc" mmsport="3128" type="default,supl,mms" />
   <apn carrier="myBlue Pix" mcc="310" mnc="030" apn="mmswap.centennialwireless.com" mmsc="http://mms.myblue.com/servlets/mms" mmsproxy="63.99.231.135" mmsport="8080" type="mms" />
@@ -557,11 +592,17 @@
   <apn carrier="CorrMMS" mcc="310" mnc="080" apn="corrmms" mmsc="http://mms.iot1.com/corr/mms.php" mmsproxy="66.255.55.23" mmsport="80" type="mms" />
   <apn carrier="Internet" mcc="310" mnc="090" apn="isp" type="default,supl" />
   <apn carrier="MMS" mcc="310" mnc="090" apn="mms" mmsc="http://mms.edgemobile.net/mmsc" mmsproxy="12.108.12.13" mmsport="3128" type="mms" />
+  <apn carrier="LTE INTERNET" mcc="310" mnc="090" apn="4g.mycricket.com" user="" password="" type="default,dun,mms" authtype="0" mmsc="http://mms.mycricket.com/servlets/mms" protocol="IP" roaming_protocol="IP" bearer="14"/>
+  <apn carrier="LTE ADMIN" mcc="310" mnc="090" apn="Apnota.4g.mycricket.com" user="" password="" type="fota" authtype="0" mmsc="http://mms.mycricket.com/servlets/mms" protocol="IP" roaming_protocol="IP" bearer="14"/>
+  <apn carrier="LTE DNSADMIN" mcc="310" mnc="090" apn="apndnsota.4g.mycricket.com" user="" password="" type="fota" authtype="0" mmsc="http://mms.mycricket.com/servlets/mms" protocol="IP" roaming_protocol="IP" bearer="14"/>
   <apn carrier="Edge MMS Prepay" mcc="310" mnc="090" apn="ppmms" mmsc="http://mms.edgemobile.net/mmsc" mmsproxy="12.108.12.13" mmsport="3128" type="mms" />
   <apn carrier="PLAT-OTA-MMS" mcc="310" mnc="100" apn="plateaumms" password="mmsc" mmsc="208.254.124.11:8514" mmsproxy="208.254.124.11" mmsport="8080" type="mms" />
   <apn carrier="PLATWEB" mcc="310" mnc="100" apn="plateauweb" type="default,supl" />
-  <apn carrier="CDMA" mcc="310" mnc="120" apn="0" type="default,supl" />
-  <apn carrier="CDMA" mcc="310" mnc="120" apn="1" mmsc="http://mms.sprintpcs.com" type="default,supl" />
+  <apn carrier="Sprint" mcc="310" mnc="120" apn="Sprint" user="Sprint" server="*" type="mms" password="*" mmsc="http://mms.sprintpcs.com" mmsproxy="68.28.31.7" mmsport="80" authtype="3"/>
+  <apn carrier="Sprint LTE ota" mcc="310" mnc="120" apn="otasn" type="fota" protocol="IPV4V6" roaming_protocol="IPV4V6" bearer="14" />
+  <apn carrier="Sprint EHRPD ota" mcc="310" mnc="120" apn="otasn" type="fota" protocol="IPV4V6" roaming_protocol="IPV4V6" bearer="13" />
+  <apn carrier="Sprint LTE internet" mcc="310" mnc="120" apn="n.ispsn" type="default,mms,supl,hipri" mmsc="http://mms.sprintpcs.com" mmsproxy="68.28.31.7" mmsport="80" protocol="IPV4V6" roaming_protocol="IPV4V6" bearer="14" />
+  <apn carrier="Sprint EHRPD internet" mcc="310" mnc="120" apn="n.ispsn" type="default,mms,supl,hipri" mmsc="http://mms.sprintpcs.com" mmsproxy="68.28.31.7" mmsport="80" protocol="IPV4V6" roaming_protocol="IPV4V6" bearer="13" />
   <apn carrier="USCC" mcc="310" mnc="120" apn="internet" mmsc="http://mmsc1.uscc.net/mmsc/MMS" authtype="3" port="80" mmsport="80" type="mms" />
   <apn carrier="Virgin Mobile US" mcc="200" mnc="053" apn="0" port="" mmsproxy="205.239.233.136" mmsport="81" mmsc="http://mmsc.vmobl.com:8088/mms?" type="mms" />
   <apn carrier="My Multi Media" mcc="310" mnc="130" apn="mms.c1.ama" user="cell1mms" password="cell1" mmsc="http://mms.iot1.com/amarillo/mms.php" type="mms" />
@@ -620,8 +661,32 @@
   <apn carrier="MMS" mcc="311" mnc="190" apn="wap.cellular1.net" mmsc="http://mms.cellular1.net/ecit/mms.php" type="mms" />
   <apn carrier="Farmers" mcc="311" mnc="210" apn="internet.farmerswireless.com" type="default,supl" />
   <apn carrier="Farmers MMS" mcc="311" mnc="210" apn="mms.farmers.com" mmsc="172.16.0.37:8514" type="mms" />
+  <apn carrier="USCC" mcc="311" mnc="220" apn="internet" mmsc="http://mmsc1.uscc.net/mmsc/MMS" authtype="3" port="80" mmsport="80" type="mms" />
+  <apn carrier="LTE - USCC INTERNET" mcc="311" mnc="580" apn="usccinternet" type="default,dun,mms,fota" mmsc="http://mmsc1.uscc.net/mmsc/MMS" protocol="IPV4V6" roaming_protocol="IPV4V6" bearer="14" />
+  <apn carrier="LTE - USCC INTERNET 2" mcc="311" mnc="225" apn="usccinternet" type="default,dun,mms,fota" mmsc="http://mmsc1.uscc.net/mmsc/MMS" protocol="IPV4V6" roaming_protocol="IPV4V6" bearer="14" />
+  <apn carrier="LTE INTERNET" mcc="311" mnc="230" apn="Internet.cs4glte.com" user="" password="" type="default,dun,mms" authtype="0" mmsc="http://pix.cspire.com/servlets/mms" mmsproxy = "66.175.144.91" mmsport = "80" protocol="IP" roaming_protocol="IP" bearer="14" />
+  <apn carrier="LTE IMS" mcc="311" mnc="230" apn="ims.cs4glte.com" type="ims" user="" password="" mmsc="http://pix.cspire.com/servlets/mms" mmsproxy = "66.175.144.91" mmsport = "80" protocol="IP" roaming_protocol="IP" bearer="14" />
+  <apn carrier="LTE ADMIN" mcc="311" mnc="230" apn="admin.cs4glte.com" type="fota" user="" password="" mmsc="http://pix.cspire.com/servlets/mms" mmsproxy = "66.175.144.91" mmsport = "80" protocol="IP" roaming_protocol="IP" bearer="14" />
+  <apn carrier="LTE Tethering" mcc="311" mnc="230" apn="tethering.cs4glte.com" type="tethering" user="" password="" mmsc="http://pix.cspire.com/servlets/mms" mmsproxy = "66.175.144.91" mmsport = "80" protocol="IP" roaming_protocol="IP" bearer="14" />
+  <apn carrier="EHRPD INTERNET" mcc="311" mnc="230" apn="Internet.cs4glte.com" user="" password="" type="default,dun,mms" authtype="0" mmsc="http://pix.cspire.com/servlets/mms" mmsproxy = "66.175.144.91" mmsport = "80" protocol="IP" roaming_protocol="IP" bearer="13" />
+  <apn carrier="EHRPD IMS" mcc="311" mnc="230" apn="ims.cs4glte.com" type="ims" user="" password="" mmsc="http://pix.cspire.com/servlets/mms" mmsproxy = "66.175.144.91" mmsport = "80" protocol="IP"  roaming_protocol="IP" bearer="13" />
+  <apn carrier="EHRPD ADMIN" mcc="311" mnc="230" apn="admin.cs4glte.com" type="fota" user="" password="" mmsc="http://pix.cspire.com/servlets/mms" mmsproxy = "66.175.144.91" mmsport = "80" protocol="IP" roaming_protocol="IP" bearer="13" />
+  <apn carrier="EHRPD Tethering" mcc="311" mnc="230" apn="tethering.cs4glte.com" type="tethering" user="" password="" mmsc="http://pix.cspire.com/servlets/mms" mmsproxy = "66.175.144.91" mmsport = "80" protocol="IP" roaming_protocol="IP" bearer="13" />
   <apn carrier="GCI Data" mcc="311" mnc="370" apn="web.gci" type="default,supl" />
   <apn carrier="GCI MMS" mcc="311" mnc="370" apn="mms.gci" mmsproxy="209.4.229.92" mmsport="9201" mmsc="http://mmsc.gci.csky.us:6672" type="mms" />
+  <apn carrier="LTE - Verizon Internet" mcc="311" mnc="480" apn="VZWINTERNET" type="default,dun" protocol="IPV4V6" roaming_protocol="IPV4V6" bearer="14" />
+  <apn carrier="LTE - Verizon FOTA" mcc="311" mnc="480" apn="VZWADMIN" type="fota" protocol="IPV4V6" roaming_protocol="IPV4V6" bearer="14" />
+  <apn carrier="LTE - Verizon IMS" mcc="311" mnc="480" apn="VZWIMS" type="ims" protocol="IPV4V6" roaming_protocol="IPV4V6" bearer="14" />
+  <apn carrier="LTE - Verizon CBS" mcc="311" mnc="480" apn="VZWAPP" type="cbs,mms" mmsc="http://mms.vtext.com/servlets/mms" protocol="IPV4V6" roaming_protocol="IPV4V6" bearer="14" />
+  <apn carrier="LTE - Verizon SUPL" mcc="311" mnc="480" apn="VZW800" type="supl" protocol="IPV4V6" bearer="14" />
+  <apn carrier="EHRPD - Verizon Internet" mcc="311" mnc="480" apn="VZWINTERNET" type="default,dun" protocol="IPV4V6" roaming_protocol="IPV4V6" bearer="13"  />
+  <apn carrier="EHRPD - Verizon FOTA"  mcc="311" mnc="480" apn="VZWADMIN" type="fota" protocol="IPV4V6" roaming_protocol="IPV4V6" bearer="13" />
+  <apn carrier="EHRPD - Verizon IMS" mcc="311" mnc="480" apn="VZWIMS" type="ims" protocol="IPV4V6" roaming_protocol="IPV4V6" bearer="13" />
+  <apn carrier="EHRPD - Verizon CBS" mcc="311" mnc="480" apn="VZWAPP" type="cbs,mms" mmsc="http://mms.vtext.com/servlets/mms" protocol="IPV4V6" roaming_protocol="IPV4V6" bearer="13" />
+  <apn carrier="EHRPD - Verizon SUPL" mcc="311" mnc="480" apn="VZW800" type="supl" protocol="IPV4V6" bearer="13" />
+  <apn carrier="Virgin Mobile US" mcc="311" mnc="490" apn="0" mmsproxy="205.239.233.136" mmsport="81" mmsc="http://mmsc.vmobl.com:8088/mms?" port="" type="mms" />
+  <apn carrier="MetroPCS DEFAULT" mcc="311" mnc="660" apn="internet.metropcs" user="" password="" type="default,hipri,admin,mms" authtype="0" mmsc="http://mms.metropcs.net:3128/mmsc" protocol="IP" roaming_protocol="IP" bearer="14" inactivity_timer="7080" />
+  <apn carrier="MetroPCS IMS"  mcc="311" mnc="660" apn="ims.metropcs" user="" password="" type="ims" authtype="0" mmsc="http://mms.metropcs.net:3128/mmsc" protocol="IP" roaming_protocol="IP" bearer="14" inactivity_timer="7080" />
   <apn carrier="Videotron" mcc="302" mnc="500" apn="media.videotron" mmsc="http://media.videotron.com/" mmsproxy="10.208.89.17" mmsport="8080" type="default,supl,mms" />
   <apn carrier="Claro PR" mcc="330" mnc="110" apn="internet.claropr.com" port="8080" type="default,supl" />
   <apn carrier="Claro PR MMS" mcc="330" mnc="110" apn="mms.claropr.com" mmsc="http://mmsg.claropr.com:1021/mmsc" mmsproxy="10.50.38.3" mmsport="8799" type="mms" />
@@ -1184,6 +1249,8 @@
   <apn carrier="Virgin AU MMS" mcc="505" mnc="02" apn="virginmms" user="*" password="*" server="*" proxy="202.139.083.152" port="8070" mmsc="http://mms.virginvibe.com.au:8002/" mmsproxy="202.139.083.152" mmsport="8070" type="mms" />
   <apn carrier="Optus Internet" mcc="505" mnc="02" apn="yesinternet" user="*" password="*" server="*" type="default,supl" />
   <apn carrier="Apex Telecom" mcc="505" mnc="02" apn="splns357" user="" password="" mmsc="" mmsproxy="" mmsport="" type="default,supl" />
+  <apn carrier="Boost MMS" mcc="505" mnc="02" apn="mms" user="" password="" server="" proxy="61.88.190.10" port="8070" mmsc="http://mmsc.optus.com.au:8002/" mmsproxy="61.88.190.10" mmsport="8070" type="mms" authtype="3"/>
+  <apn carrier="Boost Mobile" mcc="505" mnc="02" apn="yesinternet" user="" password="" server="" proxy="" port="" mmsc="" mmsproxy="" mmsport="" type="default,supl" authtype="3"/>
   <apn carrier="Vodafone AU-MMS" mcc="505" mnc="03" apn="live.vodafone.com" user="*" password="*" server="*" mmsc="http://pxt.vodafone.net.au/pxtsend" mmsproxy="10.202.2.60" mmsport="8080" type="mms" />
   <apn carrier="Vodafone AU" mcc="505" mnc="03" apn="vfinternet.au" user="*" password="*" server="*" type="default,supl" />
   <apn carrier="3 AU" apn="3services" mmsc="http://mmsc.three.net.au:10021/mmsc" mmsproxy="10.176.57.25" mmsport="8799" mcc="505" mnc="06" type="default,supl,mms"/>
@@ -1295,7 +1362,6 @@
   <apn carrier="Orange MMS SN" mcc="608" mnc="01" apn="mms" user="mms" password="mms" mmsc="http://mmsalize/servlets/mms" mmsproxy="172.16.30.9" mmsport="8080" type="mms" />
   <apn carrier="Orange Wap SN" mcc="608" mnc="01" apn="wap" user="wap" password="wap" proxy="172.16.30.9" port="8080" type="default" />
   <apn carrier="Orange Web SN" mcc="608" mnc="01" apn="internet" user="internet" password="internet" type="default" />
-
   <apn carrier="Orange ML" mcc="610" mnc="02" apn="internet" user="internet" password="internet" type="default,supl" />
   <apn carrier="Orange ML MMS" mcc="610" mnc="02" apn="mms" user="mms" password="mms" mmsc="http://10.109.6.2/servlets/mms" mmsproxy="10.109.4.35" mmsport="8080" type="mms" />
   <apn carrier="Orange Wap ML" mcc="610" mnc="02" apn="wap" user="wap" password="wap" proxy="10.109.4.35" port="8080" type="default" />

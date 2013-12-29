@@ -9,12 +9,9 @@ NOZIP=0
 echo "Welcome to ArchiDroid Command Line Flasher!"
 echo "Checking access to $AD"
 mkdir -p $AD/tmp
-cd $AD/tmp
-touch test
+cd $AD/tmp && rm -f test && touch test && rm -f test
 CHECK1=$?
-rm -f test
-CHECK2=$?
-if [ $CHECK1 -ne 0 ] || [ $CHECK2 -ne 0 ]; then
+if [ $CHECK1 -ne 0 ]; then
 	echo "Sorry, access test failed. Make sure that $AD/tmp is not being owned by root or give me root access"
 	exit 1
 else
@@ -46,6 +43,7 @@ if [ $# -eq 0 ]; then
 else
 	VERSION="$1"
 	shift 1
+	EXTRA="$@"
 fi
 
 case "$VERSION" in
@@ -67,8 +65,8 @@ case "$VERSION" in
 esac
 echo "Ok, detected $VERSION"
 
-# Parse args
-for arg in "$@"; do
+# Parse extra args
+for arg in $EXTRA; do
 	case "$arg" in
 		"git")
 			MODE="git"
@@ -134,7 +132,7 @@ if [ "$MODE" == "direct" ]; then
 	fi
 
 	echo "Repacking downloaded ArchiDroid"
-	echo "Unzipping ArchiDroid in GitHub version"
+	echo "Unzipping ArchiDroid in GitHub version..."
 	rm -rf _adflash
 	mkdir _adflash
 

@@ -63,18 +63,18 @@ common.deprecated=AFSKREVET
 common.obsolete=FORÆLDET
 terms.check=Du erklærer dig enig i Betingelser og Vilkår.
 terms.confirm=Afkryds venligst betingelserne!
-terms.check2=Jeg forstår til fulde og respekterer at
+terms.check2=Jeg forstår til fulde og respekterer ovenstående
 terms.confirm2=Vis respekt til udviklerne
 
 archidroid.tos=ArchDroid Betingelser og Vilkår
 
 archidroid.detect.fail=ArchiDroid kunne ikke genkende at det var installeret. Har du lavet en fuld formattering eller kommer du fra en anden ROM?
 archidroid.detect.fail.yes=Ja, jeg har ikke installeret ArchiDroid
-archidroid.detect.fail.no=Nej, jeg har skam installeret ArchiDroid
+archidroid.detect.fail.no=Nej, jeg har faktisk ArchiDroid installeret
 archidroid.detect.fail.alert.yes=Ok, jeg har valgt ArchiDroid Installerings tilstand for dig så.
 archidroid.detect.fail.alert.no=Det var ikke godt. Jeg vil forfalske resultater, men undlad at bruge Opdaterings tilstanden hvis du ikke har ArchiDroid installeret!
 archidroid.detect.pass=ArchiDroid blev genkendt på enheden. Ønsker du at. Ønsker du at prøve Opdaterings tilstanden?
-archidroid.detect.pass.yes=Ja, prøv Opdatering
+archidroid.detect.pass.yes=Ja, forsøg Opdatering
 archidroid.detect.pass.no=Nej, fuld formattering og Installering
 archidroid.detect.pass.alert.no=Ok, jeg vil fortsætte med fuld formattering og ArchiDroid Installerings tilstand
 archidroid.detect.force=Ønsker du at gennemtvinge Opdaterings tilstanden? Dette får ArchiDroid RunOnce til at udføre avancerede modifikationer, som ellers kun ville blive udført under Installerings tilstanden. Hvis du er i tvivl, så vælg nej.
@@ -133,7 +133,7 @@ archidroid.ota.desc=Anbefalet af ArchiDroid. Vi installerer UpdateME apk og akti
 archidroid.xposed.desc=Tillader brug af diverse Xposed moduler. Skal aktiveres manuelt
 archidroid.crossbreeder.desc=Anbefalet for ekstra ydeevne og fleksibilitet, ikke kompatibelt med Seeder
 archidroid.updatemodem=Opdater Modem
-archidroid.updatemodem.desc=Hvis du ønsker at få de seneste modem
+archidroid.updatemodem.desc=Hvis du ønsker at få det seneste modem
 archidroid.updaterecovery=Opdater Recovery
 archidroid.updaterecovery.desc=Hvis du ønsker at få den seneste Philz recovery
 
@@ -146,7 +146,7 @@ archidroid.apps.lmt.desc=Brugbart værktøj for at udføre en kommando bundet ti
 archidroid.apps.mxplayer.desc=Muligvis den bedste video afspiller til Android
 archidroid.apps.spiritfm.desc=Gratis FM radio app der virker med CyanogenMod
 archidroid.apps.bbs.desc=Giver dig adgang til at se mere specifik batteri statistik - især wakelocks
-archidroid.apps.cooltool.desc=Viser brugbar statistik på status linjen
+archidroid.apps.cooltool.desc=Viser brugbar statistik på statuslinjen
 archidroid.apps.rootbrowser.desc=Meget cool fil-browser der kan udvides med root adgang
 archidroid.apps.adobeflash.desc=Giver Flash indhold understøttelse. Virker ikke med Google Chrome
 archidroid.apps.youtube.desc=Omvendt version af YouTube App
@@ -163,7 +163,7 @@ archidroid.preset.no.desc=Ikke anbefalet fordi du går glip af de fleste af Arch
 archidroid.preset.kernel.boeffla.archiperformance=ArchiDroid Ydeevne
 archidroid.preset.kernel.boeffla.archiperformance.desc=En profil optimeret og designet mest til spillere. Inkluderer overclocking af CPU og GPU. Forvent bedre ydeevne på bekostning af batteri levetid
 archidroid.preset.kernel.boeffla.archipowersave=ArchiDroid Batteri
-archidroid.preset.kernel.boeffla.archipowersave.desc=Standard forvalg som anbefales til de fleste brugere. Inkluderer let UV og tilvyder en god balance af batteri levetid og ydeevne. Anbefalet af Archi
+archidroid.preset.kernel.boeffla.archipowersave.desc=Standard forvalg som anbefales til de fleste brugere. Inkluderer let UV og tilbyder en god balance af batteri levetid og ydeevne. Anbefalet af Archi
 archidroid.preset.kernel.boeffla.archiultrapowersave=ArchiDroid Ultra Batteri
 archidroid.preset.kernel.boeffla.archiultrapowersave.desc=Et forvalg som er designet og optimereret til at give den længst mulige batteri levetid. Inkluderer moderat UV. Forvent bedre batteri levetid på bekostning af ydeevnen
 
@@ -176,7 +176,7 @@ archidroid.xposed.appsettings.desc=Tillader ændringer af app indstillinger. Meg
 archidroid.xposed.xprivacy.desc=Perfekt modul der forhindrer læk af private data, begrænser app adgang og meget mere
 archidroid.xposed.wanam.desc=Mesterstykke fra Wanam. Forbedrer ArchiDroid's fleksiblitet og tilbyder en hel masse tilpasnings muligheder
 
-archidroid.wizard.reboot=ArchiDroid er blevet installeret på din enhed. Vil du gerne genstarte nu?
+archidroid.wizard.reboot=ArchiDroid er blevet installeret på din enhed. Ønsker du at genstarte nu?
 
 archidroid.prepinstall=Klar til installation
 common.flash=Installer

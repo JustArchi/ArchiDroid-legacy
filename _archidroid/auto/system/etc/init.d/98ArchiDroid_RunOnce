@@ -13,13 +13,16 @@ ADSTATUS="/dev/ARCHIDROID_RUNONCE_STATUS"
 
 if [ ! -e $ADSTATUS ]; then
 	# First boot, good
-	echo -n $$ > $ADSTATUS
+	echo $$ > $ADSTATUS
 else
 	ADSIGNAL=`cat $ADSTATUS`
 	if [ $ADSIGNAL == "FINISHED" ]; then
 		# Something tried to execute already finished init, halt
 		echo "This script has been executed already"
 		exit 0
+	elif [ $ADSIGNAL == "RESTART" ]; then
+		# Backend restarts itself, good to know, allow that
+		echo $$ > $ADSTATUS
 	else
 		kill -s 0 $ADSIGNAL >/dev/null 2>&1
 		ADSIGNAL=$?
@@ -27,8 +30,8 @@ else
 			# Something tried to execute already running init, double-execution?
 			exit 3
 		else
-			# Old PID is dead and didn't exit properly, it looks like init re-executed itself f.e. for background purpose, allow that
-			echo -n $$ > $ADSTATUS
+			# Old PID is dead and didn't exit properly, allow that for now
+			echo $$ > $ADSTATUS
 		fi
 	fi
 fi
@@ -155,6 +158,7 @@ echo "INFO: ArchiDroid_RunOnce executed!" >> $LOG
 if [ $BACKGROUND -ne 1 ]; then
 	# We're not running in background, let's start a child and tell him that he's running in background
 	echo "INFO: Spawning child!" >> $LOG
+	echo "RESTART" > $ADSTATUS
 	sh $0 "background" &
 
 	# Nothing to do here anymore, exit call
@@ -407,6 +411,7 @@ if [ $LOOP -ge 150 ]; then
 	echo "ERROR: I looped $LOOP times and needed to exit from infinite loop, not good (RunOnce Semaphore)" >> $LOG
 elif [ $LOOP -eq 0 ]; then
 	echo "ERROR: I didn't even entered semaphore, forcing it this time, it may cause unexpected behaviour!" >> $LOG
+	echo "RESTART" > $ADSTATUS
 	sh $0 "background" "forcedsemaphore" &
 	exit 3
 else
@@ -460,6 +465,6 @@ else
 	# Finish
 	echo "INFO: ArchiDroid RunOnce finished" >> $LOG
 	echo "`date`" >> $LOG
-	echo -n "FINISHED" > $ADSTATUS
+	echo "FINISHED" > $ADSTATUS
 fi
 exit 0

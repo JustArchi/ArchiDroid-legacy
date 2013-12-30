@@ -4,7 +4,7 @@
  bionic/libc/include/stdio.h bionic/libc/include/sys/cdefs.h \
  bionic/libc/include/sys/cdefs_elf.h \
  bionic/libc/include/android/api-level.h bionic/libc/include/sys/types.h \
- /root/android/omni/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8/lib/gcc/arm-linux-androideabi/4.8.3/include/stddef.h \
+ /root/android/omni/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-linaro-4.7/bin/../lib/gcc/arm-linux-androideabi/4.7.4/include/stddef.h \
  bionic/libc/include/stdint.h bionic/libc/include/sys/_types.h \
  bionic/libc/arch-arm/include/machine/_types.h \
  bionic/libc/kernel/common/linux/posix_types.h \
@@ -15,7 +15,7 @@
  bionic/libc/kernel/common/linux/types.h \
  bionic/libc/arch-arm/include/machine/kernel.h \
  bionic/libc/include/sys/sysmacros.h \
- /root/android/omni/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8/lib/gcc/arm-linux-androideabi/4.8.3/include/stdarg.h \
+ /root/android/omni/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-linaro-4.7/bin/../lib/gcc/arm-linux-androideabi/4.7.4/include/stdarg.h \
  bionic/libc/include/stdlib.h bionic/libc/include/string.h \
  bionic/libc/include/malloc.h bionic/libc/include/alloca.h \
  bionic/libc/include/strings.h bionic/libc/include/memory.h \
@@ -26,7 +26,7 @@
  bootable/recovery/minadbd/../../../system/core/adb/sysdeps.h \
  bootable/recovery/minadbd/../../../system/core/adb/fdevent.h \
  system/core/include/cutils/sockets.h \
- /root/android/omni/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8/lib/gcc/arm-linux-androideabi/4.8.3/include/stdbool.h \
+ /root/android/omni/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-linaro-4.7/bin/../lib/gcc/arm-linux-androideabi/4.7.4/include/stdbool.h \
  bionic/libc/include/sys/socket.h \
  bionic/libc/kernel/common/linux/socket.h \
  bionic/libc/kernel/arch-arm/asm/socket.h \
@@ -82,7 +82,7 @@
  bionic/libc/include/stdio.h bionic/libc/include/sys/cdefs.h :
  bionic/libc/include/sys/cdefs_elf.h :
  bionic/libc/include/android/api-level.h bionic/libc/include/sys/types.h :
- /root/android/omni/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8/lib/gcc/arm-linux-androideabi/4.8.3/include/stddef.h :
+ /root/android/omni/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-linaro-4.7/bin/../lib/gcc/arm-linux-androideabi/4.7.4/include/stddef.h :
  bionic/libc/include/stdint.h bionic/libc/include/sys/_types.h :
  bionic/libc/arch-arm/include/machine/_types.h :
  bionic/libc/kernel/common/linux/posix_types.h :
@@ -93,7 +93,7 @@
  bionic/libc/kernel/common/linux/types.h :
  bionic/libc/arch-arm/include/machine/kernel.h :
  bionic/libc/include/sys/sysmacros.h :
- /root/android/omni/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8/lib/gcc/arm-linux-androideabi/4.8.3/include/stdarg.h :
+ /root/android/omni/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-linaro-4.7/bin/../lib/gcc/arm-linux-androideabi/4.7.4/include/stdarg.h :
  bionic/libc/include/stdlib.h bionic/libc/include/string.h :
  bionic/libc/include/malloc.h bionic/libc/include/alloca.h :
  bionic/libc/include/strings.h bionic/libc/include/memory.h :
@@ -104,7 +104,7 @@
  bootable/recovery/minadbd/../../../system/core/adb/sysdeps.h :
  bootable/recovery/minadbd/../../../system/core/adb/fdevent.h :
  system/core/include/cutils/sockets.h :
- /root/android/omni/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8/lib/gcc/arm-linux-androideabi/4.8.3/include/stdbool.h :
+ /root/android/omni/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-linaro-4.7/bin/../lib/gcc/arm-linux-androideabi/4.7.4/include/stdbool.h :
  bionic/libc/include/sys/socket.h :
  bionic/libc/kernel/common/linux/socket.h :
  bionic/libc/kernel/arch-arm/asm/socket.h :

@@ -137,7 +137,6 @@ else
 	echo "MD5 Sums matches, no further action required, automatic mode goes on..."
 fi
 rm -Rf __adtemp
-rm -f *.zip
 
 cd __dont_include/
 # Bo CM tez ma syf...

@@ -9,17 +9,23 @@ ArchiDroid 2.3.3
 
 - Updated sources
 * Added QuickSettings toggles (AOSPA)
+* Added Full Animation Controls
+* Reverted ListView Animations, due to Full Animation Controls
+* Reverted AOKP Animations, due to Full Animation Controls
 
 # ArchiDroid Boom-Boom release
-# Status: Boots!
+# Status: Boots! ART works!
 
-# Stage 1 [LIVE]
-* Updated/Changed ROM toolchain from GCC 4.7 to Linaro 4.8
-* Kernel remains GCC 4.7 #Note: Breaks with GCC 4.8
+# Stage 1 [DONE]
+* Updated/Changed ROM toolchain from GCC 4.7 to Linaro 4.7 #Note: Linaro 4.8 breaks ART
+* Kernel remains GCC 4.7 #Note: Requires several patches to work with Linaro
 * Updated/Changed Java 1.6 to Java 1.7 #Note: Breaks with Java 1.8-dev
-# Stage 2 [TODO]
+-----------------
+# Stage 2 [LIVE]
 + Find best generic optimization flags, which won't break the build
 + Add SGS3-specific optimization flags, which won't break the build
++ Added: GLOBAL_LDFLAGS := -Wl,-O2
+-----------------
 # Stage 3 [TODO]
 + Make dozen of stability and performance tests to prove that I wasted whole christmas on nothing
 + ??? PROFIT!

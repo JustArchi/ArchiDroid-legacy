@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--Please do not manually edit this file-->
 <manifest>
-  <project name="JustArchi/linaro_arm-eabi.git" path="prebuilts/gcc/linux-x86/arm/arm-eabi-4.8" remote="github" revision="4.8" />
-  <project name="JustArchi/linaro_arm-linux-androideabi.git" path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8" remote="github" revision="4.8" />
+  <!-- <project name="JustArchi/linaro_arm-eabi.git" path="prebuilts/gcc/linux-x86/arm/arm-eabi-4.8" remote="github" revision="4.8" /> -->
+  <!-- <project name="JustArchi/linaro_arm-linux-androideabi.git" path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8" remote="github" revision="4.8" /> -->
   <project name="JustArchi/linaro_arm-eabi.git" path="prebuilts/gcc/linux-x86/arm/arm-eabi-linaro-4.7" remote="github" revision="4.7" />
   <project name="JustArchi/linaro_arm-linux-androideabi.git" path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-linaro-4.7" remote="github" revision="4.7" />
 

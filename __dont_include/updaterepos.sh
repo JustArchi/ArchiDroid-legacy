@@ -1,6 +1,10 @@
 #!/bin/bash
 
-INIT=0
+if [ "$1" == "init" ]; then
+	INIT=1
+else
+	INIT=0
+fi
 
 contains () {
 	local e

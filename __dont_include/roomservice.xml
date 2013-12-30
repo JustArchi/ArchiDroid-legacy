@@ -5,6 +5,7 @@
   <!-- <project name="JustArchi/linaro_arm-linux-androideabi.git" path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8" remote="github" revision="4.8" /> -->
   <project name="JustArchi/linaro_arm-eabi.git" path="prebuilts/gcc/linux-x86/arm/arm-eabi-linaro-4.7" remote="github" revision="4.7" />
   <project name="JustArchi/linaro_arm-linux-androideabi.git" path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-linaro-4.7" remote="github" revision="4.7" />
+  <project name="JustArchi/android_frameworks_rs" path="frameworks/rs" remote="github" revision="android-4.4" />
 
   <remove-project name="android_build" />
   <project name="JustArchi/android_build" path="build" remote="github" revision="android-4.4" />

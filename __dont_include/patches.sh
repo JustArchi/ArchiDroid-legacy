@@ -54,7 +54,7 @@ adpatch() {
 # https://gerrit.omnirom.org/#/c/4249/
 adpatch "51/4251" "7" "frameworks" "base"
 adpatch "50/4250" "2" "packages" "apps" "Settings"
-adpatch "49/4249" "7" "packages" "apps" "Settings"
+adpatch "49/4249" "7" "packages" "apps" "OmniGears"
 
 # Quick Toggles (AOSPA)
 # https://gerrit.omnirom.org/#/c/4211/

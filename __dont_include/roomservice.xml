@@ -9,8 +9,8 @@
   <remove-project name="android_build" />
   <project name="JustArchi/android_build" path="build" remote="github" revision="android-4.4" />
 
-  <remove-project name="android_frameworks_base" />
-  <project name="JustArchi/android_frameworks_base" path="frameworks/base" remote="github" revision="android-4.4" />
+  <!-- <remove-project name="android_frameworks_base" /> -->
+  <!-- <project name="JustArchi/android_frameworks_base" path="frameworks/base" remote="github" revision="android-4.4" /> -->
 
   <remove-project name="android_packages_apps_Settings" />
   <project name="JustArchi/android_packages_apps_Settings" path="packages/apps/Settings" remote="github" revision="android-4.4" />
@@ -18,8 +18,8 @@
   <remove-project name="android_vendor_omni" />
   <project name="JustArchi/android_vendor_omni" path="vendor/omni" remote="github" revision="android-4.4" />
 
-  <remove-project name="android_packages_apps_OmniGears" />
-  <project name="JustArchi/android_packages_apps_OmniGears" path="packages/apps/OmniGears" remote="github" revision="android-4.4" />
+  <!-- <remove-project name="android_packages_apps_OmniGears" /> -->
+  <!-- <project name="JustArchi/android_packages_apps_OmniGears" path="packages/apps/OmniGears" remote="github" revision="android-4.4" /> -->
 
   <project name="DonkeyCoyote/proprietary_vendor_samsung" path="vendor/samsung" remote="github" revision="android-4.4" />
   <project name="android_device_samsung_i9300" path="device/samsung/i9300" remote="omnirom" revision="android-4.4" />

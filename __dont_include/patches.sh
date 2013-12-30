@@ -23,8 +23,7 @@ adpatch() {
 			PATCHSET=`expr $PATCHSET - 1`
 			break
 		else
-			echo "$NUMBER" "$PATCHSET"
-			read -p "Tell me when you're done, master!" -n1 -s
+			echo "NEW PATCHSET: $GENERIC $NUMBER $PATCHSET"
 		fi
 	done
 	
@@ -49,20 +48,16 @@ adpatch() {
 # https://gerrit.omnirom.org/#/c/1510/
 #adpatch "10/1510" "14" "frameworks" "base"
 
-# Exfat-fix
-# https://gerrit.omnirom.org/#/c/3856/
-# https://gerrit.omnirom.org/#/c/3857/
-#adpatch "56/3856" "1" "system" "vold"
-#adpatch "57/3857" "1" "device" "samsung" "smdk4412-common"
+# All Animations
+# https://gerrit.omnirom.org/#/c/4251/
+# https://gerrit.omnirom.org/#/c/4250/
+# https://gerrit.omnirom.org/#/c/4249/
+adpatch "51/4251" "7" "frameworks" "base"
+adpatch "50/4250" "2" "packages" "apps" "Settings"
+adpatch "49/4249" "7" "packages" "apps" "Settings"
 
 # Quick Toggles (AOSPA)
-# CHERRY-PICKED
 # https://gerrit.omnirom.org/#/c/4211/
-#adpatch "11/4211" "24" "frameworks" "base"
-
-# ListView Animations
-# CHERRY-PICKED
-# https://gerrit.omnirom.org/#/c/2863/ | Patch Set 6 | https://github.com/JustArchi/android_frameworks_base/commit/26d81e4cfc6dabfd035e681e8638f84f5a2aeb23 
-# https://gerrit.omnirom.org/#/c/2862/ | Patch Set 7 | https://github.com/JustArchi/android_packages_apps_OmniGears/commit/0674dc8ac6a0a74dfcc6d2abc56f752985f8789a
+adpatch "11/4211" "33" "frameworks" "base"
 
 exit 0

@@ -1,34 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Please do not manually edit this file-->
 <manifest>
-  <!-- <project name="JustArchi/linaro_arm-eabi.git" path="prebuilts/gcc/linux-x86/arm/arm-eabi-4.8" remote="github" revision="4.8" /> -->
-  <!-- <project name="JustArchi/linaro_arm-linux-androideabi.git" path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8" remote="github" revision="4.8" /> -->
-  <project name="JustArchi/linaro_arm-eabi.git" path="prebuilts/gcc/linux-x86/arm/arm-eabi-linaro-4.7" remote="github" revision="4.7" />
-  <project name="JustArchi/linaro_arm-linux-androideabi.git" path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-linaro-4.7" remote="github" revision="4.7" />
+  <!-- OBSOLETE -->
   <!-- <project name="JustArchi/android_frameworks_rs" path="frameworks/rs" remote="github" revision="android-4.4" /> -->
 
+  <!-- LINARO -->
+  <!-- <project name="JustArchi/linaro_arm-eabi.git" path="prebuilts/gcc/linux-x86/arm/arm-eabi-4.8" remote="github" revision="4.8" /> -->
+  <!-- <project name="JustArchi/linaro_arm-linux-androideabi.git" path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8" remote="github" revision="4.8" /> -->
+  <!-- <project name="JustArchi/linaro_arm-eabi.git" path="prebuilts/gcc/linux-x86/arm/arm-eabi-linaro-4.7" remote="github" revision="4.7" /> -->
+  <!-- <project name="JustArchi/linaro_arm-linux-androideabi.git" path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-linaro-4.7" remote="github" revision="4.7" /> -->
+
+  <!-- SABERMOD -->
+  <project name="SaberMod/android_prebuilts_gcc_linux-x86_arm_sabermod-arm-eabi-4.8.git" path="prebuilts/gcc/linux-x86/arm/arm-eabi-4.8" remote="github" revision="sm-kk-mr1" />
+  <project name="SaberMod/android_prebuilts_gcc_linux-x86_arm_sabermod-arm-linux-androideabi-4.8.git" path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8" remote="github" revision="sm-kk-mr1" />
+
+  <!-- ARCHIDROID FORKS -->
   <remove-project name="android_build" />
   <project name="JustArchi/android_build" path="build" remote="github" revision="android-4.4" />
-
   <!-- <remove-project name="android_frameworks_base" /> -->
   <!-- <project name="JustArchi/android_frameworks_base" path="frameworks/base" remote="github" revision="android-4.4" /> -->
-
   <remove-project name="android_packages_apps_Settings" />
   <project name="JustArchi/android_packages_apps_Settings" path="packages/apps/Settings" remote="github" revision="android-4.4" />
-
   <remove-project name="android_vendor_omni" />
   <project name="JustArchi/android_vendor_omni" path="vendor/omni" remote="github" revision="android-4.4" />
-
   <!-- <remove-project name="android_packages_apps_OmniGears" /> -->
   <!-- <project name="JustArchi/android_packages_apps_OmniGears" path="packages/apps/OmniGears" remote="github" revision="android-4.4" /> -->
 
+  <!-- GALAXY S3 DEPENDENCIES -->
   <project name="DonkeyCoyote/proprietary_vendor_samsung" path="vendor/samsung" remote="github" revision="android-4.4" />
   <project name="android_device_samsung_i9300" path="device/samsung/i9300" remote="omnirom" revision="android-4.4" />
   <project name="android_device_samsung_smdk4412-common" path="device/samsung/smdk4412-common" remote="omnirom" revision="android-4.4" />
   <project name="android_hardware_samsung" path="hardware/samsung" remote="omnirom" revision="android-4.4" />
   <project name="android_packages_apps_SamsungServiceMode" path="packages/apps/SamsungServiceMode" remote="omnirom" revision="android-4.4" />
-
   <project name="android_kernel_samsung_smdk4412" path="kernel/samsung/smdk4412" remote="omnirom" revision="android-4.4" />
+
+  <!-- ARCHIDROID GALAXY S3 DEPENDENCIES FORKS -->
   <!-- <remove-project name="android_kernel_samsung_smdk4412" /> -->
   <!-- <project name="JustArchi/android_kernel_samsung_smdk4412" path="kernel/samsung/smdk4412" remote="github" revision="android-4.4" /> -->
 </manifest>

@@ -4,12 +4,12 @@
 ro.build.id=KOT49H
 ro.build.display.id=ArchiDroid 2.3.3 EXPERIMENTAL
 ro.archidroid.version=2.3.3 EXPERIMENTAL
-ro.build.version.incremental=eng.root.20131231.041253
+ro.build.version.incremental=eng.root.20131231.065444
 ro.build.version.sdk=19
 ro.build.version.codename=REL
 ro.build.version.release=4.4.2
-ro.build.date=wto, 31 gru 2013, 04:13:42 CET
-ro.build.date.utc=1388459622
+ro.build.date=wto, 31 gru 2013, 06:56:06 CET
+ro.build.date.utc=1388469366
 ro.build.type=userdebug
 ro.build.user=root
 ro.build.host=ArchiDroid
@@ -29,8 +29,8 @@ ro.board.platform=exynos4
 # ro.build.product is obsolete; use ro.product.device
 ro.build.product=i9300
 # Do not try to parse ro.build.description or .fingerprint
-ro.build.description=omni_i9300-userdebug 4.4.2 KOT49H eng.root.20131231.041253 test-keys
-ro.build.fingerprint=samsung/omni_i9300/i9300:4.4.2/KOT49H/eng.root.20131231.041253:userdebug/test-keys
+ro.build.description=omni_i9300-userdebug 4.4.2 KOT49H eng.root.20131231.065444 test-keys
+ro.build.fingerprint=samsung/omni_i9300/i9300:4.4.2/KOT49H/eng.root.20131231.065444:userdebug/test-keys
 ro.build.characteristics=default
 ro.omni.device=i9300
 # end build properties

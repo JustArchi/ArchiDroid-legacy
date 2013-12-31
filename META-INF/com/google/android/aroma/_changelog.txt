@@ -15,17 +15,15 @@ ArchiDroid 2.3.3
 
 # ArchiDroid Boom-Boom release
 # Status: Boots! ART works!
-
-# Stage 1 [DONE]
-* Updated/Changed ROM toolchain from GCC 4.7 to Linaro 4.7 #Note: Linaro 4.8 breaks ART
-* Kernel remains GCC 4.7 #Note: Requires several patches to work with Linaro
+* Updated/Changed ROM toolchain from GCC 4.7 to SaberMod 4.8 #Note: Linaro 4.8 breaks ART, let's look how SaberMod will perform
 * Updated/Changed Java 1.6 to Java 1.7 #Note: Breaks with Java 1.8-dev
------------------
-# Stage 2 [LIVE]
-+ Find best generic optimization flags, which won't break the build
-+ Add SGS3-specific optimization flags, which won't break the build
-+ Added: GLOBAL_LDFLAGS := -Wl,-O2
------------------
-# Stage 3 [TODO]
-+ Make dozen of stability and performance tests to prove that I wasted whole christmas on nothing
-+ ??? PROFIT!
+
+* TARGET_arm_CFLAGS := -O3(!) -fno-tree-vectorize -fno-inline-functions -fgcse-after-reload -fno-ipa-cp-clone -fno-vect-cost-model
+* TARGET_thumb_CFLAGS := -fno-unswitch-loops -fno-tree-vectorize -fno-inline-functions -fgcse-after-reload -fno-ipa-cp-clone -fno-vect-cost-model
+* TARGET_RELEASE_CFLAGS := -fno-ipa-cp-clone -fno-vect-cost-model
+* $(combo_target)RELEASE_CFLAGS := -O3(!) -fno-tree-vectorize -fno-inline-functions -fno-unswitch-loops -fgcse-after-reload -fno-ipa-cp-clone -fno-vect-cost-model
+
+[LIVE] Find best generic optimization flags, which won't break the build
+[LIVE] Add SGS3-specific optimization flags, which won't break the build
+[TODO] Make dozen of stability and performance tests to prove that I wasted whole christmas on nothing
+[TODO] ??? PROFIT!

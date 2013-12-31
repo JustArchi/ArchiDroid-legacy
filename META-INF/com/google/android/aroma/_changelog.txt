@@ -14,16 +14,21 @@ ArchiDroid 2.3.3
 * Reverted AOKP Animations, due to Full Animation Controls
 
 # ArchiDroid Boom-Boom release
-# Status: Boots! ART works!
+# Status: Stage 2 Finished!
 * Updated/Changed ROM toolchain from GCC 4.7 to Linaro 4.7 #Note: Linaro/SaberMod 4.8 breaks ART, maybe in future
 * Updated/Changed Java 1.6 to Java 1.7 #Note: Breaks with Java 1.8-dev
 
-* TARGET_arm_CFLAGS := -O3(!) -fno-tree-vectorize -fno-inline-functions -fgcse-after-reload -fno-ipa-cp-clone -fno-vect-cost-model
-* TARGET_thumb_CFLAGS := -fno-unswitch-loops -fno-tree-vectorize -fno-inline-functions -fgcse-after-reload -fno-ipa-cp-clone -fno-vect-cost-model
-* TARGET_RELEASE_CFLAGS := -fno-ipa-cp-clone -fno-vect-cost-model
-* $(combo_target)RELEASE_CFLAGS := -O3(!) -fno-tree-vectorize -fno-inline-functions -fno-unswitch-loops -fgcse-after-reload -fno-ipa-cp-clone -fno-vect-cost-model
+* TARGET_arm_CFLAGS := -O3(!) -fstrict-aliasing(!) -fno-tree-vectorize -fno-inline-functions -fgcse-after-reload -fno-ipa-cp-clone -fno-vect-cost-model
+* TARGET_thumb_CFLAGS := -fstrict-aliasing(!) -fno-unswitch-loops -fno-tree-vectorize -fno-inline-functions -fgcse-after-reload -fno-ipa-cp-clone -fno-vect-cost-model
+* TARGET_RELEASE_CFLAGS := -fstrict-aliasing(!) -fno-ipa-cp-clone -fno-vect-cost-model
+* TARGET_GLOBAL_CFLAGS := -fstrict-aliasing(!)
+* TARGET_GLOBAL_CPPLAGS := -fstrict-aliasing(!)
+* $(combo_target)GLOBAL_CFLAGS := -fstrict-aliasing(!)
+* $(combo_target)RELEASE_CFLAGS := -O3(!) -fstrict-aliasing(!) -fno-tree-vectorize -fno-inline-functions -fno-unswitch-loops -fgcse-after-reload -fno-ipa-cp-clone -fno-vect-cost-model
 
-[LIVE] Find best generic optimization flags, which won't break the build
-[LIVE] Add SGS3-specific optimization flags, which won't break the build
-[TODO] Make dozen of stability and performance tests to prove that I wasted whole christmas on nothing
-[TODO] ??? PROFIT!
+[DONE] Update toolchain
+[DONE] Update Java
+[DONE] Find best generic optimization flags, which won't break the build
+[DONE] Add SGS3-specific optimization flags, which won't break the build
+[LIVE] Make dozen of stability and performance tests to prove that I wasted whole christmas on nothing
+[LIVE] ??? PROFIT!

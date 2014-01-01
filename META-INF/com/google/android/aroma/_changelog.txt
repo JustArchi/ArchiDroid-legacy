@@ -4,6 +4,9 @@ ArchiDroid 2.3.3
 # Added extsd support. Adflash will now automatically use extsd if ArchiDroid folder found. This means you need to use extsd mode only once (to create ArchiDroid folder)
 # Added better git support. Adflash will now automatically use git mode if GitHub repository already exists in folder detected above
 
+- Improved adlinux
+# Added extsd support. Adlinux automatically checks if you have extsd and if it's supported. Your extsd needs to be formatted in native linux format such as ext4 to be supported, otherwise internal sd is (and must be) used, because debian requires symlink functionality
+
 - Updated Boeffla Kernel to 2.1-beta8 (no updated presets yet)
 - Updated Temasek Kernel to 231213
 - Updated Devil Kernel to 2.2.5b

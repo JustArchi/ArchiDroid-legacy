@@ -1,6 +1,29 @@
 #!/system/bin/sh
 
-AD="/data/media/0/ArchiDroid"
+if [ -d /data/media/0/ArchiDroid/debian ]; then
+	AD="/data/media/0/ArchiDroid"
+elif [ -d /storage/sdcard1/ArchiDroid/debian ]; then
+	AD="/storage/sdcard1/ArchiDroid"
+	ln -s $AD /storage/sdcard1/adtest >/dev/null 2>&1
+	if [ $? -ne 0 ]; then
+		AD="/data/media/0/ArchiDroid"
+		EXTSDSUPPORTED=0
+	else
+		rm -f /storage/sdcard1/adtest
+		EXTSDSUPPORTED=1
+	fi
+elif [ -d /storage/extSdCard/ArchiDroid/debian ]; then
+	AD="/storage/extSdCard/ArchiDroid"
+	ln -s $AD /storage/extSdCard/adtest >/dev/null 2>&1
+	if [ $? -ne 0 ]; then
+		AD="/data/media/0/ArchiDroid"
+		EXTSDSUPPORTED=0
+	else
+		rm -f /storage/extSdCard/adtest
+		EXTSDSUPPORTED=1
+	fi
+fi
+
 mnt=$AD/debian
 
 FORCE=0
@@ -8,15 +31,69 @@ MODE=default
 
 # Parse args
 ARGN=0
-for arg in "$@"; do
-	ARGN=`expr $ARGN + 1`
-	if [ "$arg" == "force" ]; then
-		FORCE=1
-	elif [ "$arg" == "cmd" ]; then
-		MODE="cmd"
-		shift $ARGN
-		break
-	fi
+for arg in $@; do
+	case "$arg" in
+		"force")
+			ARGN=`expr $ARGN + 1`
+			FORCE=1
+			;;
+		"cmd")
+			ARGN=`expr $ARGN + 1`
+			MODE="cmd"
+			shift $ARGN
+			break
+			;;
+		"intsd")
+			if [ "$AD" != "/data/media/0/ArchiDroid" ]; then
+				echo "Changing path to internal sd!"
+				AD="/data/media/0/ArchiDroid"
+				mkdir -p $AD/tmp
+				cd $AD/tmp && rm -f test && touch test && rm -f test
+				CHECK1=$?
+				if [ $CHECK1 -ne 0 ]; then
+					echo "Sorry, access test failed. Make sure that $AD/tmp is not being owned by root or give me root access"
+					exit 1
+				else
+					echo "Access test passed, we're ready to go!"
+					mnt=$AD/debian
+				fi
+			fi
+			;;
+		"extsd")
+			if [ "$AD" == "/data/media/0/ArchiDroid" ] && [ $EXTSDSUPPORTED -eq 1 ]; then
+				echo "Changing path to external sd!"
+				if [ -e /storage/sdcard1 ]; then
+					AD="/storage/sdcard1/ArchiDroid"
+				elif [ -e /storage/extSdCard ]; then
+					AD="/storage/extSdCard/ArchiDroid"
+				fi
+
+				if [ "$AD" != "/data/media/0/ArchiDroid" ]; then
+					mkdir -p $AD/tmp
+					cd $AD/tmp && rm -f test && touch test && rm -f test
+					CHECK1=$?
+					if [ $CHECK1 -ne 0 ]; then
+						echo "Sorry, access test failed. Make sure that $AD/tmp is not being owned by root or give me root access"
+						exit 1
+					else
+						echo "Access test passed, we're ready to go!"
+						mnt=$AD/debian
+					fi
+				else
+					echo "Sorry, could not detect any valid path to use"
+					echo "You selected extsd and I failed to use it so I'm aborting here"
+					exit 1
+				fi
+			elif [ "$AD" == "/data/media/0/ArchiDroid" ] && [ $EXTSDSUPPORTED -eq 0 ]; then
+				echo "You selected extsd, but I failed to use it so I'm aborting here"
+				echo "It lacks symlink functionality, you need to reformat your external sd card to native linux filesystem (f.e. ext4) if you want to use debian on your extsd"
+				exit 1
+			fi
+			;;
+		*)
+			ARGN=`expr $ARGN + 1`
+			continue
+	esac
 done
 
 if [ $FORCE -ne 1 ]; then
@@ -30,9 +107,9 @@ fi
 
 export TERM=linux
 export HOME=/root
-		
+
 if [ `echo $PATH | grep "/usr/local/sbin" | wc -l` -eq 0 ]; then
-		export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH
+	export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH
 fi
 
 if [ "$MODE" == "default" ]; then

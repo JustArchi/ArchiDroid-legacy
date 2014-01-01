@@ -8,18 +8,41 @@ if [ `whoami 2>&1 | grep -i "root" | wc -l` -eq 0 ] && [ `whoami 2>&1 | grep -i 
 	exit 0
 fi
 
-AD="/data/media/0/ArchiDroid"
+if [ -d /storage/sdcard1/ArchiDroid ]; then
+	NOEXTSD=0
+	AD="/storage/sdcard1/ArchiDroid"
+	ln -s $AD /storage/sdcard1/adtest >/dev/null 2>&1
+	if [ $? -ne 0 ]; then
+		AD="/data/media/0/ArchiDroid"
+		EXTSDSUPPORTED=0
+	else
+		rm -f /storage/sdcard1/adtest
+		EXTSDSUPPORTED=1
+	fi
+elif [ -d /storage/extSdCard/ArchiDroid ]; then
+	NOEXTSD=0
+	AD="/storage/extSdCard/ArchiDroid"
+	ln -s $AD /storage/extSdCard/adtest >/dev/null 2>&1
+	if [ $? -ne 0 ]; then
+		AD="/data/media/0/ArchiDroid"
+		EXTSDSUPPORTED=0
+	else
+		rm -f /storage/extSdCard/adtest
+		EXTSDSUPPORTED=1
+	fi
+else
+	NOEXTSD=1
+	AD="/data/media/0/ArchiDroid"
+fi
+
 mnt=$AD/debian
 
 echo "Welcome to ArchiDroid Debian/Linux Booter!"
 echo "Checking access to $AD"
 mkdir -p $AD/tmp
-cd $AD/tmp
-touch test
+cd $AD/tmp && rm -f test && touch test && rm -f test
 CHECK1=$?
-rm -f test
-CHECK2=$?
-if [ $CHECK1 -ne 0 ] || [ $CHECK2 -ne 0 ]; then
+if [ $CHECK1 -ne 0 ]; then
 	echo "Sorry, access test failed. Make sure that $AD/tmp is not being owned by root or give me root access"
 	exit 1
 else
@@ -29,25 +52,97 @@ fi
 if [ $# -eq 0 ]; then
 	echo "Usage: $0 <MODE>"
 	echo ""
-	echo ""
 	echo "Available modes:"
 	echo ""
-	echo "default	Will mount /data /system /storage/sdcard0 /storage/sdcard1 and core filesystems in chroot. Default suggested mode"
-	echo ""
-	echo "safe	Will mount only core filesystems in chroot. Useful if you don't want to share your storage in chroot"
-	echo ""
-	echo "bare	Won't mount even core filesystems such as /proc /dev or /sys. Requires \"debian force\" to enter chroot. This is the \"real\" safe mode. You won't be able to interact with an android in any way, while debian itself will work in very limited environment, making core functions unavailable. Suggested only for testing purposes"
-	echo ""
-	echo "rebuild	Will automatically reboot your device and remove debian folder in the safe way. WILL CAUSE ALL DEBIAN DATA TO BE LOST!"
-	echo ""
-	echo "unmount	Will automatically reboot your device to safely unmount debian environment"
-	echo ""
+	echo "default		Will mount /data /system /storage/sdcard0 /storage/sdcard1 and core filesystems in chroot. Default suggested mode"
+	echo "safe			Will mount only core filesystems in chroot. Useful if you don't want to share your storage in chroot"
+	echo "bare			Won't mount even core filesystems such as /proc /dev or /sys. Requires \"debian force\" to enter chroot. This is the \"real\" safe mode. You won't be able to interact with an android in any way, while debian itself will work in very limited environment, making core functions unavailable. Suggested only for testing purposes"
+	echo "rebuild		Will automatically reboot your device and remove debian folder in the safe way. WILL CAUSE ALL DEBIAN DATA TO BE LOST!"
+	echo "unmount		Will automatically reboot your device to safely unmount debian environment"
 	echo ""
 	echo -n "Your choice: "
 	read CHOICE
+	if [ $NOEXTSD -eq 0 ]; then
+		echo ""
+		echo ""
+		echo "You may specify any extra options here separated by a whitespace. Eventually you can just skip this question and apply defaults"
+		echo ""
+		echo "ArchiDroid will prioritize extsd if it contains ArchiDroid/debian folder and eventually fall back to intsd, you can override this here"
+		echo "Currently using ArchiDroid in: $AD. If you're satisfied with this path you can just skip this question"
+		echo "WARNING! Debian requires symlink functionality, typically native windows filesystems DON'T support symlinks, therefore you need to have your external sd card formatted in one of the native linux filesystems, f.e. ext4"
+		if [ $EXTSDSUPPORTED -eq 1 ]; then
+			echo "ArchiDroid Detect: Your external sd card IS supported"
+		else
+			echo "ArchiDroid Detect: Your external sd card IS NOT supported"
+		fi
+		echo "extsd			Use external sd card (/storage/sdcard1 /storage/extSdCard), if possible"
+		echo "intsd			Use internal sd card (/data/media/0)"
+		echo ""
+		echo ""
+		echo "Example: intsd"
+		echo -n "Your extra options: "
+		read EXTRA
+	fi
 else
 	CHOICE="$1"
+	shift 1
+	EXTRA="$@"
 fi
+
+# Parse extra args
+for arg in $EXTRA; do
+	case "$arg" in
+		"intsd")
+			if [ "$AD" != "/data/media/0/ArchiDroid" ]; then
+				echo "Changing path to internal sd!"
+				AD="/data/media/0/ArchiDroid"
+				mkdir -p $AD/tmp
+				cd $AD/tmp && rm -f test && touch test && rm -f test
+				CHECK1=$?
+				if [ $CHECK1 -ne 0 ]; then
+					echo "Sorry, access test failed. Make sure that $AD/tmp is not being owned by root or give me root access"
+					exit 1
+				else
+					echo "Access test passed, we're ready to go!"
+					mnt=$AD/debian
+				fi
+			fi
+			;;
+		"extsd")
+			if [ "$AD" == "/data/media/0/ArchiDroid" ] && [ $EXTSDSUPPORTED -eq 1 ]; then
+				echo "Changing path to external sd!"
+				if [ -e /storage/sdcard1 ]; then
+					AD="/storage/sdcard1/ArchiDroid"
+				elif [ -e /storage/extSdCard ]; then
+					AD="/storage/extSdCard/ArchiDroid"
+				fi
+
+				if [ "$AD" != "/data/media/0/ArchiDroid" ]; then
+					mkdir -p $AD/tmp
+					cd $AD/tmp && rm -f test && touch test && rm -f test
+					CHECK1=$?
+					if [ $CHECK1 -ne 0 ]; then
+						echo "Sorry, access test failed. Make sure that $AD/tmp is not being owned by root or give me root access"
+						exit 1
+					else
+						echo "Access test passed, we're ready to go!"
+						mnt=$AD/debian
+					fi
+				else
+					echo "Sorry, could not detect any valid path to use"
+					echo "You selected extsd and I failed to use it so I'm aborting here"
+					exit 1
+				fi
+			elif [ "$AD" == "/data/media/0/ArchiDroid" ] && [ $EXTSDSUPPORTED -eq 0 ]; then
+				echo "You selected extsd, but I failed to use it so I'm aborting here"
+				echo "It lacks symlink functionality, you need to reformat your external sd card to native linux filesystem (f.e. ext4) if you want to use debian on your extsd"
+				exit 1
+			fi
+			;;
+		*)
+			continue
+	esac
+done
 
 case "$CHOICE" in
 	"unmount")
@@ -91,7 +186,7 @@ else
 	if [ ! -e $mnt/bin/bash ]; then
 		mkdir -p $mnt
 		echo "It looks like it's your first installation. Unpacking your debian..."
-		busybox tar -xf $AD/System/debian.tar.gz -C $mnt
+		busybox tar -xf /data/media/0/ArchiDroid/System/debian.tar.gz -C $mnt
 		debian "force" "cmd" "ln -s /proc/mounts /etc/mtab"
 		echo "Done!"
 	fi
@@ -101,30 +196,30 @@ else
 	case "$CHOICE" in
 	"default")
 		echo "Mounting /dev /dev/pts /dev/shm /proc /sys /system /data /storage/sdcard0 /storage/sdcard1"
-		busybox mount --bind /dev $mnt/dev
-		busybox mount --bind /dev/pts $mnt/dev/pts
-		mkdir -p $mnt/dev/shm
-		busybox mount --bind /dev/shm $mnt/dev/shm
-		busybox mount -t proc proc $mnt/proc
-		busybox mount -t sysfs sysfs $mnt/sys
-		busybox mount --bind /system $mnt/system
-		busybox mount --bind /data $mnt/data
-		busybox mount --bind /storage/sdcard0 $mnt/storage/sdcard0
+		mkdir -p $mnt/dev && busybox mount --bind /dev $mnt/dev
+		mkdir -p $mnt/dev/pts && busybox mount --bind /dev/pts $mnt/dev/pts
+		mkdir -p $mnt/dev/shm && busybox mount --bind /dev/shm $mnt/dev/shm
+		mkdir -p $mnt/proc && busybox mount -t proc proc $mnt/proc
+		mkdir -p $mnt/sys && busybox mount -t sysfs sysfs $mnt/sys
+		mkdir -p $mnt/system && busybox mount --bind /system $mnt/system
+		mkdir -p $mnt/data && busybox mount --bind /data $mnt/data
+		mkdir -p $mnt/storage/sdcard0 && busybox mount --bind /storage/sdcard0 $mnt/storage/sdcard0
 		
 		if [ -e /storage/sdcard1 ]; then
-			busybox mount --bind /storage/sdcard1 $mnt/storage/sdcard1
+			mkdir -p $mnt/storage/sdcard1 && busybox mount --bind /storage/sdcard1 $mnt/storage/sdcard1
+			busybox umount -f $mnt/storage/extSdCard >/dev/null 2>&1 && rmdir $mnt/storage/extSdCard
 		elif [ -e /storage/extSdCard ]; then
-			busybox mount --bind /storage/extSdCard $mnt/storage/sdcard1
+			mkdir -p $mnt/storage/extSdCard && busybox mount --bind /storage/extSdCard $mnt/storage/extSdCard
+			busybox umount -f $mnt/storage/sdcard1 >/dev/null 2>&1 && rmdir $mnt/storage/sdcard1
 		fi
 		;;
 	"safe")
 		echo "Mounting /dev /dev/pts /dev/shm /proc /sys, SKIPPING /system /data /storage/sdcard0 /storage/sdcard1"
-		busybox mount --bind /dev $mnt/dev
-		busybox mount --bind /dev/pts $mnt/dev/pts
-		mkdir -p $mnt/dev/shm
-		busybox mount --bind /dev/shm $mnt/dev/shm
-		busybox mount -t proc proc $mnt/proc
-		busybox mount -t sysfs sysfs $mnt/sys
+		mkdir -p $mnt/dev && busybox mount --bind /dev $mnt/dev
+		mkdir -p $mnt/dev/pts && busybox mount --bind /dev/pts $mnt/dev/pts
+		mkdir -p $mnt/dev/shm && busybox mount --bind /dev/shm $mnt/dev/shm
+		mkdir -p $mnt/proc && busybox mount -t proc proc $mnt/proc
+		mkdir -p $mnt/sys && busybox mount -t sysfs sysfs $mnt/sys
 		;;
 	"bare")
 		echo "Not mounting anything!"

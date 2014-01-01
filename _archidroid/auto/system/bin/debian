@@ -44,6 +44,7 @@ for arg in $@; do
 			break
 			;;
 		"intsd")
+			ARGN=`expr $ARGN + 1`
 			if [ "$AD" != "/data/media/0/ArchiDroid" ]; then
 				echo "Changing path to internal sd!"
 				AD="/data/media/0/ArchiDroid"
@@ -60,6 +61,7 @@ for arg in $@; do
 			fi
 			;;
 		"extsd")
+			ARGN=`expr $ARGN + 1`
 			if [ "$AD" == "/data/media/0/ArchiDroid" ] && [ $EXTSDSUPPORTED -eq 1 ]; then
 				echo "Changing path to external sd!"
 				if [ -e /storage/sdcard1 ]; then

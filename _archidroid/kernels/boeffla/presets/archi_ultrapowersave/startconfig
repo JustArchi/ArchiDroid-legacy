@@ -9,10 +9,14 @@ echo '1024' > /sys/block/mmcblk1/bdi/read_ahead_kb
 /res/bc/bccontroller.sh apply_ext4_tweaks 1
 echo '1400000' > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
 echo '200000' > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
-echo 'undervolt medium' > /dev/bk_cpu_voltages_profile
-echo '1375 1338 1275 1213 1175 1125 1050 1000 950 925 913 875 875 850 825' > /sys/devices/system/cpu/cpu0/cpufreq/UV_mV_table
+echo 'undervolt -50mV' > /dev/bk_cpu_voltages_profile
+echo '1350 1313 1250 1188 1150 1100 1050 1000 950 925 913 900 900 875 850' > /sys/devices/system/cpu/cpu0/cpufreq/UV_mV_table
 echo '3' > /sys/module/cpuidle_exynos4/parameters/enable_mask
 echo '2' > /sys/devices/system/cpu/sched_mc_power_savings
+echo '' > /dev/bk_gpu_frequencies_profile
+echo '108 160 266 400 533' > /sys/class/misc/gpu_clock_control/gpu_control
+echo '' > /dev/bk_gpu_voltages_profile
+echo '850000 875000 900000 1000000 1075000' > /sys/class/misc/gpu_voltage_control/gpu_control
 echo '1' > /sys/class/misc/boeffla_sound/boeffla_sound
 echo '55 55' > /sys/class/misc/boeffla_sound/headphone_volume
 echo '57 57' > /sys/class/misc/boeffla_sound/speaker_volume
@@ -35,18 +39,14 @@ echo '1' > /sys/class/sec/led/led_speed
 echo '1' > /sys/class/misc/touchboost_switch/touchboost_switch
 echo '600000' > /sys/class/misc/touchboost_switch/touchboost_freq
 echo '0' > /sys/class/misc/touchwake/enabled
-echo '0' > /sys/class/misc/touchwake/delay
+echo '45000' > /sys/class/misc/touchwake/delay
 echo '0' > /sys/kernel/early_suspend/early_suspend_delay
-echo '' > /sys/class/misc/mdnie_preset/mdnie_preset
-echo '1' > /dev/bk_mdnie_overwrite
-echo '' > /sys/class/mdnie/mdnie/outdoor
-echo '' > /sys/class/mdnie/mdnie/negative
-echo '1' > /sys/class/mdnie/mdnie/scenario
-echo '2' > /sys/class/mdnie/mdnie/mode
+echo '1' > /sys/class/misc/mdnie_preset/mdnie_preset
+echo '' > /dev/bk_mdnie_overwrite
 echo '1' > /sys/class/sec/sec_touchkey/touch_led_handling
 echo '0' > /sys/class/sec/sec_touchkey/touch_led_on_screen_touch
-echo 'Off' > /dev/bk_system_tweaks
-echo '4' > cat /proc/swaps
+echo '' > /dev/bk_system_tweaks
+/res/bc/bccontroller.sh apply_system_tweaks ''
 echo '52428800' > /sys/block/zram0/disksize
 echo '52428800' > /sys/block/zram1/disksize
 echo '52428800' > /sys/block/zram2/disksize
@@ -62,7 +62,7 @@ echo '0' > /sys/kernel/charge_levels/ignore_unstable_power
 /res/bc/bccontroller.sh apply_cifs 0
 /res/bc/bccontroller.sh apply_nfs 0
 /res/bc/bccontroller.sh apply_xbox 0
-/res/bc/bccontroller.sh apply_exfat 0
+/res/bc/bccontroller.sh apply_exfat 1
 /res/bc/bccontroller.sh apply_ntfs 0
 echo '0' > /sys/kernel/logger_mode/logger_mode
 echo '' > /sys/kernel/printk_mode/printk_mode

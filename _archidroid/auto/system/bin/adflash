@@ -45,7 +45,6 @@ if [ $# -eq 0 ]; then
 	echo ""
 	echo "You may specify any extra options here separated by a whitespace. Eventually you can just skip this question and apply defaults"
 	echo ""
-	echo ""
 	echo "ArchiDroid will prioritize git mode if ArchiDroid github repository already exists on your device and eventually fall back to direct, you can override this here"
 	echo "Currently using mode: $MODE. If you're satisfied with this mode you can just skip this question"
 	echo "git			Sets up local git repository, which gives you delta upgrades and bandwidth saving"
@@ -136,7 +135,7 @@ for arg in $EXTRA; do
 					fi
 				else
 					echo "Sorry, could not detect any valid path to use"
-					echo "You selected extsd and I failed to use it so I'm aborting here"
+					echo "You selected extsd, but I failed to use it so I'm aborting here"
 					exit 1
 				fi
 			fi

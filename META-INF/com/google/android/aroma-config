@@ -239,15 +239,6 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 
 		"googleapps","<#selectbg_g>Google Apps</#>","","group",
 		"gapps","Google Apps","<~archidroid.gapps.desc>","check.checked",
-		"gcalendar","Google Calendar [<~common.inverted>]","<~common.replaces> CyanogenMod Calendar","check",
-		"gchrome","Google Chrome [<~common.inverted>]","","check",
-		"gkeep","Google Keep [<~common.inverted>]","","check",
-		"gmail","Google Mail (Gmail) [<~common.inverted>]","","check",
-		"gmaps","Google Maps [<~common.inverted>]","","check",
-		"gvoice","Google Voice","","check.checked",
-		"ghangouts","Google Hangouts [<~common.inverted>]","","check",
-		"gplus","Google Plus [<~common.inverted>]","","check",
-		"gtranslate","Google Translate [<~common.inverted>]","","check",
 
 		"archiapps","<#selectbg_g>ArchiDroid Apps</#>","","group",
 		"titaniumbackup","Titanium Backup","<~archidroid.apps.titaniumbackup.desc>","check.checked",

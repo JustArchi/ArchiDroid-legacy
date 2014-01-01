@@ -698,65 +698,13 @@ else
 
 	if file_getprop("/tmp/aroma-data/archidroid.prop","gapps") == "1" then
 		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Google Apps");
-		delete("/system/app/Provision.apk","/system/app/QuickSearchBox.apk","/system/app/SetupWizard.apk","/system/app/Velvet.apk","/system/app/Vending.apk","/system/app/BrowserProviderProxy.apk","/system/app/PartnerBookmarksProvider.apk","/system/app/Gmail2.apk");
 		package_extract_dir("_archidroid/gapps/system", "/system");
-		#set_perm(0, 0, 0755, "/system/addon.d/70-gapps.sh");
 		package_extract_dir("_archidroid/gapps/optional", "/tmp");
 		package_extract_file("_archidroid/gapps/install-optional.sh", "/tmp/install-optional.sh");
 		set_perm(0, 0, 0777, "/tmp/install-optional.sh");
 		run_program("/tmp/install-optional.sh", "");
 		set_perm_recursive(0, 0, 0755, 0644, "/system/app");
-	endif;
-
-	set_progress(0.85);
-
-	if file_getprop("/tmp/aroma-data/archidroid.prop","gcalendar") == "1" then
-		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Google Calendar");
-		delete("/system/app/SecCalendar.apk");
-		package_extract_dir("_archidroid/apps/gcalendar", "/");
-	endif;
-
-	if file_getprop("/tmp/aroma-data/archidroid.prop","gchrome") == "1" then
-		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Google Chrome");
-		package_extract_dir("_archidroid/apps/gchrome", "/");
-	endif;
-
-	if file_getprop("/tmp/aroma-data/archidroid.prop","gkeep") == "1" then
-		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Google Keep");
-		package_extract_dir("_archidroid/apps/gkeep", "/");
-	endif;
-
-	if file_getprop("/tmp/aroma-data/archidroid.prop","gmail") == "1" then
-		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Google Mail");
-		package_extract_dir("_archidroid/apps/gmail", "/");
-	endif;
-
-	if file_getprop("/tmp/aroma-data/archidroid.prop","gmaps") == "1" then
-		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Google Maps");
-		package_extract_dir("_archidroid/apps/gmaps", "/");
-	endif;
-
-	if file_getprop("/tmp/aroma-data/archidroid.prop","gvoice") == "1" then
-		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Google Voice");
-		package_extract_dir("_archidroid/apps/gvoice", "/");
-		delete("/system/app/VoiceSearchStub.apk");
-		delete("/system/app/GoogleSearchWidget.apk");
-		delete("/system/app/QuickSearchBox.apk");
-	endif;
-
-	if file_getprop("/tmp/aroma-data/archidroid.prop","ghangouts") == "1" then
-		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Google Hangouts");
-		package_extract_dir("_archidroid/apps/ghangouts", "/");
-	endif;
-
-	if file_getprop("/tmp/aroma-data/archidroid.prop","gplus") == "1" then
-		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Google Plus");
-		package_extract_dir("_archidroid/apps/gplus", "/");
-	endif;
-
-	if file_getprop("/tmp/aroma-data/archidroid.prop","gtranslate") == "1" then
-		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Google Translate");
-		package_extract_dir("_archidroid/apps/gtranslate", "/");
+		set_perm_recursive(0, 0, 0755, 0644, "/system/priv-app");
 	endif;
 
 	set_progress(0.86);
@@ -809,16 +757,6 @@ else
 	if file_getprop("/tmp/aroma-data/archidroid.prop","adobeflash") == "1" then
 		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Adobe Flash Player");
 		package_extract_dir("_archidroid/apps/adobeflash", "/");
-	endif;
-
-	if file_getprop("/tmp/aroma-data/archidroid.prop","youtube") == "1" then
-		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing YouTube");
-		package_extract_dir("_archidroid/apps/youtube", "/");
-	endif;
-
-	if file_getprop("/tmp/aroma-data/archidroid.prop","facebook") == "1" then
-		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Facebook");
-		package_extract_dir("_archidroid/apps/facebook", "/");
 	endif;
 
 	set_progress(0.90);

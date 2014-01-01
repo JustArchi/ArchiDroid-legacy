@@ -599,15 +599,6 @@ else
 		set_perm(0, 2000, 0755, "/system/bin/bootanimation");
 	endif;
 
-	if file_getprop("/tmp/aroma-data/archidroid.prop","bootanimation") == "logcat" then
-		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying Logcat Bootanimation");
-		delete("/system/media/audio/ui/PowerOn.ogg");
-		package_extract_dir("_archidroid/bootanimations/logcat", "/");
-		set_perm_recursive(0, 2000, 0755, 0755, "/system/bin");
-		set_perm(0, 0, 06755, "/system/bin/boot-dmesg");
-		delete("/system/media/bootanimation.zip");
-	endif;
-
 	if file_getprop("/tmp/aroma-data/archidroid.prop","bootanimation") == "stock" then
 		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying Stock Bootanimation");
 		# Not needed, haha!
@@ -687,11 +678,6 @@ else
 		package_extract_dir("_archidroid/apps/mxplayer", "/");
 	endif;
 
-	if file_getprop("/tmp/aroma-data/archidroid.prop","spiritfm") == "1" then
-		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Spirit FM");
-		package_extract_dir("_archidroid/apps/spiritfm", "/");
-	endif;
-
 	if file_getprop("/tmp/aroma-data/archidroid.prop","bbs") == "1" then
 		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing BetterBatteryStats");
 		package_extract_dir("_archidroid/apps/betterbatterystats", "/");
@@ -710,16 +696,6 @@ else
 	if file_getprop("/tmp/aroma-data/archidroid.prop","adobeflash") == "1" then
 		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Adobe Flash Player");
 		package_extract_dir("_archidroid/apps/adobeflash", "/");
-	endif;
-
-	if file_getprop("/tmp/aroma-data/archidroid.prop","youtube") == "1" then
-		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing YouTube");
-		package_extract_dir("_archidroid/apps/youtube", "/");
-	endif;
-
-	if file_getprop("/tmp/aroma-data/archidroid.prop","facebook") == "1" then
-		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Facebook");
-		package_extract_dir("_archidroid/apps/facebook", "/");
 	endif;
 
 	set_progress(0.90);

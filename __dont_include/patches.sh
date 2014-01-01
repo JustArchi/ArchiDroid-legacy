@@ -52,12 +52,12 @@ adpatch() {
 # https://gerrit.omnirom.org/#/c/4251/
 # https://gerrit.omnirom.org/#/c/4250/
 # https://gerrit.omnirom.org/#/c/4249/
-adpatch "51/4251" "7" "frameworks" "base"
-adpatch "50/4250" "2" "packages" "apps" "Settings"
-adpatch "49/4249" "7" "packages" "apps" "OmniGears"
+adpatch "51/4251" "21" "frameworks" "base"
+adpatch "50/4250" "4" "packages" "apps" "Settings"
+adpatch "49/4249" "21" "packages" "apps" "OmniGears"
 
 # Quick Toggles (AOSPA)
 # https://gerrit.omnirom.org/#/c/4211/
-adpatch "11/4211" "33" "frameworks" "base"
+adpatch "11/4211" "37" "frameworks" "base"
 
 exit 0

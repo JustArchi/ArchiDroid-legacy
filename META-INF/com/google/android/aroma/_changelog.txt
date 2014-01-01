@@ -4,4 +4,8 @@ ArchiDroid 1.7.5
 - Fixed broken google sync after removing Samsung Calendar from bloatware
 
 * ArchiDroid Commons
+- Improved adflash
+# Added extsd support. Adflash will now automatically use extsd if ArchiDroid folder found. This means you need to use extsd mode only once (to create ArchiDroid folder)
+# Added better git support. Adflash will now automatically use git mode if GitHub repository already exists in folder detected above
+
 - Updated Devil Kernel to 2.2.5b

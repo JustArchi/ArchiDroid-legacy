@@ -1,6 +1,4 @@
 #!/bin/bash
-AD="/data/media/0/ArchiDroid"
-ourFolder="$AD/GitHub"
 ourRepo="origin"
 ourLink="git://github.com/JustArchi/ArchiDroid.git"
 VERSION="$1"
@@ -16,9 +14,9 @@ echo ""
 echo ""
 echo "CHANGELOG EOF"
 
-if [ -d $ourFolder/$VERSION ]; then
+if [ -d $VERSION ]; then
 	echo "Ok, repository already available with branch $VERSION. Updating..."
-	cd $ourFolder/$VERSION
+	cd $VERSION
 	ourOldHead=`git rev-parse HEAD`
 	git pull $ourRepo $VERSION
 	echo "New commits:"
@@ -27,9 +25,8 @@ if [ -d $ourFolder/$VERSION ]; then
 	echo ""
 else
 	echo "Repository isn't available yet, cloning ArchiDroid repository branch $VERSION"
-	cd $ourFolder
 	git clone --branch $VERSION --depth 1 $ourLink $VERSION
-	cd $ourFolder/$VERSION
+	cd $VERSION
 	git pull $ourRepo $VERSION
 fi
 

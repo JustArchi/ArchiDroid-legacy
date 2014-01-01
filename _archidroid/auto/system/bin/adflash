@@ -1,12 +1,24 @@
 #!/system/bin/sh
 
 VERSION=""
-MODE="git"
 TEMP=""
-AD="/data/media/0/ArchiDroid"
 NOZIP=0
 
+if [ -d /storage/sdcard1/ArchiDroid ]; then
+	AD="/storage/sdcard1/ArchiDroid"
+elif [ -d /storage/extSdCard/ArchiDroid ]; then
+	AD="/storage/extSdCard/ArchiDroid"
+else
+	AD="/data/media/0/ArchiDroid"
+fi
+if [ -d $AD/GitHub ]; then
+	MODE="git"
+else
+	MODE="direct"
+fi
+
 echo "Welcome to ArchiDroid Command Line Flasher!"
+echo "Detected ArchiDroid in $AD"
 echo "Checking access to $AD"
 mkdir -p $AD/tmp
 cd $AD/tmp && rm -f test && touch test && rm -f test
@@ -33,11 +45,22 @@ if [ $# -eq 0 ]; then
 	echo ""
 	echo "You may specify any extra options here separated by a whitespace. Eventually you can just skip this question and apply defaults"
 	echo ""
-	echo "git			[Default] Sets up local git repository, which gives you delta upgrades and bandwidth saving"
+	echo ""
+	echo "ArchiDroid will prioritize git mode if ArchiDroid github repository already exists on your device and eventually fall back to direct, you can override this here"
+	echo "Currently using mode: $MODE. If you're satisfied with this mode you can just skip this question"
+	echo "git			Sets up local git repository, which gives you delta upgrades and bandwidth saving"
 	echo "direct		Downloads targeted branch as .zip file directly from github"
 	echo ""
+	echo "ArchiDroid will prioritize extsd if it contains ArchiDroid folder and eventually fall back to intsd, you can override this here"
+	echo "Currently using ArchiDroid in: $AD. If you're satisfied with this path you can just skip this question"
+	echo "extsd			Use external sd card (/storage/sdcard1 /storage/extSdCard)"
+	echo "intsd			Use internal sd card (/data/media/0)"
+	echo ""
+	echo "Other selectable options"
 	echo "nozip			Shows changelog and changes only"
 	echo ""
+	echo ""
+	echo "Example: git extsd"
 	echo -n "Your extra options: "
 	read EXTRA
 else
@@ -77,25 +100,68 @@ for arg in $EXTRA; do
 		"nozip")
 			NOZIP=1
 			;;
+		"intsd")
+			if [ "$AD" != "/data/media/0/ArchiDroid" ]; then
+				echo "Changing path to internal sd!"
+				AD="/data/media/0/ArchiDroid"
+				mkdir -p $AD/tmp
+				cd $AD/tmp && rm -f test && touch test && rm -f test
+				CHECK1=$?
+				if [ $CHECK1 -ne 0 ]; then
+					echo "Sorry, access test failed. Make sure that $AD/tmp is not being owned by root or give me root access"
+					exit 1
+				else
+					echo "Access test passed, we're ready to go!"
+				fi
+			fi
+			;;
+		"extsd")
+			if [ "$AD" == "/data/media/0/ArchiDroid" ]; then
+				echo "Changing path to external sd!"
+				if [ -e /storage/sdcard1 ]; then
+					AD="/storage/sdcard1/ArchiDroid"
+				elif [ -e /storage/extSdCard ]; then
+					AD="/storage/extSdCard/ArchiDroid"
+				fi
+
+				if [ "$AD" != "/data/media/0/ArchiDroid" ]; then
+					mkdir -p $AD/tmp
+					cd $AD/tmp && rm -f test && touch test && rm -f test
+					CHECK1=$?
+					if [ $CHECK1 -ne 0 ]; then
+						echo "Sorry, access test failed. Make sure that $AD/tmp is not being owned by root or give me root access"
+						exit 1
+					else
+						echo "Access test passed, we're ready to go!"
+					fi
+				else
+					echo "Sorry, could not detect any valid path to use"
+					echo "You selected extsd and I failed to use it so I'm aborting here"
+					exit 1
+				fi
+			fi
+			;;
 		*)
 			continue
 	esac
 done
 
-if [ "$MODE" == "direct" ]; then
-	cd $AD/tmp
+echo ""
+echo "Testing your internet connection..."
+curl google.com > /dev/null 2>&1
+CHECK=$?
+if [ $CHECK -ne 0 ]; then
+	echo "Something went wrong, test returned error code $CHECK."
+	echo "Sorry but I can't let you pass, either you don't have a valid connection with the internet or required components aren't working properly"
+	exit 1
+else
+	echo "Internet test passed successfully!"
 	echo ""
-	echo "Testing your internet connection..."
-	curl google.com > /dev/null 2>&1
-	CHECK=$?
-	if [ $CHECK -ne 0 ]; then
-		echo "Something went wrong, test returned error code $CHECK."
-		echo "Sorry but I can't let you pass, either you don't have a valid connection with the internet or required components aren't working properly"
-		exit 1
-	else
-		echo "Test passed successfully!"
-		echo ""
-	fi
+fi
+
+if [ "$MODE" == "direct" ]; then
+	mkdir -p $AD/tmp
+	cd $AD/tmp
 	echo "CHANGELOG START"
 	echo ""
 	curl -kSs https://raw.github.com/JustArchi/ArchiDroid/$VERSION/META-INF/com/google/android/aroma/_changelog.txt
@@ -148,11 +214,19 @@ if [ "$MODE" == "direct" ]; then
 		exit 1
 	fi
 else
+	mkdir -p $AD/GitHub
+	echo "CHANGELOG START"
+	echo ""
+	curl -kSs https://raw.github.com/JustArchi/ArchiDroid/$VERSION/META-INF/com/google/android/aroma/_changelog.txt
+	echo ""
+	echo ""
+	echo "CHANGELOG EOF"
+	echo ""
 	echo "Booting pocket debian..."
 	adlinux "default"
 	
 	echo "Setting up git repository..."
-	debian "cmd" "cd $AD/GitHub && bash github.sh $VERSION"
+	debian "cmd" "cd $AD/GitHub && adgithub $VERSION"
 	
 	# Expect that repo is ready
 	cd $AD/GitHub/$VERSION
@@ -179,7 +253,7 @@ mv ArchiDroid.zip $AD/ArchiDroid.zip
 echo "Done, you can find your flashable rom in $AD/ArchiDroid.zip"
 
 if [ "$MODE" == "direct" ]; then
-	cd $AD/tmp && rm -rf *
+	rm -rf $AD/tmp
 fi
 
 echo ""

@@ -318,12 +318,12 @@ while (! pgrep com.android && [ $LOOP -lt 150 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 				echo "INFO: Applying AOSP-specific DBUPDATE" >> $LOG
 				# OMNI
 				DBUPDATE system screen_off_animation 0
-				#DBUPDATE system power_menu_screenshot_enabled 1
 				DBUPDATE system screenshot_in_power_menu 1
 				DBUPDATE system clear_recents_button 1
 				DBUPDATE system clear_recents_button_location 3
 				DBUPDATE system non_intrusive_incall 1
 				DBUPDATE system status_bar_battery_style 3
+				DBUPDATE system status_bar_qs_quick_pulldown 1
 				
 				# Currently Inactive
 				#DBUPDATE secure kill_app_longpress_back 1
@@ -335,23 +335,27 @@ while (! pgrep com.android && [ $LOOP -lt 150 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 				# Requires SlimBean's Dark Droid
 				#DBUPDATE secure ui_inverted_mode 2
 				
-				# Reguires AOKP Custom Animations
-				#DBUPDATE system animation_controls_no_override 1
-				#DBUPDATE system animation_controls_duration 34
-				#DBUPDATE system task_open 8
-				#DBUPDATE system task_close 8
-				#DBUPDATE system task_to_front 8
-				#DBUPDATE system task_to_back 8
-				#DBUPDATE system wallpaper_open 8
-				#DBUPDATE system wallpaper_close 8
-				#DBUPDATE system wallpaper_intra_open 8
-				#DBUPDATE system wallpaper_intra_close 8
-				#DBUPDATE system activity_open 8
-				#DBUPDATE system activity_close 8
-				
-				# Requires ListView Animations
-				#DBUPDATE system listview_animation 4
-				#DBUPDATE system listview_interpolator 5
+				# Reguires Custom Animations
+				DBUPDATE system animation_controls_no_override 1
+				DBUPDATE system animation_controls_duration 50
+				DBUPDATE system task_open 8
+				DBUPDATE system task_close 8
+				DBUPDATE system task_to_front 8
+				DBUPDATE system task_to_back 8
+				DBUPDATE system wallpaper_open 8
+				DBUPDATE system wallpaper_close 8
+				DBUPDATE system wallpaper_intra_open 8
+				DBUPDATE system wallpaper_intra_close 8
+				DBUPDATE system activity_open 8
+				DBUPDATE system activity_close 8
+				DBUPDATE system animation_ime_enter 8
+				DBUPDATE system animation_ime_exit 8
+				DBUPDATE system animation_ime_interpolator 9
+				DBUPDATE system animation_ime_duration 200
+				DBUPDATE system listview_animation 4
+				DBUPDATE system listview_interpolator 9
+				DBUPDATE system listview_animation_cache 3
+				DBUPDATE system listview_duration 200
 			fi
 			
 			# And don't execute twice

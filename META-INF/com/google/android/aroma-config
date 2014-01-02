@@ -250,8 +250,6 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 		"cooltool","CoolTool","<~archidroid.apps.cooltool.desc>","check.checked",
 		"rootbrowser","Root Browser","<~archidroid.apps.rootbrowser.desc>","check.checked",
 		"adobeflash","Adobe Flash Player","<~archidroid.apps.adobeflash.desc>","check.checked",
-		"youtube","YouTube [<~common.inverted>]","<~archidroid.apps.youtube.desc>","check",
-		"facebook","Facebook + Messenger [<~common.inverted>]","<~archidroid.apps.facebook.desc>","check",
 
 		"architweaks","<#selectbg_g>ArchiDroid Tweaks</#>","","group",
 		"hdvoice","HD Voice","<~archidroid.tweaks.hdvoice.desc>","check.checked",

@@ -24,7 +24,7 @@ sleep 10
 
 echo `date +"%F %R:%S : Starting kernel configuration..."` >>$log_file
 
-# Script generated on 21/12/2013 at 18:12
+# Script generated on 02/01/2014 at  3:13
 #----------------------------------------------------
 
 # - init.d support by kernel/ramdisk not installed
@@ -203,9 +203,13 @@ echo `date +"%F %R:%S : Touch Wake disabled."` >>$log_file
 echo 0 > /sys/class/sec/sec_touchkey/touch_led_on_screen_touch
 echo `date +"%F %R:%S : Hardwarekeys light on screen touch disabled."` >>$log_file
 
-# - Handle Hardwarekeys light by kernel in hybrid mode (older CM)
-echo 2 > /sys/class/sec/sec_touchkey/touch_led_handling
-echo `date +"%F %R:%S : Hardwarekeys light handled by kernel in hybrid mode (older CM)."` >>$log_file
+# - Handle Hardwarekeys light by kernel (older CM)
+echo 1 > /sys/class/sec/sec_touchkey/touch_led_handling
+echo `date +"%F %R:%S : Hardwarekeys light handled by kernel (older CM)."` >>$log_file
+
+# - Enable Sharpness fix
+echo 1 > /sys/class/misc/mdnie_preset/mdnie_preset
+echo `date +"%F %R:%S : Sharpness fix enabled (blurrier)."` >>$log_file
 
 # - Enable fading notification LED
 echo 1 > /sys/class/sec/led/led_fade

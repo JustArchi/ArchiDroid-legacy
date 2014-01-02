@@ -1,0 +1,47 @@
+#!/sbin/busybox sh
+
+write_value() {  
+  echo "$1=$2" >> $DEFAULT_PROFILE
+}
+
+edit_value() {
+  g_find=`grep $1=.* $DEFAULT_PROFILE`
+    
+  if [[ -z $g_find ]]; then
+    write_value $1 $2
+  else
+    sed -i "s/$1=[^ ]*/$1=$2/" $DEFAULT_PROFILE 
+  fi
+}
+
+if [ -f $2 ];then
+	FILEVAR=$(basename $2)
+
+	if [ -z $3 ]; then
+		evalcmd='eval echo \$$FILEVAR'
+		if [ "a`eval $evalcmd`" == "a" ]; then
+			eval $FILEVAR=`cat $2`
+			echo $FILEVAR=`cat $2` >> $DEFAULT_PROFILE
+		fi
+	else
+		# We're in else condition, that means user changed frequency
+		# First set new frequency
+		echo $3 > $2
+		eval $FILEVAR=`cat $2`
+		
+		# Now it's the time for force-flush of voltages
+		gpu_voltage_0=`cat /sys/class/misc/gpu_voltage_control/gpu_voltage_0`
+		gpu_voltage_1=`cat /sys/class/misc/gpu_voltage_control/gpu_voltage_1`
+		gpu_voltage_2=`cat /sys/class/misc/gpu_voltage_control/gpu_voltage_2`
+		gpu_voltage_3=`cat /sys/class/misc/gpu_voltage_control/gpu_voltage_3`
+		gpu_voltage_4=`cat /sys/class/misc/gpu_voltage_control/gpu_voltage_4`
+		
+		edit_value gpu_voltage_0 $gpu_voltage_0
+		edit_value gpu_voltage_1 $gpu_voltage_1
+		edit_value gpu_voltage_2 $gpu_voltage_2
+		edit_value gpu_voltage_3 $gpu_voltage_3
+		edit_value gpu_voltage_4 $gpu_voltage_4
+	fi
+
+	eval echo \$$FILEVAR
+fi

@@ -2,21 +2,22 @@
 <map>
     <boolean name="networkType" value="false" />
     <boolean name="autoResize" value="true" />
-    <int name="delayPos" value="0" />
+    <int name="overlayMode" value="1" />
     <boolean name="showTemp" value="true" />
-    <boolean name="labelsChanged" value="false" />
-    <boolean name="audioPlate" value="false" />
+    <int name="delayPos" value="0" />
     <boolean name="battCurrent" value="false" />
-    <boolean name="forceEstimated" value="false" />
+    <boolean name="audioPlate" value="false" />
+    <boolean name="labelsChanged" value="false" />
     <int name="textAlpha" value="0" />
-    <boolean name="fullScreenHide" value="false" />
-    <boolean name="gpsPlate" value="false" />
+    <boolean name="forceEstimated" value="false" />
+    <boolean name="fullScreenHide" value="true" />
     <int name="widthSeek" value="8" />
+    <boolean name="gpsPlate" value="false" />
     <int name="xCoord" value="258" />
     <boolean name="showTime" value="false" />
     <boolean name="debug" value="false" />
-    <boolean name="currentPlate" value="false" />
     <int name="heavyProcessThreshold" value="80" />
+    <boolean name="currentPlate" value="false" />
     <boolean name="showFreq" value="true" />
     <boolean name="dnd" value="false" />
     <boolean name="colorize" value="true" />
@@ -24,16 +25,16 @@
     <boolean name="ioPlate" value="false" />
     <boolean name="sdPlate" value="false" />
     <int name="yCoord" value="0" />
-    <boolean name="autoBandwidth" value="true" />
     <boolean name="ramPlate" value="false" />
+    <boolean name="autoBandwidth" value="true" />
     <boolean name="keepInMemory" value="true" />
     <boolean name="showGps" value="false" />
     <boolean name="showCpu" value="true" />
     <boolean name="cellSignalPlate" value="false" />
-    <string name="labelsOrder">3 7 0 1 2 8 6 4 5 10 11 9 12 13 14 15 16 17 18 19</string>
-    <int name="battCapacity" value="1500" />
-    <boolean name="secondSDCard" value="false" />
     <boolean name="tempPlate" value="false" />
+    <boolean name="secondSDCard" value="false" />
+    <int name="battCapacity" value="1500" />
+    <string name="labelsOrder">3 7 0 1 2 8 6 4 5 10 11 9 12 13 14 15 16 17 18 19</string>
     <boolean name="showCustomLabel3" value="false" />
     <boolean name="showCustomLabel2" value="false" />
     <boolean name="showCustomLabel1" value="false" />
@@ -46,35 +47,35 @@
     <boolean name="fahrenheits" value="false" />
     <int name="graphAlpha" value="120" />
     <int name="exclusionMode" value="0" />
-    <boolean name="separateNetwork" value="false" />
     <boolean name="showProcess" value="true" />
+    <boolean name="separateNetwork" value="false" />
     <boolean name="tabulation" value="false" />
     <boolean name="cpuPlate" value="false" />
-    <int name="netBandwidth" value="50" />
     <int name="logInterval" value="4" />
+    <int name="netBandwidth" value="50" />
     <boolean name="showKbps" value="true" />
-    <string name="prefix17">C3:</string>
     <boolean name="cellSignal" value="false" />
+    <string name="prefix17">C3:</string>
     <string name="prefix18">Conn:</string>
-    <int name="font" value="0" />
     <boolean name="battPlate" value="false" />
+    <int name="font" value="0" />
     <int name="tabulationSpace" value="8" />
     <string name="prefix13">IO:</string>
-    <string name="prefix14">At:</string>
     <boolean name="showWifi" value="false" />
+    <string name="prefix14">At:</string>
     <string name="prefix15">C1:</string>
     <string name="prefix16">C2:</string>
     <string name="prefix10">S:</string>
-    <string name="prefix11">GPS:</string>
     <boolean name="autostart" value="true" />
-    <string name="prefix12">SD:</string>
+    <string name="prefix11">GPS:</string>
     <int name="size" value="4" />
+    <string name="prefix12">SD:</string>
     <boolean name="netPlate" value="false" />
     <string name="prefix3">kk:mm </string>
     <string name="prefix2">M:</string>
     <string name="prefix5">N:</string>
-    <string name="prefix4">n:</string>
     <boolean name="internalSDCard" value="false" />
+    <string name="prefix4">n:</string>
     <string name="prefix7">B:</string>
     <string name="prefix6"></string>
     <string name="prefix9"></string>
@@ -87,13 +88,12 @@
     <boolean name="showBatt" value="false" />
     <int name="backDraw" value="12" />
     <boolean name="notification" value="false" />
-    <boolean name="hackICS" value="true" />
     <string name="postfix0">%</string>
-    <boolean name="classicUI" value="false" />
     <int name="preset" value="0" />
+    <boolean name="classicUI" value="false" />
     <string name="postfix2">MB</string>
-    <string name="postfix1">MHz</string>
     <boolean name="showNet" value="true" />
+    <string name="postfix1">MHz</string>
     <string name="postfix4">KB/s</string>
     <string name="postfix3">E d.MM</string>
     <string name="postfix7">%</string>
@@ -105,11 +105,11 @@
     <int name="interface" value="1" />
     <string name="postfix16"></string>
     <string name="postfix17">MB</string>
-    <string name="postfix14">true</string>
     <boolean name="showIO" value="false" />
-    <string name="postfix15"></string>
-    <boolean name="showMem" value="true" />
+    <string name="postfix14">true</string>
     <int name="backAlpha" value="200" />
+    <boolean name="showMem" value="true" />
+    <string name="postfix15"></string>
     <boolean name="showSensorTemp" value="false" />
     <string name="postfix18"></string>
     <string name="postfix12">GB</string>

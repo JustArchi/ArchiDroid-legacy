@@ -46,18 +46,14 @@ adpatch() {
 
 # Multi-Window
 # https://gerrit.omnirom.org/#/c/1510/
-#adpatch "10/1510" "14" "frameworks" "base"
+#adpatch "10/1510" "15" "frameworks" "base"
 
 # All Animations
 # https://gerrit.omnirom.org/#/c/4251/
 # https://gerrit.omnirom.org/#/c/4250/
 # https://gerrit.omnirom.org/#/c/4249/
-adpatch "51/4251" "21" "frameworks" "base"
-adpatch "50/4250" "4" "packages" "apps" "Settings"
-adpatch "49/4249" "21" "packages" "apps" "OmniGears"
-
-# Quick Toggles (AOSPA)
-# https://gerrit.omnirom.org/#/c/4211/
-adpatch "11/4211" "37" "frameworks" "base"
+adpatch "51/4251" "24" "frameworks" "base"
+adpatch "50/4250" "5" "packages" "apps" "Settings"
+adpatch "49/4249" "23" "packages" "apps" "OmniGears"
 
 exit 0

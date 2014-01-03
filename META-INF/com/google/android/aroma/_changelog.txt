@@ -17,11 +17,14 @@ FULL WIPE RECOMMENDED, SHOULDN'T BE REQUIRED
 - Improved adlinux
 # Added extsd support. Adlinux automatically checks if you have extsd and if it's supported. Your extsd needs to be formatted in native linux format such as ext4 to be supported, otherwise internal sd is (and must be) used, because debian requires symlink functionality
 
+- Reworked Google Apps
+# Updated to latest PA-GAPPS, removed inverted gapps, as most of them were outdated or simply not worth time spent on updating them
+# You can still get them from team blackout if you wish
+
 - Updated Boeffla Kernel to 2.1-beta8
+- Updated Archi's presets for Boeffla Kernel, includes GPU OC/uV
 - Updated Yank Kernel to 1.6i
 - Updated Temasek Kernel to 301213
-- Updated Archi's presets for Boeffla Kernel, includes GPU OC/uV
-- Updated Temasek Kernel to 231213
 - Updated Devil Kernel to 2.3.2
 - Updated XPrivacy to 1.11
 - Updated Hacker's Keyboard to 1.37
@@ -30,6 +33,7 @@ FULL WIPE RECOMMENDED, SHOULDN'T BE REQUIRED
 - Updated MX Player to 1.7.22
 - Updated Titanium Backup to 6.1.5.1
 - Updated Cool Tool to 5.3.3
+- Bunch of other misc stuff I'm not going to list
 
 - Updated sources (no OpenPDroid)
 * Added QuickSettings toggles (AOSPA)

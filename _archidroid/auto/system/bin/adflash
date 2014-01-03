@@ -78,11 +78,7 @@ for arg in $EXTRA; do
 			MODE="direct"
 			;;
 		"clean")
-			echo "Cleaning..."
-			rm -rf $AD/tmp
-			rm -rf $AD/GitHub
-			echo "Done, Removed $AD/tmp and $AD/GitHub folders"
-			exit 0
+			MODE="clean"
 			;;
 		"nozip")
 			NOZIP=1
@@ -132,6 +128,14 @@ for arg in $EXTRA; do
 			continue
 	esac
 done
+
+if [ "$MODE" == "clean" ]; then
+	echo "Cleaning..."
+	rm -rf $AD/tmp
+	rm -rf $AD/GitHub
+	echo "Done, Removed $AD/tmp and $AD/GitHub folders"
+	exit 0
+fi
 
 case "$VERSION" in
 	"2e")

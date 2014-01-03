@@ -69,7 +69,7 @@ viewbox(
 	"Hello master, root@ArchiDroid here. Welcome to AROMA. You are about to install <b>"+
 	#-- Get Config Value
 	ini_get("rom_name")+ "</b> for <b>"+ini_get("rom_device")+"</b>.\n\n"+
-	"Version:\t\t <b><#selectbg_g>"+ini_get("rom_version")+"</#></b>\n"+
+	"Version:\t\t\t <b><#selectbg_g>"+ini_get("rom_version")+"</#></b>\n"+
 	"Released:\t\t <b><#selectbg_g>"+ini_get("rom_date")+"</#></b>\n\n\n"+
 	"Press <b>Next</b> to continue the installation.",
 

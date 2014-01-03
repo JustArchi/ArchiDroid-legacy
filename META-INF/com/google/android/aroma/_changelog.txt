@@ -1,5 +1,14 @@
 ArchiDroid 2.3.3
 
+FULL WIPE RECOMMENDED, SHOULDN'T BE REQUIRED
+
+- [!] Compiled using latest Linaro 4.7.4 and Java 1.7-u45
+# In comparision with ArchiDroid 2.3.2...
+# From 23% up to ~78%(!) increased performance in various native low-level functions, such as scrolling, rendering, loading, calculating.
+# From 2% up to 8% decreased memory footprint per loaded code (gives up to 30 extra MB of free memory in total).
+# From 1% up to 3% decreased load on the hardware (on CPU, GPU and I/O)
+# No known side-effects
+
 - Improved adflash
 # Added extsd support. Adflash will now automatically use extsd if ArchiDroid folder found. This means you need to use extsd mode only once (to create ArchiDroid folder)
 # Added better git support. Adflash will now automatically use git mode if GitHub repository already exists in folder detected above
@@ -27,23 +36,3 @@ ArchiDroid 2.3.3
 * Added Full Animation Controls
 * Reverted ListView Animations, due to Full Animation Controls
 * Reverted AOKP Animations, due to Full Animation Controls
-
-# ArchiDroid Boom-Boom release
-# Status: Stage 2 Finished!
-* Updated/Changed ROM toolchain from GCC 4.7 to Linaro 4.7 #Note: Linaro/SaberMod 4.8 breaks ART, maybe in future
-* Updated/Changed Java 1.6 to Java 1.7 #Note: Breaks with Java 1.8-dev
-
-* TARGET_arm_CFLAGS := -O3(!) -fstrict-aliasing(!) -fno-tree-vectorize -fno-inline-functions -fgcse-after-reload -fno-ipa-cp-clone -fno-vect-cost-model
-* TARGET_thumb_CFLAGS := -fstrict-aliasing(!) -fno-unswitch-loops -fno-tree-vectorize -fno-inline-functions -fgcse-after-reload -fno-ipa-cp-clone -fno-vect-cost-model
-* TARGET_RELEASE_CFLAGS := -fstrict-aliasing(!) -fno-ipa-cp-clone -fno-vect-cost-model
-* TARGET_GLOBAL_CFLAGS := -fstrict-aliasing(!)
-* TARGET_GLOBAL_CPPLAGS := -fstrict-aliasing(!)
-* $(combo_target)GLOBAL_CFLAGS := -fstrict-aliasing(!)
-* $(combo_target)RELEASE_CFLAGS := -O3(!) -fstrict-aliasing(!) -fno-tree-vectorize -fno-inline-functions -fno-unswitch-loops -fgcse-after-reload -fno-ipa-cp-clone -fno-vect-cost-model
-
-[DONE] Update toolchain
-[DONE] Update Java
-[DONE] Find best generic optimization flags, which won't break the build
-[DONE] Add SGS3-specific optimization flags, which won't break the build
-[LIVE] Make dozen of stability and performance tests to prove that I wasted whole christmas on nothing
-[LIVE] ??? PROFIT!

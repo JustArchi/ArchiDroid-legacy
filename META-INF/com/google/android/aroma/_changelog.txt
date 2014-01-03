@@ -7,6 +7,7 @@ ArchiDroid 1.7.5
 - Improved adflash
 # Added extsd support. Adflash will now automatically use extsd if ArchiDroid folder found. This means you need to use extsd mode only once (to create ArchiDroid folder)
 # Added better git support. Adflash will now automatically use git mode if GitHub repository already exists in folder detected above
+# Added clean option, which removes local repo and temporary folders used for adflash
 
 - Improved adlinux
 # Added extsd support. Adlinux automatically checks if you have extsd and if it's supported. Your extsd needs to be formatted in native linux format such as ext4 to be supported, otherwise internal sd is (and must be) used, because debian requires symlink functionality

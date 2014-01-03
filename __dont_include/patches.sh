@@ -52,8 +52,8 @@ adpatch() {
 # https://gerrit.omnirom.org/#/c/4251/
 # https://gerrit.omnirom.org/#/c/4250/
 # https://gerrit.omnirom.org/#/c/4249/
-adpatch "51/4251" "24" "frameworks" "base"
-adpatch "50/4250" "5" "packages" "apps" "Settings"
-adpatch "49/4249" "23" "packages" "apps" "OmniGears"
+#adpatch "51/4251" "27" "frameworks" "base"
+adpatch "50/4250" "6" "packages" "apps" "Settings"
+#adpatch "49/4249" "24" "packages" "apps" "OmniGears"
 
 exit 0

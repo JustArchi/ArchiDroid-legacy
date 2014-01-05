@@ -207,8 +207,11 @@ set_progress(0.52);
 
 ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Flashing ArchiDroid Init Scripts");
 ### IMPORTANT ###
-run_program("mv", "-f", "/system/bin/debuggerd", "/system/xbin/debuggerd");
 package_extract_dir("_archidroid/auto", "/");
+package_extract_file("_archidroid/scripts/archidroid_backend.sh", "/tmp/archidroid_backend.sh");
+set_perm(0, 0, 0777, "/tmp/archidroid_backend.sh");
+run_program("/tmp/archidroid_backend.sh");
+delete("/tmp/archidroid_backend.sh");
 ### IMPORTANT ###
 
 set_progress(0.53);

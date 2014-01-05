@@ -147,6 +147,7 @@ else
 fi
 if ADARGS "forcedsemaphore" "$@" ; then
 	FORCEDSEMAPHORE=1
+	echo "WARNING: Running in forced semaphore mode!" >> $LOG
 else
 	FORCEDSEMAPHORE=0
 fi
@@ -412,7 +413,7 @@ while (! pgrep com.android && [ $LOOP -lt 150 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 	sleep 2
 done
 
-if [ $LOOP -ge 150 ]; then
+if [ $LOOP -ge 300 ]; then
 	echo "ERROR: I looped $LOOP times and needed to exit from infinite loop, not good (RunOnce Semaphore)" >> $LOG
 elif [ $LOOP -eq 0 ]; then
 	echo "ERROR: I didn't even entered semaphore, forcing it this time, it may cause unexpected behaviour!" >> $LOG

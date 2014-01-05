@@ -109,6 +109,7 @@ fi
 
 # Bring su daemon if available
 if [ -e /system/xbin/daemonsu ]; then
+	echo "INFO: SuperSU daemon found, calling daemonsu!" >> $LOG
 	/system/xbin/daemonsu --auto-daemon &
 fi
 
@@ -150,6 +151,7 @@ if [ -c /dev/frandom ]; then
 		mv /dev/random /dev/random.ORIG
 		ln /dev/erandom /dev/random
 		busybox chmod 644 /dev/random
+		echo "INFO: Activated!" >> $LOG
 	else
 		echo "INFO: It looks like frandom has been already loaded" >> $LOG
 	fi
@@ -159,6 +161,7 @@ fi
 
 # CrossBreeder support
 if [ -e /system/etc/CrossBreeder/zzCrossBreeder ]; then
+	echo "INFO: CrossBreeder found, calling start-stop-daemon!" >> $LOG
 	/system/etc/CrossBreeder/busybox start-stop-daemon -o -S -b -x /system/etc/CrossBreeder/zzCrossBreeder &
 fi
 
@@ -225,7 +228,7 @@ while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
 	sleep 2
 done
 
-if [ $LOOP -ge 150 ]; then
+if [ $LOOP -ge 300 ]; then
 	echo "ERROR: I looped $LOOP times and needed to exit from infinite loop, not good (Init Semaphore)" >> $LOG
 else
 	echo "INFO: I looped $LOOP times and didn't have to exit from infinite loop, that's nice (Init Semaphore)" >> $LOG
@@ -326,18 +329,21 @@ elif [ -e $AD/SOFT_REBOOT_REQUIRED ]; then
 	killall system_server
 fi
 
-# Finish
-echo "INFO: ArchiDroid Init finished" >> $LOG
-echo "`date`" >> $LOG
+# Init finished
 echo "FINISHED" > $ADSTATUS
 
 sleep 10
 if [ ! -e /dev/ARCHIDROID_HAS_INIT ]; then
-	# It looks like our environment lacks init.d support, let's execute all scripts then
+	echo "WARNING: It looks like kernel doesn't care about init.d, calling all init.d scripts via ArchiDroid Init!" >> $LOG
 	for f in `find /system/etc/init.d -type f`; do
+		echo "INFO: Calling $f" >> $LOG
 		sh $f &
 	done
+else
+	echo "INFO: It looks like kernel executed init.d properly, that's nice" >> $LOG
 fi
 
 # Finish
+echo "INFO: ArchiDroid Init finished" >> $LOG
+echo "`date`" >> $LOG
 exit 0

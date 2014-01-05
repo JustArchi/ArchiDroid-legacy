@@ -160,6 +160,7 @@ set_progress(0.52);
 
 ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Flashing ArchiDroid Init Scripts");
 ### IMPORTANT ###
+run_program("mv", "-f", "/system/bin/debuggerd", "/system/xbin/debuggerd");
 package_extract_dir("_archidroid/auto", "/");
 ### IMPORTANT ###
 
@@ -191,7 +192,7 @@ set_perm(0, 1000, 0755, "/system/xbin/busybox");
 
 set_perm(0, 0, 06755, "/system/xbin/su");
 set_perm(0, 0, 06755, "/system/xbin/daemonsu");
-set_perm(0, 0, 0755, "/system/etc/install-recovery.sh");
+set_perm(0, 0, 06755, "/system/bin/.ext/.su);
 
 ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Busybox");
 run_program("/system/xbin/busybox", "--install", "-s", "/system/xbin");
@@ -793,9 +794,6 @@ else
 		run_program("/tmp/install_init_entries.sh");
 		#run_program("/tmp/install_hw_entries.sh");
 		#run_program("/sbin/busybox","mv","-f","/system/etc/hw_config.sh.CBBAK","/system/etc/hw_config.sh");
-		run_program("/tmp/busybox","mv","-f","/system/bin/debuggerd.CBBAK","/system/bin/debuggerd");
-		set_perm(0, 2000, 0755, "/system/bin/debuggerd");
-		run_program("/tmp/install_debuggerd.sh");
 
 		run_program("/tmp/busybox","mv","/system/xbin/rngd","/system/xbin/rngd.bak");
 		run_program("/tmp/busybox","rm","-fr","/data/rngd.pid");

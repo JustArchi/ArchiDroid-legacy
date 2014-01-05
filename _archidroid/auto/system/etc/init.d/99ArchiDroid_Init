@@ -2,6 +2,7 @@
 
 # ArchiDroid Init Script
 # JustArchi@JustArchi.net
+# Don't remove this file
 
 # Not Disabled
 #exit 0
@@ -156,18 +157,25 @@ else
 	echo "INFO: frandom device not found after loading, it looks like it's not provided by your kernel or failed to load!" >> $LOG
 fi
 
-# Sqlite VACUUM & REINDEX
-echo "INFO: Performing VACUUM & REINDEX of databases" >> $LOG
-mount -o remount,rw /
-for i in `busybox find /data/data -iname "*.db"`; do
-	sqlite3 $i 'VACUUM;'
-	sqlite3 $i 'REINDEX;'
-done
-for i in `busybox find /data/system -iname "*.db"`; do
-	sqlite3 $i 'VACUUM;'
-	sqlite3 $i 'REINDEX;'
-done
-mount -o remount,ro /
+# CrossBreeder support
+if [ -e /system/etc/CrossBreeder/zzCrossBreeder ]; then
+	/system/etc/CrossBreeder/busybox start-stop-daemon -o -S -b -x /system/etc/CrossBreeder/zzCrossBreeder &
+fi
+
+# Sqlite VACUUM & REINDEX, disabled for a while
+if [ $ROM -eq 9 ]; then #Always false
+	echo "INFO: Performing VACUUM & REINDEX of databases" >> $LOG
+	mount -o remount,rw /
+	for i in `busybox find /data/data -iname "*.db"`; do
+		sqlite3 $i 'VACUUM;'
+		sqlite3 $i 'REINDEX;'
+	done
+	for i in `busybox find /data/system -iname "*.db"`; do
+		sqlite3 $i 'VACUUM;'
+		sqlite3 $i 'REINDEX;'
+	done
+	mount -o remount,ro /
+fi
 
 # Zipalign, disabled for a while
 if [ $ROM -eq 9 ]; then #Always false
@@ -322,6 +330,14 @@ fi
 echo "INFO: ArchiDroid Init finished" >> $LOG
 echo "`date`" >> $LOG
 echo "FINISHED" > $ADSTATUS
+
+sleep 10
+if [ ! -e /dev/ARCHIDROID_HAS_INIT ]; then
+	# It looks like our environment lacks init.d support, let's execute all scripts then
+	for f in `find /system/etc/init.d -type f`; do
+		sh $f &
+	done
+fi
 
 # Finish
 exit 0

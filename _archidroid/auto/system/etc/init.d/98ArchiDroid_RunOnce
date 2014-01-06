@@ -237,7 +237,7 @@ else
 	
 	# Init depends on us
 	sh /system/etc/init.d/99ArchiDroid_Init "background" "force" &
-	
+	echo "FINISHED" > $ADSTATUS
 	exit 2
 fi
 

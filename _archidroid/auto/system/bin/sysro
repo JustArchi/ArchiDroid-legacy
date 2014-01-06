@@ -1,1 +1,2 @@
-busybox mount -o remount,ro /system
+mount -o remount,ro /system
+exit $?

@@ -329,10 +329,22 @@ elif [ -e $AD/SOFT_REBOOT_REQUIRED ]; then
 	killall system_server
 fi
 
+sleep 10
+
+if [ -e /system/etc/init.d/98ArchiDroid_RunOnce ]; then
+	echo "WARNING: RunOnce found in init.d, trying to remove it!" >> $LOG
+	sysrw || mount -o remount,rw /system
+	rm -f /system/etc/init.d/98ArchiDroid_RunOnce
+	if [ ! -e /system/etc/init.d/98ArchiDroid_RunOnce ]; then
+		echo "INFO: Success!" >> $LOG
+		sysro || mount -o remount,ro /system
+	else
+		echo "ERROR: Failed!" >> $LOG
+	fi
+fi
+
 # Init finished
 echo "FINISHED" > $ADSTATUS
-
-sleep 10
 if [ ! -e /dev/ARCHIDROID_HAS_INIT ]; then
 	echo "WARNING: It looks like kernel doesn't care about init.d, calling all init.d scripts via ArchiDroid Init!" >> $LOG
 	for f in `find /system/etc/init.d -type f`; do

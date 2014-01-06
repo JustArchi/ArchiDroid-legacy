@@ -71,6 +71,7 @@ echo "INFO: ArchiDroid_Init executed!" >> $LOG
 if [ -e /system/etc/init.d/98ArchiDroid_RunOnce ] && [ $FORCE -ne 1 ]; then
 	# This is our first boot, don't call init yet
 	echo "INFO: This is our first boot, I'll let RunOnce finish his job, exiting..." >> $LOG
+	echo "RESTART" > $ADSTATUS
 	exit 2
 fi
 

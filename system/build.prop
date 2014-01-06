@@ -4,12 +4,12 @@
 ro.build.id=KOT49H
 ro.build.display.id=ArchiDroid 2.3.4 EXPERIMENTAL
 ro.archidroid.version=2.3.4 EXPERIMENTAL
-ro.build.version.incremental=eng.root.20140105.091514
+ro.build.version.incremental=eng.root.20140106.212933
 ro.build.version.sdk=19
 ro.build.version.codename=REL
 ro.build.version.release=4.4.2
-ro.build.date=nie, 5 sty 2014, 09:18:49 CET
-ro.build.date.utc=1388909929
+ro.build.date=pon, 6 sty 2014, 21:32:58 CET
+ro.build.date.utc=1389040378
 ro.build.type=userdebug
 ro.build.user=root
 ro.build.host=ArchiDroid
@@ -29,8 +29,8 @@ ro.board.platform=exynos4
 # ro.build.product is obsolete; use ro.product.device
 ro.build.product=i9300
 # Do not try to parse ro.build.description or .fingerprint
-ro.build.description=omni_i9300-userdebug 4.4.2 KOT49H eng.root.20140105.091514 test-keys
-ro.build.fingerprint=samsung/omni_i9300/i9300:4.4.2/KOT49H/eng.root.20140105.091514:userdebug/test-keys
+ro.build.description=omni_i9300-userdebug 4.4.2 KOT49H eng.root.20140106.212933 test-keys
+ro.build.fingerprint=samsung/omni_i9300/i9300:4.4.2/KOT49H/eng.root.20140106.212933:userdebug/test-keys
 ro.build.characteristics=default
 ro.omni.device=i9300
 # end build properties
@@ -62,15 +62,15 @@ ro.com.google.clientidbase=android-google
 ro.com.android.wifi-watchlist=GoogleGuest
 ro.setupwizard.enterprise_mode=1
 persist.sys.root_access=1
-ro.modversion=OmniROM-4.4.2-20140105-i9300-HOMEMADE
-ro.omni.version=4.4.2-20140105-i9300-HOMEMADE
+ro.modversion=OmniROM-4.4.2-20140106-i9300-HOMEMADE
+ro.omni.version=4.4.2-20140106-i9300-HOMEMADE
 wifi.interface=wlan0
 wifi.supplicant_scan_interval=15
 ro.opengles.version=131072
 debug.hwui.render_dirty_regions=false
 ro.bq.gpu_to_cpu_unsupported=1
 dalvik.vm.heapstartsize=8m
-dalvik.vm.heapgrowthlimit=96m
+dalvik.vm.heapgrowthlimit=64m
 dalvik.vm.heapsize=256m
 dalvik.vm.heaptargetutilization=0.75
 dalvik.vm.heapminfree=2m

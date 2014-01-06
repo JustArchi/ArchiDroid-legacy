@@ -249,7 +249,6 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 		"bbs","BetterBatteryStats","<~archidroid.apps.bbs.desc>","check.checked",
 		"cooltool","CoolTool","<~archidroid.apps.cooltool.desc>","check.checked",
 		"rootbrowser","Root Browser","<~archidroid.apps.rootbrowser.desc>","check.checked",
-		"adobeflash","Adobe Flash Player","<~archidroid.apps.adobeflash.desc>","check.checked",
 
 		"architweaks","<#selectbg_g>ArchiDroid Tweaks</#>","","group",
 		"hdvoice","HD Voice","<~archidroid.tweaks.hdvoice.desc>","check.checked",

@@ -1,7 +1,7 @@
-<?xml  version="1.0" encoding="UTF-8" ?>
+﻿<?xml  version="1.0" encoding="UTF-8" ?>
 <CustomerData>
   <GeneralInfo>
-    <CSCEdition>ED005</CSCEdition>
+    <CSCEdition>ED027</CSCEdition>
     <Country>India</Country>
     <CountryISO>IN</CountryISO>
     <Region>SWA</Region>
@@ -384,10 +384,6 @@
       <NetworkName>IDEA</NetworkName>
     </NetworkInfo>
     <NetworkInfo>
-      <MCCMNC>404891</MCCMNC>
-      <NetworkName>IDEA</NetworkName>
-    </NetworkInfo>
-    <NetworkInfo>    
       <MCCMNC>40482</MCCMNC>
       <NetworkName>IDEA</NetworkName>
     </NetworkInfo>
@@ -907,69 +903,13 @@
       <MCCMNC>40458</MCCMNC>
       <NetworkName>Cellone_West</NetworkName>
     </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>404891</MCCMNC>
+      <NetworkName>IDEA</NetworkName>
+    </NetworkInfo>
   </GeneralInfo>
   <Settings>
     <Main>
-      <Security>
-        <NbNetworkLock>57</NbNetworkLock>
-        <NetworkLock>460BB</NetworkLock>
-        <NetworkLock>250BB</NetworkLock>
-        <NetworkLock>255BB</NetworkLock>
-        <NetworkLock>502BB</NetworkLock>
-        <NetworkLock>510BB</NetworkLock>
-        <NetworkLock>401BB</NetworkLock>
-        <NetworkLock>525BB</NetworkLock>
-        <NetworkLock>452BB</NetworkLock>
-        <NetworkLock>505BB</NetworkLock>
-        <NetworkLock>515BB</NetworkLock>
-        <NetworkLock>603BB</NetworkLock>
-        <NetworkLock>602BB</NetworkLock>
-        <NetworkLock>432BB</NetworkLock>
-        <NetworkLock>604BB</NetworkLock>
-        <NetworkLock>416BB</NetworkLock>
-        <NetworkLock>424BB</NetworkLock>
-        <NetworkLock>425BB</NetworkLock>
-        <NetworkLock>724BB</NetworkLock>
-        <NetworkLock>370BB</NetworkLock>
-        <NetworkLock>338BB</NetworkLock>
-        <NetworkLock>374BB</NetworkLock>
-        <NetworkLock>706BB</NetworkLock>
-        <NetworkLock>734BB</NetworkLock>
-        <NetworkLock>714BB</NetworkLock>
-        <NetworkLock>712BB</NetworkLock>
-        <NetworkLock>740BB</NetworkLock>
-        <NetworkLock>704BB</NetworkLock>
-        <NetworkLock>708BB</NetworkLock>
-        <NetworkLock>710BB</NetworkLock>
-        <NetworkLock>744BB</NetworkLock>
-        <NetworkLock>748BB</NetworkLock>
-        <NetworkLock>736BB</NetworkLock>
-        <NetworkLock>621BB</NetworkLock>
-        <NetworkLock>620BB</NetworkLock>
-        <NetworkLock>639BB</NetworkLock>
-        <NetworkLock>286BB</NetworkLock>
-        <NetworkLock>454BB</NetworkLock>
-        <NetworkLock>259BB</NetworkLock>
-        <NetworkLock>437BB</NetworkLock>
-        <NetworkLock>438BB</NetworkLock>
-        <NetworkLock>436BB</NetworkLock>
-        <NetworkLock>428BB</NetworkLock>
-        <NetworkLock>400BB</NetworkLock>
-        <NetworkLock>282BB</NetworkLock>
-        <NetworkLock>283BB</NetworkLock>
-        <NetworkLock>412BB</NetworkLock>
-        <NetworkLock>520BB</NetworkLock>
-        <NetworkLock>456BB</NetworkLock>
-        <NetworkLock>414BB</NetworkLock>
-        <NetworkLock>457BB</NetworkLock>
-        <NetworkLock>606BB</NetworkLock>
-        <NetworkLock>420BB</NetworkLock>
-        <NetworkLock>418BB</NetworkLock>
-        <NetworkLock>732BB</NetworkLock>
-        <NetworkLock>722BB</NetworkLock>
-        <NetworkLock>730BB</NetworkLock>
-        <NetworkLock>716BB</NetworkLock>
-      </Security>    
       <Network>
         <NbSOSNumber>2</NbSOSNumber>
         <SOSNumber>112</SOSNumber>
@@ -990,6 +930,7 @@
           <ConnectTone>on</ConnectTone>
           <MinuteMind>off</MinuteMind>
         </ExtraSound>
+        <AMRVoiceCodec>on</AMRVoiceCodec>
       </Sound>
       <Phone>
         <DefLanguage>en_GB</DefLanguage>
@@ -1001,17 +942,16 @@
         <NbDetailDesc>1</NbDetailDesc>
         <DetailDesc>
           <CertTag>SAR Level</CertTag>
-          <CertValue>This product meets India’s national SAR Limits.&#10;Your mobile device is designed not to exceed the limits for exposure to radio frequency energy adopted by the Government.&#10;The exposure limits use a unit of measurement known as the Specific Absorption Rate, or SAR.&#10;The SAR limit for mobile devices is 1.6 W/kg. &#10;Tests for SAR are conducted against the head with the device transmitting at its highest certified power level in all tested &#10;frequency bands although during normal use, the actual SAR values are usually well below those stated below.&#10;The maximum SAR for this model as per the compliance standard and the conditions under which it was recorded were - Head SAR 0.569 W/Kg</CertValue>
+          <CertValue>This product meets India’s national SAR Limits.&#10;&#10;Your mobile device is designed not to exceed the limits for exposure to radio frequency energy adopted by the Government.&#10;&#10;The exposure limits use a unit of measurement known as the Specific Absorption Rate, or SAR.&#10;The SAR limit for mobile devices is 1.6 W/kg.&#10;&#10;Tests for SAR are conducted against the head with the device transmitting at its highest certified power level in all tested frequency bands although during normal use, the actual SAR values are usually well below those stated below.&#10;&#10;The maximum SAR for this model as per the compliance standard and the conditions under which it was recorded were -  Head SAR = 0.456 W/kg</CertValue>
         </DetailDesc>
       </CountryCert>
       <Security />
     </Main>
     <Contact>
+      <SavePosition>ask</SavePosition>
       <ContactSort>firstname</ContactSort>
+      <ViewFrom>both</ViewFrom>
     </Contact>
-    <Calendar>
-      <StartDay>monday</StartDay>
-    </Calendar>
     <Messages>
       <SMS>
         <DeliveryReport>off</DeliveryReport>
@@ -1027,6 +967,8 @@
         <MmsReceiving>
           <Home>manual</Home>
           <Roaming>manual</Roaming>
+          <SendReadRep>prompt</SendReadRep>
+          <SendDeliveryRep>on</SendDeliveryRep>
         </MmsReceiving>
       </MMS>
       <Email>
@@ -1088,6 +1030,7 @@
       </Email>
     </Messages>
     <Browser>
+      <CookieOption>accept</CookieOption>
       <NbBookmark>1</NbBookmark>
       <Bookmark>
         <NetworkName>default</NetworkName>
@@ -1236,8 +1179,8 @@
       <NbProfile>44</NbProfile>
       <Profile>
         <NetworkName>STEL</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>STEL-GPRS</ProfileName>
+        <URL>http://www.samsung.com</URL>
         <Auth>none</Auth>
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>
@@ -1247,7 +1190,6 @@
       </Profile>
       <Profile>
         <NetworkName>TataDOCOMO</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>TATA DOCOMO MMS</ProfileName>
         <URL>http://mmsc/</URL>
         <Auth>none</Auth>
@@ -1264,8 +1206,8 @@
       </Profile>
       <Profile>
         <NetworkName>TataDOCOMO</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>TATA DOCOMO INTERNET</ProfileName>
+        <URL>http://www.samsung.com</URL>
         <Auth>none</Auth>
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>
@@ -1275,7 +1217,6 @@
       </Profile>
       <Profile>
         <NetworkName>CellOne_South</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>CelloneSouth_mms_n</ProfileName>
         <URL>http://bsnlmmsc.in:8514</URL>
         <Auth>normal</Auth>
@@ -1293,8 +1234,8 @@
       </Profile>
       <Profile>
         <NetworkName>CellOne_South</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>CelloneSouth_gprs_n</ProfileName>
+        <URL>http://www.samsung.com</URL>
         <Auth>normal</Auth>
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>
@@ -1304,7 +1245,6 @@
       </Profile>
       <Profile>
         <NetworkName>Airtel</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>AirTelMMS</ProfileName>
         <URL>http://100.1.201.171:10021/mmsc</URL>
         <Auth>none</Auth>
@@ -1321,8 +1261,8 @@
       </Profile>
       <Profile>
         <NetworkName>Airtel</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Airtel Internet</ProfileName>
+        <URL>http://www.samsung.com</URL>
         <Auth>none</Auth>
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>
@@ -1332,7 +1272,6 @@
       </Profile>
       <Profile>
         <NetworkName>CellOne_Kolkata</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Bsnl-mms</ProfileName>
         <URL>http://bsnlmmsc.in:8514</URL>
         <Auth>normal</Auth>
@@ -1349,8 +1288,8 @@
       </Profile>
       <Profile>
         <NetworkName>CellOne_Kolkata</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Bsnl-gprs</ProfileName>
+        <URL>http://www.samsung.com</URL>
         <Auth>none</Auth>
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>
@@ -1360,7 +1299,6 @@
       </Profile>
       <Profile>
         <NetworkName>Vodafone IN</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Vodafone MMS</ProfileName>
         <URL>http://mms1.live.vodafone.in/mms/</URL>
         <Auth>none</Auth>
@@ -1377,8 +1315,8 @@
       </Profile>
       <Profile>
         <NetworkName>Vodafone IN</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Vodafone Mobile connect</ProfileName>
+        <URL>http://www.samsung.com</URL>
         <Auth>none</Auth>
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>
@@ -1388,7 +1326,6 @@
       </Profile>
       <Profile>
         <NetworkName>Vodafone Jammu</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Vodafone MMS</ProfileName>
         <URL>http://mms1.live.vodafone.in/mms/</URL>
         <Auth>none</Auth>
@@ -1405,8 +1342,8 @@
       </Profile>
       <Profile>
         <NetworkName>Vodafone Jammu</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Vodafone Mobile connect</ProfileName>
+        <URL>http://www.samsung.com</URL>
         <Auth>none</Auth>
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>
@@ -1416,7 +1353,6 @@
       </Profile>
       <Profile>
         <NetworkName>IDEA</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Idea_mms</ProfileName>
         <URL>http://10.4.42.21:8002/</URL>
         <Auth>none</Auth>
@@ -1433,8 +1369,8 @@
       </Profile>
       <Profile>
         <NetworkName>IDEA</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Idea gprs</ProfileName>
+        <URL>http://www.samsung.com</URL>
         <Auth>none</Auth>
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>
@@ -1444,7 +1380,6 @@
       </Profile>
       <Profile>
         <NetworkName>IDEA Karnataka</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Idea_Karnataka_mms</ProfileName>
         <URL>http://10.4.42.21:8002</URL>
         <Auth>none</Auth>
@@ -1461,8 +1396,8 @@
       </Profile>
       <Profile>
         <NetworkName>IDEA Karnataka</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Idea_Karnataka gprs</ProfileName>
+        <URL>http://www.samsung.com</URL>
         <Auth>none</Auth>
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>
@@ -1472,7 +1407,6 @@
       </Profile>
       <Profile>
         <NetworkName>IDEA Punjab</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Idea_Punjab_mms</ProfileName>
         <URL>http://10.11.12.180/</URL>
         <Auth>none</Auth>
@@ -1489,8 +1423,8 @@
       </Profile>
       <Profile>
         <NetworkName>IDEA Punjab</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Idea_Punjab gprs</ProfileName>
+        <URL>http://www.samsung.com</URL>
         <Auth>none</Auth>
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>
@@ -1500,7 +1434,6 @@
       </Profile>
       <Profile>
         <NetworkName>Loop Mobile</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Loop_MMS</ProfileName>
         <URL>http://mms.loopmobile.in:8080</URL>
         <Auth>normal</Auth>
@@ -1518,8 +1451,8 @@
       </Profile>
       <Profile>
         <NetworkName>Loop Mobile</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>LOOPGPRS</ProfileName>
+        <URL>http://www.samsung.com</URL>
         <Auth>none</Auth>
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>
@@ -1529,7 +1462,6 @@
       </Profile>
       <Profile>
         <NetworkName>Aircel North</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Aircel MMS</ProfileName>
         <URL>http://10.50.1.166/servlets/mms</URL>
         <Auth>none</Auth>
@@ -1546,8 +1478,8 @@
       </Profile>
       <Profile>
         <NetworkName>Aircel North</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Aircel GPRS</ProfileName>
+        <URL>http://www.samsung.com</URL>
         <Auth>none</Auth>
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>
@@ -1557,7 +1489,6 @@
       </Profile>
       <Profile>
         <NetworkName>Aircel East</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Aircel MMS</ProfileName>
         <URL>http://10.50.1.166/servlets/mms</URL>
         <Auth>none</Auth>
@@ -1574,8 +1505,8 @@
       </Profile>
       <Profile>
         <NetworkName>Aircel East</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Aircel GPRS</ProfileName>
+        <URL>http://www.samsung.com</URL>
         <Auth>none</Auth>
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>
@@ -1585,8 +1516,8 @@
       </Profile>
       <Profile>
         <NetworkName>Aircel East</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Aircel GPRS WEB</ProfileName>
+        <URL>http://www.samsung.com</URL>
         <Auth>none</Auth>
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>
@@ -1596,7 +1527,6 @@
       </Profile>
       <Profile>
         <NetworkName>Aircel South</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Aircel MMS</ProfileName>
         <URL>http://mmsc/mmrelay.app</URL>
         <Auth>none</Auth>
@@ -1613,8 +1543,8 @@
       </Profile>
       <Profile>
         <NetworkName>Aircel South</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Aircel GPRS</ProfileName>
+        <URL>http://www.samsung.com</URL>
         <Auth>none</Auth>
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>
@@ -1624,7 +1554,6 @@
       </Profile>
       <Profile>
         <NetworkName>Dolphin_Delhi</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>MTNL_MMS</ProfileName>
         <URL>http://mtnlmms/</URL>
         <Auth>normal</Auth>
@@ -1643,8 +1572,8 @@
       </Profile>
       <Profile>
         <NetworkName>Dolphin_Delhi</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>MTNLGPRS</ProfileName>
+        <URL>http://www.samsung.com</URL>
         <Auth>normal</Auth>
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>
@@ -1656,7 +1585,6 @@
       </Profile>
       <Profile>
         <NetworkName>Dolphin_Mumbai</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>MTNL_MMS</ProfileName>
         <URL>http://mtnlmms/</URL>
         <Auth>normal</Auth>
@@ -1675,8 +1603,8 @@
       </Profile>
       <Profile>
         <NetworkName>Dolphin_Mumbai</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>MTNLGPRS</ProfileName>
+        <URL>http://www.samsung.com</URL>
         <Auth>normal</Auth>
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>
@@ -1688,7 +1616,6 @@
       </Profile>
       <Profile>
         <NetworkName>Reliance RTel</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>RMMS</ProfileName>
         <URL>http://10.239.221.47/mms/</URL>
         <Auth>none</Auth>
@@ -1705,8 +1632,8 @@
       </Profile>
       <Profile>
         <NetworkName>Reliance RTel</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>RNET</ProfileName>
+        <URL>http://www.samsung.com</URL>
         <Auth>none</Auth>
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>
@@ -1716,7 +1643,6 @@
       </Profile>
       <Profile>
         <NetworkName>Reliance RCOM</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Reliance MMS</ProfileName>
         <URL>http://mmsc.rcom.co.in/mms/</URL>
         <Auth>none</Auth>
@@ -1733,8 +1659,8 @@
       </Profile>
       <Profile>
         <NetworkName>Reliance RCOM</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Netconnect</ProfileName>
+        <URL>http://www.samsung.com</URL>
         <Auth>none</Auth>
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>
@@ -1744,7 +1670,6 @@
       </Profile>
       <Profile>
         <NetworkName>Uninor</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Uninor MMS</ProfileName>
         <URL>http://10.58.2.120</URL>
         <Auth>none</Auth>
@@ -1761,9 +1686,8 @@
       </Profile>
       <Profile>
         <NetworkName>Uninor</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Uninor GPRS</ProfileName>
-        <URL>http://m.in.samsungapps.com</URL>
+        <URL>http://www.samsung.com</URL>
         <Auth>none</Auth>
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>
@@ -1773,7 +1697,6 @@
       </Profile>
       <Profile>
         <NetworkName>Videocon</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Videocon MMS</ProfileName>
         <URL>http://10.202.4.119:10021/mmsc/</URL>
         <Auth>normal</Auth>
@@ -1790,8 +1713,8 @@
       </Profile>
       <Profile>
         <NetworkName>Videocon</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Videocon Internet</ProfileName>
+        <URL>http://www.samsung.com</URL>
         <Auth>none</Auth>
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>
@@ -1801,7 +1724,6 @@
       </Profile>
       <Profile>
         <NetworkName>Cellone_North</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>CelloneNorth_mms</ProfileName>
         <URL>http://bsnlmmsc.in</URL>
         <Auth>normal</Auth>
@@ -1818,8 +1740,8 @@
       </Profile>
       <Profile>
         <NetworkName>Cellone_North</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>CelloneNorth_net</ProfileName>
+        <URL>http://www.samsung.com</URL>
         <Auth>none</Auth>
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>
@@ -1829,7 +1751,6 @@
       </Profile>
       <Profile>
         <NetworkName>Cellone_West</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>CelloneWest_mms</ProfileName>
         <URL>http://bsnlmmsc.in</URL>
         <Auth>normal</Auth>
@@ -1846,8 +1767,8 @@
       </Profile>
       <Profile>
         <NetworkName>Cellone_West</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>CelloneWest_net</ProfileName>
+        <URL>http://www.samsung.com</URL>
         <Auth>none</Auth>
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>

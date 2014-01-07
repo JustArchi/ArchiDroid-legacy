@@ -5,16 +5,18 @@
   <CountryISO>IN</CountryISO>
   <SalesCode>INS</SalesCode>
   <FeatureSet>
+    <CscFeature_FMRadio_RecordingVolumeAs>11</CscFeature_FMRadio_RecordingVolumeAs>
+    <CscFeature_FMRadio_SetLocalTunning>10,5,1</CscFeature_FMRadio_SetLocalTunning>
     <CscFeature_Common_DisablePhoneNumberFormatting>TRUE</CscFeature_Common_DisablePhoneNumberFormatting>
     <CscFeature_Framework_EnableHarfbuzz>TRUE</CscFeature_Framework_EnableHarfbuzz>
-    <CscFeature_FMRadio_RecordingVolumeAs>11</CscFeature_FMRadio_RecordingVolumeAs>
-    <CscFeature_Web_EnableAutoSimHomeUrlInProfile>TRUE</CscFeature_Web_EnableAutoSimHomeUrlInProfile>
+    <CscFeature_Web_SetHomepageURL>http://www.samsung.com/</CscFeature_Web_SetHomepageURL>
+	<CscFeature_Web_EnableAutoSimHomeUrlInProfile>FALSE</CscFeature_Web_EnableAutoSimHomeUrlInProfile>
     <CscFeature_RIL_SupportUssdWithSharpChar>TRUE</CscFeature_RIL_SupportUssdWithSharpChar>
     <CscFeature_RIL_EnableRoamingIcon4NationalRoaming>TRUE</CscFeature_RIL_EnableRoamingIcon4NationalRoaming>
     <CscFeature_RIL_IgnoreNitzNetworkName>TRUE</CscFeature_RIL_IgnoreNitzNetworkName>
-    <CscFeature_RIL_EnableCallBarringConnectToUssd>TRUE</CscFeature_RIL_EnableCallBarringConnectToUssd>
-    <CscFeature_RIL_EnableLaunchBrowser>TRUE</CscFeature_RIL_EnableLaunchBrowser>
-    <CscFeature_VoiceCall_TunnigCallWaitingToneAs>50</CscFeature_VoiceCall_TunnigCallWaitingToneAs>
-    <CscFeature_VoiceCall_DisableGeoDescription>TRUE<CscFeature_VoiceCall_DisableGeoDescription>
+	<CscFeature_VoiceCall_DisableGeoDescription>TRUE</CscFeature_VoiceCall_DisableGeoDescription>
+	<CscFeature_RIL_EnableCallBarringConnectToUssd>TRUE</CscFeature_RIL_EnableCallBarringConnectToUssd>
+	<CscFeature_RIL_EnableLaunchBrowser>TRUE</CscFeature_RIL_EnableLaunchBrowser>
+	<CscFeature_Message_ConfigImeiTracker>+919560345888</CscFeature_Message_ConfigImeiTracker>
   </FeatureSet>
 </SamsungMobileFeauture>

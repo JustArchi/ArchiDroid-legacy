@@ -1,0 +1,3 @@
+show_progress(0.100000, 0);
+show_progress(0.500000, 0);
+package_extract_dir("system", "/system");

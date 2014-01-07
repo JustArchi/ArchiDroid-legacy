@@ -217,6 +217,10 @@ if [ $SAMMY -eq 1 ]; then
 	rm -f ../system/xbin/daemonsu
 	rm -f ../system/etc/init.d/99SuperSUDaemon
 	rm -f ../system/etc/install-recovery.sh
+	rm -f ../system/etc/.installed_su_daemon
+	rm -rf ../system/bin/.ext
+	cd _bloatware
+	bash ZZcleanrom.sh
 fi
 
 if [ $STABLE -eq 1 ]; then

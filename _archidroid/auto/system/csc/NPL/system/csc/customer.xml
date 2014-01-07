@@ -1,7 +1,7 @@
-<?xml  version="1.0" encoding="UTF-8" ?>
+﻿<?xml  version="1.0" encoding="UTF-8" ?>
 <CustomerData>
   <GeneralInfo>
-    <CSCEdition>ED001</CSCEdition>
+    <CSCEdition>ED009</CSCEdition>
     <Country>Nepal</Country>
     <CountryISO>NP</CountryISO>
     <Region>SWA</Region>
@@ -49,7 +49,6 @@
       <NbBookmark>1</NbBookmark>
       <Bookmark>
         <NetworkName>default</NetworkName>
-        <Editable>no</Editable>
         <Index>1</Index>
         <BookmarkName>Yahoo!</BookmarkName>
         <URL>http://m.yahoo.com/?tsrc=samsungbm</URL>
@@ -75,7 +74,6 @@
       <NbProfile>4</NbProfile>
       <Profile>
         <NetworkName>Nepal Telecom</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Ntmms</ProfileName>
         <URL>http://192.80.11.180</URL>
         <Protocol>http</Protocol>
@@ -91,7 +89,6 @@
       </Profile>
       <Profile>
         <NetworkName>Nepal Telecom</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>NtcHTTP</ProfileName>
         <URL>http://google.co.in</URL>
         <Protocol>http</Protocol>
@@ -102,7 +99,6 @@
       </Profile>
       <Profile>
         <NetworkName>NCELL</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>NcellMMS</ProfileName>
         <URL>http://192.168.19.15</URL>
         <Protocol>http</Protocol>

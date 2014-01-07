@@ -197,8 +197,6 @@ examples:
 
 <!-- Swisscom -->
     <spnOverride numeric="22801" fake_home_on="29501"/>
-    <spnOverride numeric="22803" fake_home_on="29502"/>
-    <spnOverride numeric="29502" fake_home_on="22803"/>
 
 <!-- IDEA 64k sim -->
     <spnOverride numeric="404891" fake_home_on="40489"/>

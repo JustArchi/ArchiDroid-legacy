@@ -4,15 +4,15 @@
 ro.build.id=JSS15J
 ro.build.display.id=ArchiDroid 1.7.5 EXPERIMENTAL
 ro.archidroid.version=1.7.5 EXPERIMENTAL
-ro.build.version.incremental=I9300XXUGML2
+ro.build.version.incremental=I9300XWUGML4
 ro.build.version.sdk=18
 ro.build.version.codename=REL
 ro.build.version.release=4.3
-ro.build.date=Fri Dec 13 22:04:46 KST 2013
-ro.build.date.utc=1386939886
+ro.build.date=Fri Dec 27 20:07:47 KST 2013
+ro.build.date.utc=1388142467
 ro.build.type=user
-ro.build.user=dpi
-ro.build.host=DELL338
+ro.build.user=se.infra
+ro.build.host=SEP-122
 ro.build.tags=release-keys
 ro.product.model=GT-I9300
 ro.product.brand=samsung
@@ -29,13 +29,13 @@ ro.board.platform=exynos4
 # ro.build.product is obsolete; use ro.product.device
 ro.build.product=m0
 # Do not try to parse ro.build.description or .fingerprint
-ro.build.description=m0xx-user 4.3 JSS15J I9300XXUGML2 release-keys
-ro.build.fingerprint=samsung/m0xx/m0:4.3/JSS15J/I9300XXUGML2:user/release-keys
+ro.build.description=m0xx-user 4.3 JSS15J I9300XWUGML4 release-keys
+ro.build.fingerprint=samsung/m0xx/m0:4.3/JSS15J/I9300XWUGML4:user/release-keys
 ro.build.characteristics=phone
 # Samsung Specific Properties
-ro.build.PDA=I9300XXUGML2
-ro.build.hidden_ver=I9300XXUGML2
-ro.build.changelist=2303192
+ro.build.PDA=I9300XWUGML4
+ro.build.hidden_ver=I9300XWUGML4
+ro.build.changelist=2363855
 ro.product_ship=true
 ro.chipname=smdk4x12
 # end build properties
@@ -88,6 +88,7 @@ ro.ril.gprsclass=10
 ro.adb.qemud=1
 ro.setupwizard.mode=OPTIONAL
 ro.com.google.gmsversion=4.3_r1
+ro.build.selinux=1
 dalvik.vm.dexopt-flags=m=y
 net.bt.name=Android
 dalvik.vm.stack-trace-file=/data/anr/traces.txt

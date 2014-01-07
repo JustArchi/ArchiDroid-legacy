@@ -5,10 +5,12 @@
   <CountryISO>LK</CountryISO>
   <SalesCode>SLK</SalesCode>
   <FeatureSet>
-    <CscFeature_Framework_EnableHarfbuzz>TRUE</CscFeature_Framework_EnableHarfbuzz>
     <CscFeature_FMRadio_RecordingVolumeAs>11</CscFeature_FMRadio_RecordingVolumeAs>
+    <CscFeature_FMRadio_SetLocalTunning>10,5,1</CscFeature_FMRadio_SetLocalTunning>
+    <CscFeature_Framework_EnableHarfbuzz>TRUE</CscFeature_Framework_EnableHarfbuzz>
     <CscFeature_Web_EnableAutoSimHomeUrlInProfile>TRUE</CscFeature_Web_EnableAutoSimHomeUrlInProfile>
     <CscFeature_RIL_SupportUssdWithSharpChar>TRUE</CscFeature_RIL_SupportUssdWithSharpChar>
     <CscFeature_RIL_EnableRoamingIcon4NationalRoaming>TRUE</CscFeature_RIL_EnableRoamingIcon4NationalRoaming>
+	<CscFeature_RIL_EnableLaunchBrowser>TRUE</CscFeature_RIL_EnableLaunchBrowser>
   </FeatureSet>
 </SamsungMobileFeauture>

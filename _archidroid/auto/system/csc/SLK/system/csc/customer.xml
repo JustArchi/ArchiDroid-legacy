@@ -1,7 +1,7 @@
-<?xml  version="1.0" encoding="UTF-8" ?>
+﻿<?xml  version="1.0" encoding="UTF-8" ?>
 <CustomerData>
   <GeneralInfo>
-    <CSCEdition>ED001</CSCEdition>
+    <CSCEdition>ED008</CSCEdition>
     <Country>Sri Lanka</Country>
     <CountryISO>LK</CountryISO>
     <Region>SWA</Region>
@@ -98,7 +98,6 @@
       <NbProfile>9</NbProfile>
       <Profile>
         <NetworkName>Dialog</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>KIT MMS</ProfileName>
         <URL>http://mms.dialog.lk:3130/mmsc</URL>
         <Protocol>http</Protocol>
@@ -114,7 +113,6 @@
       </Profile>
       <Profile>
         <NetworkName>Dialog</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Dialog internet</ProfileName>
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>
@@ -124,7 +122,6 @@
       </Profile>
       <Profile>
         <NetworkName>Mobitel</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Mobitel-MMS</ProfileName>
         <URL>http://192.168.50.165</URL>
         <Protocol>http</Protocol>
@@ -140,7 +137,6 @@
       </Profile>
       <Profile>
         <NetworkName>Mobitel</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Mobitel</ProfileName>
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>
@@ -150,7 +146,6 @@
       </Profile>
       <Profile>
         <NetworkName>Etisalat</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Etisalat MMS</ProfileName>
         <URL>http://mms.etisalat.lk:8085</URL>
         <Protocol>http</Protocol>
@@ -166,7 +161,6 @@
       </Profile>
       <Profile>
         <NetworkName>Etisalat</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Etisalat WEB</ProfileName>
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>
@@ -176,7 +170,6 @@
       </Profile>
       <Profile>
         <NetworkName>Airtel</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Airtel MMS</ProfileName>
         <URL>http://mmsc/</URL>
         <Protocol>http</Protocol>
@@ -192,7 +185,6 @@
       </Profile>
       <Profile>
         <NetworkName>Airtel</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Airtel Internet</ProfileName>
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>
@@ -202,7 +194,6 @@
       </Profile>
       <Profile>
         <NetworkName>Hutch</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Hutch Internet</ProfileName>
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>

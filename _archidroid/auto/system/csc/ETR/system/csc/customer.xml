@@ -1,7 +1,7 @@
 <?xml  version="1.0" encoding="UTF-8" ?>
 <CustomerData>
   <GeneralInfo>
-    <CSCEdition>ED002</CSCEdition>
+    <CSCEdition>ED007</CSCEdition>
     <Country>Bangladesh</Country>
     <CountryISO>BD</CountryISO>
     <Region>SWA</Region>
@@ -42,8 +42,8 @@
         <AutoFOTA>off</AutoFOTA>
       </Network>
       <Phone>
-        <DefLanguage>en_GB</DefLanguage>
-        <DefLanguageNoSIM>en_GB</DefLanguageNoSIM>
+        <DefLanguage>english</DefLanguage>
+        <DefLanguageNoSIM>english</DefLanguageNoSIM>
         <DateTimeFormat>
           <DateFormat>ddmmyyyy</DateFormat>
           <TimeFormat>24h</TimeFormat>
@@ -52,12 +52,6 @@
       </Phone>
       <Security />
     </Main>
-    <Messages>
-      <SMS>
-        <NbCellBroadcastChannel>1</NbCellBroadcastChannel>
-        <CellBroadcastChannel>6</CellBroadcastChannel>
-      </SMS>
-    </Messages>
     <Browser>
       <NbBookmark>1</NbBookmark>
       <Bookmark>
@@ -73,39 +67,56 @@
     <Connections>
       <NbProfileHandle>5</NbProfileHandle>
       <ProfileHandle>
-        <NbNetProfile>2</NbNetProfile>
+        <NbNetProfile>3</NbNetProfile>
         <NetworkName>Grameenphone</NetworkName>
-        <ProfBrowser>GP-INTERNET</ProfBrowser>
+        <ProfBrowser>GP WAP</ProfBrowser>
         <ProfMMS>GP MMS</ProfMMS>
+        <ProfEmail>GP-INTERNET</ProfEmail>
       </ProfileHandle>
       <ProfileHandle>
-        <NbNetProfile>2</NbNetProfile>
+        <NbNetProfile>3</NbNetProfile>
         <NetworkName>Banglalink</NetworkName>
-        <ProfBrowser>Banglalink-WEB</ProfBrowser>
+        <ProfBrowser>Banglalink WAP</ProfBrowser>
         <ProfMMS>Banglalink MMS</ProfMMS>
+        <ProfEmail>Banglalink-WEB</ProfEmail>
       </ProfileHandle>
       <ProfileHandle>
-        <NbNetProfile>2</NbNetProfile>
+        <NbNetProfile>1</NbNetProfile>
         <NetworkName>Teletalk</NetworkName>
-        <ProfBrowser>TT-INTERNET</ProfBrowser>
-        <ProfMMS>TT-MMS</ProfMMS>
+        <ProfBrowser>Teletalk</ProfBrowser>
       </ProfileHandle>
       <ProfileHandle>
-        <NbNetProfile>2</NbNetProfile>
+        <NbNetProfile>3</NbNetProfile>
         <NetworkName>Robi</NetworkName>
-        <ProfBrowser>Robi-INTERNET</ProfBrowser>
+        <ProfBrowser>Robi wap</ProfBrowser>
         <ProfMMS>Robi MMS</ProfMMS>
+        <ProfEmail>Robi-INTERNET</ProfEmail>
       </ProfileHandle>
       <ProfileHandle>
-        <NbNetProfile>2</NbNetProfile>
+        <NbNetProfile>3</NbNetProfile>
         <NetworkName>Airtel</NetworkName>
-        <ProfBrowser>Airtel-INTERNET</ProfBrowser>
+        <ProfBrowser>Airtel WAP</ProfBrowser>
         <ProfMMS>Airtel MMS</ProfMMS>
+        <ProfEmail>Airtel-INTERNET</ProfEmail>
       </ProfileHandle>
-      <NbProfile>10</NbProfile>
+      <NbProfile>13</NbProfile>
       <Profile>
         <NetworkName>Grameenphone</NetworkName>
-        <Editable>yes</Editable>
+        <ProfileName>GP WAP</ProfileName>
+        <URL>http://wap.gpworld.com</URL>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>10.128.1.2</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>gpwap</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Grameenphone</NetworkName>
         <ProfileName>GP MMS</ProfileName>
         <URL>http://mms.gpsurf.net/servlets/mms</URL>
         <Protocol>http</Protocol>
@@ -121,7 +132,6 @@
       </Profile>
       <Profile>
         <NetworkName>Grameenphone</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>GP-INTERNET</ProfileName>
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>
@@ -131,7 +141,21 @@
       </Profile>
       <Profile>
         <NetworkName>Banglalink</NetworkName>
-        <Editable>yes</Editable>
+        <ProfileName>Banglalink WAP</ProfileName>
+        <URL>http://wap.google.com</URL>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>10.010.055.034</ServAddr>
+          <Port>8799</Port>
+        </Proxy>
+        <PSparam>
+          <APN>blwap</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Banglalink</NetworkName>
         <ProfileName>Banglalink MMS</ProfileName>
         <URL>http://mmsc1:10021/mmsc/01</URL>
         <Protocol>http</Protocol>
@@ -147,7 +171,6 @@
       </Profile>
       <Profile>
         <NetworkName>Banglalink</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Banglalink-WEB</ProfileName>
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>
@@ -157,35 +180,38 @@
       </Profile>
       <Profile>
         <NetworkName>Teletalk</NetworkName>
-        <Editable>yes</Editable>
-        <ProfileName>TT-MMS</ProfileName>
-        <URL>http://10.5.4.22:38090/was</URL>
+        <ProfileName>Teletalk</ProfileName>
+        <URL>http://wap.google.com</URL>
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>
         <Proxy>
-          <EnableFlag>on</EnableFlag>
-          <ServAddr>10.5.4.40</ServAddr>
-          <Port>8080</Port>
+          <EnableFlag>off</EnableFlag>
+          <ServAddr>0.0.0.0</ServAddr>
+          <Port>0</Port>
         </Proxy>
-        <PSparam>
-          <APN>MMS</APN>
-        </PSparam>
-      </Profile>
-      <Profile>
-        <NetworkName>Teletalk</NetworkName>
-        <Editable>yes</Editable>
-        <ProfileName>TT-INTERNET</ProfileName>
-        <Protocol>http</Protocol>
-        <MTUSize>1500</MTUSize>
         <PSparam>
           <APN>wap</APN>
         </PSparam>
       </Profile>
       <Profile>
         <NetworkName>Robi</NetworkName>
-        <Editable>yes</Editable>
-        <ProfileName>Robi MMS</ProfileName>
+        <ProfileName>Robi wap</ProfileName>
         <URL>http://192.168.23.4/wap</URL>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>192.168.23.7</ServAddr>
+          <Port>9028</Port>
+        </Proxy>
+        <PSparam>
+          <APN>wap</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Robi</NetworkName>
+        <ProfileName>Robi MMS</ProfileName>
+        <URL>http://192.168.23.4/was</URL>
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>
         <Proxy>
@@ -199,7 +225,6 @@
       </Profile>
       <Profile>
         <NetworkName>Robi</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Robi-INTERNET</ProfileName>
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>
@@ -209,7 +234,21 @@
       </Profile>
       <Profile>
         <NetworkName>Airtel</NetworkName>
-        <Editable>yes</Editable>
+        <ProfileName>Airtel WAP</ProfileName>
+        <URL>http://wap.yahoo.com/</URL>
+        <Protocol>http</Protocol>
+        <MTUSize>1500</MTUSize>
+        <Proxy>
+          <EnableFlag>on</EnableFlag>
+          <ServAddr>10.6.0.2</ServAddr>
+          <Port>8080</Port>
+        </Proxy>
+        <PSparam>
+          <APN>wap</APN>
+        </PSparam>
+      </Profile>
+      <Profile>
+        <NetworkName>Airtel</NetworkName>
         <ProfileName>Airtel MMS</ProfileName>
         <URL>http://10.6.0.21/servlets/mms</URL>
         <Protocol>http</Protocol>
@@ -225,7 +264,6 @@
       </Profile>
       <Profile>
         <NetworkName>Airtel</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Airtel-INTERNET</ProfileName>
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>

@@ -1,7 +1,7 @@
-<?xml  version="1.0" encoding="UTF-8" ?>
+﻿<?xml  version="1.0" encoding="UTF-8" ?>
 <CustomerData>
   <GeneralInfo>
-    <CSCEdition>ED002</CSCEdition>
+    <CSCEdition>ED014</CSCEdition>
     <Country>Bangladesh</Country>
     <CountryISO>BD</CountryISO>
     <Region>SWA</Region>
@@ -54,6 +54,7 @@
     </Main>
     <Messages>
       <SMS>
+        <ImeiTracker>on</ImeiTracker>
         <NbCellBroadcastChannel>1</NbCellBroadcastChannel>
         <CellBroadcastChannel>6</CellBroadcastChannel>
       </SMS>
@@ -105,7 +106,6 @@
       <NbProfile>10</NbProfile>
       <Profile>
         <NetworkName>Grameenphone</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>GP MMS</ProfileName>
         <URL>http://mms.gpsurf.net/servlets/mms</URL>
         <Protocol>http</Protocol>
@@ -121,7 +121,6 @@
       </Profile>
       <Profile>
         <NetworkName>Grameenphone</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>GP-INTERNET</ProfileName>
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>
@@ -131,7 +130,6 @@
       </Profile>
       <Profile>
         <NetworkName>Banglalink</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Banglalink MMS</ProfileName>
         <URL>http://mmsc1:10021/mmsc/01</URL>
         <Protocol>http</Protocol>
@@ -147,7 +145,6 @@
       </Profile>
       <Profile>
         <NetworkName>Banglalink</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Banglalink-WEB</ProfileName>
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>
@@ -157,7 +154,6 @@
       </Profile>
       <Profile>
         <NetworkName>Teletalk</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>TT-MMS</ProfileName>
         <URL>http://10.5.4.22:38090/was</URL>
         <Protocol>http</Protocol>
@@ -173,7 +169,6 @@
       </Profile>
       <Profile>
         <NetworkName>Teletalk</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>TT-INTERNET</ProfileName>
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>
@@ -183,7 +178,6 @@
       </Profile>
       <Profile>
         <NetworkName>Robi</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Robi MMS</ProfileName>
         <URL>http://192.168.23.4/wap</URL>
         <Protocol>http</Protocol>
@@ -199,7 +193,6 @@
       </Profile>
       <Profile>
         <NetworkName>Robi</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Robi-INTERNET</ProfileName>
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>
@@ -209,7 +202,6 @@
       </Profile>
       <Profile>
         <NetworkName>Airtel</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Airtel MMS</ProfileName>
         <URL>http://10.6.0.21/servlets/mms</URL>
         <Protocol>http</Protocol>
@@ -225,7 +217,6 @@
       </Profile>
       <Profile>
         <NetworkName>Airtel</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Airtel-INTERNET</ProfileName>
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>

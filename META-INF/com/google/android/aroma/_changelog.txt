@@ -14,6 +14,9 @@ ArchiDroid 1.7.5
 - Improved adlinux
 # Added extsd support. Adlinux automatically checks if you have extsd and if it's supported. Your extsd needs to be formatted in native linux format such as ext4 to be supported, otherwise internal sd is (and must be) used, because debian requires symlink functionality
 
+- [!] Fixed half-broken ArchiDroid Backend with Devil Kernel
+# It...will...never...break...again.
+
 - Updated cURL to 7.34.0
 - Updated Devil Kernel to 2.3.2
 - Updated MX Player to 1.7.22

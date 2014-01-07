@@ -1,2 +1,2 @@
-mount -o remount,rw /system
+/system/bin/mount -o remount,rw /system
 exit $?

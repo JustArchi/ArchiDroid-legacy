@@ -34,9 +34,6 @@
 #
 ### LANGUAGE STRING RESOURCE FILE
 #
-
-### LANGUAGE STRING RESOURCE FILE
-#
 # Language : فارسي
 # By : m. amin mostafaei-Bonza
 #
@@ -76,13 +73,11 @@ archidroid.detect.fail.yes=بله، من ArchiDroid ندارم
 archidroid.detect.fail.no=خير ، ArchiDroid در حال اجراست!
 archidroid.detect.fail.alert.yes=خُب، من انتخاب ميکنم حالت نصب براي آرچي درويد
 archidroid.detect.fail.alert.no=اين خوب نيست.نتايج جعلي پيدا شد!اگر آرچي درويد در حال اجرا نيست ، حالت بروز رساني را انتخاب نکنيد
- archidroid.detect.pass=آرچي درويد بخوبي رام فعلي را (Archi Droid) تشخيص داد.آيا ميخواهيد بروز رساني نصب کنيد؟
+archidroid.detect.pass=آرچي درويد بخوبي رام فعلي را (Archi Droid) تشخيص داد.آيا ميخواهيد بروز رساني نصب کنيد؟
 archidroid.detect.pass.yes=بله، بروز رساني ميکنم
 archidroid.detect.pass.no=خير ، فول وايپ ميکنم!
 archidroid.detect.pass.alert.no=خُب!من با فول وايپ و نصب رام ادامه ميدهم
 archidroid.detect.force=آيا ميخواهيد بصورت اجبار بروز رساني کنيد؟يکبار اجرا ميشود براي ابزار پيشرفته ، در حالت عادي اجرا ميشود يکبار در هنگام نصب.خير رو انتخاب کنيد اگر مطمئن نيستيد
-
-
 
 archidroid.preset=تنظيمات پيش فرض نصب
 archidroid.preset.desc=لطفا تنظيمات پيش فرض نصب را انتخاب کنيد :
@@ -116,7 +111,7 @@ archidroid.dpi.280.desc=تعادل زيبا بين استوک و حالت ريز
 archidroid.dpi.320.desc=حالت استوک
 
 archidroid.launcher.nova.desc= براي انعطاف پذيري و بازدهي بيشتر توصيه ميشود
- archidroid.launcher.stock.desc=برگرفته از خود رام
+archidroid.launcher.stock.desc=برگرفته از خود رام
 archidroid.launcher.none.desc=بدون لانچر، اين گزينه را انتخاب نکنيد اگر فول وايپ کرديد!شما حداقل به يک لانچر انتخابي قبل از اولين راه اندازي نياز داريد.
 
 archidroid.keyboard=کيبورد
@@ -200,4 +195,5 @@ archidroid.install.finish=نصب Archi Droid wizard با موفقيت انجام
 کليک کنيد<b>بروي پايان </b>براي ادامه
 
 archidroid.buildtweaks.fastdormancy.desc=به منظور غير فعال کردن سريع حالت خواب اين گزينه را انتخاب نکنيد!ممکن است باعث افزايش عمر باتري شود اگر دستگاه شما آن را پشتيباني نکند. 
- archidroid.buildtweaks.zerowakeup.desc= براي فعال کردن ZeroWakeUp اين گزينه را انتخاب کنيد، زيرا پردازنده را به حالت خواب ميبرد(در عوض خواب عميق/خواب عميق تر)،زمان تاخير بيدار کردن به حداقل کاهش ميابد.
+archidroid.buildtweaks.zerowakeup.desc= براي فعال کردن ZeroWakeUp اين گزينه را انتخاب کنيد، زيرا پردازنده را به حالت خواب ميبرد(در عوض خواب عميق/خواب عميق تر)،زمان تاخير بيدار کردن به حداقل کاهش ميابد.
+archidroid.buildtweaks.navibar.desc=Tick to enable Navigation Bar, which is normally hidden on devices with hardware keys available

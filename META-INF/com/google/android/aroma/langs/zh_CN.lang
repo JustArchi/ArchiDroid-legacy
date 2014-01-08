@@ -196,3 +196,4 @@ archidroid.install.finish=ArchiDroid 向导已经成功刷入 <b>ArchiDroid</b>\
 
 archidroid.buildtweaks.fastdormancy.desc=取消勾选来关闭 fast dormancy, 如果运营商不支持，可能延长电池寿命
 archidroid.buildtweaks.zerowakeup.desc=勾选开启 ZeroWakeUp, 让CPU工作在睡眠模式 (不是深度睡眠), 把唤醒延迟降到最低
+archidroid.buildtweaks.navibar.desc=Tick to enable Navigation Bar, which is normally hidden on devices with hardware keys available

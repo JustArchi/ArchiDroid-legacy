@@ -8,8 +8,8 @@ echo '1024' > /sys/block/mmcblk1/bdi/read_ahead_kb
 /res/bc/bccontroller.sh apply_ext4_tweaks 1
 echo '1600000' > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
 echo '200000' > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
-echo 'undervolt light' > /dev/bk_cpu_voltages_profile
-echo '1400 1363 1300 1238 1200 1150 1075 1025 975 950 938 900 900 875 850' > /sys/devices/system/cpu/cpu0/cpufreq/UV_mV_table
+echo 'None' > /dev/bk_cpu_voltages_profile
+echo '1400 1363 1300 1238 1200 1150 1100 1050 1000 975 963 950 950 925 900' > /sys/devices/system/cpu/cpu0/cpufreq/UV_mV_table
 echo '2' > /sys/module/cpuidle_exynos4/parameters/enable_mask
 echo '0' > /sys/devices/system/cpu/sched_mc_power_savings
 echo 'None' > /dev/bk_gpu_frequencies_profile

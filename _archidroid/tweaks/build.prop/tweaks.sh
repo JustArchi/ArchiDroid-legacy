@@ -5,10 +5,12 @@ echo "
 
 # Feel free to experiment with these tweaks if you know what you're doing
 
+# Turn on Navigation Bar
+#qemu.hw.mainkeys=0
 
 # Define apps as resident in memory. Name is located in /data/data
 #sys.keep_app_1=com.android.your.app
-#sys.keep_app_2=com.nonandroid.other.app
+#sys.keep_app_2=org.nonandroid.other.long.app
 
 # Force using HW/GPU Acceleration even if apps don't support it
 # Warning! It may NOT be a good idea to enable this, use with caution

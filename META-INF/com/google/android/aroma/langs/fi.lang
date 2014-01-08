@@ -196,3 +196,4 @@ Paina <b>Valmis</b> jatkaaksesi.
 
 archidroid.buildtweaks.fastdormancy.desc=Untick to disable fast dormancy, may improve battery life if your provider doesn't support it
 archidroid.buildtweaks.zerowakeup.desc=Tick to enable ZeroWakeUp, it will put CPU into sleep mode (instead of deep/deeper sleep), reducing wake up delay to the minimum
+archidroid.buildtweaks.navibar.desc=Tick to enable Navigation Bar, which is normally hidden on devices with hardware keys available

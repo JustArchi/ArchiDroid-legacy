@@ -690,6 +690,13 @@ else
 			run_program("/tmp/zerowakeupON.sh");
 			delete("/tmp/zerowakeupON.sh");
 		endif;
+		if file_getprop("/tmp/aroma-data/archidroidbuild.prop","navibar") == "1" then
+			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Enabling Navigation Bar");
+			package_extract_file("_archidroid/tweaks/build.prop/navibarON.sh", "/tmp/navibarON.sh");
+			set_perm(0, 0, 0777, "/tmp/navibarON.sh");
+			run_program("/tmp/navibarON.sh");
+			delete("/tmp/navibarON.sh");
+		endif;
 	endif;
 
 	if file_getprop("/tmp/aroma-data/archidroid.prop","openpdroid") == "1" then

@@ -373,6 +373,11 @@ else
 		package_extract_file("_archidroid/kernels/googy/boot.img", "/tmp/googy.img");
 		write_raw_image("/tmp/googy.img", "/dev/block/mmcblk0p5");
 		delete("/tmp/googy.img");
+
+		if file_getprop("/tmp/aroma-data/archidroidwipe.prop","wipe") == "yes" then
+			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying ArchiDroid Googy Max Preset");
+			package_extract_dir("_archidroid/kernels/googy/preset", "/data/.googy");
+		endif;
 	endif;
 
 	### DEVIL ###

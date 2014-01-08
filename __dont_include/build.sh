@@ -9,6 +9,7 @@ VERSION=2.3.4
 STABLE=0
 NOSYNC=0
 SAMMY=0
+BPROP=0
 NOOPD=0
 NOBUILD=0
 TEMP=0
@@ -20,6 +21,10 @@ for ARG in "$@" ; do
 				SAMMY=1
 				NOOPD=1
 				echo "Building ArchiDroid 1.X!"
+				;;
+			bprop)
+				BPROP=1
+				echo "Build prop update only!"
 				;;
 			stable)
 				STABLE=1
@@ -51,6 +56,11 @@ for ARG in "$@" ; do
 done
 
 OTA="echo \"updateme.version=$VERSION\" >> /system/build.prop"
+if [ $SAMMY -eq 1 ]; then
+	OLDVERSION="$VERSION"
+	VERSION+=" "
+	VERSION+="`cat ../system/build.prop | grep "ro.build.version.incremental" | cut -d '=' -f 2`"
+fi
 if [ $STABLE -eq 0 ]; then
 	VERSION="$VERSION EXPERIMENTAL"
 else
@@ -107,36 +117,39 @@ fi
 
 cd /root/shared/git/ArchiDroid
 
-if [ ! -e *.zip ]; then
-	exit 1
-fi
+if [ $BPROP -eq 0 ]; then
+	if [ ! -e *.zip ]; then
+		exit 1
+	fi
 
-unzip *.zip -d __adtemp
-rm -Rf system/
-mv META-INF/com/google/android/updater-script META-INF/com/google/android/updater-script2
-mv META-INF/com/google/android/update-binary META-INF/com/google/android/update-binary2
-cd __adtemp
-cp -R * ..
-cd ..
-rm -f META-INF/com/google/android/updater-script && mv META-INF/com/google/android/updater-script2 META-INF/com/google/android/updater-script
-if [ $SAMMY -eq 0 ]; then
-	rm -f META-INF/com/google/android/update-binary-installer && mv META-INF/com/google/android/update-binary META-INF/com/google/android/update-binary-installer && mv META-INF/com/google/android/update-binary2 META-INF/com/google/android/update-binary
-else
-	rm -f META-INF/com/google/android/update-binary && mv META-INF/com/google/android/update-binary2 META-INF/com/google/android/update-binary
-fi
-OLD=`md5sum __dont_include/_updater-scripts/archidroid/updater-script | awk '{print $1}'`
-NEW=`md5sum __adtemp/META-INF/com/google/android/updater-script | awk '{print $1}'`
+	unzip *.zip -d __adtemp
+	rm -Rf system/
+	mv META-INF/com/google/android/updater-script META-INF/com/google/android/updater-script2
+	mv META-INF/com/google/android/update-binary META-INF/com/google/android/update-binary2
+	cd __adtemp
+	cp -R * ..
+	cd ..
+	rm -f META-INF/com/google/android/updater-script && mv META-INF/com/google/android/updater-script2 META-INF/com/google/android/updater-script
+	if [ $SAMMY -eq 0 ]; then
+		rm -f META-INF/com/google/android/update-binary-installer && mv META-INF/com/google/android/update-binary META-INF/com/google/android/update-binary-installer && mv META-INF/com/google/android/update-binary2 META-INF/com/google/android/update-binary
+	else
+		rm -f META-INF/com/google/android/update-binary && mv META-INF/com/google/android/update-binary2 META-INF/com/google/android/update-binary
+	fi
+	OLD=`md5sum __dont_include/_updater-scripts/archidroid/updater-script | awk '{print $1}'`
+	NEW=`md5sum __adtemp/META-INF/com/google/android/updater-script | awk '{print $1}'`
 
-if [ $OLD != $NEW ]; then
-	echo "Warning! New $NEW does not equal old $OLD."
-	echo "Probably just symlink or permissions stuff"
-	diff __dont_include/_updater-scripts/archidroid/updater-script __adtemp/META-INF/com/google/android/updater-script
-	cp __adtemp/META-INF/com/google/android/updater-script __dont_include/_updater-scripts/archidroid/updater-script
-	read -p "Tell me when you're done, master!" -n1 -s
-else
-	echo "MD5 Sums matches, no further action required, automatic mode goes on..."
+	if [ $OLD != $NEW ]; then
+		echo "Warning! New $NEW does not equal old $OLD."
+		echo "Probably just symlink or permissions stuff"
+		diff __dont_include/_updater-scripts/archidroid/updater-script __adtemp/META-INF/com/google/android/updater-script
+		cp __adtemp/META-INF/com/google/android/updater-script __dont_include/_updater-scripts/archidroid/updater-script
+		read -p "Tell me when you're done, master!" -n1 -s
+	else
+		echo "MD5 Sums matches, no further action required, automatic mode goes on..."
+	fi
+	rm -Rf __adtemp
+	#rm -f *.zip
 fi
-rm -Rf __adtemp
 
 cd __dont_include/
 # Bo CM tez ma syf...
@@ -211,16 +224,21 @@ if [ $SAMMY -eq 1 ]; then
 	cd framework-res
 	zip -0 -r ../../system/framework/framework-res.apk *
 	cd ..
+	chmod 755 zipalign
+	./zipalign -v -f 4 ../system/framework/framework-res.apk TEMP.apk
+	mv -f TEMP.apk ../system/framework/framework-res.apk
 	rm -f ../system/app/Superuser.apk
 	rm -f ../system/xbin/su
 	rm -f ../system/xbin/daemonsu
 	rm -f ../system/etc/init.d/99SuperSUDaemon
 	rm -f ../system/etc/install-recovery.sh
+	rm -f ../system/etc/.installed_su_daemon
+	rm -rf ../system/bin/.ext
+	cd _bloatware
+	#bash ZZcleanrom.sh
+	cd ..
 fi
 
-if [ $STABLE -eq 1 ]; then
-	bash zipalign.sh
-fi
 if [ $NOOPD -eq 0 ]; then
 	bash openpdroid.sh
 else

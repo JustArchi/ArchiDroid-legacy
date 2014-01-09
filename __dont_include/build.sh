@@ -56,15 +56,16 @@ for ARG in "$@" ; do
 done
 
 OTA="echo \"updateme.version=$VERSION\" >> /system/build.prop"
-if [ $SAMMY -eq 1 ]; then
-	OLDVERSION="$VERSION"
-	VERSION+=" "
-	VERSION+="`cat ../system/build.prop | grep "ro.build.version.incremental" | cut -d '=' -f 2`"
-fi
 if [ $STABLE -eq 0 ]; then
 	VERSION="$VERSION EXPERIMENTAL"
 else
 	VERSION="$VERSION STABLE"
+fi
+if [ $SAMMY -eq 1 ]; then
+	OLDVERSION="$VERSION "
+	VERSION+='['
+	VERSION+="`cat ../system/build.prop | grep "ro.build.version.incremental" | cut -d '=' -f 2`"
+	VERSION+=']'
 fi
 DENSITY="#ro.sf.lcd_density=320"
 

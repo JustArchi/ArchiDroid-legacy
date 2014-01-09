@@ -305,7 +305,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 	endif;
 
 	### Boeffla for non-boeffla kernels, yet supporting boeffla sound engine ###
-	if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "yank" || file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "googy" then
+	if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "yank" then
 		form(
 			"<~archidroid.custom.extra>",
 			"<~archidroid.custom.desc>",

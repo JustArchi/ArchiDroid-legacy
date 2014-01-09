@@ -303,6 +303,7 @@ else
 		delete("/system/app/DroidSansSherifItalic.apk");
 		delete("/system/app/SCParser.apk");
 		delete("/system/app/ClipboardSaveService.apk");
+		delete("/system/app/wssyncmlnps.apk");
 	endif;
 
 

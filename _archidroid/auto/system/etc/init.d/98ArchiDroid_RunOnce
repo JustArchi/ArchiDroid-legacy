@@ -374,10 +374,10 @@ while (! pgrep com.android && [ $LOOP -lt 150 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 				DBUPDATE system wallpaper_intra_close 8
 				DBUPDATE system activity_open 8
 				DBUPDATE system activity_close 8
-				DBUPDATE system animation_ime_enter 8
-				DBUPDATE system animation_ime_exit 8
-				DBUPDATE system animation_ime_interpolator 9
-				DBUPDATE system animation_ime_duration 200
+				#DBUPDATE system animation_ime_enter 8
+				#DBUPDATE system animation_ime_exit 8
+				#DBUPDATE system animation_ime_interpolator 9
+				#DBUPDATE system animation_ime_duration 200
 				DBUPDATE system listview_animation 4
 				DBUPDATE system listview_interpolator 9
 				DBUPDATE system listview_animation_cache 3

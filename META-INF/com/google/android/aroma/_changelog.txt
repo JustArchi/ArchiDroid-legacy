@@ -1,13 +1,19 @@
 ArchiDroid 1.7.5
 
-- Updated base to XXUGML4
+- Updated base to XWUGML4
 - Changed bloatare behaviour in aroma. Unchecked apps will now be removed while checked preserved
 - Fixed broken google sync after removing Samsung Calendar from bloatware
 - Updated Boeffla Kernel to 5.1-beta12
-- Updated Kitkat Revolution (AOSP) Theme to beta4
+- Updated Kitkat Revolution (AOSP) Theme to beta4, removed in this release due to incompatibility
 - Updated Wanam Xposed to 2.6.2
 
+
 * ArchiDroid Commons
+(Common components shared between 1.X and 2.X)
+
+- [!] Fixed half-broken ArchiDroid Backend with Devil/Googy Kernel
+# It...will...never...break...again.
+
 - Improved adflash
 # Added extsd support. Adflash will now automatically use extsd if ArchiDroid folder found. This means you need to use extsd mode only once (to create ArchiDroid folder)
 # Added better git support. Adflash will now automatically use git mode if GitHub repository already exists in folder detected above
@@ -15,9 +21,6 @@ ArchiDroid 1.7.5
 
 - Improved adlinux
 # Added extsd support. Adlinux automatically checks if you have extsd and if it's supported. Your extsd needs to be formatted in native linux format such as ext4 to be supported, otherwise internal sd is (and must be) used, because debian requires symlink functionality
-
-- [!] Fixed half-broken ArchiDroid Backend with Devil Kernel
-# It...will...never...break...again.
 
 - Added Googy Max 2 Kernel
 - Added Navigation Bar (enabler) build.prop tweak

@@ -29,7 +29,7 @@
 # Initializing Rom Information
 ##
 
-setvar("preset_version","8");
+setvar("preset_version","9");
 
 ini_set("dp","3");
 ini_set("rom_name",             "ArchiDroid");

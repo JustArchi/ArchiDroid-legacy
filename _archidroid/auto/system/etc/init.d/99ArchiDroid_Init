@@ -35,6 +35,7 @@ alias mount='ADALIAS mount'
 # Initial variables, you should NOT change them unless you know what you're doing
 AD="/data/media/0/ArchiDroid"
 LOG="$AD/Init.log" # "/dev/null" is no verbose
+RUNONCELOG="$AD/RunOnce.log"
 ADSTATUS="/dev/ARCHIDROID_INIT_STATUS"
 
 if [ ! -e $ADSTATUS ]; then
@@ -359,13 +360,16 @@ sleep 10
 
 if [ -e /system/etc/init.d/98ArchiDroid_RunOnce ]; then
 	echo "WARNING: RunOnce found in init.d, trying to remove it!" >> $LOG
+	echo "REMOTE: Hello, Init here. I found you in init.d, what the hell were you thinking?!" >> $RUNONCELOG
 	sysrw || mount -o remount,rw /system
 	rm -f /system/etc/init.d/98ArchiDroid_RunOnce
 	if [ ! -e /system/etc/init.d/98ArchiDroid_RunOnce ]; then
 		echo "INFO: Success!" >> $LOG
+		echo "REMOTE: Successfully removed you from init.d!" >> $RUNONCELOG
 		sysro || mount -o remount,ro /system
 	else
 		echo "ERROR: Failed!" >> $LOG
+		echo "REMOTE: ERROR, could not remove you from init.d!" >> $RUNONCELOG
 	fi
 fi
 

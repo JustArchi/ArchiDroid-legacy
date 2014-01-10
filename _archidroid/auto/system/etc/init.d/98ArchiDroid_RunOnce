@@ -184,6 +184,7 @@ fi
 
 echo "`date`" >> $LOG
 echo "`uname -a`" >> $LOG
+echo "ArchiDroid `getprop ro.archidroid.version`" >> $LOG
 echo "INFO: ArchiDroid_RunOnce executed!" >> $LOG
 
 # Now we need to make sure that this is background process to prevent slowing down bootup

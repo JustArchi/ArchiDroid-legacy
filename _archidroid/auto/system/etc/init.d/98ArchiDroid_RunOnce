@@ -41,6 +41,12 @@ ADSTATUS="/dev/ARCHIDROID_RUNONCE_STATUS"
 if [ ! -e $ADSTATUS ]; then
 	# First boot, good
 	echo $$ > $ADSTATUS
+
+	# Manage fallback log
+	if [ -e $LOG ]; then
+		rm -f $LOG2
+		mv $LOG $LOG2
+	fi
 else
 	ADSIGNAL=`cat $ADSTATUS`
 	if [ $ADSIGNAL == "FINISHED" ]; then
@@ -61,11 +67,6 @@ else
 			echo $$ > $ADSTATUS
 		fi
 	fi
-fi
-
-if [ -e $LOG ]; then
-	rm -f $LOG2
-	mv $LOG $LOG2
 fi
 
 # Redirect stderr to our log, just in case something bad happen
@@ -480,6 +481,8 @@ else
 	echo "ERROR: I've detected RunOnce still in init.d after cleanup, that's not good, please investigate" >> $LOG
 fi
 
+echo "FINISHED" > $ADSTATUS
+
 # Execute a reboot if we need it
 if [ $ADRELOAD -eq 1 ]; then
 	echo "INFO: Reboot required, I'm rebooting the device right now" >> $LOG
@@ -500,6 +503,5 @@ else
 	# Finish
 	echo "INFO: ArchiDroid RunOnce finished" >> $LOG
 	echo "`date`" >> $LOG
-	echo "FINISHED" > $ADSTATUS
 fi
 exit 0

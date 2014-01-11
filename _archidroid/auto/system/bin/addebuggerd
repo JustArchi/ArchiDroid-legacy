@@ -2,6 +2,19 @@
 
 # ArchiDroid Backend Fallback
 
+ADALIAS() {
+	# Because fuck you kernel, that's why
+	local CMD="$1"
+	shift 1
+	if [ -e /system/xbin/$CMD ]; then
+		/system/xbin/$CMD $@
+	elif [ -e /system/bin/$CMD ]; then
+		/system/bin/$CMD $@
+	else
+		$CMD $@
+	fi
+}
+
 if [ ! -e /dev/ARCHIDROID_RUNONCE_STATUS ] && [ ! -e /dev/ARCHIDROID_INIT_STATUS ]; then
 	for f in `find /system/etc/init.d -type f -iname "*ArchiDroid*"`; do
 		sh $f "background" &

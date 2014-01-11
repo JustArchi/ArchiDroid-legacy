@@ -9,11 +9,11 @@ ADALIAS() {
 	local CMD="$1"
 	shift 1
 	if [ -e /system/xbin/$CMD ]; then
-		/system/xbin/$CMD "$@"
+		/system/xbin/$CMD $@
 	elif [ -e /system/bin/$CMD ]; then
-		/system/bin/$CMD "$@"
+		/system/bin/$CMD $@
 	else
-		$CMD "$@"
+		$CMD $@
 	fi
 }
 

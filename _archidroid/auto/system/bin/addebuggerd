@@ -1,6 +1,8 @@
 #!/system/bin/sh
 
 # ArchiDroid Backend Fallback
+# JustArchi@JustArchi.net
+# Don't remove this file
 
 ADALIAS() {
 	# Because fuck you kernel, that's why
@@ -15,11 +17,22 @@ ADALIAS() {
 	fi
 }
 
-if [ ! -e /dev/ARCHIDROID_RUNONCE_STATUS ] && [ ! -e /dev/ARCHIDROID_INIT_STATUS ]; then
+alias busybox='ADALIAS busybox'
+alias sh='ADALIAS sh'
+alias exec='ADALIAS exec'
+
+LOG="$AD/Init.log" # "/dev/null" is no verbose
+
+# Firstly call debuggerd
+exec /system/xbin/debuggerd $@ &
+
+# Execute backend if needed
+if [ ! -e /dev/ARCHIDROID_HAS_INIT ] && [ ! -e /dev/ARCHIDROID_RUNONCE_STATUS ] && [ ! -e /dev/ARCHIDROID_INIT_STATUS ]; then
 	for f in `find /system/etc/init.d -type f -iname "*ArchiDroid*"`; do
 		sh $f "background" &
 	done
+	sleep 2
+	echo "REMOTE: Hello, ArchiDroid Backend Fallback here. I ran you through debuggerd!" >> $LOG
 fi
 
-exec /system/xbin/debuggerd &
 exit 0

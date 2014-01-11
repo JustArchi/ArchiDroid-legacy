@@ -320,7 +320,7 @@ while (! pgrep com.android && [ $LOOP -lt 150 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 			# Let's update selected keyboard according to our choice
 			# TODO: We should handle this internally, according to FIRSTBOOT instead of hardcoding keyboards
 			ONESHOT=1
-			for KEYBOARDFULL in "org.pocketworkstation.pckeyboard/.LatinIME" "com.cootek.smartinputv5/com.cootek.smartinput5.TouchPalIME" "com.google.android.googlequicksearchbox/com.google.android.voicesearch.ime.VoiceInputMethodService" ; do
+			for KEYBOARDFULL in "org.pocketworkstation.pckeyboard/.LatinIME" "com.cootek.smartinputv5/com.cootek.smartinput5.TouchPalIME" ; do
 				KEYBOARD=`echo $KEYBOARDFULL | cut -d '/' -f 1`
 				if [ -e /data/data/$KEYBOARD ] && [ $ONESHOT -eq 1 ]; then
 					echo "INFO: $KEYBOARD Keyboard found!" >> $LOG

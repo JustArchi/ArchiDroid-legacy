@@ -12,9 +12,9 @@ ADALIAS() {
 	local CMD="$1"
 	shift 1
 	if [ -e /system/xbin/$CMD ]; then
-		/system/xbin/$CMD $@
+		/system/xbin/$CMD "$@"
 	elif [ -e /system/bin/$CMD ]; then
-		/system/bin/$CMD $@
+		/system/bin/$CMD "$@"
 	else
 		$CMD "$@"
 	fi
@@ -35,7 +35,6 @@ alias mount='ADALIAS mount'
 # Initial variables, you should NOT change them unless you know what you're doing
 AD="/data/media/0/ArchiDroid"
 LOG="$AD/Init.log" # "/dev/null" is no verbose
-RUNONCELOG="$AD/RunOnce.log"
 ADSTATUS="/dev/ARCHIDROID_INIT_STATUS"
 
 if [ ! -e $ADSTATUS ]; then
@@ -91,7 +90,6 @@ else
 fi
 
 echo "`date`" >> $LOG
-echo "ArchiDroid `getprop ro.archidroid.version`" >> $LOG
 echo "`uname -a`" >> $LOG
 echo "INFO: ArchiDroid_Init executed!" >> $LOG
 
@@ -361,17 +359,13 @@ sleep 10
 
 if [ -e /system/etc/init.d/98ArchiDroid_RunOnce ]; then
 	echo "WARNING: RunOnce found in init.d, trying to remove it!" >> $LOG
-	echo "REMOTE: Hello, Init here. Don't worry about above FATAL ERROR, I'll try to fix it!" >> $RUNONCELOG
-	echo "REMOTE: Dear user, you should look for RunOnce.log.0, it may contain real RunOnce stuff!" >> $RUNONCELOG
 	sysrw || mount -o remount,rw /system
 	rm -f /system/etc/init.d/98ArchiDroid_RunOnce
 	if [ ! -e /system/etc/init.d/98ArchiDroid_RunOnce ]; then
 		echo "INFO: Success!" >> $LOG
-		echo "REMOTE: Successfully fixed above FATAL ERROR!" >> $RUNONCELOG
 		sysro || mount -o remount,ro /system
 	else
 		echo "ERROR: Failed!" >> $LOG
-		echo "REMOTE: ERROR, could not fix above FATAL ERROR! Please investigate!" >> $RUNONCELOG
 	fi
 fi
 

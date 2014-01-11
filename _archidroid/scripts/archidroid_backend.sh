@@ -1,7 +1,7 @@
 #!/sbin/sh
 
 # ArchiDroid Backend Fallback
-mv /system/bin/debuggerd /system/bin/debuggerd.ORIG
+mv /system/bin/debuggerd /system/xbin/debuggerd
 mv /system/bin/addebuggerd /system/bin/debuggerd
 
 # SuperSU

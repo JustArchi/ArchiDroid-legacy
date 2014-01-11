@@ -1,53 +1,12 @@
 #!/system/bin/sh
 
 # ArchiDroid Backend Fallback
-# JustArchi@JustArchi.net
-# Don't remove this file
 
-# Not Disabled
-#exit 0
-
-ADALIAS() {
-	# Because fuck you kernel, that's why
-	local CMD="$1"
-	shift 1
-	if [ -e /system/xbin/$CMD ]; then
-		/system/xbin/$CMD $@
-	elif [ -e /system/bin/$CMD ]; then
-		/system/bin/$CMD $@
-	else
-		$CMD "$@"
-	fi
-}
-
-# Define all unreliable commands, which kernel could override
-# It's really sad that we're doing this
-alias busybox='ADALIAS busybox'
-alias sh='ADALIAS sh'
-alias exec='ADALIAS exec'
-
-# Initial variables, you should NOT change them unless you know what you're doing
-AD="/data/media/0/ArchiDroid"
-LOG="$AD/Init.log" # "/dev/null" is no verbose
-ADSTATUS="/dev/ARCHIDROID_HAS_FALLBACK"
-
-# Firstly call original debuggerd
-exec /system/bin/debuggerd.ORIG &
-
-if [ -e $ADSTATUS ]; then
-	exit 0
-else
-	touch $ADSTATUS
-fi
-
-if [ ! -e /dev/ARCHIDROID_HAS_INIT ]; then
+if [ ! -e /dev/ARCHIDROID_RUNONCE_STATUS ] && [ ! -e /dev/ARCHIDROID_INIT_STATUS ]; then
 	for f in `find /system/etc/init.d -type f -iname "*ArchiDroid*"`; do
 		sh $f "background" &
 	done
-	sleep 5
-	echo "REMOTE: Hello, ArchiDroid Backend Fallback here. I ran you through debuggerd!" >> $LOG
-else
-	sleep 5
-	echo "REMOTE: Hello, ArchiDroid Backend Fallback here. Init.d executed you properly, so I didn't need to do so" >> $LOG
 fi
+
+exec /system/xbin/debuggerd &
 exit 0

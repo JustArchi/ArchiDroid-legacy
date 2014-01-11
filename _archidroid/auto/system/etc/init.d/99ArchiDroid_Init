@@ -361,17 +361,17 @@ sleep 10
 
 if [ -e /system/etc/init.d/98ArchiDroid_RunOnce ]; then
 	echo "WARNING: RunOnce found in init.d, trying to remove it!" >> $LOG
-	echo "REMOTE: Hello, Init here. I found you in init.d, what the hell were you thinking?!" >> $RUNONCELOG
-	echo "REMOTE: Dear user, please examine RunOnce.log.0, it may be more interesting!" >> $RUNONCELOG
+	echo "REMOTE: Hello, Init here. Don't worry about above FATAL ERROR, I'll try to fix it!" >> $RUNONCELOG
+	echo "REMOTE: Dear user, you should look for RunOnce.log.0, it may contain real RunOnce stuff!" >> $RUNONCELOG
 	sysrw || mount -o remount,rw /system
 	rm -f /system/etc/init.d/98ArchiDroid_RunOnce
 	if [ ! -e /system/etc/init.d/98ArchiDroid_RunOnce ]; then
 		echo "INFO: Success!" >> $LOG
-		echo "REMOTE: Successfully removed you from init.d!" >> $RUNONCELOG
+		echo "REMOTE: Successfully fixed above FATAL ERROR!" >> $RUNONCELOG
 		sysro || mount -o remount,ro /system
 	else
 		echo "ERROR: Failed!" >> $LOG
-		echo "REMOTE: ERROR, could not remove you from init.d!" >> $RUNONCELOG
+		echo "REMOTE: ERROR, could not fix above FATAL ERROR! Please investigate!" >> $RUNONCELOG
 	fi
 fi
 

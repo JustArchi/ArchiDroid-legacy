@@ -8,11 +8,31 @@ adpatch() {
 	NUMBER="$1"
 	PATCHSET="$2"
 	shift 2
-	GENERIC="android"
-	for i in "$@"; do
-		cd $i
-		GENERIC+="_$i"
-	done
+	case "$1" in
+		"framework")
+			GENERIC="android_frameworks_base"
+			cd frameworks/base
+			GOBACK=2
+			;;
+		"settings")
+			GENERIC="android_packages_apps_Settings"
+			cd packages/apps/Settings
+			GOBACK=3
+			;;
+		"omnigears")
+			GENERIC="android_packages_apps_OmniGears"
+			cd packages/apps/OmniGears
+			GOBACK=3
+			;;
+		*)
+			GENERIC="android"
+			GOBACK=0
+			for i in "$@"; do
+				cd $i
+				GENERIC+="_$i"
+				GOBACK=`expr $GOBACK + 1`
+			done
+	esac
 	
 	# Find latest patchset
 	git fetch $GERRIT/$GENERIC refs/changes/$NUMBER/$PATCHSET
@@ -39,7 +59,7 @@ adpatch() {
 	fi
 	
 	# Back to root
-	for i in `seq 1 $#`; do
+	for i in `seq 1 $GOBACK`; do
 		cd ..
 	done
 }
@@ -52,8 +72,31 @@ adpatch "10/1510" "17" "frameworks" "base"
 # https://gerrit.omnirom.org/#/c/4251/
 # https://gerrit.omnirom.org/#/c/4250/
 # https://gerrit.omnirom.org/#/c/4249/
-adpatch "51/4251" "32" "frameworks" "base"
-adpatch "50/4250" "10" "packages" "apps" "Settings"
-adpatch "49/4249" "29" "packages" "apps" "OmniGears"
+adpatch "51/4251" "35" "frameworks" "base"
+adpatch "50/4250" "12" "packages" "apps" "Settings"
+#adpatch "49/4249" "31" "packages" "apps" "OmniGears"
+
+# TRDS
+# https://gerrit.omnirom.org/#/c/4788/
+# https://gerrit.omnirom.org/#/c/4789/
+# https://gerrit.omnirom.org/#/c/4790/
+# https://gerrit.omnirom.org/#/c/4791/
+# https://gerrit.omnirom.org/#/c/4792/
+# https://gerrit.omnirom.org/#/c/4793/
+# https://gerrit.omnirom.org/#/c/4794/
+# https://gerrit.omnirom.org/#/c/4801/
+# https://gerrit.omnirom.org/#/c/4806/
+# https://gerrit.omnirom.org/#/c/4807/
+adpatch "88/4788" "2" "framework"
+adpatch "89/4789" "2" "framework"
+adpatch "90/4790" "1" "settings"
+adpatch "91/4791" "1" "frameworks" "native"
+adpatch "92/4792" "1" "packages" "apps" "Dialer"
+adpatch "93/4793" "1" "packages" "apps" "Dialer"
+adpatch "94/4794" "1" "packages" "services" "Telephony"
+#adpatch "01/4801" "2" "packages" "apps" "Mms"
+#adpatch "06/4806" "1" "packages" "apps" "Gallery2"
+#adpatch "07/4807" "1" "packages" "inputmethods" "LatinIME"
+
 
 exit 0

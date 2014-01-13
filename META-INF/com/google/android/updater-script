@@ -725,8 +725,7 @@ else
 		package_extract_file("_archidroid/gapps/install-optional.sh", "/tmp/install-optional.sh");
 		set_perm(0, 0, 0777, "/tmp/install-optional.sh");
 		run_program("/tmp/install-optional.sh", "");
-		set_perm_recursive(0, 0, 0755, 0644, "/system/app");
-		set_perm_recursive(0, 0, 0755, 0644, "/system/priv-app");
+		delete("/tmp/install-optional.sh");
 	endif;
 
 	set_progress(0.86);

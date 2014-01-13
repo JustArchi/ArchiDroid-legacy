@@ -273,8 +273,6 @@ else
 	exit 2
 fi
 
-rm -f $AD/RunOnce.log.0
-
 # Cool ArchiDroid Banner
 if [ -e /system/bin/boot-dmesg ]; then
 	echo "INFO: boot-dmesg detected, turning on logcat banner" >> $LOG

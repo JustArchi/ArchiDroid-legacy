@@ -1,0 +1,199 @@
+﻿### LICENSE:
+#
+# Copyright (C) 2011 Ahmad Amarullah ( http://amarullz.com/ )
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+#
+#
+### ArchiDroid Language File
+#
+# How to create your own language translation
+# 1. Copy en.lang file to your own language.lang, f.e. fr.lang if you're creating French language.
+# 2. Start translating strings (everything after "=" should be translated)
+# 3. Change language and author information below when you're done
+# 4. Send pull request with your updated strings, wait for approval and adding to aroma
+# 5. Thank you for contributing to ArchiDroid project!
+#
+# Please note that you can use language-specific chars, f.e. ą ę ó ć ü ń or any non-standard letters.
+# All of them should be displayed properly in aroma
+#
+# Files should have UNIX-style endings (LF) and should be encoded in UTF-8 format.
+# Typically any file copied from en.lang should be already well formatted. Otherwise make sure that they're right.
+# In Notepad++ it's: Format -> UTF-8 and Edit -> EOL Conversion -> Convert to UNIX format
+#
+### LANGUAGE STRING RESOURCE FILE
+#
+#   Language  : Português(Brasil)
+#   By        : Andrecaron
+#
+
+#
+#--- AROMA STRINGS
+#
+text_ok=OK
+text_next=Próximo
+text_back=Anterior
+text_yes=Sim
+text_no=Não
+text_about=Sobre
+text_calibrating=Ferramentas de Calibração
+text_quit=Sair da Instalação
+text_quit_msg=Você tem certeza que quer SAIR da instalação?
+
+#
+#-- ARCHIDROID STRINGS
+#
+common.for=para
+common.none=Nenhum
+common.replaces=Substitui
+common.inverted=Alterado
+common.experimental=EXPERIMENTAL
+common.deprecated=DEPRECATED
+common.obsolete=OBSOLETO
+terms.check=Eu concordo com os Termos e Condições
+terms.confirm=Por favor, verifique os termos e acordos!
+terms.check2=I compreendo e respeito isso!
+terms.confirm2=Respeite os desenvolvedores!!
+
+archidroid.tos=Termos e Condições do ArchiDroid
+
+archidroid.detect.fail=ArchiDroid não pode se detectar instalado. Você fez "full wipe" ou está vindo de outra ROM?
+archidroid.detect.fail.yes=Sim, não tenho ArchiDroid instalado!
+archidroid.detect.fail.no=Não, Estou usando ArchiDroid!
+archidroid.detect.fail.alert.yes=OK, Selecionei o modo INSTALAÇÃO para você.
+archidroid.detect.fail.alert.no=Isso não é bom. Vou usar resultados falsos mas não use o modo ATUALIZAÇÃO se você nao tem ArchiDroid instalado!
+archidroid.detect.pass=ArchiDroid foi detectado sendo usado por você. Você quer tentar usar o modo ATUALIZAÇÃO ?
+archidroid.detect.pass.yes=Sim, Tentar modo atualização
+archidroid.detect.pass.no=Não, Faça o "Full Wipe"
+archidroid.detect.pass.alert.no=OK, Vou proceder fazendo um "full wipe" e usando o modo INSTALAÇÃO
+archidroid.detect.force=Você gostaria de suar o modo ATUALIZAÇÃO FORÇADA ? Isso indica ao "ArchiDroid RunOnce" para realizar modificações avançadas, que normalmente é executado apenas durante o modo INSTALAÇÃO. Selecione NÃO se você não tem certeza.
+
+archidroid.preset= Instalação predefinada ArchiDroid
+archidroid.preset.desc=Por favor selecione a instalação predefinada:
+archidroid.preset.group=Predefinada
+archidroid.preset.custom=Personalizada
+archidroid.preset.custom.desc=Você poderá personalizar todo aspecto da instalação
+archidroid.preset.barebones=Limpa
+archidroid.preset.barebones.desc=ROM limpa. Apenas para testes, não recomendada
+archidroid.preset.previous=Predefinida anteriormente
+archidroid.preset.previous.desc=Carrega suas opções de instalação anterior ( se disponível)
+
+archidroid.detect.previouspreset.fail=Não foi possível carregar suas definições anteriores, ou falhou no teste de integridade ou não existe
+
+archidroid.custom=Personalização ArchiDroid
+archidroid.custom.extra=Extra Personalização ArchiDroid
+archidroid.custom.desc=Favor faça as modificações do seu jeito
+
+archidroid.kernel.temasek.desc=Recomendado para performance,baixo consumo bateria,alta flexibilidade e "boeffla sound".
+archidroid.kernel.boeffla.desc=Uma obra de arte perfeita para todos, usando "boeffla sound e muitos outros recursos
+archidroid.kernel.yank.desc=Recomendado como alternativo
+archidroid.kernel.googy.desc=Baseado nos códigos do Siyah. Recurso de "dual-boot" e STweaks instalado
+archidroid.kernel.devil.desc=Baseado nos códigos do Perseus. Recurso de "dual-boot", com DevilTools instalado
+archidroid.kernel.stock.desc=Kernel original
+
+archidroid.theme.aosp.desc=Tema AOSP
+archidroid.theme.stock.desc=Tema Stock
+
+archidroid.dpi.240w.desc=AVISO! Pode haver algumas falhas gráficas neste modo de DPI
+archidroid.dpi.240.desc=Tudo será menor, incluindo os botões,ícones,textos etc. Sugerido para uma melhor experiência com ArchiDroid!
+archidroid.dpi.280.desc=Opção balanceada entre modo stock e 240 DPI
+archidroid.dpi.320.desc=DPI original
+
+archidroid.launcher.nova.desc=Recomendado para maior flexibilidade e performance
+archidroid.launcher.stock.desc=Original(Touchwiz)
+archidroid.launcher.none.desc=Sem launcher. AVISO! Não escolha essa opção se você tiver feito "full wipe"! Você precisa de pelo menos 1 launcher antes do primeiro boot!
+
+archidroid.keyboard=Teclado
+archidroid.keyboard.touchpal.desc=Recomendado como um teclado ótimo e bem flexivel "Swype/Curve" 
+archidroid.keyboard.hackers.desc=Ótima alternativa ao TouchPal se você não usa a função "swype/curve"
+archidroid.keyboard.both.desc=Se você quer usar tanto o TouchPal e Hacker's (por exemplo, no terminal)
+archidroid.keyboard.stock.desc=Se você quer manter o teclado original da ROM
+archidroid.keyboard.none.desc=Sem teclado. AVISO! Não escolha essa opção se você fez "full wipe"! Você precisa de pelo menos 1 teclado antes do primeiro boot!
+
+archidroid.bootanimation=Animação de boot
+archidroid.bootanimation.archi.desc=Nova e elegante animação ArchiDroid
+archidroid.bootanimation.archilegacy.desc=Antiga animação ArchiDroid 1.X
+archidroid.bootanimation.logcat.desc=Muda a animação de boot pelo logcat output - produzido por logcat lite
+archidroid.bootanimation.stock.desc=Animação de boot original fornecido pela ROM
+archidroid.bootanimation.none.desc=Sem animação de boot, para um boot um pouco mais rápido
+
+archidroid.other=Outros
+archidroid.ota.desc=Recomendado por ArchiDroid. Será instalado o apk "UpdateMe e disponibilizar atualização OTA via build.prop
+archidroid.xposed.desc=Permite o uso de vário módulos Xposed. Precisa ser habilitado manualmente
+archidroid.crossbreeder.desc=Recomendado para uma melhor performance e flexibilidade, Não é compativel com Seeder
+archidroid.updatemodem=Atualizar Modem
+archidroid.updatemodem.desc=Se você quer ter ultimo modem disponivel
+archidroid.updaterecovery=Atualizar Recovery
+archidroid.updaterecovery.desc=Se você quer ter ultima versão do recovery
+
+archidroid.gapps.desc=Funções centrais e apps do Google. NÃO DESMARQUE ISSO!!
+archidroid.gapps.gquick.desc=Pode danificar o Google Voice!
+
+archidroid.apps.titaniumbackup.desc=Perfeita solução para salvar seus aplicativos e dados entre atualizações
+archidroid.apps.greenify.desc=Util se você quer hibernar qualquer aplicativo, ajudando a salvar carga de bateria
+archidroid.apps.lmt.desc=Util para executar comandos ligados a gestos especificos na tela, também conhecido como PIE de SlimBean
+archidroid.apps.mxplayer.desc=Provavelmente o melhor aplicativo de video para Android
+archidroid.apps.spiritfm.desc=FM radio gratuito
+archidroid.apps.bbs.desc=Lhe dá o poder de verificar estatisticas especificas do uso da bateria - especialmente wakelocks
+archidroid.apps.cooltool.desc=Mostra algumas informações úteis na barra superior
+archidroid.apps.rootbrowser.desc=Ótimo explorador de arquivos com função de acesso ROOT
+archidroid.apps.adobeflash.desc=Adiciona suporte a conteudo em flash. Não funciona com Google Chrome
+
+archidroid.tweaks.hdvoice.desc=Habilita HD Voice (se disponivel)
+archidroid.tweaks.buildtweaks.desc=Muitos ajustes em build.prop, incluindo "deeper sleep", ajustes de performance e mais
+archidroid.tweaks.openpdroid.desc=Aplica o patch OpendDroid depois da instalação, se disponivel
+archidroid.tweaks.nocell.desc=Em geral é considerado como bloatware. Desmarque se você que manter isso
+
+archidroid.preset.no=Sem predefinição
+archidroid.preset.no.desc=Não recomendado porque você vai perder a maioria das otimizações do Archi
+
+archidroid.preset.kernel.boeffla.archiperformance=ArchiDroid Performance
+archidroid.preset.kernel.boeffla.archiperformance.desc=Um perfil otimizado e designado em geral para jogadores, inclui overclock CPU & GPU. Melhora a performance porém aumenta o consumo de bateria
+archidroid.preset.kernel.boeffla.archipowersave=ArchiDroid PowerSave
+archidroid.preset.kernel.boeffla.archipowersave.desc=Definição padrão para a maioria dos usuários, inclui pequeno uV.  Fornece um bom e balanceado consumo de bateria e performance. Recomendado por Archi
+archidroid.preset.kernel.boeffla.archiultrapowersave=ArchiDroid UltraPowerSave
+archidroid.preset.kernel.boeffla.archiultrapowersave.desc=Uma definição feita e otimizada para ter o máximo de economia de bateria, inclui um moderado uV. Um excelente consumo de bateria porém com perda de performance
+
+archidroid.boeffla.yesarchi=Sim, com perfil criado por Archi
+archidroid.boeffla.yesarchi.desc=Altamente recomendado. Melhora a qualidade do audio instalando "Boeffla SC" e ajustes de acordo com o gosto do Archi
+archidroid.boeffla.yes.desc=Se você quer criar suas próprias predefinições do "Boeffla SC" depois
+archidroid.boeffla.no.desc=Se você não quer instalar "Boeffla SC"
+
+archidroid.xposed.appsettings.desc=Permite alterar as configurações dos aplicativos. Ferramenta extremamente útil
+archidroid.xposed.xprivacy.desc=Modulo perfeito que evita o vazamento de dados particulares, restringe acessos e mais
+archidroid.xposed.wanam.desc=Uma obra de arte do Wanam. Melhora a flexibilidade do ArchiDroid e fornece muitas opções de modificações
+
+archidroid.wizard.reboot=ArchiDroid foi instalado no seu aparelho. Gostaria de reiniciar automaticamente agora ?
+
+archidroid.prepinstall=Pronto para instalação
+common.flash=Instalar
+common.back=Voltar
+
+archidroid.prepinstall.desc=Você está pronto para começar a instalação.\
+Aperte <b>Instalar</b> para começar.\
+Se você quer revisar ou mudar alguma opção que escolheu, aperte <b>Voltar</b>.
+
+common.finish=Finalizar
+common.flashing=Instalando
+
+archidroid.install.desc=<b>ArchiDroid</b> está instalado.\
+Por favor espere enquanto o assistente de instalação instala seu <b>ArchiDroid</b>\
+<b>Caso a instalação congele, pressione a combinação para reiniciar em modo recovery e tente novamente</b>
+
+archidroid.install.finish=O assistente do ArchiDroid concluiu com sucesso a instalação de <b>ArchiDroid</b>\
+Pressione <b>Finalizar</b>para continuar.
+
+archidroid.buildtweaks.fastdormancy.desc=Desmarque para desabilitar "fast dormancy",pode melhorar o consumo de bateria se sua operadora não suporta isso
+archidroid.buildtweaks.zerowakeup.desc=Marque para habilitar "ZeroWakeUp",isso colocará a CPU em modo sleep (ao invés de deep/deeper sleep),reduzindo ao minimo a demora ao "acordar" o aparelho
+archidroid.buildtweaks.navibar.desc=Marque para habilitar a Barra de Navegação, que normalmente é escondida em aparelhos com teclas físicas disponíveis

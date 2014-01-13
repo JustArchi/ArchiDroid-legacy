@@ -41,6 +41,12 @@ ADSTATUS="/dev/ARCHIDROID_RUNONCE_STATUS"
 if [ ! -e $ADSTATUS ]; then
 	# First boot, good
 	echo $$ > $ADSTATUS
+
+	# Manage fallback log
+	if [ -e $LOG ]; then
+		rm -f $LOG2
+		mv $LOG $LOG2
+	fi
 else
 	ADSIGNAL=`cat $ADSTATUS`
 	if [ $ADSIGNAL == "FINISHED" ]; then
@@ -50,12 +56,6 @@ else
 	elif [ $ADSIGNAL == "RESTART" ]; then
 		# Backend restarts itself, good to know, allow that
 		echo $$ > $ADSTATUS
-
-		# Manage fallback log
-		if [ -e $LOG ]; then
-			rm -f $LOG2
-			mv $LOG $LOG2
-		fi
 	else
 		kill -s 0 $ADSIGNAL >/dev/null 2>&1
 		ADSIGNAL=$?

@@ -3,6 +3,9 @@ ArchiDroid 2.3.4
 - [!] Fixed half-broken ArchiDroid Backend with Devil Kernel
 # It...will...never...break...again.
 
+- Updated DBUPDATE (RunOnce)
+# As always, at least forced update mode will be needed to reapply this
+
 - Added Portuguese language, thanks to @Andrecaron
 - Added Navigation Bar (enabler) build.prop tweak
 - Added Googy Max 2 Kernel
@@ -12,4 +15,8 @@ ArchiDroid 2.3.4
 - Updated Titanium Backup to 6.1.5.2
 - Updated PhilZ Touch Recovery to 6.07.9
 - Removed Adobe Flash, as it's not natively supported anymore
+
 - Updated sources
+# Includes native fuse exfat support
+# Hot-patched TRDS (True Real Dark Slim)
+# And many other Omni commits merged since last release

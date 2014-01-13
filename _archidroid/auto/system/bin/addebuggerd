@@ -1,0 +1,52 @@
+#!/system/bin/sh
+
+# ArchiDroid Backend Fallback
+# JustArchi@JustArchi.net
+# Don't remove this file
+
+ADALIAS() {
+	# Because fuck you kernel, that's why
+	local CMD="$1"
+	shift 1
+	if [ -e /system/xbin/$CMD ]; then
+		/system/xbin/$CMD "$@"
+	elif [ -e /system/bin/$CMD ]; then
+		/system/bin/$CMD "$@"
+	else
+		$CMD "$@"
+	fi
+}
+
+alias sh='ADALIAS sh'
+alias exec='ADALIAS exec'
+
+AD="/data/media/0/ArchiDroid"
+LOG="$AD/Init.log" # "/dev/null" is no verbose
+
+# Firstly call debuggerd
+exec /system/xbin/debuggerd "$@" &
+
+# ArchiDroid Fallback now
+if [ ! -e /dev/ARCHIDROID_HAS_FALLBACK ]; then
+	touch /dev/ARCHIDROID_HAS_FALLBACK
+else
+	# This is oneshot, nothing to do here
+	exit 0
+fi
+
+# Give kernel extra time to initialize
+sleep 5
+
+# Action now
+if [ ! -e /dev/ARCHIDROID_RUNONCE_STATUS ] && [ ! -e /dev/ARCHIDROID_INIT_STATUS ]; then
+	for f in `find /system/etc/init.d -type f -iname "*ArchiDroid*"`; do
+		sh $f "background" &
+	done
+	sleep 2
+	echo "REMOTE: Hello, ArchiDroid Backend Fallback here. I ran you through debuggerd!" >> $LOG
+else
+	sleep 2
+	echo "REMOTE: Hello, ArchiDroid Backend Fallback here. Kernel ran you properly, nice job!" >> $LOG
+fi
+
+exit 0

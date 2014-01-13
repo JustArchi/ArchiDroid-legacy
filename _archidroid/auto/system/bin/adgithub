@@ -1,10 +1,41 @@
 #!/bin/bash
 ourRepo="origin"
-ourLink="git://github.com/JustArchi/ArchiDroid.git"
+ourLink="github.com/JustArchi/ArchiDroid.git"
+NOPROTOCOL=1
 VERSION="$1"
 
 if [ -z "$VERSION" ]; then
 	exit 1
+fi
+
+# Parse extra args
+shift 1
+for arg in $@; do
+	case "$arg" in
+		"https")
+			if [ $NOPROTOCOL -eq 1 ]; then
+				ourLink="https://$ourLink"
+				NOPROTOCOL=0
+				git config --global http.sslVerify false # TODO: This is bad because of MITM attack, we need to supply our debian with ca-certificates!
+			fi
+			;;
+		"head")
+			if [ -d $VERSION ]; then
+				cd $VERSION
+				echo `git rev-parse HEAD`
+			else
+				echo ""
+			fi
+			exit 0
+			;;
+		*)
+			continue
+	esac
+done
+
+if [ $NOPROTOCOL -eq 1 ]; then
+	ourLink="git://$ourLink"
+	NOPROTOCOL=0
 fi
 
 echo "CHANGELOG START"

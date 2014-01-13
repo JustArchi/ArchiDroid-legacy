@@ -72,12 +72,12 @@ archidroid.detect.fail=没有检测到 ArchiDroid 在本机上运行. 你full wi
 archidroid.detect.fail.yes=我原来没有 ArchiDroid
 archidroid.detect.fail.no=我正在用 ArchiDroid!
 archidroid.detect.fail.alert.yes=好, 我为你选择了 ArchiDroid 安装模式.
-archidroid.detect.fail.alert.no=这不太好. 如果你没有运行ArchiDroid我将伪造结果，但是如果没安装过ArchiDroid不要使用更新模式!
+archidroid.detect.fail.alert.no=这不太好. 如果你没有运行ArchiDroid，我假装你正在使用 ArchiDroid ，这可能出问题，如果没安装过 ArchiDroid 不要使用更新模式，这很重要!
 archidroid.detect.pass=成功检测到您正在运行 ArchiDroid. 想要用升级模式么?
 archidroid.detect.pass.yes=好，使用升级模式
 archidroid.detect.pass.no=不, 全部擦除数据
 archidroid.detect.pass.alert.no=好, 将全部擦除数据并使用 ArchiDroid 安装模式
-archidroid.detect.force=想要用强制升级模式吗? ArchiDroid 启动一次来进行高级tweaks, 通常只会在安装模式执行. 不确定的话选择 否
+archidroid.detect.force=想要用强制升级模式吗? ArchiDroid 执行 RunOnce 脚本来进行高级tweaks, 通常只会在安装模式执行. 不确定的话选择 否
 
 archidroid.preset=ArchiDroid 安装预设
 archidroid.preset.desc=请选择安装预设:
@@ -98,8 +98,8 @@ archidroid.custom.desc=请修改设置，怎么习惯怎么来
 archidroid.kernel.temasek.desc=极佳性能，省电，高度顺滑和 boeffla sound，推荐！
 archidroid.kernel.boeffla.desc=高度推荐的杰作，适合每个人, 包含 boeffla sound和更多特性
 archidroid.kernel.yank.desc=推荐作为替代选择
-archidroid.kernel.googy.desc=Based on Siyah sources. Featuring dual-boot, comes with STweaks
-archidroid.kernel.devil.desc=Based on Perseus sources. Featuring dual-boot, comes with DevilTools
+archidroid.kernel.googy.desc=基于 Siyah 源码. 双启动特性, 带有 STweaks 进行控制
+archidroid.kernel.devil.desc=基于 Perseus 源码. 双启动特性, 带有 DevilTools 进行控制
 archidroid.kernel.stock.desc=使用 ROM 默认内核
 
 archidroid.theme.aosp.desc=AOSP 主题
@@ -196,4 +196,4 @@ archidroid.install.finish=ArchiDroid 向导已经成功刷入 <b>ArchiDroid</b>\
 
 archidroid.buildtweaks.fastdormancy.desc=取消勾选来关闭 fast dormancy, 如果运营商不支持，可能延长电池寿命
 archidroid.buildtweaks.zerowakeup.desc=勾选开启 ZeroWakeUp, 让CPU工作在睡眠模式 (不是深度睡眠), 把唤醒延迟降到最低
-archidroid.buildtweaks.navibar.desc=Tick to enable Navigation Bar, which is normally hidden on devices with hardware keys available
+archidroid.buildtweaks.navibar.desc=勾选开启导航栏, 通常在带有实体触摸键时会隐藏

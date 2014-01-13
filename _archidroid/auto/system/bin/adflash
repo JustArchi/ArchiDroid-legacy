@@ -3,6 +3,7 @@
 VERSION=""
 TEMP=""
 NOZIP=0
+GITHTTPS=0
 
 ADALIAS() {
 	# Because fuck you kernel, that's why
@@ -82,6 +83,7 @@ if [ $# -eq 0 ]; then
 	echo ""
 	echo "Other selectable options"
 	echo "nozip			Shows changelog and changes only"
+	echo "https			Affects only git mode during cloning (creating repository). This will tell git to use HTTPS instead of GIT protocol which may be faster/slower in some scenarios"
 	echo ""
 	echo ""
 	echo "Example: git extsd"
@@ -106,6 +108,9 @@ for arg in $EXTRA; do
 			;;
 		"nozip")
 			NOZIP=1
+			;;
+		"https")
+			GITHTTPS=1
 			;;
 		"intsd")
 			if [ "$AD" != "/data/media/0/ArchiDroid" ]; then
@@ -260,7 +265,11 @@ else
 	adlinux "default"
 	
 	echo "Setting up git repository..."
-	debian "cmd" "cd $AD/GitHub && adgithub $VERSION"
+	if [ $GITHTTPS -eq 0 ]; then
+		debian "cmd" "cd $AD/GitHub && adgithub $VERSION"
+	else
+		debian "cmd" "cd $AD/GitHub && adgithub $VERSION https"
+	fi
 	
 	# Expect that repo is ready
 	cd $AD/GitHub/$VERSION

@@ -196,6 +196,7 @@ set_perm(0, 1000, 0755, "/system/xbin/busybox");
 
 set_perm(0, 0, 06755, "/system/xbin/su");
 set_perm(0, 0, 06755, "/system/xbin/daemonsu");
+set_perm(0, 0, 0777, "/system/bin/.ext");
 set_perm(0, 0, 06755, "/system/bin/.ext/.su");
 
 ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Busybox");
@@ -457,26 +458,29 @@ else
 	### XPOSED ###
 	##############
 
-	if file_getprop("/tmp/aroma-data/archidroid.prop","xposed") == "1" then
+	if file_getprop("/tmp/aroma-data/archidroid.prop","xposed") == "1" || file_getprop("/tmp/aroma-data/archidroid.prop","dpi") != "320" then
 		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Including Xposed Framework");
 		run_program("/sbin/busybox","cp","-f","/system/bin/app_process","/system/bin/app_process.orig");
 		set_perm(0, 2000, 0755, "/system/bin/app_process.orig");
 		package_extract_dir("_archidroid/apps/xposed/xposed", "/");
 		set_perm(0, 2000, 0755, "/system/bin/app_process");
-
-		if file_getprop("/tmp/aroma-data/archidroidxposed.prop","appsettings") == "1" then
+		if file_getprop("/tmp/aroma-data/archidroid.prop","xposed") == "0" && file_getprop("/tmp/aroma-data/archidroid.prop","dpi") != "320" then
 			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Including App Settings Xposed Module");
 			package_extract_dir("_archidroid/apps/xposed/appsettings", "/");
+		else
+			if file_getprop("/tmp/aroma-data/archidroidxposed.prop","appsettings") == "1" || file_getprop("/tmp/aroma-data/archidroid.prop","dpi") != "320" then
+				ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Including App Settings Xposed Module");
+				package_extract_dir("_archidroid/apps/xposed/appsettings", "/");
+			endif;
+			if file_getprop("/tmp/aroma-data/archidroidxposed.prop","xprivacy") == "1" then
+				ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Including XPrivacy Xposed Module");
+				package_extract_dir("_archidroid/apps/xposed/xprivacy", "/");
+			endif;
+			if file_getprop("/tmp/aroma-data/archidroidxposed.prop","wanam") == "1" then
+				ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Including Wanam's Xposed Module");
+				package_extract_dir("_archidroid/apps/xposed/wanam", "/");
+			endif;
 		endif;
-		if file_getprop("/tmp/aroma-data/archidroidxposed.prop","xprivacy") == "1" then
-			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Including XPrivacy Xposed Module");
-			package_extract_dir("_archidroid/apps/xposed/xprivacy", "/");
-		endif;
-		if file_getprop("/tmp/aroma-data/archidroidxposed.prop","wanam") == "1" then
-			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Including Wanam's Xposed Module");
-			package_extract_dir("_archidroid/apps/xposed/wanam", "/");
-		endif;
-
 	endif;
 
 	set_progress(0.79);

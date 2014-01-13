@@ -41,6 +41,12 @@ ADSTATUS="/dev/ARCHIDROID_RUNONCE_STATUS"
 if [ ! -e $ADSTATUS ]; then
 	# First boot, good
 	echo $$ > $ADSTATUS
+
+	# Manage fallback log
+	if [ -e $LOG ]; then
+		rm -f $LOG2
+		mv $LOG $LOG2
+	fi
 else
 	ADSIGNAL=`cat $ADSTATUS`
 	if [ $ADSIGNAL == "FINISHED" ]; then
@@ -50,12 +56,6 @@ else
 	elif [ $ADSIGNAL == "RESTART" ]; then
 		# Backend restarts itself, good to know, allow that
 		echo $$ > $ADSTATUS
-
-		# Manage fallback log
-		if [ -e $LOG ]; then
-			rm -f $LOG2
-			mv $LOG $LOG2
-		fi
 	else
 		kill -s 0 $ADSIGNAL >/dev/null 2>&1
 		ADSIGNAL=$?
@@ -273,8 +273,6 @@ else
 	exit 2
 fi
 
-rm -f $AD/RunOnce.log.0
-
 # Cool ArchiDroid Banner
 if [ -e /system/bin/boot-dmesg ]; then
 	echo "INFO: boot-dmesg detected, turning on logcat banner" >> $LOG
@@ -289,7 +287,7 @@ fi
 # Also respect number of loops, maybe something went wrong
 echo "INFO: RunOnce Semaphore started" >> $LOG
 LOOP=0
-while (! pgrep com.android && [ $LOOP -lt 150 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ; do
+while (! pgrep com.android && [ $LOOP -lt 300 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ; do
 
 	if [ $ADBANNER -eq 1 ]; then
 		echo "

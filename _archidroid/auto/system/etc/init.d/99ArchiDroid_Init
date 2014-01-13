@@ -231,7 +231,7 @@ fi
 # Also respect number of loops, maybe something went wrong
 echo "INFO: Init Semaphore started" >> $LOG
 LOOP=0
-while ! pgrep com.android && [ $LOOP -lt 150 ] ; do
+while ! pgrep com.android && [ $LOOP -lt 300 ] ; do
 	if [ $ADBANNER -eq 1 ]; then
 		echo "
 *******************************************************************************

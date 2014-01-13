@@ -162,6 +162,7 @@ if [ ! -c /dev/frandom ]; then
 		if [ -f $FRANDOMPATH/frandom.ko ]; then
 			echo "INFO: Loading frandom using $FRANDOMPATH/frandom.ko!" >> $LOG
 			busybox insmod -f $FRANDOMPATH/frandom.ko
+			sleep 1
 			break
 		fi
 	done

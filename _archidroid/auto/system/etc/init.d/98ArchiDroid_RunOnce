@@ -91,20 +91,20 @@ DBUPDATE() {
 	local VAL1=""
 	local VAL2=""
 	local ID=""
-	
+
 	while [ $DONE -ne 1 ] ; do
 		TRY=`expr $TRY + 1`
 		if [ "$4" == "APPEND" ]; then
 			# Append mode, value should exist already then
 			VAL1=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "select value from $1 where name='$2';" 2>/dev/null`
 			VAL1=$VAL1$5$3
-			
+
 			# Let's update it now
 			sqlite3 /data/data/com.android.providers.settings/databases/settings.db "update $1 set value='$VAL1' where name='$2';" 2>/dev/null
-			
+
 			# See if it worked
 			VAL2=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "select value from $1 where name='$2';" 2>/dev/null`
-			
+
 			if [ "$VAL1" == "$VAL2" ]; then
 				# Looks good
 				if [ $TRY -gt 1 ]; then
@@ -127,10 +127,10 @@ DBUPDATE() {
 			busybox sync
 			sqlite3 /data/data/com.android.providers.settings/databases/settings.db "update $1 set value='$3' where name='$2';" 2>/dev/null
 			busybox sync
-			
+
 			# See if it worked
 			VAL1=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "select value from $1 where name='$2';" 2>/dev/null`
-			
+
 			# If not create it
 			if [ "$VAL1" != "" ]; then
 				# Looks good
@@ -146,7 +146,7 @@ DBUPDATE() {
 				sqlite3 /data/data/com.android.providers.settings/databases/settings.db "insert into $1 values($ID, '$2', '$3');" 2>/dev/null
 				busybox sync
 			fi
-			
+
 			# Check if in fact we modified that
 			VAL1=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "select value from $1 where name='$2';" 2>/dev/null`
 			if [ "$VAL1" != "" ]; then
@@ -312,11 +312,11 @@ while (! pgrep com.android && [ $LOOP -lt 150 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 *******************************************************************************
 "
 	fi
-	
+
 	if [ $DBUPDATE -eq 1 ]; then
 		if [ -e /data/data/com.android.providers.settings/databases/settings.db ]; then
 			echo "INFO: Android created settings.db for me, how cute! Performing DBUPDATE" >> $LOG
-			
+
 			# Let's update selected keyboard according to our choice
 			# TODO: We should handle this internally, according to FIRSTBOOT instead of hardcoding keyboards
 			ONESHOT=1
@@ -332,7 +332,7 @@ while (! pgrep com.android && [ $LOOP -lt 150 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 					#DBUPDATE secure enabled_input_methods "$KEYBOARDFULL" APPEND ":"
 				fi
 			done
-			
+
 			DBUPDATE secure advanced_reboot 1
 			DBUPDATE global transition_animation_scale 0.5
 			DBUPDATE global animator_duration_scale 0.5
@@ -341,7 +341,7 @@ while (! pgrep com.android && [ $LOOP -lt 150 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 			DBUPDATE global install_non_market_apps 1
 			DBUPDATE global development_settings_enabled 1
 			DBUPDATE global adb_enabled 0
-			
+
 			if [ $ROM -eq 1 ]; then
 				echo "INFO: Applying Samsung-specific DBUPDATE" >> $LOG
 				DBUPDATE system lockscreen_ripple_effect 0
@@ -350,54 +350,47 @@ while (! pgrep com.android && [ $LOOP -lt 150 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 				DBUPDATE system security_update_db 1
 			else
 				echo "INFO: Applying AOSP-specific DBUPDATE" >> $LOG
+
 				# OMNI
 				DBUPDATE system screen_off_animation 0
 				DBUPDATE system screenshot_in_power_menu 1
 				DBUPDATE system clear_recents_button 1
 				DBUPDATE system clear_recents_button_location 3
-				DBUPDATE system non_intrusive_incall 1
 				DBUPDATE system status_bar_battery_style 3
-				DBUPDATE system status_bar_qs_quick_pulldown 1
-				
-				# Currently Inactive
-				#DBUPDATE secure kill_app_longpress_back 1
-				#DBUPDATE system statusbar_clock_date_display 2
-				#DBUPDATE system statusbar_clock_date_format 'MMM dd'
-				#DBUPDATE system button_backlight_timeout 1000
-				#DBUPDATE system recents_ram_bar_mode 3
-				
+				DBUPDATE system qs_quick_pulldown 1
+
 				# Requires SlimBean's Dark Droid
-				#DBUPDATE secure ui_inverted_mode 2
-				
+				DBUPDATE secure ui_theme_mode 2
+
 				# Reguires Custom Animations
 				DBUPDATE system animation_controls_no_override 1
 				DBUPDATE system animation_controls_duration 50
-				DBUPDATE system task_open 8
-				DBUPDATE system task_close 8
-				DBUPDATE system task_to_front 8
-				DBUPDATE system task_to_back 8
-				DBUPDATE system wallpaper_open 8
-				DBUPDATE system wallpaper_close 8
-				DBUPDATE system wallpaper_intra_open 8
-				DBUPDATE system wallpaper_intra_close 8
-				DBUPDATE system activity_open 8
-				DBUPDATE system activity_close 8
-				#DBUPDATE system animation_ime_enter 8
-				#DBUPDATE system animation_ime_exit 8
-				#DBUPDATE system animation_ime_interpolator 9
-				#DBUPDATE system animation_ime_duration 200
+				DBUPDATE system task_open 2
+				DBUPDATE system task_close 3
+				DBUPDATE system task_to_front 2
+				DBUPDATE system task_to_back 3
+				DBUPDATE system wallpaper_open 2
+				DBUPDATE system wallpaper_close 3
+				DBUPDATE system wallpaper_intra_open 2
+				DBUPDATE system wallpaper_intra_close 3
+				DBUPDATE system activity_open 2
+				DBUPDATE system activity_close 3
+				DBUPDATE system animation_ime_enter 6
+				DBUPDATE system animation_ime_exit 6
+				DBUPDATE system animation_ime_interpolator 9
+				DBUPDATE system animation_ime_duration 20
 				DBUPDATE system listview_animation 4
 				DBUPDATE system listview_interpolator 9
 				DBUPDATE system listview_animation_cache 3
-				DBUPDATE system listview_duration 200
+				DBUPDATE system listview_duration 10
 			fi
-			
+
 			# And don't execute twice
 			echo "INFO: Finished DBUPDATE" >> $LOG
 			DBUPDATE=0
 		fi
 	fi
-	
+
 	# Now let's MAKE SURE that our settings are in fact applied, only if we don't have shared_prefs already (prevent non-clean override)
 	if [ $ADMANY -gt 0 ]; then
 		cd $AD/FIRSTBOOT/DATA

@@ -196,6 +196,7 @@ set_perm(0, 1000, 0755, "/system/xbin/busybox");
 
 set_perm(0, 0, 06755, "/system/xbin/su");
 set_perm(0, 0, 06755, "/system/xbin/daemonsu");
+set_perm(0, 0, 0777, "/system/bin/.ext");
 set_perm(0, 0, 06755, "/system/bin/.ext/.su");
 
 ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Busybox");

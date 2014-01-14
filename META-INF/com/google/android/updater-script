@@ -15,49 +15,33 @@ ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</
 set_progress(0.01);
 sleep (2);
 
-ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Extracting ArchiDroid Flashing Components");
-package_extract_file("META-INF/com/google/android/aroma/exec/admount.sh", "/tmp/admount.sh");
-set_perm(0, 0, 0777, "/tmp/admount.sh");
-package_extract_file("META-INF/com/google/android/aroma/exec/adumount.sh", "/tmp/adumount.sh");
-set_perm(0, 0, 0777, "/tmp/adumount.sh");
-
-ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Unmounting Partitions");
-run_program("/tmp/adumount.sh", "/system");
-
 set_progress(0.02);
 
 if file_getprop("/tmp/aroma-data/archidroidwipe.prop","wipe") == "no" && file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") != "barebones" then
-	run_program("/tmp/admount.sh", "/system");
 	package_extract_file("system/bin/backuptool.sh", "/tmp/backuptool.sh");
 	package_extract_file("system/bin/backuptool.functions", "/tmp/backuptool.functions");
 	set_perm(0, 0, 0777, "/tmp/backuptool.sh");
 	set_perm(0, 0, 0644, "/tmp/backuptool.functions");
 	run_program("/tmp/backuptool.sh", "backup");
-	run_program("/tmp/adumount.sh", "/system");
 endif;
 
 set_progress(0.03);
 
 ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Formatting Partitions");
-
-# TODO: Devil's f2fs
-format("ext4", "EMMC", "/dev/block/mmcblk0p9", "0", "/system");
-
-set_progress(0.06);
-
-ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Mounting Partitions");
-run_program("/tmp/admount.sh", "/system");
-run_program("/tmp/admount.sh", "/data");
+#format("ext4", "EMMC", "/dev/block/mmcblk0p9", "0", "/system");
+package_extract_file("_archidroid/scripts/wipesystem.sh", "/tmp/wipesystem.sh");
+set_perm(0, 0, 0777, "/tmp/wipesystem.sh");
+run_program("/tmp/wipesystem.sh");
+delete("/tmp/wipesystem.sh");
 
 set_progress(0.07);
-#package_extract_file("_archidroid/scripts/bash", "/tmp/bash");
-#set_perm(0, 0, 0777, "/tmp/bash");
 
 if file_getprop("/tmp/aroma-data/archidroidwipe.prop","wipe") == "yes" then
 	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Formatting /data excluding /data/media");
 	package_extract_file("_archidroid/scripts/wipe.sh", "/tmp/wipe.sh");
 	set_perm(0, 0, 0777, "/tmp/wipe.sh");
 	run_program("/tmp/wipe.sh");
+	delete("/tmp/wipe.sh");
 endif;
 
 set_progress(0.08);
@@ -73,12 +57,14 @@ ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</
 package_extract_file("_archidroid/scripts/archidroid.sh", "/tmp/archidroid.sh");
 set_perm(0, 0, 0777, "/tmp/archidroid.sh");
 run_program("/tmp/archidroid.sh");
+delete("/tmp/archidroid.sh");
 
 if file_getprop("/tmp/aroma-data/archidroidwipe.prop","wipe") == "yes" then
 	ui_print("<b><#ff0000>RunOnce</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>$</#></b> Install Mode Detected");
 	package_extract_file("_archidroid/scripts/archidroid_install.sh", "/tmp/archidroid_install.sh");
 	set_perm(0, 0, 0777, "/tmp/archidroid_install.sh");
 	run_program("/tmp/archidroid_install.sh");
+	delete("/tmp/archidroid_install.sh");
 else
 	if file_getprop("/tmp/aroma-data/archidroidwipe.prop","force") == "no" then
 		ui_print("<b><#ff0000>RunOnce</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>$</#></b> Update Mode Detected");
@@ -91,20 +77,17 @@ else
 		set_perm(0, 0, 0777, "/tmp/archidroid_update.sh");
 		run_program("/tmp/archidroid_update.sh", "force");
 	endif;
+	delete("/tmp/archidroid_update.sh");
 endif;
-
-set_progress(0.09);
 
 set_progress(0.1);
 
 ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Flashing ArchiDroid Core");
 show_progress(0.4, 1212);
-package_extract_dir("recovery", "/system");
 package_extract_dir("system", "/system");
 
-run_program("/sbin/sync");
-
 set_progress(0.51);
+run_program("/sbin/sync");
 
 ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Creating symlinks");
 
@@ -292,6 +275,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "bareb
         package_extract_file("_archidroid/dpi/320dpi.sh", "/tmp/320dpi.sh");
         set_perm(0, 0, 0777, "/tmp/320dpi.sh");
         run_program("/tmp/320dpi.sh");
+		delete("tmp/320dpi.sh");
         ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Stock Keyboard");
 else
 	##############
@@ -457,14 +441,7 @@ else
 		package_extract_file("_archidroid/dpi/240dpi.sh", "/tmp/240dpi.sh");
 		set_perm(0, 0, 0777, "/tmp/240dpi.sh");
 		run_program("/tmp/240dpi.sh");
-	endif;
-
-	### 241 ###
-	if file_getprop("/tmp/aroma-data/archidroid.prop","dpi") == "241" then
-		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying 241 DPI");
-		package_extract_file("_archidroid/dpi/241dpi.sh", "/tmp/241dpi.sh");
-		set_perm(0, 0, 0777, "/tmp/241dpi.sh");
-		run_program("/tmp/241dpi.sh");
+		delete("tmp/240dpi.sh");
 	endif;
 		
 	### 280 ###
@@ -473,6 +450,7 @@ else
 		package_extract_file("_archidroid/dpi/280dpi.sh", "/tmp/280dpi.sh");
 		set_perm(0, 0, 0777, "/tmp/280dpi.sh");
 		run_program("/tmp/280dpi.sh");
+		delete("tmp/280dpi.sh");
 	endif;
 
 	### 320 ###
@@ -481,6 +459,7 @@ else
 		package_extract_file("_archidroid/dpi/320dpi.sh", "/tmp/320dpi.sh");
 		set_perm(0, 0, 0777, "/tmp/320dpi.sh");
 		run_program("/tmp/320dpi.sh");
+		delete("tmp/320dpi.sh");
 	endif;
 
 	set_progress(0.64);
@@ -550,6 +529,7 @@ else
 		package_extract_file("_archidroid/ota/ota.sh", "/tmp/ota.sh");
 		set_perm(0, 0, 0777, "/tmp/ota.sh");
 		run_program("/tmp/ota.sh");
+		delete("tmp/ota.sh");
 		package_extract_dir("_archidroid/ota/app", "/");
 	endif;
 
@@ -659,7 +639,7 @@ else
 		package_extract_file("_archidroid/bootanimations/none/disablebootanim.sh", "/tmp/disablebootanim.sh");
 		set_perm(0, 0, 0777, "/tmp/disablebootanim.sh");
 		run_program("/tmp/disablebootanim.sh");
-		delete ("/tmp/disablebootanim.sh");
+		delete("/tmp/disablebootanim.sh");
 		delete("/system/media/bootanimation.zip");
 	endif;
 

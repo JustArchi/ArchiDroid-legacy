@@ -22,20 +22,17 @@ package_extract_file("META-INF/com/google/android/aroma/exec/adumount.sh", "/tmp
 set_perm(0, 0, 0777, "/tmp/adumount.sh");
 
 ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Unmounting Partitions");
-#assert(unmount("/system") || ui_print("(system is unmounted already)"));
 run_program("/tmp/adumount.sh", "/system");
 
 set_progress(0.02);
 
 if file_getprop("/tmp/aroma-data/archidroidwipe.prop","wipe") == "no" && file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") != "barebones" then
-	#mount("ext4", "EMMC", "/dev/block/mmcblk0p9", "/system");
 	run_program("/tmp/admount.sh", "/system");
 	package_extract_file("system/bin/backuptool.sh", "/tmp/backuptool.sh");
 	package_extract_file("system/bin/backuptool.functions", "/tmp/backuptool.functions");
 	set_perm(0, 0, 0777, "/tmp/backuptool.sh");
 	set_perm(0, 0, 0644, "/tmp/backuptool.functions");
 	run_program("/tmp/backuptool.sh", "backup");
-	#unmount("/system");
 	run_program("/tmp/adumount.sh", "/system");
 endif;
 
@@ -49,7 +46,6 @@ format("ext4", "EMMC", "/dev/block/mmcblk0p9", "0", "/system");
 set_progress(0.06);
 
 ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Mounting Partitions");
-#assert(mount("ext4", "EMMC", "/dev/block/mmcblk0p9", "/system") || ui_print("(system is mounted already)"));
 run_program("/tmp/admount.sh", "/system");
 run_program("/tmp/admount.sh", "/data");
 
@@ -826,8 +822,8 @@ run_program("/sbin/sync");
 set_progress(0.99);
 
 ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Unmounting partitions");
-assert(unmount("/data") || ui_print("(data is unmounted already)"));
-assert(unmount("/system") || ui_print("(system is unmounted already)"));
+run_program("/tmp/adumount.sh", "/system");
+run_program("/tmp/adumount.sh", "/data");
 
 ui_print("===================================");
 ui_print("  ArchiDroid Flashed Successfully  ");

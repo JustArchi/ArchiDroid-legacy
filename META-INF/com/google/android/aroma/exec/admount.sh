@@ -63,7 +63,7 @@ ADMOUNT() {
 				eval "MNTPATH=\$$MNTPATH"
 				mount -t "$fs" "$MNTPATH" "$1" >/dev/null 2>&1
 				if (ADMOUNTED "$1"); then
-					echo "Mounted "$1" through predefined mount using $fs and $MNTPATH"
+					echo "Mounted $1 through predefined mount using $fs and $MNTPATH"
 					return 0
 				fi
 			fi

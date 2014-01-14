@@ -57,7 +57,9 @@ fontresload( "0", "ttf/DroidSans.ttf;ttf/DroidSansFallback.ttf;ttf/DroidSansArab
 fontresload( "1", "ttf/DroidSans.ttf;ttf/DroidSansFallback.ttf;ttf/DroidSansArabic.ttf;", "14" ); #-- Use sets of font (Font Family)
 
 theme("touchwiz");
+resexec("exec/admount.sh", "/data");
 resexec("exec/archidroid_init.sh");
+resexec("exec/adumount.sh", "/data");
 
 
 
@@ -355,6 +357,7 @@ endif;
 
 
 pleasewait("Executing Shell...");
+resexec("exec/admount.sh", "/system");
 
 #-- Resource Exec
 setvar(
@@ -364,6 +367,8 @@ setvar(
 	#-- Run Shell
 	resexec("exec/archidroid_detect.sh")
 );
+
+resexec("exec/adumount.sh", "/system");
 
 if getvar("resexec_retstatus")=="0" || getvar("resexec_retstatus")=="1" then
 	if confirm(
@@ -459,8 +464,6 @@ install(
 	#-- Installation Finish Message
 	"<~archidroid.install.finish>"
 );
-
-resexec("exec/archidroid_finish.sh");
 
 if confirm(
 	#-- Title

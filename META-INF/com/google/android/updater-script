@@ -7,35 +7,49 @@
 #                                                             #
 ###############################################################
 ui_print(">>> ArchiDroid is now loading...");
-sleep (1);
+#sleep (1);
 assert(getprop("ro.product.device") == "m0" || getprop("ro.build.product") == "m0" || 
        getprop("ro.product.device") == "i9300" || getprop("ro.build.product") == "i9300" || 
-       getprop("ro.product.device") == "GT-I9300" || getprop("ro.build.product") == "GT-I9300");
+       getprop("ro.product.device") == "GT-I9300" || getprop("ro.build.product") == "GT-I9300" || abort("This package is for \"m0,i9300,GT-I9300\" devices; this is a \"" + getprop("ro.product.device") + "\"."););
 ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Ready!");
 set_progress(0.01);
-sleep (2);
-ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Unmounting Partitions");
-assert(unmount("/system") || ui_print("(system is unmounted already)"));
+#sleep (2);
+
+### ARCHIDROID TOOLS ###
+package_extract_file("_archidroid/scripts/adlock.sh", "/tmp/adlock.sh");
+set_perm(0, 0, 0777, "/tmp/adlock.sh");
+
+set_progress(0.02);
+
+if file_getprop("/tmp/aroma-data/archidroidwipe.prop","wipe") == "no" && file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") != "barebones" then
+	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Backing up all addons");
+	package_extract_file("system/bin/backuptool.sh", "/tmp/backuptool.sh");
+	package_extract_file("system/bin/backuptool.functions", "/tmp/backuptool.functions");
+	set_perm(0, 0, 0777, "/tmp/backuptool.sh");
+	set_perm(0, 0, 0644, "/tmp/backuptool.functions");
+	run_program("/tmp/backuptool.sh", "backup");
+endif;
 
 set_progress(0.03);
 
+### UNLOCK ###
+run_program("/tmp/adlock.sh", "unlock", "/system/etc/hosts");
+
 ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Formatting Partitions");
-format("ext4", "EMMC", "/dev/block/mmcblk0p9", "0", "/system");
-
-set_progress(0.06);
-
-ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Mounting Partitions");
-assert(mount("ext4", "EMMC", "/dev/block/mmcblk0p9", "/system") || ui_print("(system is mounted already)"));
+#format("ext4", "EMMC", "/dev/block/mmcblk0p9", "0", "/system");
+package_extract_file("_archidroid/scripts/wipesystem.sh", "/tmp/wipesystem.sh");
+set_perm(0, 0, 0777, "/tmp/wipesystem.sh");
+run_program("/tmp/wipesystem.sh");
+delete("/tmp/wipesystem.sh");
 
 set_progress(0.07);
-#package_extract_file("_archidroid/scripts/bash", "/tmp/bash");
-#set_perm(0, 0, 0777, "/tmp/bash");
 
 if file_getprop("/tmp/aroma-data/archidroidwipe.prop","wipe") == "yes" then
 	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Formatting /data excluding /data/media");
 	package_extract_file("_archidroid/scripts/wipe.sh", "/tmp/wipe.sh");
 	set_perm(0, 0, 0777, "/tmp/wipe.sh");
 	run_program("/tmp/wipe.sh");
+	delete("/tmp/wipe.sh");
 endif;
 
 set_progress(0.08);
@@ -51,12 +65,14 @@ ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</
 package_extract_file("_archidroid/scripts/archidroid.sh", "/tmp/archidroid.sh");
 set_perm(0, 0, 0777, "/tmp/archidroid.sh");
 run_program("/tmp/archidroid.sh");
+delete("/tmp/archidroid.sh");
 
 if file_getprop("/tmp/aroma-data/archidroidwipe.prop","wipe") == "yes" then
 	ui_print("<b><#ff0000>RunOnce</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>$</#></b> Install Mode Detected");
 	package_extract_file("_archidroid/scripts/archidroid_install.sh", "/tmp/archidroid_install.sh");
 	set_perm(0, 0, 0777, "/tmp/archidroid_install.sh");
 	run_program("/tmp/archidroid_install.sh");
+	delete("/tmp/archidroid_install.sh");
 else
 	if file_getprop("/tmp/aroma-data/archidroidwipe.prop","force") == "no" then
 		ui_print("<b><#ff0000>RunOnce</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>$</#></b> Update Mode Detected");
@@ -69,6 +85,7 @@ else
 		set_perm(0, 0, 0777, "/tmp/archidroid_update.sh");
 		run_program("/tmp/archidroid_update.sh", "force");
 	endif;
+	delete("/tmp/archidroid_update.sh");
 endif;
 
 set_progress(0.09);
@@ -76,83 +93,40 @@ set_progress(0.09);
 set_progress(0.1);
 
 ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Flashing ArchiDroid Core");
-show_progress(0.4, 1457);
 package_extract_dir("system", "/system");
 
 run_program("/sbin/sync");
-
 set_progress(0.51);
 
 ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Creating symlinks");
-symlink("toolbox", "/system/bin/date");
-symlink("toolbox", "/system/bin/route");
-symlink("toolbox", "/system/bin/ln");
-symlink("toolbox", "/system/bin/renice");
-symlink("toolbox", "/system/bin/md5");
-symlink("toolbox", "/system/bin/stop");
-symlink("toolbox", "/system/bin/ioctl");
-symlink("toolbox", "/system/bin/ionice");
-symlink("toolbox", "/system/bin/rm");
-symlink("toolbox", "/system/bin/getsebool");
-symlink("toolbox", "/system/bin/du");
-symlink("toolbox", "/system/bin/setsebool");
-symlink("toolbox", "/system/bin/lsmod");
+symlink("Roboto-Bold.ttf", "/system/fonts/DroidSans-Bold.ttf");
+symlink("Roboto-Regular.ttf", "/system/fonts/DroidSans.ttf");
 symlink("mksh", "/system/bin/sh");
-symlink("toolbox", "/system/bin/iftop");
-symlink("toolbox", "/system/bin/setenforce");
-symlink("toolbox", "/system/bin/cat");
-symlink("toolbox", "/system/bin/id");
-symlink("toolbox", "/system/bin/ps");
-symlink("toolbox", "/system/bin/nandread");
-symlink("toolbox", "/system/bin/getevent");
-symlink("toolbox", "/system/bin/df");
-symlink("toolbox", "/system/bin/setprop");
-symlink("toolbox", "/system/bin/kill");
-symlink("toolbox", "/system/bin/mount");
-symlink("toolbox", "/system/bin/chown");
-symlink("toolbox", "/system/bin/insmod");
-symlink("toolbox", "/system/bin/wipe");
-symlink("toolbox", "/system/bin/cp");
-symlink("toolbox", "/system/bin/rmmod");
-symlink("toolbox", "/system/bin/setconsole");
-symlink("toolbox", "/system/bin/chmod");
-symlink("toolbox", "/system/bin/freshsebool");
-symlink("toolbox", "/system/bin/restorecon");
-symlink("toolbox", "/system/bin/rmdir");
-symlink("toolbox", "/system/bin/notify");
-symlink("toolbox", "/system/bin/ifconfig");
-symlink("toolbox", "/system/bin/watchprops");
-symlink("toolbox", "/system/bin/sync");
-symlink("toolbox", "/system/bin/dd");
-symlink("toolbox", "/system/bin/reboot");
-symlink("toolbox", "/system/bin/runcon");
-symlink("toolbox", "/system/bin/start");
-symlink("toolbox", "/system/bin/load_policy");
-symlink("toolbox", "/system/bin/top");
-symlink("toolbox", "/system/bin/lsof");
-symlink("toolbox", "/system/bin/dmesg");
-symlink("toolbox", "/system/bin/clear");
-symlink("toolbox", "/system/bin/umount");
-symlink("toolbox", "/system/bin/uptime");
-symlink("toolbox", "/system/bin/cmp");
-symlink("toolbox", "/system/bin/hd");
-symlink("toolbox", "/system/bin/printenv");
-symlink("toolbox", "/system/bin/vmstat");
-symlink("toolbox", "/system/bin/sleep");
-symlink("toolbox", "/system/bin/getprop");
-symlink("toolbox", "/system/bin/mkdir");
-symlink("toolbox", "/system/bin/ls");
-symlink("toolbox", "/system/bin/sendevent");
-symlink("toolbox", "/system/bin/touch");
-symlink("toolbox", "/system/bin/netstat");
-symlink("toolbox", "/system/bin/schedtop");
-symlink("toolbox", "/system/bin/mv");
-symlink("toolbox", "/system/bin/smd");
-symlink("toolbox", "/system/bin/getenforce");
-symlink("toolbox", "/system/bin/chcon");
-symlink("toolbox", "/system/bin/newfs_msdos");
-symlink("toolbox", "/system/bin/log");
-symlink("toolbox", "/system/bin/grep");
+symlink("toolbox", "/system/bin/cat", "/system/bin/chcon",
+        "/system/bin/chmod", "/system/bin/chown", "/system/bin/clear",
+        "/system/bin/cmp", "/system/bin/cp", "/system/bin/date",
+        "/system/bin/dd", "/system/bin/df", "/system/bin/dmesg",
+        "/system/bin/du", "/system/bin/getenforce", "/system/bin/getevent",
+        "/system/bin/getprop", "/system/bin/getsebool", "/system/bin/grep",
+        "/system/bin/hd", "/system/bin/id", "/system/bin/ifconfig",
+        "/system/bin/iftop", "/system/bin/insmod", "/system/bin/ioctl",
+        "/system/bin/ionice", "/system/bin/kill", "/system/bin/ln",
+        "/system/bin/load_policy", "/system/bin/log", "/system/bin/ls",
+        "/system/bin/lsmod", "/system/bin/lsof", "/system/bin/md5",
+        "/system/bin/mkdir", "/system/bin/mkswap", "/system/bin/mount",
+        "/system/bin/mv", "/system/bin/nandread", "/system/bin/netstat",
+        "/system/bin/newfs_msdos", "/system/bin/notify", "/system/bin/printenv",
+        "/system/bin/ps", "/system/bin/r", "/system/bin/readlink",
+        "/system/bin/renice", "/system/bin/restorecon", "/system/bin/rm",
+        "/system/bin/rmdir", "/system/bin/rmmod", "/system/bin/route",
+        "/system/bin/runcon", "/system/bin/schedtop", "/system/bin/sendevent",
+        "/system/bin/setconsole", "/system/bin/setenforce",
+        "/system/bin/setprop", "/system/bin/setsebool", "/system/bin/sleep",
+        "/system/bin/smd", "/system/bin/start", "/system/bin/stop",
+        "/system/bin/swapoff", "/system/bin/swapon", "/system/bin/sync",
+        "/system/bin/top", "/system/bin/touch", "/system/bin/umount",
+        "/system/bin/uptime", "/system/bin/vmstat", "/system/bin/watchprops",
+        "/system/bin/wipe");
 
 symlink("/system/xbin/busybox", "/system/bin/busybox");
 symlink("/system/xbin/su", "/system/bin/su");
@@ -171,33 +145,59 @@ delete("/tmp/archidroid_backend.sh");
 set_progress(0.53);
 
 ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Setting Permissions");
-set_perm_recursive(0, 0, 0755, 0644, "/system");
-set_perm_recursive(0, 0, 0777, 0777, "/system/etc/init.d");
-set_perm_recursive(0, 2000, 0755, 0755, "/system/bin");
-set_perm(0, 3003, 06755, "/system/bin/ip");
-set_perm(0, 3003, 02750, "/system/bin/netcfg");
-set_perm(0, 3004, 02755, "/system/bin/ping");
-set_perm(0, 2000, 06750, "/system/bin/run-as");
-set_perm_recursive(1002, 1002, 0755, 0440, "/system/etc/bluetooth");
-set_perm(0, 0, 0755, "/system/etc/bluetooth");
-set_perm(1000, 1000, 0640, "/system/etc/bluetooth/auto_pair_devlist.conf");
-#set_perm(1002, 1002, 0440, "/system/etc/dbus.conf");
-set_perm(1014, 2000, 0550, "/system/etc/dhcpcd/dhcpcd-run-hooks");
-#set_perm(0, 2000, 0550, "/system/etc/init.goldfish.sh");
-set_perm_recursive(0, 0, 0755, 0555, "/system/etc/ppp");
-set_perm_recursive(0, 2000, 0755, 0644, "/system/vendor");
-set_perm_recursive(0, 2000, 0755, 0644, "/system/vendor/etc");
-set_perm_recursive(0, 0, 0755, 0644, "/system/vendor/firmware");
-set_perm(0, 2000, 0755, "/system/vendor/firmware");
-set_perm(0, 2000, 0755, "/system/vendor/lib");
-set_perm(0, 2000, 0755, "/system/vendor/lib/hw");
-set_perm_recursive(0, 2000, 0755, 0755, "/system/xbin");
-set_perm(0, 1000, 0755, "/system/xbin/busybox");
+set_metadata_recursive("/system", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata_recursive("/system/bin", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/bin/app_process", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:zygote_exec:s0");
+set_metadata("/system/bin/clatd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:clatd_exec:s0");
+set_metadata("/system/bin/debuggerd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:debuggerd_exec:s0");
+set_metadata("/system/xbin/debuggerd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:debuggerd_exec:s0");
+set_metadata("/system/bin/dhcpcd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:dhcp_exec:s0");
+set_metadata("/system/bin/dnsmasq", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:dnsmasq_exec:s0");
+set_metadata("/system/bin/drmserver", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:drmserver_exec:s0");
+set_metadata("/system/bin/hostapd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:hostapd_exec:s0");
+set_metadata("/system/bin/installd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:installd_exec:s0");
+set_metadata("/system/bin/keystore", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:keystore_exec:s0");
+set_metadata("/system/bin/mediaserver", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:mediaserver_exec:s0");
+set_metadata("/system/bin/mksh", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:shell_exec:s0");
+set_metadata("/system/bin/mtpd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:mtp_exec:s0");
+set_metadata("/system/bin/netcfg", "uid", 0, "gid", 3003, "mode", 02750, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/bin/netd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:netd_exec:s0");
+set_metadata("/system/bin/ping", "uid", 0, "gid", 0, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:ping_exec:s0");
+set_metadata("/system/bin/pppd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:ppp_exec:s0");
+set_metadata("/system/bin/racoon", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:racoon_exec:s0");
+set_metadata("/system/bin/rild", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:rild_exec:s0");
+set_metadata("/system/bin/run-as", "uid", 0, "gid", 2000, "mode", 0750, "capabilities", 0xc0, "selabel", "u:object_r:runas_exec:s0");
+set_metadata("/system/bin/sdcard", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:sdcardd_exec:s0");
+set_metadata("/system/bin/servicemanager", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:servicemanager_exec:s0");
+set_metadata("/system/bin/surfaceflinger", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:surfaceflinger_exec:s0");
+set_metadata("/system/bin/vold", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:vold_exec:s0");
+set_metadata("/system/bin/wpa_supplicant", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:wpa_exec:s0");
+set_metadata_recursive("/system/etc/dhcpcd", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:dhcp_system_file:s0");
+set_metadata("/system/etc/dhcpcd/dhcpcd-run-hooks", "uid", 1014, "gid", 2000, "mode", 0550, "capabilities", 0x0, "selabel", "u:object_r:dhcp_system_file:s0");
+set_metadata_recursive("/system/etc/init.d", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/etc/init.d", "uid", 0, "gid", 0, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata_recursive("/system/etc/ppp", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0555, "capabilities", 0x0, "selabel", "u:object_r:ppp_system_file:s0");
+set_metadata_recursive("/system/vendor", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:firmware_camera:s0");
+set_metadata("/system/vendor", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata_recursive("/system/vendor/etc", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/vendor/etc/audio_effects.conf", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/vendor/firmware", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:firmware_camera:s0");
+set_metadata("/system/vendor/firmware/mfc_fw.bin", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:firmware_mfc:s0");
+set_metadata_recursive("/system/vendor/lib", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/vendor/lib", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata_recursive("/system/vendor/lib/drm", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/vendor/lib/drm/libdrmwvmplugin.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata_recursive("/system/xbin", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/xbin/librank", "uid", 0, "gid", 0, "mode", 06755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/xbin/procmem", "uid", 0, "gid", 0, "mode", 06755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/xbin/procrank", "uid", 0, "gid", 0, "mode", 06755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
 
-set_perm(0, 0, 06755, "/system/xbin/su");
-set_perm(0, 0, 06755, "/system/xbin/daemonsu");
-set_perm(0, 0, 0777, "/system/bin/.ext");
-set_perm(0, 0, 06755, "/system/bin/.ext/.su");
+# ArchiDroid
+set_metadata("/system/xbin/su", "uid", 0, "gid", 0, "mode", 06755, "capabilities", 0x0, "selabel", "u:object_r:su_exec:s0");
+set_metadata("/system/xbin/daemonsu", "uid", 0, "gid", 0, "mode", 06755, "capabilities", 0x0, "selabel", "u:object_r:su_exec:s0");
+set_metadata("/system/bin/.ext", "uid", 0, "gid", 2000, "mode", 0777, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/bin/.ext/.su", "uid", 0, "gid", 0, "mode", 06755, "capabilities", 0x0, "selabel", "u:object_r:su_exec:s0");
+set_perm_recursive(0, 0, 0755, 0755, "/system/archidroid/scripts");
 
 ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Busybox");
 run_program("/system/xbin/busybox", "--install", "-s", "/system/xbin");
@@ -214,6 +214,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "bareb
 	package_extract_file("_archidroid/dpi/320dpi.sh", "/tmp/320dpi.sh");
 	set_perm(0, 0, 0777, "/tmp/320dpi.sh");
 	run_program("/tmp/320dpi.sh");
+	delete("tmp/320dpi.sh");
 	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Stock Keyboard");
 else
 	#################
@@ -394,6 +395,24 @@ else
 		endif;
 	endif;
 
+	
+	###############
+	### RESTORE ###
+	###############
+
+	if file_getprop("/tmp/aroma-data/archidroidwipe.prop","wipe") == "no" then
+		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Restoring Addons");
+		package_extract_file("system/bin/backuptool.sh", "/tmp/backuptool.sh");
+		package_extract_file("system/bin/backuptool.functions", "/tmp/backuptool.functions");
+		set_perm(0, 0, 0777, "/tmp/backuptool.sh");
+		set_perm(0, 0, 0644, "/tmp/backuptool.functions");
+		run_program("/tmp/backuptool.sh", "restore");
+		delete("/system/bin/backuptool.sh");
+		delete("/system/bin/backuptool.functions");;
+	endif;
+
+	set_progress(0.63);
+
 
 	#############
 	### THEME ###
@@ -416,6 +435,7 @@ else
 		package_extract_file("_archidroid/dpi/240dpi.sh", "/tmp/240dpi.sh");
 		set_perm(0, 0, 0777, "/tmp/240dpi.sh");
 		run_program("/tmp/240dpi.sh");
+		delete("tmp/240dpi.sh");
 	endif;
 
 	### 280 ###
@@ -424,6 +444,7 @@ else
 		package_extract_file("_archidroid/dpi/280dpi.sh", "/tmp/280dpi.sh");
 		set_perm(0, 0, 0777, "/tmp/280dpi.sh");
 		run_program("/tmp/280dpi.sh");
+		delete("tmp/280dpi.sh");
 	endif;
 
 	### 320 ###
@@ -432,6 +453,7 @@ else
 		package_extract_file("_archidroid/dpi/320dpi.sh", "/tmp/320dpi.sh");
 		set_perm(0, 0, 0777, "/tmp/320dpi.sh");
 		run_program("/tmp/320dpi.sh");
+		delete("tmp/320dpi.sh");
 	endif;
 
 	set_progress(0.76);
@@ -711,138 +733,26 @@ else
 	endif;
 
 	set_progress(0.90);
-
-
 	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Syncing System");
 	run_program("/sbin/sync");
 
-	set_progress(0.92);
-
-
-	####################
-	### CROSSBREADER ###
-	####################
-
-	if file_getprop("/tmp/aroma-data/archidroid.prop","crossbreeder") == "1" then
-		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing CrossBreeder");
-
-		# Freeze Fix
-		unmount("/system");
-		#unmount("/data");
-
-		package_extract_dir("_archidroid/crossbreeder/setup", "/tmp"); 
-
-		set_perm_recursive(0, 0, 0755, 0755, "/tmp");
-		run_program("/sbin/busybox","chmod","-R","0755","/tmp");
-		run_program("/sbin/busybox","chown","-R","0.0","/tmp");
-		set_perm(0, 0, 0755, "/tmp/busybox");
-		run_program("/tmp/busybox","chmod","-R","0755","/tmp");
-		run_program("/tmp/busybox","chown","-R","0.0","/tmp");
-		run_program("/tmp/busybox","mount","/system");
-		run_program("/sbin/busybox","mount","/system");
-		run_program("/tmp/busybox","mount","-o","rw,remount","/system");
-		run_program("/sbin/busybox","mount","-o","rw,remount","/system");
-		run_program("/tmp/busybox","mount","/data");
-		run_program("/sbin/busybox","mount","/data");
-		run_program("/tmp/busybox","mount","-o","rw,remount","/data");
-		run_program("/sbin/busybox","mount","-o","rw,remount","/data");
-
-		run_program("/tmp/busybox","rm","-fr","/system/etc/CrossBreeder");
-
-		run_program("/tmp/busybox","mkdir","-p","/system/etc/CrossBreeder");
-		run_program("/tmp/busybox","cp","-f","/tmp/tune2fs","/system/etc/CrossBreeder");
-		#run_program("/tmp/busybox","cp","-f","/tmp/libiconv.so.2","/system/etc/CrossBreeder");
-		run_program("/tmp/busybox","cp","-f","/tmp/busybox","/system/etc/CrossBreeder");
-		set_perm_recursive(0, 0, 0755, 0755, "/system/etc/CrossBreeder");
-		run_program("/tmp/busybox","chown","-R","0.0","/system/etc/CrossBreeder");
-		run_program("/tmp/busybox","chmod","-R","0755","/system/etc/CrossBreeder");
-
-		run_program("/tmp/busybox", "echo", "Restore", "started.");
-		run_program("/tmp/restore_dnsmasq.sh");
-		run_program("/tmp/busybox","echo","After","Restore");
-		#run_program("/tmp/busybox","mv","-f","/system/etc/hosts","/system/etc/hosts.CBBAK");
-		package_extract_dir("_archidroid/crossbreeder/system", "/system");
-		run_program("/tmp/busybox","cp","-f","/tmp/recovery.log","/data/recovery_cb.log");
-		#run_program("/tmp/busybox","cp","-f","/system/etc/CrossBreeder/dnsmasq","/system/bin/dnsmasq.bin");
-		delete("/system/bin/dnsmasq.bin");
-		run_program("/tmp/busybox", "ls", "-l", "/system/bin/dnsmasq");; 
-		set_perm_recursive(0, 0, 0755, 0755, "/system/etc/CrossBreeder");
-
-		run_program("/tmp/busybox","chown","-R","0.0","/system/etc/CrossBreeder");
-		run_program("/tmp/busybox","chmod","-R","0755","/system/etc/CrossBreeder");
-
-		#set_perm_recursive(0, 0, 0711, 0444, "/system/etc/CrossBreeder/root");
-
-		#run_program("/tmp/busybox","chown","-R","0.0","/system/etc/CrossBreeder/root");
-		#run_program("/tmp/busybox","chmod","-R","0444","/system/etc/CrossBreeder/root");
-		#run_program("/tmp/busybox","chmod","0711","/system/etc/CrossBreeder/root");
-		#run_program("/tmp/busybox","chmod","0711","/system/etc/CrossBreeder/root/errors");
-
-		run_program("/tmp/busybox","chown","-R","0.0","/system/etc/CrossBreeder/dnrd_root");
-		run_program("/tmp/busybox","chmod","-R","0644","/system/etc/CrossBreeder/dnrd_root");
-		run_program("/tmp/busybox","chmod","0755","/system/etc/CrossBreeder/dnrd_root");
-
-		#set_perm(0, 0, 0755, "/system/etc/init.d/zzCrossBreeder_initd");
-		set_perm(0, 2000, 0755, "/system/xbin/haveged");
-		delete("/system/xbin/CB_FileLock");
-		set_perm(0, 0, 0755, "/system/etc/CrossBreeder/busybox");
-		set_perm(0, 0, 0755, "/system/etc/CrossBreeder/dnrd.10053");
-		set_perm(0, 0, 0755, "/system/etc/CrossBreeder/zzCrossBreeder");
-		set_perm(0, 0, 0755, "/system/etc/CrossBreeder/zzCHECK_NET_DNS");
-		set_perm(0, 0, 0755, "/system/bin/dnsmasq");
-		set_perm(0, 0, 0755, "/system/bin/dnsmasq_dhcp");
-		#set_perm(0, 0, 0644, "/system/etc/CrossBreeder/dnsmasq-host");
-		#set_perm(0, 0, 0644, "/system/etc/resolv.conf");
-		set_perm(0, 0, 0644, "/system/etc/hosts");
-		set_perm(0, 0, 0644, "/system/etc/CrossBreeder/hosts");
-		delete("/system/etc/init.d/00CrossBreeder");
-		delete("/system/etc/init.d/zzCrossBreeder");
-		delete("/system/etc/init.d/zzCrossBreeder_initd");
-		#delete("/system/etc/CrossBreeder/dnsmasq");
-
-		#set_perm(0, 0, 0755, "/system/etc/install-recovery.sh");
-		run_program("/tmp/busybox","mv","-f","/system/etc/install-recovery.sh.CBBAK","/system/etc/install-recovery.sh");
-		run_program("/tmp/install_init_entries.sh");
-		#run_program("/tmp/install_hw_entries.sh");
-		#run_program("/sbin/busybox","mv","-f","/system/etc/hw_config.sh.CBBAK","/system/etc/hw_config.sh");
-
-		run_program("/tmp/busybox","mv","/system/xbin/rngd","/system/xbin/rngd.bak");
-		run_program("/tmp/busybox","rm","-fr","/data/rngd.pid");
-		run_program("/tmp/busybox","mkdir","/data/rngd.pid/");
-		run_program("/tmp/busybox","chown","0:0","/data/rngd.pid");
-		run_program("/tmp/busybox","chmod","-R","500","/data/rngd.pid");
-		set_perm_recursive(0, 0, 0500, 0500, " /data/rngd.pid/ ");
-		run_program("/tmp/busybox","mv","/system/xbin/qrngd","/system/xbin/qrngd.bak");
-		run_program("/tmp/busybox","mv","/system/bin/qrngd","/system/bin/qrngd.bak");
-		run_program("/tmp/REMOVE_TETHER_BOOST");
-		run_program("/tmp/busybox","mv","-f","/system/etc/dnsmasq.conf.CBBAK","/system/etc/dnsmasq.conf");
-		run_program("/tmp/busybox","sync");
-		#run_program("/tmp/busybox","umount","/system");
-		run_program("/tmp/busybox","cp","-f","/tmp/recovery.log","/data/recovery_cb.log");
-		run_program("/tmp/busybox","sync");
-
-		run_program("/tmp/busybox","umount","/data");
-		#run_program("/tmp/busybox","umount","/cache");
-		run_program("/tmp/busybox","umount","/sd-ext");
-
-		# Freeze fix
-		sleep (1);
-		assert(mount("ext4", "EMMC", "/dev/block/mmcblk0p9", "/system") || ui_print("(system is mounted already)"));
-		#assert(mount("ext4", "EMMC", "/dev/block/mmcblk0p12", "/data") || ui_print("(data is mounted already)"));
-	endif;
+	set_progress(0.97);
 endif;
-
 set_progress(0.98);
+
+### LOCK ###
+run_program("/tmp/adlock.sh", "lock", "/system/etc/hosts");
 run_program("/sbin/sync");
+
 set_progress(0.99);
 
 ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Unmounting partitions");
-assert(unmount("/data") || ui_print("(data is unmounted already)"));
-assert(unmount("/system") || ui_print("(system is unmounted already)"));
+run_program("/tmp/adumount.sh", "/system");
+run_program("/tmp/adumount.sh", "/data");
 
 ui_print("===================================");
 ui_print("  ArchiDroid Flashed Successfully  ");
 ui_print("Please share your experience on XDA");
 ui_print("===================================");
-#run_program("/sbin/busybox", "cp", "/tmp/recovery.log", "/sdcard/recovery.log");
+run_program("cp", "/tmp/recovery.log", "/sdcard/ArchiDroid.log");
 set_progress(1.0);

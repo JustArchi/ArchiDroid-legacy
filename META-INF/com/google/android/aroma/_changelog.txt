@@ -1,10 +1,19 @@
 ArchiDroid 2.3.4
 
+- [!] Mount/Umount Core changes
+# ArchiDroid now uses my own mount/umount commands, which results in mounting partition with automatic filesystem and path instead of hard-coded one
+# Also I replaced format command with generic rm -rf /system/*
+# This is a preparation for f2fs being developed by @DerTeufel1980
+# ArchiDroid should be now fully compatible with flashing on top of f2fs /system, as long as /system is mounted properly
+# Also, flashing is faster now
+# Initial idea thanks to DerTeufel1980
+
 - [!] Fixed half-broken ArchiDroid Backend with Devil Kernel
 # It...will...never...break...again.
 
 - Updated DBUPDATE (RunOnce)
 # As always, at least forced update mode will be needed to reapply this
+# Animations, volume-skip music, TRDS, and more
 
 - Added HTTPS protocol option to git, thanks to @wongsyrone
 - Added Portuguese language, thanks to @Andrecaron

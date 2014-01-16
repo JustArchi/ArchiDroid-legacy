@@ -17,9 +17,6 @@ ADALIAS() {
 	fi
 }
 
-alias sh='ADALIAS sh'
-alias exec='ADALIAS exec'
-
 AD="/data/media/0/ArchiDroid"
 LOG="$AD/Init.log" # "/dev/null" is no verbose
 

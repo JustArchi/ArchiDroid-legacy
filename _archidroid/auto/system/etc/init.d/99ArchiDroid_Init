@@ -41,8 +41,6 @@ ADTWEAK() {
 # Define all unreliable commands, which kernel could override
 # It's really sad that we're doing this
 alias busybox='ADALIAS busybox'
-alias sh='ADALIAS sh'
-alias exec='ADALIAS exec'
 alias kill='ADALIAS kill'
 alias echo='ADALIAS echo'
 alias reboot='ADALIAS reboot'

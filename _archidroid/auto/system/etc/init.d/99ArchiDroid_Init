@@ -209,7 +209,7 @@ fi
 echo "INFO: Activating ArchiDroid's AdBlock!" >> $LOG
 dnsproxy2 -w 127.0.0.1 &
 echo "ADBLOCK: Activated forwarding of all DNS requests (dnsproxy2) to 127.0.0.1:53 (dnrd)" >> $LOG
-dnrd -a 127.0.0.1 -u 0 -r 0 -M 65535 -m hosts -R /system/archidroid/dnrd -s 208.67.222.222 -s 208.67.220.220 -s 8.8.8.8 -s 8.8.4.4
+dnrd -a 127.0.0.1 -u 0 -r 0 -M 65535 -m hosts -c off -i -R /system/archidroid/dnrd -s 208.67.222.222 -s 208.67.220.220 -s 8.8.8.8 -s 8.8.4.4
 echo "ADBLOCK: Activated local DNS server (dnrd) on 127.0.0.1:53, forwarding clean traffic to OpenDNS/Google DNS" >> $LOG
 pixelserv 127.0.0.1 >/dev/null 2>&1
 echo "ADBLOCK: Activated NULLGIF response (pixelserv) on 127.0.0.1:80" >> $LOG

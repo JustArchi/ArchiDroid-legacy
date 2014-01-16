@@ -8,31 +8,13 @@ adpatch() {
 	NUMBER="$1"
 	PATCHSET="$2"
 	shift 2
-	case "$1" in
-		"framework")
-			GENERIC="android_frameworks_base"
-			cd frameworks/base
-			GOBACK=2
-			;;
-		"settings")
-			GENERIC="android_packages_apps_Settings"
-			cd packages/apps/Settings
-			GOBACK=3
-			;;
-		"omnigears")
-			GENERIC="android_packages_apps_OmniGears"
-			cd packages/apps/OmniGears
-			GOBACK=3
-			;;
-		*)
-			GENERIC="android"
-			GOBACK=0
-			for i in "$@"; do
-				cd $i
-				GENERIC+="_$i"
-				GOBACK=`expr $GOBACK + 1`
-			done
-	esac
+	GENERIC="android"
+	GOBACK=0
+	for i in "$@"; do
+		cd $i
+		GENERIC+="_$i"
+		GOBACK=`expr $GOBACK + 1`
+	done
 	
 	# Find latest patchset
 	git fetch $GERRIT/$GENERIC refs/changes/$NUMBER/$PATCHSET
@@ -66,37 +48,32 @@ adpatch() {
 
 # Multi-Window
 # https://gerrit.omnirom.org/#/c/1510/
-adpatch "10/1510" "17" "frameworks" "base"
+adpatch "10/1510" "18" "frameworks" "base"
 
 # All Animations
-# https://gerrit.omnirom.org/#/c/4251/
-# https://gerrit.omnirom.org/#/c/4250/
-# https://gerrit.omnirom.org/#/c/4249/
-adpatch "51/4251" "35" "frameworks" "base"
-adpatch "50/4250" "12" "packages" "apps" "Settings"
-#adpatch "49/4249" "31" "packages" "apps" "OmniGears"
+adpatch "51/4251" "36" "frameworks" "base" # https://gerrit.omnirom.org/#/c/4251/
+#adpatch "50/4250" "14" "packages" "apps" "Settings" # https://gerrit.omnirom.org/#/c/4250/
+adpatch "49/4249" "32" "packages" "apps" "OmniGears" # https://gerrit.omnirom.org/#/c/4249/
 
 # TRDS
-# https://gerrit.omnirom.org/#/c/4788/
-# https://gerrit.omnirom.org/#/c/4789/
-# https://gerrit.omnirom.org/#/c/4790/
-# https://gerrit.omnirom.org/#/c/4791/
-# https://gerrit.omnirom.org/#/c/4792/
-# https://gerrit.omnirom.org/#/c/4793/
-# https://gerrit.omnirom.org/#/c/4794/
-# https://gerrit.omnirom.org/#/c/4801/
-# https://gerrit.omnirom.org/#/c/4806/
-# https://gerrit.omnirom.org/#/c/4807/
-adpatch "88/4788" "2" "framework"
-adpatch "89/4789" "2" "framework"
-adpatch "90/4790" "1" "settings"
-adpatch "91/4791" "1" "frameworks" "native"
-adpatch "92/4792" "1" "packages" "apps" "Dialer"
-adpatch "93/4793" "1" "packages" "apps" "Dialer"
-adpatch "94/4794" "1" "packages" "services" "Telephony"
-#adpatch "01/4801" "2" "packages" "apps" "Mms"
-#adpatch "06/4806" "1" "packages" "apps" "Gallery2"
-#adpatch "07/4807" "1" "packages" "inputmethods" "LatinIME"
+adpatch "88/4788" "3" "frameworks" "base" # https://gerrit.omnirom.org/#/c/4788/
+#adpatch "90/4790" "5" "packages" "apps" "Settings" # https://gerrit.omnirom.org/#/c/4790/
+adpatch "91/4791" "1" "frameworks" "native" # https://gerrit.omnirom.org/#/c/4791/
+adpatch "12/4912" "1" "development" # https://gerrit.omnirom.org/#/c/4912/
+adpatch "89/4789" "2" "frameworks" "base" # https://gerrit.omnirom.org/#/c/4789/
 
+adpatch "92/4792" "3" "packages" "apps" "Dialer" # https://gerrit.omnirom.org/#/c/4792/
+adpatch "11/4911" "2" "packages" "apps" "Dialer" #https://gerrit.omnirom.org/#/c/4911/
+adpatch "94/4794" "2" "packages" "services" "Telephony" # https://gerrit.omnirom.org/#/c/4794/
+
+adpatch "01/4901" "1" "packages" "apps" "Mms" # https://gerrit.omnirom.org/#/c/4901/
+adpatch "06/4906" "1" "packages" "apps" "Mms" # https://gerrit.omnirom.org/#/c/4906/
+adpatch "07/4907" "1" "packages" "apps" "Mms" #https://gerrit.omnirom.org/#/c/4907/
+adpatch "08/4908" "1" "packages" "apps" "Mms" #https://gerrit.omnirom.org/#/c/4908/
+adpatch "09/4909" "1" "packages" "apps" "Mms" #https://gerrit.omnirom.org/#/c/4909/
+adpatch "10/4910" "1" "packages" "apps" "Mms" #https://gerrit.omnirom.org/#/c/4910/
+
+adpatch "06/4806" "1" "packages" "apps" "Gallery2" #https://gerrit.omnirom.org/#/c/4806/
+adpatch "07/4807" "1" "packages" "inputmethods" "LatinIME" #https://gerrit.omnirom.org/#/c/4807/
 
 exit 0

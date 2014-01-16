@@ -775,24 +775,7 @@ else
 	#set_perm_recursive(1000, 1000, 0771, 0644, "/data/app");
 	#set_perm_recursive(0, 0, 0771, 0660, "/data/data");
 	run_program("/sbin/sync");
-
-	set_progress(0.92);
-
-
-	####################
-	### CROSSBREADER ###
-	####################
-
-	if file_getprop("/tmp/aroma-data/archidroid.prop","crossbreeder") == "1" then
-		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing CrossBreeder");
-
-		package_extract_dir("_archidroid/crossbreeder/system", "/system");
-		set_perm_recursive(0, 0, 0755, 0755, "/system/etc/CrossBreeder");
-		set_perm(0, 0, 0644, "/system/etc/CrossBreeder/hosts");
-		set_perm(0, 2000, 0755, "/system/xbin/haveged");
-		set_perm(0, 2000, 0755, "/system/bin/dnsmasq_dhcp");
-		set_perm(0, 0, 0644, "/system/etc/CrossBreeder/hosts");
-	endif;
+	set_progress(0.97);
 endif;
 set_progress(0.98);
 

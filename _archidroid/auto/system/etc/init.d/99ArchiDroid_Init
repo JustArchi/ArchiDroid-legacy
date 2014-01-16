@@ -20,6 +20,24 @@ ADALIAS() {
 	fi
 }
 
+ADARGS() {
+	# $1 - what we're looking for
+	# $2 - where we're looking for
+	if [ ! -z `echo "$2" | grep -i "$1"` ]; then
+		return 0
+	else
+		return 1
+	fi
+}
+
+ADTWEAK() {
+	# $1 - what we're changing
+	# $2 - to what we're changing
+	local CURRENT=`cat "$1"`
+	echo "$2" > "$1"
+	echo "INFO: Tweaked $1 value from $CURRENT to $2" >> $LOG
+}
+
 # Define all unreliable commands, which kernel could override
 # It's really sad that we're doing this
 alias busybox='ADALIAS busybox'
@@ -67,16 +85,6 @@ fi
 #exec 1>$LOG # Use "exec 1>>$LOG" for append
 echo -n "" > $LOG
 exec 2>>$LOG
-
-ADARGS() {
-	# $1 - what we're looking for
-	# $2 - where we're looking for
-	if [ ! -z `echo "$2" | grep -i "$1"` ]; then
-		return 0
-	else
-		return 1
-	fi
-}
 
 # Parse args to variables
 if ADARGS "background" "$@" ; then
@@ -155,13 +163,24 @@ else
 	ADBANNER=0
 fi
 
+# Haveged support
+echo "INFO: Activating haveged!" >> $LOG
+ENTROPY=3072 # Default: 128, Linux: 896, Max: 4096 - We want to make it high enough, but with considering battery life as well
+ADTWEAK "/proc/sys/kernel/random/write_wakeup_threshold" "$ENTROPY"
+ADTWEAK "/proc/sys/vm/dirty_expire_centisecs" "1000"
+ADTWEAK "/proc/sys/vm/dirty_writeback_centisecs" "500"
+haveged -p /dev/ARCHIDROID_HAVEGED.PID
+sleep 5 # Let's give haveged some time to initialize
+echo "INFO: HArdware Volatile Entropy Gathering and Expansion Daemon activated!" >> $LOG
+echo "INFO: Available entropy won't get below $ENTROPY" >> $LOG
+
 # Frandom support
 if [ ! -c /dev/frandom ]; then
 	echo "INFO: frandom device not found, searching for frandom.ko kernel module..." >> $LOG
 	for FRANDOMPATH in "/system/lib/modules" "/system/modules" "/lib/modules" "/modules"; do
 		if [ -f $FRANDOMPATH/frandom.ko ]; then
 			echo "INFO: Loading frandom using $FRANDOMPATH/frandom.ko!" >> $LOG
-			busybox insmod -f $FRANDOMPATH/frandom.ko
+			insmod $FRANDOMPATH/frandom.ko
 			sleep 1
 			break
 		fi
@@ -188,11 +207,17 @@ else
 	echo "INFO: frandom device not found after loading, it looks like it's not provided by your kernel or failed to load!" >> $LOG
 fi
 
-# CrossBreeder support
-if [ -e /system/etc/CrossBreeder/zzCrossBreeder ]; then
-	echo "INFO: CrossBreeder found, calling start-stop-daemon!" >> $LOG
-	/system/etc/CrossBreeder/busybox start-stop-daemon -o -S -b -x /system/etc/CrossBreeder/zzCrossBreeder &
-fi
+# Adblock support
+echo "INFO: Activating ArchiDroid's AdBlock!" >> $LOG
+dnsproxy2 -w 127.0.0.1 &
+echo "ADBLOCK: Activated forwarding of all DNS requests (dnsproxy2) to 127.0.0.1:53 (dnrd)" >> $LOG
+dnrd -u 0 -r 0 -M 65535 -m hosts -s 127.0.0.1 -R /system/archidroid/dnrd
+echo "ADBLOCK: Activated local DNS-firewall server (dnrd) on 127.0.0.1:53, forwarding clean traffic to 127.0.0.1:10053 (dnsmasq)" >> $LOG
+dnsmasq_dhcp --all-servers -C /system/archidroid/etc/dnsmasq.conf -n --user=root -x /dev/ARCHIDROID_DNSMASQ.PID -a 127.0.0.1 -z -p 10053 -h -S 8.8.8.8 -S 8.8.4.4
+echo "ADBLOCK: Activated local DHCP/DNS server (dnsmasq) on 127.0.0.3:10053, forwarding traffic to 8.8.[8.8/4.4]" >> $LOG 
+pixelserv 127.0.0.1 >/dev/null 2>&1
+echo "ADBLOCK: Activated NULLGIF response (pixelserv) on 127.0.0.1:80" >> $LOG
+echo "INFO: ArchiDroid's AdBlock activated!" >> $LOG
 
 # Sqlite VACUUM & REINDEX, disabled for a while
 if [ $ROM -eq 9 ]; then #Always false

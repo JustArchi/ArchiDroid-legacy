@@ -172,7 +172,7 @@ ADTWEAK "/proc/sys/vm/dirty_writeback_centisecs" "500"
 haveged -p /dev/ARCHIDROID_HAVEGED.PID
 sleep 5 # Let's give haveged some time to initialize
 echo "INFO: HArdware Volatile Entropy Gathering and Expansion Daemon activated!" >> $LOG
-echo "INFO: Available entropy won't get below $ENTROPY" >> $LOG
+echo "HAVEGED: Available entropy won't get below $ENTROPY" >> $LOG
 
 # Frandom support
 if [ ! -c /dev/frandom ]; then

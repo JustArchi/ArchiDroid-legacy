@@ -273,9 +273,6 @@ set_metadata("/system/bin/.ext/.su", "uid", 0, "gid", 0, "mode", 06755, "capabil
 
 set_progress(0.54);
 
-### LOCK ###
-run_program("/tmp/adlock.sh", "lock", "/system/etc/hosts");
-
 #################
 ### BAREBONES ###
 #################
@@ -790,7 +787,8 @@ else
 endif;
 set_progress(0.98);
 
-
+### LOCK ###
+run_program("/tmp/adlock.sh", "lock", "/system/etc/hosts");
 run_program("/sbin/sync");
 
 set_progress(0.99);

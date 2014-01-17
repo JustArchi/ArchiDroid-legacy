@@ -38,6 +38,123 @@ ADTWEAK() {
 	echo "INFO: Tweaked $1 value from $CURRENT to $2" >> $LOG
 }
 
+ADLOAD() {
+	# $1 - what we're loading
+	# $2 - optional
+	if [ "$2" == "NOLOG" ]; then
+		local LOG="/dev/null"
+	fi
+	case "$1" in
+		"ADBLOCK")
+			if [ $ADBLOCK -eq 1 ]; then
+				echo "INFO: Activating ArchiDroid's AdBlock!" >> $LOG
+				archidroid_dnsproxy2 -w 127.0.0.1 &
+				echo "ADBLOCK: Activated archidroid_dnsproxy2 - local proxy server, forwarding all DNS traffic to 127.0.0.1:53" >> $LOG
+				if [ "$ADBLOCKMODE" == "dnsmasq" ]; then
+					archidroid_dnsmasq -C /system/archidroid/etc/dnsmasq.conf
+					echo "ADBLOCK: Activated archidroid_dnsmasq - local DNS server on 127.0.0.1:53, forwarding clean non-blocked traffic to OpenDNS/Google DNS" >> $LOG
+				elif [ "$ADBLOCKMODE" == "dnrd" ]; then
+					archidroid_dnrd -a 127.0.0.1 -i -u 0 -r 0 -M 65535 -m hosts -R /system/archidroid/etc -s 208.67.222.222 -s 208.67.220.220 -s 8.8.8.8 -s 8.8.4.4
+					echo "ADBLOCK: Activated archidroid_dnrd - local dns server on 127.0.0.1:53, forwarding clean non-blocked traffic to OpenDNS/Google DNS" >> $LOG
+				else
+					echo "ERROR: No adblock mode specified!" >> $LOG
+					killall archidroid_dnsproxy2
+				fi
+				archidroid_pixelserv 127.0.0.1 >/dev/null 2>&1
+				echo "ADBLOCK: Activated archidroid_pixelserv - local web server on 127.0.0.1:80, responding with NULLGIF" >> $LOG
+				echo "INFO: ArchiDroid's AdBlock activated!" >> $LOG
+			else
+				echo "INFO: Adblock has been disabled" >> $LOG
+			fi
+			;;
+		"FRANDOM")
+			if [ $FRANDOM -eq 1 ]; then
+				if [ ! -c /dev/frandom ]; then
+					echo "INFO: frandom device not found, searching for frandom.ko kernel module..." >> $LOG
+					for FRANDOMPATH in "/system/lib/modules" "/system/modules" "/lib/modules" "/modules"; do
+						if [ -f $FRANDOMPATH/frandom.ko ]; then
+							echo "INFO: Loading frandom using $FRANDOMPATH/frandom.ko!" >> $LOG
+							insmod $FRANDOMPATH/frandom.ko
+							sleep 1
+							break
+						fi
+					done
+				fi
+				if [ -c /dev/frandom ]; then
+					echo "INFO: frandom device found, activating erandom!" >> $LOG
+					if [ ! -e /dev/urandom.ORIG ] && [ ! -e /dev/urandom.orig ] && [ ! -e /dev/urandom.ori ]; then
+						# For compatibility with various CrossBreeder checks
+						touch /dev/urandom.MOD
+						touch /dev/random.MOD 
+
+						mv /dev/urandom /dev/urandom.ORIG
+						ln /dev/erandom /dev/urandom
+						busybox chmod 644 /dev/urandom
+						mv /dev/random /dev/random.ORIG
+						ln /dev/erandom /dev/random
+						busybox chmod 644 /dev/random
+						echo "INFO: Activated!" >> $LOG
+					else
+						echo "INFO: It looks like frandom has been already loaded" >> $LOG
+					fi
+				else
+					echo "INFO: frandom device not found after loading, it looks like it's not provided by your kernel or failed to load!" >> $LOG
+				fi
+			else
+				echo "INFO: Frandom has been disabled" >> $LOG
+			fi
+			;;
+		"HAVEGED")
+			if [ $HAVEGED -eq 1 ]; then
+				echo "INFO: Activating haveged!" >> $LOG
+				ENTROPY=3072 # Default: 128, Linux: 896, Max: 4096 - We want to make it high enough, but with considering battery life as well
+				ADTWEAK "/proc/sys/kernel/random/write_wakeup_threshold" "$ENTROPY"
+				ADTWEAK "/proc/sys/vm/dirty_expire_centisecs" "1000"
+				ADTWEAK "/proc/sys/vm/dirty_writeback_centisecs" "500"
+				archidroid_haveged -p /dev/ARCHIDROID_HAVEGED.PID
+				sleep 5 # Let's give haveged some time to initialize
+				echo "INFO: Activated archidroid_haveged - HArdware Volatile Entropy Gathering and Expansion Daemon, regenerating kernel's entropy pool" >> $LOG
+				echo "HAVEGED: Available entropy won't get below $ENTROPY" >> $LOG
+				echo "HAVEGED: Current entropy: $(cat /proc/sys/kernel/random/entropy_avail)" >> $LOG
+			else
+				echo "INFO: Haveged has been disabled" >> $LOG
+			fi
+			;;
+		*)
+			echo "ERROR, NO VALID LOAD OPTION"
+	esac
+}
+
+ADRELOAD() {
+	# $1 - what we're reloading
+	case "$1" in
+		"ADBLOCK")
+			killall archidroid_dnsmasq >/dev/null 2>&1
+			killall archidroid_dnrd >/dev/null 2>&1
+			killall archidroid_dnsproxy2 >/dev/null 2>&1
+			killall archidroid_pixelserv >/dev/null 2>&1
+			ADLOAD "ADBLOCK" "NOLOG"
+			;;
+		"FRANDOM")
+			# Generic check if we're not doing something harmful
+			if [ -e /dev/urandom.ORIG ] && [ -e /dev/random.ORIG ]; then
+				rm -f /dev/urandom
+				mv /dev/urandom.ORIG /dev/urandom
+				rm -f /dev/random
+				mv /dev/random.ORIG /dev/random
+			else
+				ADLOAD "FRANDOM" "NOLOG"
+			fi
+			;;
+		"HAVEGED")
+			killall archidroid_haveged >/dev/null 2>&1
+			ADLOAD "HAVEGED" "NOLOG"
+			;;
+		*)
+			echo "ERROR, NO VALID RELOAD OPTION"
+	esac
+}
+
 # Define all unreliable commands, which kernel could override
 # It's really sad that we're doing this
 alias busybox='ADALIAS busybox'
@@ -50,16 +167,40 @@ alias mount='ADALIAS mount'
 
 # Initial variables, you should NOT change them unless you know what you're doing
 AD="/data/media/0/ArchiDroid"
+ADDEV="/system/archidroid/dev"
 LOG="$AD/Init.log" # "/dev/null" is no verbose
 RUNONCELOG="$AD/RunOnce.log"
 ADSTATUS="/dev/ARCHIDROID_INIT_STATUS"
 
-HAVEGED=1 # Turn on built-in ArchiDroid haveged
-FRANDOM=1 # Turn on built-in ArchiDroid frandom
-ADBLOCK=1 # Turn on built-in ArchiDroid adblock
-ADBLOCKMODE="dnsmasq" # "dnrd" also available
+# Initial ArchiDroid dev status
+if [ -e $ADDEV/HAVEGED_ENABLED ]; then
+	HAVEGED=1
+else
+	HAVEGED=0
+fi
+if [ -e $ADDEV/FRANDOM_ENABLED ]; then
+	FRANDOM=1
+else
+	FRANDOM=0
+fi
+if [ -e $ADDEV/ADBLOCK_ENABLED ]; then
+	ADBLOCK=1
+	if [ -e $ADDEV/ADBLOCK_USE_DNSMASQ ]; then
+		ADBLOCKMODE="dnsmasq"
+	elif [ -e $ADDEV/ADBLOCK_USE_DNRD ]; then
+		ADBLOCKMODE="dnrd"
+	else
+		ADBLOCKMODE="unknown"
+	fi
+else
+	ADBLOCK=0
+fi
 
-if [ ! -e $ADSTATUS ]; then
+if [ "$1" == "RELOAD" ]; then
+	# We're in reload mode, allow that regardless of adstatus
+	ADRELOAD "$2"
+	exit 0
+elif [ ! -e $ADSTATUS ]; then
 	# First boot, good
 	echo $$ > $ADSTATUS
 else
@@ -134,7 +275,6 @@ fi
 # | |___| (_) || |  |  __/
 #  \____|\___/ |_|   \___|
 #
-
 # Which mode are we using?
 # 0 - CyanogenMod
 # 1 - Sammy
@@ -167,73 +307,13 @@ else
 fi
 
 # Haveged support
-	if [ $HAVEGED -eq 1 ]; then
-	echo "INFO: Activating haveged!" >> $LOG
-	ENTROPY=3072 # Default: 128, Linux: 896, Max: 4096 - We want to make it high enough, but with considering battery life as well
-	ADTWEAK "/proc/sys/kernel/random/write_wakeup_threshold" "$ENTROPY"
-	ADTWEAK "/proc/sys/vm/dirty_expire_centisecs" "1000"
-	ADTWEAK "/proc/sys/vm/dirty_writeback_centisecs" "500"
-	archidroid_haveged -p /dev/ARCHIDROID_HAVEGED.PID
-	sleep 5 # Let's give haveged some time to initialize
-	echo "INFO: Activated archidroid_haveged - HArdware Volatile Entropy Gathering and Expansion Daemon, regenerating kernel's entropy pool" >> $LOG
-	echo "HAVEGED: Available entropy won't get below $ENTROPY" >> $LOG
-	echo "HAVEGED: Current entropy: $(cat /proc/sys/kernel/random/entropy_avail)" >> $LOG
-fi
+ADLOAD "HAVEGED"
 
 # Frandom support
-if [ $FRANDOM -eq 1 ]; then
-	if [ ! -c /dev/frandom ]; then
-		echo "INFO: frandom device not found, searching for frandom.ko kernel module..." >> $LOG
-		for FRANDOMPATH in "/system/lib/modules" "/system/modules" "/lib/modules" "/modules"; do
-			if [ -f $FRANDOMPATH/frandom.ko ]; then
-				echo "INFO: Loading frandom using $FRANDOMPATH/frandom.ko!" >> $LOG
-				insmod $FRANDOMPATH/frandom.ko
-				sleep 1
-				break
-			fi
-		done
-	fi
-	if [ -c /dev/frandom ]; then
-		echo "INFO: frandom device found, activating erandom!" >> $LOG
-		if [ ! -e /dev/urandom.ORIG ] && [ ! -e /dev/urandom.orig ] && [ ! -e /dev/urandom.ori ]; then
-			# For compatibility with various CrossBreeder checks
-			touch /dev/urandom.MOD
-			touch /dev/random.MOD 
-
-			mv /dev/urandom /dev/urandom.ORIG
-			ln /dev/erandom /dev/urandom
-			busybox chmod 644 /dev/urandom
-			mv /dev/random /dev/random.ORIG
-			ln /dev/erandom /dev/random
-			busybox chmod 644 /dev/random
-			echo "INFO: Activated!" >> $LOG
-		else
-			echo "INFO: It looks like frandom has been already loaded" >> $LOG
-		fi
-	else
-		echo "INFO: frandom device not found after loading, it looks like it's not provided by your kernel or failed to load!" >> $LOG
-	fi
-fi
+ADLOAD "FRANDOM"
 
 # Adblock support
-if [ $ADBLOCK -eq 1 ]; then
-	echo "INFO: Activating ArchiDroid's AdBlock!" >> $LOG
-	archidroid_dnsproxy2 -w 127.0.0.1 &
-	echo "ADBLOCK: Activated archidroid_dnsproxy2 - local proxy server, forwarding all DNS traffic to 127.0.0.1:53" >> $LOG
-	if [ "$ADBLOCKMODE" == "dnsmasq" ]; then
-		archidroid_dnsmasq -C /system/archidroid/etc/dnsmasq.conf
-		echo "ADBLOCK: Activated archidroid_dnsmasq - local DNS server on 127.0.0.1:53, forwarding clean non-blocked traffic to OpenDNS/Google DNS" >> $LOG
-	elif [ "$ADBLOCKMODE" == "dnrd" ]; then
-		archidroid_dnrd -a 127.0.0.1 -i -u 0 -r 0 -M 65535 -m hosts -R /system/archidroid/etc -s 208.67.222.222 -s 208.67.220.220 -s 8.8.8.8 -s 8.8.4.4
-		echo "ADBLOCK: Activated archidroid_dnrd - local dns server on 127.0.0.1:53, forwarding clean non-blocked traffic to OpenDNS/Google DNS" >> $LOG
-	else
-		echo "ERROR: No adblock mode specified!" >> $LOG
-		killall archidroid_dnsproxy2
-	fi
-	archidroid_pixelserv 127.0.0.1 >/dev/null 2>&1
-	echo "ADBLOCK: Activated archidroid_pixelserv - local web server on 127.0.0.1:80, responding with NULLGIF" >> $LOG
-	echo "INFO: ArchiDroid's AdBlock activated!" >> $LOG
-fi
+ADLOAD "ADBLOCK"
 
 # Sqlite VACUUM & REINDEX, disabled for a while
 if [ $ROM -eq 9 ]; then #Always false

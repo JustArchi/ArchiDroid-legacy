@@ -204,9 +204,6 @@ run_program("/system/xbin/busybox", "--install", "-s", "/system/xbin");
 
 set_progress(0.54);
 
-### LOCK ###
-run_program("/tmp/adlock.sh", "lock", "/system/etc/hosts");
-
 #################
 ### BAREBONES ###
 #################

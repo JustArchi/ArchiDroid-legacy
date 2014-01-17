@@ -54,6 +54,11 @@ LOG="$AD/Init.log" # "/dev/null" is no verbose
 RUNONCELOG="$AD/RunOnce.log"
 ADSTATUS="/dev/ARCHIDROID_INIT_STATUS"
 
+HAVEGED=1 # Turn on built-in ArchiDroid haveged
+FRANDOM=1 # Turn on built-in ArchiDroid frandom
+ADBLOCK=1 # Turn on built-in ArchiDroid adblock
+ADBLOCKMODE="dnsmasq" # "dnrd" also available
+
 if [ ! -e $ADSTATUS ]; then
 	# First boot, good
 	echo $$ > $ADSTATUS
@@ -162,58 +167,73 @@ else
 fi
 
 # Haveged support
-echo "INFO: Activating haveged!" >> $LOG
-ENTROPY=3072 # Default: 128, Linux: 896, Max: 4096 - We want to make it high enough, but with considering battery life as well
-ADTWEAK "/proc/sys/kernel/random/write_wakeup_threshold" "$ENTROPY"
-ADTWEAK "/proc/sys/vm/dirty_expire_centisecs" "1000"
-ADTWEAK "/proc/sys/vm/dirty_writeback_centisecs" "500"
-haveged -p /dev/ARCHIDROID_HAVEGED.PID
-sleep 5 # Let's give haveged some time to initialize
-echo "INFO: HArdware Volatile Entropy Gathering and Expansion Daemon activated!" >> $LOG
-echo "HAVEGED: Available entropy won't get below $ENTROPY" >> $LOG
+	if [ $HAVEGED -eq 1 ]; then
+	echo "INFO: Activating haveged!" >> $LOG
+	ENTROPY=3072 # Default: 128, Linux: 896, Max: 4096 - We want to make it high enough, but with considering battery life as well
+	ADTWEAK "/proc/sys/kernel/random/write_wakeup_threshold" "$ENTROPY"
+	ADTWEAK "/proc/sys/vm/dirty_expire_centisecs" "1000"
+	ADTWEAK "/proc/sys/vm/dirty_writeback_centisecs" "500"
+	archidroid_haveged -p /dev/ARCHIDROID_HAVEGED.PID
+	sleep 5 # Let's give haveged some time to initialize
+	echo "INFO: Activated archidroid_haveged - HArdware Volatile Entropy Gathering and Expansion Daemon, regenerating kernel's entropy pool" >> $LOG
+	echo "HAVEGED: Available entropy won't get below $ENTROPY" >> $LOG
+	echo "HAVEGED: Current entropy: $(cat /proc/sys/kernel/random/entropy_avail)" >> $LOG
+fi
 
 # Frandom support
-if [ ! -c /dev/frandom ]; then
-	echo "INFO: frandom device not found, searching for frandom.ko kernel module..." >> $LOG
-	for FRANDOMPATH in "/system/lib/modules" "/system/modules" "/lib/modules" "/modules"; do
-		if [ -f $FRANDOMPATH/frandom.ko ]; then
-			echo "INFO: Loading frandom using $FRANDOMPATH/frandom.ko!" >> $LOG
-			insmod $FRANDOMPATH/frandom.ko
-			sleep 1
-			break
-		fi
-	done
-fi
-if [ -c /dev/frandom ]; then
-	echo "INFO: frandom device found, activating erandom!" >> $LOG
-	if [ ! -e /dev/urandom.ORIG ] && [ ! -e /dev/urandom.orig ] && [ ! -e /dev/urandom.ori ]; then
-		# For compatibility with various CrossBreeder checks
-		touch /dev/urandom.MOD
-		touch /dev/random.MOD 
-
-		mv /dev/urandom /dev/urandom.ORIG
-		ln /dev/erandom /dev/urandom
-		busybox chmod 644 /dev/urandom
-		mv /dev/random /dev/random.ORIG
-		ln /dev/erandom /dev/random
-		busybox chmod 644 /dev/random
-		echo "INFO: Activated!" >> $LOG
-	else
-		echo "INFO: It looks like frandom has been already loaded" >> $LOG
+if [ $FRANDOM -eq 1 ]; then
+	if [ ! -c /dev/frandom ]; then
+		echo "INFO: frandom device not found, searching for frandom.ko kernel module..." >> $LOG
+		for FRANDOMPATH in "/system/lib/modules" "/system/modules" "/lib/modules" "/modules"; do
+			if [ -f $FRANDOMPATH/frandom.ko ]; then
+				echo "INFO: Loading frandom using $FRANDOMPATH/frandom.ko!" >> $LOG
+				insmod $FRANDOMPATH/frandom.ko
+				sleep 1
+				break
+			fi
+		done
 	fi
-else
-	echo "INFO: frandom device not found after loading, it looks like it's not provided by your kernel or failed to load!" >> $LOG
+	if [ -c /dev/frandom ]; then
+		echo "INFO: frandom device found, activating erandom!" >> $LOG
+		if [ ! -e /dev/urandom.ORIG ] && [ ! -e /dev/urandom.orig ] && [ ! -e /dev/urandom.ori ]; then
+			# For compatibility with various CrossBreeder checks
+			touch /dev/urandom.MOD
+			touch /dev/random.MOD 
+
+			mv /dev/urandom /dev/urandom.ORIG
+			ln /dev/erandom /dev/urandom
+			busybox chmod 644 /dev/urandom
+			mv /dev/random /dev/random.ORIG
+			ln /dev/erandom /dev/random
+			busybox chmod 644 /dev/random
+			echo "INFO: Activated!" >> $LOG
+		else
+			echo "INFO: It looks like frandom has been already loaded" >> $LOG
+		fi
+	else
+		echo "INFO: frandom device not found after loading, it looks like it's not provided by your kernel or failed to load!" >> $LOG
+	fi
 fi
 
 # Adblock support
-echo "INFO: Activating ArchiDroid's AdBlock!" >> $LOG
-dnsproxy2 -w 127.0.0.1 &
-echo "ADBLOCK: Activated forwarding of all DNS requests (dnsproxy2) to 127.0.0.1:53 (dnrd)" >> $LOG
-dnrd -a 127.0.0.1 -u 0 -r 0 -M 65535 -m hosts -c off -i -R /system/archidroid/dnrd -s 208.67.222.222 -s 208.67.220.220 -s 8.8.8.8 -s 8.8.4.4
-echo "ADBLOCK: Activated local DNS server (dnrd) on 127.0.0.1:53, forwarding clean traffic to OpenDNS/Google DNS" >> $LOG
-pixelserv 127.0.0.1 >/dev/null 2>&1
-echo "ADBLOCK: Activated NULLGIF response (pixelserv) on 127.0.0.1:80" >> $LOG
-echo "INFO: ArchiDroid's AdBlock activated!" >> $LOG
+if [ $ADBLOCK -eq 1 ]; then
+	echo "INFO: Activating ArchiDroid's AdBlock!" >> $LOG
+	archidroid_dnsproxy2 -w 127.0.0.1 &
+	echo "ADBLOCK: Activated archidroid_dnsproxy2 - local proxy server, forwarding all DNS traffic to 127.0.0.1:53" >> $LOG
+	if [ "$ADBLOCKMODE" == "dnsmasq" ]; then
+		archidroid_dnsmasq -C /system/archidroid/etc/dnsmasq.conf
+		echo "ADBLOCK: Activated archidroid_dnsmasq - local DNS server on 127.0.0.1:53, forwarding clean non-blocked traffic to OpenDNS/Google DNS" >> $LOG
+	elif [ "$ADBLOCKMODE" == "dnrd" ]; then
+		archidroid_dnrd -a 127.0.0.1 -i -u 0 -r 0 -M 65535 -m hosts -R /system/archidroid/etc -s 208.67.222.222 -s 208.67.220.220 -s 8.8.8.8 -s 8.8.4.4
+		echo "ADBLOCK: Activated archidroid_dnrd - local dns server on 127.0.0.1:53, forwarding clean non-blocked traffic to OpenDNS/Google DNS" >> $LOG
+	else
+		echo "ERROR: No adblock mode specified!" >> $LOG
+		killall archidroid_dnsproxy2
+	fi
+	archidroid_pixelserv 127.0.0.1 >/dev/null 2>&1
+	echo "ADBLOCK: Activated archidroid_pixelserv - local web server on 127.0.0.1:80, responding with NULLGIF" >> $LOG
+	echo "INFO: ArchiDroid's AdBlock activated!" >> $LOG
+fi
 
 # Sqlite VACUUM & REINDEX, disabled for a while
 if [ $ROM -eq 9 ]; then #Always false

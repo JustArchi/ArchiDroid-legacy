@@ -255,3 +255,15 @@
 /system/vendor/firmware(/.*)?           u:object_r:firmware_camera:s0
 /system/vendor/firmware/mfc_fw.bin      u:object_r:firmware_mfc:s0
 /data/cfw(/.*)?                         u:object_r:firmware_camera:s0
+#line 1 "vendor/omni/sepolicy/file_contexts"
+###########################
+# OmniROM common sepolicy
+#
+
+# cache
+/cache/dalvik-cache(/.*)? u:object_r:dalvikcache_data_file:s0
+
+# performance-related sysfs files
+/sys/kernel/mm/ksm(/.*)?       --          u:object_r:sysfs_writable:s0
+/sys/devices/system/cpu.*/cpufreq(/.*)? --  u:object_r:sysfs_writable:s0
+/sys/block/mmcblk0/queue/scheduler  --    u:object_r:sysfs_writable:s0

@@ -119,12 +119,12 @@ ADLOAD() {
 				if [ -e /dev/random.ORIG ]; then
 					mv /dev/random /dev/random.TEMP
 					mv /dev/random.ORIG /dev/random
-					archidroid_haveged -p /dev/ARCHIDROID_HAVEGED.PID
+					archidroid_haveged -p /dev/ARCHIDROID_HAVEGED.PID >/dev/null 2>&1
 					sleep 3 # Let's give haveged some time to initialize
 					mv /dev/random /dev/random.ORIG
 					mv /dev/random.TEMP /dev/random
 				else
-					archidroid_haveged -p /dev/ARCHIDROID_HAVEGED.PID
+					archidroid_haveged -p /dev/ARCHIDROID_HAVEGED.PID >/dev/null 2>&1
 					sleep 3 # Let's give haveged some time to initialize
 				fi
 

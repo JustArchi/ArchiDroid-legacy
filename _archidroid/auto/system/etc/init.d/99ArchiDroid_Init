@@ -111,8 +111,18 @@ ADLOAD() {
 				ADTWEAK "/proc/sys/kernel/random/write_wakeup_threshold" "$ENTROPY"
 				ADTWEAK "/proc/sys/vm/dirty_expire_centisecs" "1000"
 				ADTWEAK "/proc/sys/vm/dirty_writeback_centisecs" "500"
-				archidroid_haveged -p /dev/ARCHIDROID_HAVEGED.PID
-				sleep 5 # Let's give haveged some time to initialize
+
+				if [ -e /dev/random.ORIG ]; then
+					mv /dev/random /dev/random.TEMP
+					mv /dev/random.ORIG /dev/random
+					archidroid_haveged -p /dev/ARCHIDROID_HAVEGED.PID
+					sleep 3 # Let's give haveged some time to initialize
+					mv /dev/random /dev/random.ORIG
+					mv /dev/random.TEMP /dev/random
+				else
+					archidroid_haveged -p /dev/ARCHIDROID_HAVEGED.PID
+					sleep 3 # Let's give haveged some time to initialize
+				fi
 				echo "INFO: Activated archidroid_haveged - HArdware Volatile Entropy Gathering and Expansion Daemon, regenerating kernel's entropy pool" >> $LOG
 				echo "HAVEGED: Available entropy won't get below $ENTROPY" >> $LOG
 				echo "HAVEGED: Current entropy: $(cat /proc/sys/kernel/random/entropy_avail)" >> $LOG

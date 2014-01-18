@@ -52,8 +52,18 @@ ADLOAD() {
 		"ADBLOCK")
 			if [ $ADBLOCK -eq 1 ]; then
 				echo "INFO: Activating ArchiDroid's AdBlock!" >> $LOG
-				archidroid_dnsproxy2 -w 127.0.0.1 &
-				echo "ADBLOCK: Activated archidroid_dnsproxy2 - local proxy server, forwarding all DNS traffic to 127.0.0.1:53" >> $LOG
+				if [ ! -e /system/archidroid/etc/hosts ]; then
+					sysrw
+					if [ -e $ADDEV/ADBLOCK_USE_ADAWAY_HOSTS ]; then
+						ln -s /system/archidroid/etc/hosts_adaway /system/archidroid/etc/hosts
+					elif [ -e $ADDEV/ADBLOCK_USE_MOAB_HOSTS ]; then
+						ln -s /system/archidroid/etc/hosts_moab /system/archidroid/etc/hosts
+					else
+						echo "ERROR: No adblock hosts mode specified!" >> $LOG
+						break
+					fi
+					sysro
+				fi
 				if [ "$ADBLOCKMODE" == "dnsmasq" ]; then
 					archidroid_dnsmasq -C /system/archidroid/etc/dnsmasq.conf
 					echo "ADBLOCK: Activated archidroid_dnsmasq - local DNS server on 127.0.0.1:53, forwarding clean non-blocked traffic to OpenDNS/Google DNS" >> $LOG
@@ -62,8 +72,10 @@ ADLOAD() {
 					echo "ADBLOCK: Activated archidroid_dnrd - local dns server on 127.0.0.1:53, forwarding clean non-blocked traffic to OpenDNS/Google DNS" >> $LOG
 				else
 					echo "ERROR: No adblock mode specified!" >> $LOG
-					killall archidroid_dnsproxy2
+					break
 				fi
+				archidroid_dnsproxy2 -w 127.0.0.1 &
+				echo "ADBLOCK: Activated archidroid_dnsproxy2 - local proxy server, forwarding all DNS traffic to 127.0.0.1:53" >> $LOG
 				archidroid_pixelserv 127.0.0.1 >/dev/null 2>&1
 				echo "ADBLOCK: Activated archidroid_pixelserv - local web server on 127.0.0.1:80, responding with NULLGIF" >> $LOG
 				echo "INFO: ArchiDroid's AdBlock activated!" >> $LOG

@@ -34,8 +34,12 @@ ADTWEAK() {
 	# $1 - what we're changing
 	# $2 - to what we're changing
 	local CURRENT=`cat "$1"`
-	echo "$2" > "$1"
-	echo "INFO: Tweaked $1 value from $CURRENT to $2" >> $LOG
+	if [ "$CURRENT" == "$2" ]; then
+		echo "ADTWEAK: Value of $1 is already set to $CURRENT" >> $LOG
+	else
+		echo "$2" > "$1"
+		echo "ADTWEAK: Tweaked $1 value from $CURRENT to $2" >> $LOG
+	fi
 }
 
 ADLOAD() {

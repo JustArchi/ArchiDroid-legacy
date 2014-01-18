@@ -45,8 +45,11 @@ ADTWEAK() {
 ADLOAD() {
 	# $1 - what we're loading
 	# $2 - optional
-	if [ "$2" == "NOLOG" ]; then
+	if [ "$2" == "RELOAD" ]; then
 		local LOG="/dev/null"
+		local RELOAD=1
+	else
+		local RELOAD=0
 	fi
 	case "$1" in
 		"ADBLOCK")
@@ -64,12 +67,40 @@ ADLOAD() {
 					fi
 					sysro
 				fi
+				if [ $APPENDDNSES -eq 1 ]; then
+					local DNS=""
+					DNS1=`getprop net.dns1`
+					DNS2=`getprop net.dns2`
+					if [ -z "$DNS1" ] && [ $RELOAD -eq 0 ]; then
+						echo "ADBLOCK: No local DNSes found, I'll try to hook them up later" >> $LOG
+					else
+						APPENDDNSES=0
+					fi
+				fi
 				if [ "$ADBLOCKMODE" == "dnsmasq" ]; then
-					archidroid_dnsmasq -C /system/archidroid/etc/dnsmasq.conf
 					echo "ADBLOCK: Activated archidroid_dnsmasq - local DNS server on 127.0.0.1:53, forwarding clean non-blocked traffic to OpenDNS/Google DNS" >> $LOG
+					if [ ! -z "$DNS1" ]; then
+						local DNS="-S $DNS1"
+						if [ ! -z "$DNS2" ]; then
+							local DNS+=" -S $DNS2"
+						fi
+						archidroid_dnsmasq --all-servers $DNS -C /system/archidroid/etc/dnsmasq.conf
+						echo "ADBLOCK: Also added local DNS servers $DNS1 $DNS2" >> $LOG
+					else
+						archidroid_dnsmasq --all-servers -C /system/archidroid/etc/dnsmasq.conf
+					fi
 				elif [ "$ADBLOCKMODE" == "dnrd" ]; then
-					archidroid_dnrd -a 127.0.0.1 -i -u 0 -r 0 -M 65535 -m hosts -R /system/archidroid/etc -s 208.67.222.222 -s 208.67.220.220 -s 8.8.8.8 -s 8.8.4.4
 					echo "ADBLOCK: Activated archidroid_dnrd - local dns server on 127.0.0.1:53, forwarding clean non-blocked traffic to OpenDNS/Google DNS" >> $LOG
+					if [ ! -z "$DNS1" ]; then
+						local DNS="-s $DNS1"
+						if [ ! -z "$DNS2" ]; then
+							local DNS+=" -s $DNS2"
+						fi
+						archidroid_dnrd -a 127.0.0.1 -i -u 0 -r 0 -M 65535 -m hosts -R /system/archidroid/etc $DNS -s 208.67.222.222 -s 208.67.220.220 -s 8.8.8.8 -s 8.8.4.4
+						echo "ADBLOCK: Also added local DNS servers $DNS1 $DNS2" >> $LOG
+					else
+						archidroid_dnrd -a 127.0.0.1 -i -u 0 -r 0 -M 65535 -m hosts -R /system/archidroid/etc -s 208.67.222.222 -s 208.67.220.220 -s 8.8.8.8 -s 8.8.4.4
+					fi
 				else
 					echo "ERROR: No adblock mode specified!" >> $LOG
 					break
@@ -160,7 +191,7 @@ ADRELOAD() {
 			killall archidroid_dnrd >/dev/null 2>&1
 			killall archidroid_dnsproxy2 >/dev/null 2>&1
 			killall archidroid_pixelserv >/dev/null 2>&1
-			ADLOAD "ADBLOCK" "NOLOG"
+			ADLOAD "ADBLOCK" "RELOAD"
 			;;
 		"FRANDOM")
 			# Generic check if we're not doing something harmful
@@ -172,12 +203,12 @@ ADRELOAD() {
 				rm -f /dev/random
 				mv /dev/random.ORIG /dev/random
 			else
-				ADLOAD "FRANDOM" "NOLOG"
+				ADLOAD "FRANDOM" "RELOAD"
 			fi
 			;;
 		"HAVEGED")
 			killall archidroid_haveged >/dev/null 2>&1
-			ADLOAD "HAVEGED" "NOLOG"
+			ADLOAD "HAVEGED" "RELOAD"
 			;;
 		*)
 			echo "ERROR, NO VALID RELOAD OPTION"
@@ -220,6 +251,11 @@ if [ -e $ADDEV/ADBLOCK_ENABLED ]; then
 		ADBLOCKMODE="dnrd"
 	else
 		ADBLOCKMODE="unknown"
+	fi
+	if [ -e $ADDEV/ADBLOCK_APPEND_LOCAL_DNSES ]; then
+		APPENDDNSES=1
+	else
+		APPENDDNSES=0
 	fi
 else
 	ADBLOCK=0
@@ -413,87 +449,6 @@ else
 	echo "INFO: I looped $LOOP times and didn't have to exit from infinite loop, that's nice (Init Semaphore)" >> $LOG
 fi
 
-if [ -e /dev/block/mmcblk1p1 ] && [ `mount | grep -i "sdcard1" | wc -l` -eq 0 ] && [ `mount | grep -i "extSdCard" | wc -l` -eq 0 ]; then
-	# Temporary workaround for mounting exFAT-formatted cards
-	# Initial idea by AndiP71, aka Lord Boeffla
-	# Further improvements by JustArchi
-
-	echo "INFO: Detected sd card but it's not mounted yet" >> $LOG
-	echo "INFO: Giving Android 30 more seconds to initialize external sd card..." >> $LOG
-	sleep 30
-	echo "INFO: Time passed!" >> $LOG
-	if [ `mount | grep -i "sdcard1" | wc -l` -eq 0 ] && [ `mount | grep -i "extSdCard" | wc -l` -eq 0 ]; then
-		echo "INFO: External sd card is still not mounted, mounting..." >> $LOG
-		KEEPGOING=1
-		if [ `lsmod | grep "exfat" | wc -l` -eq 0 ]; then
-			echo "WARNING: No exfat module found, it's either compiled in kernel or not loaded. Blindly loading..." >> $LOG
-			busybox insmod /system/lib/modules/exfat_core.ko >/dev/null 2>&1
-			busybox insmod /system/lib/modules/exfat_fs.ko >/dev/null 2>&1
-			echo "INFO: Blind load completed, proceeding with mounting now..."
-		fi
-
-		if [ -e /storage/sdcard1 ]; then
-			EXTSDPATH="/storage/sdcard1"
-		elif [ -e /storage/extSdCard ]; then
-			EXTSDPATH="/storage/extSdCard"
-		else
-			EXTSDPATH="UNKNOWN"
-		fi
-
-		if [ -e /dev/block/vold/179:49 ]; then
-			EXTSDMOUNT="/dev/block/vold/179:49"
-			echo "INFO: Mounting through vold 179:49!" >> $LOG
-			busybox mount -t auto -o rw,dirsync,nosuid,nodev,noexec,noatime,nodiratime,uid=1000,gid=1023,fmask=0002,dmask=0002,allow_utime=0020 $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
-			if [ `mount | grep -i "sdcard1" | wc -l` -eq 0 ] && [ `mount | grep -i "extSdCard" | wc -l` -eq 0 ]; then
-				echo "WARNING: Failed!" >> $LOG
-			else
-				echo "INFO: Success!" >> $LOG
-				KEEPGOING=0
-			fi
-		fi
-
-		if [ $KEEPGOING -eq 1 ]; then
-			EXTSDMOUNT="/dev/block/mmcblk1p1"
-			echo "INFO: Mounting through mmcblk1p1!" >> $LOG
-			busybox mount -t auto -o rw,dirsync,nosuid,nodev,noexec,noatime,nodiratime,uid=1000,gid=1023,fmask=0002,dmask=0002,allow_utime=0020 $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
-			if [ `mount | grep -i "sdcard1" | wc -l` -eq 0 ] && [ `mount | grep -i "extSdCard" | wc -l` -eq 0 ]; then
-				echo "WARNING: Failed!" >> $LOG
-			else
-				echo "INFO: Success!" >> $LOG
-				KEEPGOING=0
-			fi
-		fi
-
-		if [ $KEEPGOING -eq 1 ]; then
-			echo "INFO: Trying panic mode!" >> $LOG
-			EXTSDMOUNT="/dev/block/vold/179:49"
-			mount -t exfat -o rw,dirsync,nosuid,nodev,noexec,noatime,nodiratime,uid=1000,gid=1023,fmask=0002,dmask=0002,allow_utime=0020 $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
-			mount -t ext4 -o rw,dirsync,nosuid,nodev,noexec,noatime,nodiratime,uid=1000,gid=1023,fmask=0002,dmask=0002,allow_utime=0020 $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
-			mount -t vfat -o rw,dirsync,nosuid,nodev,noexec,noatime,nodiratime,uid=1000,gid=1023,fmask=0002,dmask=0002,allow_utime=0020 $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
-			EXTSDMOUNT="/dev/block/mmcblk1p1"
-			mount -t exfat -o rw,dirsync,nosuid,nodev,noexec,noatime,nodiratime,uid=1000,gid=1023,fmask=0002,dmask=0002,allow_utime=0020 $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
-			mount -t ext4 -o rw,dirsync,nosuid,nodev,noexec,noatime,nodiratime,uid=1000,gid=1023,fmask=0002,dmask=0002,allow_utime=0020 $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
-			mount -t vfat -o rw,dirsync,nosuid,nodev,noexec,noatime,nodiratime,uid=1000,gid=1023,fmask=0002,dmask=0002,allow_utime=0020 $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
-			if [ `mount | grep -i "sdcard1" | wc -l` -eq 0 ] && [ `mount | grep -i "extSdCard" | wc -l` -eq 0 ]; then
-				echo "WARNING: Failed!" >> $LOG
-			else
-				echo "INFO: Success!" >> $LOG
-				KEEPGOING=0
-			fi
-		fi
-
-		if [ `mount | grep -i "sdcard1" | wc -l` -eq 0 ] && [ `mount | grep -i "extSdCard" | wc -l` -eq 0 ]; then
-				echo "ERROR: I failed to mount external sd card with automatic filesystem. Giving up here!" >> $LOG
-		else
-			echo "INFO: Successfully mounted external sd card!" >> $LOG
-		fi
-	else
-		echo "INFO: OK, Android mounted our external sd card in given 30 seconds, aborting workaround" >> $LOG
-	fi
-else
-	echo "INFO: OK, I don't need to mount external sd card" >> $LOG
-fi
-
 # Execute a reboot if we need it
 if [ -e $AD/HARD_REBOOT_REQUIRED ]; then
 	echo "INFO: HARD_REBOOT_REQUIRED found, I'm rebooting device now..." >> $LOG
@@ -508,8 +463,14 @@ elif [ -e $AD/SOFT_REBOOT_REQUIRED ]; then
 	killall system_server
 fi
 
-sleep 10
+# Wait a little longer
+sleep 30
 
+####################################
+# We have fully loaded android now #
+####################################
+
+# Delete RunOnce if needed
 if [ -e /system/etc/init.d/98ArchiDroid_RunOnce ]; then
 	echo "WARNING: RunOnce found in init.d, trying to remove it!" >> $LOG
 	echo "REMOTE: Hello, Init here. Don't worry about FATAL ERROR above, I'll try to fix it!" >> $RUNONCELOG
@@ -523,6 +484,96 @@ if [ -e /system/etc/init.d/98ArchiDroid_RunOnce ]; then
 	else
 		echo "ERROR: Failed!" >> $LOG
 		echo "REMOTE: ERROR, could not fix above FATAL ERROR! Please investigate!" >> $RUNONCELOG
+	fi
+fi
+
+# Mount external sd card if needed
+if [ -e /dev/block/mmcblk1p1 ] && [ `mount | grep -i "sdcard1" | wc -l` -eq 0 ] && [ `mount | grep -i "extSdCard" | wc -l` -eq 0 ]; then
+	# Initial idea by AndiP71, aka Lord Boeffla
+	# Further improvements by JustArchi
+
+	echo "INFO: Detected sd card but it's not mounted yet, mounting..." >> $LOG
+	KEEPGOING=1
+	if [ `lsmod | grep "exfat" | wc -l` -eq 0 ]; then
+		echo "WARNING: No exfat module found, it's either compiled in kernel or not loaded. Blindly loading..." >> $LOG
+		busybox insmod /system/lib/modules/exfat_core.ko >/dev/null 2>&1
+		busybox insmod /system/lib/modules/exfat_fs.ko >/dev/null 2>&1
+		echo "INFO: Blind load completed, proceeding with mounting now..."
+	fi
+
+	if [ -e /storage/sdcard1 ]; then
+		EXTSDPATH="/storage/sdcard1"
+	elif [ -e /storage/extSdCard ]; then
+		EXTSDPATH="/storage/extSdCard"
+	else
+		EXTSDPATH="UNKNOWN"
+	fi
+
+	if [ -e /dev/block/vold/179:49 ]; then
+		EXTSDMOUNT="/dev/block/vold/179:49"
+		echo "INFO: Mounting through vold 179:49!" >> $LOG
+		busybox mount -t auto -o rw,dirsync,nosuid,nodev,noexec,noatime,nodiratime,uid=1000,gid=1023,fmask=0002,dmask=0002,allow_utime=0020 $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
+		if [ `mount | grep -i "sdcard1" | wc -l` -eq 0 ] && [ `mount | grep -i "extSdCard" | wc -l` -eq 0 ]; then
+			echo "WARNING: Failed!" >> $LOG
+		else
+			echo "INFO: Success!" >> $LOG
+			KEEPGOING=0
+		fi
+	fi
+
+	if [ $KEEPGOING -eq 1 ]; then
+		EXTSDMOUNT="/dev/block/mmcblk1p1"
+		echo "INFO: Mounting through mmcblk1p1!" >> $LOG
+		busybox mount -t auto -o rw,dirsync,nosuid,nodev,noexec,noatime,nodiratime,uid=1000,gid=1023,fmask=0002,dmask=0002,allow_utime=0020 $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
+		if [ `mount | grep -i "sdcard1" | wc -l` -eq 0 ] && [ `mount | grep -i "extSdCard" | wc -l` -eq 0 ]; then
+			echo "WARNING: Failed!" >> $LOG
+		else
+			echo "INFO: Success!" >> $LOG
+			KEEPGOING=0
+		fi
+	fi
+
+	if [ $KEEPGOING -eq 1 ]; then
+		echo "INFO: Trying panic mode!" >> $LOG
+		EXTSDMOUNT="/dev/block/vold/179:49"
+		mount -t exfat -o rw,dirsync,nosuid,nodev,noexec,noatime,nodiratime,uid=1000,gid=1023,fmask=0002,dmask=0002,allow_utime=0020 $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
+		mount -t ext4 -o rw,dirsync,nosuid,nodev,noexec,noatime,nodiratime,uid=1000,gid=1023,fmask=0002,dmask=0002,allow_utime=0020 $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
+		mount -t vfat -o rw,dirsync,nosuid,nodev,noexec,noatime,nodiratime,uid=1000,gid=1023,fmask=0002,dmask=0002,allow_utime=0020 $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
+		EXTSDMOUNT="/dev/block/mmcblk1p1"
+		mount -t exfat -o rw,dirsync,nosuid,nodev,noexec,noatime,nodiratime,uid=1000,gid=1023,fmask=0002,dmask=0002,allow_utime=0020 $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
+		mount -t ext4 -o rw,dirsync,nosuid,nodev,noexec,noatime,nodiratime,uid=1000,gid=1023,fmask=0002,dmask=0002,allow_utime=0020 $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
+		mount -t vfat -o rw,dirsync,nosuid,nodev,noexec,noatime,nodiratime,uid=1000,gid=1023,fmask=0002,dmask=0002,allow_utime=0020 $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
+		if [ `mount | grep -i "sdcard1" | wc -l` -eq 0 ] && [ `mount | grep -i "extSdCard" | wc -l` -eq 0 ]; then
+			echo "WARNING: Failed!" >> $LOG
+		else
+			echo "INFO: Success!" >> $LOG
+			KEEPGOING=0
+		fi
+	fi
+
+	if [ `mount | grep -i "sdcard1" | wc -l` -eq 0 ] && [ `mount | grep -i "extSdCard" | wc -l` -eq 0 ]; then
+			echo "ERROR: I failed to mount external sd card with automatic filesystem. Giving up here!" >> $LOG
+	else
+		echo "INFO: Successfully mounted external sd card!" >> $LOG
+	fi
+else
+	echo "INFO: OK, I don't need to mount external sd card" >> $LOG
+fi
+
+# Wait a little longer
+sleep 30
+
+#############################################
+# User should already enter PIN, last stage #
+#############################################
+
+# Append DNSes to Adblock if needed
+if [ $ADBLOCK -eq 1 ] && [ $APPENDDNSES -eq 1 ]; then
+	if [ ! -z `getprop net.dns1` ]; then
+		echo "ADBLOCK: Our late-hook worked. We now have `getprop net.dns1` `getprop net.dns2` DNSes. Reloading Adblock!" >> $LOG
+		ADRELOAD "ADBLOCK"
+	else
+		echo "ADBLOCK: Local DNSes are still not available, it looks like we don't have network connection this time" >> $LOG
 	fi
 fi
 

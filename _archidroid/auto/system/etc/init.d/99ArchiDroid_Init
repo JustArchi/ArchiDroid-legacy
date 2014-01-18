@@ -123,6 +123,7 @@ ADLOAD() {
 					archidroid_haveged -p /dev/ARCHIDROID_HAVEGED.PID
 					sleep 3 # Let's give haveged some time to initialize
 				fi
+
 				echo "INFO: Activated archidroid_haveged - HArdware Volatile Entropy Gathering and Expansion Daemon, regenerating kernel's entropy pool" >> $LOG
 				echo "HAVEGED: Available entropy won't get below $ENTROPY" >> $LOG
 				echo "HAVEGED: Current entropy: $(cat /proc/sys/kernel/random/entropy_avail)" >> $LOG
@@ -148,8 +149,10 @@ ADRELOAD() {
 		"FRANDOM")
 			# Generic check if we're not doing something harmful
 			if [ -e /dev/urandom.ORIG ] && [ -e /dev/random.ORIG ]; then
+				rm -f /dev/urandom.MOD
 				rm -f /dev/urandom
 				mv /dev/urandom.ORIG /dev/urandom
+				rm -f /dev/random.MOD
 				rm -f /dev/random
 				mv /dev/random.ORIG /dev/random
 			else

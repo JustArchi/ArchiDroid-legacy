@@ -71,7 +71,10 @@ ADLOAD() {
 					local DNS=""
 					DNS1=`getprop net.dns1`
 					DNS2=`getprop net.dns2`
-					if [ -z "$DNS1" ] && [ $RELOAD -eq 0 ]; then
+					if [ $DNSDAEMON -eq 1 ]; then
+						addnsdaemon "background" &
+						APPENDDNSES=0
+					elif [ -z "$DNS1" ] && [ $RELOAD -eq 0 ]; then
 						echo "ADBLOCK: No local DNSes found, I'll try to hook them up later" >> $LOG
 					else
 						APPENDDNSES=0
@@ -191,6 +194,7 @@ ADRELOAD() {
 			killall archidroid_dnrd >/dev/null 2>&1
 			killall archidroid_dnsproxy2 >/dev/null 2>&1
 			killall archidroid_pixelserv >/dev/null 2>&1
+			killall addnsdaemon >/dev/null 2>&1
 			ADLOAD "ADBLOCK" "RELOAD"
 			;;
 		"FRANDOM")
@@ -252,8 +256,13 @@ if [ -e $ADDEV/ADBLOCK_ENABLED ]; then
 	else
 		ADBLOCKMODE="unknown"
 	fi
-	if [ -e $ADDEV/ADBLOCK_APPEND_LOCAL_DNSES ]; then
+	if [ -e $ADDEV/ADBLOCK_LOCAL_DNSES_ENABLED ]; then
 		APPENDDNSES=1
+		if [ -e $ADDEV/ADBLOCK_LOCAL_DNSES_DAEMON_ENABLED ]; then
+			DNSDAEMON=1
+		else
+			DNSDAEMON=0
+		fi
 	else
 		APPENDDNSES=0
 	fi

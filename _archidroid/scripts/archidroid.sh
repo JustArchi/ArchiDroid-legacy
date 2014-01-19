@@ -1,6 +1,7 @@
 #!/sbin/sh
 
 AD="/data/media/0/ArchiDroid"
+touch /data/ARCHIDROID_DONT_REMOVE_ME
 
 if [ ! -d /data/media/0 ]; then
 	if [ -f /data/media/0 ]; then

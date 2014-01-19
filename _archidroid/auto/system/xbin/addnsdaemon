@@ -1,0 +1,20 @@
+#!/system/bin/sh
+
+# Make sure that we're running in the background
+if [ "$1" != "background" ]; then
+	sh $0 "background" &
+	exit 0
+fi
+
+DNS1=`getprop net.dns1`
+while :; do
+	CURDNS1=`getprop net.dns1`
+	if [ "$CURDNS1" != "$DNS1" ]; then
+		DNS1="$CURDNS1"
+		sh /system/etc/init.d/99ArchiDroid_Init "RELOAD" "ADBLOCK"
+		sleep 10
+	fi
+	sleep 1
+done
+
+exit 0

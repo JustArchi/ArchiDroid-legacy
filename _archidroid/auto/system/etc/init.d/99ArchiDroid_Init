@@ -368,7 +368,7 @@ fi
 # Bring su daemon if available
 if [ -e /system/xbin/daemonsu ]; then
 	echo "INFO: SuperSU daemon found, calling daemonsu!" >> $LOG
-	/system/xbin/daemonsu --auto-daemon &
+	/system/xbin/daemonsu --auto-daemon >/dev/null 2>&1 &
 fi
 
 # Custom boot sound support

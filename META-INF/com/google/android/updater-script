@@ -126,7 +126,7 @@ symlink("toolbox", "/system/bin/cat", "/system/bin/chcon",
         "/system/bin/swapoff", "/system/bin/swapon", "/system/bin/sync",
         "/system/bin/top", "/system/bin/touch", "/system/bin/umount",
         "/system/bin/uptime", "/system/bin/vmstat", "/system/bin/watchprops",
-        "/system/bin/wipe");
+        "/system/bin/wipe", "/system/bin/freshsebool", "/system/bin/reboot");
 
 symlink("/system/xbin/busybox", "/system/bin/busybox");
 symlink("/system/xbin/su", "/system/bin/su");

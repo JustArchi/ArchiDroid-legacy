@@ -542,7 +542,7 @@ if [ -e /dev/block/mmcblk1p1 ] && [ `mount | grep -i "sdcard1" | wc -l` -eq 0 ] 
 	if [ -e /dev/block/vold/179:49 ]; then
 		EXTSDMOUNT="/dev/block/vold/179:49"
 		echo "INFO: Mounting through vold 179:49!" >> $LOG
-		busybox mount -t auto -o rw,dirsync,nosuid,nodev,noexec,noatime,nodiratime,uid=1000,gid=1023,fmask=0002,dmask=0002,allow_utime=0020 $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
+		busybox mount -t auto $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
 		if [ `mount | grep -i "sdcard1" | wc -l` -eq 0 ] && [ `mount | grep -i "extSdCard" | wc -l` -eq 0 ]; then
 			echo "WARNING: Failed!" >> $LOG
 		else
@@ -554,7 +554,7 @@ if [ -e /dev/block/mmcblk1p1 ] && [ `mount | grep -i "sdcard1" | wc -l` -eq 0 ] 
 	if [ $KEEPGOING -eq 1 ]; then
 		EXTSDMOUNT="/dev/block/mmcblk1p1"
 		echo "INFO: Mounting through mmcblk1p1!" >> $LOG
-		busybox mount -t auto -o rw,dirsync,nosuid,nodev,noexec,noatime,nodiratime,uid=1000,gid=1023,fmask=0002,dmask=0002,allow_utime=0020 $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
+		busybox mount -t auto $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
 		if [ `mount | grep -i "sdcard1" | wc -l` -eq 0 ] && [ `mount | grep -i "extSdCard" | wc -l` -eq 0 ]; then
 			echo "WARNING: Failed!" >> $LOG
 		else
@@ -566,13 +566,13 @@ if [ -e /dev/block/mmcblk1p1 ] && [ `mount | grep -i "sdcard1" | wc -l` -eq 0 ] 
 	if [ $KEEPGOING -eq 1 ]; then
 		echo "INFO: Trying panic mode!" >> $LOG
 		EXTSDMOUNT="/dev/block/vold/179:49"
-		mount -t exfat -o rw,dirsync,nosuid,nodev,noexec,noatime,nodiratime,uid=1000,gid=1023,fmask=0002,dmask=0002,allow_utime=0020 $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
-		mount -t ext4 -o rw,dirsync,nosuid,nodev,noexec,noatime,nodiratime,uid=1000,gid=1023,fmask=0002,dmask=0002,allow_utime=0020 $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
-		mount -t vfat -o rw,dirsync,nosuid,nodev,noexec,noatime,nodiratime,uid=1000,gid=1023,fmask=0002,dmask=0002,allow_utime=0020 $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
+		mount -t exfat $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
+		mount -t ext4 $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
+		mount -t vfat $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
 		EXTSDMOUNT="/dev/block/mmcblk1p1"
-		mount -t exfat -o rw,dirsync,nosuid,nodev,noexec,noatime,nodiratime,uid=1000,gid=1023,fmask=0002,dmask=0002,allow_utime=0020 $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
-		mount -t ext4 -o rw,dirsync,nosuid,nodev,noexec,noatime,nodiratime,uid=1000,gid=1023,fmask=0002,dmask=0002,allow_utime=0020 $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
-		mount -t vfat -o rw,dirsync,nosuid,nodev,noexec,noatime,nodiratime,uid=1000,gid=1023,fmask=0002,dmask=0002,allow_utime=0020 $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
+		mount -t exfat $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
+		mount -t ext4 $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
+		mount -t vfat $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
 		if [ `mount | grep -i "sdcard1" | wc -l` -eq 0 ] && [ `mount | grep -i "extSdCard" | wc -l` -eq 0 ]; then
 			echo "WARNING: Failed!" >> $LOG
 		else

@@ -16,7 +16,7 @@ sh /system/etc/init.d/99ArchiDroid_Init "STOP" "ADBLOCK"
 sleep 1
 
 # Start our better version of dnsmasq
-archidroid_dnsmasq "$@" &
+archidroid_dnsmasq -S 208.67.222.222#5353 -S 208.67.220.220#5353 -S 8.8.8.8 -S 8.8.4.4 "$@" & # TODO: Handle through 99ArchiDroid_Init
 pid=$!
 wait $pid
 

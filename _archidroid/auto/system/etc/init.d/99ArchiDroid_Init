@@ -188,6 +188,7 @@ ADLOAD() {
 
 ADRELOAD() {
 	# $1 - what we're reloading
+	# $2 - optional
 	case "$1" in
 		"ADBLOCK")
 			killall archidroid_dnsmasq >/dev/null 2>&1
@@ -195,7 +196,9 @@ ADRELOAD() {
 			killall archidroid_dnsproxy2 >/dev/null 2>&1
 			killall archidroid_pixelserv >/dev/null 2>&1
 			killall archidroid_dnsdaemon >/dev/null 2>&1
-			ADLOAD "ADBLOCK" "RELOAD"
+			if [ "$2" != "STOP" ]; then
+				ADLOAD "ADBLOCK" "RELOAD"
+			fi
 			;;
 		"FRANDOM")
 			# Generic check if we're not doing something harmful
@@ -207,12 +210,16 @@ ADRELOAD() {
 				rm -f /dev/random
 				mv /dev/random.ORIG /dev/random
 			else
-				ADLOAD "FRANDOM" "RELOAD"
+				if [ "$2" != "STOP" ]; then
+					ADLOAD "FRANDOM" "RELOAD"
+				fi
 			fi
 			;;
 		"HAVEGED")
 			killall archidroid_haveged >/dev/null 2>&1
-			ADLOAD "HAVEGED" "RELOAD"
+			if [ "$2" != "STOP" ]; then
+				ADLOAD "HAVEGED" "RELOAD"
+			fi
 			;;
 		*)
 			echo "ERROR, NO VALID RELOAD OPTION"
@@ -275,9 +282,18 @@ else
 	ADBLOCK=0
 fi
 
-if [ "$1" == "RELOAD" ]; then
-	# We're in reload mode, allow that regardless of adstatus
-	ADRELOAD "$2"
+if [ "$1" == "RELOAD" ] || [ "$1" == "STOP" ]; then
+	# Allow that regardless of adstatus
+	case "$1" in
+		"RELOAD")
+			ADRELOAD "$2"
+			;;
+		"STOP")
+			ADRELOAD "$2" "STOP"
+			;;
+		*)
+			continue
+	esac
 	exit 0
 elif [ ! -e $ADSTATUS ]; then
 	# First boot, good

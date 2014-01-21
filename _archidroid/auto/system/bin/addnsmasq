@@ -1,0 +1,24 @@
+#!/system/bin/sh
+
+# ArchiDroid Dnsmasq Fallback
+# JustArchi@JustArchi.net
+# Don't remove this file
+
+set +e
+
+# Set traps, kill dnsmasq, gently if possible
+trap 'kill $pid; sh /system/etc/init.d/99ArchiDroid_Init "RELOAD" "ADBLOCK"; exit 0' ERR
+trap 'kill $pid; sh /system/etc/init.d/99ArchiDroid_Init "RELOAD" "ADBLOCK"; exit 0' EXIT
+trap 'kill $pid; sh /system/etc/init.d/99ArchiDroid_Init "RELOAD" "ADBLOCK"; exit 0' TERM
+trap 'kill $pid; sh /system/etc/init.d/99ArchiDroid_Init "RELOAD" "ADBLOCK"; exit 0' QUIT
+trap 'kill -9 $pid; sh /system/etc/init.d/99ArchiDroid_Init "RELOAD" "ADBLOCK"; exit 0' KILL
+
+# Turn off our Adblock, if turned on
+sh /system/etc/init.d/99ArchiDroid_Init "STOP" "ADBLOCK"
+
+# Start original dnsmasq
+/system/bin/dnsmasq.ORIG "$@" &
+pid=$!
+wait $pid
+
+exit 0

@@ -4,6 +4,10 @@
 mv /system/bin/debuggerd /system/xbin/debuggerd
 mv /system/bin/addebuggerd /system/bin/debuggerd
 
+# ArchiDroid Dnsmasq Fallback
+mv /system/bin/dnsmasq /system/bin/dnsmasq.ORIG
+mv /system/bin/addnsmasq /system/bin/dnsmasq
+
 # SuperSU
 mkdir /system/bin/.ext
 cp /system/xbin/su /system/xbin/daemonsu

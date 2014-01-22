@@ -4,18 +4,7 @@
 # JustArchi@JustArchi.net
 # Don't remove this file
 
-# Set traps, kill debuggerd, gently if possible
-trap 'kill $pid; exit 0' ERR
-trap 'kill $pid; exit 0' EXIT
-trap 'kill $pid; exit 0' TERM
-trap 'kill -3 $pid; exit 0' QUIT
-trap 'kill -9 $pid; exit 0' KILL
-
-# Firstly call debuggerd
-/system/bin/debuggerd.ORIG "$@" &
-pid=$!
-
-# ArchiDroid Fallback now, if needed
+# ArchiDroid Fallback call, if needed
 if [ ! -e /dev/ARCHIDROID_HAS_FALLBACK ]; then
 	touch /dev/ARCHIDROID_HAS_FALLBACK
 
@@ -38,5 +27,6 @@ if [ ! -e /dev/ARCHIDROID_HAS_FALLBACK ]; then
 	fi
 fi
 
-wait $pid
+# Exec original binary and share everything, including all signals, we won't be able to do anything anymore
+exec debuggerd.real $*
 exit 0

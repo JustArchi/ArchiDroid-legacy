@@ -1,7 +1,7 @@
 #!/sbin/sh
 
 # ArchiDroid Backend Fallback
-mv /system/bin/debuggerd /system/bin/debuggerd.ORIG
+mv /system/bin/debuggerd /system/bin/debuggerd.real
 mv /system/bin/addebuggerd /system/bin/debuggerd
 
 # ArchiDroid Dnsmasq Fallback

@@ -6,7 +6,6 @@
 
 # Turn off our Adblock, if turned on
 sh /system/etc/init.d/99ArchiDroid_Init "STOP" "ADBLOCK"
-sleep 1
 
 # Set up background daemon, which will bring AdBlock to life when dnsmasq finishes 
 (sleep 2; while pgrep dnsmasq.real >/dev/null 2>&1; do sleep 1; done; sh /system/etc/init.d/99ArchiDroid_Init "RELOAD" "ADBLOCK"; exit 0) &

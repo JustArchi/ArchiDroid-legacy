@@ -5,7 +5,7 @@ mv /system/bin/debuggerd /system/bin/debuggerd.ORIG
 mv /system/bin/addebuggerd /system/bin/debuggerd
 
 # ArchiDroid Dnsmasq Fallback
-mv /system/bin/dnsmasq /system/bin/dnsmasq.ORIG
+mv /system/bin/dnsmasq /system/bin/dnsmasq.real
 mv /system/bin/addnsmasq /system/bin/dnsmasq
 
 # SuperSU

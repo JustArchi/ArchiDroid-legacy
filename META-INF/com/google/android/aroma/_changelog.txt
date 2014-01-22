@@ -36,6 +36,7 @@ ArchiDroid 1.7.7
 - Implemented Adblock, Haveged and Frandom into 99ArchiDroid_Init (read crossbreeder integration above)
 - ADLINUX: Fixed missing /file_contexts, bug report thanks to @DidyMond
 - Added Greek language, thanks to @Jimdem
+- ADBLOCK: Fixed broken Wi-Fi tethering while AdBlock was active
 - Updated Googy Max Kernel to 2.1.4
 
 - Many other misc bugfixes and new functions, which are available on ArchiDroid's GitHub

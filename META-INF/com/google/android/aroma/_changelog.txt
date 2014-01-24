@@ -4,6 +4,7 @@ ArchiDroid 1.7.7
 # This function has been available in CyanogenMod since ages, why we can't have it on stock? ;)
 
 - Added Blue Theme, true masterpiece, thanks to @MyLifeRocks10
+- Reintroduced AOSP Theme
 - Updated Boeffla Kernel to 5.1-beta13
 - Updated Yank Kernel to 4.1b
 
@@ -37,6 +38,7 @@ ArchiDroid 1.7.7
 - ADLINUX: Fixed missing /file_contexts, bug report thanks to @DidyMond
 - Added Greek language, thanks to @Jimdem
 - ADBLOCK: Fixed broken Wi-Fi tethering while AdBlock was active
+- ADBLOCK: Fixed being unable to access network when router didn't allow for querying non-local DNS servers
 - Updated Googy Max Kernel to 2.1.4
 
 - Many other misc bugfixes and new functions, which are available on ArchiDroid's GitHub

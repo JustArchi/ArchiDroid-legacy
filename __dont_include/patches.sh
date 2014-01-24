@@ -48,7 +48,7 @@ adpatch() {
 
 # Multi-Window
 # https://gerrit.omnirom.org/#/c/1510/
-adpatch "10/1510" "18" "frameworks" "base"
+adpatch "10/1510" "21" "frameworks" "base"
 
 # All Animations
 adpatch "51/4251" "36" "frameworks" "base" # https://gerrit.omnirom.org/#/c/4251/
@@ -75,5 +75,9 @@ adpatch "10/4910" "1" "packages" "apps" "Mms" #https://gerrit.omnirom.org/#/c/49
 
 adpatch "06/4806" "1" "packages" "apps" "Gallery2" #https://gerrit.omnirom.org/#/c/4806/
 adpatch "07/4807" "1" "packages" "inputmethods" "LatinIME" #https://gerrit.omnirom.org/#/c/4807/
+
+# Lockscreen Blur
+#adpatch "03/4903" "5" "frameworks" "base" #https://gerrit.omnirom.org/#/c/4903/
+#adpatch "02/4702" "8" "frameworks" "base" #https://gerrit.omnirom.org/#/c/4702/
 
 exit 0

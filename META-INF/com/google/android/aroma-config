@@ -432,6 +432,8 @@ install(
 	"<~archidroid.install.finish>"
 );
 
+resexec("exec/adumount.sh", "/system");
+
 if confirm(
 	#-- Title
 	"ArchiDroid Wizard",

@@ -355,6 +355,7 @@ while (! pgrep com.android && [ $LOOP -lt 300 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 				# Requires ROM Control
 				DBUPDATE system screen_off_anim_toggle 2
 				DBUPDATE system status_bar_traffic 0
+				DBUPDATE system battery_icon_list 6
 			else
 				echo "INFO: Applying AOSP-specific DBUPDATE" >> $LOG
 

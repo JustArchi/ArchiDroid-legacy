@@ -18,8 +18,6 @@ ADALIAS() {
 # Define all unreliable commands, which kernel could override
 # It's really sad that we're doing this
 alias busybox='ADALIAS busybox'
-alias sh='ADALIAS sh'
-alias exec='ADALIAS exec'
 alias ln='ADALIAS ln'
 alias whoami='ADALIAS whoami'
 alias reboot='ADALIAS reboot'
@@ -211,6 +209,7 @@ else
 		mkdir -p $mnt
 		echo "It looks like it's your first installation. Unpacking your debian..."
 		busybox tar -zxf /data/media/0/ArchiDroid/System/debian.tar.gz -C $mnt
+		cp /file_contexts $mnt
 		debian "force" "cmd" "ln -s /proc/mounts /etc/mtab"
 		echo "Done!"
 	fi

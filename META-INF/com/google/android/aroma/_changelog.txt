@@ -1,11 +1,49 @@
-ArchiDroid 1.7.6
+ArchiDroid 1.7.7
 
-- Forced installation of xposed and app settings on non-stock DPIs due to graphical glitches
-- Fixed no keyboard available during initial setup
+- Added built-in ArchiDroid handling of /system/addon.d
+# This function has been available in CyanogenMod since ages, why we can't have it on stock? ;)
+
+- Added Blue Theme, true masterpiece, thanks to @MyLifeRocks10
+- Reintroduced AOSP Theme
+- Added new DBUPDATE rules, for example enabled torchlight on screen off (hold vol-up). As always, at least forced update is required to apply this
+- Changed default selection on bloatware section - basic apps are now included, added description for shareshot and remote control. Bloatware itself didn't change in any way
+- Updated Boeffla Kernel to 5.1-beta14
+- Updated Yank Kernel to 4.1b
+- Updated Wanam Xposed to 2.6.5
+
 
 * ArchiDroid Commons
 (Common components shared between 1.X and 2.X)
-- Added Portuguese language, thanks to @Andrecaron
-- Added HTTPS protocol option to git, thanks to @wongsyrone
-- Updated Greenify to 2.00
-- Updated SuperSU to 1.89
+
+- [!] Mount/Umount Core changes
+# ArchiDroid now uses my own mount/umount commands, which results in mounting partition with automatic filesystem and path instead of hard-coded one
+# Also I replaced format command with generic rm -rf /system/*
+# This is a preparation for f2fs being developed by @DerTeufel1980
+# ArchiDroid should be now fully compatible with flashing on top of f2fs /system, as long as /system is mounted properly
+# Also, flashing is faster now
+# Initial idea thanks to DerTeufel1980
+
+- [!] Integrated core CrossBreeder's parts into ArchiDroid
+# ArchiDroid Backend (Init) now takes care of turning on all internal goodies baked in ArchiDroid
+# ArchiDroid has now working built-in AdBlock, Haveged entropy generator and frandom support
+# All is controlable through Control interface located in /system/archidroid/dev, which is managable through /system/archidroid/scripts
+# /system/etc/hosts has been locked from editing. This is to ensure that you won't use obsolete and slow AdAway or other third-party adblocks, which are blocking ads through hosts file
+# You can manage your own rules through /system/archidroid/etc/hosts now
+# Initialy I used "Mother Of Adblocking" hosts file, which contains over 300 thousand of lines, this should satisfy everybody
+# You CAN in fact unlock hosts through new control interface, but think twice before doing that, as hosts file should be very short. Every additional hosts rule is slowing down network
+# The whole trick with using archidroid hosts file is that ArchiDroid now use self-compiled dnsmasq local DNS server and forwards all DNS traffic to your phone
+# If dnsmasq can't find existing entry (adblock), then it asks opendns and google dns servers. This way system don't need to handle hosts file anymore, dnsmasq handles that, with cache and very fast methods
+# Memory usage depends on the /system/archidroid/etc/hosts file, current 300 thousand of hosts lines consume no more than 30 MB of ram, but in the same time thanks to that network isn't slowed down at all
+# Also added basic rules of avoiding DNS poisoning, thanks to @wongsyrone
+
+- Implemented ArchiDroid Backend Control, which is available in /system/archidroid/dev and /system/archidroid/scripts
+- Implemented Adblock, Haveged and Frandom into 99ArchiDroid_Init (read crossbreeder integration above)
+- ADLINUX: Fixed missing /file_contexts, bug report thanks to @DidyMond
+- Added Greek language, thanks to @Jimdem
+- ADBLOCK: Fixed broken Wi-Fi tethering while AdBlock was active
+- ADBLOCK: Fixed being unable to access network when router didn't allow for querying non-local DNS servers
+- Updated Googy Max Kernel to 2.1.4
+- Updated SuperSU to 1.91
+- Updated XPrivacy to 1.99.9
+
+- Many other misc bugfixes and new functions, which are available on ArchiDroid's GitHub

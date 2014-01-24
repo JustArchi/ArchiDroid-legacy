@@ -23,8 +23,6 @@ ADALIAS() {
 # Define all unreliable commands, which kernel could override
 # It's really sad that we're doing this
 alias busybox='ADALIAS busybox'
-alias sh='ADALIAS sh'
-alias exec='ADALIAS exec'
 alias kill='ADALIAS kill'
 alias echo='ADALIAS echo'
 alias reboot='ADALIAS reboot'
@@ -37,6 +35,11 @@ AD="/data/media/0/ArchiDroid"
 LOG="$AD/RunOnce.log" # "/dev/null" is no verbose
 LOG2="$AD/RunOnce.log.0"
 ADSTATUS="/dev/ARCHIDROID_RUNONCE_STATUS"
+
+if [ ! -e /data/ARCHIDROID_DONT_REMOVE_ME ]; then
+	echo "ERROR: ArchiDroid is not compatible with wiping data, please reflash your system!" >> $LOG
+	poweroff
+fi
 
 if [ ! -e $ADSTATUS ]; then
 	# First boot, good
@@ -346,6 +349,13 @@ while (! pgrep com.android && [ $LOOP -lt 300 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 				DBUPDATE system screen_mode_automatic_setting 0
 				DBUPDATE system screen_mode_setting 2
 				DBUPDATE system security_update_db 1
+				DBUPDATE system torchlight_enable 1
+				DBUPDATE system torchlight_timeout 120000
+
+				# Requires ROM Control
+				DBUPDATE system screen_off_anim_toggle 2
+				DBUPDATE system status_bar_traffic 0
+				DBUPDATE system battery_icon_list 6
 			else
 				echo "INFO: Applying AOSP-specific DBUPDATE" >> $LOG
 
@@ -356,9 +366,10 @@ while (! pgrep com.android && [ $LOOP -lt 300 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 				DBUPDATE system clear_recents_button_location 3
 				DBUPDATE system status_bar_battery_style 3
 				DBUPDATE system qs_quick_pulldown 1
+				DBUPDATE system volume_music_control 1
 
 				# Requires SlimBean's Dark Droid
-				DBUPDATE secure ui_theme_mode 2
+				#DBUPDATE secure ui_theme_mode 2
 
 				# Reguires Custom Animations
 				DBUPDATE system animation_controls_no_override 1

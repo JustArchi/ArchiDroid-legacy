@@ -1,0 +1,15 @@
+#!/system/bin/sh
+
+# ArchiDroid Dnsmasq Fallback
+# JustArchi@JustArchi.net
+# Don't remove this file
+
+# Turn off our Adblock, if turned on
+sh /system/etc/init.d/99ArchiDroid_Init "STOP" "ADBLOCK"
+
+# Set up background daemon, which will bring AdBlock to life when dnsmasq finishes 
+(sleep 2; while pgrep dnsmasq.real >/dev/null 2>&1; do sleep 1; done; sh /system/etc/init.d/99ArchiDroid_Init "RELOAD" "ADBLOCK"; exit 0) &
+
+# Exec original binary and share everything, including all signals, we won't be able to do anything anymore
+exec dnsmasq.real $*
+exit 0

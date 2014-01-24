@@ -19,14 +19,14 @@
     <boolean name="makeMeTooLegit" value="true" />
     <boolean name="quickSettingsHideTextLabels" value="false" />
     <boolean name="enableAllRotation" value="false" />
-    <boolean name="disableEscalatingRingtone" value="false" />
+    <boolean name="disableEscalatingRingtone" value="true" />
     <boolean name="enable4WayReboot" value="false" />
     <boolean name="hideEmergencyCallButton" value="false" />
     <boolean name="hideHeadsetNotificationIcon" value="false" />
     <boolean name="disableVolumeControlSound" value="false" />
     <boolean name="notificationHideNotificationDividers" value="false" />
     <boolean name="enableDefaultDesktopView" value="false" />
-    <int name="wifiAPClients" value="4" />
+    <int name="wifiAPClients" value="10" />
     <boolean name="hideDockLabels" value="false" />
     <boolean name="hideImeSwitcher" value="false" />
     <boolean name="launcherScrollWallpaper" value="true" />
@@ -96,7 +96,7 @@
     <string name="customDateFormat">EEEE
 MMMM d, yyyy</string>
     <boolean name="hideBlockingModeIcon" value="false" />
-    <boolean name="hideSmartStayIcon" value="false" />
+    <boolean name="hideSmartStayIcon" value="true" />
     <boolean name="disableNumberFormating" value="false" />
     <boolean name="disableSmsToMmsConversion" value="true" />
     <boolean name="detailedSMSSentTime" value="true" />

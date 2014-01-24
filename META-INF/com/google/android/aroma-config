@@ -33,10 +33,10 @@ setvar("preset_version","9");
 
 ini_set("dp","3");
 ini_set("rom_name",             "ArchiDroid");
-ini_set("rom_version",          "1.7.6");
+ini_set("rom_version",          "1.7.7");
 ini_set("rom_author",           "JustArchi");
 ini_set("rom_device",           "Samsung Galaxy S3");
-ini_set("rom_date",             "January 13th, 2014");
+ini_set("rom_date",             "January 25th, 2014");
 
 ##
 # Show Animated Splash
@@ -57,9 +57,11 @@ fontresload( "0", "ttf/DroidSans.ttf;ttf/DroidSansFallback.ttf;ttf/DroidSansArab
 fontresload( "1", "ttf/DroidSans.ttf;ttf/DroidSansFallback.ttf;ttf/DroidSansArabic.ttf;", "14" ); #-- Use sets of font (Font Family)
 
 theme("touchwiz");
+
+# Mount required filesystems
+resexec("exec/admount.sh", "/system");
+resexec("exec/admount.sh", "/data");
 resexec("exec/archidroid_init.sh");
-
-
 
 
 viewbox(
@@ -94,6 +96,7 @@ form(
 	"langs/fi.lang","Finnish","Suomi, thanks to amppen","select",
 	"langs/fr.lang","French","Français, thanks to nmeuret","select",
 	"langs/de.lang","German","Deutsch, thanks to beyerservice, phoberus","select",
+	"langs/el.lang","Greek","ελληνικά, thanks to Jimdem","select",
 	"langs/hu.lang","Hungarian","Magyar, thanks to Andy1210","select",
 	"langs/it.lang","Italian","Italiano, thanks to DarkAriex","select",
 	"langs/fa.lang","Persian","فارسي, thanks to blv1","select",
@@ -210,9 +213,9 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 		"stock","Stock","<~archidroid.kernel.stock.desc>","select",
 		 
 		"theme","<#selectbg_g>Theme</#>","","group",
-		#"aosp","AOSP Theme","<~archidroid.theme.aosp.desc>","select.selected",
-		#"stock","Stock Theme","<~archidroid.theme.stock.desc>","select",
-		"stock","Stock Theme","<~archidroid.theme.stock.desc>","select.selected",
+		"blue","Blue Theme","<~archidroid.theme.blue.desc>","select.selected",
+		"aosp","AOSP Theme","<~archidroid.theme.aosp.desc>","select",
+		"stock","Stock Theme","<~archidroid.theme.stock.desc>","select",
 
 		"dpi","<#selectbg_g>DPI</#>","","group",
 		"240","240 DPI","<~archidroid.dpi.240.desc>","select.selected",
@@ -240,7 +243,6 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 		"other","<#selectbg_g><~archidroid.other></#>","","group",
 		"archidroidota","ArchiDroid OTA","<~archidroid.ota.desc>","check.checked",
 		"xposed","Xposed Framework","<~archidroid.xposed.desc>","check.checked",
-		"crossbreeder","Crossbreeder [EOL]","<~archidroid.crossbreeder.desc>","check.checked",
 		"updatemodem","<~archidroid.updatemodem> [XXUGMK6]","<~archidroid.updatemodem.desc>","check",
 		"updaterecovery","<~archidroid.updaterecovery> [PhilZ Touch Recovery]","<~archidroid.updaterecovery.desc>","check",
 
@@ -271,18 +273,18 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 		"exchange","Samsung Exchange","Should be safe to remove","check",
 		"videoplayer","Samsung Video Player","Should be safe to remove","check",
 		"calendar","Samsung Calendar","Should be safe to remove","check",
-		"voicerecorder","Samsung Voice Recorder","Should be safe to remove","check",
+		"voicerecorder","Samsung Voice Recorder","Should be safe to remove","check.checked",
 		"myfiles","Samsung My Files","Should be safe to remove","check",
-		"music","Samsung Music","Should be safe to remove","check",
-		"calculator","Samsung Calculator","Should be safe to remove","check",
+		"music","Samsung Music","Should be safe to remove","check.checked",
+		"calculator","Samsung Calculator","Should be safe to remove","check.checked",
 		"radio","Samsung FM Radio","Should be safe to remove","check.checked",
 		"cloud","Samsung Cloud","Should be safe to remove","check",
-		"allshare","Samsung Allshare","Breaks screen mirroring","check",
-		"gallery","Samsung Gallery","Breaks camera's gallery functionality and removes lockscreen wallpaper function","check",
+		"browser","Samsung Browser","Should be safe to remove","check.checked",
+		"allshare","Samsung Allshare","Breaks screen mirroring and all allshare-related functions","check",
+		"gallery","Samsung Gallery","Breaks camera's gallery functionality and removes lockscreen wallpaper function","check.checked",
 		"kies","Samsung Kies","Breaks kies over wifi and all kies-related functions","check",
-		"browser","Samsung Browser","Unknown side effects. Safe?","check",
-		"remotecontrol","Samsung Remote Control [<~common.experimental>]","Unknown functionality and side effects. Safe?","check",
-		"shareshotservice","Samsung ShareShotService [<~common.experimental>]","Unknown functionality and side effects. Safe?","check",
+		"remotecontrol","Samsung Remote Control","Breaks all remote control functions","check",
+		"shareshotservice","Samsung Share Shot","Breaks camera's share shot function","check",
 		"keystring","Samsung Keystring [<~common.experimental>]","Unknown functionality and side effects. Safe?","check",
 		"other","Other [<~common.experimental>]","Various other unknown apps with unknown functionality and side effects. May not be safe!","check"
 	);
@@ -460,7 +462,7 @@ install(
 	"<~archidroid.install.finish>"
 );
 
-resexec("exec/archidroid_finish.sh");
+resexec("exec/adumount.sh", "/system");
 
 if confirm(
 	#-- Title

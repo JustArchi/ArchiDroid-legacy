@@ -20,11 +20,215 @@ ADALIAS() {
 	fi
 }
 
+ADARGS() {
+	# $1 - what we're looking for
+	# $2 - where we're looking for
+	if [ ! -z `echo "$2" | grep -i "$1"` ]; then
+		return 0
+	else
+		return 1
+	fi
+}
+
+ADTWEAK() {
+	# $1 - what we're changing
+	# $2 - to what we're changing
+	local CURRENT=`cat "$1"`
+	if [ "$CURRENT" == "$2" ]; then
+		echo "ADTWEAK: Value of $1 is already set to $CURRENT" >> $LOG
+	else
+		echo "$2" > "$1"
+		echo "ADTWEAK: Tweaked $1 value from $CURRENT to $2" >> $LOG
+	fi
+}
+
+ADLOAD() {
+	# $1 - what we're loading
+	# $2 - optional
+	if [ "$2" == "RELOAD" ]; then
+		local LOG="/dev/null"
+		local RELOAD=1
+	else
+		local RELOAD=0
+	fi
+	case "$1" in
+		"ADBLOCK")
+			if [ $ADBLOCK -eq 1 ]; then
+				echo "INFO: Activating ArchiDroid's AdBlock!" >> $LOG
+				if [ ! -e /system/archidroid/etc/hosts ]; then
+					sysrw
+					if [ -e $ADDEV/ADBLOCK_USE_ADAWAY_HOSTS ]; then
+						ln -s /system/archidroid/etc/hosts_adaway /system/archidroid/etc/hosts
+					elif [ -e $ADDEV/ADBLOCK_USE_MOAB_HOSTS ]; then
+						ln -s /system/archidroid/etc/hosts_moab /system/archidroid/etc/hosts
+					else
+						echo "ERROR: No adblock hosts mode specified!" >> $LOG
+						break
+					fi
+					sysro
+				fi
+				if [ $APPENDDNSES -eq 1 ]; then
+					local DNS=""
+					DNS1=`getprop net.dns1`
+					DNS2=`getprop net.dns2`
+					if [ $DNSDAEMON -eq 1 ]; then
+						archidroid_dnsdaemon "background" &
+						APPENDDNSES=0
+					elif [ -z "$DNS1" ] && [ $RELOAD -eq 0 ]; then
+						echo "ADBLOCK: No local DNSes found, I'll try to hook them up later" >> $LOG
+					else
+						APPENDDNSES=0
+					fi
+				fi
+				if [ "$ADBLOCKMODE" == "dnsmasq" ]; then
+					echo "ADBLOCK: Activated archidroid_dnsmasq - local DNS server on 127.0.0.1:53, forwarding clean non-blocked traffic to OpenDNS/Google DNS" >> $LOG
+					if [ ! -z "$DNS1" ]; then
+						local DNS="-S $DNS1"
+						if [ ! -z "$DNS2" ]; then
+							local DNS+=" -S $DNS2"
+						fi
+						archidroid_dnsmasq --all-servers $DNS -C /system/archidroid/etc/dnsmasq.conf
+						echo "ADBLOCK: Also added local DNS servers $DNS1 $DNS2" >> $LOG
+					else
+						archidroid_dnsmasq --all-servers -C /system/archidroid/etc/dnsmasq.conf
+					fi
+				elif [ "$ADBLOCKMODE" == "dnrd" ]; then
+					echo "ADBLOCK: Activated archidroid_dnrd - local dns server on 127.0.0.1:53, forwarding clean non-blocked traffic to OpenDNS/Google DNS" >> $LOG
+					if [ ! -z "$DNS1" ]; then
+						local DNS="-s $DNS1"
+						if [ ! -z "$DNS2" ]; then
+							local DNS+=" -s $DNS2"
+						fi
+						archidroid_dnrd -a 127.0.0.1 -i -u 0 -r 0 -M 65535 -m hosts -R /system/archidroid/etc $DNS -s 208.67.222.222 -s 208.67.220.220 -s 8.8.8.8 -s 8.8.4.4
+						echo "ADBLOCK: Also added local DNS servers $DNS1 $DNS2" >> $LOG
+					else
+						archidroid_dnrd -a 127.0.0.1 -i -u 0 -r 0 -M 65535 -m hosts -R /system/archidroid/etc -s 208.67.222.222 -s 208.67.220.220 -s 8.8.8.8 -s 8.8.4.4
+					fi
+				else
+					echo "ERROR: No adblock mode specified!" >> $LOG
+					break
+				fi
+				archidroid_dnsproxy2 -w 127.0.0.1 &
+				echo "ADBLOCK: Activated archidroid_dnsproxy2 - local proxy server, forwarding all DNS traffic to 127.0.0.1:53" >> $LOG
+				archidroid_pixelserv 127.0.0.1 >/dev/null 2>&1
+				echo "ADBLOCK: Activated archidroid_pixelserv - local web server on 127.0.0.1:80, responding with NULLGIF" >> $LOG
+				echo "INFO: ArchiDroid's AdBlock activated!" >> $LOG
+			else
+				echo "INFO: Adblock has been disabled" >> $LOG
+			fi
+			;;
+		"FRANDOM")
+			if [ $FRANDOM -eq 1 ]; then
+				if [ ! -c /dev/frandom ]; then
+					echo "INFO: frandom device not found, searching for frandom.ko kernel module..." >> $LOG
+					for FRANDOMPATH in "/system/lib/modules" "/system/modules" "/lib/modules" "/modules"; do
+						if [ -f $FRANDOMPATH/frandom.ko ]; then
+							echo "INFO: Loading frandom using $FRANDOMPATH/frandom.ko!" >> $LOG
+							insmod $FRANDOMPATH/frandom.ko
+							sleep 1
+							break
+						fi
+					done
+				fi
+				if [ -c /dev/frandom ]; then
+					echo "INFO: frandom device found, activating erandom!" >> $LOG
+					if [ ! -e /dev/urandom.ORIG ] && [ ! -e /dev/urandom.orig ] && [ ! -e /dev/urandom.ori ]; then
+						# For compatibility with various CrossBreeder checks
+						touch /dev/urandom.MOD
+						touch /dev/random.MOD 
+
+						mv /dev/urandom /dev/urandom.ORIG
+						ln /dev/erandom /dev/urandom
+						busybox chmod 644 /dev/urandom
+						mv /dev/random /dev/random.ORIG
+						ln /dev/erandom /dev/random
+						busybox chmod 644 /dev/random
+						echo "INFO: Activated!" >> $LOG
+					else
+						echo "INFO: It looks like frandom has been already loaded" >> $LOG
+					fi
+				else
+					echo "INFO: frandom device not found after loading, it looks like it's not provided by your kernel or failed to load!" >> $LOG
+				fi
+			else
+				echo "INFO: Frandom has been disabled" >> $LOG
+			fi
+			;;
+		"HAVEGED")
+			if [ $HAVEGED -eq 1 ]; then
+				echo "INFO: Activating haveged!" >> $LOG
+				ENTROPY=3072 # Default: 128, Linux: 896, Max: 4096 - We want to make it high enough, but with considering battery life as well
+				ADTWEAK "/proc/sys/kernel/random/write_wakeup_threshold" "$ENTROPY"
+				ADTWEAK "/proc/sys/vm/dirty_expire_centisecs" "1000"
+				ADTWEAK "/proc/sys/vm/dirty_writeback_centisecs" "500"
+
+				if [ -e /dev/random.ORIG ]; then
+					mv /dev/random /dev/random.TEMP
+					mv /dev/random.ORIG /dev/random
+					archidroid_haveged -p /dev/ARCHIDROID_HAVEGED.PID >/dev/null 2>&1
+					sleep 3 # Let's give haveged some time to initialize
+					mv /dev/random /dev/random.ORIG
+					mv /dev/random.TEMP /dev/random
+				else
+					archidroid_haveged -p /dev/ARCHIDROID_HAVEGED.PID >/dev/null 2>&1
+					sleep 3 # Let's give haveged some time to initialize
+				fi
+
+				echo "INFO: Activated archidroid_haveged - HArdware Volatile Entropy Gathering and Expansion Daemon, regenerating kernel's entropy pool" >> $LOG
+				echo "HAVEGED: Available entropy won't get below $ENTROPY" >> $LOG
+				echo "HAVEGED: Current entropy: $(cat /proc/sys/kernel/random/entropy_avail)" >> $LOG
+			else
+				echo "INFO: Haveged has been disabled" >> $LOG
+			fi
+			;;
+		*)
+			echo "ERROR, NO VALID LOAD OPTION"
+	esac
+}
+
+ADRELOAD() {
+	# $1 - what we're reloading
+	# $2 - optional
+	case "$1" in
+		"ADBLOCK")
+			killall archidroid_dnsmasq >/dev/null 2>&1
+			killall archidroid_dnrd >/dev/null 2>&1
+			killall archidroid_dnsproxy2 >/dev/null 2>&1
+			killall archidroid_pixelserv >/dev/null 2>&1
+			killall archidroid_dnsdaemon >/dev/null 2>&1
+			if [ "$2" != "STOP" ]; then
+				ADLOAD "ADBLOCK" "RELOAD"
+			fi
+			;;
+		"FRANDOM")
+			# Generic check if we're not doing something harmful
+			if [ -e /dev/urandom.ORIG ] && [ -e /dev/random.ORIG ]; then
+				rm -f /dev/urandom.MOD
+				rm -f /dev/urandom
+				mv /dev/urandom.ORIG /dev/urandom
+				rm -f /dev/random.MOD
+				rm -f /dev/random
+				mv /dev/random.ORIG /dev/random
+			else
+				if [ "$2" != "STOP" ]; then
+					ADLOAD "FRANDOM" "RELOAD"
+				fi
+			fi
+			;;
+		"HAVEGED")
+			killall archidroid_haveged >/dev/null 2>&1
+			if [ "$2" != "STOP" ]; then
+				ADLOAD "HAVEGED" "RELOAD"
+			fi
+			;;
+		*)
+			echo "ERROR, NO VALID RELOAD OPTION"
+	esac
+}
+
 # Define all unreliable commands, which kernel could override
 # It's really sad that we're doing this
 alias busybox='ADALIAS busybox'
-alias sh='ADALIAS sh'
-alias exec='ADALIAS exec'
 alias kill='ADALIAS kill'
 alias echo='ADALIAS echo'
 alias reboot='ADALIAS reboot'
@@ -34,11 +238,64 @@ alias mount='ADALIAS mount'
 
 # Initial variables, you should NOT change them unless you know what you're doing
 AD="/data/media/0/ArchiDroid"
+ADDEV="/system/archidroid/dev"
 LOG="$AD/Init.log" # "/dev/null" is no verbose
 RUNONCELOG="$AD/RunOnce.log"
 ADSTATUS="/dev/ARCHIDROID_INIT_STATUS"
 
-if [ ! -e $ADSTATUS ]; then
+if [ ! -e /data/ARCHIDROID_DONT_REMOVE_ME ]; then
+	echo "ERROR: ArchiDroid is not compatible with wiping data, please reflash your system!" >> $LOG
+	poweroff
+fi
+
+# Initial ArchiDroid dev status
+if [ -e $ADDEV/HAVEGED_ENABLED ]; then
+	HAVEGED=1
+else
+	HAVEGED=0
+fi
+if [ -e $ADDEV/FRANDOM_ENABLED ]; then
+	FRANDOM=1
+else
+	FRANDOM=0
+fi
+if [ -e $ADDEV/ADBLOCK_ENABLED ]; then
+	ADBLOCK=1
+	if [ -e $ADDEV/ADBLOCK_USE_DNSMASQ ]; then
+		ADBLOCKMODE="dnsmasq"
+	elif [ -e $ADDEV/ADBLOCK_USE_DNRD ]; then
+		ADBLOCKMODE="dnrd"
+	else
+		ADBLOCKMODE="unknown"
+	fi
+	if [ -e $ADDEV/ADBLOCK_LOCAL_DNSES_ENABLED ]; then
+		APPENDDNSES=1
+		if [ -e $ADDEV/ADBLOCK_LOCAL_DNSES_DAEMON_ENABLED ]; then
+			DNSDAEMON=1
+		else
+			DNSDAEMON=0
+		fi
+	else
+		APPENDDNSES=0
+	fi
+else
+	ADBLOCK=0
+fi
+
+if [ "$1" == "RELOAD" ] || [ "$1" == "STOP" ]; then
+	# Allow that regardless of adstatus
+	case "$1" in
+		"RELOAD")
+			ADRELOAD "$2"
+			;;
+		"STOP")
+			ADRELOAD "$2" "STOP"
+			;;
+		*)
+			continue
+	esac
+	exit 0
+elif [ ! -e $ADSTATUS ]; then
 	# First boot, good
 	echo $$ > $ADSTATUS
 else
@@ -67,16 +324,6 @@ fi
 #exec 1>$LOG # Use "exec 1>>$LOG" for append
 echo -n "" > $LOG
 exec 2>>$LOG
-
-ADARGS() {
-	# $1 - what we're looking for
-	# $2 - where we're looking for
-	if [ ! -z `echo "$2" | grep -i "$1"` ]; then
-		return 0
-	else
-		return 1
-	fi
-}
 
 # Parse args to variables
 if ADARGS "background" "$@" ; then
@@ -123,7 +370,6 @@ fi
 # | |___| (_) || |  |  __/
 #  \____|\___/ |_|   \___|
 #
-
 # Which mode are we using?
 # 0 - CyanogenMod
 # 1 - Sammy
@@ -138,7 +384,7 @@ fi
 # Bring su daemon if available
 if [ -e /system/xbin/daemonsu ]; then
 	echo "INFO: SuperSU daemon found, calling daemonsu!" >> $LOG
-	/system/xbin/daemonsu --auto-daemon &
+	/system/xbin/daemonsu --auto-daemon >/dev/null 2>&1 &
 fi
 
 # Custom boot sound support
@@ -155,44 +401,14 @@ else
 	ADBANNER=0
 fi
 
+# Haveged support
+ADLOAD "HAVEGED"
+
 # Frandom support
-if [ ! -c /dev/frandom ]; then
-	echo "INFO: frandom device not found, searching for frandom.ko kernel module..." >> $LOG
-	for FRANDOMPATH in "/system/lib/modules" "/system/modules" "/lib/modules" "/modules"; do
-		if [ -f $FRANDOMPATH/frandom.ko ]; then
-			echo "INFO: Loading frandom using $FRANDOMPATH/frandom.ko!" >> $LOG
-			busybox insmod -f $FRANDOMPATH/frandom.ko
-			sleep 1
-			break
-		fi
-	done
-fi
-if [ -c /dev/frandom ]; then
-	echo "INFO: frandom device found, activating erandom!" >> $LOG
-	if [ ! -e /dev/urandom.ORIG ] && [ ! -e /dev/urandom.orig ] && [ ! -e /dev/urandom.ori ]; then
-		# For compatibility with various CrossBreeder checks
-		touch /dev/urandom.MOD
-		touch /dev/random.MOD 
+ADLOAD "FRANDOM"
 
-		mv /dev/urandom /dev/urandom.ORIG
-		ln /dev/erandom /dev/urandom
-		busybox chmod 644 /dev/urandom
-		mv /dev/random /dev/random.ORIG
-		ln /dev/erandom /dev/random
-		busybox chmod 644 /dev/random
-		echo "INFO: Activated!" >> $LOG
-	else
-		echo "INFO: It looks like frandom has been already loaded" >> $LOG
-	fi
-else
-	echo "INFO: frandom device not found after loading, it looks like it's not provided by your kernel or failed to load!" >> $LOG
-fi
-
-# CrossBreeder support
-if [ -e /system/etc/CrossBreeder/zzCrossBreeder ]; then
-	echo "INFO: CrossBreeder found, calling start-stop-daemon!" >> $LOG
-	/system/etc/CrossBreeder/busybox start-stop-daemon -o -S -b -x /system/etc/CrossBreeder/zzCrossBreeder &
-fi
+# Adblock support
+ADLOAD "ADBLOCK"
 
 # Sqlite VACUUM & REINDEX, disabled for a while
 if [ $ROM -eq 9 ]; then #Always false
@@ -263,87 +479,6 @@ else
 	echo "INFO: I looped $LOOP times and didn't have to exit from infinite loop, that's nice (Init Semaphore)" >> $LOG
 fi
 
-if [ -e /dev/block/mmcblk1p1 ] && [ `mount | grep -i "sdcard1" | wc -l` -eq 0 ] && [ `mount | grep -i "extSdCard" | wc -l` -eq 0 ]; then
-	# Temporary workaround for mounting exFAT-formatted cards
-	# Initial idea by AndiP71, aka Lord Boeffla
-	# Further improvements by JustArchi
-
-	echo "INFO: Detected sd card but it's not mounted yet" >> $LOG
-	echo "INFO: Giving Android 30 more seconds to initialize external sd card..." >> $LOG
-	sleep 30
-	echo "INFO: Time passed!" >> $LOG
-	if [ `mount | grep -i "sdcard1" | wc -l` -eq 0 ] && [ `mount | grep -i "extSdCard" | wc -l` -eq 0 ]; then
-		echo "INFO: External sd card is still not mounted, mounting..." >> $LOG
-		KEEPGOING=1
-		if [ `lsmod | grep "exfat" | wc -l` -eq 0 ]; then
-			echo "WARNING: No exfat module found, it's either compiled in kernel or not loaded. Blindly loading..." >> $LOG
-			busybox insmod /system/lib/modules/exfat_core.ko >/dev/null 2>&1
-			busybox insmod /system/lib/modules/exfat_fs.ko >/dev/null 2>&1
-			echo "INFO: Blind load completed, proceeding with mounting now..."
-		fi
-
-		if [ -e /storage/sdcard1 ]; then
-			EXTSDPATH="/storage/sdcard1"
-		elif [ -e /storage/extSdCard ]; then
-			EXTSDPATH="/storage/extSdCard"
-		else
-			EXTSDPATH="UNKNOWN"
-		fi
-
-		if [ -e /dev/block/vold/179:49 ]; then
-			EXTSDMOUNT="/dev/block/vold/179:49"
-			echo "INFO: Mounting through vold 179:49!" >> $LOG
-			busybox mount -t auto -o rw,dirsync,nosuid,nodev,noexec,noatime,nodiratime,uid=1000,gid=1023,fmask=0002,dmask=0002,allow_utime=0020 $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
-			if [ `mount | grep -i "sdcard1" | wc -l` -eq 0 ] && [ `mount | grep -i "extSdCard" | wc -l` -eq 0 ]; then
-				echo "WARNING: Failed!" >> $LOG
-			else
-				echo "INFO: Success!" >> $LOG
-				KEEPGOING=0
-			fi
-		fi
-
-		if [ $KEEPGOING -eq 1 ]; then
-			EXTSDMOUNT="/dev/block/mmcblk1p1"
-			echo "INFO: Mounting through mmcblk1p1!" >> $LOG
-			busybox mount -t auto -o rw,dirsync,nosuid,nodev,noexec,noatime,nodiratime,uid=1000,gid=1023,fmask=0002,dmask=0002,allow_utime=0020 $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
-			if [ `mount | grep -i "sdcard1" | wc -l` -eq 0 ] && [ `mount | grep -i "extSdCard" | wc -l` -eq 0 ]; then
-				echo "WARNING: Failed!" >> $LOG
-			else
-				echo "INFO: Success!" >> $LOG
-				KEEPGOING=0
-			fi
-		fi
-
-		if [ $KEEPGOING -eq 1 ]; then
-			echo "INFO: Trying panic mode!" >> $LOG
-			EXTSDMOUNT="/dev/block/vold/179:49"
-			mount -t exfat -o rw,dirsync,nosuid,nodev,noexec,noatime,nodiratime,uid=1000,gid=1023,fmask=0002,dmask=0002,allow_utime=0020 $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
-			mount -t ext4 -o rw,dirsync,nosuid,nodev,noexec,noatime,nodiratime,uid=1000,gid=1023,fmask=0002,dmask=0002,allow_utime=0020 $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
-			mount -t vfat -o rw,dirsync,nosuid,nodev,noexec,noatime,nodiratime,uid=1000,gid=1023,fmask=0002,dmask=0002,allow_utime=0020 $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
-			EXTSDMOUNT="/dev/block/mmcblk1p1"
-			mount -t exfat -o rw,dirsync,nosuid,nodev,noexec,noatime,nodiratime,uid=1000,gid=1023,fmask=0002,dmask=0002,allow_utime=0020 $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
-			mount -t ext4 -o rw,dirsync,nosuid,nodev,noexec,noatime,nodiratime,uid=1000,gid=1023,fmask=0002,dmask=0002,allow_utime=0020 $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
-			mount -t vfat -o rw,dirsync,nosuid,nodev,noexec,noatime,nodiratime,uid=1000,gid=1023,fmask=0002,dmask=0002,allow_utime=0020 $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
-			if [ `mount | grep -i "sdcard1" | wc -l` -eq 0 ] && [ `mount | grep -i "extSdCard" | wc -l` -eq 0 ]; then
-				echo "WARNING: Failed!" >> $LOG
-			else
-				echo "INFO: Success!" >> $LOG
-				KEEPGOING=0
-			fi
-		fi
-
-		if [ `mount | grep -i "sdcard1" | wc -l` -eq 0 ] && [ `mount | grep -i "extSdCard" | wc -l` -eq 0 ]; then
-				echo "ERROR: I failed to mount external sd card with automatic filesystem. Giving up here!" >> $LOG
-		else
-			echo "INFO: Successfully mounted external sd card!" >> $LOG
-		fi
-	else
-		echo "INFO: OK, Android mounted our external sd card in given 30 seconds, aborting workaround" >> $LOG
-	fi
-else
-	echo "INFO: OK, I don't need to mount external sd card" >> $LOG
-fi
-
 # Execute a reboot if we need it
 if [ -e $AD/HARD_REBOOT_REQUIRED ]; then
 	echo "INFO: HARD_REBOOT_REQUIRED found, I'm rebooting device now..." >> $LOG
@@ -358,8 +493,14 @@ elif [ -e $AD/SOFT_REBOOT_REQUIRED ]; then
 	killall system_server
 fi
 
-sleep 10
+# Wait a little longer
+sleep 30
 
+####################################
+# We have fully loaded android now #
+####################################
+
+# Delete RunOnce if needed
 if [ -e /system/etc/init.d/98ArchiDroid_RunOnce ]; then
 	echo "WARNING: RunOnce found in init.d, trying to remove it!" >> $LOG
 	echo "REMOTE: Hello, Init here. Don't worry about FATAL ERROR above, I'll try to fix it!" >> $RUNONCELOG
@@ -373,6 +514,96 @@ if [ -e /system/etc/init.d/98ArchiDroid_RunOnce ]; then
 	else
 		echo "ERROR: Failed!" >> $LOG
 		echo "REMOTE: ERROR, could not fix above FATAL ERROR! Please investigate!" >> $RUNONCELOG
+	fi
+fi
+
+# Mount external sd card if needed
+if [ -e /dev/block/mmcblk1p1 ] && [ `mount | grep -i "sdcard1" | wc -l` -eq 0 ] && [ `mount | grep -i "extSdCard" | wc -l` -eq 0 ]; then
+	# Initial idea by AndiP71, aka Lord Boeffla
+	# Further improvements by JustArchi
+
+	echo "INFO: Detected sd card but it's not mounted yet, mounting..." >> $LOG
+	KEEPGOING=1
+	if [ `lsmod | grep "exfat" | wc -l` -eq 0 ]; then
+		echo "WARNING: No exfat module found, it's either compiled in kernel or not loaded. Blindly loading..." >> $LOG
+		busybox insmod /system/lib/modules/exfat_core.ko >/dev/null 2>&1
+		busybox insmod /system/lib/modules/exfat_fs.ko >/dev/null 2>&1
+		echo "INFO: Blind load completed, proceeding with mounting now..."
+	fi
+
+	if [ -e /storage/sdcard1 ]; then
+		EXTSDPATH="/storage/sdcard1"
+	elif [ -e /storage/extSdCard ]; then
+		EXTSDPATH="/storage/extSdCard"
+	else
+		EXTSDPATH="UNKNOWN"
+	fi
+
+	if [ -e /dev/block/vold/179:49 ]; then
+		EXTSDMOUNT="/dev/block/vold/179:49"
+		echo "INFO: Mounting through vold 179:49!" >> $LOG
+		busybox mount -t auto $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
+		if [ `mount | grep -i "sdcard1" | wc -l` -eq 0 ] && [ `mount | grep -i "extSdCard" | wc -l` -eq 0 ]; then
+			echo "WARNING: Failed!" >> $LOG
+		else
+			echo "INFO: Success!" >> $LOG
+			KEEPGOING=0
+		fi
+	fi
+
+	if [ $KEEPGOING -eq 1 ]; then
+		EXTSDMOUNT="/dev/block/mmcblk1p1"
+		echo "INFO: Mounting through mmcblk1p1!" >> $LOG
+		busybox mount -t auto $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
+		if [ `mount | grep -i "sdcard1" | wc -l` -eq 0 ] && [ `mount | grep -i "extSdCard" | wc -l` -eq 0 ]; then
+			echo "WARNING: Failed!" >> $LOG
+		else
+			echo "INFO: Success!" >> $LOG
+			KEEPGOING=0
+		fi
+	fi
+
+	if [ $KEEPGOING -eq 1 ]; then
+		echo "INFO: Trying panic mode!" >> $LOG
+		EXTSDMOUNT="/dev/block/vold/179:49"
+		mount -t exfat $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
+		mount -t ext4 $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
+		mount -t vfat $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
+		EXTSDMOUNT="/dev/block/mmcblk1p1"
+		mount -t exfat $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
+		mount -t ext4 $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
+		mount -t vfat $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
+		if [ `mount | grep -i "sdcard1" | wc -l` -eq 0 ] && [ `mount | grep -i "extSdCard" | wc -l` -eq 0 ]; then
+			echo "WARNING: Failed!" >> $LOG
+		else
+			echo "INFO: Success!" >> $LOG
+			KEEPGOING=0
+		fi
+	fi
+
+	if [ `mount | grep -i "sdcard1" | wc -l` -eq 0 ] && [ `mount | grep -i "extSdCard" | wc -l` -eq 0 ]; then
+			echo "ERROR: I failed to mount external sd card with automatic filesystem. Giving up here!" >> $LOG
+	else
+		echo "INFO: Successfully mounted external sd card!" >> $LOG
+	fi
+else
+	echo "INFO: OK, I don't need to mount external sd card" >> $LOG
+fi
+
+# Wait a little longer
+sleep 30
+
+#############################################
+# User should already enter PIN, last stage #
+#############################################
+
+# Append DNSes to Adblock if needed
+if [ $ADBLOCK -eq 1 ] && [ $APPENDDNSES -eq 1 ]; then
+	if [ ! -z `getprop net.dns1` ]; then
+		echo "ADBLOCK: Our late-hook worked. We now have `getprop net.dns1` `getprop net.dns2` DNSes. Reloading Adblock!" >> $LOG
+		ADRELOAD "ADBLOCK"
+	else
+		echo "ADBLOCK: Local DNSes are still not available, it looks like we don't have network connection this time" >> $LOG
 	fi
 fi
 

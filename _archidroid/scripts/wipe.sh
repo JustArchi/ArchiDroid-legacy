@@ -16,4 +16,5 @@ for i in `ls` ; do
 done
 
 echo -n "2" > /data/.layout_version
+sync
 exit 0

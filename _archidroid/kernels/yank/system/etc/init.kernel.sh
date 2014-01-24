@@ -24,11 +24,20 @@ sleep 10
 
 echo `date +"%F %R:%S : Starting kernel configuration..."` >>$log_file
 
-# Script generated on 25/12/2013 at 16:38
+# Script generated on 20/01/2014 at  1:04
 #----------------------------------------------------
 
-# - init.d support by kernel/ramdisk not installed
-echo `date +"%F %R:%S : Init.d script execution support disabled."` >>$log_file
+# - Enabled init.d scripts support by kernel/ramdisk
+echo `date +"%F %R:%S : Init.d script execution support enabled."` >>$log_file
+mount -o remount,rw /system
+chgrp -R 2000 /system/etc/init.d
+chmod -R 755 /system/etc/init.d
+mount -o remount,ro /system
+echo `date +"%F %R:%S : Init.d scripts permissions reset to 0:2000 755."` >>$log_file
+ls -al /system/etc/init.d >>$log_file
+echo `date +"%F %R:%S : Init.d starting execution..."` >>$log_file
+/system/xbin/busybox run-parts /system/etc/init.d
+echo `date +"%F %R:%S : Init.d execution finished."` >>$log_file
 
 # - Set governor to zzmoove
 echo "zzmoove" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
@@ -202,10 +211,6 @@ echo `date +"%F %R:%S : Dynamic Deferred File Sync enabled."` >>$log_file
 # - Disable touch wake
 echo 0 > /sys/class/misc/touchwake/disabled
 echo `date +"%F %R:%S : Touch Wake disabled."` >>$log_file
-
-# - Enable Sharpness fix
-echo 1 > /sys/class/misc/mdnie_preset/mdnie_preset
-echo `date +"%F %R:%S : Sharpness fix enabled (blurrier)."` >>$log_file
 
 # - Enable fading notification LED
 echo 1 > /sys/class/sec/led/led_fade

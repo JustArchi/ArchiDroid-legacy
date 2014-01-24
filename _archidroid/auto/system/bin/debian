@@ -16,8 +16,6 @@ ADALIAS() {
 # Define all unreliable commands, which kernel could override
 # It's really sad that we're doing this
 alias busybox='ADALIAS busybox'
-alias sh='ADALIAS sh'
-alias exec='ADALIAS exec'
 alias ln='ADALIAS ln'
 alias chroot='ADALIAS chroot'
 

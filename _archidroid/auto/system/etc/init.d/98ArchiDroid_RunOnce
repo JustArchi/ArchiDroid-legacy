@@ -349,6 +349,11 @@ while (! pgrep com.android && [ $LOOP -lt 300 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 				DBUPDATE system screen_mode_automatic_setting 0
 				DBUPDATE system screen_mode_setting 2
 				DBUPDATE system security_update_db 1
+
+				# Requires ROM Control
+				DBUPDATE system screen_off_anim_toggle 2
+				DBUPDATE system status_bar_traffic 0
+				
 			else
 				echo "INFO: Applying AOSP-specific DBUPDATE" >> $LOG
 

@@ -768,8 +768,6 @@ run_program("/sbin/sync");
 set_progress(0.99);
 
 ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Unmounting partitions");
-run_program("/tmp/adumount.sh", "/system");
-run_program("/tmp/adumount.sh", "/data");
 
 ui_print("===================================");
 ui_print("  ArchiDroid Flashed Successfully  ");

@@ -119,11 +119,12 @@ ADLOAD() {
 			;;
 		"FRANDOM")
 			if [ $FRANDOM -eq 1 ]; then
+				echo "INFO: Activating frandom!" >> $LOG
 				if [ ! -c /dev/frandom ]; then
-					echo "INFO: frandom device not found, searching for frandom.ko kernel module..." >> $LOG
+					echo "FRANDOM: frandom device not found, searching for frandom.ko kernel module..." >> $LOG
 					for FRANDOMPATH in "/system/lib/modules" "/system/modules" "/lib/modules" "/modules"; do
 						if [ -f $FRANDOMPATH/frandom.ko ]; then
-							echo "INFO: Loading frandom using $FRANDOMPATH/frandom.ko!" >> $LOG
+							echo "FRANDOM: Loading frandom using $FRANDOMPATH/frandom.ko!" >> $LOG
 							insmod $FRANDOMPATH/frandom.ko
 							sleep 1
 							break
@@ -131,7 +132,7 @@ ADLOAD() {
 					done
 				fi
 				if [ -c /dev/frandom ]; then
-					echo "INFO: frandom device found, activating erandom!" >> $LOG
+					echo "FRANDOM: frandom device found, activating erandom!" >> $LOG
 					if [ ! -e /dev/urandom.ORIG ] && [ ! -e /dev/urandom.orig ] && [ ! -e /dev/urandom.ori ]; then
 						# For compatibility with various CrossBreeder checks
 						touch /dev/urandom.MOD
@@ -143,12 +144,12 @@ ADLOAD() {
 						mv /dev/random /dev/random.ORIG
 						ln /dev/erandom /dev/random
 						busybox chmod 644 /dev/random
-						echo "INFO: Activated!" >> $LOG
+						echo "FRANDOM: Activated!" >> $LOG
 					else
-						echo "INFO: It looks like frandom has been already loaded" >> $LOG
+						echo "FRANDOM: It looks like frandom has been already loaded" >> $LOG
 					fi
 				else
-					echo "INFO: frandom device not found after loading, it looks like it's not provided by your kernel or failed to load!" >> $LOG
+					echo "FRANDOM: frandom device not found after loading, it looks like it's not provided by your kernel or failed to load!" >> $LOG
 				fi
 			else
 				echo "INFO: Frandom has been disabled" >> $LOG

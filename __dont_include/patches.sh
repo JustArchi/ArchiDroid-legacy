@@ -48,7 +48,7 @@ adpatch() {
 
 # Multi-Window
 # https://gerrit.omnirom.org/#/c/1510/
-adpatch "10/1510" "21" "frameworks" "base"
+#adpatch "10/1510" "21" "frameworks" "base"
 
 # All Animations
 adpatch "51/4251" "36" "frameworks" "base" # https://gerrit.omnirom.org/#/c/4251/

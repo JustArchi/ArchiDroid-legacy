@@ -218,12 +218,13 @@ else
 
 	case "$CHOICE" in
 	"default")
-		echo "Mounting /dev /dev/pts /dev/shm /proc /sys /system /data /storage/sdcard0 /storage/sdcard1"
+		echo "Mounting /dev /dev/pts /dev/shm /proc /sys /tmp /system /data /storage/sdcard0 /storage/sdcard1"
 		mkdir -p $mnt/dev && busybox mount --bind /dev $mnt/dev
 		mkdir -p $mnt/dev/pts && busybox mount --bind /dev/pts $mnt/dev/pts
 		mkdir -p $mnt/dev/shm && busybox mount --bind /dev/shm $mnt/dev/shm
 		mkdir -p $mnt/proc && busybox mount -t proc proc $mnt/proc
 		mkdir -p $mnt/sys && busybox mount -t sysfs sysfs $mnt/sys
+		mkdir -p $mnt/tmp && busybox mount -t tmpfs tmpfs $mnt/tmp
 		mkdir -p $mnt/system && busybox mount --bind /system $mnt/system
 		mkdir -p $mnt/data && busybox mount --bind /data $mnt/data
 		mkdir -p $mnt/storage/sdcard0 && busybox mount --bind /storage/sdcard0 $mnt/storage/sdcard0
@@ -237,12 +238,13 @@ else
 		fi
 		;;
 	"safe")
-		echo "Mounting /dev /dev/pts /dev/shm /proc /sys, SKIPPING /system /data /storage/sdcard0 /storage/sdcard1"
+		echo "Mounting /dev /dev/pts /dev/shm /proc /sys /tmp, SKIPPING /system /data /storage/sdcard0 /storage/sdcard1"
 		mkdir -p $mnt/dev && busybox mount --bind /dev $mnt/dev
 		mkdir -p $mnt/dev/pts && busybox mount --bind /dev/pts $mnt/dev/pts
 		mkdir -p $mnt/dev/shm && busybox mount --bind /dev/shm $mnt/dev/shm
 		mkdir -p $mnt/proc && busybox mount -t proc proc $mnt/proc
 		mkdir -p $mnt/sys && busybox mount -t sysfs sysfs $mnt/sys
+		mkdir -p $mnt/tmp && busybox mount -t tmpfs tmpfs $mnt/tmp
 		;;
 	"bare")
 		echo "Not mounting anything!"

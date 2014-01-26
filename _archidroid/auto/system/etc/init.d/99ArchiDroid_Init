@@ -239,7 +239,8 @@ alias mount='ADALIAS mount'
 
 # Initial variables, you should NOT change them unless you know what you're doing
 AD="/data/media/0/ArchiDroid"
-ADDEV="/system/archidroid/dev"
+ADSYS="/system/archidroid"
+ADDEV="$ADSYS/dev"
 LOG="$AD/Init.log" # "/dev/null" is no verbose
 RUNONCELOG="$AD/RunOnce.log"
 ADSTATUS="/dev/ARCHIDROID_INIT_STATUS"
@@ -485,12 +486,12 @@ if [ -e $AD/HARD_REBOOT_REQUIRED ]; then
 	echo "INFO: HARD_REBOOT_REQUIRED found, I'm rebooting device now..." >> $LOG
 	rm -f $AD/SOFT_REBOOT_REQUIRED
 	rm -f $AD/HARD_REBOOT_REQUIRED
-	tinyplay $AD/System/reboot.wav > /dev/null 2>&1
+	tinyplay $ADSYS/system/reboot.wav > /dev/null 2>&1
 	reboot
 elif [ -e $AD/SOFT_REBOOT_REQUIRED ]; then
 	echo "INFO: SOFT_REBOOT_REQUIRED found, I'm rebooting android interface now..." >> $LOG
 	rm -f $AD/SOFT_REBOOT_REQUIRED
-	tinyplay $AD/System/reboot.wav > /dev/null 2>&1
+	tinyplay $ADSYS/system/reboot.wav > /dev/null 2>&1
 	killall system_server
 fi
 

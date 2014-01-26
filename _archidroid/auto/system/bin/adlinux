@@ -208,7 +208,7 @@ else
 	if [ ! -e $mnt/bin/bash ]; then
 		mkdir -p $mnt
 		echo "It looks like it's your first installation. Unpacking your debian..."
-		busybox tar -zxf /data/media/0/ArchiDroid/System/debian.tar.gz -C $mnt
+		busybox tar -zxf /system/archidroid/system/debian.tar.gz -C $mnt
 		cp /file_contexts $mnt
 		debian "force" "cmd" "ln -s /proc/mounts /etc/mtab"
 		echo "Done!"

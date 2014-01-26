@@ -16,7 +16,6 @@ for arg in $@; do
 			if [ $NOPROTOCOL -eq 1 ]; then
 				ourLink="https://$ourLink"
 				NOPROTOCOL=0
-				git config --global http.sslVerify false # TODO: This is bad because of MITM attack, we need to supply our debian with ca-certificates!
 			fi
 			;;
 		"head")

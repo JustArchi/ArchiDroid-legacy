@@ -63,6 +63,8 @@ for folder in `find . -mindepth 1 -maxdepth 1 -type d` ; do
 			fi
 			if [ $? -ne 0 ]; then
 				# This is mandatory, we MUST stay in sync with upstream
+				git reset --hard
+				git clean -fd
 				read -p "Something went wrong, please check and tell me when you're done, master!" -n1 -s
 			fi
 		fi

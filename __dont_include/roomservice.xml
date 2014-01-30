@@ -15,6 +15,7 @@
   <project name="platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8" path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8" revision="master" />
 
   <!-- ARCHIDROID FORKS -->
+  <remove-project name="platform/frameworks/rs" />
   <project name="JustArchi/android_frameworks_rs" path="frameworks/rs" remote="github" revision="android-4.4" />
   <remove-project name="android_build" />
   <project name="JustArchi/android_build" path="build" remote="github" revision="android-4.4" />

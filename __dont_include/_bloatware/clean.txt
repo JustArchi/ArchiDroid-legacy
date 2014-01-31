@@ -1,25 +1,27 @@
 BCService.apk
+BestFace.apk
 ELMAgent.apk
 minimode-res.apk
 Oma*.apk
+PanningTryActually.apk
+SecOmaDownloadProvider.apk
 wssyncmlnps.apk
-BestFace.apk
 
-
-
-Dropbox.apk
-DropboxOOBE.apk
-ChatON*.apk
 
 ChocoEUKor.apk
 CoolEUKor.apk
-RoseEUKor.apk
 DroidSansSherifItalic.apk
+RoseEUKor.apk
 SamsungSans.apk
 
+ChatON*.apk
+Dropbox.apk
+DropboxOOBE.apk
 GameHub*.apk
 GroupPlay*.apk
+HelpHub.apk
 MediaUploader.apk
+MoreServices.apk
 MusicLiveShare*.apk
 MusicHub_31.apk
 Newsstand.apk
@@ -30,9 +32,12 @@ PreloadInstaller.apk
 SamsungApps*.apk
 SamsungLink*.apk
 Samsungservice.apk
+SamsungTTS.apk
 sCloudSyncSMemo.apk
 SecWallpaperChooser.apk
+serviceModeApp.apk
 ShareShotService.apk
+SimpleAlarmClock.apk
 SMemo.apk
 SMemoProvider.apk
 SSuggest*.apk
@@ -44,6 +49,8 @@ VideoHub.apk
 WebManual.apk
 Yahoo*.apk
 
+AnalogClock*.apk
+DigitalClock*.apk
 DualClock*.apk
 GoogleSearchWidget.apk
 KeyguardWidget.apk
@@ -60,9 +67,12 @@ SecFactoryPhoneTest.apk
 SelfTestMode.apk
 WlanTest.apk
 
+DeepSea.apk
+LuminousDots.apk
 NoiseField.apk
 PhaseBeam.apk
-DeepSea.apk
+PhotoWall.apk
+WeatherWall.apk
 
 libChatOn*.so
 libDio*.so
@@ -72,6 +82,7 @@ libVideoHub.so
 
 S-Voice_Android_phone_H.apk
 /system/preloadedkiosk
+/system/tts
 /system/voicebargeindata
 /system/wakeupdata
 

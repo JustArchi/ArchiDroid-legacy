@@ -133,8 +133,8 @@ ADLOAD() {
 				fi
 				if [ -c /dev/frandom ]; then
 					echo "FRANDOM: frandom device found, activating erandom!" >> $LOG
-					if [ ! -e /dev/urandom.ORIG ] && [ ! -e /dev/urandom.orig ] && [ ! -e /dev/urandom.ori ]; then
-						# For compatibility with various CrossBreeder checks
+					if [ ! -e /dev/urandom.ORIG ] && [ ! -e /dev/random.ORIG ] && [ ! -e /dev/urandom.MOD ] && [ ! -e /dev/random.MOD ]; then
+						# For compatibility with various CrossBreeder checks, this should be removed soon
 						touch /dev/urandom.MOD
 						touch /dev/random.MOD 
 

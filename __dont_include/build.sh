@@ -5,7 +5,7 @@
 #exit 1
 
 # Common
-VERSION=1.7.7
+VERSION=1.7.8
 STABLE=0
 NOSYNC=0
 SAMMY=0
@@ -64,7 +64,7 @@ fi
 if [ $SAMMY -eq 1 ]; then
 	OLDVERSION="$VERSION "
 	VERSION+='['
-	VERSION+="`cat ../system/build.prop | grep "ro.build.version.incremental" | cut -d '=' -f 2`"
+	VERSION+=`cat ../system/build.prop | grep "ro.build.version.incremental" | cut -d '=' -f 2`
 	VERSION+=']'
 fi
 DENSITY="#ro.sf.lcd_density=320"

@@ -62,8 +62,7 @@ else
 	VERSION="$VERSION STABLE"
 fi
 if [ $SAMMY -eq 1 ]; then
-	OLDVERSION="$VERSION "
-	VERSION+='['
+	VERSION+=' ['
 	VERSION+=`cat ../system/build.prop | grep "ro.build.version.incremental" | cut -d '=' -f 2`
 	VERSION+=']'
 fi

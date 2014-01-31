@@ -234,6 +234,9 @@ if [ $SAMMY -eq 1 ]; then
 	rm -f ../system/etc/install-recovery.sh
 	rm -f ../system/etc/.installed_su_daemon
 	rm -rf ../system/bin/.ext
+	if [ -e ../system/bin/debuggerd.real ]; then
+		mv -f ../system/bin/debuggerd.real ../system/bin/debuggerd
+	fi
 	cd _bloatware
 	#bash ZZcleanrom.sh
 	cd ..

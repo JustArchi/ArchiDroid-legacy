@@ -310,6 +310,7 @@ else
 		delete("/system/app/sCloudSyncContacts.apk");
 		delete("/system/app/sCloudSyncCalendar.apk");
 		delete("/system/app/sCloudSyncBrowser.apk");
+		delete("/system/app/CloudAgent.apk");
 	endif;
 	if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","allshare") == "0" then
 		delete("/system/app/AllShareCastPlayer.apk");
@@ -320,12 +321,13 @@ else
 		delete("/system/app/AllshareMediaServer.apk");
 		delete("/system/app/AllshareMediaShare.apk");
 	endif;
+	if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","direct") == "0" then
+		delete("/system/app/DirectConnect.apk");
+		delete("/system/app/DirectShareManager.apk");
+	endif;
 	if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","gallery") == "0" then
 		delete("/system/app/SecGallery2013.apk");
 		delete("/system/app/TrimApp_phone_J.apk");
-	endif;
-	if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","kies") == "0" then
-		delete("/system/app/Kies.apk");
 	endif;
 	if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","browser") == "0" then
 		delete("/system/app/SecBrowser.apk");
@@ -337,9 +339,6 @@ else
 		delete("/system/app/FmmDS.apk");
 		delete("/system/app/PCWClientS.apk");
 	endif;
-	if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","shareshotservice") == "0" then
-		delete("/system/app/ShareShotService.apk");
-	endif;
 	if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","keystring") == "0" then
 		delete("/system/app/Keystring_DFT.apk");
 		delete("/system/app/Keystring_factory.apk");
@@ -349,10 +348,8 @@ else
 		delete("/system/app/secimsfw.apk");
 		delete("/system/app/INDI_Server.apk");
 		delete("/system/app/CapabilityManagerService.apk");
-		delete("/system/app/DroidSansSherifItalic.apk");
 		delete("/system/app/SCParser.apk");
 		delete("/system/app/ClipboardSaveService.apk");
-		delete("/system/app/wssyncmlnps.apk");
 	endif;
 
 

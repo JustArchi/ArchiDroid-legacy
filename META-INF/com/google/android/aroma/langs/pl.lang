@@ -100,7 +100,7 @@ archidroid.kernel.boeffla.desc=Wysoce zalecane arcydzieło dla każdego, wyróż
 archidroid.kernel.yank.desc=Zalecany jako alternatywa
 archidroid.kernel.googy.desc=Bazowany na źródłach Siyah. Posiada dual-boot, zawiera STweaks
 archidroid.kernel.devil.desc=Bazowany na źródłach Perseus. Posiada dual-boot, zawiera DevilTools
-archidroid.kernel.stock.desc=Pochodzący prosto z ROM
+archidroid.kernel.stock.desc=Pochodzący prosto z ROMu
 
 archidroid.theme.aosp.desc=Motyw AOSP
 archidroid.theme.black.desc=Czarny motyw
@@ -156,8 +156,8 @@ archidroid.tweaks.buildtweaks.desc=Wiele tweaków build.prop, w tym m.in. głęb
 archidroid.tweaks.openpdroid.desc=Spatchuj ROM ze wsparciem dla OpenPDroid o ile dostępny
 archidroid.tweaks.nocell.desc=Generalnie uważane za bloatware. Odznacz jeśli chcesz je zachować
 
-archidroid.preset.no=No Preset
-archidroid.preset.no.desc=Not recommended because you'll miss most of the Archi's optimizations
+archidroid.preset.no=Brak Presetu
+archidroid.preset.no.desc=Niezalecane z powodu utraty wszystkich optymalizacji ArchiDroid
 
 archidroid.preset.kernel.boeffla.archiperformance=ArchiDroid Performance
 archidroid.preset.kernel.boeffla.archiperformance.desc=Preset przeznaczony głównie dla graczy, zawierający overclock CPU i GPU. Spodziewaj się lepszej wydajności kosztem życia baterii

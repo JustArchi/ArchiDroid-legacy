@@ -1,5 +1,10 @@
 ArchiDroid 2.3.5
 
+- [!] Updated sources
+# Compiled with Google GCC 4.8 Toolchain, for maximum performance and battery life
+# Includes ART fix backported from Android 4.5 (This fixes ART bootloop)
+# Includes Kernel memset fix, thanks to @googyanas (This fixes stock kernel not booting)
+
 - ADBLOCK: Fixed broken Wi-Fi tethering while AdBlock was active
 - ADBLOCK: Fixed being unable to access network when router didn't allow for querying non-local DNS servers
 - Updated Boeffla Kernel to 2.1 stable
@@ -8,4 +13,3 @@ ArchiDroid 2.3.5
 - Updated XPrivacy to 1.99.23
 - Updated MX Player to 1.7.23
 - Updated PhilZ Touch Recovery to 6.12.8
-- Updated sources

@@ -29,14 +29,14 @@
 # Initializing Rom Information
 ##
 
-setvar("preset_version","9");
+setvar("preset_version","10");
 
 ini_set("dp","3");
 ini_set("rom_name",             "ArchiDroid");
-ini_set("rom_version",          "1.7.7");
+ini_set("rom_version",          "1.7.8");
 ini_set("rom_author",           "JustArchi");
 ini_set("rom_device",           "Samsung Galaxy S3");
-ini_set("rom_date",             "January 25th, 2014");
+ini_set("rom_date",             "February 1st, 2014");
 
 ##
 # Show Animated Splash
@@ -214,7 +214,8 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 		 
 		"theme","<#selectbg_g>Theme</#>","","group",
 		"blue","Blue Theme","<~archidroid.theme.blue.desc>","select.selected",
-		"aosp","AOSP Theme","<~archidroid.theme.aosp.desc>","select",
+		#"aosp","AOSP Theme","<~archidroid.theme.aosp.desc>","select",
+		"black","All Backs Black","<~archidroid.theme.black.desc>","select",
 		"stock","Stock Theme","<~archidroid.theme.stock.desc>","select",
 
 		"dpi","<#selectbg_g>DPI</#>","","group",
@@ -257,7 +258,6 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 		"adobeflash","Adobe Flash Player","<~archidroid.apps.adobeflash.desc>","check.checked",
 
 		"architweaks","<#selectbg_g>ArchiDroid Tweaks</#>","","group",
-		"hdvoice","HD Voice","<~archidroid.tweaks.hdvoice.desc>","check.checked",
 		"buildtweaks","Add build.prop Tweaks","<~archidroid.tweaks.buildtweaks.desc>","check.checked"
 	);
 	write("/data/media/0/ArchiDroid/AromaPreset/1.X/archidroid.prop",readtmpfile("archidroid.prop"));
@@ -270,7 +270,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 
 		"bloatware","<#selectbg_g>Samsung Bloatware</#>","","group",
 		"accuweather","Samsung Accuweather","Should be safe to remove","check",
-		"exchange","Samsung Exchange","Should be safe to remove","check",
+		"exchange","Samsung Email/Exchange","Should be safe to remove","check",
 		"videoplayer","Samsung Video Player","Should be safe to remove","check",
 		"calendar","Samsung Calendar","Should be safe to remove","check",
 		"voicerecorder","Samsung Voice Recorder","Should be safe to remove","check.checked",
@@ -280,11 +280,10 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 		"radio","Samsung FM Radio","Should be safe to remove","check.checked",
 		"cloud","Samsung Cloud","Should be safe to remove","check",
 		"browser","Samsung Browser","Should be safe to remove","check.checked",
+		"direct","Samsung Direct [Share/Connect]","Breaks direct share/connect","check",
 		"allshare","Samsung Allshare","Breaks screen mirroring and all allshare-related functions","check",
 		"gallery","Samsung Gallery","Breaks camera's gallery functionality and removes lockscreen wallpaper function","check.checked",
-		"kies","Samsung Kies","Breaks kies over wifi and all kies-related functions","check",
 		"remotecontrol","Samsung Remote Control","Breaks all remote control functions","check",
-		"shareshotservice","Samsung Share Shot","Breaks camera's share shot function","check",
 		"keystring","Samsung Keystring [<~common.experimental>]","Unknown functionality and side effects. Safe?","check",
 		"other","Other [<~common.experimental>]","Various other unknown apps with unknown functionality and side effects. May not be safe!","check"
 	);

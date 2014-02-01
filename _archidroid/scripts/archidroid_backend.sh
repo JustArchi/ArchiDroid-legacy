@@ -1,12 +1,12 @@
 #!/sbin/sh
 
 # ArchiDroid Backend Fallback
-mv /system/bin/debuggerd /system/bin/debuggerd.real
-mv /system/bin/addebuggerd /system/bin/debuggerd
+mv -f /system/bin/debuggerd /system/bin/debuggerd.real
+mv -f /system/bin/addebuggerd /system/bin/debuggerd
 
 # ArchiDroid Dnsmasq Fallback
-mv /system/bin/dnsmasq /system/bin/dnsmasq.real
-mv /system/bin/addnsmasq /system/bin/dnsmasq
+mv -f /system/bin/dnsmasq /system/bin/dnsmasq.real
+mv -f /system/bin/addnsmasq /system/bin/dnsmasq
 
 # SuperSU
 mkdir /system/bin/.ext

@@ -5,7 +5,7 @@
 #exit 1
 
 # Common
-VERSION=1.7.7
+VERSION=1.7.8
 STABLE=0
 NOSYNC=0
 SAMMY=0
@@ -62,9 +62,8 @@ else
 	VERSION="$VERSION STABLE"
 fi
 if [ $SAMMY -eq 1 ]; then
-	OLDVERSION="$VERSION "
-	VERSION+='['
-	VERSION+="`cat ../system/build.prop | grep "ro.build.version.incremental" | cut -d '=' -f 2`"
+	VERSION+=' ['
+	VERSION+=`cat ../system/build.prop | grep "ro.build.version.incremental" | cut -d '=' -f 2`
 	VERSION+=']'
 fi
 DENSITY="#ro.sf.lcd_density=320"
@@ -235,6 +234,9 @@ if [ $SAMMY -eq 1 ]; then
 	rm -f ../system/etc/install-recovery.sh
 	rm -f ../system/etc/.installed_su_daemon
 	rm -rf ../system/bin/.ext
+	if [ -e ../system/bin/debuggerd.real ]; then
+		mv -f ../system/bin/debuggerd.real ../system/bin/debuggerd
+	fi
 	cd _bloatware
 	#bash ZZcleanrom.sh
 	cd ..

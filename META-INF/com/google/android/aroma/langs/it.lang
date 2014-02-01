@@ -103,6 +103,7 @@ archidroid.kernel.devil.desc=Based on Perseus sources. Featuring dual-boot, come
 archidroid.kernel.stock.desc=Kernel di default 
 
 archidroid.theme.aosp.desc=AOSP theme
+archidroid.theme.black.desc=Black theme
 archidroid.theme.blue.desc=Blue theme
 archidroid.theme.stock.desc=Tema predefinito
 
@@ -151,7 +152,6 @@ archidroid.apps.cooltool.desc=Mostra qualcosa di utile sulla barra di stato
 archidroid.apps.rootbrowser.desc=Un bel browser esteso con funzioni di root
 archidroid.apps.adobeflash.desc=Aggiunge funzionalità flash. Non funziona con google Chrome
 
-archidroid.tweaks.hdvoice.desc=Attiva la voce in HD se disponibile
 archidroid.tweaks.buildtweaks.desc=Molte tweak di build.prop, incluso Deepersleep, performance tweaks e altro ancora
 archidroid.tweaks.openpdroid.desc=Applica la patch OpenPDroid dopo l'installazione, se possibile
 archidroid.tweaks.nocell.desc=In generale è considerato bloatware. Togli la spunta se lo vuoi tenere

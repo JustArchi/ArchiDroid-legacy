@@ -3,9 +3,6 @@
 #
 ui_print(">>> ArchiDroid is now loading...");
 sleep (1);
-assert(getprop("ro.product.device") == "m0" || getprop("ro.build.product") == "m0" || 
-       getprop("ro.product.device") == "i9300" || getprop("ro.build.product") == "i9300" || 
-       getprop("ro.product.device") == "GT-I9300" || getprop("ro.build.product") == "GT-I9300");
 ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Ready!");
 set_progress(0.01);
 sleep (2);
@@ -34,12 +31,6 @@ if file_getprop("/tmp/aroma-data/archidroid.prop","mode") == "custom" then
 endif;
 
 set_progress(0.98);
-
-ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Setting Permissions");
-set_perm_recursive(0, 0, 0755, 0644, "/system/app");
-set_perm_recursive(0, 2000, 0755, 0644, "/system/vendor");
-set_perm_recursive(0, 2000, 0755, 0755, "/system/vendor/bin");
-set_perm_recursive(0, 2000, 0755, 0644, "/system/vendor/etc");
 
 ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Syncing System");
 run_program("/sbin/sync");

@@ -103,6 +103,7 @@ archidroid.kernel.devil.desc=Based on Perseus sources. Featuring dual-boot, come
 archidroid.kernel.stock.desc=Standard kernel der følger med denne ROM.
 
 archidroid.theme.aosp.desc=AOSP tema
+archidroid.theme.black.desc=Black theme
 archidroid.theme.blue.desc=Blue theme
 archidroid.theme.stock.desc=Standard tema
 
@@ -151,7 +152,6 @@ archidroid.apps.cooltool.desc=Viser brugbar statistik på statuslinjen
 archidroid.apps.rootbrowser.desc=Meget cool fil-browser der kan udvides med root adgang
 archidroid.apps.adobeflash.desc=Giver Flash indhold understøttelse. Virker ikke med Google Chrome
 
-archidroid.tweaks.hdvoice.desc=Aktiverer HD Voice hvis det er tilgængeligt
 archidroid.tweaks.buildtweaks.desc=Mange build.prop modifikationer, deriblandt dybere søvn, ydeevne modifikationer og mere
 archidroid.tweaks.openpdroid.desc=Anvend OpenPDroid patch efter installation hvis tilgængelig
 archidroid.tweaks.nocell.desc=Generelt betragtet som bloatware. Fjern afkrydsning hvis du ønsker at beholde dette.

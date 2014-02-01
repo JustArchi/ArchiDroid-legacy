@@ -113,6 +113,7 @@ if [ $# -eq 0 ]; then
 	echo "ArchiDroid is able to start a number of services after debian boot up, this can save your time doing so manually"
 	echo
 	echo "ssh		Will start Secure Shell Daemon after debian boot"
+	echo
 	echo "vnc		Will start VNC Daemon after debian boot"
 	echo
 	echo

@@ -2,6 +2,9 @@
 
 # ArchiDroid Debian/Linux Booter
 
+SSHD=false
+VNCD=false
+
 ADALIAS() {
 	# Because fuck you kernel, that's why
 	local CMD="$1"
@@ -25,35 +28,34 @@ alias mount='ADALIAS mount'
 alias tar='ADALIAS tar'
 
 if [ `whoami 2>&1 | grep -i "root" | wc -l` -eq 0 ] && [ `whoami 2>&1 | grep -i "uid 0" | wc -l` -eq 0 ]; then
-	echo "Sorry, but I require root access, forking a rooted shell for you..."
-	su || echo "Failed!"
-	exit 0
+	echo "Sorry, but I require root access, please execute me as root"
+	exit 1
 fi
 
 if [ -d /storage/sdcard1/ArchiDroid ]; then
-	NOEXTSD=0
+	NOEXTSD=false
 	AD="/storage/sdcard1/ArchiDroid"
 	ln -s $AD /storage/sdcard1/adtest >/dev/null 2>&1
 	if [ $? -ne 0 ]; then
 		AD="/data/media/0/ArchiDroid"
-		EXTSDSUPPORTED=0
+		EXTSDSUPPORTED=false
 	else
 		rm -f /storage/sdcard1/adtest
-		EXTSDSUPPORTED=1
+		EXTSDSUPPORTED=true
 	fi
 elif [ -d /storage/extSdCard/ArchiDroid ]; then
-	NOEXTSD=0
+	NOEXTSD=false
 	AD="/storage/extSdCard/ArchiDroid"
 	ln -s $AD /storage/extSdCard/adtest >/dev/null 2>&1
 	if [ $? -ne 0 ]; then
 		AD="/data/media/0/ArchiDroid"
-		EXTSDSUPPORTED=0
+		EXTSDSUPPORTED=false
 	else
 		rm -f /storage/extSdCard/adtest
-		EXTSDSUPPORTED=1
+		EXTSDSUPPORTED=true
 	fi
 else
-	NOEXTSD=1
+	NOEXTSD=true
 	AD="/data/media/0/ArchiDroid"
 fi
 
@@ -72,39 +74,51 @@ else
 fi
 
 if [ $# -eq 0 ]; then
-	echo "Usage: $0 <MODE>"
-	echo ""
+	echo "Usage: $(basename $0) <MODE> [EXTRA]"
+	echo
 	echo "Available modes:"
-	echo ""
+	echo
 	echo "default		Will mount /data /system /storage/sdcard0 /storage/sdcard1 and core filesystems in chroot. Default suggested mode"
+	echo
 	echo "safe			Will mount only core filesystems in chroot. Useful if you don't want to share your storage in chroot"
+	echo
 	echo "bare			Won't mount even core filesystems such as /proc /dev or /sys. Requires \"debian force\" to enter chroot. This is the \"real\" safe mode. You won't be able to interact with an android in any way, while debian itself will work in very limited environment, making core functions unavailable. Suggested only for testing purposes"
+	echo
 	echo "rebuild		Will automatically reboot your device and remove debian folder in the safe way. WILL CAUSE ALL DEBIAN DATA TO BE LOST!"
+	echo
 	echo "unmount		Will automatically reboot your device to safely unmount debian environment"
-	echo ""
+	echo
 	echo -n "Your choice: "
 	read CHOICE
-	if [ $NOEXTSD -eq 0 ]; then
-		echo ""
-		echo ""
-		echo "You may specify any extra options here separated by a whitespace. Eventually you can just skip this question and apply defaults"
-		echo ""
+	echo
+	echo
+	echo "You may specify any extra options here separated by a whitespace. Eventually you can just skip this question and apply defaults"
+	echo
+	if (! $NOEXTSD); then
 		echo "ArchiDroid will prioritize extsd if it contains ArchiDroid/debian folder and eventually fall back to intsd, you can override this here"
 		echo "Currently using ArchiDroid in: $AD. If you're satisfied with this path you can just skip this question"
 		echo "WARNING! Debian requires symlink functionality, typically native windows filesystems DON'T support symlinks, therefore you need to have your external sd card formatted in one of the native linux filesystems, f.e. ext4"
-		if [ $EXTSDSUPPORTED -eq 1 ]; then
+		if ($EXTSDSUPPORTED); then
 			echo "ArchiDroid Detect: Your external sd card IS supported"
 		else
 			echo "ArchiDroid Detect: Your external sd card IS NOT supported"
 		fi
+		echo
 		echo "extsd			Use external sd card (/storage/sdcard1 /storage/extSdCard), if possible"
+		echo
 		echo "intsd			Use internal sd card (/data/media/0)"
-		echo ""
-		echo ""
-		echo "Example: intsd"
-		echo -n "Your extra options: "
-		read EXTRA
+		echo
+		echo
 	fi
+	echo "ArchiDroid is able to start a number of services after debian boot up, this can save your time doing so manually"
+	echo
+	echo "ssh		Will start Secure Shell Daemon after debian boot"
+	echo "vnc		Will start VNC Daemon after debian boot"
+	echo
+	echo
+	echo "Example: vnc ssh"
+	echo -n "Your extra options: "
+	read EXTRA
 else
 	CHOICE="$1"
 	shift 1
@@ -131,7 +145,7 @@ for arg in $EXTRA; do
 			fi
 			;;
 		"extsd")
-			if [ "$AD" == "/data/media/0/ArchiDroid" ] && [ $EXTSDSUPPORTED -eq 1 ]; then
+			if [ "$AD" == "/data/media/0/ArchiDroid" ] && ($EXTSDSUPPORTED); then
 				echo "Changing path to external sd!"
 				if [ -e /storage/sdcard1 ]; then
 					AD="/storage/sdcard1/ArchiDroid"
@@ -155,14 +169,19 @@ for arg in $EXTRA; do
 					echo "You selected extsd and I failed to use it so I'm aborting here"
 					exit 1
 				fi
-			elif [ "$AD" == "/data/media/0/ArchiDroid" ] && [ $EXTSDSUPPORTED -eq 0 ]; then
+			elif [ "$AD" == "/data/media/0/ArchiDroid" ] && (! $EXTSDSUPPORTED); then
 				echo "You selected extsd, but I failed to use it so I'm aborting here"
 				echo "It lacks symlink functionality, you need to reformat your external sd card to native linux filesystem (f.e. ext4) if you want to use debian on your extsd"
 				exit 1
 			fi
 			;;
+		"ssh")
+			SSHD=true
+			;;
+		"vnc")
+			VNCD=true
+			;;
 		*)
-			continue
 	esac
 done
 
@@ -257,5 +276,17 @@ fi
 
 echo "ArchiDroid Debian environment ready!"
 echo "Type \"debian\" to enter chroot"
+echo
+
+if ($SSHD); then
+	echo "Starting Secure Shell Daemon!"
+	debian "cmd" "service ssh start"
+fi
+if ($VNCD); then
+	echo "Starting VNC Daemon!"
+	debian "cmd" "rm -f /root/.vnc/*.pid"
+	debian "cmd" "rm -f /root/.vnc/*.log"
+	debian "cmd" "tightvncserver -geometry 1280x720"
+fi
 
 exit 0

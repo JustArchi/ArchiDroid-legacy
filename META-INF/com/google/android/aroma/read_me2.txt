@@ -45,6 +45,7 @@ ArchiDroid 1.X
 - Yank555.lu Kernel
 - KitKat Revolution Theme
 - Blue Theme
+- Black Theme
 - Wanam Xposed
 
 Special thanks to:

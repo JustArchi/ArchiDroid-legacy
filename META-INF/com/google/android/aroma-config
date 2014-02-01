@@ -29,7 +29,7 @@
 # Initializing Rom Information
 ##
 
-setvar("preset_version","10");
+setvar("preset_version","11");
 
 ini_set("dp","3");
 ini_set("rom_name",             "ArchiDroid");
@@ -280,12 +280,13 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 		"radio","Samsung FM Radio","Should be safe to remove","check.checked",
 		"cloud","Samsung Cloud","Should be safe to remove","check",
 		"browser","Samsung Browser","Should be safe to remove","check.checked",
+		"sns","Samsung SNS","Breaks some facebook functionalities, safe to remove otherwise","check",
 		"direct","Samsung Direct [Share/Connect]","Breaks direct share/connect","check",
 		"allshare","Samsung Allshare","Breaks screen mirroring and all allshare-related functions","check",
 		"gallery","Samsung Gallery","Breaks camera's gallery functionality and removes lockscreen wallpaper function","check.checked",
 		"remotecontrol","Samsung Remote Control","Breaks all remote control functions","check",
-		"keystring","Samsung Keystring [<~common.experimental>]","Unknown functionality and side effects. Safe?","check",
-		"other","Other [<~common.experimental>]","Various other unknown apps with unknown functionality and side effects. May not be safe!","check"
+		"keystring","Samsung Keystring [<~common.experimental>]","Unknown functionality and side effects. Safe?","check.checked",
+		"other","Other [<~common.experimental>]","Various other unknown apps with unknown functionality and side effects. May not be safe!","check.checked"
 	);
 	write("/data/media/0/ArchiDroid/AromaPreset/1.X/archidroidbloatware.prop",readtmpfile("archidroidbloatware.prop"));
 

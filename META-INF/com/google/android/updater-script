@@ -321,6 +321,9 @@ else
 		delete("/system/app/AllshareMediaServer.apk");
 		delete("/system/app/AllshareMediaShare.apk");
 	endif;
+	if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","sns") == "0" then
+		delete("/system/app/SNS.apk");
+	endif;
 	if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","direct") == "0" then
 		delete("/system/app/DirectConnect.apk");
 		delete("/system/app/DirectShareManager.apk");

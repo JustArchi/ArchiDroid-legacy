@@ -32,6 +32,7 @@ ADMOUNTED() {
 ADUMOUNT() {
 	if (ADMOUNTED "$1"); then
 		MNTPATH=`echo $1 | sed 's/\///g'`
+		eval "MNTPATH=\$$MNTPATH"
 		if $GOTBUSYBOX; then
 			busybox umount -f "$1" >/dev/null 2>&1
 			busybox umount -f "$MNTPATH" >/dev/null 2>&1 # This is required for freeing up block path completely, used for example in reformatting

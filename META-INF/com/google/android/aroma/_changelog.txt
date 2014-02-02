@@ -1,2 +1,6 @@
-ArchiDroid 1.7.9
+.7.9
 - Restored SNS.apk from bloatware, as it breaks facebook push notifications, thanks to @GrimPivo
+- Also restored few other packaged from bloatware, f.e. KeyguardWidget (lockscreen clock)
+
+* ArchiDroid Commons
+- Updated Devil Kernel to 2.4.7 (with f2fs support!)

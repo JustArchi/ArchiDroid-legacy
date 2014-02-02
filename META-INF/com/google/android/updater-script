@@ -717,12 +717,7 @@ else
 
 	if file_getprop("/tmp/aroma-data/archidroid.prop","gapps") == "1" then
 		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Google Apps");
-		package_extract_dir("_archidroid/gapps/system", "/system");
-		package_extract_dir("_archidroid/gapps/optional", "/tmp");
-		package_extract_file("_archidroid/gapps/install-optional.sh", "/tmp/install-optional.sh");
-		set_perm(0, 0, 0777, "/tmp/install-optional.sh");
-		run_program("/tmp/install-optional.sh", "");
-		delete("/tmp/install-optional.sh");
+		package_extract_dir("_archidroid/gapps", "/");
 	endif;
 
 	set_progress(0.86);

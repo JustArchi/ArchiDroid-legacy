@@ -11,8 +11,8 @@
 # 2 - No busybox and no mount
 # 3 - Invalid filesystem
 # 4 - Valid filesystem but no available tool for reformatting this filesystem found
-# 5 - Invalid path, our guess based on paths below failed
-# 6 - We failed to unmount partition prior to reformatting
+# 5 - We failed to unmount partition prior to reformatting
+# 6 - Invalid path, our guess based on paths below failed
 # 7 - We failed reformatting task, check log, this can be a serious problem
 # 8 - We failed to mount partition after reformatting
 
@@ -137,7 +137,7 @@ ADUMOUNT() {
 		if (ADMOUNTED "$1"); then
 			echo "ERROR: Could not unmount $1" >> $LOG
 			# We're reformatting the device, so this can't happen, halt
-			exit 6
+			exit 5
 		fi
 	else
 		echo "$1 is already unmounted" >> $LOG
@@ -191,7 +191,7 @@ eval "FORMATPATH=\$$FORMATPATH"
 
 # If we're not satisfied with the guess, halt
 if [ -z "$FORMATPATH" ]; then
-	exit 5
+	exit 6
 fi
 
 # We made our best to avoid all problems, this is the last step

@@ -50,10 +50,8 @@ ADUMOUNT() {
 			fi
 		fi
 		# Ok, I give up
-		if (ADMOUNTED "$1"); then
-			echo "ERROR: Could not unmount $1" >> $LOG
-			return 1
-		fi
+		echo "ERROR: Could not unmount $1" >> $LOG
+		return 1
 	else
 		echo "$1 is already unmounted" >> $LOG
 	fi

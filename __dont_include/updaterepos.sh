@@ -26,6 +26,8 @@ addUpstream () {
 		git remote remove $OMNIRepo > /dev/null 2>&1
 		git remote add $OMNIRepo $OMNIRepoLink/$ourName.git
 	fi
+	#git remote remove $ourSshRepo >/dev/null 2>&1
+	#git remote add $ourSshRepo git@github.com:JustArchi/ArchiDroid.git
 }
 
 # Packages available only in AOSP sources, which we eventually want to sync
@@ -44,7 +46,13 @@ AOSPRepo="aosp"
 AOSPRepoLink="https://android.googlesource.com"
 
 ourRepo="origin"
+ourSshRepo="ssh"
 ourRepoLink="https://github.com/JustArchi"
+
+#if ! (pgrep ssh-agent); then
+	#eval `ssh-agent -s`
+	#ssh-add
+#fi
 
 for folder in `find . -mindepth 1 -maxdepth 1 -type d` ; do
 	cd $folder

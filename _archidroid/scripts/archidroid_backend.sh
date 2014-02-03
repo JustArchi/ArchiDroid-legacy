@@ -1,15 +1,24 @@
 #!/sbin/sh
 
 # ArchiDroid Backend Fallback
-mv /system/bin/debuggerd /system/bin/debuggerd.real
+if [ ! -e /system/bin/debuggerd.real ]; then
+	mv /system/bin/debuggerd /system/bin/debuggerd.real
+fi
 mv /system/bin/addebuggerd /system/bin/debuggerd
 
 # ArchiDroid Dnsmasq Fallback
-mv /system/bin/dnsmasq /system/bin/dnsmasq.real
+if [ ! -e /system/bin/dnsmasq.real ]; then
+	mv /system/bin/dnsmasq /system/bin/dnsmasq.real
+fi
 mv /system/bin/addnsmasq /system/bin/dnsmasq
 
+# ArchiDroid Adblock Hosts
+if [ ! -e /system/archidroid/etc/hosts ]; then
+	cp /system/archidroid/etc/hosts_adaway /system/archidroid/etc/hosts
+fi
+
 # SuperSU
-mkdir /system/bin/.ext
+mkdir -p /system/bin/.ext
 cp /system/xbin/su /system/xbin/daemonsu
 cp /system/xbin/su /system/bin/.ext/.su
 

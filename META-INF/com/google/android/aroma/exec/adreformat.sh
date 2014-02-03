@@ -28,7 +28,6 @@ system="/dev/block/mmcblk0p9" # System partition
 preload="/dev/block/mmcblk0p10" # Preload partition (also SELinux)
 data="/dev/block/mmcblk0p12" # Data and internal memory
 storagesdcard1="/dev/block/mmcblk1p1" # External memory, if available
-AUTO="/efs /system /cache /preload /data /storage/sdcard1" # Filesystems which should be mounted automatically when no argument is given, typically every partition excluding images
 
 GOTBUSYBOX=false
 GOTMOUNT=false

@@ -395,6 +395,16 @@ if getvar("f2fs_check")=="0" && file_getprop("/tmp/aroma-data/archidroid.prop","
 			setvar("resexec_retstatus",resexec("exec/adreformat.sh", "/system", "ext4"));
 			textbox("<~archidroid.partition.wizard.finish>", "<~archidroid.partition.wizard.finish.desc>", "@default", getvar("exec_buffer")+"\n\n<b>RETURN STATUS : "+getvar("resexec_retstatus"));
 		endif;
+		if file_getprop("/tmp/aroma-data/archidroidfs.prop","preload") == "f2fs" then
+			pleasewait("Reformatting...");
+			setvar("resexec_retstatus",resexec("exec/adreformat.sh", "/preload", "f2fs"));
+			textbox("<~archidroid.partition.wizard.finish>", "<~archidroid.partition.wizard.finish.desc>", "@default", getvar("exec_buffer")+"\n\n<b>RETURN STATUS : "+getvar("resexec_retstatus"));
+		endif;
+		if file_getprop("/tmp/aroma-data/archidroidfs.prop","preload") == "ext4" then
+			pleasewait("Reformatting...");
+			setvar("resexec_retstatus",resexec("exec/adreformat.sh", "/preload", "ext4"));
+			textbox("<~archidroid.partition.wizard.finish>", "<~archidroid.partition.wizard.finish.desc>", "@default", getvar("exec_buffer")+"\n\n<b>RETURN STATUS : "+getvar("resexec_retstatus"));
+		endif;
 	endif;
 endif;
 

@@ -59,52 +59,46 @@ ADMOUNT() {
 			fi
 		fi
 		# Stage 2, mounted device isn't available in fstab and/or recovery can't mount it without such information. This is typical for f2fs, as fstab has ext4 declared. In addition to Stage 1, we'll provide block path, this should be enough.
-		if !(ADMOUNTED "$1"); then
-			if $GOTBUSYBOX; then
-				MNTPATH=`echo $1 | sed 's/\///g'`
-				eval "MNTPATH=\$$MNTPATH"
-				busybox mount -t auto "$MNTPATH" "$1" >/dev/null 2>&1
-				if (ADMOUNTED "$1"); then
-					echo "Stage 2: Successfully mounted $1 through busybox mount and $MNTPATH"
-					return 0
-				fi
+		if $GOTBUSYBOX; then
+			MNTPATH=`echo $1 | sed 's/\///g'`
+			eval "MNTPATH=\$$MNTPATH"
+			busybox mount -t auto "$MNTPATH" "$1" >/dev/null 2>&1
+			if (ADMOUNTED "$1"); then
+				echo "Stage 2: Successfully mounted $1 through busybox mount and $MNTPATH"
+				return 0
 			fi
-			if $GOTMOUNT; then
-				MNTPATH=`echo $1 | sed 's/\///g'`
-				eval "MNTPATH=\$$MNTPATH"
-				mount -t $auto "$MNTPATH" "$1" >/dev/null 2>&1
-				if (ADMOUNTED "$1"); then
-					echo "Stage 2: Successfully mounted $1 through mount and $MNTPATH"
-					return 0
-				fi
+		fi
+		if $GOTMOUNT; then
+			MNTPATH=`echo $1 | sed 's/\///g'`
+			eval "MNTPATH=\$$MNTPATH"
+			mount -t $auto "$MNTPATH" "$1" >/dev/null 2>&1
+			if (ADMOUNTED "$1"); then
+				echo "Stage 2: Successfully mounted $1 through mount and $MNTPATH"
+				return 0
 			fi
 		fi
 		# Stage 3, we failed using automatic filesystem, so we'll now use full mount command. This is our last chance.
-		if !(ADMOUNTED "$1"); then
-			if $GOTBUSYBOX; then
-				MNTPATH=`echo $1 | sed 's/\///g'`
-				eval "MNTPATH=\$$MNTPATH"
-				busybox mount -t "$fs" "$MNTPATH" "$1" >/dev/null 2>&1
-				if (ADMOUNTED "$1"); then
-					echo "Stage 3: Successfully mounted $1 through busybox mount, using $fs filesystem and $MNTPATH"
-					return 0
-				fi
+		if $GOTBUSYBOX; then
+			MNTPATH=`echo $1 | sed 's/\///g'`
+			eval "MNTPATH=\$$MNTPATH"
+			busybox mount -t "$fs" "$MNTPATH" "$1" >/dev/null 2>&1
+			if (ADMOUNTED "$1"); then
+				echo "Stage 3: Successfully mounted $1 through busybox mount, using $fs filesystem and $MNTPATH"
+				return 0
 			fi
-			if $GOTMOUNT; then
-				MNTPATH=`echo $1 | sed 's/\///g'`
-				eval "MNTPATH=\$$MNTPATH"
-				mount -t "$fs" "$MNTPATH" "$1" >/dev/null 2>&1
-				if (ADMOUNTED "$1"); then
-					echo "Stage 3: Successfully mounted $1 through mount, using $fs filesystem and $MNTPATH"
-					return 0
-				fi
+		fi
+		if $GOTMOUNT; then
+			MNTPATH=`echo $1 | sed 's/\///g'`
+			eval "MNTPATH=\$$MNTPATH"
+			mount -t "$fs" "$MNTPATH" "$1" >/dev/null 2>&1
+			if (ADMOUNTED "$1"); then
+				echo "Stage 3: Successfully mounted $1 through mount, using $fs filesystem and $MNTPATH"
+				return 0
 			fi
 		fi
 		# Stage 4, we're out of ideas
-		if !(ADMOUNTED "$1"); then
-			echo "Stage 4: ERROR! Could not mount $1"
-			exit 8
-		fi
+		echo "Stage 4: ERROR! Could not mount $1"
+		exit 8
 	else
 		echo "$1 is already mounted"
 	fi
@@ -132,11 +126,9 @@ ADUMOUNT() {
 			fi
 		fi
 		# Ok, I give up
-		if (ADMOUNTED "$1"); then
-			echo "ERROR: Could not unmount $1"
-			# We're reformatting the device, so this can't happen, halt
-			exit 5
-		fi
+		echo "ERROR: Could not unmount $1"
+		# We're reformatting the device, so this can't happen, halt
+		exit 5
 	else
 		echo "$1 is already unmounted"
 	fi

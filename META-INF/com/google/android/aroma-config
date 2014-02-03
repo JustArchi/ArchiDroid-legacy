@@ -395,6 +395,7 @@ if getvar("f2fs_check")=="0" && file_getprop("/tmp/aroma-data/archidroid.prop","
 			setvar("resexec_retstatus",resexec("exec/adreformat.sh", "/system", "ext4"));
 			textbox("<~archidroid.partition.wizard.finish>", "<~archidroid.partition.wizard.finish.desc>", "@default", getvar("exec_buffer")+"\n\n<b>RETURN STATUS : "+getvar("resexec_retstatus"));
 		endif;
+
 		if file_getprop("/tmp/aroma-data/archidroidfs.prop","preload") == "f2fs" then
 			pleasewait("Reformatting...");
 			setvar("resexec_retstatus",resexec("exec/adreformat.sh", "/preload", "f2fs"));
@@ -404,6 +405,27 @@ if getvar("f2fs_check")=="0" && file_getprop("/tmp/aroma-data/archidroid.prop","
 			pleasewait("Reformatting...");
 			setvar("resexec_retstatus",resexec("exec/adreformat.sh", "/preload", "ext4"));
 			textbox("<~archidroid.partition.wizard.finish>", "<~archidroid.partition.wizard.finish.desc>", "@default", getvar("exec_buffer")+"\n\n<b>RETURN STATUS : "+getvar("resexec_retstatus"));
+		endif;
+
+		if file_getprop("/tmp/aroma-data/archidroidfs.prop","data") != "current" then
+		pleasewait("Executing Shell...");
+		setvar("resexec_datafs", resexec("exec/archidroid_detect_zip.sh"));
+			if getvar("resexec_datafs") == "1" then
+				if file_getprop("/tmp/aroma-data/archidroidfs.prop","data") == "f2fs" then
+					pleasewait("Reformatting...");
+					setvar("resexec_retstatus",resexec("exec/adreformat.sh", "/data", "f2fs"));
+					textbox("<~archidroid.partition.wizard.finish>", "<~archidroid.partition.wizard.finish.desc>", "@default", getvar("exec_buffer")+"\n\n<b>RETURN STATUS : "+getvar("resexec_retstatus"));
+				endif;
+				if file_getprop("/tmp/aroma-data/archidroidfs.prop","data") == "ext4" then
+					pleasewait("Reformatting...");
+					setvar("resexec_retstatus",resexec("exec/adreformat.sh", "/data", "ext4"));
+					textbox("<~archidroid.partition.wizard.finish>", "<~archidroid.partition.wizard.finish.desc>", "@default", getvar("exec_buffer")+"\n\n<b>RETURN STATUS : "+getvar("resexec_retstatus"));
+				endif;
+				resexec("exec/admount.sh", "/data");
+				resexec("exec/archidroid_init.sh");
+			else
+				alert("ArchiDroid Partition Wizard","<~archidroid.partition.wizard.warningintsd>","@alert");
+			endif;
 		endif;
 	endif;
 endif;

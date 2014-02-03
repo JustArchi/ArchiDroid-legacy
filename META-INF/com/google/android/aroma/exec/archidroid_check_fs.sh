@@ -139,7 +139,7 @@ if (! $GOTBUSYBOX && ! $GOTMOUNT); then
 fi
 
 ADMOUNT "$1"
-FS=$(mount | grep "$1" | awk '{print $5}')
+FS=$(mount | grep "$1" | head -n 1 | awk '{print $5}')
 ADUMOUNT "$1"
 echo "$FS"
 exit 0

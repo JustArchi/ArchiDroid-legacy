@@ -1,22 +1,4 @@
-ArchiDroid 2.3.5
+ArchiDroid 2.3.6
 
-- [!] Updated sources
-# Compiled with Google GCC 4.8 Toolchain, for maximum performance and battery life
-# Includes ART fix backported from Android 4.5 (This fixes ART bootloop)
-# Includes Kernel memset fix, thanks to @googyanas (This fixes stock kernel not booting)
-# You should feel a REAL difference in terms of speed compared to previous releases
-
-- Added VNC Viewer, which allows connecting to pocket debian using native GUI interface
-# VNC must be started firstly. This can be done through "adlinux vnc" or starting tightvncserver in debian itself
-# Password is "archidroid"
-
-- ADBLOCK: Fixed broken Wi-Fi tethering while AdBlock was active
-- ADBLOCK: Fixed being unable to access network when router didn't allow for querying non-local DNS servers
-- Updated PA GAPPS to 0102
-- Updated Boeffla Kernel to 2.2-beta1
-- Updated Googy Max Kernel to 2.1.4
-- Updated Devil Kernel to 2.4.7 (with f2fs support!)
-- Updated SuperSU to 1.91
-- Updated XPrivacy to 1.99.23
-- Updated MX Player to 1.7.23
-- Updated PhilZ Touch Recovery to 6.12.8
+- [!] Implemented F2FS
+# Don't touch it yet unless you want to brick your device

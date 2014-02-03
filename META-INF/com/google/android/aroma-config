@@ -325,9 +325,84 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 	write("/data/media/0/ArchiDroid/AromaPreset/2.X/version.txt",getvar("preset_version"));
 endif;
 
+####################
+### F2FS SUPPORT ###
+####################
 
 pleasewait("Executing Shell...");
+#-- Resource Exec
+setvar(
+	#-- Save Return Status
+	"f2fs_check",
 
+	#-- Run Shell
+	resexec("exec/archidroid_check_fs.sh")
+);
+if getvar("f2fs_check")=="0" && file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "devil" then
+	if confirm(
+		#-- Title
+		"ArchiDroid Partition Wizard",
+		#-- Text
+		"<~archidroid.partition.wizard.question>",
+		#-- Icon (Optional)
+		"@info",
+		#-- Yes Text
+		"<~archidroid.partition.wizard.question.yes>",
+		#-- No Text
+		"<~archidroid.partition.wizard.question.no>"
+	)=="yes" then
+		resexec("exec/archidroid_check_fs.sh", "/system");
+		setvar("systemfs", getvar("exec_buffer"));
+		resexec("exec/archidroid_check_fs.sh", "/cache");
+		setvar("cachefs", getvar("exec_buffer"));
+		resexec("exec/archidroid_check_fs.sh", "/preload");
+		setvar("preloadfs", getvar("exec_buffer"));
+		resexec("exec/archidroid_check_fs.sh", "/data");
+		setvar("datafs", getvar("exec_buffer"));
+		form(
+			"<~archidroid.partition.wizard>",
+			"<~archidroid.partition.wizard.desc>",
+			"icons/apps",
+			"archidroidfs.prop",
+
+			"system","<#selectbg_g>/System filesystem</#>","","group",
+			"f2fs","F2FS","<~archidroid.filesystem.f2fs.desc>","select",
+			"ext4","EXT4","<~archidroid.filesystem.ext4.desc>","select",
+			"current","Current: "+getvar("systemfs"),"","select.selected",
+
+			"data","<#selectbg_g>/Data filesystem</#>","","group",
+			"f2fs","F2FS","<~archidroid.filesystem.f2fs.desc>","select",
+			"ext4","EXT4","<~archidroid.filesystem.ext4.desc>","select",
+			"current","Current: "+getvar("datafs"),"","select.selected",
+
+			"cache","<#selectbg_g>/Cache filesystem</#>","","group",
+			"f2fs","F2FS","<~archidroid.filesystem.f2fs.desc>","select",
+			"ext4","EXT4","<~archidroid.filesystem.ext4.desc>","select",
+			"current","Current: "+getvar("cachefs"),"","select.selected",
+
+			"preload","<#selectbg_g>/Preload filesystem</#>","","group",
+			"f2fs","F2FS","<~archidroid.filesystem.f2fs.desc>","select",
+			"ext4","EXT4","<~archidroid.filesystem.ext4.desc>","select",
+			"current","Current: "+getvar("preloadfs"),"","select.selected"
+		);
+		if file_getprop("/tmp/aroma-data/archidroidfs.prop","system") == "f2fs" then
+			pleasewait("Reformatting...");
+			setvar("resexec_retstatus",resexec("exec/adreformat.sh", "/system", "f2fs"));
+			textbox("<~archidroid.partition.wizard.finish>", "<~archidroid.partition.wizard.finish.desc>", "@default", getvar("exec_buffer")+"\n\n<b>RETURN STATUS : "+getvar("resexec_retstatus"));
+		endif;
+		if file_getprop("/tmp/aroma-data/archidroidfs.prop","system") == "ext4" then
+			pleasewait("Reformatting...");
+			setvar("resexec_retstatus",resexec("exec/adreformat.sh", "/system", "ext4"));
+			textbox("<~archidroid.partition.wizard.finish>", "<~archidroid.partition.wizard.finish.desc>", "@default", getvar("exec_buffer")+"\n\n<b>RETURN STATUS : "+getvar("resexec_retstatus"));
+		endif;
+	endif;
+endif;
+
+#########################
+### ARCHIDROID DETECT ###
+#########################
+
+pleasewait("Executing Shell...");
 #-- Resource Exec
 setvar(
 	#-- Save Return Status
@@ -433,6 +508,7 @@ install(
 );
 
 resexec("exec/adumount.sh", "/system");
+resexec("exec/adumount.sh", "/data");
 
 if confirm(
 	#-- Title

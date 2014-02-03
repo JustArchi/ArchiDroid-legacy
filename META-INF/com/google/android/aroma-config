@@ -343,13 +343,13 @@ if getvar("f2fs_check")=="0" && file_getprop("/tmp/aroma-data/archidroid.prop","
 		#-- Title
 		"ArchiDroid Partition Wizard",
 		#-- Text
-		"<~archidroid.partition.wizard.question>",
+		"<~archidroid.partition.wizard>",
 		#-- Icon (Optional)
 		"@info",
 		#-- Yes Text
-		"<~archidroid.partition.wizard.question.yes>",
+		"<~archidroid.partition.wizard.yes>",
 		#-- No Text
-		"<~archidroid.partition.wizard.question.no>"
+		"<~archidroid.partition.wizard.no>"
 	)=="yes" then
 		resexec("exec/archidroid_check_fs.sh", "/system");
 		setvar("systemfs", getvar("exec_buffer"));
@@ -360,7 +360,7 @@ if getvar("f2fs_check")=="0" && file_getprop("/tmp/aroma-data/archidroid.prop","
 		resexec("exec/archidroid_check_fs.sh", "/data");
 		setvar("datafs", getvar("exec_buffer"));
 		form(
-			"<~archidroid.partition.wizard>",
+			"ArchiDroid Partition Wizard",
 			"<~archidroid.partition.wizard.desc>",
 			"icons/apps",
 			"archidroidfs.prop",
@@ -402,6 +402,7 @@ endif;
 ### ARCHIDROID DETECT ###
 #########################
 
+resexec("exec/admount.sh", "/system");
 pleasewait("Executing Shell...");
 #-- Resource Exec
 setvar(
@@ -492,6 +493,8 @@ viewbox(
 );
 
 ini_set("text_next", "<~common.finish>");
+resexec("exec/admount.sh", "/system");
+resexec("exec/admount.sh", "/data");
 
 install(
 	#-- Title

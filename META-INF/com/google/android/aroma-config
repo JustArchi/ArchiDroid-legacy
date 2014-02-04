@@ -196,7 +196,7 @@ form(
 	"recovery","<#selectbg_g><~archidroid.recovery></#>","","group",
 	"philz","PhilZ Touch Recovery","<~archidroid.recovery.philz.desc>","select",
 	"devil","Devil Recovery","<~archidroid.recovery.devil.desc>","select",
-	"none","<~common.none>","<~archidroid.recovery.none.desc>","select.selected",
+	"none","<~common.none>","<~archidroid.recovery.none.desc>","select.selected"
 );
 endif;
 

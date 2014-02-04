@@ -174,12 +174,7 @@ form(
 	"custom","<~archidroid.preset.custom>", "<~archidroid.preset.custom.desc>","select",
 	"previous","<~archidroid.preset.previous>","<~archidroid.preset.previous.desc>","select.selected",
 	"barebones","<~archidroid.preset.barebones>","<~archidroid.preset.barebones.desc>","select",
-	"recovery","<~archidroid.preset.recovery>","<~archidroid.preset.recovery.desc>","select"
-);
-
-writetmpfile(
-	"archidroidrecovery.prop",
-	"recovery=none\n"
+	"recovery","Recovery","<~archidroid.preset.recovery.desc>","select"
 );
 
 ################
@@ -193,11 +188,15 @@ form(
 	"@apps",
 	"archidroidrecovery.prop",
 
-	"recovery","<#selectbg_g><~archidroid.recovery></#>","","group",
-	"philz","PhilZ Touch Recovery","<~archidroid.recovery.philz.desc>","select",
+	"recovery","<#selectbg_g>Recovery</#>","","group",
+	"philz","PhilZ Touch Recovery","<~archidroid.recovery.philz.desc>","select.selected",
 	"devil","Devil Recovery","<~archidroid.recovery.devil.desc>","select",
-	"none","<~common.none>","<~archidroid.recovery.none.desc>","select.selected"
 );
+else
+	writetmpfile(
+		"archidroidrecovery.prop",
+		"recovery=none\n"
+	);
 endif;
 
 #######################
@@ -597,7 +596,11 @@ viewbox(
 	"@alert"
 );
 
-ini_set("text_next", "<~common.finish>");
+if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "recovery" then
+	ini_set("text_next", "<~common.reboot>");
+else
+	ini_set("text_next", "<~common.finish>");
+endif;
 resexec("exec/admount.sh", "/system");
 resexec("exec/admount.sh", "/data");
 
@@ -618,19 +621,19 @@ install(
 resexec("exec/adumount.sh", "/system");
 resexec("exec/adumount.sh", "/data");
 
-if confirm(
-	#-- Title
-	"ArchiDroid Wizard",
-	#-- Text
-	"<~archidroid.wizard.reboot>",
-	#-- Icon (Optional)
-	"@confirm",
-	#-- Yes Text
-	"<~text_yes>",
-	#-- No Text
-	"<~text_no>"
-)=="yes" then
-	reboot("onfinish");
+if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "recovery" then
+	resexec("exec/cmd.sh", "reboot", "recovery");
+else
+	if confirm(
+		#-- Title
+		"ArchiDroid Wizard",
+		#-- Text
+		"<~archidroid.wizard.reboot>",
+		#-- Icon (Optional)
+		"@confirm"
+	)=="yes" then
+		reboot("onfinish");
+	endif;
 endif;
 
 # Delayed tasks. These for some reason require already flashed ArchiDroid

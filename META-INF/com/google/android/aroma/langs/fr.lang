@@ -56,6 +56,7 @@ text_quit_msg=Êtes-vous sûr de vouloir quitter le programme d'installation?
 #
 common.for=Pour
 common.none=Aucun
+common.reboot=Reboot
 common.replaces=Remplace
 common.inverted=Inversé
 common.experimental=EXPERIMENTAL
@@ -91,6 +92,10 @@ archidroid.partition.wizard.finish.desc=ArchiDroid Partition Wizard has finished
 archidroid.partition.wizard.warningintsd=<b><#f00>WARNING!</#></b> Repartitioning of /data isn't available during flashing ArchiDroid from internal sd card. Please use external one if you want to use this option
 archidroid.partition.wizard.warningcachelater=Cache partition will be repartitioned after flashing due to aroma and recovery limitations
 archidroid.partition.wizard.warningcache=As previously stated, ArchiDroid Partition Wizard will now reformat your cache partition. It will automatically reboot your device after finish (regardless of previous choice)
+
+archidroid.preset.recovery.desc=Will flash recovery (only) instead of a ROM. May be useful if recovery update is required prior to flashing
+archidroid.recovery.philz.desc=The most feature-rich custom recovery ever created, developed by Phil
+archidroid.recovery.devil.desc=Alternative recovery developed by Devil, which includes dual-boot support and F2FS filesystem
 
 archidroid.preset=Configuration d'installation ArchiDroid 
 archidroid.preset.desc=Veuillez sélectionner le mode d'installation:

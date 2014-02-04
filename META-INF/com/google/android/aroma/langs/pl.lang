@@ -56,6 +56,7 @@ text_quit_msg=Czy jesteś pewny, że chcesz zakończyć instalację?
 #
 common.for=dla
 common.none=Brak
+common.reboot=Restart
 common.replaces=Zastępuje
 common.inverted=Ciemny
 common.experimental=EKSPERYMENTALNE
@@ -91,6 +92,10 @@ archidroid.partition.wizard.finish.desc=Menadżer partycjonowania ArchiDroid zak
 archidroid.partition.wizard.warningintsd=<b><#f00>UWAGA!</#></b> Repartycjonowanie /data nie jest możliwe podczas flashowania ArchiDroida z wewnętrznej karty pamięci. Spróbuj ponownie używając zewnętrznej karty pamięci, jeśli zamierzasz użyć tej opcji
 archidroid.partition.wizard.warningcachelater=Partycja Cache będzie zrepartycjonowana po flashowaniu, z powodu ograniczeń aromy oraz recovery
 archidroid.partition.wizard.warningcache=Zgodnie z poprzednią informacją, menadżer partycjonowania ArchiDroid zrepartycjonuje teraz twoją partycję cache. Po ukończeniu twoje urządzenie zostanie automatycznie zrestartowane (niezależnie od poprzedniego pytania)
+
+archidroid.preset.recovery.desc=Ta funkcja sflashuje wyłącznie recovery zamiast ROMu. Może być użyteczne w przypadku, gdy update recovery będzie wymagany przed flashowaniem samego ROMu
+archidroid.recovery.philz.desc=Najbardziej bogate w funkcje i zaawansowane recovery, jakie kiedykolwiek zostało stworzone. Tworzone przez Phila
+archidroid.recovery.devil.desc=Alternatywne recovery tworzone przez Devila, wyróżniające się wsparciem dual-boot oraz F2FS
 
 archidroid.preset=Preset Instalacji ArchiDroid
 archidroid.preset.desc=Wybierz proszę swój preset:

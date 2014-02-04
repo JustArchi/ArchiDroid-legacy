@@ -172,8 +172,32 @@ form(
 	"preset","<#selectbg_g><~archidroid.preset.group></#>","","group",
 	"custom","<~archidroid.preset.custom>", "<~archidroid.preset.custom.desc>","select",
 	"previous","<~archidroid.preset.previous>","<~archidroid.preset.previous.desc>","select.selected",
-	"barebones","<~archidroid.preset.barebones>","<~archidroid.preset.barebones.desc>","select"
+	"barebones","<~archidroid.preset.barebones>","<~archidroid.preset.barebones.desc>","select,"
+	"recovery","<~archidroid.preset.recovery>","<~archidroid.preset.recovery.desc>","select"
 );
+
+writetmpfile(
+	"archidroidrecovery.prop",
+	"recovery=none\n"
+);
+
+################
+### RECOVERY ###
+################
+
+if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "recovery" then
+form(
+	"<~archidroid.custom>",
+	"<~archidroid.custom.desc>",
+	"@apps",
+	"archidroidrecovery.prop",
+
+	"recovery","<#selectbg_g><~archidroid.recovery></#>","","group",
+	"philz","PhilZ Touch Recovery","<~archidroid.recovery.philz.desc>","select",
+	"devil","Devil Recovery","<~archidroid.recovery.devil.desc>","select",
+	"none","<~common.none>","<~archidroid.recovery.none.desc>","select.selected",
+);
+endif;
 
 #######################
 ### PREVIOUS PRESET ###
@@ -240,7 +264,6 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 		"archidroidota","ArchiDroid OTA","<~archidroid.ota.desc>","check.checked",
 		"xposed","Xposed Framework","<~archidroid.xposed.desc>","check.checked",
 		"updatemodem","<~archidroid.updatemodem> [XXUGMK6]","<~archidroid.updatemodem.desc>","check",
-		"updaterecovery","<~archidroid.updaterecovery> [PhilZ Touch Recovery]","<~archidroid.updaterecovery.desc>","check",
 
 		"googleapps","<#selectbg_g>Google Apps</#>","","group",
 		"gapps","Google Apps","<~archidroid.gapps.desc>","check.checked",

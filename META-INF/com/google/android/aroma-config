@@ -438,6 +438,10 @@ if getvar("f2fs_check")=="0" && file_getprop("/tmp/aroma-data/archidroid.prop","
 			textbox("<~archidroid.partition.wizard.finish>", "<~archidroid.partition.wizard.finish.desc>", "@default", getvar("exec_buffer")+"\n\n<b>RETURN STATUS : "+getvar("resexec_retstatus"));
 		endif;
 
+		if file_getprop("/tmp/aroma-data/archidroidfs.prop","cache") != "current" then
+			alert("ArchiDroid Partition Wizard","<~archidroid.partition.wizard.warningcachelater>","@alert");
+		endif;
+
 		if file_getprop("/tmp/aroma-data/archidroidfs.prop","data") != "current" then
 		pleasewait("Executing Shell...");
 		setvar("resexec_datafs", resexec("exec/archidroid_detect_zip.sh"));
@@ -459,6 +463,14 @@ if getvar("f2fs_check")=="0" && file_getprop("/tmp/aroma-data/archidroid.prop","
 			endif;
 		endif;
 	endif;
+else
+	writetmpfile(
+		"archidroidfs.prop",
+		"system=current\n"+
+		"data=current\n"+
+		"cache=current\n"+
+		"preload=current\n"
+	);
 endif;
 
 #########################
@@ -589,4 +601,25 @@ if confirm(
 	"<~text_no>"
 )=="yes" then
 	reboot("onfinish");
+endif;
+
+# Delayed tasks. These for some reason require already flashed ArchiDroid
+# Stub
+
+
+# Ultra-delayed tasks. These are blocked by aroma process, can cause problems to aroma itself, take care
+# Aroma is blocking /cache partition, therefore we must force-repartition that (if needed), this WILL cause recovery kernel panic but task itself finishes properly. Also, if we use instant "onfinish" reboot, kernel panic shouldn't happen, as recovery won't have time to access /cache partition. This should be safe approach.
+if file_getprop("/tmp/aroma-data/archidroidfs.prop","cache") != "current" then
+	alert("ArchiDroid Partition Wizard","<~archidroid.partition.wizard.warningcache>","@alert");
+	reboot("onfinish");
+	if file_getprop("/tmp/aroma-data/archidroidfs.prop","cache") == "f2fs" then
+		pleasewait("Reformatting...");
+		setvar("resexec_retstatus",resexec("exec/adreformat.sh", "/cache", "f2fs", "force"));
+		textbox("<~archidroid.partition.wizard.finish>", "<~archidroid.partition.wizard.finish.desc>", "@default", getvar("exec_buffer")+"\n\n<b>RETURN STATUS : "+getvar("resexec_retstatus"));
+	endif;
+	if file_getprop("/tmp/aroma-data/archidroidfs.prop","cache") == "ext4" then
+		pleasewait("Reformatting...");
+		setvar("resexec_retstatus",resexec("exec/adreformat.sh", "/cache", "ext4", "force"));
+		textbox("<~archidroid.partition.wizard.finish>", "<~archidroid.partition.wizard.finish.desc>", "@default", getvar("exec_buffer")+"\n\n<b>RETURN STATUS : "+getvar("resexec_retstatus"));
+	endif;
 endif;

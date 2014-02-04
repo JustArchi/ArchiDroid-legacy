@@ -11,7 +11,7 @@
 # 2 - No busybox and no mount
 # 3 - Invalid filesystem
 # 4 - Valid filesystem but no available tool for reformatting this filesystem found
-# 5 - We failed to unmount partition prior to reformatting
+# 5 - We failed to unmount partition prior to reformatting, error skipped during force
 # 6 - Invalid path, our guess based on paths below failed
 # 7 - We failed reformatting task, check log, this can be a serious problem
 # 8 - We failed to mount partition after reformatting
@@ -31,6 +31,7 @@ storagesdcard1="/dev/block/mmcblk1p1" # External memory, if available
 
 GOTBUSYBOX=false
 GOTMOUNT=false
+FORCE=false
 
 ADMOUNTED() {
 	if [ `mount | grep -i "$1" | wc -l` -gt 0 ]; then
@@ -98,7 +99,11 @@ ADMOUNT() {
 		fi
 		# Stage 4, we're out of ideas
 		echo "Stage 4: ERROR! Could not mount $1"
-		exit 8
+		if $FORCE; then
+			return 0
+		else
+			exit 8
+		fi
 	else
 		echo "$1 is already mounted"
 	fi
@@ -127,8 +132,12 @@ ADUMOUNT() {
 		fi
 		# Ok, I give up
 		echo "ERROR: Could not unmount $1"
-		# We're reformatting the device, so this can't happen, halt
-		exit 5
+		# We're reformatting the device, so this can't happen, unless force is defined
+		if $FORCE; then
+			return 0
+		else
+			exit 5
+		fi
 	else
 		echo "$1 is already unmounted"
 	fi
@@ -166,6 +175,12 @@ case "$2" in
 		# This can't happen
 		exit 3
 esac
+
+if [ "$3" == "force" ]; then
+	# Ouh yeah, this will hurt
+	FORCE=true
+	echo "WARNING: Force mode has been enabled, prepare for mount/unmount errors!"
+fi
 
 # Check if our tool is in fact available
 if [ -z `which $TOOL` ]; then

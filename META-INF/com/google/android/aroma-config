@@ -189,7 +189,7 @@ form(
 
 	"recovery","<#selectbg_g>Recovery</#>","","group",
 	"philz","PhilZ Touch Recovery","<~archidroid.recovery.philz.desc>","select.selected",
-	"devil","Devil Recovery","<~archidroid.recovery.devil.desc>","select",
+	"devil","Devil Recovery","<~archidroid.recovery.devil.desc>","select"
 );
 else
 	writetmpfile(

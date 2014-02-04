@@ -37,6 +37,9 @@ LOG="$AD/RunOnce.log" # "/dev/null" is no verbose
 LOG2="$AD/RunOnce.log.0"
 ADSTATUS="/dev/ARCHIDROID_RUNONCE_STATUS"
 
+if [ ! -e $AD ]; then
+	exit 0
+fi
 if [ ! -e /data/ARCHIDROID_DONT_REMOVE_ME ]; then
 	echo "ERROR: ArchiDroid is not compatible with wiping data, please reflash your system!" >> $LOG
 	poweroff

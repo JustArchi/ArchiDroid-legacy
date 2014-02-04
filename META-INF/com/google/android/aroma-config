@@ -172,7 +172,7 @@ form(
 	"preset","<#selectbg_g><~archidroid.preset.group></#>","","group",
 	"custom","<~archidroid.preset.custom>", "<~archidroid.preset.custom.desc>","select",
 	"previous","<~archidroid.preset.previous>","<~archidroid.preset.previous.desc>","select.selected",
-	"barebones","<~archidroid.preset.barebones>","<~archidroid.preset.barebones.desc>","select,"
+	"barebones","<~archidroid.preset.barebones>","<~archidroid.preset.barebones.desc>","select",
 	"recovery","<~archidroid.preset.recovery>","<~archidroid.preset.recovery.desc>","select"
 );
 

@@ -502,90 +502,89 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 			alert("ArchiDroid Partition Wizard","<~archidroid.partition.wizard.warningintsd>","@alert");
 		endif;
 	endif;
-endif;
 
-#########################
-### ARCHIDROID DETECT ###
-#########################
+	#########################
+	### ARCHIDROID DETECT ###
+	#########################
+	resexec("exec/admount.sh", "/system");
+	pleasewait("Executing Shell...");
+	#-- Resource Exec
+	setvar(
+		#-- Save Return Status
+		"resexec_retstatus",
 
-resexec("exec/admount.sh", "/system");
-pleasewait("Executing Shell...");
-#-- Resource Exec
-setvar(
-	#-- Save Return Status
-	"resexec_retstatus",
+		#-- Run Shell
+		resexec("exec/archidroid_detect.sh")
+	);
 
-	#-- Run Shell
-	resexec("exec/archidroid_detect.sh")
-);
-
-if getvar("resexec_retstatus")=="0" || getvar("resexec_retstatus")=="1" then
-	if confirm(
-		#-- Title
-		"ArchiDroid Detect",
-		#-- Text
-		"<~archidroid.detect.fail>",
-		#-- Icon (Optional)
-		"@info",
-		#-- Yes Text
-		"<~archidroid.detect.fail.yes>",
-		#-- No Text
-		"<~archidroid.detect.fail.no>"
-	)=="yes" then
-		alert("ArchiDroid Detect","<~archidroid.detect.fail.alert.yes>","@info");
-		writetmpfile(
-			"archidroidwipe.prop",
-			"wipe=yes\n"
-		);
-	else
-		alert("ArchiDroid Detect","<~archidroid.detect.fail.alert.no>","@alert");
-		setvar("resexec_retstatus","2");
-	endif;
-endif;
-if getvar("resexec_retstatus")=="2" then
-	if confirm(
-		#-- Title
-		"ArchiDroid Detect",
-		#-- Text
-		"<~archidroid.detect.pass>",
-		#-- Icon (Optional)
-		"@info",
-		#-- Yes Text
-		"<~archidroid.detect.pass.yes>",
-		#-- No Text
-		"<~archidroid.detect.pass.no>"
-	)=="yes" then
-		writetmpfile(
-			"archidroidwipe.prop",
-			"wipe=no\n"+
-			"force=no\n"
-		);
+	if getvar("resexec_retstatus")=="0" || getvar("resexec_retstatus")=="1" then
 		if confirm(
 			#-- Title
 			"ArchiDroid Detect",
 			#-- Text
-			"<~archidroid.detect.force>",
+			"<~archidroid.detect.fail>",
 			#-- Icon (Optional)
-		"@alert"
+			"@info",
+			#-- Yes Text
+			"<~archidroid.detect.fail.yes>",
+			#-- No Text
+			"<~archidroid.detect.fail.no>"
 		)=="yes" then
+			alert("ArchiDroid Detect","<~archidroid.detect.fail.alert.yes>","@info");
 			writetmpfile(
 				"archidroidwipe.prop",
-				"wipe=no\n"+
-				"force=yes\n"
+				"wipe=yes\n"
 			);
 		else
+			alert("ArchiDroid Detect","<~archidroid.detect.fail.alert.no>","@alert");
+			setvar("resexec_retstatus","2");
+		endif;
+	endif;
+	if getvar("resexec_retstatus")=="2" then
+		if confirm(
+			#-- Title
+			"ArchiDroid Detect",
+			#-- Text
+			"<~archidroid.detect.pass>",
+			#-- Icon (Optional)
+			"@info",
+			#-- Yes Text
+			"<~archidroid.detect.pass.yes>",
+			#-- No Text
+			"<~archidroid.detect.pass.no>"
+		)=="yes" then
 			writetmpfile(
 				"archidroidwipe.prop",
 				"wipe=no\n"+
 				"force=no\n"
 			);
+			if confirm(
+				#-- Title
+				"ArchiDroid Detect",
+				#-- Text
+				"<~archidroid.detect.force>",
+				#-- Icon (Optional)
+			"@alert"
+			)=="yes" then
+				writetmpfile(
+					"archidroidwipe.prop",
+					"wipe=no\n"+
+					"force=yes\n"
+				);
+			else
+				writetmpfile(
+					"archidroidwipe.prop",
+					"wipe=no\n"+
+					"force=no\n"
+				);
+			endif;
+		else
+			alert("ArchiDroid Detect","<~archidroid.detect.pass.alert.no>","@info");
+			writetmpfile(
+				"archidroidwipe.prop",
+				"wipe=yes\n"
+			);
 		endif;
-	else
-		alert("ArchiDroid Detect","<~archidroid.detect.pass.alert.no>","@info");
-		writetmpfile(
-			"archidroidwipe.prop",
-			"wipe=yes\n"
-		);
 	endif;
 endif;
 

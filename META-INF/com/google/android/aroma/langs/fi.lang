@@ -79,6 +79,19 @@ archidroid.detect.pass.no=Ei, pyyhi data
 archidroid.detect.pass.alert.no=OK, suoritan datan pyyhinnän ja ArchiDroid asennusmoodin
 archidroid.detect.force=Would you like to use forced update mode? This tells ArchiDroid RunOnce to perform advanced tweaks, which normally would be executed only during install mode. Select No if you're unsure
 
+archidroid.partition.wizard.desc=ArchiDroid Partition Wizard shows only partitions, which are currently supported. F2FS requires special recovery and kernel (selected on the previous page) to be available\
+\
+<b><#f00>WARNING! REPARTITIONING CAN LEAD TO SOFT AND HARD BRICKS IF SOMETHING GOES WRONG. YOU SHOULDN'T TOUCH THESE SETTINGS UNLESS YOU KNOW WHAT YOU'RE DOING</#></b>\
+\
+In addition to that, during repartitioning <b><#f00>ALL DATA WILL BE LOST</#></b>
+
+archidroid.filesystem.ext4.desc=Fourth Extended File System. Proven to be stable and reliable. Supported by all kernels
+archidroid.filesystem.f2fs.desc=Flash-Friendly File System. Optimized for NAND flash memory-based storage devices, gives significant I/O boost compared to EXT4. Supported only by a few custom kernels
+archidroid.partition.wizard.finish.desc=ArchiDroid Partition Wizard has finished repartitioning your partition. If RETURN STATUS is equal to 0, everything ended successfully
+archidroid.partition.wizard.warningintsd=<b><#f00>WARNING!</#></b> Repartitioning of /data isn't available during flashing ArchiDroid from internal sd card. Please use external one if you want to use this option
+archidroid.partition.wizard.warningcachelater=Cache partition will be repartitioned after flashing due to aroma and recovery limitations
+archidroid.partition.wizard.warningcache=As previously stated, ArchiDroid Partition Wizard will now reformat your cache partition. It will automatically reboot your device after finish (regardless of previous choice)
+
 archidroid.preset=ArchiDroid esiasetus
 archidroid.preset.desc=Valitse esiasetus asennusta varten:
 archidroid.preset.group=Esiasetus

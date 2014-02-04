@@ -79,6 +79,19 @@ archidroid.detect.pass.no=Nie, full wipe
 archidroid.detect.pass.alert.no=OK, wybrałem tryb instalacji, czyli dokonania full wipe.
 archidroid.detect.force=Czy chciałbyś użyć trybu wymuszonej aktualizacji? Ta opcja powoduje wykonanie przez ArchiDroid RunOnce wielu zaawansowanych modyfikacji, które normalnie byłyby wykonane wyłącznie podczas trybu instalacji. Wybierz Nie jeśli nie jesteś pewny
 
+archidroid.partition.wizard.desc=Menadżer partycjonowania ArchiDroid pokazuje wyłącznie partycje, które są aktualnie wspierane. F2FS wymaga specjalnego recovery i kernela (wybranego wcześniej), aby być dostępnym na liście\
+\
+<b><#f00>UWAGA! REPARTYCJONOWANIE MOŻE PROWADZIĆ DO SOFT ORAZ HARD BRICKÓW JEŚLI SIĘ NIE POWIEDZIE. NIE POWINIENEŚ DOTYKAĆ TYCH USTAWIEŃ, CHYBA ŻE MASZ ABSOLUTNE POJĘCIE NA TEMAT TEGO CO ROBISZ</#></b>\
+\
+W dodatku do powyższego <b><#f00>WSZYSTKIE DANE BĘDĄ UTRACONE</#></b>
+
+archidroid.filesystem.ext4.desc=Czwarta wersja rozszerzonego systemu plików. Stabilny i zaufany system plików. Wspierany przez wszystkie dostępne kernele
+archidroid.filesystem.f2fs.desc=Flash-Friendly File System, "System Przyjazny Pamięciom Flash". Zoptymalizowany pod kątęm pamięci NAND, oferuje pokaźne przyspieszenie I/O w porównaniu do EXT4. Wspierany wyłącznie przez określone custom kernele
+archidroid.partition.wizard.finish.desc=Menadżer partycjonowania ArchiDroid zakończył repartycjonowanie twojej partycji. Jeśli RETURN STATUS wynosi 0, wszystko powiodło się pomyślnie
+archidroid.partition.wizard.warningintsd=<b><#f00>UWAGA!</#></b> Repartycjonowanie /data nie jest możliwe podczas flashowania ArchiDroida z wewnętrznej karty pamięci. Spróbuj ponownie używając zewnętrznej karty pamięci, jeśli zamierzasz użyć tej opcji
+archidroid.partition.wizard.warningcachelater=Partycja Cache będzie zrepartycjonowana po flashowaniu, z powodu ograniczeń aromy oraz recovery
+archidroid.partition.wizard.warningcache=Zgodnie z poprzednią informacją, menadżer partycjonowania ArchiDroid zrepartycjonuje teraz twoją partycję cache. Po ukończeniu twoje urządzenie zostanie automatycznie zrestartowane (niezależnie od poprzedniego pytania)
+
 archidroid.preset=Preset Instalacji ArchiDroid
 archidroid.preset.desc=Wybierz proszę swój preset:
 archidroid.preset.group=Preset

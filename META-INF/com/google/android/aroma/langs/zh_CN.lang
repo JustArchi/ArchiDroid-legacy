@@ -79,6 +79,19 @@ archidroid.detect.pass.no=不, 全部擦除数据
 archidroid.detect.pass.alert.no=好, 将全部擦除数据并使用 ArchiDroid 安装模式
 archidroid.detect.force=想要用强制升级模式吗? ArchiDroid 执行 RunOnce 脚本来进行高级tweaks, 通常只会在安装模式执行. 不确定的话选择 否
 
+archidroid.partition.wizard.desc=ArchiDroid Partition Wizard shows only partitions, which are currently supported. F2FS requires special recovery and kernel (selected on the previous page) to be available\
+\
+<b><#f00>WARNING! REPARTITIONING CAN LEAD TO SOFT AND HARD BRICKS IF SOMETHING GOES WRONG. YOU SHOULDN'T TOUCH THESE SETTINGS UNLESS YOU KNOW WHAT YOU'RE DOING</#></b>\
+\
+In addition to that, during repartitioning <b><#f00>ALL DATA WILL BE LOST</#></b>
+
+archidroid.filesystem.ext4.desc=Fourth Extended File System. Proven to be stable and reliable. Supported by all kernels
+archidroid.filesystem.f2fs.desc=Flash-Friendly File System. Optimized for NAND flash memory-based storage devices, gives significant I/O boost compared to EXT4. Supported only by a few custom kernels
+archidroid.partition.wizard.finish.desc=ArchiDroid Partition Wizard has finished repartitioning your partition. If RETURN STATUS is equal to 0, everything ended successfully
+archidroid.partition.wizard.warningintsd=<b><#f00>WARNING!</#></b> Repartitioning of /data isn't available during flashing ArchiDroid from internal sd card. Please use external one if you want to use this option
+archidroid.partition.wizard.warningcachelater=Cache partition will be repartitioned after flashing due to aroma and recovery limitations
+archidroid.partition.wizard.warningcache=As previously stated, ArchiDroid Partition Wizard will now reformat your cache partition. It will automatically reboot your device after finish (regardless of previous choice)
+
 archidroid.preset=ArchiDroid 安装预设
 archidroid.preset.desc=请选择安装预设:
 archidroid.preset.group=预设

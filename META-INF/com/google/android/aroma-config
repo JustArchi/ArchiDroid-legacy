@@ -423,6 +423,8 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 	if file_getprop("/tmp/aroma-data/archidroidfs.prop","cache") != "current" then
 		setvar("adfs_cache_reformat","1");
 		alert("ArchiDroid Partition Wizard","<~archidroid.partition.wizard.warningcachelater>","@alert");
+	else
+		setvar("adfs_cache_reformat","0");
 	endif;
 
 	# DATA

@@ -56,7 +56,7 @@ text_quit_msg=确认退出安装？
 #
 common.for=为了
 common.none=没有
-common.reboot=Reboot
+common.reboot=重启
 common.replaces=替换
 common.inverted=内置
 common.experimental=实验（功能）
@@ -80,23 +80,23 @@ archidroid.detect.pass.no=不, 全部擦除数据
 archidroid.detect.pass.alert.no=好, 将全部擦除数据并使用 ArchiDroid 安装模式
 archidroid.detect.force=想要用强制升级模式吗? ArchiDroid 执行 RunOnce 脚本来进行高级tweaks, 通常只会在安装模式执行. 不确定的话选择 否
 
-archidroid.partition.wizard.desc=ArchiDroid Partition Wizard shows only partitions, which are currently supported. F2FS requires special recovery and kernel (selected on the previous page) to be available\
+archidroid.partition.wizard.desc=ArchiDroid 分区向导只显示当前支持的分区. F2FS 只在特定的 recovery 和内核 (在之前页面选择的) 下有效\
 \
-<b><#f00>WARNING! REPARTITIONING CAN LEAD TO SOFT AND HARD BRICKS IF SOMETHING GOES WRONG. YOU SHOULDN'T TOUCH THESE SETTINGS UNLESS YOU KNOW WHAT YOU'RE DOING</#></b>\
+<b><#f00>严重警告! 重新分区在操作不当时可能导致半砖或者全砖. 除非你了解你在干什么，否则不要动这里的任何设置，切记切记!</#></b>\
 \
-In addition to that, during repartitioning <b><#f00>ALL DATA WILL BE LOST</#></b>
+基于这个原因, 重新分区过程中<b><#f00>会丢失全部数据</#></b>
 
-archidroid.filesystem.ext4.desc=Fourth Extended File System. Proven to be stable and reliable. Supported by all kernels
-archidroid.filesystem.f2fs.desc=Flash-Friendly File System. Optimized for NAND flash memory-based storage devices, gives significant I/O boost compared to EXT4. Supported only by a few custom kernels
-archidroid.partition.wizard.finish.desc=ArchiDroid Partition Wizard has finished repartitioning your partition. If RETURN STATUS is equal to 0, everything ended successfully
-archidroid.partition.wizard.warningintsdlater=<b><#f00>WARNING!</#></b> Repartitioning of /data isn't available during flashing ArchiDroid from internal sd card. However we can use a little hack - we can flash ArchiDroid through Bare Bones preset, then reformat data. Keep in mind that your ArchiDroid installation will be VERY limited, so you WILL need to reflash ArchiDroid after this operation. If you have external sd card or you're unsure, I highly recommend to say No here
-archidroid.partition.wizard.warningintsd=As previously stated, ArchiDroid Partition Wizard will now reformat your data partition. It will automatically reboot your device after finish (regardless of previous choice). Please reflash ArchiDroid after this operation
-archidroid.partition.wizard.warningcachelater=Cache partition will be repartitioned after flashing due to aroma and recovery limitations
-archidroid.partition.wizard.warningcache=As previously stated, ArchiDroid Partition Wizard will now reformat your cache partition. It will automatically reboot your device after finish (regardless of previous choice)
+archidroid.filesystem.ext4.desc=第四代针对EXT3系统的扩展日志式文件系统（EXT4）. 稳定可靠. 所有内核都支持
+archidroid.filesystem.f2fs.desc=闪存友好文件系统（F2FS）. 特别为NAND闪存存储设备优化, 与EXT4相比具有显著的 I/O 性能提升. 只被不多的第三方内核支持
+archidroid.partition.wizard.finish.desc=ArchiDroid 分区向导已经完成重新分区. 如果 RETURN STATUS （返回值）等于 0, 代表全部操作成功完成
+archidroid.partition.wizard.warningintsdlater=<b><#f00>警告!</#></b> 如果从内置存储卡刷入 ArchiDroid , 对 /data 的重新分区不可用. 但是我们有办法绕过 - 我们可以使用纯净 ROM 预设来刷入 ArchiDroid, 然后重新格式化 /data. 记住在这种情况下 ArchiDroid 非常受限, 所以你在此操作后需要重新刷入 ArchiDroid. 如果你有外置存储卡或者不确定选哪个, 我强烈建议你选择 否
+archidroid.partition.wizard.warningintsd=就像之前强调的那样, ArchiDroid 分区向导不会重新格式化 /data 分区.在完成之后会自动重启你的手机 (忽视之前的选择). 请在此操作后重新刷入 ArchiDroid
+archidroid.partition.wizard.warningcachelater=因为 Aroma 和 recovery 的限制, 在刷写过程结束之后会重新对 /cache 进行分区操作
+archidroid.partition.wizard.warningcache=就像之前强调的那样, ArchiDroid 分区向导现在重新格式化 /cache 分区.在完成之后会自动重启你的手机 (忽视之前的选择)
 
-archidroid.preset.recovery.desc=Will flash recovery (only) instead of a ROM. May be useful if recovery update is required prior to flashing
-archidroid.recovery.philz.desc=The most feature-rich custom recovery ever created, developed by Phil
-archidroid.recovery.devil.desc=Alternative recovery developed by Devil, which includes dual-boot support and F2FS filesystem
+archidroid.preset.recovery.desc=只刷写 recovery 而不是 ROM. 适用于需要更新 recovery 先于刷入 ArchiDroid 的情况
+archidroid.recovery.philz.desc=功能最强大的第三方 recovery ,由 Phil 开发
+archidroid.recovery.devil.desc=Devil 开发的替代 recovery, 支持双启动特性和 F2FS 文件系统
 
 archidroid.preset=ArchiDroid 安装预设
 archidroid.preset.desc=请选择安装预设:
@@ -110,24 +110,24 @@ archidroid.preset.previous.desc=载入之前的自定义安装预设 (如果存�
 
 archidroid.detect.previouspreset.fail=不能载入之前的安装预设, 不存在或者完整性检测失败
 
-archidroid.custom=ArchiDroid 自定义
-archidroid.custom.extra=ArchiDroid 额外自定义
-archidroid.custom.desc=请修改设置，怎么习惯怎么来
+archidroid.custom=ArchiDroid 个人定制选项
+archidroid.custom.extra=ArchiDroid 额外定制选项
+archidroid.custom.desc=请修改设置,怎么习惯怎么来
 
-archidroid.kernel.temasek.desc=极佳性能，省电，高度顺滑和 boeffla sound，推荐！
-archidroid.kernel.boeffla.desc=高度推荐的杰作，适合每个人, 包含 boeffla sound和更多特性
+archidroid.kernel.temasek.desc=极佳性能，省电，高度顺滑和 Boeffla Sound，推荐！
+archidroid.kernel.boeffla.desc=高度推荐的杰作，适合每个人, 包含 Boeffla Sound和更多特性
 archidroid.kernel.yank.desc=推荐作为替代选择
 archidroid.kernel.googy.desc=基于 Siyah 源码. 双启动特性, 带有 STweaks 进行控制
 archidroid.kernel.devil.desc=基于 Perseus 源码. 双启动特性, 带有 DevilTools 进行控制
 archidroid.kernel.stock.desc=使用 ROM 默认内核
 
 archidroid.theme.aosp.desc=AOSP 主题
-archidroid.theme.black.desc=Black theme
+archidroid.theme.black.desc=黑色主题
 archidroid.theme.blue.desc=蓝色主题
 archidroid.theme.stock.desc=原生系统主题
 
 archidroid.dpi.240w.desc=警告! 在这个DPI下会有一些轻微的图形故障，小心使用
-archidroid.dpi.240.desc=所有可见都会变小, 包含按钮、图标和文本等等. 建议使用，能有最好的体验!
+archidroid.dpi.240.desc=所有都会变小, 包含按钮、图标和文本等等. 建议使用，最佳体验!
 archidroid.dpi.280.desc=原生和240 DPI模式之间的平衡选项
 archidroid.dpi.320.desc=默认 DPI 设置
 
@@ -135,12 +135,12 @@ archidroid.launcher.nova.desc=更加顺滑，性能更好，推荐！
 archidroid.launcher.stock.desc=ROM 自带
 archidroid.launcher.none.desc=不含启动器.警告! 在完全擦除之后不要勾选! 第一次启动之前你需要至少一个第三方启动器!
 
-archidroid.keyboard=键盘
-archidroid.keyboard.touchpal.desc=推荐强大顺滑的 Swype/Curve 键盘
-archidroid.keyboard.hackers.desc=TouchPal(触宝国际版) 的极好的替代选择，如果用不到 swype/curve 的功能
-archidroid.keyboard.both.desc=同时使用 TouchPal(触宝国际版) 和 Hacker键盘 (例如在终端中)
-archidroid.keyboard.stock.desc=如果你想保留 ROM 自带键盘
-archidroid.keyboard.none.desc=无键盘. 警告! 在完全擦除之后不要勾选! 第一次启动之前你需要至少一个第三方键盘!
+archidroid.keyboard=输入法
+archidroid.keyboard.touchpal.desc=推荐强大顺滑的 Swype/Curve 输入法
+archidroid.keyboard.hackers.desc=如果用不到 swype/curve 的功能，TouchPal(触宝国际版) 是极好的替代选择
+archidroid.keyboard.both.desc=同时使用 TouchPal(触宝国际版) 和 Hacker输入法 (例如在终端中)
+archidroid.keyboard.stock.desc=如果你想保留 ROM 自带输入法
+archidroid.keyboard.none.desc=不安装输入法. 警告! 在完全擦除之后不要勾选! 第一次启动之前你需要至少一个第三方输入法!
 
 archidroid.bootanimation=开机动画
 archidroid.bootanimation.archi.desc=全新花哨 ArchiDroid 开机动画
@@ -161,7 +161,7 @@ archidroid.updaterecovery.desc=如果你想使用最新recovery
 archidroid.gapps.desc=Google核心服务包和APP. 不要取消勾选这个！
 archidroid.gapps.gquick.desc=可能破坏掉 Google Voice!
 
-archidroid.apps.vnc.desc=A VNC client, which allows you to use GUI in ArchiDroid's Pocket Debian
+archidroid.apps.vnc.desc=一种 VNC (虚拟网络计算机)客户端, 能够让你使用 ArchiDroid 内嵌 掌上Debian 的图形界面
 archidroid.apps.titaniumbackup.desc=刷机/更新保存个人数据和app的最佳方案
 archidroid.apps.greenify.desc=休眠任何app的利器, 能增强电池续航
 archidroid.apps.lmt.desc=执行绑定到特定屏幕手势的命令的工具, 在SlimBean也被称为 pie
@@ -187,7 +187,7 @@ archidroid.preset.kernel.boeffla.archiultrapowersave=ArchiDroid 超级节能模�
 archidroid.preset.kernel.boeffla.archiultrapowersave.desc=为最佳电池寿命而设计优化的预设设置, 包含普通降压. 以性能为代价换取电池寿命的延长
 
 archidroid.boeffla.yesarchi=体验Archi的音乐发烧享受
-archidroid.boeffla.yesarchi.desc=高度推荐. 安装 Boeffla Sound Control 和 Archi 喜欢的音质设置来增强音乐体验
+archidroid.boeffla.yesarchi.desc=高度推荐. 安装 Boeffla Sound Control 和 Archi 精心调整的音质设置来增强音乐体验
 archidroid.boeffla.yes.desc=如果你之后想创建自己的 Boeffla Sound Control 预设
 archidroid.boeffla.no.desc=如果不想安装 Boeffla Sound Control
 

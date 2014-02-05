@@ -296,14 +296,9 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 	#################
 	### BAREBONES ###
 	#################
-	if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "barebones" || file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "barebonesF2FS" then
-			if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "barebonesF2FS" then
-				ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Flashing Devil Kernel");
-				package_extract_file("_archidroid/kernels/devil/boot.img", "/dev/block/mmcblk0p5");
-			else
-				ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Flashing Stock Kernel");
-				package_extract_file("boot.img", "/dev/block/mmcblk0p5");
-			endif;
+	if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "barebones" then
+			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Flashing Stock Kernel");
+			package_extract_file("boot.img", "/dev/block/mmcblk0p5");
 			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying 320 DPI");
 			package_extract_file("_archidroid/dpi/320dpi.sh", "/tmp/320dpi.sh");
 			set_perm(0, 0, 0777, "/tmp/320dpi.sh");

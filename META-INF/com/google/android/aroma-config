@@ -377,7 +377,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 
 			"data","<#selectbg_g>/Data filesystem</#>","","group",
 			#"f2fs","F2FS","<~archidroid.filesystem.f2fs.desc>","select",
-			#"ext4","EXT4","<~archidroid.filesystem.ext4.desc>","select",
+			"ext4","EXT4","<~archidroid.filesystem.ext4.desc>","select",
 			"current","Current: "+getvar("datafs"),"","select.selected",
 
 			"cache","<#selectbg_g>/Cache filesystem</#>","","group",
@@ -403,7 +403,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 			"current","Current: "+getvar("systemfs"),"","select.selected",
 
 			"data","<#selectbg_g>/Data filesystem</#>","","group",
-			#"ext4","EXT4","<~archidroid.filesystem.ext4.desc>","select",
+			"ext4","EXT4","<~archidroid.filesystem.ext4.desc>","select",
 			"current","Current: "+getvar("datafs"),"","select.selected",
 
 			"cache","<#selectbg_g>/Cache filesystem</#>","","group",

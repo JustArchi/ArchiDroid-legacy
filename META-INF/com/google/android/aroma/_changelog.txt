@@ -6,6 +6,14 @@ ArchiDroid 2.3.6
 # (*) /data doesn't work with F2FS yet due to kernel bug in Devil's kernel
 # (*) /cache is not being able to reformat back to ext4 from ArchiDroid Partition Wizard, while you can't reformat /data at all if you're flashing from internal sd card. This is on my todo
 
+- [!] Reworked recovery flashing
+# Now you can flash recovery TRULY before ArchiDroid flashing
+# If you choose recovery flashing option, ArchiDroid won't be flashed at all, instead, it will flash your recovery and then reboot it (recovery)
+# If any recovery update will be needed in the future, this way you won't need to do it manually anymore (as long as proper recovery is available in ArchiDroid)
+
+- Added Devil's Recovery
+# This is the only recovery with F2FS support for now, you can use above reworked method to flash it right from ArchiDroid itself
+
 - ADBLOCK: Added FORCE_LOCAL_DNSES, which may be useful in case of wrong answers from global DNSes but good from local ones, which are slower than global ones. Disabled by default
 - ADBLOCK: Fixed adblock not working on some kernels
 - Xposed is now pre-activated if chosen in aroma, this also acts as a nice workaround for failed xposed install on f2fs /system (accidentally)

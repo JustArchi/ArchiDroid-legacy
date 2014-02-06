@@ -14,7 +14,7 @@ mv /system/bin/addnsmasq /system/bin/dnsmasq
 
 # ArchiDroid Adblock Hosts
 if [ ! -e /system/archidroid/etc/hosts ]; then
-	cp /system/archidroid/etc/hosts_adaway /system/archidroid/etc/hosts
+	ln -s /system/archidroid/etc/hosts_adaway /system/archidroid/etc/hosts
 fi
 
 # SuperSU

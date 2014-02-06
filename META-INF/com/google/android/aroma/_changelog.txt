@@ -1,9 +1,12 @@
 ArchiDroid 2.3.6
 
-- [!] Implemented F2FS
-# Don't touch it yet unless you want to brick your device
+- [!] Implemented ArchiDroid Partition Wizard and full F2FS support for /system /preload /cache(*) /data(*)
+# Option for reformatting to F2FS is only available if your custom recovery and chosen kernel support it
+# Reformatting is optional, by default ArchiDroid won't perform any action
+# (*) /data doesn't work with F2FS yet due to kernel bug in Devil's kernel
+# (*) /cache is not being able to reformat back to ext4 from ArchiDroid Partition Wizard, while you can't reformat /data at all if you're flashing from internal sd card. This is on my todo
 
 - ADBLOCK: Added FORCE_LOCAL_DNSES, which may be useful in case of wrong answers from global DNSes but good from local ones, which are slower than global ones. Disabled by default
-- Fixed AdBlock not working on some kernels
-- Xposed is now pre-activated if chosen in aroma
+- ADBLOCK: Fixed adblock not working on some kernels
+- Xposed is now pre-activated if chosen in aroma, this also acts as a nice workaround for failed xposed install on f2fs /system (accidentally)
 - Updated Spirit2 to 0130

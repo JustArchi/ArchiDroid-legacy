@@ -3,5 +3,6 @@ ArchiDroid 2.3.6
 - [!] Implemented F2FS
 # Don't touch it yet unless you want to brick your device
 
+- ADBLOCK: Added FORCE_LOCAL_DNSES, which may be useful in case of wrong answers from global DNSes but good from local ones, which are slower than global ones. Disabled by default
 - Fixed AdBlock not working on some kernels
 - Xposed is now pre-activated if chosen in aroma

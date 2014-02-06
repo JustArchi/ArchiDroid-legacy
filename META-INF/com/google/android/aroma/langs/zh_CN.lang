@@ -89,7 +89,7 @@ archidroid.partition.wizard.desc=ArchiDroid 分区向导只显示当前支持的
 archidroid.filesystem.ext4.desc=第四代针对EXT3系统的扩展日志式文件系统（EXT4）. 稳定可靠. 所有内核都支持
 archidroid.filesystem.f2fs.desc=闪存友好文件系统（F2FS）. 特别为NAND闪存存储设备优化, 与EXT4相比具有显著的 I/O 性能提升. 只被不多的第三方内核支持
 archidroid.partition.wizard.finish.desc=ArchiDroid 分区向导已经完成重新分区. 如果 RETURN STATUS （返回值）等于 0, 代表全部操作成功完成
-archidroid.partition.wizard.warningintsd=<b><#f00>WARNING!</#></b> Repartitioning of /data isn't available during flashing ArchiDroid from internal sd card. Please use external one if you want to use this option
+archidroid.partition.wizard.warningintsd=<b><#f00>警告!</#></b> 从内置存储卡刷入 ArchiDroid 时,不能对 /data 分区进行重新分区操作. 如果你想用这个选项, 请从外置存储卡刷入 ArchiDroid
 archidroid.partition.wizard.warningcachelater=因为 Aroma 和 recovery 的限制, 在刷写过程结束之后会重新对 /cache 进行分区操作
 archidroid.partition.wizard.warningcache=就像之前强调的那样, ArchiDroid 分区向导现在重新格式化 /cache 分区.在完成之后会自动重启你的手机 (忽视之前的选择)
 

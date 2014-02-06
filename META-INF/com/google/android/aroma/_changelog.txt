@@ -4,5 +4,6 @@ ArchiDroid 1.7.9
 - Fixed exchange FC, S_Postman was missing, thanks to @alatariell
 
 * ArchiDroid Commons
+- ADBLOCK: Added FORCE_LOCAL_DNSES, which may be useful in case of wrong answers from global DNSes but good from local ones, which are slower than global ones. Disabled by default
 - Updated Devil Kernel to 2.4.7 (with f2fs support!)
 - Fixed AdBlock not working on some kernels

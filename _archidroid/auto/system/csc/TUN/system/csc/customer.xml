@@ -1,7 +1,7 @@
 ﻿<?xml  version="1.0" encoding="UTF-8" ?>
 <CustomerData>
   <GeneralInfo>
-    <CSCEdition>ED001</CSCEdition>
+    <CSCEdition>ED007</CSCEdition>
     <Country>TUNISIA</Country>
     <CountryISO>TN</CountryISO>
     <Region>MEA</Region>
@@ -49,12 +49,12 @@
       <Phone>
         <DefLanguage>fr_FR</DefLanguage>
         <DefLanguageNoSIM>fr_FR</DefLanguageNoSIM>
-        <T9Language>french</T9Language>
+		<VisiblePassword>off</VisiblePassword>
       </Phone>
       <Security />
     </Main>
     <Browser>
-      <NbBookmark>2</NbBookmark>
+      <NbBookmark>3</NbBookmark>
       <Bookmark>
         <NetworkName>default</NetworkName>
         <Editable>no</Editable>
@@ -68,6 +68,11 @@
         <Index>2</Index>
         <BookmarkName>Yahoo!</BookmarkName>
         <URL>http://m.yahoo.com/?tsrc=samsungbm</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <BookmarkName>User manual</BookmarkName>
+        <URL>http://www.samsung.com/m-manual/common</URL>
       </Bookmark>
       <eManual>
         <URL>http://www.samsung.com/m-manual/common</URL>
@@ -84,8 +89,8 @@
       <ProfileHandle>
         <NbNetProfile>2</NbNetProfile>
         <NetworkName>TUNISIE TELECOM</NetworkName>
-        <ProfBrowser>mobinet</ProfBrowser>
-        <ProfMMS>MMS</ProfMMS>
+        <ProfBrowser>TUNTEL Internet</ProfBrowser>
+        <ProfMMS>MMS TUNTEL</ProfMMS>
       </ProfileHandle>
       <ProfileHandle>
         <NbNetProfile>2</NbNetProfile>
@@ -96,9 +101,8 @@
       <NbProfile>6</NbProfile>
       <Profile>
         <NetworkName>TUNISIE TELECOM</NetworkName>
-        <Editable>no</Editable>
-        <ProfileName>MMS</ProfileName>
-        <URL>http://</URL>
+        <ProfileName>MMS TUNTEL</ProfileName>
+        <URL>http://192.168.0.3:19090/was</URL>
         <Auth>none</Auth>
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>
@@ -109,31 +113,20 @@
         </Proxy>
         <PSparam>
           <APN>mms.tn</APN>
-          <UserId>mms@tt1</UserId>
-          <Password>mms</Password>
         </PSparam>
       </Profile>
       <Profile>
         <NetworkName>TUNISIE TELECOM</NetworkName>
-        <Editable>no</Editable>
-        <ProfileName>mobinet</ProfileName>
+        <ProfileName>TUNTEL Internet</ProfileName>
         <Auth>none</Auth>
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>
-        <Proxy>
-          <EnableFlag>on</EnableFlag>
-          <ServAddr>0.0.0.0</ServAddr>
-          <Port>80</Port>
-        </Proxy>
         <PSparam>
-          <APN>gprs.tn</APN>
-          <UserId>gprs</UserId>
-          <Password>gprs</Password>
+          <APN>internet.tn</APN>
         </PSparam>
       </Profile>
       <Profile>
         <NetworkName>TUNISIANA</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>MMS Tunisiana</ProfileName>
         <URL>http://mmsc.tunisiana.com</URL>
         <Auth>normal</Auth>
@@ -152,16 +145,10 @@
       </Profile>
       <Profile>
         <NetworkName>TUNISIANA</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>internet Tunisiana</ProfileName>
         <Auth>normal</Auth>
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>
-        <Proxy>
-          <EnableFlag>on</EnableFlag>
-          <ServAddr>10.3.2.99</ServAddr>
-          <Port>80</Port>
-        </Proxy>
         <PSparam>
           <APN>internet.tunisiana.com</APN>
           <UserId>internet</UserId>
@@ -170,7 +157,6 @@
       </Profile>
       <Profile>
         <NetworkName>Orange</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>Orange MMS</ProfileName>
         <URL>http://mms.orange.tn</URL>
         <Auth>normal</Auth>
@@ -187,8 +173,8 @@
       </Profile>
       <Profile>
         <NetworkName>Orange</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>weborange</ProfileName>
+        <URL>http://m.orange.tn</URL>
         <Auth>normal</Auth>
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>

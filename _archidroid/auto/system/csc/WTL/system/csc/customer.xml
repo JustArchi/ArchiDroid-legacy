@@ -1,7 +1,7 @@
 ﻿<?xml  version="1.0" encoding="UTF-8" ?>
 <CustomerData>
   <GeneralInfo>
-    <CSCEdition>ED001</CSCEdition>
+    <CSCEdition>ED002</CSCEdition>
     <Country>Algeria</Country>
     <CountryISO>DZ</CountryISO>
     <Region>MEA</Region>
@@ -42,21 +42,19 @@
         <AlertOnCall>on</AlertOnCall>
         <DefLanguage>fr_FR</DefLanguage>
         <DefLanguageNoSIM>fr_FR</DefLanguageNoSIM>
-        <T9Enabling>enable</T9Enabling>
-        <T9Language>french</T9Language>
         <DateTimeFormat>
           <DateFormat>ddmmyyyy</DateFormat>
           <TimeFormat>24h</TimeFormat>
         </DateTimeFormat>
+		<VisiblePassword>off</VisiblePassword>
       </Phone>
       <Security />
     </Main>
-    <Calendar>
-      <StartDay>sunday</StartDay>
-    </Calendar>
     <Messages>
       <SMS>
         <DeliveryReport>on</DeliveryReport>
+        <DeleteOldMessageCntSms>200</DeleteOldMessageCntSms>
+        <DeleteOldMessageCntMms>20</DeleteOldMessageCntMms>
       </SMS>
     </Messages>
     <Browser>
@@ -96,13 +94,12 @@
       <ProfileHandle>
         <NbNetProfile>2</NbNetProfile>
         <NetworkName>Nedjma</NetworkName>
-        <ProfBrowser>Nedjma Wap</ProfBrowser>
+        <ProfBrowser>Internet</ProfBrowser>
         <ProfMMS>Nedjma MMS</ProfMMS>
       </ProfileHandle>
       <NbProfile>6</NbProfile>
       <Profile>
         <NetworkName>Mobilis</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Mobilis Wap</ProfileName>
         <Auth>none</Auth>
         <Protocol>http</Protocol>
@@ -120,7 +117,6 @@
       </Profile>
       <Profile>
         <NetworkName>Mobilis</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Mobilis MMS</ProfileName>
         <URL>http://172.25.49.9/servlets/mms</URL>
         <Auth>none</Auth>
@@ -139,7 +135,6 @@
       </Profile>
       <Profile>
         <NetworkName>Djezzy</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Djezzy.wap</ProfileName>
         <Auth>none</Auth>
         <Protocol>http</Protocol>
@@ -150,7 +145,6 @@
       </Profile>
       <Profile>
         <NetworkName>Djezzy</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Djezzy.mms</ProfileName>
         <URL>http://172.024.97.152:10021/mmsc</URL>
         <Auth>normal</Auth>
@@ -169,25 +163,18 @@
       </Profile>
       <Profile>
         <NetworkName>Nedjma</NetworkName>
-        <Editable>yes</Editable>
-        <ProfileName>Nedjma Wap</ProfileName>
+        <ProfileName>Internet</ProfileName>
         <Auth>normal</Auth>
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>
-        <Proxy>
-          <EnableFlag>on</EnableFlag>
-          <ServAddr>192.168.52.2</ServAddr>
-          <Port>3128</Port>
-        </Proxy>
         <PSparam>
-          <APN>NedjmaWap</APN>
-          <UserId>wap</UserId>
-          <Password>wap</Password>
+          <APN>Internet</APN>
+          <UserId>Internet</UserId>
+          <Password>Internet</Password>
         </PSparam>
       </Profile>
       <Profile>
         <NetworkName>Nedjma</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Nedjma MMS</ProfileName>
         <URL>http://10.10.111.1</URL>
         <Auth>normal</Auth>

@@ -10,5 +10,6 @@
     <CscFeature_Email_AlignmentForRTL>TRUE</CscFeature_Email_AlignmentForRTL>
     <CscFeature_Framework_EnableBidirection>TRUE</CscFeature_Framework_EnableBidirection>
 <CscFeature_Email_DisableFontAttributeDuringComposing>Bold,Italic</CscFeature_Email_DisableFontAttributeDuringComposing>
+<CscFeature_RIL_EnableLaunchBrowser>TRUE</CscFeature_RIL_EnableLaunchBrowser>
   </FeatureSet>
 </SamsungMobileFeauture>

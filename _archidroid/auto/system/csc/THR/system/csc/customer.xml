@@ -1,9 +1,9 @@
 ﻿<?xml  version="1.0" encoding="UTF-8" ?>
 <CustomerData>
   <GeneralInfo>
-    <CSCEdition>ED003</CSCEdition>
+    <CSCEdition>ED007</CSCEdition>
     <Country>UAE</Country>
-    <CountryISO>AE</CountryISO>
+    <CountryISO>IR</CountryISO>
     <Region>MEA</Region>
     <SalesCode>THR</SalesCode>
     <NbNetworkInfo>11</NbNetworkInfo>
@@ -74,11 +74,12 @@
       <Phone>
         <DefLanguage>en_GB</DefLanguage>
         <DefLanguageNoSIM>en_GB</DefLanguageNoSIM>
+		<VisiblePassword>off</VisiblePassword>
       </Phone>
       <Security />
     </Main>
     <Browser>
-      <NbBookmark>2</NbBookmark>
+      <NbBookmark>3</NbBookmark>
       <Bookmark>
         <NetworkName>default</NetworkName>
         <Index>1</Index>
@@ -90,6 +91,11 @@
         <Index>2</Index>
         <BookmarkName>Yahoo!</BookmarkName>
         <URL>http://m.yahoo.com/?tsrc=samsungbm</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <BookmarkName>User manual</BookmarkName>
+        <URL>http://www.samsung.com/m-manual/common</URL>
       </Bookmark>
       <eManual>
         <URL>http://www.samsung.com/m-manual/common</URL>
@@ -122,7 +128,6 @@
       <NbProfile>6</NbProfile>
       <Profile>
         <NetworkName>IR MCI</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>MCI-GPRS</ProfileName>
         <Auth>normal</Auth>
         <Protocol>http</Protocol>
@@ -138,7 +143,6 @@
       </Profile>
       <Profile>
         <NetworkName>IRANCELL</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Irancell-GPRS</ProfileName>
         <Auth>normal</Auth>
         <Protocol>http</Protocol>
@@ -154,7 +158,6 @@
       </Profile>
       <Profile>
         <NetworkName>ETISALAT</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Etisalat MMS</ProfileName>
         <URL>http://mms/servlets/mms</URL>
         <Auth>normal</Auth>
@@ -171,7 +174,6 @@
       </Profile>
       <Profile>
         <NetworkName>ETISALAT</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>DATA Package</ProfileName>
         <Auth>normal</Auth>
         <Protocol>http</Protocol>
@@ -182,7 +184,6 @@
       </Profile>
       <Profile>
         <NetworkName>du</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>du MMS</ProfileName>
         <URL>http://mms.du.ae</URL>
         <Auth>normal</Auth>
@@ -199,7 +200,6 @@
       </Profile>
       <Profile>
         <NetworkName>du</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>du</ProfileName>
         <Auth>normal</Auth>
         <Protocol>http</Protocol>

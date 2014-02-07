@@ -19,20 +19,12 @@
   <Settings>
     <Main>
       <Network>
-        <AutoProfile>on</AutoProfile>
-        <AutoVoicemail>off</AutoVoicemail>
-        <AutoEmailAccount>off</AutoEmailAccount>
-        <AutoBookmark>off</AutoBookmark>
-        <AutoLink>off</AutoLink>
-        <AutoSyncML>off</AutoSyncML>
-        <AutoFastDormancy>off</AutoFastDormancy>
-        <AutoWbAmr>off</AutoWbAmr>
-        <AutoFOTA>off</AutoFOTA>
+        <AutoProfile>off</AutoProfile>
       </Network>
       <Phone>
         <DefLanguage>ar_AE</DefLanguage>
         <DefLanguageNoSIM>ar_AE</DefLanguageNoSIM>
-        <T9Language>arabic</T9Language>
+		<VisiblePassword>off</VisiblePassword>
       </Phone>
       <Security />
     </Main>

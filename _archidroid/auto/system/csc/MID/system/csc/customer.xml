@@ -1,7 +1,7 @@
 ﻿<?xml  version="1.0" encoding="UTF-8" ?>
 <CustomerData>
   <GeneralInfo>
-    <CSCEdition>ED003</CSCEdition>
+    <CSCEdition>ED005</CSCEdition>
     <Country>Iraq</Country>
     <CountryISO>IQ</CountryISO>
     <Region>MEA</Region>
@@ -61,10 +61,23 @@
     </NetworkInfo>
   </GeneralInfo>
   <Settings>
-    <Main>
-      <Security>
-               <NbNetworkLock>28</NbNetworkLock>        <NetworkLock>460BB</NetworkLock>        <NetworkLock>250BB</NetworkLock>        <NetworkLock>255BB</NetworkLock>        <NetworkLock>502BB</NetworkLock>        <NetworkLock>510BB</NetworkLock>        <NetworkLock>401BB</NetworkLock>        <NetworkLock>525BB</NetworkLock>        <NetworkLock>452BB</NetworkLock>        <NetworkLock>505BB</NetworkLock>        <NetworkLock>515BB</NetworkLock>        <NetworkLock>470BB</NetworkLock>        <NetworkLock>404BB</NetworkLock>        <NetworkLock>405BB</NetworkLock>        <NetworkLock>724BB</NetworkLock>        <NetworkLock>370BB</NetworkLock>        <NetworkLock>338BB</NetworkLock>        <NetworkLock>374BB</NetworkLock>        <NetworkLock>706BB</NetworkLock>        <NetworkLock>734BB</NetworkLock>        <NetworkLock>714BB</NetworkLock>        <NetworkLock>712BB</NetworkLock>        <NetworkLock>740BB</NetworkLock>        <NetworkLock>704BB</NetworkLock>        <NetworkLock>708BB</NetworkLock>        <NetworkLock>710BB</NetworkLock>        <NetworkLock>621BB</NetworkLock>        <NetworkLock>620BB</NetworkLock>        <NetworkLock>639BB</NetworkLock>
+    <Main><Security>
+        <NbNetworkLock>13</NbNetworkLock>
+        <NetworkLock>460BB</NetworkLock>
+        <NetworkLock>250BB</NetworkLock>
+        <NetworkLock>255BB</NetworkLock>
+        <NetworkLock>502BB</NetworkLock>
+        <NetworkLock>510BB</NetworkLock>
+        <NetworkLock>401BB</NetworkLock>
+        <NetworkLock>525BB</NetworkLock>
+        <NetworkLock>452BB</NetworkLock>
+        <NetworkLock>505BB</NetworkLock>
+        <NetworkLock>515BB</NetworkLock>
+        <NetworkLock>470BB</NetworkLock>
+        <NetworkLock>404BB</NetworkLock>
+        <NetworkLock>405BB</NetworkLock>
       </Security>
+	
       <Network>
         <AutoProfile>on</AutoProfile>
         <AutoVoicemail>off</AutoVoicemail>
@@ -82,11 +95,12 @@
       <Phone>
         <DefLanguage>en_GB</DefLanguage>
         <DefLanguageNoSIM>en_GB</DefLanguageNoSIM>
-        <T9Language>english</T9Language>
         <DateTimeFormat>
           <DateFormat>ddmmyyyy</DateFormat>
         </DateTimeFormat>
+		<VisiblePassword>off</VisiblePassword>
       </Phone>
+      <Security />
     </Main>
     <Messages>
       <MMS>
@@ -94,14 +108,11 @@
         <MmsSending>
           <ReqDeliveryRep>off</ReqDeliveryRep>
           <ReqReadRep>off</ReqReadRep>
-          <MessageSize>300</MessageSize>
           <CreationMode>free</CreationMode>
         </MmsSending>
         <MmsReceiving>
           <Home>auto</Home>
           <Roaming>manual</Roaming>
-          <SendReadRep>on</SendReadRep>
-          <SendDeliveryRep>off</SendDeliveryRep>
         </MmsReceiving>
       </MMS>
     </Messages>
@@ -148,7 +159,6 @@
       <NbProfile>6</NbProfile>
       <Profile>
         <NetworkName>Zain JO</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Zain JO MMS</ProfileName>
         <URL>http://mms.jo.zain.com</URL>
         <Auth>normal</Auth>
@@ -167,7 +177,6 @@
       </Profile>
       <Profile>
         <NetworkName>Zain JO</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Zain JO Internet</ProfileName>
         <Auth>normal</Auth>
         <Protocol>http</Protocol>
@@ -180,7 +189,6 @@
       </Profile>
       <Profile>
         <NetworkName>Orange JO</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Orange JO MMS</ProfileName>
         <URL>http://172.16.1.96/servlets/mms</URL>
         <Auth>normal</Auth>
@@ -199,7 +207,6 @@
       </Profile>
       <Profile>
         <NetworkName>Orange JO</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Orange JO Internet</ProfileName>
         <Auth>normal</Auth>
         <Protocol>http</Protocol>
@@ -212,7 +219,6 @@
       </Profile>
       <Profile>
         <NetworkName>Umniah</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Umniah Internet</ProfileName>
         <Auth>normal</Auth>
         <Protocol>http</Protocol>
@@ -223,7 +229,6 @@
       </Profile>
       <Profile>
         <NetworkName>Umniah</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Umniah MMS</ProfileName>
         <URL>mms.umniah.com/</URL>
         <Auth>normal</Auth>

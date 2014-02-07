@@ -1,7 +1,7 @@
-<?xml  version="1.0" encoding="UTF-8" ?>
+﻿<?xml  version="1.0" encoding="UTF-8" ?>
 <CustomerData>
   <GeneralInfo>
-    <CSCEdition>ED001</CSCEdition>
+    <CSCEdition>ED005</CSCEdition>
     <Country>Libya</Country>
     <CountryISO>LY</CountryISO>
     <Region>MEA</Region>
@@ -24,11 +24,12 @@
       <Phone>
         <DefLanguage>arabic</DefLanguage>
         <DefLanguageNoSIM>arabic</DefLanguageNoSIM>
+		<VisiblePassword>off</VisiblePassword>
       </Phone>
       <Security />
     </Main>
     <Browser>
-      <NbBookmark>2</NbBookmark>
+      <NbBookmark>3</NbBookmark>
       <Bookmark>
         <NetworkName>default</NetworkName>
         <Index>1</Index>
@@ -42,9 +43,11 @@
         <BookmarkName>Yahoo!</BookmarkName>
         <URL>http://m.yahoo.com/?tsrc=samsungbm</URL>
       </Bookmark>
-      <eManual>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <BookmarkName>User manual</BookmarkName>
         <URL>http://www.samsung.com/m-manual/common</URL>
-      </eManual>
+      </Bookmark>
     </Browser>
     <Connections>
       <NbProfileHandle>2</NbProfileHandle>

@@ -8,5 +8,6 @@
     <CscFeature_Framework_EnableBidirection>TRUE</CscFeature_Framework_EnableBidirection>
     <CscFeature_Email_AlignmentForRTL>TRUE</CscFeature_Email_AlignmentForRTL>
     <CscFeature_SyncML_EnableNotiDeltaBinarySizeBeforeDownload>TRUE</CscFeature_SyncML_EnableNotiDeltaBinarySizeBeforeDownload>
+	<CscFeature_RIL_EnableLaunchBrowser>TRUE</CscFeature_RIL_EnableLaunchBrowser>
   </FeatureSet>
 </SamsungMobileFeauture>

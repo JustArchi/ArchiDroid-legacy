@@ -1,7 +1,7 @@
-<?xml  version="1.0" encoding="UTF-8" ?>
+﻿<?xml  version="1.0" encoding="UTF-8" ?>
 <CustomerData>
   <GeneralInfo>
-    <CSCEdition>ED001</CSCEdition>
+    <CSCEdition>ED004</CSCEdition>
     <Country>South Africa</Country>
     <CountryISO>ZA</CountryISO>
     <Region>MEA</Region>
@@ -57,11 +57,12 @@
       </Sound>
       <Phone>
         <DefLanguage>automatic</DefLanguage>
-        <DefLanguageNoSIM>english</DefLanguageNoSIM>				<VisiblePassword>off</VisiblePassword>
+        <DefLanguageNoSIM>en_GB</DefLanguageNoSIM>
         <DateTimeFormat>
           <DateFormat>ddmmyyyy</DateFormat>
           <TimeFormat>24h</TimeFormat>
         </DateTimeFormat>
+		<VisiblePassword>off</VisiblePassword>
       </Phone>
       <Display>
         <NbWallpaper>1</NbWallpaper>
@@ -79,32 +80,26 @@
       <NbVoicemail>6</NbVoicemail>
       <Voicemail>
         <NetworkName>Vodacom</NetworkName>
-        <VoicemailName>Voicemail</VoicemailName>
         <TelNum>121</TelNum>
       </Voicemail>
       <Voicemail>
         <NetworkName>MTN</NetworkName>
-        <VoicemailName>Voicemail</VoicemailName>
         <TelNum>100</TelNum>
       </Voicemail>
       <Voicemail>
         <NetworkName>Cell C</NetworkName>
-        <VoicemailName>Voicemail</VoicemailName>
         <TelNum>144</TelNum>
       </Voicemail>
       <Voicemail>
         <NetworkName>Virgin</NetworkName>
-        <VoicemailName>Voicemail</VoicemailName>
         <TelNum>121</TelNum>
       </Voicemail>
       <Voicemail>
         <NetworkName>Vodacom Lesotho</NetworkName>
-        <VoicemailName>Voicemail</VoicemailName>
         <TelNum>121</TelNum>
       </Voicemail>
       <Voicemail>
         <NetworkName>8ta</NetworkName>
-        <VoicemailName>Voicemail</VoicemailName>
         <TelNum>181</TelNum>
       </Voicemail>
       <SMS>
@@ -127,7 +122,7 @@
       </MMS>
     </Messages>
     <Browser>
-      <NbBookmark>7</NbBookmark>
+      <NbBookmark>8</NbBookmark>
       <Bookmark>
         <NetworkName>default</NetworkName>
         <Editable>no</Editable>
@@ -176,6 +171,11 @@
         <Index>7</Index>
         <BookmarkName>Find It</BookmarkName>
         <URL>http://m.za.samsungapps.com/find</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <BookmarkName>User manual</BookmarkName>
+        <URL>http://www.samsung.com/m-manual/common</URL>
       </Bookmark>
       <eManual>
         <URL>http://www.samsung.com/m-manual/common</URL>
@@ -284,9 +284,7 @@
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>
         <Proxy>
-          <EnableFlag>on</EnableFlag>
-          <ServAddr>196.31.116.250</ServAddr>
-          <Port>8080</Port>
+          <EnableFlag>off</EnableFlag>
         </Proxy>
         <PSparam>
           <APN>internet</APN>
@@ -311,6 +309,7 @@
       <Profile>
         <NetworkName>MTN</NetworkName>
         <ProfileName>MTN Data</ProfileName>
+        <URL>http://www.mtnplay.co.za</URL>
         <Auth>normal</Auth>
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>

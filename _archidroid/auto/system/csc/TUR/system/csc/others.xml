@@ -10,5 +10,6 @@
     <CscFeature_Message_UseSingleShiftTableWhenComposeSMS>TRUE</CscFeature_Message_UseSingleShiftTableWhenComposeSMS>
     <CscFeature_Email_AlignmentForRTL>TRUE</CscFeature_Email_AlignmentForRTL>
     <CscFeature_Web_EnableAutoSimHomeUrlInProfile>TRUE</CscFeature_Web_EnableAutoSimHomeUrlInProfile>
+	<CscFeature_RIL_EnableLaunchBrowser>TRUE</CscFeature_RIL_EnableLaunchBrowser>
   </FeatureSet>
 </SamsungMobileFeauture>

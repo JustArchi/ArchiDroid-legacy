@@ -1,4 +1,4 @@
-﻿<?xml  version="1.0" encoding="UTF-8" ?>
+<?xml  version="1.0" encoding="UTF-8" ?>
 <CustomerData>
   <GeneralInfo>
     <CSCEdition>ED001</CSCEdition>
@@ -6,39 +6,7 @@
     <CountryISO>MR</CountryISO>
     <Region>MEA</Region>
     <SalesCode>MRT</SalesCode>
-    <NbNetworkInfo>23</NbNetworkInfo>
-    <NetworkInfo>
-      <MCCMNC>63401</MCCMNC>
-      <NetworkName>Zain Sudan</NetworkName>
-    </NetworkInfo>
-    <NetworkInfo>
-      <MCCMNC>63402</MCCMNC>
-      <NetworkName>MTN Sudan</NetworkName>
-    </NetworkInfo>
-    <NetworkInfo>
-      <MCCMNC>63405</MCCMNC>
-      <NetworkName>Vivacell</NetworkName>
-    </NetworkInfo>
-    <NetworkInfo>
-      <MCCMNC>63407</MCCMNC>
-      <NetworkName>Sudani One</NetworkName>
-    </NetworkInfo>
-    <NetworkInfo>
-      <MCCMNC>65903</MCCMNC>
-      <NetworkName>Gemtel</NetworkName>
-    </NetworkInfo>
-    <NetworkInfo>
-      <MCCMNC>65902</MCCMNC>
-      <NetworkName>MTN South Sudan</NetworkName>
-    </NetworkInfo>
-    <NetworkInfo>
-      <MCCMNC>65907</MCCMNC>
-      <NetworkName>Sudani South Sudan</NetworkName>
-    </NetworkInfo>
-    <NetworkInfo>
-      <MCCMNC>65906</MCCMNC>
-      <NetworkName>Zain South Sudan</NetworkName>
-    </NetworkInfo>
+    <NbNetworkInfo>15</NbNetworkInfo>
     <NetworkInfo>
       <MCCMNC>41601</MCCMNC>
       <NetworkName>zain JO</NetworkName>
@@ -103,40 +71,39 @@
   <Settings>
     <Main>
       <Network>
-        <AutoProfile>off</AutoProfile>
+        <AutoProfile>on</AutoProfile>
+        <AutoVoicemail>off</AutoVoicemail>
+        <AutoEmailAccount>off</AutoEmailAccount>
+        <AutoBookmark>off</AutoBookmark>
+        <AutoLink>off</AutoLink>
+        <AutoSyncML>off</AutoSyncML>
+        <AutoFastDormancy>off</AutoFastDormancy>
+        <AutoWbAmr>off</AutoWbAmr>
+        <AutoFOTA>off</AutoFOTA>
       </Network>
       <Sound>
         <RngToneAlertType>melody</RngToneAlertType>
       </Sound>
       <Phone>
-        <DefLanguage>en_GB</DefLanguage>
-        <DefLanguageNoSIM>en_GB</DefLanguageNoSIM>
+        <DefLanguage>english</DefLanguage>
+        <DefLanguageNoSIM>english</DefLanguageNoSIM>
         <T9Language>english</T9Language>
-        <KeypadType>qwerty</KeypadType>
         <DateTimeFormat>
           <DateFormat>ddmmyyyy</DateFormat>
         </DateTimeFormat>
-        <WeekendSetting>frisat</WeekendSetting>
       </Phone>
       <Security />
     </Main>
-    <Calendar>
-      <StartDay>sunday</StartDay>
-    </Calendar>
     <Messages>
       <MMS>
-        <MMSVersion>1.2</MMSVersion>
         <MmsSending>
           <ReqDeliveryRep>off</ReqDeliveryRep>
           <ReqReadRep>off</ReqReadRep>
-          <MessageSize>300</MessageSize>
           <CreationMode>free</CreationMode>
         </MmsSending>
         <MmsReceiving>
           <Home>auto</Home>
           <Roaming>manual</Roaming>
-          <SendReadRep>on</SendReadRep>
-          <SendDeliveryRep>off</SendDeliveryRep>
         </MmsReceiving>
       </MMS>
     </Messages>
@@ -145,14 +112,12 @@
       <Bookmark>
         <NetworkName>default</NetworkName>
         <Editable>no</Editable>
-        <Index>1</Index>
         <BookmarkName>Samsung Apps Web</BookmarkName>
         <URL>http://www.samsungapps.com</URL>
       </Bookmark>
       <Bookmark>
         <NetworkName>default</NetworkName>
         <Editable>yes</Editable>
-        <Index>2</Index>
         <BookmarkName>Yahoo!</BookmarkName>
         <URL>http://m.yahoo.com/?tsrc=samsungbm</URL>
       </Bookmark>
@@ -161,14 +126,7 @@
       </eManual>
     </Browser>
     <Connections>
-      <NbProfileHandle>3</NbProfileHandle>
-      <ProfileHandle>
-        <NbNetProfile>2</NbNetProfile>
-        <NetworkName>Sudani One</NetworkName>
-        <ProfBrowser>sudaniinternet</ProfBrowser>
-        <ProfMMS>sudaniMMS</ProfMMS>
-        <ProfEmail>sudaniinternet</ProfEmail>
-      </ProfileHandle>
+      <NbProfileHandle>2</NbProfileHandle>
       <ProfileHandle>
         <NbNetProfile>2</NbNetProfile>
         <NetworkName>ETISALAT</NetworkName>
@@ -181,43 +139,9 @@
         <ProfBrowser>du</ProfBrowser>
         <ProfMMS>du MMS</ProfMMS>
       </ProfileHandle>
-      <NbProfile>6</NbProfile>
-      <Profile>
-        <NetworkName>Sudani One</NetworkName>
-        <Editable>yes</Editable>
-        <ProfileName>sudaniMMS</ProfileName>
-        <URL>10.50.182.30:38090/was</URL>
-        <Auth>normal</Auth>
-        <Protocol>http</Protocol>
-        <MTUSize>1500</MTUSize>
-        <Proxy>
-          <EnableFlag>on</EnableFlag>
-          <ServAddr>10.50.189.114</ServAddr>
-          <Port>8080</Port>
-        </Proxy>
-        <PSparam>
-          <APN>sudanimms</APN>
-          <UserId>sudani</UserId>
-          <Password>sudani</Password>
-        </PSparam>
-      </Profile>
-      <Profile>
-        <NetworkName>Sudani One</NetworkName>
-        <Editable>yes</Editable>
-        <ProfileName>sudaniinternet</ProfileName>
-        <URL>http://www.sudani.sd</URL>
-        <Auth>normal</Auth>
-        <Protocol>http</Protocol>
-        <MTUSize>1500</MTUSize>
-        <PSparam>
-          <APN>sudaninet</APN>
-          <UserId>sudani</UserId>
-          <Password>sudani</Password>
-        </PSparam>
-      </Profile>
+      <NbProfile>4</NbProfile>
       <Profile>
         <NetworkName>ETISALAT</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Etisalat MMS</ProfileName>
         <URL>http://mms/servlets/mms</URL>
         <Auth>normal</Auth>
@@ -234,7 +158,6 @@
       </Profile>
       <Profile>
         <NetworkName>ETISALAT</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>DATA Package</ProfileName>
         <Auth>normal</Auth>
         <Protocol>http</Protocol>
@@ -245,7 +168,6 @@
       </Profile>
       <Profile>
         <NetworkName>du</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>du MMS</ProfileName>
         <URL>http://mms.du.ae</URL>
         <Auth>normal</Auth>
@@ -262,7 +184,6 @@
       </Profile>
       <Profile>
         <NetworkName>du</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>du</ProfileName>
         <Auth>normal</Auth>
         <Protocol>http</Protocol>

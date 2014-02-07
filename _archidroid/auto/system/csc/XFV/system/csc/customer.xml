@@ -1,19 +1,19 @@
 ﻿<?xml  version="1.0" encoding="UTF-8" ?>
 <CustomerData>
   <GeneralInfo>
-    <CSCEdition>ED007</CSCEdition>
+    <CSCEdition>ED015</CSCEdition>
     <Country>South Africa</Country>
     <CountryISO>ZA</CountryISO>
     <Region>MEA</Region>
     <SalesCode>XFV</SalesCode>
-    <NbNetworkInfo>7</NbNetworkInfo>
+    <NbNetworkInfo>8</NbNetworkInfo>
     <NetworkInfo>
       <MCCMNC>65501</MCCMNC>
       <NetworkName>Vodacom</NetworkName>
     </NetworkInfo>
     <NetworkInfo>
       <MCCMNC>65502</MCCMNC>
-      <NetworkName>8ta</NetworkName>
+      <NetworkName>TelkomSA</NetworkName>
     </NetworkInfo>
     <NetworkInfo>
       <MCCMNC>65101</MCCMNC>
@@ -31,6 +31,10 @@
       <MCCMNC>65507</MCCMNC>
       <NetworkName>Virgin</NetworkName>
       <SPCode>10</SPCode>
+    </NetworkInfo>
+    <NetworkInfo>
+      <MCCMNC>65502</MCCMNC>
+      <NetworkName>TelkomSA</NetworkName>
     </NetworkInfo>
     <NetworkInfo>
       <MCCMNC>65507</MCCMNC>
@@ -53,72 +57,69 @@
       </Network>
       <Sound>
         <RngToneAlertType>melody</RngToneAlertType>
+        <AMRVoiceCodec>on</AMRVoiceCodec>
       </Sound>
       <Phone>
         <DefLanguage>automatic</DefLanguage>
         <DefLanguageNoSIM>en_GB</DefLanguageNoSIM>
-        <T9Enabling>enable</T9Enabling>
         <DateTimeFormat>
           <DateFormat>ddmmyyyy</DateFormat>
           <TimeFormat>24h</TimeFormat>
         </DateTimeFormat>
+		<VisiblePassword>off</VisiblePassword>
       </Phone>
       <Display>
         <NbWallpaper>4</NbWallpaper>
-        <Wallpaper src="/Customer/XFV/Wallpaper/1920x1920-wallpapers-01.png" width="1920" height="1920" default="true">
+        <Wallpaper src="/Customer/XFV/Wallpaper/720x1280-wallpaper-01.jpg" width="720" height="1280" default="true">
           <Position>1</Position>
-          <FileType>PNG</FileType>
+          <FileType>JPG</FileType>
         </Wallpaper>
-        <Wallpaper src="/Customer/XFV/Wallpaper/1920x1920-wallpapers-02.png" width="1920" height="1920">
+        <Wallpaper src="/Customer/XFV/Wallpaper/720x1280-wallpaper-02.jpg" width="720" height="1280">
           <Position>2</Position>
-          <FileType>PNG</FileType>
+          <FileType>JPG</FileType>
         </Wallpaper>
-        <Wallpaper src="/Customer/XFV/Wallpaper/1920x1920-wallpapers-03.png" width="1920" height="1920">
+        <Wallpaper src="/Customer/XFV/Wallpaper/720x1280-wallpaper-03.jpg" width="720" height="1280">
           <Position>3</Position>
-          <FileType>PNG</FileType>
+          <FileType>JPG</FileType>
         </Wallpaper>
-        <Wallpaper src="/Customer/XFV/Wallpaper/1920x1920-wallpapers-04.png" width="1920" height="1920">
+        <Wallpaper src="/Customer/XFV/Wallpaper/720x1280-wallpaper-04.jpg" width="720" height="1280">
           <Position>4</Position>
-          <FileType>PNG</FileType>
+          <FileType>JPG</FileType>
         </Wallpaper>
       </Display>
       <Security />
     </Main>
+    <Contact>
+      <ViewFrom>both</ViewFrom>
+    </Contact>
     <Messages>
       <NbVoicemail>7</NbVoicemail>
       <Voicemail>
         <NetworkName>Vodacom</NetworkName>
-        <VoicemailName>Voicemail</VoicemailName>
         <TelNum>121</TelNum>
       </Voicemail>
       <Voicemail>
         <NetworkName>MTN</NetworkName>
-        <VoicemailName>Voicemail</VoicemailName>
         <TelNum>100</TelNum>
       </Voicemail>
       <Voicemail>
         <NetworkName>Cell C</NetworkName>
-        <VoicemailName>Voicemail</VoicemailName>
         <TelNum>144</TelNum>
       </Voicemail>
       <Voicemail>
         <NetworkName>Virgin</NetworkName>
-        <VoicemailName>Voicemail</VoicemailName>
         <TelNum>121</TelNum>
       </Voicemail>
       <Voicemail>
         <NetworkName>Vodacom Lesotho</NetworkName>
-        <VoicemailName>Voicemail</VoicemailName>
         <TelNum>121</TelNum>
       </Voicemail>
       <Voicemail>
-        <NetworkName>8ta</NetworkName>
-        <VoicemailName>Voicemail</VoicemailName>
+        <NetworkName>TelkomSA</NetworkName>
         <TelNum>181</TelNum>
       </Voicemail>
       <Voicemail>
         <NetworkName>Red Bull Mobile</NetworkName>
-        <VoicemailName>Voicemail</VoicemailName>
         <TelNum>140</TelNum>
       </Voicemail>
       <SMS>
@@ -133,24 +134,13 @@
         <MmsSending>
           <ReqDeliveryRep>off</ReqDeliveryRep>
           <ReqReadRep>off</ReqReadRep>
-          <MessageSize>300</MessageSize>
         </MmsSending>
         <MmsReceiving>
           <Home>auto</Home>
           <Roaming>manual</Roaming>
-          <SendReadRep>off</SendReadRep>
-          <SendDeliveryRep>off</SendDeliveryRep>
         </MmsReceiving>
       </MMS>
     </Messages>
-    <Multimedia>
-      <Camera>
-        <Quality>high</Quality>
-      </Camera>
-      <Video>
-        <Quality>high</Quality>
-      </Video>
-    </Multimedia>
     <Browser>
       <NbBookmark>17</NbBookmark>
       <Bookmark>
@@ -163,112 +153,112 @@
       <Bookmark>
         <NetworkName>default</NetworkName>
         <Editable>no</Editable>
-        <Index>2</Index>
+        <Index>4</Index>
         <BookmarkName>Samsung Apps</BookmarkName>
         <URL>http://m.za.samsungapps.com/Home</URL>
       </Bookmark>
       <Bookmark>
         <NetworkName>default</NetworkName>
         <Editable>no</Editable>
-        <Index>3</Index>
+        <Index>5</Index>
         <BookmarkName>Top Downloads</BookmarkName>
         <URL>http://m.za.samsungapps.com/top</URL>
       </Bookmark>
       <Bookmark>
         <NetworkName>default</NetworkName>
         <Editable>no</Editable>
-        <Index>4</Index>
+        <Index>6</Index>
         <BookmarkName>Best of the Mobile Web</BookmarkName>
         <URL>http://m.za.samsungapps.com/best</URL>
       </Bookmark>
       <Bookmark>
         <NetworkName>default</NetworkName>
         <Editable>no</Editable>
-        <Index>5</Index>
+        <Index>7</Index>
         <BookmarkName>News &amp; Sport</BookmarkName>
         <URL>http://m.za.samsungapps.com/news</URL>
       </Bookmark>
       <Bookmark>
         <NetworkName>default</NetworkName>
         <Editable>no</Editable>
-        <Index>6</Index>
+        <Index>8</Index>
         <BookmarkName>Weather</BookmarkName>
         <URL>http://m.za.samsungapps.com/weather</URL>
       </Bookmark>
       <Bookmark>
         <NetworkName>default</NetworkName>
         <Editable>no</Editable>
-        <Index>7</Index>
+        <Index>9</Index>
         <BookmarkName>Entertainment</BookmarkName>
         <URL>http://m.za.samsungapps.com/entertain</URL>
       </Bookmark>
       <Bookmark>
         <NetworkName>default</NetworkName>
         <Editable>no</Editable>
-        <Index>8</Index>
+        <Index>10</Index>
         <BookmarkName>Find It</BookmarkName>
         <URL>http://m.za.samsungapps.com/find</URL>
       </Bookmark>
       <Bookmark>
         <NetworkName>default</NetworkName>
         <Editable>no</Editable>
-        <Index>9</Index>
+        <Index>11</Index>
         <BookmarkName>Games</BookmarkName>
         <URL>http://live.vodafone.com/games</URL>
       </Bookmark>
       <Bookmark>
         <NetworkName>default</NetworkName>
         <Editable>no</Editable>
-        <Index>10</Index>
+        <Index>12</Index>
         <BookmarkName>Pictures</BookmarkName>
         <URL>http://live.vodafone.com/pictures</URL>
       </Bookmark>
       <Bookmark>
         <NetworkName>default</NetworkName>
         <Editable>no</Editable>
-        <Index>11</Index>
+        <Index>13</Index>
         <BookmarkName>Music</BookmarkName>
         <URL>http://live.vodafone.com/music</URL>
       </Bookmark>
       <Bookmark>
         <NetworkName>default</NetworkName>
         <Editable>no</Editable>
-        <Index>12</Index>
+        <Index>14</Index>
         <BookmarkName>Sport</BookmarkName>
         <URL>http://live.vodafone.com/sport</URL>
       </Bookmark>
       <Bookmark>
         <NetworkName>default</NetworkName>
         <Editable>no</Editable>
-        <Index>13</Index>
+        <Index>15</Index>
         <BookmarkName>News</BookmarkName>
         <URL>http://live.vodafone.com/news</URL>
       </Bookmark>
       <Bookmark>
         <NetworkName>default</NetworkName>
         <Editable>no</Editable>
-        <Index>14</Index>
+        <Index>16</Index>
         <BookmarkName>Mobile TV</BookmarkName>
         <URL>http://live.vodafone.com/tv</URL>
       </Bookmark>
       <Bookmark>
         <NetworkName>default</NetworkName>
         <Editable>no</Editable>
-        <Index>15</Index>
+        <Index>20</Index>
         <BookmarkName>Vodacom</BookmarkName>
         <URL>http://vodacom.mobi/</URL>
       </Bookmark>
       <Bookmark>
         <NetworkName>default</NetworkName>
         <Editable>no</Editable>
-        <Index>16</Index>
+        <Index>21</Index>
         <BookmarkName>Chat</BookmarkName>
         <URL>http://live.vodafone.com/chat</URL>
       </Bookmark>
       <Bookmark>
         <NetworkName>default</NetworkName>
         <Editable>no</Editable>
-        <Index>17</Index>
+        <Index>22</Index>
         <BookmarkName>Apps</BookmarkName>
         <URL>http://vodacom.mobi/apps</URL>
       </Bookmark>
@@ -316,9 +306,9 @@
       </ProfileHandle>
       <ProfileHandle>
         <NbNetProfile>2</NbNetProfile>
-        <NetworkName>8ta</NetworkName>
-        <ProfBrowser>8.ta internet</ProfBrowser>
-        <ProfMMS>8.ta mms</ProfMMS>
+        <NetworkName>TelkomSA</NetworkName>
+        <ProfBrowser>TelkomSA internet</ProfBrowser>
+        <ProfMMS>TelkomSA mms</ProfMMS>
       </ProfileHandle>
       <ProfileHandle>
         <NbNetProfile>2</NbNetProfile>
@@ -329,7 +319,6 @@
       <NbProfile>14</NbProfile>
       <Profile>
         <NetworkName>Vodacom</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>Smart.Vodacom</ProfileName>
         <URL>http://live.vodafone.com</URL>
         <Auth>normal</Auth>
@@ -344,7 +333,6 @@
       </Profile>
       <Profile>
         <NetworkName>Vodacom</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>MMS.Vodacom</ProfileName>
         <URL>http://mmsc.vodacom4me.co.za/</URL>
         <Auth>normal</Auth>
@@ -361,7 +349,6 @@
       </Profile>
       <Profile>
         <NetworkName>Vodacom Lesotho</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>VCL Internet GPRS</ProfileName>
         <Auth>normal</Auth>
         <Protocol>http</Protocol>
@@ -372,7 +359,6 @@
       </Profile>
       <Profile>
         <NetworkName>Vodacom Lesotho</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>VCL MMS GPRS</ProfileName>
         <URL>http://mmsc.vodacom4me.co.za/</URL>
         <Auth>normal</Auth>
@@ -389,7 +375,6 @@
       </Profile>
       <Profile>
         <NetworkName>Cell C</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>Smartdata</ProfileName>
         <Auth>normal</Auth>
         <Protocol>http</Protocol>
@@ -400,7 +385,6 @@
       </Profile>
       <Profile>
         <NetworkName>Cell C</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>Cell C MMS</ProfileName>
         <URL>http://mms.cmobile.co.za</URL>
         <Auth>normal</Auth>
@@ -417,8 +401,8 @@
       </Profile>
       <Profile>
         <NetworkName>MTN</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>MTN Data</ProfileName>
+        <URL>http://www.mtnplay.co.za</URL>
         <Auth>normal</Auth>
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>
@@ -432,7 +416,6 @@
       </Profile>
       <Profile>
         <NetworkName>MTN</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>MTN MMS</ProfileName>
         <URL>http://mms.mtn.co.za/mms/wapenc</URL>
         <Auth>normal</Auth>
@@ -451,7 +434,6 @@
       </Profile>
       <Profile>
         <NetworkName>Virgin</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>virgin_internet</ProfileName>
         <Auth>normal</Auth>
         <Protocol>http</Protocol>
@@ -467,7 +449,6 @@
       </Profile>
       <Profile>
         <NetworkName>Virgin</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>virgin_mms</ProfileName>
         <URL>http://mms.virginmobile.co.za</URL>
         <Auth>normal</Auth>
@@ -483,9 +464,9 @@
         </PSparam>
       </Profile>
       <Profile>
-        <NetworkName>8ta</NetworkName>
-        <Editable>no</Editable>
-        <ProfileName>8.ta internet</ProfileName>
+        <NetworkName>TelkomSA</NetworkName>
+        <ProfileName>TelkomSA internet</ProfileName>
+        <URL>http://www.telkommobile.mobi</URL>
         <Auth>normal</Auth>
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>
@@ -494,9 +475,8 @@
         </PSparam>
       </Profile>
       <Profile>
-        <NetworkName>8ta</NetworkName>
-        <Editable>no</Editable>
-        <ProfileName>8.ta mms</ProfileName>
+        <NetworkName>TelkomSA</NetworkName>
+        <ProfileName>TelkomSA mms</ProfileName>
         <URL>http://mms.8ta.com:38090/was</URL>
         <Auth>normal</Auth>
         <Protocol>http</Protocol>
@@ -512,7 +492,6 @@
       </Profile>
       <Profile>
         <NetworkName>Red Bull Mobile</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>Redbull MMS</ProfileName>
         <URL>http://mms.cmobile.co.za</URL>
         <Auth>normal</Auth>
@@ -529,7 +508,6 @@
       </Profile>
       <Profile>
         <NetworkName>Red Bull Mobile</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>Redbull GPRS</ProfileName>
         <Auth>normal</Auth>
         <Protocol>http</Protocol>

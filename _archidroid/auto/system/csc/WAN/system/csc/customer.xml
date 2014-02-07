@@ -1,7 +1,7 @@
 ﻿<?xml  version="1.0" encoding="UTF-8" ?>
 <CustomerData>
   <GeneralInfo>
-    <CSCEdition>ED001</CSCEdition>
+    <CSCEdition>ED005</CSCEdition>
     <Country>MOROCCO</Country>
     <CountryISO>MA</CountryISO>
     <Region>MEA</Region>
@@ -28,7 +28,6 @@
         <NbFastDormancy>1</NbFastDormancy>
         <FastDormancy>
           <NetworkName>inwi</NetworkName>
-          <FastDormancyEnableStatus>on</FastDormancyEnableStatus>
         </FastDormancy>
         <AutoProfile>on</AutoProfile>
         <AutoVoicemail>off</AutoVoicemail>
@@ -42,11 +41,6 @@
       </Network>
       <Sound>
         <RngToneAlertType>melody</RngToneAlertType>
-        <RngVolume>6</RngVolume>
-        <KeyTone>
-          <KeyVolume>4</KeyVolume>
-        </KeyTone>
-        <MsgToneAlertType>melody</MsgToneAlertType>
         <ExtraSound>
           <ConnectTone>on</ConnectTone>
         </ExtraSound>
@@ -54,44 +48,37 @@
       <Phone>
         <DefLanguage>fr_FR</DefLanguage>
         <DefLanguageNoSIM>fr_FR</DefLanguageNoSIM>
-        <T9Enabling>disable</T9Enabling>
-        <T9Language>french</T9Language>
         <DateTimeFormat>
           <DateFormat>ddmmyyyy</DateFormat>
           <TimeFormat>24h</TimeFormat>
         </DateTimeFormat>
+		<VisiblePassword>off</VisiblePassword>
       </Phone>
     </Main>
-    <Calendar>
-      <StartDay>monday</StartDay>
-    </Calendar>
+    <Contact>
+      <SavePosition>sim</SavePosition>
+    </Contact>
     <Messages>
       <NbVoicemail>1</NbVoicemail>
       <Voicemail>
         <NetworkName>default</NetworkName>
         <TelNum>+212529000123</TelNum>
       </Voicemail>
-      <SMS>
-        <CharSupport>automatic</CharSupport>
-      </SMS>
       <MMS>
         <MMSVersion>1.2</MMSVersion>
         <MmsSending>
           <ReqDeliveryRep>off</ReqDeliveryRep>
           <ReqReadRep>off</ReqReadRep>
-          <MessageSize>300</MessageSize>
           <CreationMode>warning</CreationMode>
         </MmsSending>
         <MmsReceiving>
           <Home>auto</Home>
           <Roaming>manual</Roaming>
-          <SendReadRep>prompt</SendReadRep>
-          <SendDeliveryRep>off</SendDeliveryRep>
         </MmsReceiving>
       </MMS>
     </Messages>
     <Browser>
-      <NbBookmark>6</NbBookmark>
+      <NbBookmark>7</NbBookmark>
       <Bookmark>
         <NetworkName>default</NetworkName>
         <Editable>yes</Editable>
@@ -123,6 +110,11 @@
         <BookmarkName>Youtube</BookmarkName>
         <URL>http://m.youtube.com</URL>
       </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <BookmarkName>User manual</BookmarkName>
+        <URL>http://www.samsung.com/m-manual/common</URL>
+      </Bookmark>
       <eManual>
         <URL>http://www.samsung.com/m-manual/common</URL>
       </eManual>
@@ -133,12 +125,11 @@
         <NbNetProfile>2</NbNetProfile>
         <NetworkName>inwi</NetworkName>
         <ProfBrowser>Internet</ProfBrowser>
-        <ProfMMS>MMS</ProfMMS>
+        <ProfMMS>mms</ProfMMS>
       </ProfileHandle>
       <NbProfile>2</NbProfile>
       <Profile>
         <NetworkName>inwi</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Internet</ProfileName>
         <URL>www.inwi.ma</URL>
         <Auth>normal</Auth>
@@ -150,7 +141,6 @@
       </Profile>
       <Profile>
         <NetworkName>inwi</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>MMS</ProfileName>
         <URL>http://mms.wana.ma:38090</URL>
         <Auth>normal</Auth>

@@ -1,8 +1,8 @@
 ﻿<?xml  version="1.0" encoding="UTF-8" ?>
 <SamsungMobileFeauture>
   <Version>ED001</Version>
-  <Country>UAE</Country>
-  <CountryISO>AE</CountryISO>
+  <Country>IRAN</Country>
+  <CountryISO>IR</CountryISO>
   <SalesCode>THR</SalesCode>
   <FeatureSet>
     <CscFeature_Framework_EnableBidirection>TRUE</CscFeature_Framework_EnableBidirection>
@@ -12,6 +12,6 @@
     <CscFeature_Email_AlignmentForRTL>TRUE</CscFeature_Email_AlignmentForRTL>
     <CscFeature_Email_DisableFontAttributeDuringComposing>Bold, Italic</CscFeature_Email_DisableFontAttributeDuringComposing>
     <CscFeature_RIL_SupportUssdWithSharpChar>TRUE</CscFeature_RIL_SupportUssdWithSharpChar>
-    <CscFeature_Calendar_EnableLocalHolidayDisplay>FARSI</CscFeature_Calendar_EnableLocalHolidayDisplay>
+	<CscFeature_RIL_EnableLaunchBrowser>TRUE</CscFeature_RIL_EnableLaunchBrowser>
   </FeatureSet>
 </SamsungMobileFeauture>

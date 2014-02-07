@@ -1,46 +1,31 @@
-#
-# Updater-script for ArchiDroid
-#
+###############################################################
+#     _                _      _  ____               _      _  #
+#    / \    _ __  ___ | |__  (_)|  _ \  _ __  ___  (_)  __| | #
+#   / _ \  | '__|/ __|| '_ \ | || | | || '__|/ _ \ | | / _` | #
+#  / ___ \ | |  | (__ | | | || || |_| || |  | (_) || || (_| | #
+# /_/   \_\|_|   \___||_| |_||_||____/ |_|   \___/ |_| \__,_| #
+#                                                             #
+###############################################################
 ui_print(">>> ArchiDroid is now loading...");
 sleep (1);
 ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Ready!");
 set_progress(0.01);
 sleep (2);
-
 ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Mounting Partitions");
-assert(mount("ext4", "EMMC", "/dev/block/mmcblk0p9", "/system") || ui_print("(system is mounted already)"));
-assert(mount("ext4", "EMMC", "/dev/block/mmcblk0p12", "/data") || ui_print("(data is mounted already)"));
-
 set_progress(0.1);
-
-if file_getprop("/tmp/aroma-data/archidroid.prop","wipedalvik") == "1" then
-	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Cleaning cache, dalvik cache and resource cache");
-	delete_recursive("/data/dalvik-cache");
-	delete_recursive("/dalvik/dalvik-cache");
-	delete_recursive("/data/resource-cache");
-endif;
-
-show_progress(0.88, 229);
 if file_getprop("/tmp/aroma-data/archidroid.prop","mode") == "full" then
 	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Restoring Full Bloatware");
-	package_extract_dir("bloatware", "/");
+	package_extract_dir("bloatware/system", "/system");
 endif;
 if file_getprop("/tmp/aroma-data/archidroid.prop","mode") == "custom" then
 	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Restoring Custom Bloatware");
-	package_extract_dir("custom_bloatware", "/");
+	package_extract_dir("custom_bloatware/system", "/system");
 endif;
-
 set_progress(0.98);
-
 ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Syncing System");
 run_program("/sbin/sync");
-
 set_progress(0.99);
-
 ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Unmounting partitions");
-assert(unmount("/data") || ui_print("(data is unmounted already)"));
-assert(unmount("/system") || ui_print("(system is unmounted already)"));
-
 ui_print("===================================");
 ui_print("  Bloatware Restored Successfully  ");
 ui_print("===================================");

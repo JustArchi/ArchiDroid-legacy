@@ -352,6 +352,7 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 		if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","browser") == "0" then
 			delete("/system/app/SecBrowser.apk");
 			delete("/system/app/SecDownloadProviderUi.apk");
+			delete("/system/app/SecOmaDownloadProvider.apk");
 			delete("/system/app/sCloudSyncBrowser.apk");
 		endif;
 		if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","remotecontrol") == "0" then

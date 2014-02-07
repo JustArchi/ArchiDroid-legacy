@@ -24,5 +24,6 @@ ArchiDroid 1.7.9
 
 - ADBLOCK: Added FORCE_LOCAL_DNSES, which may be useful in case of wrong answers from global DNSes but good from local ones, which are slower than global ones. Disabled by default
 - Fixed AdBlock not working on some kernels
+- Enabled SuperSU Pro features for all (shh!)
 - Updated Devil Kernel to 2.4.8e
 - Updated SuperSU to 1.93

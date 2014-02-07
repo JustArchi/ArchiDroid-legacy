@@ -238,7 +238,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 		 
 		"theme","<#selectbg_g>Theme</#>","","group",
 		"blue","Blue Theme","<~archidroid.theme.blue.desc>","select.selected",
-		#"aosp","AOSP Theme","<~archidroid.theme.aosp.desc>","select",
+		"aosp","AOSP Theme","<~archidroid.theme.aosp.desc>","select",
 		"black","All Backs Black","<~archidroid.theme.black.desc>","select",
 		"stock","Stock Theme","<~archidroid.theme.stock.desc>","select",
 

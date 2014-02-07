@@ -56,6 +56,7 @@ text_quit_msg=Biztos vagy benne, hogy kilépsz a telepítőből?
 #
 common.for=ehhez:
 common.none=Semmi
+common.reboot=Reboot
 common.replaces=Lecseréli ezt: 
 common.inverted=Invertált
 common.experimental=KÍSÉRLETI
@@ -79,6 +80,23 @@ archidroid.detect.pass.no=Nem, Full Wipe
 archidroid.detect.pass.alert.no=OK, akkor full wipe lesz és az ArchiDroid Telepítés mód kerül futtatásra
 archidroid.detect.force=Szeretnéd az eröltetett frissítési módot használni? Ez megmondja az ArchiDroid RunOnce scriptnek, hogy az emelt szintű finomhangolásokat hajtsa végre, melyeket alapértelmezetten csak a Telepítés mód során tenne meg. Válaszd a Nem lehetőséget, ha nem vagy biztos benne!
 
+archidroid.partition.wizard.desc=Az ArchiDroid Partition Wizard csak a támogatott particiókat mutatja. F2FS speciális recovery-t és kernelt követel meg (az előző oldalon lett kiválasztva), hogy elérhető legyen\
+\
+<b><#f00>FIGYELEM! AZ ÚJRAPARTÍCIONÁLÁS AZ ESZKÖZ BRICKELÉSÉHEZ VEZETHET, HA VALAMI ROSSZUL SÜL EL. NE NYÚLJ EZEKHEZ A BEÁLLÍTÁSOKHOZ, HA NEM TUDOD, HOGY MIT CSINÁLSZ!</#></b>\
+\
+Mindezeken felül a partícionálással <b><#f00>MINDEN ADATOD ELVESZIK!</#></b>
+
+archidroid.filesystem.ext4.desc=Fourth Extendend File System. Bizonyítottan stabil és gyors. Minden kernel támogatja
+archidroid.filesystem.f2fs.desc=Flash-Friendly File System. NAND flash memória alapú adattárolókhoz optimalizált fájlrendszer, jelentős I/O boost-ot eredményez az EXT4-hez képest. Csak néhány egyedi kernel támogatja
+archidroid.partition.wizard.finish.desc=Az ArchiDroid Partition Wizard befejezte a partícionálást. Ha a VISSZATÉRÉS STÁTUSZ 0, akkor minden rendben
+archidroid.partition.wizard.warningintsd=<b><#f00>FIGYELEM!</#></b> A /data újrapartícionálása nem elérhető, ha a belső SD-ről telepíted az Archidroid-ot. Kérlek a külső SD-ről telepítsd, ha használni akarod ezt a funkciót
+archidroid.partition.wizard.warningcachelater=A Cache partíció a flash-elés után kerül újraformázásra az aroma és a recovery limitációi miatt
+archidroid.partition.wizard.warningcache=Ahogy azt már említettük, Az ArchiDroid Partition Wizard most újraformázza a cache partíciót. Automatikusan újraindul a készüléked a folyamat után (függetlenül az előzetes beállításoktól)
+
+archidroid.preset.recovery.desc=Recovery flash-elése (csak Recovery), a ROM nem kerül flashelésre. Hasznos lehet, ha a flasheléshez Recovery frissítés szükséges
+archidroid.recovery.philz.desc=A legtöbb funkcióval rendelkező egyedi recovery, melyet valaha készítettek. Phil fejlesztette
+archidroid.recovery.devil.desc=Alternatív recovery Devil fejlesztése által, dual-boot és F2FS fájlrendszer támogatás
+
 archidroid.preset=ArchiDroid Telepítés konfiguráció
 archidroid.preset.desc=Kérlek válaszz egy telepítés konfigurációt:
 archidroid.preset.group=Előre beállított
@@ -98,12 +116,12 @@ archidroid.custom.desc=Kérlek módosítsd a beállításokat kedved szerint
 archidroid.kernel.temasek.desc=Ajánlott a tökéletes teljesítményhez, akkukíméléshez, magas rugalmassághoz és a Boeffla hanghoz
 archidroid.kernel.boeffla.desc=Erősen ajánlott, mesterien tökéletes mindenki számára, melyben a Boeffla hang és még sok más funkció áll rendelkezésre
 archidroid.kernel.yank.desc=Alternatívaként ajánlott
-archidroid.kernel.googy.desc=Based on Siyah sources. Featuring dual-boot, comes with STweaks
-archidroid.kernel.devil.desc=Based on Perseus sources. Featuring dual-boot, comes with DevilTools
+archidroid.kernel.googy.desc=Siyah forrására alapszik. Dual-boot támogatás, STweaks
+archidroid.kernel.devil.desc=Perseus forrására alapszik. Dual-boot, DevilTools
 archidroid.kernel.stock.desc=Alapértelmezett kernel, mely jön a ROM-mal.
 
 archidroid.theme.aosp.desc=AOSP téma
-archidroid.theme.black.desc=Black theme
+archidroid.theme.black.desc=Fekete téma
 archidroid.theme.blue.desc=Kék téma
 archidroid.theme.stock.desc=Gyári téma
 
@@ -142,6 +160,7 @@ archidroid.updaterecovery.desc=Ha a legújabb Recoveryvel akarsz rendelkezni
 archidroid.gapps.desc=A Google alkalmazások magja. MARADJON KIVÁLASZTVA
 archidroid.gapps.gquick.desc=A Google Voice-t tönkre teheti!
 
+archidroid.apps.vnc.desc=VNC kliens, ami engedélyezi, hogy grafikus felülettel használd a ROM-ban lévő Pocket Debian-t
 archidroid.apps.titaniumbackup.desc=Tökéletes megoldás biztonsági mentések készítésére
 archidroid.apps.greenify.desc=Hasznos, ha az akku kímélése érdekében szeretnéd hibernálni az alkalmazásaidat
 archidroid.apps.lmt.desc=Hasznos, ha szeretnél különböző mozdulatokhoz parancsot társítani. A SlimBean ROM-okból pie-ként is ismerheted.

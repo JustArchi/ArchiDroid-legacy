@@ -56,6 +56,7 @@ text_quit_msg=Czy jesteś pewny, że chcesz zakończyć instalację?
 #
 common.for=dla
 common.none=Brak
+common.reboot=Restart
 common.replaces=Zastępuje
 common.inverted=Ciemny
 common.experimental=EKSPERYMENTALNE
@@ -79,6 +80,23 @@ archidroid.detect.pass.no=Nie, full wipe
 archidroid.detect.pass.alert.no=OK, wybrałem tryb instalacji, czyli dokonania full wipe.
 archidroid.detect.force=Czy chciałbyś użyć trybu wymuszonej aktualizacji? Ta opcja powoduje wykonanie przez ArchiDroid RunOnce wielu zaawansowanych modyfikacji, które normalnie byłyby wykonane wyłącznie podczas trybu instalacji. Wybierz Nie jeśli nie jesteś pewny
 
+archidroid.partition.wizard.desc=Menadżer partycjonowania ArchiDroid pokazuje wyłącznie partycje, które są aktualnie wspierane. F2FS wymaga specjalnego recovery i kernela (wybranego wcześniej), aby być dostępnym na liście\
+\
+<b><#f00>UWAGA! REPARTYCJONOWANIE MOŻE PROWADZIĆ DO SOFT ORAZ HARD BRICKÓW JEŚLI SIĘ NIE POWIEDZIE. NIE POWINIENEŚ DOTYKAĆ TYCH USTAWIEŃ, CHYBA ŻE MASZ ABSOLUTNE POJĘCIE NA TEMAT TEGO CO ROBISZ</#></b>\
+\
+W dodatku do powyższego <b><#f00>WSZYSTKIE DANE BĘDĄ UTRACONE</#></b>
+
+archidroid.filesystem.ext4.desc=Czwarta wersja rozszerzonego systemu plików. Stabilny i zaufany system plików. Wspierany przez wszystkie dostępne kernele
+archidroid.filesystem.f2fs.desc=Flash-Friendly File System, "System Przyjazny Pamięciom Flash". Zoptymalizowany pod kątem pamięci NAND, oferuje pokaźne przyspieszenie I/O w porównaniu do EXT4. Wspierany wyłącznie przez określone custom kernele
+archidroid.partition.wizard.finish.desc=Menadżer partycjonowania ArchiDroid zakończył repartycjonowanie twojej partycji. Jeśli RETURN STATUS wynosi 0, wszystko powiodło się pomyślnie
+archidroid.partition.wizard.warningintsd=<b><#f00>UWAGA!</#></b> Repartycjonowanie /data nie jest możliwe podczas flashowania ArchiDroida z wewnętrznej karty pamięci. Spróbuj ponownie używając zewnętrznej karty pamięci, jeśli zamierzasz użyć tej opcji
+archidroid.partition.wizard.warningcachelater=Partycja Cache będzie zrepartycjonowana po flashowaniu, z powodu ograniczeń aromy oraz recovery
+archidroid.partition.wizard.warningcache=Zgodnie z poprzednią informacją, menadżer partycjonowania ArchiDroid zrepartycjonuje teraz twoją partycję cache. Po ukończeniu twoje urządzenie zostanie automatycznie zrestartowane (niezależnie od poprzedniego pytania)
+
+archidroid.preset.recovery.desc=Ta funkcja sflashuje wyłącznie recovery zamiast ROMu. Może być użyteczne w przypadku, gdy update recovery będzie wymagany przed flashowaniem samego ROMu
+archidroid.recovery.philz.desc=Najbardziej bogate w funkcje i zaawansowane recovery, jakie kiedykolwiek zostało stworzone. Tworzone przez Phila
+archidroid.recovery.devil.desc=Alternatywne recovery tworzone przez Devila, wyróżniające się wsparciem dual-boot oraz F2FS
+
 archidroid.preset=Preset Instalacji ArchiDroid
 archidroid.preset.desc=Wybierz proszę swój preset:
 archidroid.preset.group=Preset
@@ -100,7 +118,7 @@ archidroid.kernel.boeffla.desc=Wysoce zalecane arcydzieło dla każdego, wyróż
 archidroid.kernel.yank.desc=Zalecany jako alternatywa
 archidroid.kernel.googy.desc=Bazowany na źródłach Siyah. Posiada dual-boot, zawiera STweaks
 archidroid.kernel.devil.desc=Bazowany na źródłach Perseus. Posiada dual-boot, zawiera DevilTools
-archidroid.kernel.stock.desc=Pochodzący prosto z ROM
+archidroid.kernel.stock.desc=Pochodzący prosto z ROMu
 
 archidroid.theme.aosp.desc=Motyw AOSP
 archidroid.theme.black.desc=Czarny motyw
@@ -142,6 +160,7 @@ archidroid.updaterecovery.desc=Jeśli chcesz używać najnowszego recovery
 archidroid.gapps.desc=Główne aplikacje i funkcje Google. NIE ODZNACZAJ TEGO
 archidroid.gapps.gquick.desc=Może popsuć Google Voice!
 
+archidroid.apps.vnc.desc=Klient VNC pozwalający na używanie GUI w ArchiDroidowym Pocket Debianie
 archidroid.apps.titaniumbackup.desc=Świetne narzędzie do zarządzania kopiami zapasowymi pomiędzy flashami romów
 archidroid.apps.greenify.desc=Użyteczne w celu zamrażania zbędnych aplikacji
 archidroid.apps.lmt.desc=Użyteczne narzędzie znane jako pie ze SlimBeana
@@ -156,8 +175,8 @@ archidroid.tweaks.buildtweaks.desc=Wiele tweaków build.prop, w tym m.in. głęb
 archidroid.tweaks.openpdroid.desc=Spatchuj ROM ze wsparciem dla OpenPDroid o ile dostępny
 archidroid.tweaks.nocell.desc=Generalnie uważane za bloatware. Odznacz jeśli chcesz je zachować
 
-archidroid.preset.no=No Preset
-archidroid.preset.no.desc=Not recommended because you'll miss most of the Archi's optimizations
+archidroid.preset.no=Brak Presetu
+archidroid.preset.no.desc=Niezalecane z powodu utraty wszystkich optymalizacji ArchiDroid
 
 archidroid.preset.kernel.boeffla.archiperformance=ArchiDroid Performance
 archidroid.preset.kernel.boeffla.archiperformance.desc=Preset przeznaczony głównie dla graczy, zawierający overclock CPU i GPU. Spodziewaj się lepszej wydajności kosztem życia baterii

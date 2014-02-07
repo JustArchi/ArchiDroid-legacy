@@ -1,7 +1,7 @@
 ﻿<?xml  version="1.0" encoding="UTF-8" ?>
 <CustomerData>
   <GeneralInfo>
-    <CSCEdition>ED001</CSCEdition>
+    <CSCEdition>ED006</CSCEdition>
     <Country>Afghanistan</Country>
     <CountryISO>AF</CountryISO>
     <Region>MEA</Region>
@@ -71,15 +71,7 @@
   <Settings>
     <Main>
       <Network>
-        <AutoProfile>on</AutoProfile>
-        <AutoVoicemail>off</AutoVoicemail>
-        <AutoEmailAccount>off</AutoEmailAccount>
-        <AutoBookmark>off</AutoBookmark>
-        <AutoLink>off</AutoLink>
-        <AutoSyncML>off</AutoSyncML>
-        <AutoFastDormancy>off</AutoFastDormancy>
-        <AutoWbAmr>off</AutoWbAmr>
-        <AutoFOTA>off</AutoFOTA>
+        <AutoProfile>off</AutoProfile>
       </Network>
       <Sound>
         <RngToneAlertType>melody</RngToneAlertType>
@@ -87,16 +79,13 @@
       <Phone>
         <DefLanguage>en_GB</DefLanguage>
         <DefLanguageNoSIM>en_GB</DefLanguageNoSIM>
-        <T9Language>english</T9Language>
         <DateTimeFormat>
           <DateFormat>ddmmyyyy</DateFormat>
         </DateTimeFormat>
+		<VisiblePassword>off</VisiblePassword>
       </Phone>
       <Security />
     </Main>
-    <Calendar>
-      <StartDay>monday</StartDay>
-    </Calendar>
     <Messages>
       <SMS>
         <MsgTypeThreshold>
@@ -110,14 +99,11 @@
         <MmsSending>
           <ReqDeliveryRep>off</ReqDeliveryRep>
           <ReqReadRep>off</ReqReadRep>
-          <MessageSize>300</MessageSize>
           <CreationMode>free</CreationMode>
         </MmsSending>
         <MmsReceiving>
           <Home>auto</Home>
           <Roaming>manual</Roaming>
-          <SendReadRep>on</SendReadRep>
-          <SendDeliveryRep>off</SendDeliveryRep>
         </MmsReceiving>
       </MMS>
     </Messages>
@@ -158,7 +144,6 @@
       <NbProfile>4</NbProfile>
       <Profile>
         <NetworkName>ETISALAT</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Etisalat MMS</ProfileName>
         <URL>http://mms/servlets/mms</URL>
         <Auth>normal</Auth>
@@ -175,7 +160,6 @@
       </Profile>
       <Profile>
         <NetworkName>ETISALAT</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>DATA Package</ProfileName>
         <Auth>normal</Auth>
         <Protocol>http</Protocol>
@@ -186,7 +170,6 @@
       </Profile>
       <Profile>
         <NetworkName>du</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>du MMS</ProfileName>
         <URL>http://mms.du.ae</URL>
         <Auth>normal</Auth>
@@ -203,7 +186,6 @@
       </Profile>
       <Profile>
         <NetworkName>du</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>du</ProfileName>
         <Auth>normal</Auth>
         <Protocol>http</Protocol>

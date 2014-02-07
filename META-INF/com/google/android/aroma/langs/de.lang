@@ -56,6 +56,7 @@ text_quit_msg=Willst du die Installation wirklich abbrechen?
 #
 common.for=für
 common.none=Keine
+common.reboot=Reboot
 common.replaces=Ersetzt
 common.inverted=Invertiert
 common.experimental=EXPERIMENTAL
@@ -79,6 +80,23 @@ archidroid.detect.pass.no=Nein, Full Wipe (alles löschen)
 archidroid.detect.pass.alert.no=OK, ich mache einen Full Wipe (Datenlöschung) und starte dann den ArchiDroid Installations-Modus
 archidroid.detect.force=Soll ein Update erzwungen werden? Dies sagt ArchiDroid RunOnce spezielle Verbesserungen durchzuführen, die sonst nur bei einer Neuinstallation gemacht würden. Wähle nein, wenn du unsicher bist.
 
+archidroid.partition.wizard.desc=ArchiDroid Partition Wizard shows only partitions, which are currently supported. F2FS requires special recovery and kernel (selected on the previous page) to be available\
+\
+<b><#f00>WARNING! REPARTITIONING CAN LEAD TO SOFT AND HARD BRICKS IF SOMETHING GOES WRONG. YOU SHOULDN'T TOUCH THESE SETTINGS UNLESS YOU KNOW WHAT YOU'RE DOING</#></b>\
+\
+In addition to that, during repartitioning <b><#f00>ALL DATA WILL BE LOST</#></b>
+
+archidroid.filesystem.ext4.desc=Fourth Extended File System. Proven to be stable and reliable. Supported by all kernels
+archidroid.filesystem.f2fs.desc=Flash-Friendly File System. Optimized for NAND flash memory-based storage devices, gives significant I/O boost compared to EXT4. Supported only by a few custom kernels
+archidroid.partition.wizard.finish.desc=ArchiDroid Partition Wizard has finished repartitioning your partition. If RETURN STATUS is equal to 0, everything ended successfully
+archidroid.partition.wizard.warningintsd=<b><#f00>WARNING!</#></b> Repartitioning of /data isn't available during flashing ArchiDroid from internal sd card. Please use external one if you want to use this option
+archidroid.partition.wizard.warningcachelater=Cache partition will be repartitioned after flashing due to aroma and recovery limitations
+archidroid.partition.wizard.warningcache=As previously stated, ArchiDroid Partition Wizard will now reformat your cache partition. It will automatically reboot your device after finish (regardless of previous choice)
+
+archidroid.preset.recovery.desc=Will flash recovery (only) instead of a ROM. May be useful if recovery update is required prior to flashing
+archidroid.recovery.philz.desc=The most feature-rich custom recovery ever created, developed by Phil
+archidroid.recovery.devil.desc=Alternative recovery developed by Devil, which includes dual-boot support and F2FS filesystem
+
 archidroid.preset=ArchiDroid Installations-Voreinstellung
 archidroid.preset.desc=Bitte wähle eine Installations-Voreinstellung:
 archidroid.preset.group=Voreinstellung
@@ -98,8 +116,8 @@ archidroid.custom.desc=Bitte wähle die Einstellungen, wie du sie möchtest
 archidroid.kernel.temasek.desc=Empfehlung für beste Performance, Energiesparen, hohe Flexibilität und Boeffla-Sound
 archidroid.kernel.boeffla.desc=Empfohlenes Meisterwerk perfekt für jeden, mit Boeffla Sound und vielen weiteren Funktionen
 archidroid.kernel.yank.desc=Empfohlen als Alternative
-archidroid.kernel.googy.desc=Based on Siyah sources. Featuring dual-boot, comes with STweaks
-archidroid.kernel.devil.desc=Based on Perseus sources. Featuring dual-boot, comes with DevilTools
+archidroid.kernel.googy.desc=Basierend auf dem Siyah-Kernel. Dual-Boot kompatibel und mit STweaks
+archidroid.kernel.devil.desc=Basierend auf dem Perseus-Kernel. Dual-Boot kompatibel und mit DevilTools
 archidroid.kernel.stock.desc=Der Standard-Kernel von ROM
 
 archidroid.theme.aosp.desc=AOSP Thema
@@ -142,6 +160,7 @@ archidroid.updaterecovery.desc=Wenn du das neueste Recovery installieren möchte
 archidroid.gapps.desc=Grundfunktionen und Apps(z.B. Play Store) von Google. NICHT ABWÄHLEN!
 archidroid.gapps.gquick.desc=Kann Google Voice stören!
 
+archidroid.apps.vnc.desc=A VNC client, which allows you to use GUI in ArchiDroid's Pocket Debian
 archidroid.apps.titaniumbackup.desc=Perfekte Lösung um persönliche Daten/Apps zwischen Updates zu sichern
 archidroid.apps.greenify.desc=Prktisch um jede App in den Standby zu schicken, das spart Energie
 archidroid.apps.lmt.desc=Damit kannst du einen Befehl mit einer Bildschirm-Geste ausführen, auch bekannt als pie von SlimBean

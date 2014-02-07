@@ -1,7 +1,7 @@
 ﻿<?xml  version="1.0" encoding="UTF-8" ?>
 <CustomerData>
   <GeneralInfo>
-    <CSCEdition>ED001</CSCEdition>
+    <CSCEdition>ED016</CSCEdition>
     <Country>TURKEY</Country>
     <CountryISO>TR</CountryISO>
     <Region>MEA</Region>
@@ -33,11 +33,6 @@
           <NetworkName>TR Turkcell</NetworkName>
           <FastDormancyEnableStatus>on</FastDormancyEnableStatus>
         </FastDormancy>
-        <NbWbAmr>1</NbWbAmr>
-        <WbAmr>
-          <NetworkName>VODAFONE TR</NetworkName>
-          <WbAmrCodec>on</WbAmrCodec>
-        </WbAmr>
         <AutoProfile>on</AutoProfile>
         <AutoVoicemail>off</AutoVoicemail>
         <AutoEmailAccount>off</AutoEmailAccount>
@@ -45,7 +40,7 @@
         <AutoLink>off</AutoLink>
         <AutoSyncML>off</AutoSyncML>
         <AutoFastDormancy>on</AutoFastDormancy>
-        <AutoWbAmr>on</AutoWbAmr>
+        <AutoWbAmr>off</AutoWbAmr>
         <AutoFOTA>off</AutoFOTA>
       </Network>
       <Sound>
@@ -53,42 +48,36 @@
         <ExtraSound>
           <ConnectTone>on</ConnectTone>
         </ExtraSound>
+        <AMRVoiceCodec>on</AMRVoiceCodec>
       </Sound>
       <Phone>
         <AlertOnCall>on</AlertOnCall>
         <DefLanguage>tr_TR</DefLanguage>
         <DefLanguageNoSIM>tr_TR</DefLanguageNoSIM>
-        <T9Enabling>enable</T9Enabling>
-        <T9Language>turkish</T9Language>
         <DateTimeFormat>
           <DateFormat>ddmmyyyy</DateFormat>
           <TimeFormat>24h</TimeFormat>
           <TimezoneUpdate>on</TimezoneUpdate>
         </DateTimeFormat>
+		<VisiblePassword>off</VisiblePassword>
       </Phone>
       <Security />
     </Main>
-    <Calendar>
-      <StartDay>monday</StartDay>
-    </Calendar>
     <Messages>
       <MMS>
         <MmsSending>
           <ReqDeliveryRep>off</ReqDeliveryRep>
           <ReqReadRep>off</ReqReadRep>
-          <MessageSize>300</MessageSize>
           <CreationMode>free</CreationMode>
         </MmsSending>
         <MmsReceiving>
           <Home>auto</Home>
           <Roaming>restricted</Roaming>
-          <SendReadRep>on</SendReadRep>
-          <SendDeliveryRep>off</SendDeliveryRep>
         </MmsReceiving>
       </MMS>
     </Messages>
     <Browser>
-      <NbBookmark>2</NbBookmark>
+      <NbBookmark>3</NbBookmark>
       <Bookmark>
         <NetworkName>default</NetworkName>
         <Editable>no</Editable>
@@ -101,6 +90,11 @@
         <Index>2</Index>
         <BookmarkName>Yahoo!</BookmarkName>
         <URL>http://m.yahoo.com/?tsrc=samsungbm</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <BookmarkName>Cep Telefon</BookmarkName>
+        <URL>http://www.samsung.com/m-manual/common</URL>
       </Bookmark>
       <eManual>
         <URL>http://www.samsung.com/m-manual/common</URL>
@@ -115,7 +109,7 @@
         <ProfMMS>TURKCELL-MMS</ProfMMS>
       </ProfileHandle>
       <ProfileHandle>
-        <NbNetProfile>2</NbNetProfile>
+        <NbNetProfile>3</NbNetProfile>
         <NetworkName>VODAFONE TR</NetworkName>
         <ProfBrowser>Vodafone Internet</ProfBrowser>
         <ProfMMS>Vodafone MMS</ProfMMS>
@@ -135,7 +129,6 @@
       <NbProfile>9</NbProfile>
       <Profile>
         <NetworkName>TR Turkcell</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>TURKCELL-MMS</ProfileName>
         <URL>http://mms.turkcell.com.tr/servlets/mms</URL>
         <Auth>normal</Auth>
@@ -154,7 +147,6 @@
       </Profile>
       <Profile>
         <NetworkName>TR Turkcell</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>TURKCELL-ISP</ProfileName>
         <Auth>normal</Auth>
         <Protocol>http</Protocol>
@@ -167,7 +159,6 @@
       </Profile>
       <Profile>
         <NetworkName>VODAFONE TR</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Vodafone MMS</ProfileName>
         <URL>http://217.31.233.18:6001/MM1Servlet</URL>
         <Auth>normal</Auth>
@@ -186,7 +177,6 @@
       </Profile>
       <Profile>
         <NetworkName>VODAFONE TR</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Vodafone Internet</ProfileName>
         <Auth>normal</Auth>
         <Protocol>http</Protocol>
@@ -199,7 +189,6 @@
       </Profile>
       <Profile>
         <NetworkName>VODAFONE TR</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Vodafone Live</ProfileName>
         <Auth>secure</Auth>
         <Protocol>http</Protocol>
@@ -217,7 +206,6 @@
       </Profile>
       <Profile>
         <NetworkName>TR AVEA</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>AVEA MMS</ProfileName>
         <URL>http://mms.avea.com.tr/servlets/mms</URL>
         <Auth>normal</Auth>
@@ -236,7 +224,6 @@
       </Profile>
       <Profile>
         <NetworkName>TR AVEA</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>AVEA ISP</ProfileName>
         <Auth>normal</Auth>
         <Protocol>http</Protocol>
@@ -249,7 +236,6 @@
       </Profile>
       <Profile>
         <NetworkName>KKTCELL</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>KKTCELL MMS</ProfileName>
         <URL>http://mms.kktcell.com/cmmsc/post</URL>
         <Auth>normal</Auth>
@@ -266,7 +252,6 @@
       </Profile>
       <Profile>
         <NetworkName>KKTCELL</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>CEPTEN KKTCELL</ProfileName>
         <Auth>normal</Auth>
         <Protocol>http</Protocol>

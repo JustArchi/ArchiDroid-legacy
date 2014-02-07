@@ -30,76 +30,64 @@
 #
 ini_set("dp","3");
 ini_set("rom_name",             "ArchiDroid Bloatware");
-ini_set("rom_version",          "1.2");
+ini_set("rom_version",          "1.3");
 ini_set("rom_author",           "JustArchi");
 ini_set("rom_device",           "Samsung Galaxy S3");
-ini_set("rom_date",             "November 4th, 2013");
+ini_set("rom_date",             "February 7th, 2014");
 
 ##
 # Show Animated Splash
 #
 anisplash(
-#  #-- Number of Loop
-    1,
-  
-  #-- Frame 1 [ Image, duration in millisecond ]. <AROMA Resource Dir>/splash/a[1..6].png
-    "archidroidsplash", 2000,
-    "archidroidsplash2", 2000
+	#-- Number of Loop
+	1,
+
+	#-- Frame 1 [ Image, duration in millisecond ]. <AROMA Resource Dir>/splash/a[1..6].png
+	"archidroidsplash", 2000,
+	"archidroidsplash2", 2000
 );
 
 #
 # Set Small Font to Support all fonts
 #
-###fontresload( "0", "ttf/Roboto-Regular.ttf;ttf/DroidSansFallback.ttf;", "12" ); #-- Use sets of font (Font Family)
-###fontresload( "1", "ttf/Roboto-Regular.ttf;ttf/DroidSansFallback.ttf;", "14" ); #-- Use sets of font (Font Family)
-fontresload( "0", "ttf/Roboto-Regular.ttf", "12" );
-fontresload( "1", "ttf/Roboto-Regular.ttf", "14" );
+fontresload( "0", "ttf/DroidSans.ttf;ttf/DroidSansFallback.ttf;ttf/DroidSansArabic.ttf;", "12" ); #-- Use sets of font (Font Family)
+fontresload( "1", "ttf/DroidSans.ttf;ttf/DroidSansFallback.ttf;ttf/DroidSansArabic.ttf;", "14" ); #-- Use sets of font (Font Family)
 
 theme("touchwiz");
 
 viewbox(
-  #-- Title
-    "Welcome!",
-  
-  #-- Text
-    "Hello master, root@ArchiDroid here. Welcome to AROMA. You are about to install <b>"+
-	  #-- Get Config Value
-	  ini_get("rom_name")+
-	"</b> for <b>"+ini_get("rom_device")+"</b>.\n\n"+
-	
-      "  Version:\t\t\t <b><#selectbg_g>"+ini_get("rom_version")+"</#></b>\n"+
-      "  Released:\t\t <b><#selectbg_g>"+ini_get("rom_date")+"</#></b>\n\n\n"+
+	#-- Title
+	"Welcome!",
 
-    "Press <b>Next</b> to continue the installation.",
-  
-  #-- Icon
-    "@welcome"
+	#-- Text
+	"Hello master, root@ArchiDroid here. Welcome to AROMA. You are about to install <b>"+
+	#-- Get Config Value
+	ini_get("rom_name")+
+	"</b> for <b>"+ini_get("rom_device")+"</b>.\n\n"+
+
+	"Version:\t\t\t <b><#selectbg_g>"+ini_get("rom_version")+"</#></b>\n"+
+	"Released:\t\t <b><#selectbg_g>"+ini_get("rom_date")+"</#></b>\n\n\n"+
+
+	"Press <b>Next</b> to continue the installation.",
+
+	#-- Icon
+	"@welcome"
 );
 
 form(
-  "ArchiDroid Bloatware Mode",
-  "Please select your restore mode:",
-  "@apps",
-  "archidroid.prop",
-  
-  "mode","<#selectbg_g>ArchiDroid Restore Mode</#>","","group",
-  "full","Full Bloatware", "From bloatware folder","select.selected",
-  "custom","Custom Bloatware","From custom_bloatware folder","select",
-  
-  "misc","<#selectbg_g>Miscellaneous</#>","","group",
-  "wipedalvik","Wipe Dalvik's Cache","Shouldn't be required","check"
+	"ArchiDroid Bloatware Mode",
+	"Please select your restore mode:",
+	"@apps",
+	"archidroid.prop",
+
+	"mode","<#selectbg_g>ArchiDroid Restore Mode</#>","","group",
+	"full","Full Bloatware", "From bloatware folder","select.selected",
+	"custom","Custom Bloatware","From custom_bloatware folder","select"
 );
 
 pleasewait("Executing Shell...");
-  
-#-- Resource Exec
-setvar(
-  #-- Save Return Status
-    "resexec_retstatus",
-  
-  #-- Run Shell
-    resexec("exec/archidroid_detect.sh")
-);
+resexec("exec/admount.sh", "/system");
+setvar("resexec_retstatus",resexec("exec/archidroid_detect.sh"));
 
 if getvar("resexec_retstatus")=="0" || getvar("resexec_retstatus")=="1" then
 	alert("ArchiDroid Detect","Could not detect ArchiDroid. Proceed on your own risk!","@alert");
@@ -110,31 +98,33 @@ endif;
 
 ini_set("text_next", "Flash");
 viewbox(
-    "Ready to install",
-    "You are now ready to restore bloatware.\n\n"+
-    "Press <b>Flash</b> to start.\n\n"+
-    "If you want to review or change any of your installation settings, press <b>Back</b>.",
-    "@alert"
+	"Ready to install",
+	"You are now ready to restore bloatware.\n\n"+
+	"Press <b>Flash</b> to start.\n\n"+
+	"If you want to review or change any of your installation settings, press <b>Back</b>.",
+	"@alert"
 );
 
 ini_set("text_next", "Finish");
 
-  install(
+install(
 	#-- Title
-      "Installing",
-	
+	"Installing",
+
 	#-- Installation Process message
-	  "<b>"+ini_get("rom_name")+"</b> is being installed.\n\n"+
-      "Please wait while installation wizard restores <b>"+ini_get("rom_name")+
-	  "</b>. This may take several minutes.",
-	
+	"<b>"+ini_get("rom_name")+"</b> is being installed.\n\n"+
+	"Please wait while installation wizard restores <b>"+ini_get("rom_name")+
+	"</b>. This may take several minutes.",
+
 	#-- Installation Icon
-      "@install",
-	
+	"@install",
+
 	#-- Installation Finish Message
-      "The installation wizard has successfully restored <b>"+ini_get("rom_name")+
-	  "</b>. Press <b>Finish</b> to continue."
+	"The installation wizard has successfully restored <b>"+ini_get("rom_name")+
+	"</b>. Press <b>Finish</b> to continue."
 );
+
+resexec("exec/adumount.sh", "/system");
 
 if
 	confirm(

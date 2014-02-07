@@ -71,6 +71,7 @@ ADLOAD() {
 					local DNS=""
 					DNS1=`getprop net.dns1`
 					DNS2=`getprop net.dns2`
+					echo "ADBLOCK: Including local DNSes!" >> $LOG
 					if [ $DNSDAEMON -eq 1 ]; then
 						archidroid_dnsdaemon "background" &
 						APPENDDNSES=0
@@ -81,28 +82,34 @@ ADLOAD() {
 					fi
 				fi
 				if [ "$ADBLOCKMODE" == "dnsmasq" ]; then
-					echo "ADBLOCK: Activated archidroid_dnsmasq - local DNS server on 127.0.0.1:53, forwarding clean non-blocked traffic to OpenDNS/Google DNS" >> $LOG
+					echo "ADBLOCK: Activated archidroid_dnsmasq - local DNS server on 127.0.0.1:53, forwarding clean non-blocked traffic to specified DNS servers" >> $LOG
+					local EXTRA="--all-servers "
 					if [ ! -z "$DNS1" ]; then
 						local DNS="-S $DNS1"
 						if [ ! -z "$DNS2" ]; then
 							local DNS+=" -S $DNS2"
 						fi
-						archidroid_dnsmasq --all-servers $DNS -C /system/archidroid/etc/dnsmasq.conf
+						if [ $ADBLOCKSTRICTORDER -eq 1 ]; then
+							echo "ADBLOCK: Strict order enabled!" >> $LOG
+							EXTRA+="--strict-order "
+						fi
+						archidroid_dnsmasq $EXTRA $DNS -C /system/archidroid/etc/dnsmasq.conf
 						echo "ADBLOCK: Also added local DNS servers $DNS1 $DNS2" >> $LOG
 					else
-						archidroid_dnsmasq --all-servers -C /system/archidroid/etc/dnsmasq.conf
+						archidroid_dnsmasq $EXTRA -C /system/archidroid/etc/dnsmasq.conf
 					fi
 				elif [ "$ADBLOCKMODE" == "dnrd" ]; then
-					echo "ADBLOCK: Activated archidroid_dnrd - local dns server on 127.0.0.1:53, forwarding clean non-blocked traffic to OpenDNS/Google DNS" >> $LOG
+					echo "ADBLOCK: Activated archidroid_dnrd - local dns server on 127.0.0.1:53, forwarding clean non-blocked traffic to specified DNS servers" >> $LOG
+					local EXTRA="-a 127.0.0.1 -i -u 0 -r 0 -M 65535 -m hosts -R /system/archidroid/etc "
 					if [ ! -z "$DNS1" ]; then
 						local DNS="-s $DNS1"
 						if [ ! -z "$DNS2" ]; then
 							local DNS+=" -s $DNS2"
 						fi
-						archidroid_dnrd -a 127.0.0.1 -i -u 0 -r 0 -M 65535 -m hosts -R /system/archidroid/etc $DNS -s 208.67.222.222 -s 208.67.220.220 -s 8.8.8.8 -s 8.8.4.4
+						archidroid_dnrd $EXTRA $DNS -s 208.67.222.222 -s 208.67.220.220 -s 8.8.8.8 -s 8.8.4.4
 						echo "ADBLOCK: Also added local DNS servers $DNS1 $DNS2" >> $LOG
 					else
-						archidroid_dnrd -a 127.0.0.1 -i -u 0 -r 0 -M 65535 -m hosts -R /system/archidroid/etc -s 208.67.222.222 -s 208.67.220.220 -s 8.8.8.8 -s 8.8.4.4
+						archidroid_dnrd $EXTRA -s 208.67.222.222 -s 208.67.220.220 -s 8.8.8.8 -s 8.8.4.4
 					fi
 				else
 					echo "ERROR: No adblock mode specified!" >> $LOG
@@ -245,6 +252,9 @@ LOG="$AD/Init.log" # "/dev/null" is no verbose
 RUNONCELOG="$AD/RunOnce.log"
 ADSTATUS="/dev/ARCHIDROID_INIT_STATUS"
 
+if [ ! -e $AD ]; then
+	exit 0
+fi
 if [ ! -e /data/ARCHIDROID_DONT_REMOVE_ME ]; then
 	echo "ERROR: ArchiDroid is not compatible with wiping data, please reflash your system!" >> $LOG
 	poweroff
@@ -276,6 +286,11 @@ if [ -e $ADDEV/ADBLOCK_ENABLED ]; then
 			DNSDAEMON=1
 		else
 			DNSDAEMON=0
+		fi
+		if [ -e $ADDEV/ADBLOCK_FORCE_LOCAL_DNSES ]; then
+			ADBLOCKSTRICTORDER=1
+		else
+			ADBLOCKSTRICTORDER=0
 		fi
 	else
 		APPENDDNSES=0

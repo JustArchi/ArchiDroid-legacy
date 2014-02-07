@@ -1,7 +1,7 @@
-<?xml  version="1.0" encoding="UTF-8" ?>
+﻿<?xml  version="1.0" encoding="UTF-8" ?>
 <CustomerData>
   <GeneralInfo>
-    <CSCEdition>ED001</CSCEdition>
+    <CSCEdition>ED005</CSCEdition>
     <Country>UAE</Country>
     <CountryISO>AE</CountryISO>
     <Region>MEA</Region>
@@ -49,7 +49,7 @@
     </NetworkInfo>
     <NetworkInfo>
       <MCCMNC>42701</MCCMNC>
-      <NetworkName>Qatarnet</NetworkName>
+      <NetworkName>Ooredoo</NetworkName>
     </NetworkInfo>
     <NetworkInfo>
       <MCCMNC>42702</MCCMNC>
@@ -59,30 +59,28 @@
   <Settings>
     <Main>
       <Network>
-        <NbFastDormancy>2</NbFastDormancy>
-        <FastDormancy>
-          <NetworkName>ETISALAT</NetworkName>
-        </FastDormancy>
-        <FastDormancy>
-          <NetworkName>du</NetworkName>
-        </FastDormancy>
+        <NbWbAmr>1</NbWbAmr>
+        <WbAmr>
+          <NetworkName>default</NetworkName>
+          <WbAmrCodec>on</WbAmrCodec>
+        </WbAmr>
         <AutoProfile>on</AutoProfile>
         <AutoVoicemail>off</AutoVoicemail>
         <AutoEmailAccount>off</AutoEmailAccount>
         <AutoBookmark>off</AutoBookmark>
         <AutoLink>off</AutoLink>
         <AutoSyncML>off</AutoSyncML>
-        <AutoFastDormancy>on</AutoFastDormancy>
+        <AutoFastDormancy>off</AutoFastDormancy>
         <AutoWbAmr>off</AutoWbAmr>
         <AutoFOTA>off</AutoFOTA>
       </Network>
       <Phone>
-        <DefLanguage>english</DefLanguage>
-        <DefLanguageNoSIM>english</DefLanguageNoSIM>
-        <T9Language>english</T9Language>
+        <DefLanguage>en_GB</DefLanguage>
+        <DefLanguageNoSIM>en_GB</DefLanguageNoSIM>
         <DateTimeFormat>
           <DateFormat>ddmmyyyy</DateFormat>
-        </DateTimeFormat>		        <VisiblePassword>off</VisiblePassword>		
+        </DateTimeFormat>
+		<VisiblePassword>off</VisiblePassword>
       </Phone>
       <Security />
     </Main>
@@ -102,11 +100,8 @@
         </MmsReceiving>
       </MMS>
     </Messages>
-    <ActiveSync>
-    <Signature>Sent from Samsung Mobile</Signature>
-    </ActiveSync>
     <Browser>
-      <NbBookmark>2</NbBookmark>
+      <NbBookmark>3</NbBookmark>
       <Bookmark>
         <NetworkName>default</NetworkName>
         <Editable>no</Editable>
@@ -119,6 +114,12 @@
         <Index>2</Index>
         <BookmarkName>Yahoo!</BookmarkName>
         <URL>http://m.yahoo.com/?tsrc=samsungbm</URL>
+      </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Index>3</Index>
+        <BookmarkName>User manual</BookmarkName>
+        <URL>http://www.samsung.com/m-manual/common</URL>
       </Bookmark>
       <eManual>
         <URL>http://www.samsung.com/m-manual/common</URL>
@@ -164,9 +165,9 @@
       </ProfileHandle>
       <ProfileHandle>
         <NbNetProfile>2</NbNetProfile>
-        <NetworkName>Qatarnet</NetworkName>
-        <ProfBrowser>Qtel GPRS</ProfBrowser>
-        <ProfMMS>Qtel MMS</ProfMMS>
+        <NetworkName>Ooredoo</NetworkName>
+        <ProfBrowser>Ooredoo</ProfBrowser>
+        <ProfMMS>Ooredoo MMS</ProfMMS>
       </ProfileHandle>
       <ProfileHandle>
         <NbNetProfile>2</NbNetProfile>
@@ -334,16 +335,11 @@
         </PSparam>
       </Profile>
       <Profile>
-        <NetworkName>Qatarnet</NetworkName>
-        <ProfileName>Qtel GPRS</ProfileName>
+        <NetworkName>Ooredoo</NetworkName>
+        <ProfileName>Ooredoo</ProfileName>
         <Auth>normal</Auth>
         <Protocol>other</Protocol>
         <MTUSize>1500</MTUSize>
-        <Proxy>
-          <EnableFlag>on</EnableFlag>
-          <ServAddr>10.23.8.3</ServAddr>
-          <Port>8080</Port>
-        </Proxy>
         <PSparam>
           <APN>gprs.qtel</APN>
           <UserId>gprs</UserId>
@@ -351,9 +347,9 @@
         </PSparam>
       </Profile>
       <Profile>
-        <NetworkName>Qatarnet</NetworkName>
-        <ProfileName>Qtel MMS</ProfileName>
-        <URL>http://mmsr.qtelmms.qa</URL>
+        <NetworkName>Ooredoo</NetworkName>
+        <ProfileName>Ooredoo MMS</ProfileName>
+        <URL>http://mmsr.ooredoomms.qa</URL>
         <Auth>normal</Auth>
         <Protocol>other</Protocol>
         <MTUSize>1500</MTUSize>
@@ -375,12 +371,10 @@
         <Protocol>other</Protocol>
         <MTUSize>1500</MTUSize>
         <Proxy>
-          <EnableFlag>on</EnableFlag>
-          <ServAddr>10.101.97.102</ServAddr>
-          <Port>80</Port>
+          <EnableFlag>off</EnableFlag>
         </Proxy>
         <PSparam>
-          <APN>vodafone.com.qa</APN>
+          <APN>web.vodafone.com.qa</APN>
         </PSparam>
       </Profile>
       <Profile>

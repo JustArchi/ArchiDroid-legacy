@@ -1,7 +1,7 @@
 ﻿<?xml  version="1.0" encoding="UTF-8" ?>
 <CustomerData>
   <GeneralInfo>
-    <CSCEdition>ED001</CSCEdition>
+    <CSCEdition>ED005</CSCEdition>
     <Country>PAKISTAN</Country>
     <CountryISO>PK</CountryISO>
     <Region>MEA</Region>
@@ -41,21 +41,12 @@
         <AutoWbAmr>off</AutoWbAmr>
         <AutoFOTA>off</AutoFOTA>
       </Network>
-      <Sound>
-        <RngVolume>7</RngVolume>
-        <KeyTone>
-          <KeyVolume>1</KeyVolume>
-        </KeyTone>
-      </Sound>
       <Phone>
         <DefLanguage>en_GB</DefLanguage>
         <DefLanguageNoSIM>en_GB</DefLanguageNoSIM>
       </Phone>
       <Security />
     </Main>
-    <Calendar>
-      <StartDay>monday</StartDay>
-    </Calendar>
     <Messages>
       <SMS>
         <MsgTypeThreshold>

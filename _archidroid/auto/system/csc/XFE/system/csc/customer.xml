@@ -1,7 +1,7 @@
 ﻿<?xml  version="1.0" encoding="UTF-8" ?>
 <CustomerData>
   <GeneralInfo>
-    <CSCEdition>ED001</CSCEdition>
+    <CSCEdition>ED002</CSCEdition>
     <Country>SOUTH AFRICA</Country>
     <CountryISO>ZA</CountryISO>
     <Region>MEA</Region>
@@ -9,11 +9,11 @@
     <NbNetworkInfo>6</NbNetworkInfo>
     <NetworkInfo>
       <MCCMNC>65501</MCCMNC>
-      <NetworkName>Vodacom</NetworkName>
+      <NetworkName>Vodacom-SA</NetworkName>
     </NetworkInfo>
     <NetworkInfo>
       <MCCMNC>65502</MCCMNC>
-      <NetworkName>8ta</NetworkName>
+      <NetworkName>Telkom-SA</NetworkName>
     </NetworkInfo>
     <NetworkInfo>
       <MCCMNC>65510</MCCMNC>
@@ -52,50 +52,45 @@
           <ConnectTone>on</ConnectTone>
           <CallEndTone>off</CallEndTone>
         </ExtraSound>
+        <AMRVoiceCodec>on</AMRVoiceCodec>
       </Sound>
       <Phone>
         <DefLanguage>en_GB</DefLanguage>
         <DefLanguageNoSIM>en_GB</DefLanguageNoSIM>
-        <T9Enabling>enable</T9Enabling>
         <DateTimeFormat>
           <DateFormat>ddmmyyyy</DateFormat>
           <TimeFormat>24h</TimeFormat>
         </DateTimeFormat>
+		<VisiblePassword>off</VisiblePassword>
       </Phone>
       <Security />
     </Main>
-    <Calendar>
-      <StartDay>monday</StartDay>
-    </Calendar>
+    <Contact>
+      <ViewFrom>both</ViewFrom>
+    </Contact>
     <Messages>
       <NbVoicemail>6</NbVoicemail>
       <Voicemail>
-        <NetworkName>Vodacom</NetworkName>
-        <VoicemailName>Voicemail</VoicemailName>
+        <NetworkName>Vodacom-SA</NetworkName>
         <TelNum>121</TelNum>
       </Voicemail>
       <Voicemail>
-        <NetworkName>8ta</NetworkName>
-        <VoicemailName>Voicemail</VoicemailName>
+        <NetworkName>Telkom-SA</NetworkName>
         <TelNum>181</TelNum>
       </Voicemail>
       <Voicemail>
         <NetworkName>MTN</NetworkName>
-        <VoicemailName>Voicemail</VoicemailName>
         <TelNum>100</TelNum>
       </Voicemail>
       <Voicemail>
         <NetworkName>Cell C</NetworkName>
-        <VoicemailName>Voicemail</VoicemailName>
       </Voicemail>
       <Voicemail>
         <NetworkName>Virgin</NetworkName>
-        <VoicemailName>Voicemail</VoicemailName>
         <TelNum>121</TelNum>
       </Voicemail>
       <Voicemail>
         <NetworkName>Vodacom Lesotho</NetworkName>
-        <VoicemailName>Voicemail</VoicemailName>
         <TelNum>121</TelNum>
       </Voicemail>
       <SMS>
@@ -110,24 +105,13 @@
         <MmsSending>
           <ReqDeliveryRep>off</ReqDeliveryRep>
           <ReqReadRep>off</ReqReadRep>
-          <MessageSize>300</MessageSize>
         </MmsSending>
         <MmsReceiving>
           <Home>auto</Home>
           <Roaming>manual</Roaming>
-          <SendReadRep>off</SendReadRep>
-          <SendDeliveryRep>off</SendDeliveryRep>
         </MmsReceiving>
       </MMS>
     </Messages>
-    <Multimedia>
-      <Camera>
-        <Quality>high</Quality>
-      </Camera>
-      <Video>
-        <Quality>high</Quality>
-      </Video>
-    </Multimedia>
     <Browser>
       <NbBookmark>1</NbBookmark>
       <Bookmark>
@@ -145,7 +129,7 @@
       <NbProfileHandle>6</NbProfileHandle>
       <ProfileHandle>
         <NbNetProfile>2</NbNetProfile>
-        <NetworkName>Vodacom</NetworkName>
+        <NetworkName>Vodacom-SA</NetworkName>
         <ProfBrowser>Internet.Vodacom</ProfBrowser>
         <ProfMMS>MMS.Vodacom</ProfMMS>
       </ProfileHandle>
@@ -175,30 +159,26 @@
       </ProfileHandle>
       <ProfileHandle>
         <NbNetProfile>2</NbNetProfile>
-        <NetworkName>8ta</NetworkName>
+        <NetworkName>Telkom-SA</NetworkName>
         <ProfBrowser>8.ta internet</ProfBrowser>
         <ProfMMS>8.ta mms</ProfMMS>
       </ProfileHandle>
       <NbProfile>12</NbProfile>
       <Profile>
-        <NetworkName>Vodacom</NetworkName>
-        <Editable>no</Editable>
+        <NetworkName>Vodacom-SA</NetworkName>
         <ProfileName>Internet.Vodacom</ProfileName>
         <Auth>normal</Auth>
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>
         <Proxy>
-          <EnableFlag>on</EnableFlag>
-          <ServAddr>196.006.128.012</ServAddr>
-          <Port>8080</Port>
+          <EnableFlag>off</EnableFlag>
         </Proxy>
         <PSparam>
           <APN>internet</APN>
         </PSparam>
       </Profile>
       <Profile>
-        <NetworkName>Vodacom</NetworkName>
-        <Editable>no</Editable>
+        <NetworkName>Vodacom-SA</NetworkName>
         <ProfileName>MMS.Vodacom</ProfileName>
         <URL>http://mmsc.vodacom4me.co.za/</URL>
         <Auth>normal</Auth>
@@ -215,7 +195,6 @@
       </Profile>
       <Profile>
         <NetworkName>Vodacom Lesotho</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>VCL Internet GPRS</ProfileName>
         <Auth>normal</Auth>
         <Protocol>http</Protocol>
@@ -226,7 +205,6 @@
       </Profile>
       <Profile>
         <NetworkName>Vodacom Lesotho</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>VCL MMS GPRS</ProfileName>
         <URL>http://mmsc.vodacom4me.co.za/</URL>
         <Auth>normal</Auth>
@@ -243,15 +221,12 @@
       </Profile>
       <Profile>
         <NetworkName>Cell C</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>Smartdata</ProfileName>
         <Auth>normal</Auth>
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>
         <Proxy>
-          <EnableFlag>on</EnableFlag>
-          <ServAddr>196.31.116.250</ServAddr>
-          <Port>8080</Port>
+          <EnableFlag>off</EnableFlag>
         </Proxy>
         <PSparam>
           <APN>internet</APN>
@@ -259,7 +234,6 @@
       </Profile>
       <Profile>
         <NetworkName>Cell C</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>Cell C MMS</ProfileName>
         <URL>http://mms.cmobile.co.za</URL>
         <Auth>normal</Auth>
@@ -276,7 +250,6 @@
       </Profile>
       <Profile>
         <NetworkName>MTN</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>MTN Data</ProfileName>
         <Auth>normal</Auth>
         <Protocol>http</Protocol>
@@ -291,7 +264,6 @@
       </Profile>
       <Profile>
         <NetworkName>MTN</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>MTN MMS</ProfileName>
         <URL>http://mms.mtn.co.za/mms/wapenc</URL>
         <Auth>normal</Auth>
@@ -310,7 +282,6 @@
       </Profile>
       <Profile>
         <NetworkName>Virgin</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>virgin_internet</ProfileName>
         <Auth>normal</Auth>
         <Protocol>http</Protocol>
@@ -326,7 +297,6 @@
       </Profile>
       <Profile>
         <NetworkName>Virgin</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>virgin_mms</ProfileName>
         <URL>http://mms.virginmobile.co.za</URL>
         <Auth>normal</Auth>
@@ -342,8 +312,7 @@
         </PSparam>
       </Profile>
       <Profile>
-        <NetworkName>8ta</NetworkName>
-        <Editable>no</Editable>
+        <NetworkName>Telkom-SA</NetworkName>
         <ProfileName>8.ta internet</ProfileName>
         <Auth>normal</Auth>
         <Protocol>http</Protocol>
@@ -353,8 +322,7 @@
         </PSparam>
       </Profile>
       <Profile>
-        <NetworkName>8ta</NetworkName>
-        <Editable>no</Editable>
+        <NetworkName>Telkom-SA</NetworkName>
         <ProfileName>8.ta mms</ProfileName>
         <URL>http://mms.8ta.com:38090/was</URL>
         <Auth>normal</Auth>

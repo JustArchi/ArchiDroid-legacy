@@ -1,7 +1,7 @@
 ﻿<?xml  version="1.0" encoding="UTF-8" ?>
 <CustomerData>
   <GeneralInfo>
-    <CSCEdition>ED001</CSCEdition>
+    <CSCEdition>ED011</CSCEdition>
     <Country>MOROCCO</Country>
     <CountryISO>MA</CountryISO>
     <Region>MEA</Region>
@@ -27,10 +27,6 @@
       </Network>
       <Sound>
         <RngToneAlertType>melody</RngToneAlertType>
-        <RngVolume>6</RngVolume>
-        <KeyTone>
-          <KeyVolume>4</KeyVolume>
-        </KeyTone>
         <ExtraSound>
           <ConnectTone>on</ConnectTone>
         </ExtraSound>
@@ -38,16 +34,13 @@
       <Phone>
         <DefLanguage>fr_FR</DefLanguage>
         <DefLanguageNoSIM>fr_FR</DefLanguageNoSIM>
-        <T9Language>french</T9Language>
         <DateTimeFormat>
           <DateFormat>ddmmyyyy</DateFormat>
           <TimeFormat>24h</TimeFormat>
         </DateTimeFormat>
+		<VisiblePassword>off</VisiblePassword>
       </Phone>
     </Main>
-    <Calendar>
-      <StartDay>monday</StartDay>
-    </Calendar>
     <Messages>
       <SMS>
         <CharSupport>automatic</CharSupport>
@@ -57,19 +50,16 @@
         <MmsSending>
           <ReqDeliveryRep>off</ReqDeliveryRep>
           <ReqReadRep>off</ReqReadRep>
-          <MessageSize>100</MessageSize>
           <CreationMode>warning</CreationMode>
         </MmsSending>
         <MmsReceiving>
           <Home>auto</Home>
           <Roaming>manual</Roaming>
-          <SendReadRep>prompt</SendReadRep>
-          <SendDeliveryRep>on</SendDeliveryRep>
         </MmsReceiving>
       </MMS>
     </Messages>
     <Browser>
-      <NbBookmark>9</NbBookmark>
+      <NbBookmark>10</NbBookmark>
       <Bookmark>
         <NetworkName>default</NetworkName>
         <BookmarkName>Samsung Apps Web</BookmarkName>
@@ -115,6 +105,11 @@
         <BookmarkName>Eurosport</BookmarkName>
         <URL>http://m.eurosport.fr</URL>
       </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <BookmarkName>User manual</BookmarkName>
+        <URL>http://www.samsung.com/m-manual/common</URL>
+      </Bookmark>
       <eManual>
         <URL>http://www.samsung.com/m-manual/common</URL>
       </eManual>
@@ -122,7 +117,7 @@
     <Connections>
       <NbProfileHandle>1</NbProfileHandle>
       <ProfileHandle>
-        <NbNetProfile>2</NbNetProfile>
+        <NbNetProfile>3</NbNetProfile>
         <NetworkName>MEDITEL</NetworkName>
         <ProfBrowser>Internet</ProfBrowser>
         <ProfMMS>GPRS MMS</ProfMMS>
@@ -130,7 +125,6 @@
       <NbProfile>3</NbProfile>
       <Profile>
         <NetworkName>MEDITEL</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Internet</ProfileName>
         <Auth>normal</Auth>
         <Protocol>http</Protocol>
@@ -143,8 +137,8 @@
       </Profile>
       <Profile>
         <NetworkName>MEDITEL</NetworkName>
-        <Editable>no</Editable>
         <ProfileName>Imedia</ProfileName>
+        <URL>http://www.google.com</URL>
         <Auth>normal</Auth>
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>
@@ -161,7 +155,6 @@
       </Profile>
       <Profile>
         <NetworkName>MEDITEL</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>GPRS MMS</ProfileName>
         <URL>http://mms.meditel.ma:8088/mms</URL>
         <Auth>normal</Auth>

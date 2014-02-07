@@ -1,7 +1,7 @@
-﻿<?xml  version="1.0" encoding="UTF-8" ?>
+<?xml  version="1.0" encoding="UTF-8" ?>
 <CustomerData>
   <GeneralInfo>
-    <CSCEdition>ED004</CSCEdition>
+    <CSCEdition>ED001</CSCEdition>
     <Country>Nigeria</Country>
     <CountryISO>NG</CountryISO>
     <Region>MEA</Region>
@@ -25,10 +25,7 @@
     </NetworkInfo>
   </GeneralInfo>
   <Settings>
-    <Main>
-      <Security>
-     <NbNetworkLock>33</NbNetworkLock>        <NetworkLock>460BB</NetworkLock>        <NetworkLock>250BB</NetworkLock>        <NetworkLock>255BB</NetworkLock>        <NetworkLock>502BB</NetworkLock>        <NetworkLock>510BB</NetworkLock>        <NetworkLock>401BB</NetworkLock>        <NetworkLock>525BB</NetworkLock>        <NetworkLock>452BB</NetworkLock>        <NetworkLock>505BB</NetworkLock>        <NetworkLock>515BB</NetworkLock>        <NetworkLock>470BB</NetworkLock>        <NetworkLock>404BB</NetworkLock>        <NetworkLock>405BB</NetworkLock>        <NetworkLock>603BB</NetworkLock>        <NetworkLock>602BB</NetworkLock>        <NetworkLock>432BB</NetworkLock>        <NetworkLock>604BB</NetworkLock>        <NetworkLock>416BB</NetworkLock>        <NetworkLock>424BB</NetworkLock>        <NetworkLock>425BB</NetworkLock>        <NetworkLock>724BB</NetworkLock>        <NetworkLock>370BB</NetworkLock>        <NetworkLock>338BB</NetworkLock>        <NetworkLock>374BB</NetworkLock>        <NetworkLock>706BB</NetworkLock>        <NetworkLock>734BB</NetworkLock>        <NetworkLock>714BB</NetworkLock>        <NetworkLock>712BB</NetworkLock>        <NetworkLock>740BB</NetworkLock>        <NetworkLock>704BB</NetworkLock>        <NetworkLock>708BB</NetworkLock>        <NetworkLock>710BB</NetworkLock>        <NetworkLock>606BB</NetworkLock>
-      </Security>
+    <Main>      <Security>        <NbNetworkLock>20</NbNetworkLock>        <NetworkLock>460BB</NetworkLock>        <NetworkLock>250BB</NetworkLock>        <NetworkLock>255BB</NetworkLock>        <NetworkLock>502BB</NetworkLock>        <NetworkLock>510BB</NetworkLock>        <NetworkLock>401BB</NetworkLock>        <NetworkLock>525BB</NetworkLock>        <NetworkLock>452BB</NetworkLock>        <NetworkLock>505BB</NetworkLock>        <NetworkLock>515BB</NetworkLock>        <NetworkLock>470BB</NetworkLock>        <NetworkLock>404BB</NetworkLock>        <NetworkLock>405BB</NetworkLock>        <NetworkLock>603BB</NetworkLock>        <NetworkLock>602BB</NetworkLock>        <NetworkLock>432BB</NetworkLock>        <NetworkLock>604BB</NetworkLock>        <NetworkLock>416BB</NetworkLock>        <NetworkLock>424BB</NetworkLock>        <NetworkLock>606BB</NetworkLock>      </Security>
       <Network>
         <AutoProfile>on</AutoProfile>
         <AutoVoicemail>off</AutoVoicemail>
@@ -42,17 +39,23 @@
       </Network>
       <Sound>
         <RngToneAlertType>melody</RngToneAlertType>
+        <NbRingTone>1</NbRingTone>
+        <RingTone src="/Customer/ECT/Ringtone/Samsung_Song.mp3" default="true">
+          <Position>1</Position>
+          <FileType>MP3</FileType>
+        </RingTone>
       </Sound>
       <Phone>
-        <DefLanguage>en_GB</DefLanguage>
-        <DefLanguageNoSIM>en_GB</DefLanguageNoSIM>
+        <DefLanguage>english</DefLanguage>
+        <DefLanguageNoSIM>english</DefLanguageNoSIM>
         <T9Language>english</T9Language>
         <DateTimeFormat>
           <DateFormat>ddmmyyyy</DateFormat>
           <TimeFormat>24h</TimeFormat>
           <TimezoneUpdate>on</TimezoneUpdate>
-        </DateTimeFormat>
+        </DateTimeFormat>		<VisiblePassword>off</VisiblePassword>		
       </Phone>
+      <Security />
     </Main>
     <Messages>
       <SMS>
@@ -108,7 +111,6 @@
       <NbProfile>8</NbProfile>
       <Profile>
         <NetworkName>MTN Nigeria</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>MTN MMS</ProfileName>
         <URL>http://10.199.212.8/servlets/mms</URL>
         <Auth>normal</Auth>
@@ -127,7 +129,6 @@
       </Profile>
       <Profile>
         <NetworkName>MTN Nigeria</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>MTN GPRS</ProfileName>
         <Auth>normal</Auth>
         <Protocol>http</Protocol>
@@ -145,7 +146,6 @@
       </Profile>
       <Profile>
         <NetworkName>Glo Mobile</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>glo mms</ProfileName>
         <URL>http://mms.gloworld.com/mmsc</URL>
         <Auth>normal</Auth>
@@ -164,7 +164,6 @@
       </Profile>
       <Profile>
         <NetworkName>Glo Mobile</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>glo direct</ProfileName>
         <Auth>normal</Auth>
         <Protocol>other</Protocol>
@@ -177,7 +176,6 @@
       </Profile>
       <Profile>
         <NetworkName>Zain Nigeria</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Zain MMS</ProfileName>
         <URL>http://172.23.1.12/mms/wapenc</URL>
         <Auth>normal</Auth>
@@ -196,7 +194,6 @@
       </Profile>
       <Profile>
         <NetworkName>Zain Nigeria</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Zain Mobile Internet</ProfileName>
         <Auth>normal</Auth>
         <MTUSize>1500</MTUSize>
@@ -206,9 +203,9 @@
       </Profile>
       <Profile>
         <NetworkName>Etisalat Nigeria</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Etisalat MMS</ProfileName>
         <URL>http://10.71.170.30:38090/was</URL>
+        <Auth>normal</Auth>
         <Protocol>http</Protocol>
         <MTUSize>1500</MTUSize>
         <Proxy>
@@ -222,7 +219,6 @@
       </Profile>
       <Profile>
         <NetworkName>Etisalat Nigeria</NetworkName>
-        <Editable>yes</Editable>
         <ProfileName>Etisalat Internet</ProfileName>
         <MTUSize>1500</MTUSize>
         <PSparam>

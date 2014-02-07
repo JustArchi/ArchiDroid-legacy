@@ -1,7 +1,7 @@
 ﻿<?xml  version="1.0" encoding="UTF-8" ?>
 <CustomerData>
   <GeneralInfo>
-    <CSCEdition>ED002</CSCEdition>
+    <CSCEdition>ED006</CSCEdition>
     <Country>Kenya</Country>
     <CountryISO>AE</CountryISO>
     <Region>MEA</Region>
@@ -21,7 +21,7 @@
     </NetworkInfo>
     <NetworkInfo>
       <MCCMNC>63905</MCCMNC>
-      <NetworkName>Econet</NetworkName>
+      <NetworkName>YU</NetworkName>
     </NetworkInfo>
     <NetworkInfo>
       <MCCMNC>64004</MCCMNC>
@@ -30,16 +30,19 @@
   </GeneralInfo>
   <Settings>
     <Main>
-      <Security>
-         <NbNetworkLock>33</NbNetworkLock>        <NetworkLock>460BB</NetworkLock>        <NetworkLock>250BB</NetworkLock>        <NetworkLock>255BB</NetworkLock>        <NetworkLock>502BB</NetworkLock>        <NetworkLock>510BB</NetworkLock>        <NetworkLock>401BB</NetworkLock>        <NetworkLock>525BB</NetworkLock>        <NetworkLock>452BB</NetworkLock>        <NetworkLock>505BB</NetworkLock>        <NetworkLock>515BB</NetworkLock>        <NetworkLock>470BB</NetworkLock>        <NetworkLock>404BB</NetworkLock>        <NetworkLock>405BB</NetworkLock>        <NetworkLock>603BB</NetworkLock>        <NetworkLock>602BB</NetworkLock>        <NetworkLock>432BB</NetworkLock>        <NetworkLock>604BB</NetworkLock>        <NetworkLock>416BB</NetworkLock>        <NetworkLock>424BB</NetworkLock>        <NetworkLock>425BB</NetworkLock>        <NetworkLock>724BB</NetworkLock>        <NetworkLock>370BB</NetworkLock>        <NetworkLock>338BB</NetworkLock>        <NetworkLock>374BB</NetworkLock>        <NetworkLock>706BB</NetworkLock>        <NetworkLock>734BB</NetworkLock>        <NetworkLock>714BB</NetworkLock>        <NetworkLock>712BB</NetworkLock>        <NetworkLock>740BB</NetworkLock>        <NetworkLock>704BB</NetworkLock>        <NetworkLock>708BB</NetworkLock>        <NetworkLock>710BB</NetworkLock>        <NetworkLock>606BB</NetworkLock>
-      </Security>
+      <Network>
+        <NbSOSNumber>1</NbSOSNumber>
+        <SOSNumber>999</SOSNumber>
+      </Network>
       <Phone>
         <DefLanguage>en_GB</DefLanguage>
         <DefLanguageNoSIM>en_GB</DefLanguageNoSIM>
+		<VisiblePassword>off</VisiblePassword>
       </Phone>
+      <Security />
     </Main>
     <Browser>
-      <NbBookmark>2</NbBookmark>
+      <NbBookmark>3</NbBookmark>
       <Bookmark>
         <NetworkName>default</NetworkName>
         <Editable>yes</Editable>
@@ -54,12 +57,24 @@
         <BookmarkName>Yahoo!</BookmarkName>
         <URL>http://m.yahoo.com/?tsrc=samsungbm</URL>
       </Bookmark>
+      <Bookmark>
+        <NetworkName>default</NetworkName>
+        <Editable>yes</Editable>
+        <Index>3</Index>
+        <BookmarkName>User manual</BookmarkName>
+        <URL>http://www.samsung.com/m-manual/common</URL>
+      </Bookmark>
       <eManual>
         <URL>http://www.samsung.com/m-manual/common</URL>
       </eManual>
     </Browser>
     <Connections>
-      <NbProfileHandle>4</NbProfileHandle>
+      <NbProfileHandle>5</NbProfileHandle>
+      <ProfileHandle>
+        <NbNetProfile>1</NbNetProfile>
+        <NetworkName>YU</NetworkName>
+        <ProfMMS>YU MMS</ProfMMS>
+      </ProfileHandle>
       <ProfileHandle>
         <NbNetProfile>2</NbNetProfile>
         <NetworkName>Orange</NetworkName>

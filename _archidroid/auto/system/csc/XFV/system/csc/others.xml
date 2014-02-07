@@ -10,5 +10,10 @@
     <CscFeature_Web_DisableMostVisitedHomepage>TRUE</CscFeature_Web_DisableMostVisitedHomepage>
     <CscFeature_Web_EnableAutoSimHomeUrlInProfile>TRUE</CscFeature_Web_EnableAutoSimHomeUrlInProfile>
     <CscFeature_SyncML_EnableNotiDeltaBinarySizeBeforeDownload>TRUE</CscFeature_SyncML_EnableNotiDeltaBinarySizeBeforeDownload>
+	<CscFeature_GMS_SetClientIDBaseMs>android-hms-vf-{country}</CscFeature_GMS_SetClientIDBaseMs>
+    <CscFeature_GMS_SetClientIDBaseGmm>android-samsung</CscFeature_GMS_SetClientIDBaseGmm>
+    <CscFeature_GMS_SetClientIDBaseYt>android-samsung</CscFeature_GMS_SetClientIDBaseYt>
+    <CscFeature_GMS_SetClientIDBaseAm>android-samsung</CscFeature_GMS_SetClientIDBaseAm>
+	<CscFeature_RIL_EnableLaunchBrowser>TRUE</CscFeature_RIL_EnableLaunchBrowser>
   </FeatureSet>
 </SamsungMobileFeauture>

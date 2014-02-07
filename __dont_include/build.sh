@@ -5,7 +5,7 @@
 #exit 1
 
 # Common
-VERSION=1.7.8
+VERSION=1.7.9
 STABLE=0
 NOSYNC=0
 SAMMY=0
@@ -60,11 +60,6 @@ if [ $STABLE -eq 0 ]; then
 	VERSION="$VERSION EXPERIMENTAL"
 else
 	VERSION="$VERSION STABLE"
-fi
-if [ $SAMMY -eq 1 ]; then
-	VERSION+=' ['
-	VERSION+=`cat ../system/build.prop | grep "ro.build.version.incremental" | cut -d '=' -f 2`
-	VERSION+=']'
 fi
 DENSITY="#ro.sf.lcd_density=320"
 
@@ -157,6 +152,12 @@ cd __dont_include/
 #mkdir -p bloatware/system/app
 #mv ../system/app/CellBroadcastReceiver.apk bloatware/system/app
 #TODO uzupelnic syf
+
+if [ $SAMMY -eq 1 ]; then
+	VERSION+=' ['
+	VERSION+=`cat ../system/build.prop | grep "ro.build.version.incremental" | cut -d '=' -f 2`
+	VERSION+=']'
+fi
 
 ##################
 ### OTA UPDATE ###

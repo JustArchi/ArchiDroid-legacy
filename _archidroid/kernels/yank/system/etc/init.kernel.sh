@@ -24,7 +24,7 @@ sleep 10
 
 echo `date +"%F %R:%S : Starting kernel configuration..."` >>$log_file
 
-# Script generated on 20/01/2014 at  1:04
+# Script generated on 07/02/2014 at 18:08
 #----------------------------------------------------
 
 # - Enabled init.d scripts support by kernel/ramdisk
@@ -53,8 +53,8 @@ echo "2" > /sys/module/cpuidle_exynos4/parameters/enable_mask
 echo `date +"%F %R:%S : CPU Idle mode set to Idle + LPA."` >>$log_file
 
 # - Multicore Powersave Mode
-echo "1" > /sys/devices/system/cpu/sched_mc_power_savings
-echo `date +"%F %R:%S : CPU Multicore Powersave mode set to On."` >>$log_file
+echo "0" > /sys/devices/system/cpu/sched_mc_power_savings
+echo `date +"%F %R:%S : CPU Multicore Powersave mode set to Off."` >>$log_file
 
 # - Set CPU max frequencies for all 4 cores
 echo 1600000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
@@ -247,7 +247,7 @@ echo `date +"%F %R:%S : UDF kernel module not loaded."` >>$log_file
 echo `date +"%F %R:%S : XBOX 360 gamepad support kernel module not loaded."` >>$log_file
 
 # - Load frandom kernel module on boot
-insmod /system/lib/modules/frandom.ko
+insmod /lib/modules/frandom.ko
 echo `date +"%F %R:%S : frandom kernel module loaded."` >>$log_file
 
 # Wait for everything to become ready

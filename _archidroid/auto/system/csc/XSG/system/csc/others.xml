@@ -12,6 +12,8 @@
     <CscFeature_Email_AlignmentForRTL>TRUE</CscFeature_Email_AlignmentForRTL>
     <CscFeature_Email_DisableFontAttributeDuringComposing>Bold, Italic</CscFeature_Email_DisableFontAttributeDuringComposing>
     <CscFeature_RIL_HandleInvalidTimezonOffset>TRUE</CscFeature_RIL_HandleInvalidTimezonOffset>
-    <CscFeature_Calendar_EnableLocalHolidayDisplay>ARABIC</CscFeature_Calendar_EnableLocalHolidayDisplay>
+	<CscFeature_RIL_EnableLaunchBrowser>TRUE</CscFeature_RIL_EnableLaunchBrowser>
+	<CscFeature_Web_SetHomepageURL>http://content.samsung.com</CscFeature_Web_SetHomepageURL>
+	<CscFeature_Web_DisableMostVisitedHomepage>TRUE</CscFeature_Web_DisableMostVisitedHomepage>
   </FeatureSet>
 </SamsungMobileFeauture>

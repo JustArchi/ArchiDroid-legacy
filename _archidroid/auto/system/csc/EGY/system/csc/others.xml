@@ -12,6 +12,6 @@
     <CscFeature_Email_AlignmentForRTL>TRUE</CscFeature_Email_AlignmentForRTL>
     <CscFeature_Email_DisableFontAttributeDuringComposing>Bold, Italic</CscFeature_Email_DisableFontAttributeDuringComposing>
     <CscFeature_RIL_SupportUssdWithSharpChar>TRUE</CscFeature_RIL_SupportUssdWithSharpChar>
-    <CscFeature_Calendar_EnableLocalHolidayDisplay>ARABIC</CscFeature_Calendar_EnableLocalHolidayDisplay>
+	<CscFeature_RIL_EnableLaunchBrowser>TRUE</CscFeature_RIL_EnableLaunchBrowser>
   </FeatureSet>
 </SamsungMobileFeauture>

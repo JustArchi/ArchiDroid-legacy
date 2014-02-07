@@ -56,6 +56,7 @@ text_quit_msg=¿Está seguro que desea salir del programa de instalación?
 #
 common.for=Para
 common.none=Ninguno
+common.reboot=Reboot
 common.replaces=Remplazo
 common.inverted=Invertido
 common.experimental=EXPERIMENTAL
@@ -78,6 +79,23 @@ archidroid.detect.pass.yes=Sí, hacer una actualización
 archidroid.detect.pass.no=No, hacer un wipe completo
 archidroid.detect.pass.alert.no=OK, vamos a hacer un wipe completo e instalar ArchiDroid
 archidroid.detect.force=¿Le gustaría usar el modo de actualización forzada? Esto hará que RunOnce de ArchiDroid realice ajustes avanzados, que normalmente se ejecutan sólo en modo instalación. Seleccione No si no está seguro
+
+archidroid.partition.wizard.desc=ArchiDroid Partition Wizard shows only partitions, which are currently supported. F2FS requires special recovery and kernel (selected on the previous page) to be available\
+\
+<b><#f00>WARNING! REPARTITIONING CAN LEAD TO SOFT AND HARD BRICKS IF SOMETHING GOES WRONG. YOU SHOULDN'T TOUCH THESE SETTINGS UNLESS YOU KNOW WHAT YOU'RE DOING</#></b>\
+\
+In addition to that, during repartitioning <b><#f00>ALL DATA WILL BE LOST</#></b>
+
+archidroid.filesystem.ext4.desc=Fourth Extended File System. Proven to be stable and reliable. Supported by all kernels
+archidroid.filesystem.f2fs.desc=Flash-Friendly File System. Optimized for NAND flash memory-based storage devices, gives significant I/O boost compared to EXT4. Supported only by a few custom kernels
+archidroid.partition.wizard.finish.desc=ArchiDroid Partition Wizard has finished repartitioning your partition. If RETURN STATUS is equal to 0, everything ended successfully
+archidroid.partition.wizard.warningintsd=<b><#f00>WARNING!</#></b> Repartitioning of /data isn't available during flashing ArchiDroid from internal sd card. Please use external one if you want to use this option
+archidroid.partition.wizard.warningcachelater=Cache partition will be repartitioned after flashing due to aroma and recovery limitations
+archidroid.partition.wizard.warningcache=As previously stated, ArchiDroid Partition Wizard will now reformat your cache partition. It will automatically reboot your device after finish (regardless of previous choice)
+
+archidroid.preset.recovery.desc=Will flash recovery (only) instead of a ROM. May be useful if recovery update is required prior to flashing
+archidroid.recovery.philz.desc=The most feature-rich custom recovery ever created, developed by Phil
+archidroid.recovery.devil.desc=Alternative recovery developed by Devil, which includes dual-boot support and F2FS filesystem
 
 archidroid.preset=Configuración de Instalación de ArchiDroid
 archidroid.preset.desc=Por favor, seleccione el modo de instalación:
@@ -142,6 +160,7 @@ archidroid.updaterecovery.desc=Si desea tener el último recovery
 archidroid.gapps.desc=Funciones básicas y aplicaciones de Google. NO desactive esta opción
 archidroid.gapps.gquick.desc=Puede dañar Google Voice!
 
+archidroid.apps.vnc.desc=A VNC client, which allows you to use GUI in ArchiDroid's Pocket Debian
 archidroid.apps.titaniumbackup.desc=La solución perfecta para guardar datos personales / app entre actualizaciones
 archidroid.apps.greenify.desc=Útil si quiere hibernar cualquier aplicación, lo que ahorra batería
 archidroid.apps.lmt.desc=Útil para activar opciones con gestos en la pantalla, también conocido como PIE de SlimBean

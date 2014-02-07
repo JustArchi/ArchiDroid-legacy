@@ -1,15 +1,29 @@
-ArchiDroid 1.7.8
-- Updated base to XXUGNA5
-- Added All Backs Black theme, thanks to @Kdio
-- Fixed custom bootanimations not working on some kernels
-- Fixed rare screen-on situation, which could lead to the soft reboot, thanks to @MyLifeRocks10
-- Fixed a few other soft reboots and FCs
-- Updated Boeffla kernel to 5.2-beta1
-- Updated Blue Theme to 4.0
-- Updated Wanam Xposed to 2.7.2
-- AOSP theme is not yet available in this release, while blue theme is based on ML4.
+ArchiDroid 1.7.9
+- Readded Kitkat Revolution theme, as promised in the previous release, version Beta6
+- Fixed facebook push notifications, SNS was missing, thanks to @GrimPivo
+- Fixed lock screen clock, KeyguardWidget was missing
+- Fixed exchange FC, S_Postman was missing, thanks to @alatariell
+- Fixed SecBrowser being unable to show files during download
+- Updated Bloatware flasher to V1.3 - Implemented F2FS-friendly method of flashing, fixed some cosmetic things
+- Updated Yank kernel to 4.1c
+- Updated Archi's Boeffla presets
 
 * ArchiDroid Commons
-- Updated XPrivacy to 1.99.23
-- Updated MX Player to 1.7.23
-- Updated PhilZ Touch Recovery to 6.12.8
+- [!] Implemented ArchiDroid Partition Wizard and full F2FS support for /system /preload /cache(*) /data(*)
+# Option for reformatting to F2FS is only available if your custom recovery and chosen kernel support it
+# Reformatting is optional, by default ArchiDroid won't perform any action
+# (*) /cache is not being able to reformat back to ext4 from ArchiDroid Partition Wizard, while you can't reformat /data at all if you're flashing from internal sd card. This is on my todo
+
+- [!] Reworked recovery flashing
+# Now you can flash recovery TRULY before ArchiDroid flashing
+# If you choose recovery flashing option, ArchiDroid won't be flashed at all, instead, it will flash your recovery and then reboot it (recovery)
+# If any recovery update will be needed in the future, this way you won't need to do it manually anymore (as long as proper recovery is available in ArchiDroid)
+
+- Added Devil's Recovery
+# This is the only recovery with F2FS support for now, you can use above reworked method to flash it right from ArchiDroid itself
+
+- ADBLOCK: Added FORCE_LOCAL_DNSES, which may be useful in case of wrong answers from global DNSes but good from local ones, which are slower than global ones. Disabled by default
+- Fixed AdBlock not working on some kernels
+- Enabled SuperSU Pro features for all (shh!)
+- Updated Devil Kernel to 2.4.8e
+- Updated SuperSU to 1.93

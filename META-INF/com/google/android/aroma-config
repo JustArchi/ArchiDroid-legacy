@@ -62,6 +62,7 @@ theme("touchwiz");
 # Mount required filesystems
 resexec("exec/admount.sh", "/system");
 resexec("exec/admount.sh", "/data");
+resexec("exec/admount.sh", "/cache");
 resexec("exec/archidroid_init.sh");
 
 
@@ -499,8 +500,6 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 				setvar("resexec_retstatus",resexec("exec/adreformat.sh", "/data", "ext4"));
 				textbox("ArchiDroid Partition Wizard", "<~archidroid.partition.wizard.finish.desc>", "@default", getvar("exec_buffer")+"\n\n<b>RETURN STATUS : "+getvar("resexec_retstatus"));
 			endif;
-			resexec("exec/admount.sh", "/data");
-			resexec("exec/archidroid_init.sh");
 		else
 			alert("ArchiDroid Partition Wizard","<~archidroid.partition.wizard.warningintsd>","@alert");
 		endif;
@@ -509,7 +508,6 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 	#########################
 	### ARCHIDROID DETECT ###
 	#########################
-	resexec("exec/admount.sh", "/system");
 	pleasewait("Executing Shell...");
 	#-- Resource Exec
 	setvar(
@@ -605,8 +603,6 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "recov
 else
 	ini_set("text_next", "<~common.finish>");
 endif;
-resexec("exec/admount.sh", "/system");
-resexec("exec/admount.sh", "/data");
 
 install(
 	#-- Title
@@ -624,6 +620,7 @@ install(
 
 resexec("exec/adumount.sh", "/system");
 resexec("exec/adumount.sh", "/data");
+resexec("exec/adumount.sh", "/cache");
 
 if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "recovery" then
 	resexec("exec/cmd.sh", "reboot", "recovery");

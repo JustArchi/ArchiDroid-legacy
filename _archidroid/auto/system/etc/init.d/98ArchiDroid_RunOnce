@@ -497,7 +497,7 @@ if [ $ADRELOAD -eq 1 ]; then
 	echo "INFO: ArchiDroid RunOnce finished" >> $LOG
 	echo "`date`" >> $LOG
 	busybox sync
-	tinyplay $ADSYS/system/reboot.wav > /dev/null 2>&1
+	tinyplay $ADSYS/system/reboot.wav >/dev/null 2>&1 &
 	setprop ctl.restart surfaceflinger
 	setprop ctl.restart zygote
 	#reboot

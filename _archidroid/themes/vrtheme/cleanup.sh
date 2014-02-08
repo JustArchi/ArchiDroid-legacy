@@ -1,3 +1,3 @@
 #!/sbin/sh
-rm -rf /sdcard/vrtheme/
+rm -rf /cache/vrtheme/
 echo "Cleanup complete"

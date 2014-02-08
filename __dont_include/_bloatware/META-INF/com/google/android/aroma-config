@@ -55,6 +55,10 @@ fontresload( "1", "ttf/DroidSans.ttf;ttf/DroidSansFallback.ttf;ttf/DroidSansArab
 
 theme("touchwiz");
 
+# Mount required filesystems
+resexec("exec/admount.sh", "/system");
+resexec("exec/admount.sh", "/data");
+
 viewbox(
 	#-- Title
 	"Welcome!",
@@ -86,7 +90,6 @@ form(
 );
 
 pleasewait("Executing Shell...");
-resexec("exec/admount.sh", "/system");
 setvar("resexec_retstatus",resexec("exec/archidroid_detect.sh"));
 
 if getvar("resexec_retstatus")=="0" || getvar("resexec_retstatus")=="1" then
@@ -125,6 +128,7 @@ install(
 );
 
 resexec("exec/adumount.sh", "/system");
+resexec("exec/adumount.sh", "/data");
 
 if
 	confirm(

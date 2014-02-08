@@ -70,8 +70,8 @@ terms.confirm2=Tiszteld a fejlesztőket!
 archidroid.tos=ArchiDroid Felhasználási Feltételek
 
 archidroid.detect.fail=Ellenőriztem, a jelek szerint neked még nincs telepítve az ArchiDroid. Full wipe után jöttél, esetleg egy másik ROM-ról?
-archidroid.detect.fail.yes=Így van, nem rendelkezem ArchiDroid telepítéssel
-archidroid.detect.fail.no=Dehogy, már ArchiDroid fut a készülékemen!
+archidroid.detect.fail.yes=Nincs ArchiDroidom
+archidroid.detect.fail.no=Már ArchiDroidom van
 archidroid.detect.fail.alert.yes=OK, az ArchiDroid Telepítés módot választottam.
 archidroid.detect.fail.alert.no=Az nem jó. Eszerint tévedtem, de figyelmeztetlek, ne próbáld meg a Frissítés módot használni, ha nem rendelkezel ArchiDroid telepítéssel!
 archidroid.detect.pass=Ellenőriztem, a jelek szerint neked már telepítve van az ArchiDroid. Szeretnéd kipróbálni a Frissítés módot?
@@ -80,7 +80,7 @@ archidroid.detect.pass.no=Nem, Full Wipe
 archidroid.detect.pass.alert.no=OK, akkor full wipe lesz és az ArchiDroid Telepítés mód kerül futtatásra
 archidroid.detect.force=Szeretnéd az eröltetett frissítési módot használni? Ez megmondja az ArchiDroid RunOnce scriptnek, hogy az emelt szintű finomhangolásokat hajtsa végre, melyeket alapértelmezetten csak a Telepítés mód során tenne meg. Válaszd a Nem lehetőséget, ha nem vagy biztos benne!
 
-archidroid.partition.wizard.desc=Az ArchiDroid Partition Wizard csak a támogatott particiókat mutatja. F2FS speciális recovery-t és kernelt követel meg (az előző oldalon lett kiválasztva), hogy elérhető legyen\
+archidroid.partition.wizard.desc=Az ArchiDroid Partition Wizard csak a támogatott particiókat mutatja. Az F2FS speciális recovery-t és kernelt követel meg (az előző oldalon lett kiválasztva), hogy elérhető legyen\
 \
 <b><#f00>FIGYELEM! AZ ÚJRAPARTÍCIONÁLÁS AZ ESZKÖZ BRICKELÉSÉHEZ VEZETHET, HA VALAMI ROSSZUL SÜL EL. NE NYÚLJ EZEKHEZ A BEÁLLÍTÁSOKHOZ, HA NEM TUDOD, HOGY MIT CSINÁLSZ!</#></b>\
 \
@@ -88,7 +88,7 @@ Mindezeken felül a partícionálással <b><#f00>MINDEN ADATOD ELVESZIK!</#></b>
 
 archidroid.filesystem.ext4.desc=Fourth Extendend File System. Bizonyítottan stabil és gyors. Minden kernel támogatja
 archidroid.filesystem.f2fs.desc=Flash-Friendly File System. NAND flash memória alapú adattárolókhoz optimalizált fájlrendszer, jelentős I/O boost-ot eredményez az EXT4-hez képest. Csak néhány egyedi kernel támogatja
-archidroid.partition.wizard.finish.desc=Az ArchiDroid Partition Wizard befejezte a partícionálást. Ha a VISSZATÉRÉS STÁTUSZ 0, akkor minden rendben
+archidroid.partition.wizard.finish.desc=Az ArchiDroid Partition Wizard befejezte a partícionálást. Ha a RETURN STATUS 0, akkor minden rendben
 archidroid.partition.wizard.warningintsd=<b><#f00>FIGYELEM!</#></b> A /data újrapartícionálása nem elérhető, ha a belső SD-ről telepíted az Archidroid-ot. Kérlek a külső SD-ről telepítsd, ha használni akarod ezt a funkciót
 archidroid.partition.wizard.warningcachelater=A Cache partíció a flash-elés után kerül újraformázásra az aroma és a recovery limitációi miatt
 archidroid.partition.wizard.warningcache=Ahogy azt már említettük, Az ArchiDroid Partition Wizard most újraformázza a cache partíciót. Automatikusan újraindul a készüléked a folyamat után (függetlenül az előzetes beállításoktól)
@@ -117,7 +117,7 @@ archidroid.kernel.temasek.desc=Ajánlott a tökéletes teljesítményhez, akkuk�
 archidroid.kernel.boeffla.desc=Erősen ajánlott, mesterien tökéletes mindenki számára, melyben a Boeffla hang és még sok más funkció áll rendelkezésre
 archidroid.kernel.yank.desc=Alternatívaként ajánlott
 archidroid.kernel.googy.desc=Siyah forrására alapszik. Dual-boot támogatás, STweaks
-archidroid.kernel.devil.desc=Perseus forrására alapszik. Dual-boot, DevilTools
+archidroid.kernel.devil.desc=Perseus forrására alapszik. Dual-boot támogatás, DevilTools
 archidroid.kernel.stock.desc=Alapértelmezett kernel, mely jön a ROM-mal.
 
 archidroid.theme.aosp.desc=AOSP téma

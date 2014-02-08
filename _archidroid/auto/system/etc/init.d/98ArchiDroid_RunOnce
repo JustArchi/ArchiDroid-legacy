@@ -359,7 +359,7 @@ while (! pgrep com.android && [ $LOOP -lt 300 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 				# Requires ROM Control
 				DBUPDATE system screen_off_anim_toggle 2
 				DBUPDATE system status_bar_traffic 0
-				DBUPDATE system battery_icon_list 6
+				DBUPDATE system battery_icon_list 4
 			else
 				echo "INFO: Applying AOSP-specific DBUPDATE" >> $LOG
 
@@ -498,9 +498,9 @@ if [ $ADRELOAD -eq 1 ]; then
 	echo "`date`" >> $LOG
 	busybox sync
 	tinyplay $ADSYS/system/reboot.wav > /dev/null 2>&1
-	reboot
-	#killall system_server
-	#sleep 10
+	setprop ctl.restart surfaceflinger
+	setprop ctl.restart zygote
+	#reboot
 else
 	# We should call Init if reboot isn't required
 	sh /system/etc/init.d/99ArchiDroid_Init "background" "force" &

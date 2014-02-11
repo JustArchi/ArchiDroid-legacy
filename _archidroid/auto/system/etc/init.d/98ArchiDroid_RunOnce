@@ -490,6 +490,7 @@ else
 fi
 
 echo "FINISHED" > $ADSTATUS
+sh /system/etc/init.d/99ArchiDroid_Init "background" "force" &
 
 # Execute a reboot if we need it
 if [ $ADRELOAD -eq 1 ]; then
@@ -509,8 +510,4 @@ else
 	echo "INFO: ArchiDroid RunOnce finished" >> $LOG
 	echo "`date`" >> $LOG
 fi
-
-sh /system/etc/init.d/99ArchiDroid_Init "background" "force" &
-sleep 20
-sysro || mount -o remount,ro /system
 exit 0

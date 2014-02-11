@@ -1,19 +1,15 @@
 #!/sbin/sh
 # Copyright VillainROM 2011. All Rights Reserved
-# cleanup from last time
-[ -d /cache/vrtheme-backup ] && rm -r /cache/vrtheme-backup
 
 # we need to first go through each file in the "app" folder, and for each one present, apply the modified theme to the APK
 # let us copy each original APK here first. 
 echo "Processing /system/app/"
-busybox mkdir -p /cache/vrtheme-backup/system/app
 busybox mkdir -p /cache/vrtheme/apply/system/app
 cd /cache/vrtheme/system/app/
 for f in $(ls)
 do
   echo "Processing $f"
   cp /system/app/$f /cache/vrtheme/apply/system/app/
-  cp /system/app/$f /cache/vrtheme-backup/system/app/
 done
 echo "Backups done for system apps"
 
@@ -24,14 +20,12 @@ echo "Backups done for system apps"
 
 if [ "$framework" -eq "1" ]; then
 echo "Processing /system/framework"
-busybox mkdir -p /cache/vrtheme-backup/system/framework
 busybox mkdir -p /cache/vrtheme/apply/system/framework
 cd /cache/vrtheme/system/framework
 for f in $(ls)
 do
   echo "Processing $f"
   cp /system/framework/$f /cache/vrtheme/apply/system/framework/
-  cp /system/framework/$f /cache/vrtheme-backup/system/framework/
 done
 echo "Backups done for frameworks"
 fi
@@ -43,14 +37,12 @@ fi
 
 if [ "$dataapps" -eq "1" ]; then
 echo "Processing /data/app/"
-busybox mkdir -p /cache/vrtheme-backup/data/app
 busybox mkdir -p /cache/vrtheme/apply/data/app
 cd /cache/vrtheme/data/app/
 for f in $(ls)
 do
   echo "Processing $f"
   cp /data/app/$f /cache/vrtheme/apply/data/app/
-  cp /data/app/$f /cache/vrtheme-backup/data/app/
 done
 echo "Backups done for data apps"
 fi

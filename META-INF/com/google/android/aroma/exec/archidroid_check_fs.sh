@@ -97,35 +97,6 @@ ADMOUNT() {
 	return 0
 }
 
-ADUMOUNT() {
-	if (ADMOUNTED "$1"); then
-		MNTPATH=`echo $1 | sed 's/\///g'`
-		eval "MNTPATH=\$$MNTPATH"
-		if $GOTBUSYBOX; then
-			busybox umount -f "$1" >/dev/null 2>&1
-			busybox umount -f "$MNTPATH" >/dev/null 2>&1 # This is required for freeing up block path completely, used for example in reformatting
-			if !(ADMOUNTED "$1"); then
-				echo "Successfully unmounted $1 through busybox umount" >> $LOG
-				return 0
-			fi
-		fi
-		if $GOTMOUNT; then
-			umount -f "$1" >/dev/null 2>&1
-			umount -f "$MNTPATH" >/dev/null 2>&1 # This is required for freeing up block path completely, used for example in reformatting
-			if !(ADMOUNTED "$1"); then
-				echo "Successfully unmounted $1 through umount" >> $LOG
-				return 0
-			fi
-		fi
-		# Ok, I give up
-		echo "ERROR: Could not unmount $1" >> $LOG
-		return 1
-	else
-		echo "$1 is already unmounted" >> $LOG
-	fi
-	return 0
-}
-
 if [ ! -z `which busybox` ]; then
 	GOTBUSYBOX=true
 fi
@@ -140,6 +111,5 @@ fi
 
 ADMOUNT "$1"
 FS=$(mount | grep "$1" | head -n 1 | awk '{print $5}')
-ADUMOUNT "$1"
 echo "$FS"
 exit 0

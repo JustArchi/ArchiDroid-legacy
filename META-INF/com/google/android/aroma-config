@@ -476,69 +476,67 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 	endif;
 endif;
 
-#########################
-### ARCHIDROID DETECT ###
-#########################
-pleasewait("Executing Shell...");
-setvar(
-	"resexec_retstatus",
-	resexec("exec/archidroid_detect.sh")
-);
+if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") != "recovery" then
+	#########################
+	### ARCHIDROID DETECT ###
+	#########################
+	setvar("resexec_retstatus",resexec("exec/archidroid_detect.sh"));
 
-if getvar("resexec_retstatus")=="0" || getvar("resexec_retstatus")=="1" then
-	if confirm(
-		"ArchiDroid Detect",
-		"<~archidroid.detect.fail>",
-		"@info",
-		"<~archidroid.detect.fail.yes>",
-		"<~archidroid.detect.fail.no>"
-	)=="yes" then
-		alert("ArchiDroid Detect","<~archidroid.detect.fail.alert.yes>","@info");
-		writetmpfile(
-			"archidroidwipe.prop",
-			"wipe=yes\n"
-		);
-	else
-		alert("ArchiDroid Detect","<~archidroid.detect.fail.alert.no>","@alert");
-		setvar("resexec_retstatus","2");
-	endif;
-endif;
-if getvar("resexec_retstatus")=="2" then
-	if confirm(
-		"ArchiDroid Detect",
-		"<~archidroid.detect.pass>",
-		"@info",
-		"<~archidroid.detect.pass.yes>",
-		"<~archidroid.detect.pass.no>"
-	)=="yes" then
-		writetmpfile(
-			"archidroidwipe.prop",
-			"wipe=no\n"+
-			"force=no\n"
-		);
+	if getvar("resexec_retstatus")=="0" || getvar("resexec_retstatus")=="1" then
 		if confirm(
 			"ArchiDroid Detect",
-			"<~archidroid.detect.force>",
-		"@alert"
+			"<~archidroid.detect.fail>",
+			"@info",
+			"<~archidroid.detect.fail.yes>",
+			"<~archidroid.detect.fail.no>"
 		)=="yes" then
+			alert("ArchiDroid Detect","<~archidroid.detect.fail.alert.yes>","@info");
 			writetmpfile(
 				"archidroidwipe.prop",
-				"wipe=no\n"+
-				"force=yes\n"
+				"wipe=yes\n"
 			);
 		else
+			alert("ArchiDroid Detect","<~archidroid.detect.fail.alert.no>","@alert");
+			setvar("resexec_retstatus","2");
+		endif;
+	endif;
+	if getvar("resexec_retstatus")=="2" then
+		if confirm(
+			"ArchiDroid Detect",
+			"<~archidroid.detect.pass>",
+			"@info",
+			"<~archidroid.detect.pass.yes>",
+			"<~archidroid.detect.pass.no>"
+		)=="yes" then
 			writetmpfile(
 				"archidroidwipe.prop",
 				"wipe=no\n"+
 				"force=no\n"
 			);
+			if confirm(
+				"ArchiDroid Detect",
+				"<~archidroid.detect.force>",
+			"@alert"
+			)=="yes" then
+				writetmpfile(
+					"archidroidwipe.prop",
+					"wipe=no\n"+
+					"force=yes\n"
+				);
+			else
+				writetmpfile(
+					"archidroidwipe.prop",
+					"wipe=no\n"+
+					"force=no\n"
+				);
+			endif;
+		else
+			alert("ArchiDroid Detect","<~archidroid.detect.pass.alert.no>","@info");
+			writetmpfile(
+				"archidroidwipe.prop",
+				"wipe=yes\n"
+			);
 		endif;
-	else
-		alert("ArchiDroid Detect","<~archidroid.detect.pass.alert.no>","@info");
-		writetmpfile(
-			"archidroidwipe.prop",
-			"wipe=yes\n"
-		);
 	endif;
 endif;
 

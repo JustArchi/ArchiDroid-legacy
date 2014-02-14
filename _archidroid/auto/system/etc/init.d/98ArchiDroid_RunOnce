@@ -489,14 +489,9 @@ else
 	echo "ERROR: I've detected RunOnce still in init.d after cleanup, that's not good, please investigate" >> $LOG
 fi
 
-echo "FINISHED" > $ADSTATUS
-sh /system/etc/init.d/99ArchiDroid_Init "background" "force" &
-
 # Execute a reboot if we need it
 if [ $ADRELOAD -eq 1 ]; then
 	echo "INFO: Reboot required, I'm rebooting the device right now" >> $LOG
-	echo "INFO: ArchiDroid RunOnce finished" >> $LOG
-	echo "`date`" >> $LOG
 	busybox sync
 
 	#tinyplay $ADSYS/system/reboot.wav >/dev/null 2>&1
@@ -505,9 +500,12 @@ if [ $ADRELOAD -eq 1 ]; then
 	tinyplay $ADSYS/system/reboot.wav >/dev/null 2>&1 &
 	setprop ctl.restart surfaceflinger
 	setprop ctl.restart zygote
-else
-	# Finish
-	echo "INFO: ArchiDroid RunOnce finished" >> $LOG
-	echo "`date`" >> $LOG
+	sleep 10
 fi
+
+echo "INFO: Calling ArchiDroid Init" >> $LOG
+sh /system/etc/init.d/99ArchiDroid_Init "background" "force" &
+echo "INFO: ArchiDroid RunOnce finished" >> $LOG
+echo "`date`" >> $LOG
+echo "FINISHED" > $ADSTATUS
 exit 0

@@ -89,9 +89,6 @@ Mindezeken felül a partícionálással <b><#f00>MINDEN ADATOD ELVESZIK!</#></b>
 archidroid.filesystem.ext4.desc=Fourth Extendend File System. Bizonyítottan stabil és gyors. Minden kernel támogatja
 archidroid.filesystem.f2fs.desc=Flash-Friendly File System. NAND flash memória alapú adattárolókhoz optimalizált fájlrendszer, jelentős I/O boost-ot eredményez az EXT4-hez képest. Csak néhány egyedi kernel támogatja
 archidroid.partition.wizard.finish.desc=Az ArchiDroid Partition Wizard befejezte a partícionálást. Ha a RETURN STATUS 0, akkor minden rendben
-archidroid.partition.wizard.warningintsd=<b><#f00>FIGYELEM!</#></b> A /data újrapartícionálása nem elérhető, ha a belső SD-ről telepíted az Archidroid-ot. Kérlek a külső SD-ről telepítsd, ha használni akarod ezt a funkciót
-archidroid.partition.wizard.warningcachelater=A Cache partíció a flash-elés után kerül újraformázásra az aroma és a recovery limitációi miatt
-archidroid.partition.wizard.warningcache=Ahogy azt már említettük, Az ArchiDroid Partition Wizard most újraformázza a cache partíciót. Automatikusan újraindul a készüléked a folyamat után (függetlenül az előzetes beállításoktól)
 
 archidroid.preset.recovery.desc=Recovery flash-elése (csak Recovery), a ROM nem kerül flashelésre. Hasznos lehet, ha a flasheléshez Recovery frissítés szükséges
 archidroid.recovery.philz.desc=A legtöbb funkcióval rendelkező egyedi recovery, melyet valaha készítettek. Phil fejlesztette

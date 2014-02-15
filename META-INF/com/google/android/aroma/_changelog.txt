@@ -14,6 +14,10 @@ ArchiDroid 2.3.6
 - Added Devil's Recovery
 # This is the only recovery with F2FS support for now, you can use above reworked method to flash it right from ArchiDroid itself
 
+- BACKEND: RunOnce doesn't require hard reboot anymore, soft one is enough
+- AROMA: Fixed reboot recovery option being stuck (after recovery flashing) on some recent recoveries
+- AROMA: Fixed pointless ArchiDroid Detect question during flashing recovery
+- AROMA: Disabled all incompatible reformats, this includes /data repartition not possible when flashing from intsd, and /cache repartition impossible in all scenarios
 - ADBLOCK: Added FORCE_LOCAL_DNSES, which may be useful in case of wrong answers from global DNSes but good from local ones, which are slower than global ones. Disabled by default
 - ADBLOCK: Fixed adblock not working on some kernels
 - Xposed is now pre-activated if chosen in aroma, this also acts as a nice workaround for failed xposed install on f2fs /system (accidentally)
@@ -23,3 +27,4 @@ ArchiDroid 2.3.6
 - Updater SuperSU to 1.93
 - Updated Greenify to 2.1
 - Updated MX Player to 1.7.24
+- Updated Touchpal X keyboard to 5.5.0.3

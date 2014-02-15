@@ -56,23 +56,20 @@ adpatch() {
 adpatch "49/4249" "32" "packages" "apps" "OmniGears" # https://gerrit.omnirom.org/#/c/4249/
 
 # TRDS
-adpatch "88/4788" "3" "frameworks" "base" # https://gerrit.omnirom.org/#/c/4788/
+#adpatch "88/4788" "3" "frameworks" "base" # https://gerrit.omnirom.org/#/c/4788/
 #adpatch "90/4790" "5" "packages" "apps" "Settings" # https://gerrit.omnirom.org/#/c/4790/
 adpatch "91/4791" "1" "frameworks" "native" # https://gerrit.omnirom.org/#/c/4791/
 adpatch "12/4912" "1" "development" # https://gerrit.omnirom.org/#/c/4912/
 adpatch "89/4789" "2" "frameworks" "base" # https://gerrit.omnirom.org/#/c/4789/
-
 adpatch "92/4792" "3" "packages" "apps" "Dialer" # https://gerrit.omnirom.org/#/c/4792/
 adpatch "11/4911" "2" "packages" "apps" "Dialer" #https://gerrit.omnirom.org/#/c/4911/
 adpatch "94/4794" "2" "packages" "services" "Telephony" # https://gerrit.omnirom.org/#/c/4794/
-
 adpatch "01/4901" "1" "packages" "apps" "Mms" # https://gerrit.omnirom.org/#/c/4901/
 adpatch "06/4906" "1" "packages" "apps" "Mms" # https://gerrit.omnirom.org/#/c/4906/
 adpatch "07/4907" "1" "packages" "apps" "Mms" #https://gerrit.omnirom.org/#/c/4907/
 adpatch "08/4908" "1" "packages" "apps" "Mms" #https://gerrit.omnirom.org/#/c/4908/
 adpatch "09/4909" "1" "packages" "apps" "Mms" #https://gerrit.omnirom.org/#/c/4909/
 adpatch "10/4910" "1" "packages" "apps" "Mms" #https://gerrit.omnirom.org/#/c/4910/
-
 adpatch "06/4806" "1" "packages" "apps" "Gallery2" #https://gerrit.omnirom.org/#/c/4806/
 adpatch "07/4807" "1" "packages" "inputmethods" "LatinIME" #https://gerrit.omnirom.org/#/c/4807/
 

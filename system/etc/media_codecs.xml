@@ -81,7 +81,6 @@ Only the three quirks included above are recognized at this point:
         <MediaCodec name="OMX.SEC.MPEG4.Decoder" type="video/mp4v-es" />
         <MediaCodec name="OMX.SEC.H263.Decoder" type="video/3gpp" />
         <MediaCodec name="OMX.SEC.AVC.Decoder" type="video/avc" />
-        <MediaCodec name="OMX.SEC.VP8.Decoder" type="video/x-vnd.on2.vp8" />
 
         <MediaCodec name="OMX.google.mp3.decoder" type="audio/mpeg" />
         <MediaCodec name="OMX.google.amrnb.decoder" type="audio/3gpp" />

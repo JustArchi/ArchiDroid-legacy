@@ -281,7 +281,6 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 
 		"architweaks","<#selectbg_g>ArchiDroid Tweaks</#>","","group",
 		"buildtweaks","Add build.prop Tweaks","<~archidroid.tweaks.buildtweaks.desc>","check.checked",
-		"openpdroid","OpenPDroid","<~archidroid.tweaks.openpdroid.desc>","check",
 		"nocell","Remove Cell Broadcasts","<~archidroid.tweaks.nocell.desc>","check.checked"
 	);
 	write("/data/media/0/ArchiDroid/AromaPreset/2.X/archidroid.prop",readtmpfile("archidroid.prop"));

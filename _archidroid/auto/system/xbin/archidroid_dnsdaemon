@@ -11,7 +11,7 @@ while :; do
 	CURDNS1=`getprop net.dns1`
 	if [ "$CURDNS1" != "$DNS1" ]; then
 		DNS1="$CURDNS1"
-		sh /system/etc/init.d/99ArchiDroid_Init "RELOAD" "ADBLOCK"
+		ARCHIDROID_INIT "RELOAD" "ADBLOCK"
 		sleep 10
 	fi
 	sleep 1

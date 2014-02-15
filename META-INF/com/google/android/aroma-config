@@ -29,7 +29,7 @@
 # Initializing Rom Information
 ##
 
-setvar("preset_version","6");
+setvar("preset_version","7");
 
 ini_set("dp","3");
 ini_set("rom_name",             "ArchiDroid");
@@ -328,6 +328,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 
 			"modules","<#selectbg_g>Xposed Modules</#>","","group",
 			"appsettings","App Settings","<~archidroid.xposed.appsettings.desc>","check.checked",
+			"gravitybox","GravityBox","<~archidroid.xposed.gravitybox.desc>","check.checked",
 			"xprivacy","XPrivacy","<~archidroid.xposed.xprivacy.desc>","check"
 		);
 		write("/data/media/0/ArchiDroid/AromaPreset/2.X/archidroidxposed.prop",readtmpfile("archidroidxposed.prop"));

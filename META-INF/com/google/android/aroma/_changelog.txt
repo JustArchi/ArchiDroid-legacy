@@ -22,6 +22,7 @@ ArchiDroid 2.3.6
 - AROMA: Disabled all incompatible reformats, this includes /data repartition not possible when flashing from intsd, and /cache repartition impossible in all scenarios
 - ADBLOCK: Added FORCE_LOCAL_DNSES, which may be useful in case of wrong answers from global DNSes but good from local ones, which are slower than global ones. Disabled by default
 - ADBLOCK: Fixed adblock not working on some kernels
+- Added GravityBox Xposed module
 - Xposed is now pre-activated if chosen in aroma, this also acts as a nice workaround for failed xposed install on f2fs /system (accidentally)
 - Enabled SuperSU Pro features for all (shh!)
 - Updated Devil Kernel to [3.]0.1.0

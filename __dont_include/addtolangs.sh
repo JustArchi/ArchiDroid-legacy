@@ -11,7 +11,7 @@ for FILE in `ls`; do
 	WHERE=`grep -n "$AFTERWHAT" $FILE | cut -f1 -d:`
 	cat $FILE | head -${WHERE} > temp.txt
 	echo "$ADDWHAT" >> temp.txt
-	LINES=`expr $LINES - $WHERE + 1`
+	LINES=`expr $LINES - $WHERE`
 	cat $FILE | tail -${LINES} >> temp.txt
 	cp temp.txt $FILE
 	rm -f temp.txt

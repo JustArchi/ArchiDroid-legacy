@@ -7,6 +7,7 @@ ArchiDroid 1.7.10
 - Updated Wanam Xposed to 2.7.5
 
 * ArchiDroid Commons
+- BACKEND: No longer located in init.d. # I'm tired of all stupid apps deleting all init.d scripts, so backend is now located in /system/xbin and called by fallback (only)
 - BACKEND: RunOnce doesn't require hard reboot anymore, soft one is enough
 - AROMA: Fixed reboot recovery option being stuck (after recovery flashing) on some recent recoveries
 - AROMA: Fixed pointless ArchiDroid Detect question during flashing recovery

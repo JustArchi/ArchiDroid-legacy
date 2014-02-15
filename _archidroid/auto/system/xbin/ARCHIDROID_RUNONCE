@@ -81,16 +81,6 @@ fi
 echo -n "" > $LOG
 exec 2>>$LOG
 
-ADARGS() {
-	# $1 - what we're looking for
-	# $2 - where we're looking for
-	if [ ! -z `echo "$2" | grep -i "$1"` ]; then
-		return 0
-	else
-		return 1
-	fi
-}
-
 DBUPDATE() {
 	# Thanks to idcrisis, modified by JustArchi
 	local DONE=0
@@ -178,17 +168,14 @@ DBUPDATE() {
 }
 
 # Parse args to variables
-if ADARGS "background" "$@" ; then
-	BACKGROUND=1
-else
-	BACKGROUND=0
-fi
-if ADARGS "forcedsemaphore" "$@" ; then
-	FORCEDSEMAPHORE=1
-	echo "WARNING: Running in forced semaphore mode!" >> $LOG
-else
-	FORCEDSEMAPHORE=0
-fi
+BACKGROUND=0
+FORCEDSEMAPHORE=0
+for ARG in $@; do
+	case "$ARG" in
+		"background") BACKGROUND=1 ;;
+		"force") FORCEDSEMAPHORE=1 ;;
+	esac
+done
 
 echo "`date`" >> $LOG
 echo "ArchiDroid `getprop ro.archidroid.version`" >> $LOG
@@ -273,9 +260,6 @@ else
 	sysrw || mount -o remount,rw /system
 	rm -f $0
 	sysro || mount -o remount,ro /system
-	
-	# Init depends on us
-	sh /system/etc/init.d/99ArchiDroid_Init "background" "force" &
 	echo "FINISHED" > $ADSTATUS
 	exit 2
 fi
@@ -426,11 +410,8 @@ while (! pgrep com.android && [ $LOOP -lt 300 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 					# Try to apply correct permissions for specific files
 					# For example XposedBridge requires at least 644, so it doesn't work with generic 660
 					case "$EXTENSION" in
-						"jar")
-							busybox chmod 664 $FILE
-							;;
-						*)
-							busybox chmod 660 $FILE
+						"jar") busybox chmod 664 $FILE ;;
+						*) busybox chmod 660 $FILE
 					esac
 				done
 
@@ -483,7 +464,7 @@ rm -f $0
 busybox sync
 #sysro || mount -o remount,ro /system
 
-if [ ! -e "$0" ]; then
+if [ -z $(which ARCHIDROID_RUNONCE) ]; then
 	echo "INFO: Could not detect RunOnce in init.d after cleanup, that's good" >> $LOG
 else
 	echo "ERROR: I've detected RunOnce still in init.d after cleanup, that's not good, please investigate" >> $LOG
@@ -500,11 +481,7 @@ if [ $ADRELOAD -eq 1 ]; then
 	tinyplay $ADSYS/system/reboot.wav >/dev/null 2>&1 &
 	setprop ctl.restart surfaceflinger
 	setprop ctl.restart zygote
-	sleep 10
 fi
-
-echo "INFO: Calling ArchiDroid Init" >> $LOG
-sh /system/etc/init.d/99ArchiDroid_Init "background" "force" &
 echo "INFO: ArchiDroid RunOnce finished" >> $LOG
 echo "`date`" >> $LOG
 echo "FINISHED" > $ADSTATUS

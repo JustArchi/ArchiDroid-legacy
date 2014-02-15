@@ -1,8 +1,0 @@
-#!/system/bin/sh
-
-# ArchiDroid init.d test
-# JustArchi@JustArchi.net
-# Don't remove this file
-
-touch /dev/ARCHIDROID_HAS_INIT
-exit 0

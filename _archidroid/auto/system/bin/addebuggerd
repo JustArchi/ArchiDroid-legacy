@@ -4,27 +4,27 @@
 # JustArchi@JustArchi.net
 # Don't remove this file
 
-# ArchiDroid Fallback call, if needed
-if [ ! -e /dev/ARCHIDROID_HAS_FALLBACK ]; then
-	touch /dev/ARCHIDROID_HAS_FALLBACK
-
-	AD="/data/media/0/ArchiDroid"
-	LOG="$AD/Init.log" # "/dev/null" is no verbose
-
-	# Give kernel extra time to initialize
-	sleep 5
-
-	# Action now
-	if [ ! -e /dev/ARCHIDROID_RUNONCE_STATUS ] && [ ! -e /dev/ARCHIDROID_INIT_STATUS ]; then
-		for f in `find /system/etc/init.d -type f -iname "*ArchiDroid*"`; do
-			sh $f "background" &
-		done
-		sleep 2
-		echo "REMOTE: Hello, ArchiDroid Backend Fallback here. I ran you through debuggerd!" >> $LOG
-	else
-		sleep 2
-		echo "REMOTE: Hello, ArchiDroid Backend Fallback here. Kernel ran you properly, nice job!" >> $LOG
+# ArchiDroid Backend call
+if [ ! -e /dev/ARCHIDROID_BACKEND_ACTIVE ]; then
+	touch /dev/ARCHIDROID_BACKEND_ACTIVE
+	if [ ! -z $(which ARCHIDROID_RUNONCE) ]; then
+		ARCHIDROID_RUNONCE "background" &
 	fi
+	ARCHIDROID_INIT "background" &
+fi
+
+# Also execute init.d if noone cares
+if [ ! -e /dev/HAS_INIT ]; then
+	sleep 5 # Give kernel extra time to execute init.d
+fi
+if [ ! -e /dev/HAS_INIT ]; then
+	touch /dev/HAS_INIT
+
+	# Act as indepdendent init.d execute
+	# Don't ignore permissions and handle all services, including non-shell binaries
+	for f in $(find /system/etc/init.d -type f); do
+		$f &
+	done
 fi
 
 # Exec original binary and share everything, including all signals, we won't be able to do anything anymore

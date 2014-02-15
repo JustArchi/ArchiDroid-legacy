@@ -15,6 +15,5 @@ else
 	exit 1
 fi
 
-sh /system/etc/init.d/99ArchiDroid_Init "RELOAD" "ADBLOCK"
-ndc resolver flushdefaultif >/dev/null # Flush DNS Cache
+ARCHIDROID_INIT "RELOAD" "ADBLOCK"
 exit 0

@@ -13,6 +13,7 @@ ArchiDroid 1.7.10
 - AROMA: Fixed reboot recovery option being stuck (after recovery flashing) on some recent recoveries
 - AROMA: Fixed pointless ArchiDroid Detect question during flashing recovery
 - AROMA: Disabled all incompatible reformats, this includes /data repartition not possible when flashing from intsd, and /cache repartition impossible in all scenarios
+- Added GravityBox Xposed module
 - Updated Devil Kernel to [3.]0.1.0
 - Updated Greenify to 2.1
 - Updated MX Player to 1.7.24

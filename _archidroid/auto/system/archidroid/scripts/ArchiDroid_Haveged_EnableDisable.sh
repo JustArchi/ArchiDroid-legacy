@@ -22,5 +22,5 @@ else
 fi
 
 sysro
-sh /system/etc/init.d/99ArchiDroid_Init "RELOAD" "HAVEGED"
+ARCHIDROID_INIT "RELOAD" "HAVEGED"
 exit 0

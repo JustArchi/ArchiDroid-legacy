@@ -22,5 +22,5 @@ else
 fi
 
 sysro
-sh /system/etc/init.d/99ArchiDroid_Init "RELOAD" "FRANDOM"
+ARCHIDROID_INIT "RELOAD" "FRANDOM"
 exit 0

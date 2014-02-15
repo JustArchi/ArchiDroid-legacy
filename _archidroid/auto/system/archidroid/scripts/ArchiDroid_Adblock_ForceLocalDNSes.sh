@@ -26,5 +26,5 @@ else
 fi
 
 sysro
-sh /system/etc/init.d/99ArchiDroid_Init "RELOAD" "ADBLOCK"
+ARCHIDROID_INIT "RELOAD" "ADBLOCK"
 exit 0

@@ -20,16 +20,6 @@ ADALIAS() {
 	fi
 }
 
-ADARGS() {
-	# $1 - what we're looking for
-	# $2 - where we're looking for
-	if [ ! -z `echo "$2" | grep -i "$1"` ]; then
-		return 0
-	else
-		return 1
-	fi
-}
-
 ADTWEAK() {
 	# $1 - what we're changing
 	# $2 - to what we're changing
@@ -189,8 +179,6 @@ ADLOAD() {
 				echo "INFO: Haveged has been disabled" >> $LOG
 			fi
 			;;
-		*)
-			echo "ERROR, NO VALID LOAD OPTION"
 	esac
 }
 
@@ -206,6 +194,7 @@ ADRELOAD() {
 			killall archidroid_dnsdaemon >/dev/null 2>&1
 			if [ "$2" != "STOP" ]; then
 				ADLOAD "ADBLOCK" "RELOAD"
+				ndc resolver flushdefaultif >/dev/null # Flush DNS Cache
 			fi
 			;;
 		"FRANDOM")
@@ -229,8 +218,6 @@ ADRELOAD() {
 				ADLOAD "HAVEGED" "RELOAD"
 			fi
 			;;
-		*)
-			echo "ERROR, NO VALID RELOAD OPTION"
 	esac
 }
 
@@ -302,14 +289,8 @@ fi
 if [ "$1" == "RELOAD" ] || [ "$1" == "STOP" ]; then
 	# Allow that regardless of adstatus
 	case "$1" in
-		"RELOAD")
-			ADRELOAD "$2"
-			;;
-		"STOP")
-			ADRELOAD "$2" "STOP"
-			;;
-		*)
-			continue
+		"RELOAD") ADRELOAD "$2" ;;
+		"STOP") ADRELOAD "$2" "STOP" ;;
 	esac
 	exit 0
 elif [ ! -e $ADSTATUS ]; then
@@ -343,35 +324,26 @@ echo -n "" > $LOG
 exec 2>>$LOG
 
 # Parse args to variables
-if ADARGS "background" "$@" ; then
-	BACKGROUND=1
-else
-	BACKGROUND=0
-fi
-if ADARGS "force" "$@" ; then
-	FORCE=1
-else
-	FORCE=0
-fi
+BACKGROUND=0
+for ARG in $@; do
+	case "$ARG" in
+		"background") BACKGROUND=1 ;;
+		"force") FORCE=1 ;;
+	esac
+done
+
 
 echo "`date`" >> $LOG
 echo "ArchiDroid `getprop ro.archidroid.version`" >> $LOG
 echo "`uname -a`" >> $LOG
 echo "INFO: ArchiDroid_Init executed!" >> $LOG
 
-if [ -e /system/etc/init.d/98ArchiDroid_RunOnce ] && [ $FORCE -ne 1 ]; then
-	# This is our first boot, don't call init yet
-	echo "INFO: This is our first boot, I'll let RunOnce finish his job, exiting..." >> $LOG
-	echo "RESTART" > $ADSTATUS
-	exit 2
-fi
-
 # Now we need to make sure that this is background process to prevent slowing down bootup
 if [ $BACKGROUND -ne 1 ]; then
 	# We're not running in background, let's start a child and tell him that he's running in background
 	echo "INFO: Spawning child!" >> $LOG
 	echo "RESTART" > $ADSTATUS
-	sh $0 "background" &
+	sh $0 "background" $@ &
 	
 	# Nothing to do here anymore, exit call
 	exit 1
@@ -518,19 +490,15 @@ sleep 30
 ####################################
 
 # Delete RunOnce if needed
-if [ -e /system/etc/init.d/98ArchiDroid_RunOnce ]; then
-	echo "WARNING: RunOnce found in init.d, trying to remove it!" >> $LOG
-	echo "REMOTE: Hello, Init here. Don't worry about FATAL ERROR above, I'll try to fix it!" >> $RUNONCELOG
-	echo "REMOTE: Dear user, you should look for RunOnce.log.0, it may contain more interesting RunOnce stuff!" >> $RUNONCELOG
+if [ ! -z $(which ARCHIDROID_RUNONCE) ]; then
+	echo "WARNING: RunOnce found, trying to remove it!" >> $LOG
 	sysrw || mount -o remount,rw /system
-	rm -f /system/etc/init.d/98ArchiDroid_RunOnce
-	if [ ! -e /system/etc/init.d/98ArchiDroid_RunOnce ]; then
+	rm -f $(which ARCHIDROID_RUNONCE)
+	if [ -z $(which ARCHIDROID_RUNONCE) ]; then
 		echo "INFO: Success!" >> $LOG
-		echo "REMOTE: Successfully fixed above FATAL ERROR!" >> $RUNONCELOG
 		sysro || mount -o remount,ro /system
 	else
 		echo "ERROR: Failed!" >> $LOG
-		echo "REMOTE: ERROR, could not fix above FATAL ERROR! Please investigate!" >> $RUNONCELOG
 	fi
 fi
 
@@ -607,36 +575,8 @@ else
 	echo "INFO: OK, I don't need to mount external sd card" >> $LOG
 fi
 
-# Wait a little longer
-sleep 30
-
-#############################################
-# User should already enter PIN, last stage #
-#############################################
-
-# Append DNSes to Adblock if needed
-if [ $ADBLOCK -eq 1 ] && [ $APPENDDNSES -eq 1 ]; then
-	if [ ! -z `getprop net.dns1` ]; then
-		echo "ADBLOCK: Our late-hook worked. We now have `getprop net.dns1` `getprop net.dns2` DNSes. Reloading Adblock!" >> $LOG
-		ADRELOAD "ADBLOCK"
-	else
-		echo "ADBLOCK: Local DNSes are still not available, it looks like we don't have network connection this time" >> $LOG
-	fi
-fi
-
-# Init finished
-echo "FINISHED" > $ADSTATUS
-if [ ! -e /dev/ARCHIDROID_HAS_INIT ]; then
-	echo "WARNING: It looks like kernel doesn't care about init.d, calling all init.d scripts via ArchiDroid Init!" >> $LOG
-	for f in `find /system/etc/init.d -type f`; do
-		echo "INFO: Calling $f" >> $LOG
-		sh $f &
-	done
-else
-	echo "INFO: It looks like kernel executed init.d properly, that's nice" >> $LOG
-fi
-
 # Finish
+echo "FINISHED" > $ADSTATUS
 echo "INFO: ArchiDroid Init finished" >> $LOG
 echo "`date`" >> $LOG
 exit 0

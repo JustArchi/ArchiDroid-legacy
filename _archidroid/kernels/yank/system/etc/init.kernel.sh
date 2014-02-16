@@ -24,7 +24,7 @@ sleep 10
 
 echo `date +"%F %R:%S : Starting kernel configuration..."` >>$log_file
 
-# Script generated on 02/01/2014 at  3:13
+# Script generated on 16/02/2014 at  6:34
 #----------------------------------------------------
 
 # - init.d support by kernel/ramdisk not installed
@@ -45,8 +45,8 @@ echo "2" > /sys/module/cpuidle_exynos4/parameters/enable_mask
 echo `date +"%F %R:%S : CPU Idle mode set to Idle + LPA."` >>$log_file
 
 # - Multicore Powersave Mode
-echo "1" > /sys/devices/system/cpu/sched_mc_power_savings
-echo `date +"%F %R:%S : CPU Multicore Powersave mode set to On."` >>$log_file
+echo "0" > /sys/devices/system/cpu/sched_mc_power_savings
+echo `date +"%F %R:%S : CPU Multicore Powersave mode set to Off."` >>$log_file
 
 # - Set CPU max frequencies for all 4 cores
 echo 1600000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
@@ -182,8 +182,8 @@ echo `date +"%F %R:%S : Swappiness set to 80."` >>$log_file
 # - Disable USB forced fast charge
 echo 0 > /sys/kernel/fast_charge/force_fast_charge
 echo `date +"%F %R:%S : Fast Charge - disabled."` >>$log_file
-echo 475 > /sys/kernel/fast_charge/usb_charge_level
-echo `date +"%F %R:%S : Fast Charge - USB charge level set to 475mA/h."` >>$log_file
+echo 1000 > /sys/kernel/fast_charge/usb_charge_level
+echo `date +"%F %R:%S : Fast Charge - USB charge level set to 1000mA/h."` >>$log_file
 echo 1000 > /sys/kernel/fast_charge/ac_charge_level
 echo `date +"%F %R:%S : Fast Charge - AC charge level set to 1000mA/h."` >>$log_file
 
@@ -206,10 +206,6 @@ echo `date +"%F %R:%S : Hardwarekeys light on screen touch disabled."` >>$log_fi
 # - Handle Hardwarekeys light by kernel (older CM)
 echo 1 > /sys/class/sec/sec_touchkey/touch_led_handling
 echo `date +"%F %R:%S : Hardwarekeys light handled by kernel (older CM)."` >>$log_file
-
-# - Enable Sharpness fix
-echo 1 > /sys/class/misc/mdnie_preset/mdnie_preset
-echo `date +"%F %R:%S : Sharpness fix enabled (blurrier)."` >>$log_file
 
 # - Enable fading notification LED
 echo 1 > /sys/class/sec/led/led_fade

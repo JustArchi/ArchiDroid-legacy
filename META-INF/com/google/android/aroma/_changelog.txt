@@ -25,6 +25,7 @@ ArchiDroid 2.3.6
 - ADBLOCK: Added FORCE_LOCAL_DNSES, which may be useful in case of wrong answers from global DNSes but good from local ones, which are slower than global ones. Disabled by default
 - ADBLOCK: Fixed adblock not working on some kernels
 - Added GravityBox Xposed module
+- Enabled transparent lockscreen and disabled keyboard animations through RunOnce. As always - at least forced update is required in order to apply those tweaks
 - Xposed is now pre-activated if chosen in aroma, this also acts as a nice workaround for failed xposed install on f2fs /system (accidentally)
 - Enabled SuperSU Pro features for all (shh!)
 - Removed OpenPDroid # It's EOL'ed now

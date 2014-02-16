@@ -11,6 +11,8 @@ ArchiDroid 2.3.6
 # If you choose recovery flashing option, ArchiDroid won't be flashed at all, instead, it will flash your recovery and then reboot it (recovery)
 # If any recovery update will be needed in the future, this way you won't need to do it manually anymore (as long as proper recovery is available in ArchiDroid)
 
+- [!] Updated sources # TAG=android-4.4.2_r2 BUILD_ID=KVT49L
+
 - Added Devil's Recovery
 # This is the only recovery with F2FS support for now, you can use above reworked method to flash it right from ArchiDroid itself
 

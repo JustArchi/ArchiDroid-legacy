@@ -1,6 +1,6 @@
 echo 'lulzactiveq' > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+busybox sleep 0.5s
 echo 'standard' > /dev/bk_governor_profile
-busybox usleep 300000
 echo 'row' > /sys/block/mmcblk0/queue/scheduler
 echo 'row' > /sys/block/mmcblk1/queue/scheduler
 echo '512' > /sys/block/mmcblk0/bdi/read_ahead_kb
@@ -8,16 +8,16 @@ echo '1024' > /sys/block/mmcblk1/bdi/read_ahead_kb
 /res/bc/bccontroller.sh apply_ext4_tweaks 1
 echo '1600000' > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
 echo '200000' > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
-echo 'None' > /dev/bk_cpu_voltages_profile
+echo 'No undervolting' > /dev/bk_cpu_voltages_profile
 echo '1400 1363 1300 1238 1200 1150 1100 1050 1000 975 963 950 950 925 900' > /sys/devices/system/cpu/cpu0/cpufreq/UV_mV_table
 echo '2' > /sys/module/cpuidle_exynos4/parameters/enable_mask
 echo '0' > /sys/devices/system/cpu/sched_mc_power_savings
-echo '' > /dev/bk_gpu_frequencies_profile
-echo '160 300 440 533 640' > /sys/class/misc/gpu_clock_control/gpu_control
-echo '' > /dev/bk_gpu_voltages_profile
-echo '850000 900000 1000000 1050000 1100000' > /sys/class/misc/gpu_voltage_control/gpu_control
+echo '160/266/350/440/533 (default)' > /dev/bk_gpu_frequencies_profile
+echo '160 266 350 440 533' > /sys/class/misc/gpu_clock_control/gpu_control
+echo 'No undervolting' > /dev/bk_gpu_voltages_profile
+echo '900000 925000 1000000 1050000 1125000' > /sys/class/misc/gpu_voltage_control/gpu_control
 echo '1' > /sys/class/misc/boeffla_sound/boeffla_sound
-echo '55 55' > /sys/class/misc/boeffla_sound/headphone_volume
+echo '53 53' > /sys/class/misc/boeffla_sound/headphone_volume
 echo '57 57' > /sys/class/misc/boeffla_sound/speaker_volume
 echo '1' > /sys/class/misc/boeffla_sound/speaker_tuning
 echo '1' > /sys/class/misc/boeffla_sound/privacy_mode
@@ -38,7 +38,7 @@ echo '1' > /sys/class/sec/led/led_speed
 echo '1' > /sys/class/misc/touchboost_switch/touchboost_switch
 echo '600000' > /sys/class/misc/touchboost_switch/touchboost_freq
 echo '0' > /sys/class/misc/touchwake/enabled
-echo '45000' > /sys/class/misc/touchwake/delay
+echo '10000' > /sys/class/misc/touchwake/delay
 echo '0' > /sys/kernel/early_suspend/early_suspend_delay
 echo '1' > /sys/class/misc/mdnie_preset/mdnie_preset
 echo '' > /dev/bk_mdnie_overwrite
@@ -46,13 +46,11 @@ echo '1' > /sys/class/sec/sec_touchkey/touch_led_handling
 echo '0' > /sys/class/sec/sec_touchkey/touch_led_on_screen_touch
 echo '' > /dev/bk_system_tweaks
 /res/bc/bccontroller.sh apply_system_tweaks ''
-echo '52428800' > /sys/block/zram0/disksize
-echo '52428800' > /sys/block/zram1/disksize
-echo '52428800' > /sys/block/zram2/disksize
-echo '52428800' > /sys/block/zram3/disksize
-/res/bc/bccontroller.sh apply_zram 1 4
-echo '1' > /dev/bk_swappiness_overwrite
-echo '60' > /proc/sys/vm/swappiness
+echo '26214400' > /sys/block/zram0/disksize
+echo '26214400' > /sys/block/zram1/disksize
+echo '26214400' > /sys/block/zram2/disksize
+echo '26214400' > /sys/block/zram3/disksize
+echo '0' > /dev/bk_swappiness_overwrite
 echo '1100' > /sys/kernel/charge_levels/charge_level_ac
 echo '475' > /sys/kernel/charge_levels/charge_level_usb
 echo '475' > /sys/kernel/charge_levels/charge_level_wireless

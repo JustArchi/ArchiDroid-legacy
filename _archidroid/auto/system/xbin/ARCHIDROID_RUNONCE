@@ -355,6 +355,7 @@ while (! pgrep com.android && [ $LOOP -lt 300 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 				DBUPDATE system status_bar_battery_style 3
 				DBUPDATE system qs_quick_pulldown 1
 				DBUPDATE system volume_music_control 1
+				DBUPDATE system lockscreen_see_through 1
 
 				# Requires SlimBean's Dark Droid
 				#DBUPDATE secure ui_theme_mode 2
@@ -372,10 +373,10 @@ while (! pgrep com.android && [ $LOOP -lt 300 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 				DBUPDATE system wallpaper_intra_close 3
 				DBUPDATE system activity_open 2
 				DBUPDATE system activity_close 3
-				DBUPDATE system animation_ime_enter 6
-				DBUPDATE system animation_ime_exit 6
-				DBUPDATE system animation_ime_interpolator 9
-				DBUPDATE system animation_ime_duration 20
+				#DBUPDATE system animation_ime_enter 6
+				#DBUPDATE system animation_ime_exit 6
+				#DBUPDATE system animation_ime_interpolator 9
+				#DBUPDATE system animation_ime_duration 20
 				DBUPDATE system listview_animation 4
 				DBUPDATE system listview_interpolator 9
 				DBUPDATE system listview_animation_cache 3

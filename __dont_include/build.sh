@@ -56,33 +56,12 @@ for ARG in "$@" ; do
 done
 
 OTA="echo \"updateme.version=$VERSION\" >> /system/build.prop"
-if [ $SAMMY -eq 1 ]; then
-	OLDVERSION="$VERSION"
-	VERSION+=" "
-	VERSION+="`cat ../system/build.prop | grep "ro.build.version.incremental" | cut -d '=' -f 2`"
-fi
 if [ $STABLE -eq 0 ]; then
 	VERSION="$VERSION EXPERIMENTAL"
 else
 	VERSION="$VERSION STABLE"
 fi
 DENSITY="#ro.sf.lcd_density=320"
-
-function zamien {
-	FILEO=wynik.txt
-	# $1 co
-	# $2 na co
-	# $3 plik
-	GDZIE=`grep -n "${1}" $3 | cut -f1 -d:`
-	ILE=`cat $3 | wc -l`
-	ILE=`expr $ILE - $GDZIE`
-	GDZIE=`expr $GDZIE - 1`
-	cat $3 | head -${GDZIE} > $FILEO
-	echo $2 >> $FILEO
-	cat $3 | tail -${ILE} >> $FILEO
-	cp $FILEO $3
-	rm $FILEO
-}
 
 if [ $SAMMY -eq 0 ] && [ $NOBUILD -eq 0 ]; then
 	if [ $NOSYNC -eq 0 ]; then
@@ -152,11 +131,13 @@ if [ $BPROP -eq 0 ]; then
 fi
 
 cd __dont_include/
-# Bo CM tez ma syf...
-#rm -rf bloatware/
-#mkdir -p bloatware/system/app
-#mv ../system/app/CellBroadcastReceiver.apk bloatware/system/app
-#TODO uzupelnic syf
+VERSION+=' ['
+if [ $SAMMY -eq 1 ]; then
+	VERSION+=`cat ../system/build.prop | grep "ro.build.version.incremental" | cut -d '=' -f 2`
+else
+	VERSION+=`cat ../system/build.prop | grep "ro.build.id" | cut -d '=' -f 2`
+fi
+VERSION+=']'
 
 ##################
 ### OTA UPDATE ###
@@ -234,6 +215,9 @@ if [ $SAMMY -eq 1 ]; then
 	rm -f ../system/etc/install-recovery.sh
 	rm -f ../system/etc/.installed_su_daemon
 	rm -rf ../system/bin/.ext
+	if [ -e ../system/bin/debuggerd.real ]; then
+		mv -f ../system/bin/debuggerd.real ../system/bin/debuggerd
+	fi
 	cd _bloatware
 	#bash ZZcleanrom.sh
 	cd ..
@@ -242,6 +226,6 @@ fi
 if [ $NOOPD -eq 0 ]; then
 	bash openpdroid.sh
 else
-	rm -f ../omni-*.zip
+	rm -f ../*.zip
 fi
 exit 0

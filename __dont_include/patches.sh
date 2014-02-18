@@ -53,7 +53,7 @@ adpatch() {
 # All Animations
 #adpatch "51/4251" "36" "frameworks" "base" # https://gerrit.omnirom.org/#/c/4251/
 #adpatch "50/4250" "14" "packages" "apps" "Settings" # https://gerrit.omnirom.org/#/c/4250/
-adpatch "49/4249" "32" "packages" "apps" "OmniGears" # https://gerrit.omnirom.org/#/c/4249/
+#adpatch "49/4249" "32" "packages" "apps" "OmniGears" # https://gerrit.omnirom.org/#/c/4249/
 
 # TRDS
 #adpatch "88/4788" "3" "frameworks" "base" # https://gerrit.omnirom.org/#/c/4788/

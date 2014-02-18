@@ -45,18 +45,31 @@ ADLOAD() {
 		"ADBLOCK")
 			if [ $ADBLOCK -eq 1 ]; then
 				echo "INFO: Activating ArchiDroid's AdBlock!" >> $LOG
+				sysrw
 				if [ ! -e /system/archidroid/etc/hosts ]; then
-					sysrw
 					if [ -e $ADDEV/ADBLOCK_USE_ADAWAY_HOSTS ]; then
 						ln -s /system/archidroid/etc/hosts_adaway /system/archidroid/etc/hosts
 					elif [ -e $ADDEV/ADBLOCK_USE_MOAB_HOSTS ]; then
 						ln -s /system/archidroid/etc/hosts_moab /system/archidroid/etc/hosts
 					else
 						echo "ERROR: No adblock hosts mode specified!" >> $LOG
-						break
 					fi
-					sysro
+				else
+					if [ -e $ADDEV/ADBLOCK_USE_ADAWAY_HOSTS ]; then
+						if [ $(readlink /system/archidroid/etc/hosts) != "/system/archidroid/etc/hosts_adaway" ]; then
+							rm -f /system/archidroid/etc/hosts
+							ln -s /system/archidroid/etc/hosts_adaway /system/archidroid/etc/hosts
+						fi
+					elif [ -e $ADDEV/ADBLOCK_USE_MOAB_HOSTS ]; then
+						if [ $(readlink /system/archidroid/etc/hosts) != "/system/archidroid/etc/hosts_moab" ]; then
+							rm -f /system/archidroid/etc/hosts
+							ln -s /system/archidroid/etc/hosts_moab /system/archidroid/etc/hosts
+						fi
+					else
+						echo "ERROR: No adblock hosts mode specified!" >> $LOG
+					fi
 				fi
+				sysro
 				if [ $APPENDDNSES -eq 1 ]; then
 					local DNS=""
 					DNS1=`getprop net.dns1`
@@ -103,7 +116,6 @@ ADLOAD() {
 					fi
 				else
 					echo "ERROR: No adblock mode specified!" >> $LOG
-					break
 				fi
 				archidroid_dnsproxy2 -w 127.0.0.1 &
 				echo "ADBLOCK: Activated archidroid_dnsproxy2 - local proxy server, forwarding all DNS traffic to 127.0.0.1:53" >> $LOG
@@ -186,6 +198,11 @@ ADRELOAD() {
 	# $1 - what we're reloading
 	# $2 - optional
 	case "$1" in
+		"ALL")
+			ADRELOAD "ADBLOCK"
+			ADRELOAD "FRANDOM"
+			ADRLOEAD "HAVEGED"
+			;;
 		"ADBLOCK")
 			killall archidroid_dnsmasq >/dev/null 2>&1
 			killall archidroid_dnrd >/dev/null 2>&1

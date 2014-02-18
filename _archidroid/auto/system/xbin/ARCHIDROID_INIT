@@ -199,9 +199,9 @@ ADRELOAD() {
 	# $2 - optional
 	case "$1" in
 		"ALL")
-			ADRELOAD "ADBLOCK"
+			ADRELOAD "HAVEGED"
 			ADRELOAD "FRANDOM"
-			ADRLOEAD "HAVEGED"
+			ADRELOAD "ADBLOCK"
 			;;
 		"ADBLOCK")
 			killall archidroid_dnsmasq >/dev/null 2>&1

@@ -65,4 +65,6 @@ dalvik.vm.checkjni=false
 ### ArchiDroid build.prop Tweaks ###
 ############################
 " >> /system/build.prop
+
+sync
 exit 0

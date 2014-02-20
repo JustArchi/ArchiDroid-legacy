@@ -14,4 +14,5 @@ if [ $(ps w | grep -i "[m]edia/" | wc -l) -gt 0 ]; then
 fi
 
 # I don't know, probably intsd
+sync
 exit 2

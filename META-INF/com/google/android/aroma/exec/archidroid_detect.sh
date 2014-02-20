@@ -6,7 +6,7 @@
 
 if [ -e /system/build.prop ]; then
 	# Good
-	if [ `cat /system/build.prop | grep -i "ArchiDroid" | wc -l` -gt 0 ]; then
+	if [ $(cat /system/build.prop | grep -i "ArchiDroid" | wc -l) -gt 0 ]; then
 		# Yay we're running ArchiDroid"
 		exit 2
 	else
@@ -17,4 +17,6 @@ else
 	# Report internal error
 	exit 0
 fi
+
+sync
 exit 0

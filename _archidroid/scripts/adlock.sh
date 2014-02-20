@@ -7,5 +7,6 @@ elif [ "$1" == "unlock" ]; then
 else
 	exit 1
 fi
+
 sync
 exit 0

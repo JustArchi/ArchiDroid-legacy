@@ -1,9 +1,12 @@
 ArchiDroid 1.7.11
 
+- Fixed broken Wi-Fi tethering
+
 * ArchiDroid Commons
 - [!] Added built-in ArchiDroid Control app # WIP
 - BACKEND: Updated/Recompiled archidroid_haveged to 1.9.1, tweaked WAKEUP_THRESHOLD from 3072 to 1024 for better battery life
 - BACKEND: Updated/Recompiled archidroid_dnsmasq to 2.69test8-10, changed listen address from 0.0.0.0 to 127.0.0.1
 - BACKEND: Updated/Recompiled archidroid_pixelserv to 0.34-2, changed listen address from 0.0.0.0 to 127.0.0.1, enabled NULLGIF response also on HTTPS port (443), disabled syslog response through -DTINY
 - BACKEND: Updated MOAB hosts file to 11 February
+- Updated Gravity Box to 2.9.6
 - Updated Googy Max kernel to 2.1.5

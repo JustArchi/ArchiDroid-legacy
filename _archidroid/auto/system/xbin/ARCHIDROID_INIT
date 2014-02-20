@@ -70,30 +70,25 @@ ADLOAD() {
 					fi
 				fi
 				sysro
-				if [ $APPENDDNSES -eq 1 ]; then
-					local DNS=""
-					DNS1=`getprop net.dns1`
-					DNS2=`getprop net.dns2`
+				if [ $ADBLOCKLOCALDNSES -eq 1 ]; then
+					DNS=""
+					DNS1=$(getprop net.dns1)
+					DNS2=$(getprop net.dns2)
 					echo "ADBLOCK: Including local DNSes!" >> $LOG
-					if [ $DNSDAEMON -eq 1 ]; then
-						archidroid_dnsdaemon "background" &
-						APPENDDNSES=0
-					elif [ -z "$DNS1" ] && [ $RELOAD -eq 0 ]; then
-						echo "ADBLOCK: No local DNSes found, I'll try to hook them up later" >> $LOG
-					else
-						APPENDDNSES=0
-					fi
+					archidroid_dnsdaemon "background" &
+				else
+					echo "STOPPED" > $DNSDAEMONSTATUS
 				fi
 				echo "ADBLOCK: Activated archidroid_dnsmasq - local DNS server on 127.0.0.1:53, forwarding clean non-blocked traffic to specified DNS servers" >> $LOG
-				local EXTRA="--all-servers "
+				local EXTRA="--all-servers"
 				if [ ! -z "$DNS1" ]; then
-					local DNS="-S $DNS1"
+					DNS="-S $DNS1"
 					if [ ! -z "$DNS2" ]; then
-						local DNS+=" -S $DNS2"
+						DNS+=" -S $DNS2"
 					fi
 					if [ $ADBLOCKSTRICTORDER -eq 1 ]; then
 						echo "ADBLOCK: Strict order enabled!" >> $LOG
-						EXTRA+="--strict-order "
+						EXTRA+=" --strict-order"
 					fi
 					archidroid_dnsmasq $EXTRA $DNS -C /system/archidroid/etc/dnsmasq.conf
 					echo "ADBLOCK: Also added local DNS servers $DNS1 $DNS2" >> $LOG
@@ -237,6 +232,7 @@ ADDEV="$ADSYS/dev"
 LOG="$AD/Init.log" # "/dev/null" is no verbose
 RUNONCELOG="$AD/RunOnce.log"
 ADSTATUS="/dev/ARCHIDROID_INIT_STATUS"
+DNSDAEMONSTATUS="/dev/ARCHIDROID_DNSDAEMON_STATUS"
 
 if [ ! -e $AD ]; then
 	exit 0
@@ -260,19 +256,14 @@ fi
 if [ -e $ADDEV/ADBLOCK_ENABLED ]; then
 	ADBLOCK=1
 	if [ -e $ADDEV/ADBLOCK_LOCAL_DNSES_ENABLED ]; then
-		APPENDDNSES=1
-		if [ -e $ADDEV/ADBLOCK_LOCAL_DNSES_DAEMON_ENABLED ]; then
-			DNSDAEMON=1
-		else
-			DNSDAEMON=0
-		fi
+		ADBLOCKLOCALDNSES=1
 		if [ -e $ADDEV/ADBLOCK_FORCE_LOCAL_DNSES ]; then
 			ADBLOCKSTRICTORDER=1
 		else
 			ADBLOCKSTRICTORDER=0
 		fi
 	else
-		APPENDDNSES=0
+		ADBLOCKLOCALDNSES=0
 	fi
 else
 	ADBLOCK=0

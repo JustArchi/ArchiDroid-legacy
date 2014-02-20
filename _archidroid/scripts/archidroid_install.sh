@@ -3,5 +3,6 @@
 AD="/data/media/0/ArchiDroid"
 
 touch $AD/INSTALL
-busybox sync
+
+sync
 exit 0

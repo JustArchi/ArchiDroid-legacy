@@ -34,7 +34,7 @@ GOTMOUNT=false
 FORCE=false
 
 ADMOUNTED() {
-	if [ `mount | grep -i "$1" | wc -l` -gt 0 ]; then
+	if [ $(mount | grep -i "$1" | wc -l) -gt 0 ]; then
 		return 0
 	else
 		return 1
@@ -61,7 +61,7 @@ ADMOUNT() {
 		fi
 		# Stage 2, mounted device isn't available in fstab and/or recovery can't mount it without such information. This is typical for f2fs, as fstab has ext4 declared. In addition to Stage 1, we'll provide block path, this should be enough.
 		if $GOTBUSYBOX; then
-			MNTPATH=`echo $1 | sed 's/\///g'`
+			MNTPATH=$(echo $1 | sed 's/\///g')
 			eval "MNTPATH=\$$MNTPATH"
 			busybox mount -t auto "$MNTPATH" "$1" >/dev/null 2>&1
 			if (ADMOUNTED "$1"); then
@@ -70,7 +70,7 @@ ADMOUNT() {
 			fi
 		fi
 		if $GOTMOUNT; then
-			MNTPATH=`echo $1 | sed 's/\///g'`
+			MNTPATH=$(echo $1 | sed 's/\///g')
 			eval "MNTPATH=\$$MNTPATH"
 			mount -t $auto "$MNTPATH" "$1" >/dev/null 2>&1
 			if (ADMOUNTED "$1"); then
@@ -80,7 +80,7 @@ ADMOUNT() {
 		fi
 		# Stage 3, we failed using automatic filesystem, so we'll now use full mount command. This is our last chance.
 		if $GOTBUSYBOX; then
-			MNTPATH=`echo $1 | sed 's/\///g'`
+			MNTPATH=$(echo $1 | sed 's/\///g')
 			eval "MNTPATH=\$$MNTPATH"
 			busybox mount -t "$fs" "$MNTPATH" "$1" >/dev/null 2>&1
 			if (ADMOUNTED "$1"); then
@@ -89,7 +89,7 @@ ADMOUNT() {
 			fi
 		fi
 		if $GOTMOUNT; then
-			MNTPATH=`echo $1 | sed 's/\///g'`
+			MNTPATH=$(echo $1 | sed 's/\///g')
 			eval "MNTPATH=\$$MNTPATH"
 			mount -t "$fs" "$MNTPATH" "$1" >/dev/null 2>&1
 			if (ADMOUNTED "$1"); then
@@ -112,7 +112,7 @@ ADMOUNT() {
 
 ADUMOUNT() {
 	if (ADMOUNTED "$1"); then
-		MNTPATH=`echo $1 | sed 's/\///g'`
+		MNTPATH=$(echo $1 | sed 's/\///g')
 		eval "MNTPATH=\$$MNTPATH"
 		if $GOTBUSYBOX; then
 			busybox umount -f "$1" >/dev/null 2>&1
@@ -149,10 +149,10 @@ if [ -z "$1" ] || [ -z "$2" ]; then
 	exit 1
 fi
 
-if [ ! -z `which busybox` ]; then
+if [ ! -z $(which busybox) ]; then
 	GOTBUSYBOX=true
 fi
-if [ ! -z `which mount` ]; then
+if [ ! -z $(which mount) ]; then
 	GOTMOUNT=true
 fi
 if (! $GOTBUSYBOX && ! $GOTMOUNT); then
@@ -183,7 +183,7 @@ if [ "$3" == "force" ]; then
 fi
 
 # Check if our tool is in fact available
-if [ -z `which $TOOL` ]; then
+if [ -z $(which $TOOL) ]; then
 	exit 4
 fi
 
@@ -191,7 +191,7 @@ fi
 ADUMOUNT "$1"
 
 # Now guess the right path
-FORMATPATH=`echo $1 | sed 's/\///g'`
+FORMATPATH=$(echo $1 | sed 's/\///g')
 eval "FORMATPATH=\$$FORMATPATH"
 
 # If we're not satisfied with the guess, halt
@@ -214,4 +214,6 @@ fi
 # Let's try to mount it now
 ADMOUNT "$1"
 echo "Congratulations! Reformatting of $1 to $2 ended successfully!"
+
+sync
 exit 0

@@ -55,7 +55,7 @@ if [ ! -e $ADSTATUS ]; then
 		mv $LOG $LOG2
 	fi
 else
-	ADSIGNAL=`cat $ADSTATUS`
+	ADSIGNAL=$(cat $ADSTATUS)
 	if [ $ADSIGNAL == "FINISHED" ]; then
 		# Something tried to execute already finished init, halt
 		echo "This script has been executed already"
@@ -90,17 +90,17 @@ DBUPDATE() {
 	local ID=""
 
 	while [ $DONE -ne 1 ] ; do
-		TRY=`expr $TRY + 1`
+		TRY=$(expr $TRY + 1)
 		if [ "$4" == "APPEND" ]; then
 			# Append mode, value should exist already then
-			VAL1=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "select value from $1 where name='$2';" 2>/dev/null`
+			VAL1=$(sqlite3 /data/data/com.android.providers.settings/databases/settings.db "select value from $1 where name='$2';" 2>/dev/null)
 			VAL1=$VAL1$5$3
 
 			# Let's update it now
 			sqlite3 /data/data/com.android.providers.settings/databases/settings.db "update $1 set value='$VAL1' where name='$2';" 2>/dev/null
 
 			# See if it worked
-			VAL2=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "select value from $1 where name='$2';" 2>/dev/null`
+			VAL2=$(sqlite3 /data/data/com.android.providers.settings/databases/settings.db "select value from $1 where name='$2';" 2>/dev/null)
 
 			if [ "$VAL1" == "$VAL2" ]; then
 				# Looks good
@@ -126,7 +126,7 @@ DBUPDATE() {
 			busybox sync
 
 			# See if it worked
-			VAL1=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "select value from $1 where name='$2';" 2>/dev/null`
+			VAL1=$(sqlite3 /data/data/com.android.providers.settings/databases/settings.db "select value from $1 where name='$2';" 2>/dev/null)
 
 			# If not create it
 			if [ "$VAL1" != "" ]; then
@@ -134,10 +134,6 @@ DBUPDATE() {
 				DONE=1
 				return 0
 			else
-				#ID=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "select max(_id)+100 from $1;"`
-				#if [ "$ID" == "" ]; then 
-				#	ID='null'
-				#fi
 				ID='null'
 
 				sqlite3 /data/data/com.android.providers.settings/databases/settings.db "insert into $1 values($ID, '$2', '$3');" 2>/dev/null
@@ -145,7 +141,7 @@ DBUPDATE() {
 			fi
 
 			# Check if in fact we modified that
-			VAL1=`sqlite3 /data/data/com.android.providers.settings/databases/settings.db "select value from $1 where name='$2';" 2>/dev/null`
+			VAL1=$(sqlite3 /data/data/com.android.providers.settings/databases/settings.db "select value from $1 where name='$2';" 2>/dev/null)
 			if [ "$VAL1" != "" ]; then
 				# Looks good
 				if [ $TRY -gt 1 ]; then
@@ -177,9 +173,9 @@ for ARG in $@; do
 	esac
 done
 
-echo "`date`" >> $LOG
-echo "ArchiDroid `getprop ro.archidroid.version`" >> $LOG
-echo "`uname -a`" >> $LOG
+echo "$(date)" >> $LOG
+echo "ArchiDroid $(getprop ro.archidroid.version)" >> $LOG
+echo "$(uname -a)" >> $LOG
 echo "INFO: ArchiDroid_RunOnce executed!" >> $LOG
 
 # Now we need to make sure that this is background process to prevent slowing down bootup
@@ -214,9 +210,9 @@ fi
 # 1 - Sammy
 # 2 - Omni
 ROM=1 # Default to sammy
-if [ `cat /system/build.prop | grep "ro.omni.version" | wc -l` -gt 0 ]; then
+if [ $(cat /system/build.prop | grep "ro.omni.version" | wc -l) -gt 0 ]; then
 	ROM=2 # OK, definitely Omni
-elif [ `cat /system/build.prop | grep "ro.cm.version" | wc -l` -gt 0 ]; then
+elif [ $(cat /system/build.prop | grep "ro.cm.version" | wc -l) -gt 0 ]; then
 	ROM=0 # OK, definitely CM
 fi
 
@@ -239,9 +235,9 @@ if [ -e $AD/INSTALL ] || [ $FORCE -eq 1 ]; then
 	if [ -d $AD/FIRSTBOOT/DATA ]; then
 		ADMANY=0
 		cd $AD/FIRSTBOOT/DATA
-		for folder in `busybox find . -mindepth 1 -maxdepth 1 -type d` ; do
+		for folder in $(busybox find . -mindepth 1 -maxdepth 1 -type d) ; do
 			echo "I found $folder which need merging (data)" >> $LOG
-			ADMANY=`expr $ADMANY + 1`
+			ADMANY=$(expr $ADMANY + 1)
 		done
 	else
 		ADMANY=0
@@ -310,7 +306,7 @@ while (! pgrep com.android && [ $LOOP -lt 300 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 			# TODO: We should handle this internally, according to FIRSTBOOT instead of hardcoding keyboards
 			ONESHOT=1
 			for KEYBOARDFULL in "org.pocketworkstation.pckeyboard/.LatinIME" "com.cootek.smartinputv5/com.cootek.smartinput5.TouchPalIME" ; do
-				KEYBOARD=`echo $KEYBOARDFULL | cut -d '/' -f 1`
+				KEYBOARD=$(echo $KEYBOARDFULL | cut -d '/' -f 1)
 				if [ -e /data/data/$KEYBOARD ] && [ $ONESHOT -eq 1 ]; then
 					echo "INFO: $KEYBOARD Keyboard found!" >> $LOG
 					DBUPDATE secure default_input_method "$KEYBOARDFULL"
@@ -395,18 +391,18 @@ while (! pgrep com.android && [ $LOOP -lt 300 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 		for FOLDER in * ; do
 			if [ -d /data/data/$FOLDER ]; then
 				echo "INFO: I'm currently merging $FOLDER, called by ADMANY" >> $LOG
-				ADOWNER=`busybox ls -ld /data/data/$FOLDER | awk '{print $3}'`
+				ADOWNER=$(busybox ls -ld /data/data/$FOLDER | awk '{print $3}')
 				cp -R $FOLDER/* /data/data/$FOLDER/
 				busybox chown -hR $ADOWNER.$ADOWNER /data/data/$FOLDER
 				#busybox chmod -R 777 /data/data/$FOLDER
 
 				# Let's make it as safe as possible
 				cd /data/data/$FOLDER
-				for FILE in `busybox find . -type d -mindepth 1`; do
+				for FILE in $(busybox find . -type d -mindepth 1); do
 					busybox chmod 775 $FILE
 				done
-				for FILE in `busybox find . -type f -mindepth 1`; do
-					EXTENSION=`echo $FILE | awk -F '.' '{print $NF}'`
+				for FILE in $(busybox find . -type f -mindepth 1); do
+					EXTENSION=$(echo $FILE | awk -F '.' '{print $NF}')
 
 					# Try to apply correct permissions for specific files
 					# For example XposedBridge requires at least 644, so it doesn't work with generic 660
@@ -421,7 +417,7 @@ while (! pgrep com.android && [ $LOOP -lt 300 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 				rm -Rf $FOLDER
 				rm -Rf /data/data/$FOLDER/_ADTEMP
 				ADOWNER=""
-				ADMANY=`expr $ADMANY - 1`
+				ADMANY=$(expr $ADMANY - 1)
 				echo "INFO: Done! $ADMANY to go" >> $LOG
 			fi
 		done
@@ -429,7 +425,7 @@ while (! pgrep com.android && [ $LOOP -lt 300 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 
 	# Sleeping time
 	FORCEDSEMAPHORE=0
-	LOOP=`expr $LOOP + 1`
+	LOOP=$(expr $LOOP + 1)
 	sleep 2
 done
 
@@ -449,7 +445,7 @@ if [ $INSTALLMODE -eq 1 ]; then
 	echo "INFO: Calling Post-Installation functions (if any)" >> $LOG
 fi
 
-if [ ! -z `getprop ro.build.selinux` ] && [ -f /file_contexts ]; then
+if [ ! -z $(getprop ro.build.selinux) ] && [ -f /file_contexts ]; then
 	echo "INFO: Found SELinux build, relabeling /data" >> $LOG
 	restorecon -R /data
 fi
@@ -484,6 +480,6 @@ if [ $ADRELOAD -eq 1 ]; then
 	setprop ctl.restart zygote
 fi
 echo "INFO: ArchiDroid RunOnce finished" >> $LOG
-echo "`date`" >> $LOG
+echo "$(date)" >> $LOG
 echo "FINISHED" > $ADSTATUS
 exit 0

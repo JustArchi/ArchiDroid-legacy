@@ -2,4 +2,5 @@
 
 $@
 
+sync
 exit 0

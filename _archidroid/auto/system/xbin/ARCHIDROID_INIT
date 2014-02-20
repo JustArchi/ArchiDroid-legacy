@@ -102,7 +102,7 @@ ADLOAD() {
 				fi
 				archidroid_dnsproxy2 -w 127.0.0.1 &
 				echo "ADBLOCK: Activated archidroid_dnsproxy2 - local proxy server, forwarding all DNS traffic to 127.0.0.1:53" >> $LOG
-				archidroid_pixelserv 127.0.0.1 >/dev/null 2>&1
+				archidroid_pixelserv 127.0.0.1
 				echo "ADBLOCK: Activated archidroid_pixelserv - local web server on 127.0.0.1:80, responding with NULLGIF" >> $LOG
 				echo "INFO: ArchiDroid's AdBlock activated!" >> $LOG
 			else

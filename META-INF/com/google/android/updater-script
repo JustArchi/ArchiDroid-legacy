@@ -294,6 +294,7 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 		if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","videoplayer") == "0" then
 			delete("/system/app/SecVideoList.apk");
 			delete("/system/app/SecVideoPlayer.apk");
+			delete("/system/app/minimode-res.apk");
 		endif;
 		if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","calendar") == "0" then
 			delete("/system/app/SecCalendar.apk");

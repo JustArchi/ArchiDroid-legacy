@@ -1,18 +1,22 @@
 #!/system/bin/sh
 
+ADSTATUS="/dev/ARCHIDROID_DNSDAEMON_STATUS"
+
 # Make sure that we're running in the background
 if [ "$1" != "background" ]; then
-	sh $0 "background" &
+	sh $0 "background" $@ &
 	exit 0
 fi
 
-DNS1=`getprop net.dns1`
-while :; do
-	CURDNS1=`getprop net.dns1`
+echo $$ > $ADSTATUS
+DNS1=$(getprop net.dns1)
+
+while [ $(cat $ADSTATUS) == $$ ]; do
+	CURDNS1=$(getprop net.dns1)
 	if [ "$CURDNS1" != "$DNS1" ]; then
 		DNS1="$CURDNS1"
-		ARCHIDROID_INIT "RELOAD" "ADBLOCK"
-		sleep 10
+		ARCHIDROID_INIT "RELOAD" "ADBLOCK" "DNSCHANGE"
+		sleep 5
 	fi
 	sleep 1
 done

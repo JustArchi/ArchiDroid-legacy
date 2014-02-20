@@ -53,11 +53,7 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 	run_program("/tmp/adlock.sh", "unlock", "/system/etc/hosts");
 
 	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Formatting Partitions");
-	#format("ext4", "EMMC", "/dev/block/mmcblk0p9", "0", "/system");
-	package_extract_file("_archidroid/scripts/wipesystem.sh", "/tmp/wipesystem.sh");
-	set_perm(0, 0, 0777, "/tmp/wipesystem.sh");
-	run_program("/tmp/wipesystem.sh");
-	delete("/tmp/wipesystem.sh");
+	delete_recursive("/system");
 
 	set_progress(0.07);
 

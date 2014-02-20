@@ -84,38 +84,21 @@ ADLOAD() {
 						APPENDDNSES=0
 					fi
 				fi
-				if [ "$ADBLOCKMODE" == "dnsmasq" ]; then
-					echo "ADBLOCK: Activated archidroid_dnsmasq - local DNS server on 127.0.0.1:53, forwarding clean non-blocked traffic to specified DNS servers" >> $LOG
-					local EXTRA="--all-servers "
-					if [ ! -z "$DNS1" ]; then
-						local DNS="-S $DNS1"
-						if [ ! -z "$DNS2" ]; then
-							local DNS+=" -S $DNS2"
-						fi
-						if [ $ADBLOCKSTRICTORDER -eq 1 ]; then
-							echo "ADBLOCK: Strict order enabled!" >> $LOG
-							EXTRA+="--strict-order "
-						fi
-						archidroid_dnsmasq $EXTRA $DNS -C /system/archidroid/etc/dnsmasq.conf
-						echo "ADBLOCK: Also added local DNS servers $DNS1 $DNS2" >> $LOG
-					else
-						archidroid_dnsmasq $EXTRA -C /system/archidroid/etc/dnsmasq.conf
+				echo "ADBLOCK: Activated archidroid_dnsmasq - local DNS server on 127.0.0.1:53, forwarding clean non-blocked traffic to specified DNS servers" >> $LOG
+				local EXTRA="--all-servers "
+				if [ ! -z "$DNS1" ]; then
+					local DNS="-S $DNS1"
+					if [ ! -z "$DNS2" ]; then
+						local DNS+=" -S $DNS2"
 					fi
-				elif [ "$ADBLOCKMODE" == "dnrd" ]; then
-					echo "ADBLOCK: Activated archidroid_dnrd - local dns server on 127.0.0.1:53, forwarding clean non-blocked traffic to specified DNS servers" >> $LOG
-					local EXTRA="-a 127.0.0.1 -i -u 0 -r 0 -M 65535 -m hosts -R /system/archidroid/etc "
-					if [ ! -z "$DNS1" ]; then
-						local DNS="-s $DNS1"
-						if [ ! -z "$DNS2" ]; then
-							local DNS+=" -s $DNS2"
-						fi
-						archidroid_dnrd $EXTRA $DNS -s 208.67.222.222 -s 208.67.220.220 -s 8.8.8.8 -s 8.8.4.4
-						echo "ADBLOCK: Also added local DNS servers $DNS1 $DNS2" >> $LOG
-					else
-						archidroid_dnrd $EXTRA -s 208.67.222.222 -s 208.67.220.220 -s 8.8.8.8 -s 8.8.4.4
+					if [ $ADBLOCKSTRICTORDER -eq 1 ]; then
+						echo "ADBLOCK: Strict order enabled!" >> $LOG
+						EXTRA+="--strict-order "
 					fi
+					archidroid_dnsmasq $EXTRA $DNS -C /system/archidroid/etc/dnsmasq.conf
+					echo "ADBLOCK: Also added local DNS servers $DNS1 $DNS2" >> $LOG
 				else
-					echo "ERROR: No adblock mode specified!" >> $LOG
+					archidroid_dnsmasq $EXTRA -C /system/archidroid/etc/dnsmasq.conf
 				fi
 				archidroid_dnsproxy2 -w 127.0.0.1 &
 				echo "ADBLOCK: Activated archidroid_dnsproxy2 - local proxy server, forwarding all DNS traffic to 127.0.0.1:53" >> $LOG
@@ -199,15 +182,15 @@ ADRELOAD() {
 	# $2 - optional
 	case "$1" in
 		"ALL")
-			ADRELOAD "HAVEGED"
-			ADRELOAD "FRANDOM"
-			ADRELOAD "ADBLOCK"
+			shift 1
+			ADRELOAD "HAVEGED" $@
+			ADRELOAD "FRANDOM" $@
+			ADRELOAD "ADBLOCK" $@
 			;;
 		"ADBLOCK")
-			killall archidroid_dnsmasq >/dev/null 2>&1
-			killall archidroid_dnrd >/dev/null 2>&1
-			killall archidroid_dnsproxy2 >/dev/null 2>&1
-			killall archidroid_pixelserv >/dev/null 2>&1
+			killall archidroid_dnsmasq >/dev/null 2>&1 &
+			killall archidroid_dnsproxy2 >/dev/null 2>&1 &
+			killall archidroid_pixelserv >/dev/null 2>&1 &
 			killall archidroid_dnsdaemon >/dev/null 2>&1
 			if [ "$2" != "STOP" ]; then
 				ADLOAD "ADBLOCK" "RELOAD"
@@ -223,10 +206,9 @@ ADRELOAD() {
 				rm -f /dev/random.MOD
 				rm -f /dev/random
 				mv /dev/random.ORIG /dev/random
-			else
-				if [ "$2" != "STOP" ]; then
-					ADLOAD "FRANDOM" "RELOAD"
-				fi
+			fi
+			if [ "$2" != "STOP" ]; then
+				ADLOAD "FRANDOM" "RELOAD"
 			fi
 			;;
 		"HAVEGED")
@@ -277,13 +259,6 @@ else
 fi
 if [ -e $ADDEV/ADBLOCK_ENABLED ]; then
 	ADBLOCK=1
-	if [ -e $ADDEV/ADBLOCK_USE_DNSMASQ ]; then
-		ADBLOCKMODE="dnsmasq"
-	elif [ -e $ADDEV/ADBLOCK_USE_DNRD ]; then
-		ADBLOCKMODE="dnrd"
-	else
-		ADBLOCKMODE="unknown"
-	fi
 	if [ -e $ADDEV/ADBLOCK_LOCAL_DNSES_ENABLED ]; then
 		APPENDDNSES=1
 		if [ -e $ADDEV/ADBLOCK_LOCAL_DNSES_DAEMON_ENABLED ]; then

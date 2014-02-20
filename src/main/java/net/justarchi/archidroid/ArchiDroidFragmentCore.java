@@ -95,23 +95,21 @@ class ArchiDroidFragmentCore extends Fragment {
 
     final protected String ArchiDroidGetProperty(String in) {
         Log.v("", "ArchiDroidGetProperty: " + in);
-        StringBuilder log = new StringBuilder();
+        String result = null;
         try {
             Process process = Runtime.getRuntime().exec("getprop " + in);
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-            String line;
-            while ((line = bufferedReader.readLine()) != null)
-                log.append(line);
+            result = bufferedReader.readLine();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        Log.v("", "ArchiDroidGetProperty: Got: "  + log.toString());
-        return log.toString();
+        Log.v("", "ArchiDroidGetProperty: Got: "  + result);
+        return result;
     }
 
     final protected String ArchiDroidGetProperty(String in, String in2) {
         String result = ArchiDroidGetProperty(in);
-        if (result.length() <= 1)
+        if (result.length() == 0)
             result = in2;
         Log.v("", "ArchiDroidGetProperty: FinallyGot: "  + result);
         return result;
@@ -185,7 +183,7 @@ class ArchiDroidFragmentCore extends Fragment {
         return new File(ADDEV + "/" + in).exists();
     }
 
-    final protected boolean ArchiDroiddFileExists(String in) {
+    final protected boolean ArchiDroidFileExists(String in) {
         return new File(in).exists();
     }
 

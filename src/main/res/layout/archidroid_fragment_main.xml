@@ -4,6 +4,14 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="WARNING! This app is WIP (Work In Progress) and may NOT work properly. You're using it on your own risk!"
+        android:id="@+id/textView"
+        android:textColor="#ff0000" />
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

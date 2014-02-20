@@ -16,6 +16,9 @@ import android.support.v4.view.ViewPager;
 import android.view.Menu;
 
 public class MainActivity extends FragmentActivity {
+
+    private int pages = 3;
+
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
 
@@ -49,12 +52,17 @@ public class MainActivity extends FragmentActivity {
         ActionBar bar = getActionBar();
         bar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
-        ActionBar.Tab tab0 = bar.newTab().setText("Main");
-        tab0.setTabListener(new MyTabsListener());
-        bar.addTab(tab0);
-        ActionBar.Tab tab1 = bar.newTab().setText("Backend");
-        tab1.setTabListener(new MyTabsListener());
-        bar.addTab(tab1);
+        ActionBar.Tab Main = bar.newTab().setText(R.string.ArchiDroidMain);
+        ActionBar.Tab Backend = bar.newTab().setText(R.string.ArchiDroidBackend);
+        ActionBar.Tab Debian = bar.newTab().setText(R.string.ArchiDroidDebian);
+
+        Main.setTabListener(new MyTabsListener());
+        Backend.setTabListener(new MyTabsListener());
+        Debian.setTabListener(new MyTabsListener());
+
+        bar.addTab(Main);
+        bar.addTab(Backend);
+        bar.addTab(Debian);
     }
 
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
@@ -64,7 +72,7 @@ public class MainActivity extends FragmentActivity {
 
         @Override
         public int getCount() {
-            return 2;
+            return pages;
         }
 
         @Override
@@ -76,6 +84,9 @@ public class MainActivity extends FragmentActivity {
                     break;
                 case 1:
                     fragment = new ArchiDroidFragmentBackend();
+                    break;
+                case 2:
+                    fragment = new ArchiDroidFragmentDebian();
                     break;
             }
             return fragment;

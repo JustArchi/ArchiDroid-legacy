@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 class ArchiDroidFragmentBackend extends ArchiDroidFragmentCore {
 
+    boolean onResumeAutoRefresh = false;
     Switch switchHaveged;
     String switchHavegedStateON = "HAVEGED_ENABLED";
     String switchHavegedStateOFF = "HAVEGED_DISABLED";
@@ -62,6 +63,8 @@ class ArchiDroidFragmentBackend extends ArchiDroidFragmentCore {
     Button buttonReload;
 
     private void ArchiDroidReloadChoice() {
+        allowReload = false;
+
         switchHaveged.setChecked(ArchiDroidBackendFileExists(switchHavegedStateON));
         switchFrandom.setChecked(ArchiDroidBackendFileExists(switchFrandomStateON));
         switchAdblock.setChecked(ArchiDroidBackendFileExists(switchAdblockStateON));
@@ -108,21 +111,21 @@ class ArchiDroidFragmentBackend extends ArchiDroidFragmentCore {
             textPixelservState.setTextColor(Color.parseColor(ColorRed));
         }
 
-        if (ArchiDroiddFileExists("/dev/frandom")) {
+        if (ArchiDroidFileExists("/dev/frandom")) {
             textFrandomState.setText("YES");
             textFrandomState.setTextColor(Color.parseColor(ColorGreen));
         } else {
             textFrandomState.setText("NO");
             textFrandomState.setTextColor(Color.parseColor(ColorRed));
         }
-        if (ArchiDroiddFileExists("/dev/random.ORIG")) {
+        if (ArchiDroidFileExists("/dev/random.ORIG")) {
             textRandomState.setText("frandom");
             textRandomState.setTextColor(Color.parseColor(ColorGreen));
         } else {
             textRandomState.setText("random");
             textRandomState.setTextColor(Color.parseColor(ColorWhite));
         }
-        if (ArchiDroiddFileExists("/dev/urandom.ORIG")) {
+        if (ArchiDroidFileExists("/dev/urandom.ORIG")) {
             textUrandomState.setText("frandom");
             textUrandomState.setTextColor(Color.parseColor(ColorGreen));
         } else {
@@ -150,17 +153,31 @@ class ArchiDroidFragmentBackend extends ArchiDroidFragmentCore {
             textHavegedState.setText("OFF");
             textHavegedState.setTextColor(Color.parseColor(ColorRed));
         }
+
+        allowReload = true;
     }
 
     @Override
     public void onResume() {
         super.onResume();
         ArchiDroidReloadChoice();
+        if (onResumeAutoRefresh) {
+            checkBoxEntropyRefresh.setChecked(true);
+            onResumeAutoRefresh = false;
+        }
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (checkBoxEntropyRefresh.isChecked()) {
+            checkBoxEntropyRefresh.setChecked(false);
+            onResumeAutoRefresh = true;
+        }
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
-
         super.onActivityCreated(savedInstanceState);
 
         switchHaveged = (Switch) getView().findViewById(R.id.switchHaveged);
@@ -223,7 +240,6 @@ class ArchiDroidFragmentBackend extends ArchiDroidFragmentCore {
             // We definitely want to apply only one value at once and because this listener will also wake up due to childs doing the same, we need to lock it
             // This will make sure that we won't override user choice (dev), because ARCHIDROID_INIT should keep an eye on that, not we
             if (allowReload) {
-                allowReload = false;
                 switch (buttonView.getId()) {
                     case R.id.switchHaveged:
                         if (isChecked)
@@ -280,12 +296,15 @@ class ArchiDroidFragmentBackend extends ArchiDroidFragmentCore {
                             Thread entropyAutoRefreshThread = new Thread(new Runnable() {
                                 public void run() {
                                     while (entropyAutoRefresh) {
-                                        getActivity().runOnUiThread(new Runnable() {
-                                            public void run() {
-                                                textEntropyState.setText(ArchiDroidReadOneLine(textEntropyStateFile));
-                                            }});
+                                        getActivity().runOnUiThread(
+                                                new Runnable() {
+                                                    public void run() {
+                                                        textEntropyState.setText(ArchiDroidReadOneLine(textEntropyStateFile));
+                                                    }
+                                                }
+                                        );
                                         try {
-                                            Thread.sleep(500);
+                                            Thread.sleep(200);
                                         } catch (Exception e) {
                                             e.printStackTrace();
                                         }
@@ -298,7 +317,6 @@ class ArchiDroidFragmentBackend extends ArchiDroidFragmentCore {
                         break;
                 }
                 ArchiDroidReloadChoice();
-                allowReload = true;
             }
         }
     }
@@ -308,13 +326,15 @@ class ArchiDroidFragmentBackend extends ArchiDroidFragmentCore {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.buttonEntropyEmpty:
-                    ArchiDroidExecute("head -c " + Integer.parseInt(ArchiDroidReadOneLine(textEntropyStateFile)) / 8 + " /dev/random >/dev/null 2>&1");
+                    if (ArchiDroidFileExists("/dev/random.ORIG"))
+                        ArchiDroidExecute("head -c " + Integer.parseInt(ArchiDroidReadOneLine(textEntropyStateFile)) / 8 + " /dev/random.ORIG >/dev/null 2>&1");
+                    else
+                        ArchiDroidExecute("head -c " + Integer.parseInt(ArchiDroidReadOneLine(textEntropyStateFile)) / 8 + " /dev/random >/dev/null 2>&1");
+
                     textEntropyState.setText(ArchiDroidReadOneLine(textEntropyStateFile));
                     break;
                 case R.id.buttonRefresh:
-                    allowReload = false;
                     ArchiDroidReloadChoice();
-                    allowReload = true;
                     break;
                 case R.id.buttonReload:
                     ArchiDroidBackendReload("ALL");
@@ -328,9 +348,7 @@ class ArchiDroidFragmentBackend extends ArchiDroidFragmentCore {
                     ArchiDroidBackendChangeSwitch(switchAdblockForceLocalDnsesStateON, switchAdblockForceLocalDnsesStateOFF);
                     ArchiDroidBackendChangeSwitch(switchAdblockHostsStateMOAB, switchAdblockHostsStateADAWAY);
                     ArchiDroidBackendReload("ALL");
-                    allowReload = false;
                     ArchiDroidReloadChoice();
-                    allowReload = true;
                     break;
             }
         }

@@ -27,4 +27,5 @@ dependencies {
     compile 'com.android.support:support-v13:+'
     compile fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
     compile files('libs/RootTools-3.4.jar')
+    compile files('libs/PayPal_MPL.jar')
 }

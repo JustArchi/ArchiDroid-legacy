@@ -1,21 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
 
-    <TextView
+    <ScrollView
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="WARNING! This app is WIP (Work In Progress) and may NOT work properly. You're using it on your own risk!"
-        android:id="@+id/textView"
-        android:textColor="#ff0000" />
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView"
+        android:layout_above="@+id/buttons" >
 
-    <Button
-        android:layout_width="wrap_content"
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Please consider making a small donation if ArchiDroid serves you well. I've already put countless hours into maintaining this project, including the app, which you're using right now. Thank you!"
+                android:id="@+id/textDonation"
+                android:textColor="#00FF00" />
+
+            <ImageButton
+                android:layout_width="300dp"
+                android:layout_height="182dp"
+                android:id="@+id/buttonPaypal"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/paypal" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/buttons"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Test Button"
-        android:id="@+id/buttonTest"
-        android:layout_gravity="center_horizontal" />
-</LinearLayout>
+        android:layout_alignParentBottom="true"
+        android:gravity="center_horizontal">
+
+    </LinearLayout>
+
+</RelativeLayout>

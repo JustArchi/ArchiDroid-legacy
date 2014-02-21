@@ -80,7 +80,7 @@ public class MainActivity extends FragmentActivity {
             Fragment fragment = null;
             switch (position) {
                 case 0:
-                    fragment = new Fragment_Main();
+                    fragment = new ArchiDroidFragmentMain();
                     break;
                 case 1:
                     fragment = new ArchiDroidFragmentBackend();

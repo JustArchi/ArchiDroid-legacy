@@ -20,7 +20,7 @@ class ArchiDroidFragmentBackend extends ArchiDroidFragmentCore {
     TextView textHavegedState;
     String ArchiDroidHaveged = "archidroid_haveged";
     TextView textEntropyState;
-    String textEntropyStateFile = "/proc/sys/kernel/random/entropy_avail";
+    String EntropyStateFile = "/proc/sys/kernel/random/entropy_avail";
     CheckBox checkBoxEntropyRefresh;
     boolean entropyAutoRefresh = false;
     Button buttonEntropyEmpty;
@@ -34,15 +34,14 @@ class ArchiDroidFragmentBackend extends ArchiDroidFragmentCore {
     Switch switchAdblockLocalDnses;
     String switchAdblockLocalDnsesStateON = "ADBLOCK_LOCAL_DNSES_ENABLED";
     String switchAdblockLocalDnsesStateOFF = "ADBLOCK_LOCAL_DNSES_DISABLED";
-    Switch switchAdblockLocalDnsesDaemon;
-    String switchAdblockLocalDnsesDaemonStateON = "ADBLOCK_LOCAL_DNSES_DAEMON_ENABLED";
-    String switchAdblockLocalDnsesDaemonStateOFF = "ADBLOCK_LOCAL_DNSES_DAEMON_DISABLED";
     Switch switchAdblockForceLocalDnses;
     String switchAdblockForceLocalDnsesStateON = "ADBLOCK_FORCE_LOCAL_DNSES";
     String switchAdblockForceLocalDnsesStateOFF = "ADBLOCK_DONT_FORCE_LOCAL_DNSES";
     Switch switchAdblockHosts;
     String switchAdblockHostsStateADAWAY = "ADBLOCK_USE_ADAWAY_HOSTS";
     String switchAdblockHostsStateMOAB = "ADBLOCK_USE_MOAB_HOSTS";
+    Switch switchHosts;
+    String HostsFile="/system/etc/hosts";
 
     TextView textDnsmasqState;
     String ArchiDroidDnsmasq = "archidroid_dnsmasq";
@@ -69,25 +68,22 @@ class ArchiDroidFragmentBackend extends ArchiDroidFragmentCore {
         switchFrandom.setChecked(ArchiDroidBackendFileExists(switchFrandomStateON));
         switchAdblock.setChecked(ArchiDroidBackendFileExists(switchAdblockStateON));
         switchAdblockLocalDnses.setChecked(ArchiDroidBackendFileExists(switchAdblockLocalDnsesStateON));
-        switchAdblockLocalDnsesDaemon.setChecked(ArchiDroidBackendFileExists(switchAdblockLocalDnsesDaemonStateON));
         switchAdblockForceLocalDnses.setChecked(ArchiDroidBackendFileExists(switchAdblockForceLocalDnsesStateON));
         switchAdblockHosts.setChecked(ArchiDroidBackendFileExists(switchAdblockHostsStateADAWAY));
         if (switchAdblock.isChecked()) {
             switchAdblockLocalDnses.setEnabled(true);
             if (switchAdblockLocalDnses.isChecked()) {
-                switchAdblockLocalDnsesDaemon.setEnabled(true);
                 switchAdblockForceLocalDnses.setEnabled(true);
             } else {
-                switchAdblockLocalDnsesDaemon.setEnabled(false);
                 switchAdblockForceLocalDnses.setEnabled(false);
             }
             switchAdblockHosts.setEnabled(true);
         } else {
             switchAdblockLocalDnses.setEnabled(false);
-            switchAdblockLocalDnsesDaemon.setEnabled(false);
             switchAdblockForceLocalDnses.setEnabled(false);
             switchAdblockHosts.setEnabled(false);
         }
+        switchHosts.setChecked(ArchiDroidIsFileImmutable(HostsFile));
 
         if (ArchiDroidProcessAlive(ArchiDroidDnsmasq)) {
             textDnsmasqState.setText("ON");
@@ -145,7 +141,7 @@ class ArchiDroidFragmentBackend extends ArchiDroidFragmentCore {
             textLocalDNS2IP.setTextColor(Color.parseColor(ColorWhite));
         }
 
-        textEntropyState.setText(ArchiDroidReadOneLine(textEntropyStateFile));
+        textEntropyState.setText(ArchiDroidRead(EntropyStateFile));
         if (ArchiDroidProcessAlive(ArchiDroidHaveged)) {
             textHavegedState.setText("ON");
             textHavegedState.setTextColor(Color.parseColor(ColorGreen));
@@ -184,9 +180,9 @@ class ArchiDroidFragmentBackend extends ArchiDroidFragmentCore {
         switchFrandom = (Switch) getView().findViewById(R.id.switchFrandom);
         switchAdblock = (Switch) getView().findViewById(R.id.switchAdblock);
         switchAdblockLocalDnses = (Switch) getView().findViewById(R.id.switchAdblockLocalDnses);
-        switchAdblockLocalDnsesDaemon = (Switch) getView().findViewById(R.id.switchAdblockLocalDnsesDaemon);
         switchAdblockForceLocalDnses = (Switch) getView().findViewById(R.id.switchAdblockForceLocalDnses);
         switchAdblockHosts = (Switch) getView().findViewById(R.id.switchAdblockHosts);
+        switchHosts = (Switch) getView().findViewById(R.id.switchHosts);
 
         textHavegedState = (TextView) getView().findViewById(R.id.textHavegedState);
         textDnsmasqState = (TextView) getView().findViewById(R.id.textDnsmasqState);
@@ -214,9 +210,9 @@ class ArchiDroidFragmentBackend extends ArchiDroidFragmentCore {
         switchFrandom.setOnCheckedChangeListener(new CustomOnCheckedChangeListener());
         switchAdblock.setOnCheckedChangeListener(new CustomOnCheckedChangeListener());
         switchAdblockLocalDnses.setOnCheckedChangeListener(new CustomOnCheckedChangeListener());
-        switchAdblockLocalDnsesDaemon.setOnCheckedChangeListener(new CustomOnCheckedChangeListener());
         switchAdblockForceLocalDnses.setOnCheckedChangeListener(new CustomOnCheckedChangeListener());
         switchAdblockHosts.setOnCheckedChangeListener(new CustomOnCheckedChangeListener());
+        switchHosts.setOnCheckedChangeListener(new CustomOnCheckedChangeListener());
 
         checkBoxEntropyRefresh.setOnCheckedChangeListener(new CustomOnCheckedChangeListener());
         buttonEntropyEmpty.setOnClickListener(new CustomOnClickListener());
@@ -269,13 +265,6 @@ class ArchiDroidFragmentBackend extends ArchiDroidFragmentCore {
                             ArchiDroidBackendChangeSwitch(switchAdblockLocalDnsesStateON, switchAdblockLocalDnsesStateOFF);
                         ArchiDroidBackendReload("ADBLOCK");
                         break;
-                    case R.id.switchAdblockLocalDnsesDaemon:
-                        if (isChecked)
-                            ArchiDroidBackendChangeSwitch(switchAdblockLocalDnsesDaemonStateOFF, switchAdblockLocalDnsesDaemonStateON);
-                        else
-                            ArchiDroidBackendChangeSwitch(switchAdblockLocalDnsesDaemonStateON, switchAdblockLocalDnsesDaemonStateOFF);
-                        ArchiDroidBackendReload("ADBLOCK");
-                        break;
                     case R.id.switchAdblockForceLocalDnses:
                         if (isChecked)
                             ArchiDroidBackendChangeSwitch(switchAdblockForceLocalDnsesStateOFF, switchAdblockForceLocalDnsesStateON);
@@ -290,6 +279,14 @@ class ArchiDroidFragmentBackend extends ArchiDroidFragmentCore {
                             ArchiDroidBackendChangeSwitch(switchAdblockHostsStateADAWAY, switchAdblockHostsStateMOAB);
                         ArchiDroidBackendReload("ADBLOCK");
                         break;
+                    case R.id.switchHosts:
+                        ArchiDroidSystemRW();
+                        if (isChecked)
+                            ArchiDroidRootExecute("chattr +i " + HostsFile);
+                        else
+                            ArchiDroidRootExecute("chattr -i " + HostsFile);
+                        ArchiDroidSystemRO();
+                        break;
                     case R.id.checkBoxEntropyRefresh:
                         if (isChecked) {
                             entropyAutoRefresh = true;
@@ -299,7 +296,7 @@ class ArchiDroidFragmentBackend extends ArchiDroidFragmentCore {
                                         getActivity().runOnUiThread(
                                                 new Runnable() {
                                                     public void run() {
-                                                        textEntropyState.setText(ArchiDroidReadOneLine(textEntropyStateFile));
+                                                        textEntropyState.setText(ArchiDroidRead(EntropyStateFile));
                                                     }
                                                 }
                                         );
@@ -327,11 +324,11 @@ class ArchiDroidFragmentBackend extends ArchiDroidFragmentCore {
             switch (v.getId()) {
                 case R.id.buttonEntropyEmpty:
                     if (ArchiDroidFileExists("/dev/random.ORIG"))
-                        ArchiDroidExecute("head -c " + Integer.parseInt(ArchiDroidReadOneLine(textEntropyStateFile)) / 8 + " /dev/random.ORIG >/dev/null 2>&1");
+                        ArchiDroidExecute("head -c " + Integer.parseInt(ArchiDroidRead(EntropyStateFile)) / 8 + " /dev/random.ORIG >/dev/null 2>&1");
                     else
-                        ArchiDroidExecute("head -c " + Integer.parseInt(ArchiDroidReadOneLine(textEntropyStateFile)) / 8 + " /dev/random >/dev/null 2>&1");
+                        ArchiDroidExecute("head -c " + Integer.parseInt(ArchiDroidRead(EntropyStateFile)) / 8 + " /dev/random >/dev/null 2>&1");
 
-                    textEntropyState.setText(ArchiDroidReadOneLine(textEntropyStateFile));
+                    textEntropyState.setText(ArchiDroidRead(EntropyStateFile));
                     break;
                 case R.id.buttonRefresh:
                     ArchiDroidReloadChoice();
@@ -344,7 +341,6 @@ class ArchiDroidFragmentBackend extends ArchiDroidFragmentCore {
                     ArchiDroidBackendChangeSwitch(switchFrandomStateOFF, switchFrandomStateON);
                     ArchiDroidBackendChangeSwitch(switchAdblockStateOFF, switchAdblockStateON);
                     ArchiDroidBackendChangeSwitch(switchAdblockLocalDnsesStateOFF, switchAdblockLocalDnsesStateON);
-                    ArchiDroidBackendChangeSwitch(switchAdblockLocalDnsesDaemonStateOFF, switchAdblockLocalDnsesDaemonStateON);
                     ArchiDroidBackendChangeSwitch(switchAdblockForceLocalDnsesStateON, switchAdblockForceLocalDnsesStateOFF);
                     ArchiDroidBackendChangeSwitch(switchAdblockHostsStateMOAB, switchAdblockHostsStateADAWAY);
                     ArchiDroidBackendReload("ALL");

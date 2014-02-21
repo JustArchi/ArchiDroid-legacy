@@ -43,13 +43,6 @@
             <Switch
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="Adblock Local DNSes Daemon"
-                android:id="@+id/switchAdblockLocalDnsesDaemon"
-                android:layout_gravity="center_horizontal" />
-
-            <Switch
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
                 android:text="Adblock Force Local DNSes"
                 android:id="@+id/switchAdblockForceLocalDnses"
                 android:layout_gravity="center_horizontal" />
@@ -62,6 +55,15 @@
                 android:layout_gravity="center_horizontal"
                 android:textOn="AdAway"
                 android:textOff="MOAB" />
+
+            <Switch
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Hosts File"
+                android:id="@+id/switchHosts"
+                android:layout_gravity="center_horizontal"
+                android:textOn="Locked"
+                android:textOff="Unlocked" />
 
             <LinearLayout
                 android:orientation="horizontal"

@@ -18,6 +18,8 @@ class ArchiDroidFragmentCore extends Fragment {
     final protected String ColorGreen = "#00FF00";
     final protected String ColorWhite = "#FFFFFF";
 
+    final protected int Timeout = 10 * 1000;
+
     final protected void ArchiDroidBackendChangeSwitch(String path1, String path2) {
         boolean path1Exists = ArchiDroidFileExists(ADDEV + "/" + path1);
         boolean path2Exists = ArchiDroidFileExists(ADDEV + "/" + path2);
@@ -83,8 +85,7 @@ class ArchiDroidFragmentCore extends Fragment {
     }
 
     final protected boolean ArchiDroidIsFileImmutable(String in) {
-        char i = ArchiDroidExecuteWithOutput("lsattr /system/etc/hosts").charAt(5);
-        if (i == 'i') {
+        if (ArchiDroidExecuteWithOutput("lsattr /system/etc/hosts").charAt(5) == 'i') {
             return true;
         } else {
             return false;
@@ -114,15 +115,13 @@ class ArchiDroidFragmentCore extends Fragment {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        while (!cmd.isFinished()) {
-            synchronized (cmd) {
-                try {
-                    if (!cmd.isFinished()) {
-                        cmd.wait(100);
-                    }
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+        synchronized (cmd) {
+            try {
+                if (!cmd.isFinished()) {
+                    cmd.wait(Timeout);
                 }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
@@ -152,15 +151,13 @@ class ArchiDroidFragmentCore extends Fragment {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        while (!cmd.isFinished()) {
-            synchronized (cmd) {
-                try {
-                    if (!cmd.isFinished()) {
-                        cmd.wait(100);
-                    }
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+        synchronized (cmd) {
+            try {
+                if (!cmd.isFinished()) {
+                    cmd.wait(Timeout);
                 }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
         return log.toString();

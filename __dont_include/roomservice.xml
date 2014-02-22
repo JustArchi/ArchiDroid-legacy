@@ -13,9 +13,6 @@
   <!-- GOOGLE GCC TOOLCHAIN -->
   <project name="platform/prebuilts/gcc/linux-x86/arm/arm-eabi-4.8" path="prebuilts/gcc/linux-x86/arm/arm-eabi-4.8" revision="master" />
   <project name="platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8" path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8" revision="master" />
-  
-  <!-- ARCHIDROID APP -->
-  <project name="JustArchi/ArchiDroid" path="packages/apps/ArchiDroid" remote="github" revision="AndroidApp" />
 
   <!-- ARCHIDROID FORKS -->
   <remove-project name="platform/frameworks/rs" />

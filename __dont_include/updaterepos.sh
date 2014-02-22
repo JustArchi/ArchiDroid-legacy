@@ -56,8 +56,10 @@ ourRepoLink="https://github.com/JustArchi"
 
 for folder in `find . -mindepth 1 -maxdepth 1 -type d` ; do
 	cd $folder
-	git checkout $OMNI
 	ourBranch=`git rev-parse --abbrev-ref HEAD`
+	if [ "$ourBranch" != "$OMNI" ]; then
+		git checkout $OMNI
+	fi
 	ourName=`basename "$folder"`
 	if [ $INIT -eq 1 ]; then
 		addUpstream

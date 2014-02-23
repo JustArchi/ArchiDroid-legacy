@@ -5,7 +5,7 @@
 #exit 1
 
 # Common
-VERSION=2.3.7
+VERSION=2.3.8
 STABLE=0
 NOSYNC=0
 NOGIT=0

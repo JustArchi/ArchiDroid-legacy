@@ -42,12 +42,14 @@
   <!-- GALAXY S3 DEPENDENCIES -->
   <project name="DonkeyCoyote/proprietary_vendor_samsung" path="vendor/samsung" remote="github" revision="android-4.4" />
   <project name="android_device_samsung_i9300" path="device/samsung/i9300" remote="omnirom" revision="android-4.4" />
-  <project name="android_device_samsung_smdk4412-common" path="device/samsung/smdk4412-common" remote="omnirom" revision="android-4.4" />
-  <project name="android_hardware_samsung" path="hardware/samsung" remote="omnirom" revision="android-4.4" />
-  <project name="android_packages_apps_SamsungServiceMode" path="packages/apps/SamsungServiceMode" remote="omnirom" revision="android-4.4" />
   <project name="android_kernel_samsung_smdk4412" path="kernel/samsung/smdk4412" remote="omnirom" revision="android-4.4" />
+  <project name="android_hardware_samsung" path="hardware/samsung" remote="omnirom" revision="android-4.4" />
+  <project name="android_device_samsung_smdk4412-common" path="device/samsung/smdk4412-common" remote="omnirom" revision="android-4.4" />
+  <project name="android_packages_apps_SamsungServiceMode" path="packages/apps/SamsungServiceMode" remote="omnirom" revision="android-4.4" />
 
   <!-- ARCHIDROID GALAXY S3 DEPENDENCIES FORKS -->
-  <remove-project name="android_device_samsung_smdk4412-common" />
-  <project name="JustArchi/android_device_samsung_smdk4412-common" path="device/samsung/smdk4412-common" remote="github" revision="android-4.4" />
+  <remove-project name="android_kernel_samsung_smdk4412" />
+  <project name="JustArchi/android_kernel_samsung_smdk4412" path="kernel/samsung/smdk4412" remote="github" revision="android-4.4" />
+  <!-- <remove-project name="android_device_samsung_smdk4412-common" />
+  <project name="JustArchi/android_device_samsung_smdk4412-common" path="device/samsung/smdk4412-common" remote="github" revision="android-4.4" /> -->
 </manifest>

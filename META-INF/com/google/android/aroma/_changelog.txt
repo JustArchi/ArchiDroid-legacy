@@ -8,10 +8,15 @@ ArchiDroid 2.3.8
 *NEW* Made a redundant load elimination pass performed after reload. The purpose of this pass is to clean up redundant spilling (-fgcse-after-reload)
 *NEW* Ran a store motion pass after global common subexpression elimination. This pass attempts to move stores out of loops (-fgcse-sm)
 *NEW* Eliminated redundant loads that come after stores to the same memory location, both partial and full redundancies (-fgcse-las)
+*NEW* Constructed webs as commonly used for register allocation purposes and assigned each web individual pseudo register. This allows the register allocation pass to operate on pseudos directly, but also strengthens several other optimization passes, such as CSE, loop optimizer and trivial dead code remover (-fweb)
+*NEW* Performed tail duplication to enlarge superblock size. This transformation simplifies the control flow of the function allowing other optimizations to do a better job (-ftracer)
+*NEW* Performed interprocedural pointer analysis and interprocedural modification and reference analysis (-fipa-pta)
+*NEW* Removed all debugging code from executables (-DNDEBUG)
+
 * Optimized yet more ARM instructions (-O3)
 * Allowed the compiler to assume the strictest aliasing rules applicable to the language being compiled. For C (and C++), this activates optimizations based on the type of expressions. In particular, an object of one type is assumed never to reside at the same address as an object of a different type, unless the types are almost the same. This is only applied to compatible Android parts, about 50% of total (-fstrict-aliasing)
 
 # Note to experimental users - please check if I didn't break anything by accident
 # On todo:
-# -fipa-pta -fsection-anchors -fweb -ftracer -DNDEBUG
+# -fsection-anchors
 # LDFLAGS: -Wl,-O3 -Wl,--as-needed

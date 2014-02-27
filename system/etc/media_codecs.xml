@@ -77,7 +77,6 @@ Only the three quirks included above are recognized at this point:
 
 <MediaCodecs>
     <Decoders>
-        <MediaCodec name="OMX.SEC.AVC.Decoder" type="video/avc" />
         <MediaCodec name="OMX.SEC.MPEG4.Decoder" type="video/mp4v-es" />
         <MediaCodec name="OMX.SEC.H263.Decoder" type="video/3gpp" />
         <MediaCodec name="OMX.SEC.AVC.Decoder" type="video/avc" />

@@ -243,6 +243,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 
 		"launcher","<#selectbg_g>Launcher</#>","","group",
 		"nova","Nova Launcher","<~archidroid.launcher.nova.desc>","select.selected",
+		"google","Google Launcher","<~archidroid.launcher.google.desc>","select",
 		"stock","AOSP Launcher","<~archidroid.launcher.stock.desc>","select",
 		"none","<~common.none>","<~archidroid.launcher.none.desc>","select",
 

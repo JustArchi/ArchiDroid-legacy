@@ -11,7 +11,6 @@ ArchiDroid 2.3.8
 *NEW* Eliminated redundant loads that come after stores to the same memory location, both partial and full redundancies (-fgcse-las)
 *NEW* Constructed webs as commonly used for register allocation purposes and assigned each web individual pseudo register. This allows the register allocation pass to operate on pseudos directly, but also strengthens several other optimization passes, such as CSE, loop optimizer and trivial dead code remover (-fweb)
 *NEW* Performed tail duplication to enlarge superblock size. This transformation simplifies the control flow of the function allowing other optimizations to do a better job (-ftracer)
-*NEW* Performed interprocedural pointer analysis and interprocedural modification and reference analysis (-fipa-pta)
 *NEW* Removed all debugging code from executables (-DNDEBUG)
 *NEW* Optimized GNU linker, which significantly reduces launching time and memory usage. This is especially visible during booting process, which is a few seconds faster than usual (-Wl,-O1)
 *NEW* Applied special --as-needed flag to GNU linker. The flag tells the linker to link in the produced binary only the libraries containing symbols actually used by the binary itself. This not only improves startup times (as the loader does not have to load all the libraries for every step) but might avoid the full initialization of things, which we're not even physically able to use (-Wl,--as-needed)

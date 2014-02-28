@@ -207,10 +207,10 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 			"/system/bin/mkdir", "/system/bin/mkswap", "/system/bin/mount",
 			"/system/bin/mv", "/system/bin/nandread", "/system/bin/netstat",
 			"/system/bin/newfs_msdos", "/system/bin/notify", "/system/bin/printenv",
-			"/system/bin/ps", "/system/bin/r", "/system/bin/readlink",
-			"/system/bin/renice", "/system/bin/restorecon", "/system/bin/rm",
-			"/system/bin/rmdir", "/system/bin/rmmod", "/system/bin/route",
-			"/system/bin/runcon", "/system/bin/schedtop", "/system/bin/sendevent",
+			"/system/bin/ps", "/system/bin/readlink", "/system/bin/renice",
+			"/system/bin/restorecon", "/system/bin/rm", "/system/bin/rmdir",
+			"/system/bin/rmmod", "/system/bin/route", "/system/bin/runcon",
+			"/system/bin/schedtop", "/system/bin/sendevent",
 			"/system/bin/setconsole", "/system/bin/setenforce",
 			"/system/bin/setprop", "/system/bin/setsebool", "/system/bin/sleep",
 			"/system/bin/smd", "/system/bin/start", "/system/bin/stop",
@@ -238,7 +238,6 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 	set_metadata("/system/bin/app_process", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:zygote_exec:s0");
 	set_metadata("/system/bin/clatd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:clatd_exec:s0");
 	set_metadata("/system/bin/debuggerd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:debuggerd_exec:s0");
-	set_metadata("/system/xbin/debuggerd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:debuggerd_exec:s0");
 	set_metadata("/system/bin/dhcpcd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:dhcp_exec:s0");
 	set_metadata("/system/bin/dnsmasq", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:dnsmasq_exec:s0");
 	set_metadata("/system/bin/drmserver", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:drmserver_exec:s0");
@@ -276,9 +275,6 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 	set_metadata_recursive("/system/vendor/lib/drm", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
 	set_metadata("/system/vendor/lib/drm/libdrmwvmplugin.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
 	set_metadata_recursive("/system/xbin", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
-	set_metadata("/system/xbin/librank", "uid", 0, "gid", 0, "mode", 06755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
-	set_metadata("/system/xbin/procmem", "uid", 0, "gid", 0, "mode", 06755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
-	set_metadata("/system/xbin/procrank", "uid", 0, "gid", 0, "mode", 06755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
 
 	# ArchiDroid
 	set_metadata("/system/xbin/su", "uid", 0, "gid", 0, "mode", 06755, "capabilities", 0x0, "selabel", "u:object_r:su_exec:s0");

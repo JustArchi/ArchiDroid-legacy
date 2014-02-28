@@ -4,13 +4,13 @@
 ro.build.id=KVT49L
 ro.build.display.id=ArchiDroid 2.3.8 EXPERIMENTAL [KVT49L]
 ro.archidroid.version=2.3.8 EXPERIMENTAL [KVT49L]
-ro.build.version.incremental=eng.root.20140228.155550
+ro.build.version.incremental=eng.root.20140228.192443
 ro.build.version.sdk=19
 ro.build.version.codename=REL
 ro.build.version.release=4.4.2
-ro.build.date=pią, 28 lut 2014, 15:57:01 CET
-ro.build.date.utc=1393599421
-ro.build.type=userdebug
+ro.build.date=pią, 28 lut 2014, 19:26:09 CET
+ro.build.date.utc=1393611969
+ro.build.type=user
 ro.build.user=root
 ro.build.host=ArchiDroid
 ro.build.tags=test-keys
@@ -29,8 +29,8 @@ ro.product.model=GT-I9300
 ro.product.name=omni_i9300
 ro.product.device=i9300
 # Do not try to parse ro.build.description or .fingerprint
-ro.build.description=omni_i9300-userdebug 4.4.2 KVT49L eng.root.20140228.155550 test-keys
-ro.build.fingerprint=samsung/omni_i9300/i9300:4.4.2/KVT49L/eng.root.20140228.155550:userdebug/test-keys
+ro.build.description=omni_i9300-user 4.4.2 KVT49L eng.root.20140228.192443 test-keys
+ro.build.fingerprint=samsung/omni_i9300/i9300:4.4.2/KVT49L/eng.root.20140228.192443:user/test-keys
 ro.build.characteristics=default
 ro.omni.device=i9300
 # end build properties
@@ -80,7 +80,6 @@ mobiledata.interfaces=pdp0,wlan0,gprs,ppp0
 ro.telephony.call_ring.multiple=false
 ro.telephony.call_ring.delay=3000
 persist.sys.dalvik.vm.lib=libdvm.so
-dalvik.vm.lockprof.threshold=500
 dalvik.vm.dexopt-flags=m=y
 net.bt.name=Android
 dalvik.vm.stack-trace-file=/data/anr/traces.txt

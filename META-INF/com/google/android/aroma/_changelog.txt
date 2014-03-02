@@ -1,3 +1,16 @@
 ArchiDroid 2.3.9
 
+- [!] Compiled with Linaro GCC 4.8.3 (14.02)
+# The long fight between Linaro and default GCC toolchain is still present
+# We already had a few ArchiDroid releases with Linaro and definitely the most of them with default GCC
+# While you probably won't tell me if Linaro makes a difference, I'll tell you that GCC version does
+# Everybody agrees that ArchiDroid compiled with GCC 4.8 is way faster than the one compiled with GCC 4.7
+# The choice is between very often updated Linaro in current 4.8.3 version, and rarely updated Google's GCC toolchain in current 4.8.1 version
+# Considering the fact that Linaro has all GCC commits and in addition to that some unique ones, which may, or may not, make a difference, I'd still choose the toolchain, which is more recent
+# Personally I also feel that ArchiDroid is smoother when compiled with Linaro, but this may be due to updated GCC version (only) or a common placebo effect
+# Anyway, it's up to you to decide if it makes a difference or not. Definitely it's not worse and we should ask "why we shouldn't use Linaro" instead of "why we should"
+# I decided that even if Linaro doesn't make a difference, GCC update does and I'll compile ArchiDroid using latest released Linaro, as long as we won't face any problems
+# If not because of Linaro, then at least because of updated GCC upstream, which is proven to make a difference
+# This is the final decision, at least until I find a very good reason to reexamine this change. ArchiDroid is about tweaking, and Linaro definitely helps in that
+
 - Updated sources

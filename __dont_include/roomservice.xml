@@ -1,18 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
   <!-- LINARO TOOLCHAIN -->
-  <!-- <project name="JustArchi/linaro_arm-eabi.git" path="prebuilts/gcc/linux-x86/arm/arm-eabi-linaro-4.8" remote="github" revision="4.8" />
-  <project name="JustArchi/linaro_arm-linux-androideabi.git" path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-linaro-4.8" remote="github" revision="4.8" />
-  <project name="JustArchi/linaro_arm-eabi.git" path="prebuilts/gcc/linux-x86/arm/arm-eabi-linaro-4.7" remote="github" revision="4.7" />
-  <project name="JustArchi/linaro_arm-linux-androideabi.git" path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-linaro-4.7" remote="github" revision="4.7" /> -->
-
-  <!-- SABERMOD TOOLCHAIN -->
-  <!-- <project name="SaberMod/android_prebuilts_gcc_linux-x86_arm_sabermod-arm-eabi-4.8.git" path="prebuilts/gcc/linux-x86/arm/arm-eabi-sabermod-4.8" remote="github" revision="sm-kk-mr1" />
-  <project name="SaberMod/android_prebuilts_gcc_linux-x86_arm_sabermod-arm-linux-androideabi-4.8.git" path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-sabermod-4.8" remote="github" revision="sm-kk-mr1" /> -->
+  <!-- <project name="JustArchi/linaro.git" path="prebuilts/gcc/linux-x86/arm/arm-eabi-4.8" remote="github" revision="4.8" /> -->
+  <project name="JustArchi/linaro.git" path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8" remote="github" revision="4.8" />
 
   <!-- GOOGLE GCC TOOLCHAIN -->
   <project name="platform/prebuilts/gcc/linux-x86/arm/arm-eabi-4.8" path="prebuilts/gcc/linux-x86/arm/arm-eabi-4.8" revision="master" />
-  <project name="platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8" path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8" revision="master" />
+  <!-- <project name="platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8" path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8" revision="master" /> -->
 
   <!-- OBSOLETE -->
   <remove-project name="android_packages_apps_OpenDelta" />
@@ -50,6 +44,4 @@
   <!-- ARCHIDROID GALAXY S3 DEPENDENCIES FORKS -->
   <remove-project name="android_kernel_samsung_smdk4412" />
   <project name="JustArchi/android_kernel_samsung_smdk4412" path="kernel/samsung/smdk4412" remote="github" revision="android-4.4" />
-  <!-- <remove-project name="android_device_samsung_smdk4412-common" />
-  <project name="JustArchi/android_device_samsung_smdk4412-common" path="device/samsung/smdk4412-common" remote="github" revision="android-4.4" /> -->
 </manifest>

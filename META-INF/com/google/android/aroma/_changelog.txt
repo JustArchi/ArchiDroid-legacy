@@ -13,4 +13,7 @@ ArchiDroid 2.3.9
 # If not because of Linaro, then at least because of updated GCC upstream, which is proven to make a difference
 # This is the final decision, at least until I find a very good reason to reexamine this change. ArchiDroid is about tweaking, and Linaro definitely helps in that
 
+- Fixed PRODUCT_DEVICE property, which caused some apps in the store to show as incompatible ones, thanks to @virkolaqs from local polish android fourm
+# Forwarded to Omni, commit #5945
+
 - Updated sources

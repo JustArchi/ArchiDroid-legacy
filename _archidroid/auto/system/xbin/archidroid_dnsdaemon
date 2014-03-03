@@ -18,7 +18,7 @@ while [ $(cat $ADSTATUS) == $$ ]; do
 		ARCHIDROID_INIT "RELOAD" "ADBLOCK" "DNSCHANGE"
 		sleep 5
 	fi
-	sleep 1
+	sleep 2
 done
 
 exit 0

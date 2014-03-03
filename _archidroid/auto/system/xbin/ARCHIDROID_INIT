@@ -120,15 +120,11 @@ ADLOAD() {
 				fi
 				if [ -c /dev/frandom ]; then
 					echo "FRANDOM: frandom device found, activating erandom!" >> $LOG
-					if [ ! -e /dev/urandom.ORIG ] && [ ! -e /dev/random.ORIG ] && [ ! -e /dev/urandom.MOD ] && [ ! -e /dev/random.MOD ]; then
-						# For compatibility with various CrossBreeder checks, this should be removed soon
-						touch /dev/urandom.MOD
-						touch /dev/random.MOD 
-
-						mv /dev/urandom /dev/urandom.ORIG
+					if [ ! -e /dev/urandom.orig ] && [ ! -e /dev/random.orig ]; then
+						mv /dev/urandom /dev/urandom.orig
 						ln /dev/erandom /dev/urandom
 						busybox chmod 644 /dev/urandom
-						mv /dev/random /dev/random.ORIG
+						mv /dev/random /dev/random.orig
 						ln /dev/erandom /dev/random
 						busybox chmod 644 /dev/random
 						echo "FRANDOM: Activated!" >> $LOG
@@ -149,12 +145,12 @@ ADLOAD() {
 				ADTWEAK "/proc/sys/vm/dirty_expire_centisecs" "1000"
 				ADTWEAK "/proc/sys/vm/dirty_writeback_centisecs" "500"
 
-				if [ -e /dev/random.ORIG ]; then
+				if [ -e /dev/random.orig ]; then
 					mv /dev/random /dev/random.TEMP
-					mv /dev/random.ORIG /dev/random
+					mv /dev/random.orig /dev/random
 					archidroid_haveged -p /dev/ARCHIDROID_HAVEGED.PID -w $ENTROPY >/dev/null 2>&1
 					sleep 3 # Let's give haveged some time to initialize
-					mv /dev/random /dev/random.ORIG
+					mv /dev/random /dev/random.orig
 					mv /dev/random.TEMP /dev/random
 				else
 					archidroid_haveged -p /dev/ARCHIDROID_HAVEGED.PID -w $ENTROPY >/dev/null 2>&1
@@ -195,13 +191,11 @@ ADRELOAD() {
 			;;
 		"FRANDOM")
 			# Generic check if we're not doing something harmful
-			if [ -e /dev/urandom.ORIG ] && [ -e /dev/random.ORIG ]; then
-				rm -f /dev/urandom.MOD
+			if [ -e /dev/urandom.orig ] && [ -e /dev/random.orig ]; then
 				rm -f /dev/urandom
-				mv /dev/urandom.ORIG /dev/urandom
-				rm -f /dev/random.MOD
+				mv /dev/urandom.orig /dev/urandom
 				rm -f /dev/random
-				mv /dev/random.ORIG /dev/random
+				mv /dev/random.orig /dev/random
 			fi
 			if [ "$2" != "STOP" ]; then
 				ADLOAD "FRANDOM" "RELOAD"

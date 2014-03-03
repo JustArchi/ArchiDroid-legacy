@@ -183,14 +183,15 @@ ADRELOAD() {
 			ADRELOAD "ADBLOCK" $@
 			;;
 		"ADBLOCK")
+			echo "STOPPED" > "/dev/ARCHIDROID_DNSDAEMON_STATUS"
 			killall archidroid_dnsmasq >/dev/null 2>&1 &
 			killall archidroid_dnsproxy2 >/dev/null 2>&1 &
 			killall archidroid_pixelserv >/dev/null 2>&1 &
 			killall archidroid_dnsdaemon >/dev/null 2>&1
 			if [ "$2" != "STOP" ]; then
 				ADLOAD "ADBLOCK" "RELOAD"
-				ndc resolver flushdefaultif >/dev/null # Flush DNS Cache
 			fi
+			ndc resolver flushdefaultif >/dev/null # Flush DNS Cache
 			;;
 		"FRANDOM")
 			# Generic check if we're not doing something harmful

@@ -16,7 +16,6 @@ while [ $(cat $ADSTATUS) == $$ ]; do
 	if [ "$CURDNS1" != "$DNS1" ]; then
 		DNS1="$CURDNS1"
 		ARCHIDROID_INIT "RELOAD" "ADBLOCK" "DNSCHANGE"
-		sleep 5
 	fi
 	sleep 2
 done

@@ -283,92 +283,144 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Removing Bloatware");
 		if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","accuweather") == "0" then
 			delete("/system/app/AccuweatherDaemon.apk");
+			delete("/system/app/AccuweatherDaemon.odex");
 			delete("/system/app/AccuweatherWidget.apk");
+			delete("/system/app/AccuweatherWidget.odex");
 			delete("/system/app/AccuweatherWidget_Main.apk");
+			delete("/system/app/AccuweatherWidget_Main.odex");
 		endif;
 		if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","exchange") == "0" then
 			delete("/system/app/SecExchange.apk");
+			delete("/system/app/SecExchange.odex");
 			delete("/system/app/SecEmail_J.apk");
+			delete("/system/app/SecEmail_J.odex");
 			delete("/system/media/audio/notifications/S_Postman.ogg");
 		endif;
 		if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","videoplayer") == "0" then
 			delete("/system/app/SecVideoList.apk");
+			delete("/system/app/SecVideoList.odex");
 			delete("/system/app/SecVideoPlayer.apk");
+			delete("/system/app/SecVideoPlayer.odex");
 			delete("/system/app/minimode-res.apk");
+			delete("/system/app/minimode-res.odex");
 		endif;
 		if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","calendar") == "0" then
 			delete("/system/app/SecCalendar.apk");
+			delete("/system/app/SecCalendar.odex");
 			delete("/system/app/sCloudSyncCalendar.apk");
+			delete("/system/app/sCloudSyncCalendar.odex");
 		endif;
 		if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","voicerecorder") == "0" then
 			delete("/system/app/VoiceRecorder.apk");
+			delete("/system/app/VoiceRecorder.odex");
 		endif;
 		if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","myfiles") == "0" then
 			delete("/system/app/SecNoteMyFiles.apk");
+			delete("/system/app/SecNoteMyFiles.odex");
 		endif;
 		if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","music") == "0" then
 			delete("/system/app/MusicPlayerWT.apk");
+			delete("/system/app/MusicPlayerWT.odex");
 			delete("/system/app/MMAppFramework.apk");
+			delete("/system/app/MMAppFramework.odex");
 		endif;
 		if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","calculator") == "0" then
 			delete("/system/app/SecCalculator2.apk");
+			delete("/system/app/SecCalculator2.odex");
 		endif;
 		if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","radio") == "0" then
 			delete("/system/app/FmRadio.apk");
+			delete("/system/app/FmRadio.odex");
 		endif;
 		if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","cloud") == "0" then
 			delete("/system/app/sCloudBackupApp.apk");
+			delete("/system/app/sCloudBackupApp.odex");
 			delete("/system/app/sCloudBackupProvider.apk");
+			delete("/system/app/sCloudBackupProvider.odex");
 			delete("/system/app/sCloudDataRelay.apk");
+			delete("/system/app/sCloudDataRelay.odex");
 			delete("/system/app/sCloudDataSync.apk");
+			delete("/system/app/sCloudDataSync.odex");
 			delete("/system/app/sCloudQuotaApp.apk");
+			delete("/system/app/sCloudQuotaApp.odex");
 			delete("/system/app/sCloudSyncContacts.apk");
+			delete("/system/app/sCloudSyncContacts.odex");
 			delete("/system/app/sCloudSyncCalendar.apk");
+			delete("/system/app/sCloudSyncCalendar.odex");
 			delete("/system/app/sCloudSyncBrowser.apk");
+			delete("/system/app/sCloudSyncBrowser.odex");
 			delete("/system/app/CloudAgent.apk");
+			delete("/system/app/CloudAgent.odex");
 		endif;
 		if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","allshare") == "0" then
 			delete("/system/app/AllShareCastPlayer.apk");
+			delete("/system/app/AllShareCastPlayer.odex");
 			delete("/system/app/AllshareControlShare.apk");
+			delete("/system/app/AllshareControlShare.odex");
 			delete("/system/app/AllshareFileShare.apk");
+			delete("/system/app/AllshareFileShare.odex");
 			delete("/system/app/AllshareFileShareClient.apk");
+			delete("/system/app/AllshareFileShareClient.odex");
 			delete("/system/app/AllshareFileShareServer.apk");
+			delete("/system/app/AllshareFileShareServer.odex");
 			delete("/system/app/AllshareMediaServer.apk");
+			delete("/system/app/AllshareMediaServer.odex");
 			delete("/system/app/AllshareMediaShare.apk");
+			delete("/system/app/AllshareMediaShare.odex");
 		endif;
 		if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","sns") == "0" then
 			delete("/system/app/SNS.apk");
+			delete("/system/app/SNS.odex");
 		endif;
 		if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","direct") == "0" then
 			delete("/system/app/DirectConnect.apk");
+			delete("/system/app/DirectConnect.odex");
 			delete("/system/app/DirectShareManager.apk");
+			delete("/system/app/DirectShareManager.odex");
 		endif;
 		if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","gallery") == "0" then
 			delete("/system/app/SecGallery2013.apk");
+			delete("/system/app/SecGallery2013.odex");
 			delete("/system/app/TrimApp_phone_J.apk");
+			delete("/system/app/TrimApp_phone_J.odex");
 		endif;
 		if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","browser") == "0" then
 			delete("/system/app/SecBrowser.apk");
+			delete("/system/app/SecBrowser.odex");
 			delete("/system/app/SecDownloadProviderUi.apk");
+			delete("/system/app/SecDownloadProviderUi.odex");
 			delete("/system/app/SecOmaDownloadProvider.apk");
+			delete("/system/app/SecOmaDownloadProvider.odex");
 			delete("/system/app/sCloudSyncBrowser.apk");
+			delete("/system/app/sCloudSyncBrowser.odex");
 		endif;
 		if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","remotecontrol") == "0" then
 			delete("/system/app/FmmDM.apk");
+			delete("/system/app/FmmDM.odex");
 			delete("/system/app/FmmDS.apk");
+			delete("/system/app/FmmDS.odex");
 			delete("/system/app/PCWClientS.apk");
+			delete("/system/app/PCWClientS.odex");
 		endif;
 		if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","keystring") == "0" then
 			delete("/system/app/Keystring_DFT.apk");
+			delete("/system/app/Keystring_DFT.odex");
 			delete("/system/app/Keystring_factory.apk");
+			delete("/system/app/Keystring_factory.odex");
 			delete("/system/app/Keystring_misc.apk");
+			delete("/system/app/Keystring_misc.odex");
 		endif;
 		if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","other") == "0" then
 			delete("/system/app/secimsfw.apk");
+			delete("/system/app/secimsfw.odex");
 			delete("/system/app/INDI_Server.apk");
+			delete("/system/app/INDI_Server.odex");
 			delete("/system/app/CapabilityManagerService.apk");
+			delete("/system/app/CapabilityManagerService.odex");
 			delete("/system/app/SCParser.apk");
+			delete("/system/app/SCParser.odex");
 			delete("/system/app/ClipboardSaveService.apk");
+			delete("/system/app/ClipboardSaveService.odex");
 		endif;
 
 
@@ -635,6 +687,7 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 		### TOUCHPAL ###
 		if file_getprop("/tmp/aroma-data/archidroid.prop","keyboard") == "touchpal" then
 			delete("/system/app/SamsungIME.apk");
+			delete("/system/app/SamsungIME.odex");
 			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing TouchPal Keyboard");
 			package_extract_dir("_archidroid/apps/touchpal", "/");
 		endif;
@@ -643,6 +696,7 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 		if file_getprop("/tmp/aroma-data/archidroid.prop","keyboard") == "hackers" then
 			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Hacker's Keyboard");
 			delete("/system/app/SamsungIME.apk");
+			delete("/system/app/SamsungIME.odex");
 			package_extract_dir("_archidroid/apps/hackers", "/");
 		endif;
 
@@ -650,6 +704,7 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 		if file_getprop("/tmp/aroma-data/archidroid.prop","keyboard") == "both" then
 			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing TouchPal + Hacker's Keyboard");
 			delete("/system/app/SamsungIME.apk");
+			delete("/system/app/SamsungIME.odex");
 			package_extract_dir("_archidroid/apps/touchpal", "/");
 			package_extract_dir("_archidroid/apps/hackers", "/");
 		endif;
@@ -665,6 +720,7 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 			# Just delete LatinIME then
 			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Skipping Keyboard");
 			delete("/system/app/SamsungIME.apk");
+			delete("/system/app/SamsungIME.odex");
 		endif;
 
 		set_progress(0.82);
@@ -678,6 +734,7 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 		if file_getprop("/tmp/aroma-data/archidroid.prop","launcher") == "nova" then
 			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Nova Launcher");
 			delete("/system/app/SecLauncher2.apk");
+			delete("/system/app/SecLauncher2.odex");
 			package_extract_dir("_archidroid/apps/nova", "/");
 		endif;
 
@@ -692,6 +749,7 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 			# Just delete Trebuchet then
 			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Skipping Launcher");
 			delete("/system/app/SecLauncher2.apk");
+			delete("/system/app/SecLauncher2.odex");
 		endif;
 
 		set_progress(0.83);

@@ -3,6 +3,7 @@ ArchiDroid 1.7.12
 - Updated Boeffla kernel to 5.2-beta5
 
 * ArchiDroid Commons
+- Recompiled common ArchiDroid binaries (haveged, dnsmasq, dnsproxy2, pixelserv) to latest versions, added SGS3-optimizations including NEON
 - Added Google launcher
 - Updated Archi's presets for Boeffla kernel. Archi_Performance now uses intelliactive CPU governor
 - Updated Googy Max kernel to 2.1.6

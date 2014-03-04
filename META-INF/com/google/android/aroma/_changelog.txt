@@ -16,6 +16,7 @@ ArchiDroid 2.3.9
 - Fixed PRODUCT_DEVICE property, which caused some apps in the store to show as incompatible ones, thanks to @virkolaqs from local polish android fourm
 # Forwarded to Omni, commit #5945
 
+- Recompiled common ArchiDroid binaries (haveged, dnsmasq, dnsproxy2, pixelserv) to latest versions, added SGS3-optimizations including NEON
 - Updated Android Terminal Emulator to 1.0.57
 - Updated MX Player to 1.7.25
 - Updated PhilZ Touch recovery to 6.19.3

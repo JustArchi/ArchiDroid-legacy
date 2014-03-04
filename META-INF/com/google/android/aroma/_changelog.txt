@@ -1,20 +1,6 @@
-ArchiDroid 1.7.11
+ArchiDroid 1.7.12
 
-- Fixed broken Wi-Fi tethering
-- Fixed SecVideo FC when accessing mini-mode
-- Updated Blue theme to V5, with reverted SystemUI due to FCs
-- Updated KitKat Revolution theme to beta9
-- Updated All Backs Black theme to newest S3.3
-- Updated Wanam Xposed to 2.8.1
+- Updated Boeffla kernel to 5.2-beta5
 
 * ArchiDroid Commons
-- [!] Added built-in ArchiDroid Control app # WIP
-- ADBLOCK: Local DNSes Daemon is now included/bundled in Local DNSes
-- ADBLOCK: Fixed DNS Daemon duplicating itself on every DNS change
-- BACKEND: Updated/Recompiled archidroid_haveged to 1.9.1, tweaked WAKEUP_THRESHOLD from 3072 to 1024 for better battery life
-- BACKEND: Updated/Recompiled archidroid_dnsmasq to 2.69test8-10, changed listen address from 0.0.0.0 to 127.0.0.1
-- BACKEND: Updated/Recompiled archidroid_pixelserv to 0.34-2, changed listen address from 0.0.0.0 to 127.0.0.1, enabled NULLGIF response also on HTTPS port (443), disabled syslog response through -DTINY
-- BACKEND: Updated MOAB hosts file to 11 February
 - Updated Gravity Box to 2.9.7
-- Updated Titanium Backup to 6.1.5.3
-- Updated Googy Max kernel to 2.1.5

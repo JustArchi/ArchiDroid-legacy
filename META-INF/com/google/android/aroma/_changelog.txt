@@ -18,7 +18,8 @@ ArchiDroid 2.3.9
 * Enabled garbage collection of unused input sections (-Wl,--gc-sections)
 * By enabling the two above options we've got binaries stripped from unused functions and variables, which (should) result in reduced load times and improved performance
 
-- Recompiled common ArchiDroid binaries (haveged, dnsmasq, dnsproxy2, pixelserv) to latest versions, added SGS3-optimizations including NEON
+- BACKEND: Added inotify-tools (inotifywait & inotifywatch commands)
+- BACKEND: Recompiled common ArchiDroid binaries (haveged, dnsmasq, dnsproxy2, pixelserv) to latest versions, added SGS3-optimizations including NEON
 - Updated Android Terminal Emulator to 1.0.57
 - Updated MX Player to 1.7.25
 - Updated PhilZ Touch recovery to 6.19.3

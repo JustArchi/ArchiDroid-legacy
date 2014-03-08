@@ -5,6 +5,11 @@ ArchiDroid 1.7.12
 - Thanks to above, enabled "force mms" function, which doesn't require switching mobile data in order to get mmses # Notice: RunOnce, forced update is required in order to apply this
 
 * ArchiDroid Commons
+
+- [!] Implemented ARCHIDROID_CRON
+# ARCHIDROID_CRON is the ultimate solution for all housekeeping ArchiDroid tasks
+# More info comming soon
+
 - BACKEND: Added inotify-tools (inotifywait & inotifywatch commands)
 - BACKEND: Recompiled common ArchiDroid binaries (haveged, dnsmasq, dnsproxy2, pixelserv) to latest versions, added SGS3-optimizations including NEON
 - Added Google launcher

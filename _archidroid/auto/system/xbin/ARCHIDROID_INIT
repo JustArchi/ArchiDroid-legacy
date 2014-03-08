@@ -1,11 +1,18 @@
 #!/system/bin/sh
 
-# ArchiDroid Init Script
-# JustArchi@JustArchi.net
-# Don't remove this file
-
-# Not Disabled
-#exit 0
+# Copyright 2014 JustArchi@JustArchi.net
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
 
 ADALIAS() {
 	# Because fuck you kernel, that's why
@@ -32,16 +39,44 @@ ADTWEAK() {
 	fi
 }
 
-ADLOAD() {
-	# $1 - what we're loading
-	# $2 - optional
-	if [ "$2" == "RELOAD" ]; then
-		local LOG="/dev/null"
-		local RELOAD=1
-	else
-		local RELOAD=0
-	fi
+ADSTOP() {
 	case "$1" in
+		"ALL")
+			shift 1
+			ADSTOP "HAVEGED" $@
+			ADSTOP "FRANDOM" $@
+			ADSTOP "ADBLOCK" $@
+			;;
+		"ADBLOCK")
+			echo "STOPPED" > "/dev/ARCHIDROID_DNSDAEMON_STATUS"
+			kill $(pidof archidroid_dnsmasq) >/dev/null 2>&1 &
+			kill $(pidof archidroid_dnsproxy2) >/dev/null 2>&1 &
+			kill $(pidof archidroid_pixelserv) >/dev/null 2>&1 &
+			kill $(pidof archidroid_dnsdaemon) >/dev/null 2>&1 &
+			ndc resolver flushdefaultif >/dev/null 2>&1 & # Flush DNS Cache
+			;;
+		"FRANDOM")
+			# Generic check if we're not doing something harmful
+			if [ -e /dev/urandom.orig ] && [ -e /dev/random.orig ]; then
+				rm -f /dev/urandom && mv /dev/urandom.orig /dev/urandom &
+				rm -f /dev/random && mv /dev/random.orig /dev/random &
+			fi
+			;;
+		"HAVEGED")
+			kill $(pidof archidroid_haveged) >/dev/null 2>&1 &
+			;;
+	esac
+	wait
+}
+
+ADSTART() {
+	case "$1" in
+		"ALL")
+			shift 1
+			ADSTART "HAVEGED" $@
+			ADSTART "FRANDOM" $@
+			ADSTART "ADBLOCK" $@
+			;;
 		"ADBLOCK")
 			if [ $ADBLOCK -eq 1 ]; then
 				echo "INFO: Activating ArchiDroid's AdBlock!" >> $LOG
@@ -97,7 +132,7 @@ ADLOAD() {
 				fi
 				archidroid_dnsproxy2 -w 127.0.0.1 &
 				echo "ADBLOCK: Activated archidroid_dnsproxy2 - local proxy server, forwarding all DNS traffic to 127.0.0.1:53" >> $LOG
-				archidroid_pixelserv 127.0.0.1
+				archidroid_pixelserv 127.0.0.1 &
 				echo "ADBLOCK: Activated archidroid_pixelserv - local web server on 127.0.0.1:80, responding with NULLGIF" >> $LOG
 				echo "INFO: ArchiDroid's AdBlock activated!" >> $LOG
 			else
@@ -149,12 +184,12 @@ ADLOAD() {
 					mv /dev/random /dev/random.TEMP
 					mv /dev/random.orig /dev/random
 					archidroid_haveged -p /dev/ARCHIDROID_HAVEGED.PID -w $ENTROPY >/dev/null 2>&1
-					sleep 3 # Let's give haveged some time to initialize
+					sleep 2 # Let's give haveged some time to initialize
 					mv /dev/random /dev/random.orig
 					mv /dev/random.TEMP /dev/random
 				else
 					archidroid_haveged -p /dev/ARCHIDROID_HAVEGED.PID -w $ENTROPY >/dev/null 2>&1
-					sleep 3 # Let's give haveged some time to initialize
+					sleep 2 # Let's give haveged some time to initialize
 				fi
 
 				echo "INFO: Activated archidroid_haveged - HArdware Volatile Entropy Gathering and Expansion Daemon, regenerating kernel's entropy pool" >> $LOG
@@ -169,8 +204,6 @@ ADLOAD() {
 }
 
 ADRELOAD() {
-	# $1 - what we're reloading
-	# $2 - optional
 	case "$1" in
 		"ALL")
 			shift 1
@@ -179,33 +212,16 @@ ADRELOAD() {
 			ADRELOAD "ADBLOCK" $@
 			;;
 		"ADBLOCK")
-			echo "STOPPED" > "/dev/ARCHIDROID_DNSDAEMON_STATUS"
-			killall archidroid_dnsmasq >/dev/null 2>&1 &
-			killall archidroid_dnsproxy2 >/dev/null 2>&1 &
-			killall archidroid_pixelserv >/dev/null 2>&1 &
-			killall archidroid_dnsdaemon >/dev/null 2>&1
-			if [ "$2" != "STOP" ]; then
-				ADLOAD "ADBLOCK" "RELOAD"
-			fi
-			ndc resolver flushdefaultif >/dev/null # Flush DNS Cache
+			ADSTOP "ADBLOCK"
+			ADSTART "ADBLOCK"
 			;;
 		"FRANDOM")
-			# Generic check if we're not doing something harmful
-			if [ -e /dev/urandom.orig ] && [ -e /dev/random.orig ]; then
-				rm -f /dev/urandom
-				mv /dev/urandom.orig /dev/urandom
-				rm -f /dev/random
-				mv /dev/random.orig /dev/random
-			fi
-			if [ "$2" != "STOP" ]; then
-				ADLOAD "FRANDOM" "RELOAD"
-			fi
+			ADSTOP "FRANDOM"
+			ADSTART "FRANDOM"
 			;;
 		"HAVEGED")
-			killall archidroid_haveged >/dev/null 2>&1
-			if [ "$2" != "STOP" ]; then
-				ADLOAD "HAVEGED" "RELOAD"
-			fi
+			ADSTOP "HAVEGED"
+			ADSTART "HAVEGED"
 			;;
 	esac
 }
@@ -264,11 +280,13 @@ else
 	ADBLOCK=0
 fi
 
-if [ "$1" == "RELOAD" ] || [ "$1" == "STOP" ]; then
+if [ "$1" == "RELOAD" ] || [ "$1" == "STOP" ] || [ "$1" == "START" ]; then
 	# Allow that regardless of adstatus
+	LOG="/dev/null"
 	case "$1" in
 		"RELOAD") ADRELOAD "$2" ;;
-		"STOP") ADRELOAD "$2" "STOP" ;;
+		"START") ADSTART "$2" ;;
+		"STOP") ADSTOP "$2" ;;
 	esac
 	exit 0
 elif [ ! -e $ADSTATUS ]; then
@@ -348,6 +366,9 @@ elif [ $(cat /system/build.prop | grep "ro.cm.version" | wc -l) -gt 0 ]; then
 	ROM=0 # OK, definitely CM
 fi
 
+# Bring ArchiDroid's Cron
+ARCHIDROID_CRON "background" &
+
 # Bring su daemon if available
 if [ -e /system/xbin/daemonsu ]; then
 	echo "INFO: SuperSU daemon found, calling daemonsu!" >> $LOG
@@ -369,13 +390,13 @@ else
 fi
 
 # Haveged support
-ADLOAD "HAVEGED"
+ADSTART "HAVEGED"
 
 # Frandom support
-ADLOAD "FRANDOM"
+ADSTART "FRANDOM"
 
 # Adblock support
-ADLOAD "ADBLOCK"
+ADSTART "ADBLOCK"
 
 # Sqlite VACUUM & REINDEX, disabled for a while
 if [ $ROM -eq 9 ]; then #Always false

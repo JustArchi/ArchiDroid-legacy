@@ -1,14 +1,27 @@
 #!/system/bin/sh
 
-# ArchiDroid Dnsmasq Fallback
-# JustArchi@JustArchi.net
-# Don't remove this file
+#     _             _     _ ____            _     _
+#    / \   _ __ ___| |__ (_)  _ \ _ __ ___ (_) __| |
+#   / _ \ | '__/ __| '_ \| | | | | '__/ _ \| |/ _` |
+#  / ___ \| | | (__| | | | | |_| | | | (_) | | (_| |
+# /_/   \_\_|  \___|_| |_|_|____/|_|  \___/|_|\__,_|
+#
+# Copyright 2014 Łukasz "JustArchi" Domeradzki
+# Contact: JustArchi@JustArchi.net
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
 
-# Turn off our Adblock, if turned on
-ARCHIDROID_INIT "STOP" "ADBLOCK"
-
-# Set up background daemon, which will bring AdBlock to life when dnsmasq finishes 
-(sleep 2; while $(pgrep dnsmasq.real >/dev/null 2>&1); do sleep 1; done; ARCHIDROID_INIT "RELOAD" "ADBLOCK") &
-
-# Exec original binary and share everything, including all signals, we won't be able to do anything anymore
-exec dnsmasq.real $*
+touch /dev/archidroid/cron/listeners/TETHERING # Set up a listener for ARCHIDROID_CRON
+echo "$$" > /dev/archidroid/cron/events/TETHERING # Notify ARCHIDROID_CRON about tethering
+inotifywait -qqe delete /dev/archidroid/cron/listeners/TETHERING # Wait for ARCHIDROID_CRON
+exec dnsmasq.real "$@" # Exec original binary and share the environment

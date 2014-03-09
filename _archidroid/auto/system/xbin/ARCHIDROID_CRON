@@ -31,10 +31,7 @@ LISTENERS_DIR="$ADCRON/listeners"
 MONITORS_DIR="$ADCRON/monitors"
 
 INTERNAL_EVENTS_DIR="$ADCRON/events/internal"
-INTERNAL_LISTENERS="MONITOR_STOP MONITOR_START MONITOR_STOP_DNSMASQ MONITOR_START_DNSMASQ MONITOR_STOP_DNSPROXY2 MONITOR_START_DNSPROXY2 MONITOR_STOP_PIXELSERV MONITOR_START_PIXELSERV MONITOR_STOP_HAVEGED MONITOR_START_HAVEGED"
-
 EXTERNAL_EVENTS_DIR="$ADCRON/events/external"
-EXTERNAL_LISTENERS="TETHERING"
 
 PROCESS_WAIT_FOR_FINISH() {
 	# Unfortunately I couldn't find a better method for this, sorry
@@ -123,24 +120,20 @@ INTERNAL_EVENT() {
 }
 
 EXECUTE_EXTERNAL_EVENT() {
-	for LISTENER in $EXTERNAL_LISTENERS; do
-		if [ -f "$EXTERNAL_EVENTS_DIR/$LISTENER" ]; then
-			rm -f "$EXTERNAL_EVENTS_DIR/$LISTENER" # Event is removed right after starting of the action
-			EXTERNAL_EVENT "$LISTENER"
-			rm -f "$LISTENERS_DIR/$LISTENER" # Listener is removed right after finishing of the action
-			break
+	for EVENT in "$EXTERNAL_EVENTS_DIR"/*; do
+		if [ -f "$EXTERNAL_EVENTS_DIR/$EVENT" ]; then
+			rm -f "$EXTERNAL_EVENTS_DIR/$EVENT" # Event is removed right after starting of the action
+			EXTERNAL_EVENT "$EVENT"
+			rm -f "$LISTENERS_DIR/$EVENT" # Listener is removed right after finishing of the action, if app decided to be informed about that
 		fi
 	done
 }
 
 EXECUTE_INTERNAL_EVENT() {
-	for LISTENER in $INTERNAL_LISTENERS; do
-		if [ -f "$INTERNAL_EVENTS_DIR/$LISTENER" ]; then
-			rm -f "$INTERNAL_EVENTS_DIR/$LISTENER" # Event is removed right after starting of the action
-			INTERNAL_EVENT "$LISTENER"
-			rm -f "$LISTENERS_DIR/$LISTENER" # Listener is removed right after finishing of the action
-			break
-		fi
+	for EVENT in "$INTERNAL_EVENTS_DIR"/*; do
+		rm -f "$INTERNAL_EVENTS_DIR/$EVENT" # Event is removed right after starting of the action
+		INTERNAL_EVENT "$EVENT"
+		rm -f "$LISTENERS_DIR/$EVENT" # Listener is removed right after finishing of the action, if app decided to be informed about that
 	done
 }
 
@@ -158,19 +151,8 @@ LISTEN_INTERNAL_EVENTS() {
 	done
 }
 
-LISTEN_CRON_SIGNALS() {
-	while :; do
-		inotifywait -qqe modify "$ADSTATUS"
-		if [ "$(cat "$ADSTATUS")" -ne "$$" ]; then
-			rm -f 
-			kill 0
-			exit 0
-		fi
-	done
-}
-
 # Parse args to variables
-BACKGROUND=1 # DEBUG
+BACKGROUND=0
 for ARG in "$@"; do
 	case "$ARG" in
 		"background") BACKGROUND=1 ;;
@@ -182,23 +164,23 @@ if [ "$BACKGROUND" -eq 0 ]; then
 	exit 0
 fi
 
-echo "$$" > "$ADSTATUS"
+if [ -f "$ADSTATUS" ]; then
+	rm -f "$ADSTATUS"
+	sleep 1 # If there was a previous instance of the same monitor, give it a time to cleanup and finish
+fi
 
-sleep 1 # In case we need to wait for previous ARCHIDROID_CRON to finish
-> "$LOG"
+echo "$$" > "$ADSTATUS"
+> "$LOG" # This is the same as echo -n "" > "$LOG" but it's compatible with POSIX standard, while echo flags are not
 mkdir -p "$LISTENERS_DIR" "$MONITORS_DIR" "$INTERNAL_EVENTS_DIR" "$EXTERNAL_EVENTS_DIR"
 rm -f "$LISTENERS_DIR"/* "$MONITORS_DIR/"* "$INTERNAL_EVENTS_DIR"/* "$EXTERNAL_EVENTS_DIR"/*
 
 exec 1>>"$LOG"
 exec 2>&1
 
-echo "CRON: Active external listeners: $EXTERNAL_LISTENERS"
 LISTEN_EXTERNAL_EVENTS &
-
-echo "CRON: Active internal listeners: $INTERNAL_LISTENERS"
 LISTEN_INTERNAL_EVENTS &
 
 INTERNAL_EVENT_MONITOR "START" "ALL" &
 
-inotifywait -qq -e delete -e modify "$ADSTATUS"
-rm -f "$LISTENERS_DIR/*" "$MONITORS_DIR/*" "$EXTERNAL_LISTENERS/*" "$INTERNAL_LISTENERS/*"; kill 0; exit 0
+inotifywait -qqe delete "$ADSTATUS"
+rm -f "$LISTENERS_DIR/*" "$MONITORS_DIR/*" "$EXTERNAL_LISTENERS_DIR/*" "$INTERNAL_LISTENERS_DIR/*"; kill 0; exit 0

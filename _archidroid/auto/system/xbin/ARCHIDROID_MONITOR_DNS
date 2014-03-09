@@ -21,7 +21,39 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-touch /dev/archidroid/cron/listeners/TETHERING # Set up a listener for ARCHIDROID_CRON
-touch /dev/archidroid/cron/events/external/TETHERING # Notify ARCHIDROID_CRON about tethering
-inotifywait -qqe delete /dev/archidroid/cron/listeners/TETHERING # Wait for ARCHIDROID_CRON
-exec dnsmasq.real "$@" # Exec original binary and share the environment
+AD="/data/media/0/ArchiDroid"
+LOG="$AD/Cron.log"
+ADCRON="/dev/archidroid/cron"
+MONITORS_DIR="$ADCRON/monitors"
+ADSTATUS="$MONITORS_DIR/ARCHIDROID_MONITOR_DNS"
+
+exec 1>>"$LOG"
+exec 2>&1
+
+MONITOR_DNS() {
+	local DNS1="$(getprop net.dns1)"
+	local CURDNS1=""
+	while :; do
+		CURDNS1=$(getprop net.dns1)
+		if [ "$CURDNS1" != "$DNS1" ]; then
+			DNS1="$CURDNS1"
+			ARCHIDROID_INIT "RELOAD" "archidroid_dnsmasq"
+		fi
+		sleep 2
+	done
+}
+
+if [ -f "$ADSTATUS" ]; then
+	rm -f "$ADSTATUS"
+	sleep 1
+fi
+
+MONITOR_DNS &
+
+mkdir -p "$MONITORS_DIR"
+echo "$$" > "$ADSTATUS"
+inotifywait -qq -e delete -e modify "$ADSTATUS"
+echo "DNS_MONITOR: Caught EXIT signal!"
+echo "DNS_MONITOR: Finishing..."; rm -f "$ADSTATUS"; kill 0; exit 0
+
+exit 0

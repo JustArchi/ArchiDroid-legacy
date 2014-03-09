@@ -42,102 +42,61 @@ ADTWEAK() {
 ADSTOP() {
 	case "$1" in
 		"ALL")
-			shift 1
-			ADSTOP "HAVEGED" $@
-			ADSTOP "FRANDOM" $@
-			ADSTOP "ADBLOCK" $@
+			ADSTOP "HAVEGED"
+			ADSTOP "FRANDOM"
+			ADSTOP "ADBLOCK"
+			ADSTOP "CRON"
 			;;
 		"ADBLOCK")
-			echo "STOPPED" > "/dev/ARCHIDROID_DNSDAEMON_STATUS"
-			kill $(pidof archidroid_dnsmasq) >/dev/null 2>&1 &
-			kill $(pidof archidroid_dnsproxy2) >/dev/null 2>&1 &
-			kill $(pidof archidroid_pixelserv) >/dev/null 2>&1 &
-			kill $(pidof archidroid_dnsdaemon) >/dev/null 2>&1 &
-			ndc resolver flushdefaultif >/dev/null 2>&1 & # Flush DNS Cache
+			ADSTOP "archidroid_dnsmasq"
+			ADSTOP "archidroid_dnsproxy2"
+			ADSTOP "archidroid_pixelserv"
+			ndc resolver flushdefaultif >/dev/null 2>&1 # Flush DNS Cache
 			;;
 		"FRANDOM")
 			# Generic check if we're not doing something harmful
 			if [ -e /dev/urandom.orig ] && [ -e /dev/random.orig ]; then
-				rm -f /dev/urandom && mv /dev/urandom.orig /dev/urandom &
-				rm -f /dev/random && mv /dev/random.orig /dev/random &
+				rm -f /dev/urandom && mv /dev/urandom.orig /dev/urandom
+				rm -f /dev/random && mv /dev/random.orig /dev/random
 			fi
 			;;
 		"HAVEGED")
-			kill $(pidof archidroid_haveged) >/dev/null 2>&1 &
+			ADSTOP "archidroid_haveged"
 			;;
+		archidroid_haveged)
+			touch "$INTERNAL_EVENTS_DIR/MONITOR_STOP_HAVEGED"
+			kill $(pidof archidroid_haveged) >/dev/null 2>&1
+			;;
+		archidroid_dnsmasq)
+			touch "$INTERNAL_EVENTS_DIR/MONITOR_STOP_DNSDAEMON"
+			touch "$INTERNAL_EVENTS_DIR/MONITOR_STOP_DNSMASQ"
+			kill $(pidof archidroid_dnsmasq) >/dev/null 2>&1
+			;;
+		archidroid_dnsproxy2)
+			touch "$INTERNAL_EVENTS_DIR/MONITOR_STOP_DNSPROXY2"
+			kill $(pidof archidroid_dnsproxy2) >/dev/null 2>&1
+			;;
+		archidroid_pixelserv)
+			touch "$INTERNAL_EVENTS_DIR/MONITOR_STOP_PIXELSERV"
+			kill $(pidof archidroid_pixelserv) >/dev/null 2>&1
+			;;
+		"CRON") echo "STOPPED" > "$ADCRONSTATUS" ;;
+		*) kill $(pidof "$1") >/dev/null 2>&1
 	esac
-	wait
 }
 
 ADSTART() {
 	case "$1" in
 		"ALL")
-			shift 1
-			ADSTART "HAVEGED" $@
-			ADSTART "FRANDOM" $@
-			ADSTART "ADBLOCK" $@
+			ADSTART "HAVEGED"
+			ADSTART "FRANDOM"
+			ADSTART "ADBLOCK"
+			ADSTART "CRON"
 			;;
 		"ADBLOCK")
-			if [ $ADBLOCK -eq 1 ]; then
-				echo "INFO: Activating ArchiDroid's AdBlock!" >> $LOG
-				sysrw
-				if [ ! -e /system/archidroid/etc/hosts ]; then
-					if [ -e $ADDEV/ADBLOCK_USE_ADAWAY_HOSTS ]; then
-						ln -s /system/archidroid/etc/hosts_adaway /system/archidroid/etc/hosts
-					elif [ -e $ADDEV/ADBLOCK_USE_MOAB_HOSTS ]; then
-						ln -s /system/archidroid/etc/hosts_moab /system/archidroid/etc/hosts
-					else
-						echo "ERROR: No adblock hosts mode specified!" >> $LOG
-					fi
-				else
-					if [ -e $ADDEV/ADBLOCK_USE_ADAWAY_HOSTS ]; then
-						if [ $(readlink /system/archidroid/etc/hosts) != "/system/archidroid/etc/hosts_adaway" ]; then
-							rm -f /system/archidroid/etc/hosts
-							ln -s /system/archidroid/etc/hosts_adaway /system/archidroid/etc/hosts
-						fi
-					elif [ -e $ADDEV/ADBLOCK_USE_MOAB_HOSTS ]; then
-						if [ $(readlink /system/archidroid/etc/hosts) != "/system/archidroid/etc/hosts_moab" ]; then
-							rm -f /system/archidroid/etc/hosts
-							ln -s /system/archidroid/etc/hosts_moab /system/archidroid/etc/hosts
-						fi
-					else
-						echo "ERROR: No adblock hosts mode specified!" >> $LOG
-					fi
-				fi
-				sysro
-				if [ $ADBLOCKLOCALDNSES -eq 1 ]; then
-					DNS=""
-					DNS1=$(getprop net.dns1)
-					DNS2=$(getprop net.dns2)
-					echo "ADBLOCK: Including local DNSes!" >> $LOG
-					archidroid_dnsdaemon "background" &
-				else
-					echo "STOPPED" > $DNSDAEMONSTATUS
-				fi
-				echo "ADBLOCK: Activated archidroid_dnsmasq - local DNS server on 127.0.0.1:53, forwarding clean non-blocked traffic to specified DNS servers" >> $LOG
-				local EXTRA="--all-servers"
-				if [ ! -z "$DNS1" ]; then
-					DNS="-S $DNS1"
-					if [ ! -z "$DNS2" ]; then
-						DNS+=" -S $DNS2"
-					fi
-					if [ $ADBLOCKSTRICTORDER -eq 1 ]; then
-						echo "ADBLOCK: Strict order enabled!" >> $LOG
-						EXTRA+=" --strict-order"
-					fi
-					archidroid_dnsmasq $EXTRA $DNS -C /system/archidroid/etc/dnsmasq.conf
-					echo "ADBLOCK: Also added local DNS servers $DNS1 $DNS2" >> $LOG
-				else
-					archidroid_dnsmasq $EXTRA -C /system/archidroid/etc/dnsmasq.conf
-				fi
-				archidroid_dnsproxy2 -w 127.0.0.1 &
-				echo "ADBLOCK: Activated archidroid_dnsproxy2 - local proxy server, forwarding all DNS traffic to 127.0.0.1:53" >> $LOG
-				archidroid_pixelserv 127.0.0.1 &
-				echo "ADBLOCK: Activated archidroid_pixelserv - local web server on 127.0.0.1:80, responding with NULLGIF" >> $LOG
-				echo "INFO: ArchiDroid's AdBlock activated!" >> $LOG
-			else
-				echo "INFO: Adblock has been disabled" >> $LOG
-			fi
+			ADSTART "archidroid_dnsmasq"
+			ADSTART "archidroid_dnsproxy2"
+			ADSTART "archidroid_pixelserv"
 			;;
 		"FRANDOM")
 			if [ $FRANDOM -eq 1 ]; then
@@ -174,6 +133,88 @@ ADSTART() {
 			fi
 			;;
 		"HAVEGED")
+			ADSTART "archidroid_haveged"
+			;;
+		"CRON")
+			echo "INFO: Activating ArchiDroid Cron!" >> $LOG
+			ARCHIDROID_CRON "background" &
+			;;
+		"archidroid_dnsmasq")
+			if [ $ADBLOCK -eq 1 ]; then
+				sysrw
+				if [ ! -e /system/archidroid/etc/hosts ]; then
+					if [ -e $ADDEV/ADBLOCK_USE_ADAWAY_HOSTS ]; then
+						ln -s /system/archidroid/etc/hosts_adaway /system/archidroid/etc/hosts
+					elif [ -e $ADDEV/ADBLOCK_USE_MOAB_HOSTS ]; then
+						ln -s /system/archidroid/etc/hosts_moab /system/archidroid/etc/hosts
+					else
+						echo "ERROR: No adblock hosts mode specified!" >> $LOG
+					fi
+				else
+					if [ -e $ADDEV/ADBLOCK_USE_ADAWAY_HOSTS ]; then
+						if [ $(readlink /system/archidroid/etc/hosts) != "/system/archidroid/etc/hosts_adaway" ]; then
+							rm -f /system/archidroid/etc/hosts
+							ln -s /system/archidroid/etc/hosts_adaway /system/archidroid/etc/hosts
+						fi
+					elif [ -e $ADDEV/ADBLOCK_USE_MOAB_HOSTS ]; then
+						if [ $(readlink /system/archidroid/etc/hosts) != "/system/archidroid/etc/hosts_moab" ]; then
+							rm -f /system/archidroid/etc/hosts
+							ln -s /system/archidroid/etc/hosts_moab /system/archidroid/etc/hosts
+						fi
+					else
+						echo "ERROR: No adblock hosts mode specified!" >> $LOG
+					fi
+				fi
+				sysro
+				if [ $ADBLOCKLOCALDNSES -eq 1 ]; then
+					DNS=""
+					DNS1=$(getprop net.dns1)
+					DNS2=$(getprop net.dns2)
+					echo "ADBLOCK: Including local DNSes!" >> $LOG
+					if [ -d "$INTERNAL_EVENTS_DIR" ]; then
+						touch "$INTERNAL_EVENTS_DIR/MONITOR_START_DNSDAEMON"
+					else
+						(sleep 10; touch "$INTERNAL_EVENTS_DIR/MONITOR_START_DNSDAEMON") &
+					fi
+				else
+					if [ -d "$INTERNAL_EVENTS_DIR" ]; then
+						touch "$INTERNAL_EVENTS_DIR/MONITOR_STOP_DNSDAEMON"
+					fi
+				fi
+				echo "ADBLOCK: Activated archidroid_dnsmasq - local DNS server on 127.0.0.1:53, forwarding clean non-blocked traffic to specified DNS servers" >> $LOG
+				local EXTRA="--all-servers"
+				if [ ! -z "$DNS1" ]; then
+					DNS="-S $DNS1"
+					if [ ! -z "$DNS2" ]; then
+						DNS+=" -S $DNS2"
+					fi
+					if [ $ADBLOCKSTRICTORDER -eq 1 ]; then
+						echo "ADBLOCK: Strict order enabled!" >> $LOG
+						EXTRA+=" --strict-order"
+					fi
+					archidroid_dnsmasq $EXTRA $DNS -C /system/archidroid/etc/dnsmasq.conf
+					echo "ADBLOCK: Also added local DNS servers $DNS1 $DNS2" >> $LOG
+				else
+					archidroid_dnsmasq $EXTRA -C /system/archidroid/etc/dnsmasq.conf
+				fi
+				touch "$INTERNAL_EVENTS_DIR/MONITOR_START_DNSMASQ"
+			fi
+			;;
+		"archidroid_dnsproxy2")
+			if [ $ADBLOCK -eq 1 ]; then
+				echo "ADBLOCK: Activated archidroid_dnsproxy2 - local proxy server, forwarding all DNS traffic to 127.0.0.1:53" >> $LOG
+				archidroid_dnsproxy2 -w 127.0.0.1 &
+				touch "$INTERNAL_EVENTS_DIR/MONITOR_START_DNSPROXY2"
+			fi
+			;;
+		"archidroid_pixelserv")
+			if [ $ADBLOCK -eq 1 ]; then
+				echo "ADBLOCK: Activated archidroid_pixelserv - local web server on 127.0.0.1:80, responding with NULLGIF" >> $LOG
+				archidroid_pixelserv 127.0.0.1 &
+				touch "$INTERNAL_EVENTS_DIR/MONITOR_START_PIXELSERV"
+			fi
+			;;
+		"archidroid_haveged")
 			if [ $HAVEGED -eq 1 ]; then
 				echo "INFO: Activating haveged!" >> $LOG
 				local ENTROPY=1024 # Default: 128, Linux: 896, Max: 4096 - We want to make it high enough, but with considering battery life as well
@@ -196,8 +237,7 @@ ADSTART() {
 				echo "HAVEGED: Entropy levels: Android default: 128, Linux: 896, Max: 4096" >> $LOG
 				echo "HAVEGED: ArchiDroid entropy set to: $ENTROPY. Available entropy can't get below this level" >> $LOG
 				echo "HAVEGED: Current available entropy: $(cat /proc/sys/kernel/random/entropy_avail)" >> $LOG
-			else
-				echo "INFO: Haveged has been disabled" >> $LOG
+				touch "$INTERNAL_EVENTS_DIR/MONITOR_START_HAVEGED"
 			fi
 			;;
 	esac
@@ -207,22 +247,14 @@ ADRELOAD() {
 	case "$1" in
 		"ALL")
 			shift 1
-			ADRELOAD "HAVEGED" $@
-			ADRELOAD "FRANDOM" $@
-			ADRELOAD "ADBLOCK" $@
+			ADRELOAD "HAVEGED"
+			ADRELOAD "FRANDOM"
+			ADRELOAD "ADBLOCK"
+			ADRELOAD "CRON"
 			;;
-		"ADBLOCK")
-			ADSTOP "ADBLOCK"
-			ADSTART "ADBLOCK"
-			;;
-		"FRANDOM")
-			ADSTOP "FRANDOM"
-			ADSTART "FRANDOM"
-			;;
-		"HAVEGED")
-			ADSTOP "HAVEGED"
-			ADSTART "HAVEGED"
-			;;
+		*)
+			ADSTOP "$1"
+			ADSTART "$1"
 	esac
 }
 
@@ -240,10 +272,12 @@ alias mount='ADALIAS mount'
 AD="/data/media/0/ArchiDroid"
 ADSYS="/system/archidroid"
 ADDEV="$ADSYS/dev"
+ADCRON="/dev/archidroid/cron"
 LOG="$AD/Init.log" # "/dev/null" is no verbose
 RUNONCELOG="$AD/RunOnce.log"
 ADSTATUS="/dev/ARCHIDROID_INIT_STATUS"
-DNSDAEMONSTATUS="/dev/ARCHIDROID_DNSDAEMON_STATUS"
+ADCRONSTATUS="/dev/ARCHIDROID_CRON_STATUS"
+INTERNAL_EVENTS_DIR="$ADCRON/events/internal"
 
 if [ ! -e $AD ]; then
 	exit 0
@@ -366,9 +400,6 @@ elif [ $(cat /system/build.prop | grep "ro.cm.version" | wc -l) -gt 0 ]; then
 	ROM=0 # OK, definitely CM
 fi
 
-# Bring ArchiDroid's Cron
-ARCHIDROID_CRON "background" &
-
 # Bring su daemon if available
 if [ -e /system/xbin/daemonsu ]; then
 	echo "INFO: SuperSU daemon found, calling daemonsu!" >> $LOG
@@ -389,14 +420,8 @@ else
 	ADBANNER=0
 fi
 
-# Haveged support
-ADSTART "HAVEGED"
-
-# Frandom support
-ADSTART "FRANDOM"
-
-# Adblock support
-ADSTART "ADBLOCK"
+# ArchiDroid services
+ADSTART "ALL"
 
 # Sqlite VACUUM & REINDEX, disabled for a while
 if [ $ROM -eq 9 ]; then #Always false

@@ -7,8 +7,9 @@ ArchiDroid 1.7.12
 * ArchiDroid Commons
 
 - [!] Implemented ARCHIDROID_CRON
-# ARCHIDROID_CRON is the ultimate solution for all housekeeping ArchiDroid tasks
-# More info comming soon
+* ArchiDroid's Dnsmasq Hook (Wi-Fi Tethering) is now handled by ARCHIDROID_CRON
+* ArchiDroid's DNS Daemon is now handled by ARCHIDROID_CRON
+* Implemented PROCESS_MONITOR for all ARCHIDROID_INIT processes, only dnsproxy2 is active by default # This fixes rare "no network" issue reported by some AD 1.X users
 
 - BACKEND: Added inotify-tools (inotifywait & inotifywatch commands)
 - BACKEND: Recompiled common ArchiDroid binaries (haveged, dnsmasq, dnsproxy2, pixelserv) to latest versions, added SGS3-optimizations including NEON

@@ -22,12 +22,19 @@
 # limitations under the License.
 
 AD="/data/media/0/ArchiDroid"
+ADSYS="/system/archidroid"
+ADDEV="$ADSYS/dev"
 ADSTATUS="/dev/ARCHIDROID_CRON_STATUS"
 LOG="$AD/Cron.log"
 ADCRON="/dev/archidroid/cron"
-EVENTS_DIR="$ADCRON/events"
 LISTENERS_DIR="$ADCRON/listeners"
-LISTENERS="TETHERING"
+MONITORS_DIR="$ADCRON/monitors"
+
+INTERNAL_EVENTS_DIR="$ADCRON/events/internal"
+INTERNAL_LISTENERS="MONITOR_STOP MONITOR_START MONITOR_STOP_DNSMASQ MONITOR_START_DNSMASQ MONITOR_STOP_DNSPROXY2 MONITOR_START_DNSPROXY2 MONITOR_STOP_PIXELSERV MONITOR_START_PIXELSERV MONITOR_STOP_HAVEGED MONITOR_START_HAVEGED"
+
+EXTERNAL_EVENTS_DIR="$ADCRON/events/external"
+EXTERNAL_LISTENERS="TETHERING"
 
 PROCESS_WAIT_FOR_FINISH() {
 	# Unfortunately I couldn't find a better method for this, sorry
@@ -38,43 +45,131 @@ PROCESS_WAIT_FOR_FINISH() {
 	fi
 }
 
-EVENT_TETHERING() {
-	echo "CRON: EVENT_TETHERING!" >> "$LOG"
-	DNSMASQ_PID=$(pidof dnsmasq)
-	echo "EVENT_TETHERING: Detected dnsmasq under PID $DNSMASQ_PID. Turning off ArchiDroid's Adblock" >> "$LOG"
+EXTERNAL_EVENT_TETHERING() {
+	DNSMASQ_PID="$(pidof dnsmasq)"
+	echo "EXTERNAL_EVENT_TETHERING: Detected dnsmasq under PID $DNSMASQ_PID. Turning off ArchiDroid's Adblock"
 	ARCHIDROID_INIT "STOP" "ADBLOCK"
-	EVENT_TETHERING_DNS_DAEMON "$DNSMASQ_PID" &
+	EXTERNAL_EVENT_TETHERING_WAIT "$DNSMASQ_PID" &
 }
 
-EVENT_TETHERING_DNS_DAEMON() {
-	echo "EVENT_TETHERING_DNS_DAEMON: Waiting for PID $1 to finish..." >> "$LOG"
+EXTERNAL_EVENT_TETHERING_WAIT() {
+	echo "EXTERNAL_EVENT_TETHERING_WAIT: Waiting for PID $1 to finish..."
 	PROCESS_WAIT_FOR_FINISH "$1"
-	echo "EVENT_TETHERING_DNS_DAEMON: PID $1 finished. Reloading ArchiDroid's Adblock..." >> "$LOG"
+	echo "EXTERNAL_EVENT_TETHERING_WAIT: PID $1 finished. Reloading ArchiDroid's Adblock..."
 	ARCHIDROID_INIT "START" "ADBLOCK"
 }
 
-EXECUTE_EVENT() {
-	for LISTENER in $LISTENERS; do
-		if [ -e $EVENTS_DIR/$LISTENER ]; then
-			rm -f "$EVENTS_DIR/$LISTENER" # Event is removed right after starting of the action
-			case "$LISTENER" in
-				"TETHERING") EVENT_TETHERING ;;
+INTERNAL_EVENT_MONITOR() {
+	echo "INTERNAL_EVENT_MONITOR: $1 $2"
+	case "$1" in
+		"STOP")
+			case "$2" in
+				"ALL")
+					INTERNAL_EVENT_MONITOR "STOP" "archidroid_dnsmasq"
+					INTERNAL_EVENT_MONITOR "STOP" "archidroid_dnsproxy2"
+					INTERNAL_EVENT_MONITOR "STOP" "archidroid_pixelserv"
+					INTERNAL_EVENT_MONITOR "STOP" "archidroid_haveged"
+					INTERNAL_EVENT_MONITOR "STOP" "ARCHIDROID_MONITOR_DNS"
+					;;
+				*) rm -f "$MONITORS_DIR/$2" ;;
 			esac
+		;;
+		"START")
+			case "$2" in
+				"ALL")
+					INTERNAL_EVENT_MONITOR "START" "archidroid_dnsmasq"
+					INTERNAL_EVENT_MONITOR "START" "archidroid_dnsproxy2"
+					INTERNAL_EVENT_MONITOR "START" "archidroid_pixelserv"
+					INTERNAL_EVENT_MONITOR "START" "archidroid_haveged"
+					INTERNAL_EVENT_MONITOR "START" "ARCHIDROID_MONITOR_DNS"
+					;;
+				"ARCHIDROID_MONITOR_DNS")
+					if [ ! -f "$MONITORS_DIR/$2" ]; then
+						setsid ARCHIDROID_MONITOR_DNS & # ARCHIDROID_MONITOR_DNS contains "kill 0" command, therefore we must create a new session for him
+					fi
+					;;
+				*)
+					if [ -f "$ADDEV/MONITOR_$2_ENABLED" ] && [ ! -f "$MONITORS_DIR/$2" ]; then
+						echo "INTERNAL_EVENT_MONITOR: ARCHIDROID_MONITOR_PROCESS $2"
+						setsid ARCHIDROID_MONITOR_PROCESS "$2" & # ARCHIDROID_MONITOR_PROCESS contains "kill 0" command, therefore we must create a new session for him
+					fi
+			esac
+		;;
+	esac
+}
+
+EXTERNAL_EVENT() {
+	case "$1" in
+		"TETHERING") EXTERNAL_EVENT_TETHERING ;;
+	esac
+}
+
+INTERNAL_EVENT() {
+	case "$1" in
+		"MONITOR_STOP") INTERNAL_EVENT_MONITOR "STOP" "ALL" ;;
+		"MONITOR_START") INTERNAL_EVENT_MONITOR "START" "ALL" ;;
+		"MONITOR_STOP_DNSMASQ") INTERNAL_EVENT_MONITOR "STOP" "archidroid_dnsmasq" ;;
+		"MONITOR_START_DNSMASQ") INTERNAL_EVENT_MONITOR "START" "archidroid_dnsmasq" ;;
+		"MONITOR_STOP_DNSPROXY2") INTERNAL_EVENT_MONITOR "STOP" "archidroid_dnsproxy2" ;;
+		"MONITOR_START_DNSPROXY2") INTERNAL_EVENT_MONITOR "START" "archidroid_dnsproxy2" ;;
+		"MONITOR_STOP_PIXELSERV") INTERNAL_EVENT_MONITOR "STOP" "archidroid_pixelserv" ;;
+		"MONITOR_START_PIXELSERV") INTERNAL_EVENT_MONITOR "START" "archidroid_pixelserv" ;;
+		"MONITOR_STOP_HAVEGED") INTERNAL_EVENT_MONITOR "STOP" "archidroid_haveged" ;;
+		"MONITOR_START_HAVEGED") INTERNAL_EVENT_MONITOR "START" "archidroid_haveged" ;;
+		"MONITOR_STOP_DNSDAEMON") INTERNAL_EVENT_MONITOR "STOP" "ARCHIDROID_MONITOR_DNS" ;;
+		"MONITOR_START_DNSDAEMON") INTERNAL_EVENT_MONITOR "START" "ARCHIDROID_MONITOR_DNS" ;;
+	esac
+}
+
+EXECUTE_EXTERNAL_EVENT() {
+	for LISTENER in $EXTERNAL_LISTENERS; do
+		if [ -f "$EXTERNAL_EVENTS_DIR/$LISTENER" ]; then
+			rm -f "$EXTERNAL_EVENTS_DIR/$LISTENER" # Event is removed right after starting of the action
+			EXTERNAL_EVENT "$LISTENER"
 			rm -f "$LISTENERS_DIR/$LISTENER" # Listener is removed right after finishing of the action
 			break
 		fi
 	done
 }
 
-LISTEN_EVENTS() {
+EXECUTE_INTERNAL_EVENT() {
+	for LISTENER in $INTERNAL_LISTENERS; do
+		if [ -f "$INTERNAL_EVENTS_DIR/$LISTENER" ]; then
+			rm -f "$INTERNAL_EVENTS_DIR/$LISTENER" # Event is removed right after starting of the action
+			INTERNAL_EVENT "$LISTENER"
+			rm -f "$LISTENERS_DIR/$LISTENER" # Listener is removed right after finishing of the action
+			break
+		fi
+	done
+}
+
+LISTEN_EXTERNAL_EVENTS() {
 	while :; do
-		inotifywait -qqe create "$EVENTS_DIR"
-		EXECUTE_EVENT &
+		inotifywait -qqe create "$EXTERNAL_EVENTS_DIR"
+		EXECUTE_EXTERNAL_EVENT &
+	done
+}
+
+LISTEN_INTERNAL_EVENTS() {
+	while :; do
+		inotifywait -qqe create "$INTERNAL_EVENTS_DIR"
+		EXECUTE_INTERNAL_EVENT &
+	done
+}
+
+LISTEN_CRON_SIGNALS() {
+	while :; do
+		inotifywait -qqe modify "$ADSTATUS"
+		if [ "$(cat "$ADSTATUS")" -ne "$$" ]; then
+			rm -f 
+			kill 0
+			exit 0
+		fi
 	done
 }
 
 # Parse args to variables
-BACKGROUND=0
+BACKGROUND=1 # DEBUG
 for ARG in "$@"; do
 	case "$ARG" in
 		"background") BACKGROUND=1 ;;
@@ -82,23 +177,27 @@ for ARG in "$@"; do
 done
 
 if [ "$BACKGROUND" -eq 0 ]; then
-	$0 "background" "$@" &
+	"$0" "background" "$@" &
+	exit 0
 fi
 
-echo $$ > "$ADSTATUS"
+echo "$$" > "$ADSTATUS"
+
+sleep 1 # In case we need to wait for previous ARCHIDROID_CRON to finish
 > "$LOG"
-mkdir -p "$EVENTS_DIR" "$LISTENERS_DIR"
-echo "CRON: Active listeners: $LISTENERS" >> "$LOG"
-LISTEN_EVENTS &
+mkdir -p "$LISTENERS_DIR" "$MONITORS_DIR" "$INTERNAL_EVENTS_DIR" "$EXTERNAL_EVENTS_DIR"
+rm -f "$LISTENERS_DIR"/* "$MONITORS_DIR/"* "$INTERNAL_EVENTS_DIR"/* "$EXTERNAL_EVENTS_DIR"/*
 
-trap "kill 0" SIGINT SIGTERM EXIT
+exec 1>>"$LOG"
+exec 2>&1
 
-wait
-while :; do
-	inotifywait -qqe modify "$ADSTATUS"
-	if [ "$(cat "$ADSTATUS")" -ne $$ ]; then
-		kill 0
-	fi
-done
+echo "CRON: Active external listeners: $EXTERNAL_LISTENERS"
+LISTEN_EXTERNAL_EVENTS &
 
-exit 0
+echo "CRON: Active internal listeners: $INTERNAL_LISTENERS"
+LISTEN_INTERNAL_EVENTS &
+
+INTERNAL_EVENT_MONITOR "START" "ALL" &
+
+inotifywait -qq -e delete -e modify "$ADSTATUS"
+rm -f "$LISTENERS_DIR/*" "$MONITORS_DIR/*" "$EXTERNAL_LISTENERS/*" "$INTERNAL_LISTENERS/*"; kill 0; exit 0

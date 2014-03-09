@@ -47,7 +47,7 @@ PROCESS_WAIT_FOR_FINISH() {
 
 EXTERNAL_EVENT_TETHERING() {
 	DNSMASQ_PID="$(pidof dnsmasq)"
-	echo "EXTERNAL_EVENT_TETHERING: Detected dnsmasq under PID $DNSMASQ_PID. Turning off ArchiDroid's Adblock"
+	echo "EXTERNAL_EVENT_TETHERING: Detected dnsmasq (wi-fi tethering) under PID $DNSMASQ_PID. Turning off ArchiDroid's Adblock"
 	ARCHIDROID_INIT "STOP" "ADBLOCK"
 	EXTERNAL_EVENT_TETHERING_WAIT "$DNSMASQ_PID" &
 }
@@ -55,7 +55,7 @@ EXTERNAL_EVENT_TETHERING() {
 EXTERNAL_EVENT_TETHERING_WAIT() {
 	echo "EXTERNAL_EVENT_TETHERING_WAIT: Waiting for PID $1 to finish..."
 	PROCESS_WAIT_FOR_FINISH "$1"
-	echo "EXTERNAL_EVENT_TETHERING_WAIT: PID $1 finished. Reloading ArchiDroid's Adblock..."
+	echo "EXTERNAL_EVENT_TETHERING_WAIT: PID $1 finished. Starting ArchiDroid's Adblock (if enabled)..."
 	ARCHIDROID_INIT "START" "ADBLOCK"
 }
 
@@ -85,6 +85,7 @@ INTERNAL_EVENT_MONITOR() {
 					;;
 				"ARCHIDROID_MONITOR_DNS")
 					if [ ! -f "$MONITORS_DIR/$2" ]; then
+						echo "INTERNAL_EVENT_MONITOR: ARCHIDROID_MONITOR_DNS"
 						setsid ARCHIDROID_MONITOR_DNS & # ARCHIDROID_MONITOR_DNS contains "kill 0" command, therefore we must create a new session for him
 					fi
 					;;

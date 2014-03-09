@@ -121,18 +121,16 @@ INTERNAL_EVENT() {
 
 EXECUTE_EXTERNAL_EVENT() {
 	for EVENT in "$EXTERNAL_EVENTS_DIR"/*; do
-		if [ -f "$EXTERNAL_EVENTS_DIR/$EVENT" ]; then
-			rm -f "$EXTERNAL_EVENTS_DIR/$EVENT" # Event is removed right after starting of the action
-			EXTERNAL_EVENT "$EVENT"
-			rm -f "$LISTENERS_DIR/$EVENT" # Listener is removed right after finishing of the action, if app decided to be informed about that
-		fi
+		rm -f "$EXTERNAL_EVENTS_DIR/$EVENT" # Event is removed right after starting of the action
+		EXTERNAL_EVENT "$EVENT" &
+		rm -f "$LISTENERS_DIR/$EVENT" # Listener is removed right after finishing of the action, if app decided to be informed about that
 	done
 }
 
 EXECUTE_INTERNAL_EVENT() {
 	for EVENT in "$INTERNAL_EVENTS_DIR"/*; do
 		rm -f "$INTERNAL_EVENTS_DIR/$EVENT" # Event is removed right after starting of the action
-		INTERNAL_EVENT "$EVENT"
+		INTERNAL_EVENT "$EVENT" &
 		rm -f "$LISTENERS_DIR/$EVENT" # Listener is removed right after finishing of the action, if app decided to be informed about that
 	done
 }

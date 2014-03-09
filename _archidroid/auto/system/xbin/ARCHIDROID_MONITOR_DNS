@@ -32,11 +32,16 @@ exec 2>&1
 
 MONITOR_DNS() {
 	local DNS1="$(getprop net.dns1)"
+	local DNS2="$(getprop net.dns2)"
 	local CURDNS1=""
+	local CURDNS2=""
 	while :; do
 		CURDNS1=$(getprop net.dns1)
 		if [ "$CURDNS1" != "$DNS1" ]; then
+			CURDNS2=$(getprop net.dns2)
+			echo "DNS_MONITOR: Detected DNS change, previous: $DNS1 $DNS2, current: $CURDNS1 $CURDNS2"
 			DNS1="$CURDNS1"
+			DNS2="$CURDNS2"
 			ARCHIDROID_INIT "RELOAD" "archidroid_dnsmasq"
 		fi
 		sleep 2
@@ -47,6 +52,8 @@ if [ -f "$ADSTATUS" ]; then
 	rm -f "$ADSTATUS"
 	sleep 1
 fi
+
+echo "DNS_MONITOR: Active! Current DNSes: $(getprop net.dns1) $(getprop net.dns2)"
 
 MONITOR_DNS &
 

@@ -1,22 +1,36 @@
 #!/system/bin/sh
 
-# ArchiDroid RunOnce (Backend) Script
-# JustArchi@JustArchi.net
-# Don't remove this file
-
-# Not Disabled
-#exit 0
+#     _             _     _ ____            _     _
+#    / \   _ __ ___| |__ (_)  _ \ _ __ ___ (_) __| |
+#   / _ \ | '__/ __| '_ \| | | | | '__/ _ \| |/ _` |
+#  / ___ \| | | (__| | | | | |_| | | | (_) | | (_| |
+# /_/   \_\_|  \___|_| |_|_|____/|_|  \___/|_|\__,_|
+#
+# Copyright 2014 Łukasz "JustArchi" Domeradzki
+# Contact: JustArchi@JustArchi.net
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
 
 ADALIAS() {
 	# Because fuck you kernel, that's why
 	local CMD="$1"
 	shift 1
-	if [ -e /system/xbin/$CMD ]; then
-		/system/xbin/$CMD "$@"
-	elif [ -e /system/bin/$CMD ]; then
-		/system/bin/$CMD "$@"
+	if [ -e /system/xbin/"$CMD" ]; then
+		/system/xbin/"$CMD" "$@"
+	elif [ -e /system/bin/"$CMD" ]; then
+		/system/bin/"$CMD" "$@"
 	else
-		$CMD "$@"
+		"$CMD" "$@"
 	fi
 }
 
@@ -37,49 +51,49 @@ LOG="$AD/RunOnce.log" # "/dev/null" is no verbose
 LOG2="$AD/RunOnce.log.0"
 ADSTATUS="/dev/ARCHIDROID_RUNONCE_STATUS"
 
-if [ ! -e $AD ]; then
+if [ ! -e "$AD" ]; then
 	exit 0
 fi
 if [ ! -e /data/ARCHIDROID_DONT_REMOVE_ME ]; then
-	echo "ERROR: ArchiDroid is not compatible with wiping data, please reflash your system!" >> $LOG
+	echo "ERROR: ArchiDroid is not compatible with wiping data, please reflash your system!" >> "$LOG"
 	poweroff
 fi
 
-if [ ! -e $ADSTATUS ]; then
+if [ ! -e "$ADSTATUS" ]; then
 	# First boot, good
-	echo $$ > $ADSTATUS
+	echo "$$" > "$ADSTATUS"
 
 	# Manage fallback log
-	if [ -e $LOG ]; then
-		rm -f $LOG2
-		mv $LOG $LOG2
+	if [ -e "$LOG" ]; then
+		rm -f "$LOG2"
+		mv "$LOG" "$LOG2"
 	fi
 else
-	ADSIGNAL=$(cat $ADSTATUS)
-	if [ $ADSIGNAL == "FINISHED" ]; then
+	ADSIGNAL="$(cat $ADSTATUS)"
+	if [ "$ADSIGNAL" = "FINISHED" ]; then
 		# Something tried to execute already finished init, halt
 		echo "This script has been executed already"
 		exit 0
-	elif [ $ADSIGNAL == "RESTART" ]; then
+	elif [ "$ADSIGNAL" = "RESTART" ]; then
 		# Backend restarts itself, good to know, allow that
-		echo $$ > $ADSTATUS
+		echo "$$" > "$ADSTATUS"
 	else
-		kill -s 0 $ADSIGNAL >/dev/null 2>&1
-		ADSIGNAL=$?
-		if [ $ADSIGNAL -eq 0 ]; then
+		kill -s 0 "$ADSIGNAL" >/dev/null 2>&1
+		ADSIGNAL="$?"
+		if [ "$ADSIGNAL" -eq 0 ]; then
 			# Something tried to execute already running init, double-execution?
 			exit 3
 		else
 			# Old PID is dead and didn't exit properly, allow that for now
-			echo $$ > $ADSTATUS
+			echo "$$" > "$ADSTATUS"
 		fi
 	fi
 fi
 
 # Redirect stderr to our log, just in case something bad happen
 #exec 1>$LOG # Use "exec 1>>$LOG" for append
-echo -n "" > $LOG
-exec 2>>$LOG
+> "$LOG" # This is the same as echo -n "" > "$LOG" but it's compatible with POSIX standard, while echo flags are not
+exec 2>>"$LOG"
 
 DBUPDATE() {
 	# Thanks to idcrisis, modified by JustArchi
@@ -89,12 +103,12 @@ DBUPDATE() {
 	local VAL2=""
 	local ID=""
 
-	while [ $DONE -ne 1 ] ; do
+	while [ "$DONE" -ne 1 ] ; do
 		TRY=$(expr $TRY + 1)
 		if [ "$4" == "APPEND" ]; then
 			# Append mode, value should exist already then
 			VAL1=$(sqlite3 /data/data/com.android.providers.settings/databases/settings.db "select value from $1 where name='$2';" 2>/dev/null)
-			VAL1=$VAL1$5$3
+			VAL1="$VAL1$5$3"
 
 			# Let's update it now
 			sqlite3 /data/data/com.android.providers.settings/databases/settings.db "update $1 set value='$VAL1' where name='$2';" 2>/dev/null
@@ -480,6 +494,6 @@ if [ $ADRELOAD -eq 1 ]; then
 	setprop ctl.restart zygote
 fi
 echo "INFO: ArchiDroid RunOnce finished" >> $LOG
-echo "$(date)" >> $LOG
+"date" >> "$LOG"
 echo "FINISHED" > $ADSTATUS
 exit 0

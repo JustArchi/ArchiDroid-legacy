@@ -80,19 +80,20 @@ archidroid.detect.pass.no=Nee, Full Wipe
 archidroid.detect.pass.alert.no=OK, Ik ga door met full wipe en ArchiDroid Installatie modus.
 archidroid.detect.force=Wil je geforceerd updaten gebruiken? Dit vertelt ArchiDroid RunOnce om geavanceerde instellingen toe te passen welke normaal alleen bij de installatie modus worden uitgevoerd. Selecteer Nee als je het niet zeker weet.
 
-archidroid.partition.wizard.desc=ArchiDroid Partition Wizard shows only partitions, which are currently supported. F2FS requires special recovery and kernel (selected on the previous page) to be available\
+archidroid.partition.wizard.desc=ArchiDroid Partition Wizard toont alleen partities, die momenteel worden ondersteund. F2FS vereist dat er speciale recovery en kernel (geselecteerd op de vorige pagina) beschikbaar is.\
 \
-<b><#f00>WARNING! REPARTITIONING CAN LEAD TO SOFT AND HARD BRICKS IF SOMETHING GOES WRONG. YOU SHOULDN'T TOUCH THESE SETTINGS UNLESS YOU KNOW WHAT YOU'RE DOING</#></b>\
+<b><#f00>WAARSCHUWING! HERPATITIONERING KAN LEIDEN TOT EEN SOFTWAREMATIGE OF HARDWAREMATIGE BRICK. VERANDER HIER NIETS TENZIJ JE WEET WAT JE DOET!</#></b>\
 \
-In addition to that, during repartitioning <b><#f00>ALL DATA WILL BE LOST</#></b>
+Naast dat, tijdens herpartitionering <b><#f00>ALLE DATA ZAL VERWIJDERD WORDEN</#></b>
 
-archidroid.filesystem.ext4.desc=Fourth Extended File System. Proven to be stable and reliable. Supported by all kernels
-archidroid.filesystem.f2fs.desc=Flash-Friendly File System. Optimized for NAND flash memory-based storage devices, gives significant I/O boost compared to EXT4. Supported only by a few custom kernels
-archidroid.partition.wizard.finish.desc=ArchiDroid Partition Wizard has finished repartitioning your partition. If RETURN STATUS is equal to 0, everything ended successfully
+archidroid.filesystem.ext4.desc=Fourth Extended File System. Bewezen stabiel en betrouwbaar te zijn. Ondersteund door alle kernels
+archidroid.filesystem.f2fs.desc=Flash-Friendly File System. 
+Geoptimaliseerd voor op NAND flash-geheugen gebaseerde opslagapparaten, geeft significante I / O boost ten opzichte van EXT4. Alleen ondersteund door een paar aangepaste kernels
+archidroid.partition.wizard.finish.desc=ArchiDroid Partition Wizard klaar is met herpatitionering. Als RETURN STATUS gelijk is aan 0, dan is alles met succes beëindigd.
 
-archidroid.preset.recovery.desc=Will flash recovery (only) instead of a ROM. May be useful if recovery update is required prior to flashing
-archidroid.recovery.philz.desc=The most feature-rich custom recovery ever created, developed by Phil
-archidroid.recovery.devil.desc=Alternative recovery developed by Devil, which includes dual-boot support and F2FS filesystem
+archidroid.preset.recovery.desc=Zal een recovery flashen i.p.v. een ROM. Kan handig zijn als een recovery update vereist is voor de ROM.
+archidroid.recovery.philz.desc=De meest feature-rijke custom recovery ooit gemaakt, ontwikkeld door Phil
+archidroid.recovery.devil.desc=Alternatieve recovery ontwikkeld door Devil, heeft dual-boot-ondersteuning en ondersteuning voor het F2FS bestandssysteem.
 
 archidroid.preset=ArchiDroid Installatie modus
 archidroid.preset.desc=Selecteer alsutblieft de installatie modus:
@@ -113,8 +114,8 @@ archidroid.custom.desc=Pas hier de instellingen naar je eigen keuzes aan.
 archidroid.kernel.temasek.desc=Aanbevolen voor snelheid, batterijduur, flexibiliteit en boeffla geluid.
 archidroid.kernel.boeffla.desc=Sterk aanbevolen meesterwerk, perfect voor iedereen. Heeft Boeffla geluid en veel meer opties
 archidroid.kernel.yank.desc=Aanbevolen als alternatief
-archidroid.kernel.googy.desc=Based on Siyah sources. Featuring dual-boot, comes with STweaks
-archidroid.kernel.devil.desc=Based on Perseus sources. Featuring dual-boot, comes with DevilTools
+archidroid.kernel.googy.desc=Gebaseerd op Siyah bronnen. Ondersteund dual-boot, komt met STweaks
+archidroid.kernel.devil.desc=Gebaseerd op Perseus bronnen. Ondersteund dual-boot, komt met DevilTools
 archidroid.kernel.stock.desc=Standaard ROM kernel 
 
 archidroid.theme.aosp.desc=AOSP theme
@@ -128,7 +129,7 @@ archidroid.dpi.280.desc=Een mooie balans tussen standaard en 240 DPI modus
 archidroid.dpi.320.desc=Standaard instelling
 
 archidroid.launcher.nova.desc=Aanbevolen voor extra flexibiliteit en prestatie
-archidroid.launcher.google.desc=Recommended for pure google experience, also known as Google Home
+archidroid.launcher.google.desc=Aanbevolen voor de pure google ervaring. Ook wel bekend als Google Home
 archidroid.launcher.stock.desc=Afkomstig van ROM
 archidroid.launcher.none.desc=Geen aanraakinterface. WAARSCHUWING! Gebruik deze optie niet als je een full wipe doet! Bij de eerste keer opstarten is een aanraakinterface noodzakelijk!
 
@@ -158,7 +159,7 @@ archidroid.updaterecovery.desc=Voor als je de laatste recovery wilt hebben.
 archidroid.gapps.desc=Kern functionaliteit van Google apps. NIET DESELECTEREN.
 archidroid.gapps.gquick.desc=Kan Google Voice stuk maken!
 
-archidroid.apps.vnc.desc=A VNC client, which allows you to use GUI in ArchiDroid's Pocket Debian
+archidroid.apps.vnc.desc=Een VNC client, welke het gebruik van een GUI mogelijk maakt in ArchiDroid's Pocket Debian
 archidroid.apps.titaniumbackup.desc=Perfecte oplossing voor het bewaren van persoonlijke/app data tussen updates
 archidroid.apps.greenify.desc=Handig om app's in slaapstand te zetten. Bespaart batterij.
 archidroid.apps.lmt.desc=Handige software voor het uitvoeren van commandos gekoppeld aan gebaren. Ook wel bekend als pie van SlimBean
@@ -188,9 +189,9 @@ archidroid.boeffla.yes.desc=Als je zelf je eigen Boeffla SC voorkeuren wil maken
 archidroid.boeffla.no.desc=Als je geen Boeffla SC wil installeren
 
 archidroid.xposed.appsettings.desc=Bied een makkelijke manier om de instellingen van elke app aan te passen. Zeer handige tool
-archidroid.xposed.gravitybox.desc=A complex and feature-rich customizable tweak box
+archidroid.xposed.gravitybox.desc=Een complexe en veelzijdige tweak box voor het systeem
 archidroid.xposed.xprivacy.desc=Perfecte module welke het lekken van prive data tegen gaat. Beperkt de toegang van een app en meer
-archidroid.xposed.wanam.desc=Masterpiece from Wanam. Enhances ArchiDroid's flexibility and provides a ton of customization options
+archidroid.xposed.wanam.desc=Meesterwerk van Wanam. Vergroot ArchiDroid's flexibiliteit en bied een enorme hoeveelheid aan aanpassingsmogelijkheden.
 
 archidroid.wizard.reboot=ArchiDroid Is op je toestel geïnstalleerd. Wil je nu automatisch opnieuw opstarten?
 
@@ -213,5 +214,5 @@ archidroid.install.finish=ArchiDroid wizard succesvol geïnstalleerd <b>ArchiDro
 Druk op <b>Klaar</b> om door te gaan.
 
 archidroid.buildtweaks.fastdormancy.desc=Deselecteer deze om fast dormancy uit te schakelen, dit kan je batterij duur verbeteren als je provider het niet ondersteund
-archidroid.buildtweaks.zerowakeup.desc=Tick to enable ZeroWakeUp, it will put CPU into sleep mode (instead of deep/deeper sleep), reducing wake up delay to the minimum
-archidroid.buildtweaks.navibar.desc=Tick to enable Navigation Bar, which is normally hidden on devices with hardware keys available
+archidroid.buildtweaks.zerowakeup.desc=Selecteer om ZeroWakeUp aan te zetten. Dit zal de telefoon in slaap stand zetten (i.p.v. diepere slaap), Zorgt ervoor dat WakeUp lag tot een minium wordt verlaagd.
+archidroid.buildtweaks.navibar.desc=Selecteer om de Navigatie balk in te schakelen, Welke normaal verborgen is op apparaten met hardware toetsen.

@@ -1,0 +1,21 @@
+#!/sbin/busybox sh
+#LZ4 ZRAM SIZE for Quad-Zram Implementation
+#Set Max Total Size for Zrams (MB):
+#Off
+
+#Zram3
+swapoff /dev/block/zram3
+echo 1 > /sys/block/zram3/reset
+
+#Zram2
+swapoff /dev/block/zram2
+echo 1 > /sys/block/zram2/reset
+
+#Zram1
+swapoff /dev/block/zram1
+echo 1 > /sys/block/zram1/reset
+
+#Zram0
+swapoff /dev/block/zram0
+echo 1 > /sys/block/zram0/reset
+

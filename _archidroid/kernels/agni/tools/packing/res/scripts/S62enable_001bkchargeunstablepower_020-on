@@ -1,0 +1,7 @@
+#!/sbin/busybox sh
+#Ignore Unstable Charging Power
+#Set On / Off
+#on
+
+echo 1 > /sys/devices/platform/samsung-battery/ignore_unstable_power
+

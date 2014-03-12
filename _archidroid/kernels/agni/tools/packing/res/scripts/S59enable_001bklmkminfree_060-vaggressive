@@ -1,0 +1,14 @@
+#!/sbin/busybox sh
+#LMK minfree
+#Select LowMemoryKiller MinFree values:
+#Very Aggressive
+
+#     Forground apps    :  4096 pages /  16Mb
+#     Visible apps      :  8192 pages /  32Mb
+#     Secondary server  : 16384 pages /  64Mb
+#     Hidden apps       : 32768 pages / 128Mb
+#     Content providers : 49152 pages / 192Mb
+#     Emtpy apps        : 65536 pages / 256Mb
+
+echo "4096,8192,16384,32768,49152,65536" > /sys/module/lowmemorykiller/parameters/minfree
+

@@ -1,0 +1,79 @@
+#!/system/bin/sh
+#Settings: Restore settings
+#Restore settings from previous backup
+
+TITLE="Restore settings"
+STYLE="Ok"
+
+SYSTEM_DEVICE="/dev/block/mmcblk0p9"
+NOT_PRESENT="0"
+
+# Ask for confirmation
+rm /sdcard/boeffla_twk_dlg_helper
+am start -a android.intent.action.MAIN -e message "Do you really want to restore settings from your backup?" -e title "$TITLE" -e button1 "Yes" -e button2 "No" -e toasty "Restoring settings now!" -e toastn "Restoring settings aborted!" -n hm.agni.control.dialog.helper/.AGNiControlDialogActivity
+
+while [ ! -f /sdcard/boeffla_twk_dlg_helper ]
+do
+  /sbin/busybox sleep 1
+done
+
+RESULT=`cat /sdcard/boeffla_twk_dlg_helper`
+
+if [ "$RESULT" = "yes" ]; then
+/sbin/busybox mount -o rw,remount /system
+	if [ -d /data/media/0/AGNi_settings_backup ]; then
+
+		# Restore previous settings
+		/sbin/busybox rm /system/etc/init.d/*_001bk*
+		/sbin/busybox chown -R media_rw:media_rw /data/media/0/AGNi_settings_backup
+		/sbin/busybox chmod -R 0666 /data/media/0/AGNi_settings_backup
+		/sbin/busybox cp /data/media/0/AGNi_settings_backup/*_001bk* /system/etc/init.d || NOT_PRESENT="1"
+		/sbin/busybox chown root:shell /system/etc/init.d/*_001bk*
+		/sbin/busybox chmod 0777 /system/etc/init.d/*_001bk*
+		if [ -f /system/etc/init.d/*_001bkprofiles* ]; then
+			/sbin/busybox sh /system/etc/init.d/*_001bkprofiles*
+			/sbin/busybox chmod 0666 /system/etc/init.d/*_001bkprofiles*
+			/sbin/busybox sh /system/etc/init.d/*_001bk*
+		else
+			/sbin/busybox sh /system/etc/init.d/*_001bk*
+		fi
+
+		if [ "$NOT_PRESENT" = "0" ]; then
+			# Display confirmation window
+			rm /sdcard/boeffla_twk_dlg_helper
+			am start -a android.intent.action.MAIN -e message "Your settings have been restored and applied." -e title "$TITLE" -e okstyle "$STYLE" -n hm.agni.control.dialog.helper/.AGNiControlDialogActivity
+
+			while [ ! -f /sdcard/boeffla_twk_dlg_helper ]
+			do
+			  /sbin/busybox sleep 1
+			done
+		fi
+
+	else
+	
+		# Display error message
+		rm /sdcard/boeffla_twk_dlg_helper
+		am start -a android.intent.action.MAIN -e message "Backup Folder Not Found. Aborting now." -e title "$TITLE" -e okstyle "$STYLE" -n hm.agni.control.dialog.helper/.AGNiControlDialogActivity
+
+		while [ ! -f /sdcard/boeffla_twk_dlg_helper ]
+		do
+		  /sbin/busybox sleep 1
+		done
+
+	fi
+	if [ "$NOT_PRESENT" = "1" ]; then
+		rm /sdcard/boeffla_twk_dlg_helper
+		am start -a android.intent.action.MAIN -e message "Empty backup folder. Aborting now." -e title "$TITLE" -e okstyle "$STYLE" -n hm.agni.control.dialog.helper/.AGNiControlDialogActivity
+
+		while [ ! -f /sdcard/boeffla_twk_dlg_helper ]
+		do
+		  /sbin/busybox sleep 1
+		done
+	/sbin/busybox chown -R media_rw:media_rw /data/media/0/AGNi_settings_backup
+	/sbin/busybox chmod -R 0666 /data/media/0/AGNi_settings_backup	
+	fi
+/sbin/busybox mount -o ro,remount /system
+fi
+
+NOT_PRESENT="0"
+rm /sdcard/boeffla_twk_dlg_helper

@@ -1,0 +1,7 @@
+#!/system/bin/sh
+#FLL tuning
+#Optimize FLL configuration:
+#Off (default)
+
+echo 1 > /sys/class/misc/boeffla_sound/boeffla_sound
+echo 0 > /sys/class/misc/boeffla_sound/fll_tuning

@@ -1,0 +1,8 @@
+#!/system/bin/sh
+#Speaker volume
+#Change speaker volume:
+#Vol 60
+
+echo 1 > /sys/class/misc/boeffla_sound/boeffla_sound
+echo "60 60" > /sys/class/misc/boeffla_sound/speaker_volume
+

@@ -1,0 +1,8 @@
+#!/system/bin/sh
+
+# AGNi Modified conditional sysinit
+
+if [ ! -d /data/.AGNi ] ; then
+	export PATH=/sbin:/system/sbin:/system/bin:/system/xbin
+	/system/bin/logwrapper /system/xbin/run-parts /system/etc/init.d
+fi;

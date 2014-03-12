@@ -1,0 +1,6 @@
+#!/system/bin/sh
+#CPU Min Frequency
+#Change CPU minimum scaling:
+#500 MHz
+
+echo "500000" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq

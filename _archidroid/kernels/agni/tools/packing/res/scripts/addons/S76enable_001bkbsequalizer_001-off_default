@@ -1,0 +1,6 @@
+#!/system/bin/sh
+#Equalizer
+#Equalizer Preset:
+#Off (default)
+
+echo 0 > /sys/class/misc/boeffla_sound/eq

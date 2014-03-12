@@ -1,0 +1,7 @@
+#!/sbin/busybox sh
+#MDNIE HIJACK
+#Select MDNIE hijack mode :
+#off (default)
+
+echo 0 > /sys/class/mdnie/mdnie/hijack
+

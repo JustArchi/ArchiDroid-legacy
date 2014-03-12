@@ -1,0 +1,21 @@
+#!/sbin/busybox sh
+#FRANDOM RNG
+#Use frandom kernel entropy generator (needs reboot) :
+#on
+
+# Display confirmation window
+
+if [ ! -f /system/etc/init.d/*bkfrandomlagfix_020-on ]; then
+
+	rm /sdcard/boeffla_twk_dlg_helper
+
+	am start -a android.intent.action.MAIN -e message "FRANDOM RNG will be used by default on next reboot !" -e title "Frandom" -e okstyle "Ok" -n hm.agni.control.dialog.helper/.AGNiControlDialogActivity
+	
+	while [ ! -f /sdcard/boeffla_twk_dlg_helper ]
+	do
+	  /sbin/busybox sleep 1
+	done
+
+	rm /sdcard/boeffla_twk_dlg_helper
+
+fi

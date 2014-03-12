@@ -1,0 +1,7 @@
+#!/system/bin/sh
+#Microphone sensivity general
+#Set microphone sensivity for recording purposes
+#18db
+
+echo 1 > /sys/class/misc/boeffla_sound/boeffla_sound
+echo 23 > /sys/class/misc/boeffla_sound/mic_level_general

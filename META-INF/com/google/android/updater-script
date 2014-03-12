@@ -306,37 +306,6 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Cleaning Old Kernel");
 		package_extract_file("boot.img", "/dev/block/mmcblk0p5");
 
-		### TEMASEK ###
-		if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "temasek" then
-			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Flashing Temasek Kernel");
-			delete("/data/.temasek/config.version");
-			delete("/data/.temasek/customconfig.xml");
-			delete_recursive("/system/lib/modules");
-			package_extract_dir("_archidroid/kernels/temasek/system", "/system");
-			set_perm_recursive(0, 0, 0755, 0755, "/system/lib/modules/");
-			set_perm(0, 0, 0755, "/system/bin/hostapd");
-			package_extract_dir("_archidroid/kernels/temasek/kernel", "/tmp");
-			set_perm(0, 0, 0777, "/tmp/dump_image");
-			set_perm(0, 0, 0777, "/tmp/mkbootimg.sh");
-			set_perm(0, 0, 0777, "/tmp/mkbootimg");
-			set_perm(0, 0, 0777, "/tmp/unpackbootimg");
-			set_perm(0, 0, 0777, "/tmp/cpio");
-			set_perm(0, 0, 0777, "/tmp/res/uci.sh");
-			set_perm(0, 0, 0777, "/tmp/sbin/temasek.sh");
-			run_program("/tmp/dump_image", "/dev/block/mmcblk0p5", "/tmp/boot.img");
-			run_program("/tmp/unpackbootimg", "-i", "/tmp/boot.img", "-o", "/tmp/");
-			run_program("/tmp/mkbootimg.sh");
-			run_program("/sbin/busybox", "dd", "if=/tmp/newboot.img", "of=/dev/block/mmcblk0p5");
-
-			if file_getprop("/tmp/aroma-data/archidroidwipe.prop","wipe") == "yes" then
-				ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying ArchiDroid Temasek Preset");
-				package_extract_dir("_archidroid/kernels/temasek/preset", "/data/.temasek");
-			endif;
-
-			package_extract_dir("_archidroid/apps/stweaks", "/");
-
-		endif;
-
 		### YANK ###
 		if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "yank" then
 			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Flashing Yank555.lu Kernel");

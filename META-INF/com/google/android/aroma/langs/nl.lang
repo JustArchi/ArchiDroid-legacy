@@ -87,8 +87,7 @@ archidroid.partition.wizard.desc=ArchiDroid Partition Wizard toont alleen partit
 Naast dat, tijdens herpartitionering <b><#f00>ALLE DATA ZAL VERWIJDERD WORDEN</#></b>
 
 archidroid.filesystem.ext4.desc=Fourth Extended File System. Bewezen stabiel en betrouwbaar te zijn. Ondersteund door alle kernels
-archidroid.filesystem.f2fs.desc=Flash-Friendly File System. 
-Geoptimaliseerd voor op NAND flash-geheugen gebaseerde opslagapparaten, geeft significante I / O boost ten opzichte van EXT4. Alleen ondersteund door een paar aangepaste kernels
+archidroid.filesystem.f2fs.desc=Flash-Friendly File System. Geoptimaliseerd voor op NAND flash-geheugen gebaseerde opslagapparaten, geeft significante I / O boost ten opzichte van EXT4. Alleen ondersteund door een paar aangepaste kernels
 archidroid.partition.wizard.finish.desc=ArchiDroid Partition Wizard klaar is met herpatitionering. Als RETURN STATUS gelijk is aan 0, dan is alles met succes beëindigd.
 
 archidroid.preset.recovery.desc=Zal een recovery flashen i.p.v. een ROM. Kan handig zijn als een recovery update vereist is voor de ROM.

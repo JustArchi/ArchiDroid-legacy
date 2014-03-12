@@ -1,0 +1,38 @@
+#!/system/bin/sh
+#Governor
+#Change CPU governor:
+#Pegasusq - Speedmod
+
+# switch governor
+echo "pegasusq" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+/sbin/busybox sleep 2
+
+# cpu2 (500000/200000/100/100)
+echo "500000" > /sys/devices/system/cpu/cpufreq/pegasusq/hotplug_freq_1_1
+echo "400000" > /sys/devices/system/cpu/cpufreq/pegasusq/hotplug_freq_2_0
+echo "100" > /sys/devices/system/cpu/cpufreq/pegasusq/hotplug_rq_1_1
+echo "100" > /sys/devices/system/cpu/cpufreq/pegasusq/hotplug_rq_2_0
+
+# cpu3  (500000/200000/200/200)
+echo "800000" > /sys/devices/system/cpu/cpufreq/pegasusq/hotplug_freq_2_1
+echo "600000" > /sys/devices/system/cpu/cpufreq/pegasusq/hotplug_freq_3_0
+echo "200" > /sys/devices/system/cpu/cpufreq/pegasusq/hotplug_rq_2_1
+echo "200" > /sys/devices/system/cpu/cpufreq/pegasusq/hotplug_rq_3_0
+
+# cpu4  (500000/200000/300/300)
+echo "800000" > /sys/devices/system/cpu/cpufreq/pegasusq/hotplug_freq_3_1
+echo "600000" > /sys/devices/system/cpu/cpufreq/pegasusq/hotplug_freq_4_0
+echo "300" > /sys/devices/system/cpu/cpufreq/pegasusq/hotplug_rq_3_1
+echo "300" > /sys/devices/system/cpu/cpufreq/pegasusq/hotplug_rq_4_0
+
+# 20
+echo "10" > /sys/devices/system/cpu/cpufreq/pegasusq/cpu_down_rate
+
+# 10
+echo "10" > /sys/devices/system/cpu/cpufreq/pegasusq/cpu_up_rate
+
+# 85
+echo "85" > /sys/devices/system/cpu/cpufreq/pegasusq/up_threshold
+
+# 37
+echo "37" > /sys/devices/system/cpu/cpufreq/pegasusq/freq_step

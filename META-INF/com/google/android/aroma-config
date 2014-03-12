@@ -235,8 +235,9 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 		"yank","Yank555.lu Kernel","<~archidroid.kernel.yank.desc>","select",
 		"googy","Googy Max Kernel","<~archidroid.kernel.googy.desc>","select",
 		"devil","Devil Kernel","<~archidroid.kernel.devil.desc>","select",
+		"agni","AGNi Kernel","<~archidroid.kernel.agni.desc>","select",
 		"stock","Stock","<~archidroid.kernel.stock.desc>","select",
-		 
+
 		"theme","<#selectbg_g>Theme</#>","","group",
 		"blue","Blue Theme","<~archidroid.theme.blue.desc>","select.selected",
 		"aosp","AOSP Theme","<~archidroid.theme.aosp.desc>","select",

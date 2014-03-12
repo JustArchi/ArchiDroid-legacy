@@ -1,0 +1,28 @@
+#!/system/bin/sh
+#Governor
+#Change CPU governor:
+#ZZMoove - default
+
+# switch governor
+echo "zzmoove" >/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+/sbin/busybox sleep 2
+
+# zzmoove governor default settings (also hardcoded):
+echo "100000" >/sys/devices/system/cpu/cpufreq/zzmoove/sampling_rate
+echo "1" >/sys/devices/system/cpu/cpufreq/zzmoove/sampling_down_factor
+echo "70" >/sys/devices/system/cpu/cpufreq/zzmoove/up_threshold
+echo "68" >/sys/devices/system/cpu/cpufreq/zzmoove/up_threshold_hotplug1
+echo "68" >/sys/devices/system/cpu/cpufreq/zzmoove/up_threshold_hotplug2
+echo "68" >/sys/devices/system/cpu/cpufreq/zzmoove/up_threshold_hotplug3
+echo "52" >/sys/devices/system/cpu/cpufreq/zzmoove/down_threshold
+echo "55" >/sys/devices/system/cpu/cpufreq/zzmoove/down_threshold_hotplug1
+echo "55" >/sys/devices/system/cpu/cpufreq/zzmoove/down_threshold_hotplug2
+echo "55" >/sys/devices/system/cpu/cpufreq/zzmoove/down_threshold_hotplug3
+echo "0" >/sys/devices/system/cpu/cpufreq/zzmoove/ignore_nice_load
+echo "5" >/sys/devices/system/cpu/cpufreq/zzmoove/freq_step
+echo "75" >/sys/devices/system/cpu/cpufreq/zzmoove/smooth_up
+echo "100" >/sys/devices/system/cpu/cpufreq/zzmoove/smooth_up_sleep
+echo "2" >/sys/devices/system/cpu/cpufreq/zzmoove/sampling_rate_sleep_multiplier
+echo "90" >/sys/devices/system/cpu/cpufreq/zzmoove/up_threshold_sleep
+echo "44" >/sys/devices/system/cpu/cpufreq/zzmoove/down_threshold_sleep
+echo "0" >/sys/devices/system/cpu/cpufreq/zzmoove/hotplug_sleep

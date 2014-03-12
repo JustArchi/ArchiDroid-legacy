@@ -1,0 +1,7 @@
+#!/sbin/busybox sh
+#AC Charge Rate
+#Set charging rate when ac charger plugged in
+#1000mA (default)
+
+echo 1000 > /sys/devices/platform/samsung-battery/dcp_ac_chrg_curr
+

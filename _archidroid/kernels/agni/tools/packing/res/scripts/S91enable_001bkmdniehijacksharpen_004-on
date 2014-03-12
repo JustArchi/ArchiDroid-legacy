@@ -1,0 +1,7 @@
+#!/sbin/busybox sh
+#MDNIE HIJACK SHARPNESS
+#Enable or disable Sharpness by MDNIE hijack :
+#on
+
+echo 1 > /sys/class/mdnie/mdnie/sharpen
+

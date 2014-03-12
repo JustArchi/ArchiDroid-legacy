@@ -1,0 +1,6 @@
+
+#### AGNi-Set-SELINUX-PERMISSIVE
+on init
+    setenforce 0
+    setprop ro.boot.selinux 0
+

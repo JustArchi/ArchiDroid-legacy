@@ -44,6 +44,4 @@
   <!-- ARCHIDROID GALAXY S3 DEPENDENCIES FORKS -->
   <remove-project name="android_kernel_samsung_smdk4412" />
   <project name="JustArchi/android_kernel_samsung_smdk4412" path="kernel/samsung/smdk4412" remote="github" revision="android-4.4" />
-  <remove-project name="android_device_samsung_i9300" />
-  <project name="JustArchi/android_device_samsung_i9300" path="device/samsung/i9300" remote="github" revision="android-4.4" />
 </manifest>

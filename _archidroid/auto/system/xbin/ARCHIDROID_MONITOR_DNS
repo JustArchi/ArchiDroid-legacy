@@ -59,8 +59,8 @@ MONITOR_DNS &
 
 mkdir -p "$MONITORS_DIR"
 echo "$$" > "$ADSTATUS"
-inotifywait -qqe delete "$ADSTATUS"
+inotifywait -qq -e delete -e modify "$ADSTATUS"
 echo "DNS_MONITOR: Caught EXIT signal!"
-echo "DNS_MONITOR: Finishing..."; rm -f "$ADSTATUS"; kill 0; exit 0
+echo "DNS_MONITOR: Finishing..."; kill 0
 
 exit 0

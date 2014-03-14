@@ -22,17 +22,26 @@
 # limitations under the License.
 
 AD="/data/media/0/ArchiDroid"
+ADPROC="/dev/archidroid"
+ADCRON="$ADPROC/cron"
 LOG="$AD/Cron.log"
-ADCRON="/dev/archidroid/cron"
 MONITORS_DIR="$ADCRON/monitors"
 ADSTATUS="$MONITORS_DIR/ARCHIDROID_MONITOR_DNS"
 
 exec 1>>"$LOG"
 exec 2>&1
+mkdir -p "$MONITORS_DIR"
+
+REGENERATE_RESOLV() {
+	echo "nameserver $DNS1" > "$ADPROC/resolv.conf.tmp"
+	echo "nameserver $DNS2" >> "$ADPROC/resolv.conf.tmp"
+	cat /system/etc/resolv.conf >> "$ADPROC/resolv.conf.tmp"
+	mv "$ADPROC/resolv.conf.tmp" "$ADPROC/resolv.conf"
+}
 
 MONITOR_DNS() {
-	local DNS1="$(getprop net.dns1)"
-	local DNS2="$(getprop net.dns2)"
+	DNS1="$(getprop net.dns1)"
+	DNS2="$(getprop net.dns2)"
 	local CURDNS1=""
 	local CURDNS2=""
 	while :; do
@@ -42,7 +51,7 @@ MONITOR_DNS() {
 			echo "DNS_MONITOR: Detected DNS change, previous: $DNS1 $DNS2, current: $CURDNS1 $CURDNS2"
 			DNS1="$CURDNS1"
 			DNS2="$CURDNS2"
-			ARCHIDROID_INIT "RELOAD" "archidroid_dnsmasq"
+			REGENERATE_RESOLV
 		fi
 		sleep 2
 	done

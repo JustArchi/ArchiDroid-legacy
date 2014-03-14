@@ -24,9 +24,10 @@
 AD="/data/media/0/ArchiDroid"
 ADSYS="/system/archidroid"
 ADDEV="$ADSYS/dev"
-ADSTATUS="/dev/ARCHIDROID_CRON_STATUS"
+ADPROC="/dev/archidroid"
+ADCRON="$ADPROC/cron"
 LOG="$AD/Cron.log"
-ADCRON="/dev/archidroid/cron"
+ADSTATUS="$ADPROC/ARCHIDROID_CRON_STATUS"
 LISTENERS_DIR="$ADCRON/listeners"
 MONITORS_DIR="$ADCRON/monitors"
 

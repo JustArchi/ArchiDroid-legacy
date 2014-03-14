@@ -122,7 +122,7 @@ INTERNAL_EVENT() {
 EXECUTE_EXTERNAL_EVENT() {
 	for EVENT in "$EXTERNAL_EVENTS_DIR"/*; do
 		rm -f "$EXTERNAL_EVENTS_DIR/$EVENT" # Event is removed right after starting of the action
-		EXTERNAL_EVENT "$EVENT" &
+		EXTERNAL_EVENT "$EVENT"
 		rm -f "$LISTENERS_DIR/$EVENT" # Listener is removed right after finishing of the action, if app decided to be informed about that
 	done
 }
@@ -130,7 +130,7 @@ EXECUTE_EXTERNAL_EVENT() {
 EXECUTE_INTERNAL_EVENT() {
 	for EVENT in "$INTERNAL_EVENTS_DIR"/*; do
 		rm -f "$INTERNAL_EVENTS_DIR/$EVENT" # Event is removed right after starting of the action
-		INTERNAL_EVENT "$EVENT" &
+		INTERNAL_EVENT "$EVENT"
 		rm -f "$LISTENERS_DIR/$EVENT" # Listener is removed right after finishing of the action, if app decided to be informed about that
 	done
 }
@@ -180,5 +180,7 @@ LISTEN_INTERNAL_EVENTS &
 
 INTERNAL_EVENT_MONITOR "START" "ALL" &
 
-inotifywait -qqe delete "$ADSTATUS"
-rm -f "$LISTENERS_DIR/*" "$MONITORS_DIR/*" "$EXTERNAL_LISTENERS_DIR/*" "$INTERNAL_LISTENERS_DIR/*"; kill 0; exit 0
+inotifywait -qq -e delete -e modify "$ADSTATUS"
+echo "CRON: Caught EXIT signal!"
+echo "CRON: Finishing..."; rm -f "$LISTENERS_DIR/*" "$MONITORS_DIR/*" "$EXTERNAL_LISTENERS_DIR/*" "$INTERNAL_LISTENERS_DIR/*"; kill 0
+exit 0

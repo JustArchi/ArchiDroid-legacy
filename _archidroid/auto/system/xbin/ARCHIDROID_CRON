@@ -178,8 +178,8 @@ echo "$$" > "$ADSTATUS"
 mkdir -p "$LISTENERS_DIR" "$MONITORS_DIR" "$INTERNAL_EVENTS_DIR" "$EXTERNAL_EVENTS_DIR"
 rm -f "$LISTENERS_DIR"/* "$MONITORS_DIR/"* "$INTERNAL_EVENTS_DIR"/* "$EXTERNAL_EVENTS_DIR"/*
 
-#exec 1>>"$LOG"
-#exec 2>&1
+exec 1>>"$LOG"
+exec 2>&1
 echo "CRON: Active! $$"
 
 LISTEN_EXTERNAL_EVENTS &

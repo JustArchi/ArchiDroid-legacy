@@ -487,6 +487,7 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 
 		### AGNI ###
 		if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "agni" then
+			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Flashing AGNi Kernel");
 			package_extract_dir("_archidroid/kernels/agni/tools", "/tmp");
 			set_perm(0, 0, 0777, "/tmp/PSN_AGNi_builder.sh");
 			set_perm(0, 0, 0777, "/tmp/cleanup.sh");

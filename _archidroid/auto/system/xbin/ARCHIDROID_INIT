@@ -184,7 +184,7 @@ ADSTART() {
 					cp /system/etc/resolv.conf "$ADPROC/resolv.conf"
 					busybox chmod 644 "$ADPROC/resolv.conf"
 				fi
-				local EXTRA="--all-servers"
+				local EXTRA="--all-servers -x $ADPROC/DNSMASQ.PID"
 				if [ "$ADBLOCKLOCALDNSES" -eq 1 ]; then
 					if [ "$ADBLOCKSTRICTORDER" -eq 1 ]; then
 						echo "ADBLOCK: Strict order enabled!" >> "$LOG"
@@ -203,7 +203,7 @@ ADSTART() {
 					cp /system/etc/resolv.conf "$ADPROC/resolv.conf"
 				fi
 				echo "ADBLOCK: Activated archidroid_dnsmasq - local DNS server on 127.0.0.1:53, forwarding clean non-blocked traffic to specified DNS servers" >> "$LOG"
-				archidroid_dnsmasq $EXTRA -C /system/archidroid/etc/dnsmasq.conf >> /data/media/0/test.txt
+				archidroid_dnsmasq $EXTRA -C /system/archidroid/etc/dnsmasq.conf
 				ADCRON "$INTERNAL_EVENTS_DIR/MONITOR_START_DNSMASQ"
 			fi
 			;;
@@ -231,12 +231,12 @@ ADSTART() {
 				if [ -e /dev/random.orig ]; then
 					mv /dev/random /dev/random.TEMP
 					mv /dev/random.orig /dev/random
-					archidroid_haveged -p "$ADPROC/ARCHIDROID_HAVEGED.PID" -w $ENTROPY >/dev/null 2>&1
+					archidroid_haveged -p "$ADPROC/HAVEGED.PID" -w $ENTROPY >/dev/null 2>&1
 					sleep 2 # Let's give haveged some time to initialize
 					mv /dev/random /dev/random.orig
 					mv /dev/random.TEMP /dev/random
 				else
-					archidroid_haveged -p /dev/ARCHIDROID_HAVEGED.PID -w $ENTROPY >/dev/null 2>&1
+					archidroid_haveged -p "$ADPROC/HAVEGED.PID" -w $ENTROPY >/dev/null 2>&1
 					sleep 2 # Let's give haveged some time to initialize
 				fi
 

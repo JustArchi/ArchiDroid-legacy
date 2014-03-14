@@ -373,6 +373,7 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 
 		### AGNI ###
 		if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "agni" then
+			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Flashing AGNi Kernel");
 			package_extract_dir("_archidroid/kernels/agni/tools", "/tmp");
 			set_perm(0, 0, 0777, "/tmp/PSN_AGNi_builder.sh");
 			set_perm(0, 0, 0777, "/tmp/cleanup.sh");
@@ -398,24 +399,6 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 		endif;
 
 		set_progress(0.6);
-
-
-		###############################
-		### ArchiDroid Audio Tweaks ###
-		###############################
-
-		### Presets for non-boeffla kernels, yet with boeffla sound engine ###
-		if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "stock" || file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "yank" then
-			if file_getprop("/tmp/aroma-data/archidroidboefflasound.prop","boeffla") == "yesarchi" then
-				ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Boeffla SC with Archi's Audiophile preset");
-				package_extract_dir("_archidroid/apps/boeffla", "/");
-				package_extract_dir("_archidroid/presets/boeffla", "/");
-			endif;	
-			if file_getprop("/tmp/aroma-data/archidroidboefflasound.prop","boeffla") == "yes" then
-				ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Boeffla SC");
-				package_extract_dir("_archidroid/apps/boeffla/system/app", "/system/app");
-			endif;
-		endif;
 
 
 		###############

@@ -1,4 +1,4 @@
-#!/system/bin/sh
+#!/sbin/sh
 #App: Reset all settings
 #Resets all settings done via the AGNi Control app
 
@@ -25,10 +25,10 @@ if [ "$RESULT" = "yes" ]; then
     rm /sdcard/boeffla_twk_dlg_helper
   fi;
 
-  /sbin/busybox mount -o remount,rw /system
+  /sbin/busybox sh /sbin/sysrw
   /sbin/busybox rm /system/etc/init.d/*_bk*
   /sbin/busybox rm /system/etc/init.d/*_001bk*
-  /sbin/busybox mount -o remount,ro /system
+  /sbin/busybox sh /sbin/sysro
   /sbin/busybox chmod 0777 /res/scripts/*_default
   /sbin/busybox sh /res/scripts/*_default
 

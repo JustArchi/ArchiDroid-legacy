@@ -4,7 +4,7 @@
 #### AGNi Kernel-Patcher (based on original implementation for GT-S5830)
 
 #### DEFINE AGNi pureCM version info ########################################################################
-AGNI_PURECM_VER="2.7.3"
+AGNI_PURECM_VER="2.7.4"
 AGNI_PURECM_SELINUX="PERMISSIVE"
 DEVICE_MODEL="I9300"
 DEVICE_NAME="m0"
@@ -119,21 +119,9 @@ if ! [ "`grep psnconfig.sh /tmp/extracted/init.rc`" ];
 	echo "`cat /tmp/workboot/init-append`" >> /tmp/extracted/init.rc
 	echo " Applied modification 2 to init.rc ! " >> $AGNI_LOG_FILE
 fi
-if ! [ "`grep automount /tmp/extracted/init.smdk4x12.rc`" ];
+if ! [ "`grep init.agnimounts.rc /tmp/extracted/init.smdk4x12.rc`" ];
 	then
-	awk '/mount_all/{print "	exec /sbin/automount"} {print}' /tmp/extracted/init.smdk4x12.rc > /tmp/extracted/init.smdk4x12.rc-temp
-	mv /tmp/extracted/init.smdk4x12.rc-temp /tmp/extracted/init.smdk4x12.rc
-	awk '/mount_all/{print ""} {print}' /tmp/extracted/init.smdk4x12.rc > /tmp/extracted/init.smdk4x12.rc-temp
-	mv /tmp/extracted/init.smdk4x12.rc-temp /tmp/extracted/init.smdk4x12.rc
-	awk '/automount/{print "	wait /proc/mounts"} {print}' /tmp/extracted/init.smdk4x12.rc > /tmp/extracted/init.smdk4x12.rc-temp
-	mv /tmp/extracted/init.smdk4x12.rc-temp /tmp/extracted/init.smdk4x12.rc
-	awk '/mounts/{print "	wait /dev/block/mmcblk0p10"} {print}' /tmp/extracted/init.smdk4x12.rc > /tmp/extracted/init.smdk4x12.rc-temp
-	mv /tmp/extracted/init.smdk4x12.rc-temp /tmp/extracted/init.smdk4x12.rc
-	awk '/mmcblk0p10/{print "	wait /dev/block/mmcblk0p8"} {print}' /tmp/extracted/init.smdk4x12.rc > /tmp/extracted/init.smdk4x12.rc-temp
-	mv /tmp/extracted/init.smdk4x12.rc-temp /tmp/extracted/init.smdk4x12.rc
-	awk '/mmcblk0p8/{print "	wait /dev/block/mmcblk0p12"} {print}' /tmp/extracted/init.smdk4x12.rc > /tmp/extracted/init.smdk4x12.rc-temp
-	mv /tmp/extracted/init.smdk4x12.rc-temp /tmp/extracted/init.smdk4x12.rc
-	awk '/mmcblk0p12/{print "	wait /dev/block/mmcblk0p9"} {print}' /tmp/extracted/init.smdk4x12.rc > /tmp/extracted/init.smdk4x12.rc-temp
+        awk '/init.smdk4x12.usb.rc/{print "	import init.agnimounts.rc"} {print}' /tmp/extracted/init.smdk4x12.rc > /tmp/extracted/init.smdk4x12.rc-temp
 	mv /tmp/extracted/init.smdk4x12.rc-temp /tmp/extracted/init.smdk4x12.rc
 	echo " Applied modification 1 to init.smdk4x12.rc ! " >> $AGNI_LOG_FILE
 fi
@@ -144,9 +132,9 @@ if ! [ "`grep AGNi-Set-SELINUX-PERMISSIVE /tmp/extracted/init.smdk4x12.rc`" ];
 fi
 if ! [ "`grep f2fs /tmp/extracted/lpm.rc`" ];
 	then
-	awk '/mmcblk0p9/{print "    mount f2fs /dev/block/mmcblk0p9 /system ro wait noatime nodiratime"} {print}' /tmp/extracted/lpm.rc > /tmp/extracted/lpm.rc-temp
+	awk '/mmcblk0p9/{print "    mount f2fs /dev/block/mmcblk0p9 /system ro wait noatime nodiratime inline_xattr"} {print}' /tmp/extracted/lpm.rc > /tmp/extracted/lpm.rc-temp
 	mv /tmp/extracted/lpm.rc-temp /tmp/extracted/lpm.rc
-	awk '/mmcblk0p12/{print "    mount f2fs /dev/block/mmcblk0p12 /data wait noatime nosuid nodev nodiratime"} {print}' /tmp/extracted/lpm.rc > /tmp/extracted/lpm.rc-temp
+	awk '/mmcblk0p12/{print "    mount f2fs /dev/block/mmcblk0p12 /data wait noatime nosuid nodev nodiratime inline_xattr"} {print}' /tmp/extracted/lpm.rc > /tmp/extracted/lpm.rc-temp
 	mv /tmp/extracted/lpm.rc-temp /tmp/extracted/lpm.rc
 	echo " Applied modification to lpm.rc ! " >> $AGNI_LOG_FILE
 fi

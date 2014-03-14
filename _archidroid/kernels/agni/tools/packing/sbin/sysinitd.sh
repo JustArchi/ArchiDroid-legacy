@@ -1,11 +1,14 @@
 #!/sbin/busybox sh
 
+while ! /sbin/busybox pgrep android.process.acore ; do
+  /sbin/busybox sleep 1
+done
+
 # Play sound for Boeffla-Sound compatibility
 /sbin/tinyplay /res/misc/silence.wav -D 0 -d 0 -p 880
 
 ## Set optimum permissions for init.d scripts
-/sbin/busybox mount -o rw,remount /system
-/sbin/busybox chown -R root:shell /system/etc/init.d
+/sbin/busybox sh /sbin/sysrw
 /sbin/busybox chmod -R 0777 /system/etc/init.d
 
 ## Setting profiles scripts as non-executable
@@ -20,7 +23,7 @@ if ! [ -f /system/bin/sh ];
 	chmod 777 /system/bin/sh
 fi
 
-mount -o ro,remount /system
+/sbin/busybox sh /sbin/sysro
 
 # Execute files in init.d folder
 export PATH=/sbin:/system/sbin:/system/bin:/system/xbin

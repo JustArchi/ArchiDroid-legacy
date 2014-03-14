@@ -25,3 +25,9 @@ if [ -f /data/app/bo.boeffla.tweaks.dialog.helper-*.apk ];
 	then
 	/system/bin/pm uninstall bo.boeffla.tweaks.dialog.helper
 fi
+
+# Remove AGNi PhoneKill app
+if [ -f /data/app/AGNi_PhoneKill.apk ] || [ -f /data/app/tfy.wwc.pwt-*.apk ];
+	then
+	/system/bin/pm uninstall tfy.wwc.pwt
+fi

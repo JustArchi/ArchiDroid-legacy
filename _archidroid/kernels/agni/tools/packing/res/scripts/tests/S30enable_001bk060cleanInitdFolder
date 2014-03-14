@@ -1,4 +1,4 @@
-#!/system/bin/sh
+#!/sbin/sh
 #init.d: Clean completely (ATTENTION)
 #Remove all scripts from init.d folder and backup to sd card before -
 
@@ -31,9 +31,9 @@ if [ "$RESULT" = "yes" ]; then
 
   SYSTEM_DEVICE="/dev/block/mmcblk0p9"
 
-  /sbin/busybox mount -o remount,rw /system
+  /sbin/busybox sh /sbin/sysrw
   /sbin/busybox rm /system/etc/init.d/*
-  /sbin/busybox mount -o remount,ro /system
+  /sbin/busybox sh /sbin/sysro
 
 am start -a android.intent.action.MAIN -e message "Clean init.d folder done, backup created!" -e title "$TITLE" -e okstyle "$STYLE" -n hm.agni.control.dialog.helper/.AGNiControlDialogActivity
 

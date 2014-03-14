@@ -1,6 +1,7 @@
 # created by: Boeffla-Config 2.1.28
 # (28.02.2014-22.51.52)
 
+busybox sleep 10s
 echo 'No undervolting' > /dev/bk_cpu_voltages_profile
 echo '1400 1363 1300 1238 1200 1150 1100 1050 1000 975 963 950 950 925 900' > /sys/devices/system/cpu/cpu0/cpufreq/UV_mV_table
 echo '1600000' > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
@@ -44,7 +45,7 @@ echo '0' > /sys/class/misc/touchwake/enabled
 echo '10000' > /sys/class/misc/touchwake/delay
 echo '0' > /sys/class/misc/touchwake/charger_mode
 echo '0' > /sys/kernel/early_suspend/early_suspend_delay
-echo '1' > /sys/class/misc/mdnie_preset/mdnie_preset
+echo '0' > /sys/class/misc/mdnie_preset/mdnie_preset
 echo '' > /dev/bk_mdnie_overwrite
 echo '1' > /sys/class/sec/sec_touchkey/touch_led_handling
 echo '0' > /sys/class/sec/sec_touchkey/touch_led_on_screen_touch
@@ -66,7 +67,7 @@ echo '0' > /sys/kernel/charge_levels/ignore_unstable_power
 /res/bc/bccontroller.sh apply_exfat 1
 /res/bc/bccontroller.sh apply_ntfs 0
 echo '0' > /sys/kernel/logger_mode/logger_mode
-echo '' > /sys/kernel/printk_mode/printk_mode
+echo '0' > /sys/kernel/printk_mode/printk_mode
 echo '12288,15360,18432,21504,24576,30720,' > /sys/module/lowmemorykiller/parameters/minfree
 echo 'Archi_Performance' >/data/.boeffla/startconfig_done
 busybox chmod 666 /data/.boeffla/startconfig_done

@@ -180,10 +180,15 @@ ADSTART() {
 					fi
 				fi
 				sysro
+				if [ ! -f "$ADPROC/resolv.conf" ]; then
+					cp /system/etc/resolv.conf "$ADPROC/resolv.conf"
+				fi
+				local EXTRA="--all-servers"
 				if [ "$ADBLOCKLOCALDNSES" -eq 1 ]; then
-					DNS=""
-					DNS1=$(getprop net.dns1)
-					DNS2=$(getprop net.dns2)
+					if [ "$ADBLOCKSTRICTORDER" -eq 1 ]; then
+						echo "ADBLOCK: Strict order enabled!" >> "$LOG"
+						EXTRA+=" --strict-order"
+					fi
 					echo "ADBLOCK: Including local DNSes!" >> "$LOG"
 					if [ -d "$INTERNAL_EVENTS_DIR" ]; then
 						ADCRON "$INTERNAL_EVENTS_DIR/MONITOR_START_DNSDAEMON"
@@ -191,26 +196,10 @@ ADSTART() {
 						(sleep 10; ADCRON "$INTERNAL_EVENTS_DIR/MONITOR_START_DNSDAEMON") &
 					fi
 				else
-					if [ -d "$INTERNAL_EVENTS_DIR" ]; then
-						ADCRON "$INTERNAL_EVENTS_DIR/MONITOR_STOP_DNSDAEMON"
-					fi
+					cp /system/etc/resolv.conf "$ADPROC/resolv.conf"
 				fi
 				echo "ADBLOCK: Activated archidroid_dnsmasq - local DNS server on 127.0.0.1:53, forwarding clean non-blocked traffic to specified DNS servers" >> "$LOG"
-				local EXTRA="--all-servers"
-				if [ ! -z "$DNS1" ]; then
-					DNS="-S $DNS1"
-					if [ ! -z "$DNS2" ]; then
-						DNS+=" -S $DNS2"
-					fi
-					if [ "$ADBLOCKSTRICTORDER" -eq 1 ]; then
-						echo "ADBLOCK: Strict order enabled!" >> "$LOG"
-						EXTRA+=" --strict-order"
-					fi
-					archidroid_dnsmasq $EXTRA $DNS -C /system/archidroid/etc/dnsmasq.conf
-					echo "ADBLOCK: Also added local DNS servers $DNS1 $DNS2" >> "$LOG"
-				else
-					archidroid_dnsmasq $EXTRA -C /system/archidroid/etc/dnsmasq.conf
-				fi
+				archidroid_dnsmasq $EXTRA -C /system/archidroid/etc/dnsmasq.conf
 				ADCRON "$INTERNAL_EVENTS_DIR/MONITOR_START_DNSMASQ"
 			fi
 			;;
@@ -238,7 +227,7 @@ ADSTART() {
 				if [ -e /dev/random.orig ]; then
 					mv /dev/random /dev/random.TEMP
 					mv /dev/random.orig /dev/random
-					archidroid_haveged -p /dev/ARCHIDROID_HAVEGED.PID -w $ENTROPY >/dev/null 2>&1
+					archidroid_haveged -p "$ADPROC/ARCHIDROID_HAVEGED.PID" -w $ENTROPY >/dev/null 2>&1
 					sleep 2 # Let's give haveged some time to initialize
 					mv /dev/random /dev/random.orig
 					mv /dev/random.TEMP /dev/random
@@ -286,20 +275,20 @@ alias mount='ADALIAS mount'
 AD="/data/media/0/ArchiDroid"
 ADSYS="/system/archidroid"
 ADDEV="$ADSYS/dev"
-ADCRON="/dev/archidroid/cron"
+ADPROC="/dev/archidroid"
+ADCRON="$ADPROC/cron"
 LOG="$AD/Init.log" # "/dev/null" is no verbose
 RUNONCELOG="$AD/RunOnce.log"
-ADSTATUS="/dev/ARCHIDROID_INIT_STATUS"
-ADCRONSTATUS="/dev/ARCHIDROID_CRON_STATUS"
+ADSTATUS="$ADPROC/ARCHIDROID_INIT_STATUS"
+ADCRONSTATUS="$ADPROC/ARCHIDROID_CRON_STATUS"
 INTERNAL_EVENTS_DIR="$ADCRON/events/internal"
 
-if [ ! -e $AD ]; then
-	exit 0
-fi
 if [ ! -e /data/ARCHIDROID_DONT_REMOVE_ME ]; then
 	echo "ERROR: ArchiDroid is not compatible with wiping data, please reflash your system!" >> "$LOG"
 	poweroff
 fi
+
+mkdir -p "$ADPROC"
 
 # Initial ArchiDroid dev status
 if [ -e $ADDEV/HAVEGED_ENABLED ]; then

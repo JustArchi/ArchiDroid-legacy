@@ -47,9 +47,10 @@ alias mount='ADALIAS mount'
 # Initial variables, you should NOT change them unless you know what you're doing
 AD="/data/media/0/ArchiDroid"
 ADSYS="/system/archidroid"
+ADPROC="/dev/archidroid"
 LOG="$AD/RunOnce.log" # "/dev/null" is no verbose
 LOG2="$AD/RunOnce.log.0"
-ADSTATUS="/dev/ARCHIDROID_RUNONCE_STATUS"
+ADSTATUS="$ADPROC/ARCHIDROID_RUNONCE_STATUS"
 
 if [ ! -e "$AD" ]; then
 	exit 0

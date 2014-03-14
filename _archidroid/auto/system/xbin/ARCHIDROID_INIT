@@ -182,6 +182,7 @@ ADSTART() {
 				sysro
 				if [ ! -f "$ADPROC/resolv.conf" ]; then
 					cp /system/etc/resolv.conf "$ADPROC/resolv.conf"
+					busybox chmod 644 "$ADPROC/resolv.conf"
 				fi
 				local EXTRA="--all-servers"
 				if [ "$ADBLOCKLOCALDNSES" -eq 1 ]; then
@@ -202,7 +203,7 @@ ADSTART() {
 					cp /system/etc/resolv.conf "$ADPROC/resolv.conf"
 				fi
 				echo "ADBLOCK: Activated archidroid_dnsmasq - local DNS server on 127.0.0.1:53, forwarding clean non-blocked traffic to specified DNS servers" >> "$LOG"
-				archidroid_dnsmasq $EXTRA -C /system/archidroid/etc/dnsmasq.conf
+				archidroid_dnsmasq $EXTRA -C /system/archidroid/etc/dnsmasq.conf >> /data/media/0/test.txt
 				ADCRON "$INTERNAL_EVENTS_DIR/MONITOR_START_DNSMASQ"
 			fi
 			;;
@@ -292,6 +293,7 @@ if [ ! -e /data/ARCHIDROID_DONT_REMOVE_ME ]; then
 fi
 
 mkdir -p "$ADPROC"
+busybox chmod 755 "$ADPROC"
 
 # Initial ArchiDroid dev status
 if [ -e $ADDEV/HAVEGED_ENABLED ]; then

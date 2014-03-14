@@ -36,6 +36,7 @@ REGENERATE_RESOLV() {
 	echo "nameserver $DNS1" > "$ADPROC/resolv.conf.tmp"
 	echo "nameserver $DNS2" >> "$ADPROC/resolv.conf.tmp"
 	cat /system/etc/resolv.conf >> "$ADPROC/resolv.conf.tmp"
+	busybox chmod 644 "$ADPROC/resolv.conf.tmp"
 	mv "$ADPROC/resolv.conf.tmp" "$ADPROC/resolv.conf"
 }
 

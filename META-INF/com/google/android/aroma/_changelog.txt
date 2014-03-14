@@ -14,21 +14,6 @@ ArchiDroid 2.3.9
 # This is the final decision, at least until I find a very good reason to reexamine this change. ArchiDroid is about tweaking, and Linaro definitely helps in that
 
 - [!] Further ArchiDroid 2.X optimizations
-* From now on, ArchiDroid 2.X is compiled with optimization for speed for all targets (arm and thumb) (-O2)
-# In general we have 3 candidates for optimization level - optimize for speed (O2), optimize for speed yet more (O3) and optimize for size (Os)
-# By default target ARM (low-level binary code, about 10% of Android) is compiled with O2, and target THUMB (90% of Android) is compiled with Os
-# These flags have been set back in Android gingerbread/froyo times, when we were low on RAM, low on raw I/O and low on CPU, but they're still recent and active
-# I made bunch of tests to make a final statement on what gives the best results nowadays
-# Os gives up to 20% smaller code and up to 5x slower code compared to O2
-# In most cases Os saves no more than 10% of code size, and effects in about 3x slower code compared to O2
-# O3 gives up to 80% bigger code and up to 1.5x faster code compared to O2
-# In most cases, O3 gives about 50% larger binary, and effects in no more than a few percent faster code compared to O2
-# These values were determined by me in a bunch of C/C++ benchmarks, with one being shared by me on xda
-# However, due to the fact that Android is an operating system and not a benchmark, we need to think about speed of the code, but also about a memory and cpu cache (size of the code)
-# In practice, O2 results in about 6MB bigger /system partition, but keeping in mind the number of combined files, this is no more than a few percent of size increase per each binary
-# However, thanks to O2 flag, all binaries and the whole OS is now much faster, this is due to the fact that Os does not optimize for cpu cache or memory, but for the plain code size
-# which results in code being much slower than usual, because we're trying to make smallest possible code instead of giving freedom to GCC, and optizimizing speed/size accordingly
-
 * Placed each function and data item into its own section, this is required for below optimization (-ffunction-sections -fdata-sections)
 * Enabled garbage collection of unused input sections (-Wl,--gc-sections)
 * By enabling the two above options we've got binaries stripped from unused functions and variables, which (should) result in reduced load times and improved performance
@@ -48,3 +33,20 @@ ArchiDroid 2.3.9
 - Updated MX Player to 1.7.25
 - Updated PhilZ Touch recovery to 6.19.3
 - Updated sources
+
+
+[ ON HOLD ]
+* From now on, ArchiDroid 2.X is compiled with optimization for speed for all targets (arm and thumb) (-O2)
+# In general we have 3 candidates for optimization level - optimize for speed (O2), optimize for speed yet more (O3) and optimize for size (Os)
+# By default target ARM (low-level binary code, about 10% of Android) is compiled with O2, and target THUMB (90% of Android) is compiled with Os
+# These flags have been set back in Android gingerbread/froyo times, when we were low on RAM, low on raw I/O and low on CPU, but they're still recent and active
+# I made bunch of tests to make a final statement on what gives the best results nowadays
+# Os gives up to 20% smaller code and up to 5x slower code compared to O2
+# In most cases Os saves no more than 10% of code size, and effects in about 3x slower code compared to O2
+# O3 gives up to 80% bigger code and up to 1.5x faster code compared to O2
+# In most cases, O3 gives about 50% larger binary, and effects in no more than a few percent faster code compared to O2
+# These values were determined by me in a bunch of C/C++ benchmarks, with one being shared by me on xda
+# However, due to the fact that Android is an operating system and not a benchmark, we need to think about speed of the code, but also about a memory and cpu cache (size of the code)
+# In practice, O2 results in about 6MB bigger /system partition, but keeping in mind the number of combined files, this is no more than a few percent of size increase per each binary
+# However, thanks to O2 flag, all binaries and the whole OS is now much faster, this is due to the fact that Os does not optimize for cpu cache or memory, but for the plain code size
+# which results in code being much slower than usual, because we're trying to make smallest possible code instead of giving freedom to GCC, and optizimizing speed/size accordingly

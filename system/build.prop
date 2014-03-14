@@ -4,12 +4,12 @@
 ro.build.id=KVT49L
 ro.build.display.id=ArchiDroid 2.3.9 EXPERIMENTAL [KVT49L]
 ro.archidroid.version=2.3.9 EXPERIMENTAL [KVT49L]
-ro.build.version.incremental=eng.root.20140314.140750
+ro.build.version.incremental=eng.root.20140314.153748
 ro.build.version.sdk=19
 ro.build.version.codename=REL
 ro.build.version.release=4.4.2
-ro.build.date=pią, 14 mar 2014, 14:11:02 CET
-ro.build.date.utc=1394802662
+ro.build.date=pią, 14 mar 2014, 15:38:55 CET
+ro.build.date.utc=1394807935
 ro.build.type=user
 ro.build.user=root
 ro.build.host=ArchiDroid
@@ -29,8 +29,8 @@ ro.product.model=GT-I9300
 ro.product.name=omni_i9300
 ro.product.device=i9300
 # Do not try to parse ro.build.description or .fingerprint
-ro.build.description=omni_i9300-user 4.4.2 KVT49L eng.root.20140314.140750 test-keys
-ro.build.fingerprint=samsung/omni_i9300/i9300:4.4.2/KVT49L/eng.root.20140314.140750:user/test-keys
+ro.build.description=omni_i9300-user 4.4.2 KVT49L eng.root.20140314.153748 test-keys
+ro.build.fingerprint=samsung/omni_i9300/i9300:4.4.2/KVT49L/eng.root.20140314.153748:user/test-keys
 ro.build.characteristics=default
 ro.omni.device=i9300
 # end build properties

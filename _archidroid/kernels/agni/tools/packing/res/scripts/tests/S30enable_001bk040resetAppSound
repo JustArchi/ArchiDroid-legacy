@@ -1,4 +1,4 @@
-#!/system/bin/sh
+#!/sbin/sh
 #App: Reset Sound settings
 #Resets Sound settings done via the AGNi Control app
 
@@ -25,10 +25,10 @@ if [ "$RESULT" = "yes" ]; then
   fi;
 
   
-  /sbin/busybox mount -o remount,rw /system
+  /sbin/busybox sh /sbin/sysrw
   /sbin/busybox rm /system/etc/init.d/*_bkbs*
   /sbin/busybox rm /system/etc/init.d/*_001bkbs*
-  /sbin/busybox mount -o remount,ro /system
+  /sbin/busybox sh /sbin/sysro
 
   echo "0" > /sys/class/misc/boeffla_sound/boeffla_sound
 

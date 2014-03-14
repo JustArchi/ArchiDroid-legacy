@@ -1,10 +1,10 @@
-#!/system/bin/sh
+#!/sbin/sh
 #AGNi Main Profiles Selection
 #This affects only CPU governor, CPU Max Frequency, GPU Frequency, GPU & CPU UV, GPU threshold, sched_mc_power_savings, LMK minfree
 #Extreme Battery Save
 
 /sbin/busybox mount -o rw,remount /
-/sbin/busybox mount -o rw,remount /system
+/sbin/busybox sh /sbin/sysrw
 
 # Clearing existing selected relevant scripts
 /sbin/busybox rm /system/etc/init.d/*001bkgov*
@@ -51,5 +51,5 @@
 
 # Mounting / & /system RO
 /sbin/busybox mount -o ro,remount /
-/sbin/busybox mount -o ro,remount /system
+/sbin/busybox sh /sbin/sysrw
 

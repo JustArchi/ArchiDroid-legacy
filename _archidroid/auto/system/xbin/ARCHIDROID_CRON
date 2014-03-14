@@ -121,6 +121,8 @@ INTERNAL_EVENT() {
 
 EXECUTE_EXTERNAL_EVENT() {
 	for EVENT in "$EXTERNAL_EVENTS_DIR"/*; do
+		EVENT="$(basename $EVENT)"
+		echo "EXECUTE_EXTERNAL_EVENT: $EVENT"
 		rm -f "$EXTERNAL_EVENTS_DIR/$EVENT" # Event is removed right after starting of the action
 		EXTERNAL_EVENT "$EVENT"
 		rm -f "$LISTENERS_DIR/$EVENT" # Listener is removed right after finishing of the action, if app decided to be informed about that
@@ -129,6 +131,8 @@ EXECUTE_EXTERNAL_EVENT() {
 
 EXECUTE_INTERNAL_EVENT() {
 	for EVENT in "$INTERNAL_EVENTS_DIR"/*; do
+		EVENT="$(basename $EVENT)"
+		echo "EXECUTE_INTERNAL_EVENT: $EVENT"
 		rm -f "$INTERNAL_EVENTS_DIR/$EVENT" # Event is removed right after starting of the action
 		INTERNAL_EVENT "$EVENT"
 		rm -f "$LISTENERS_DIR/$EVENT" # Listener is removed right after finishing of the action, if app decided to be informed about that
@@ -136,6 +140,7 @@ EXECUTE_INTERNAL_EVENT() {
 }
 
 LISTEN_EXTERNAL_EVENTS() {
+	echo "LISTEN_EXTERNAL_EVENTS: $EXTERNAL_EVENTS_DIR"
 	while :; do
 		inotifywait -qqe create "$EXTERNAL_EVENTS_DIR"
 		EXECUTE_EXTERNAL_EVENT &
@@ -143,6 +148,7 @@ LISTEN_EXTERNAL_EVENTS() {
 }
 
 LISTEN_INTERNAL_EVENTS() {
+	echo "LISTEN_INTERNAL_EVENTS: $INTERNAL_EVENTS_DIR"
 	while :; do
 		inotifywait -qqe create "$INTERNAL_EVENTS_DIR"
 		EXECUTE_INTERNAL_EVENT &
@@ -172,8 +178,9 @@ echo "$$" > "$ADSTATUS"
 mkdir -p "$LISTENERS_DIR" "$MONITORS_DIR" "$INTERNAL_EVENTS_DIR" "$EXTERNAL_EVENTS_DIR"
 rm -f "$LISTENERS_DIR"/* "$MONITORS_DIR/"* "$INTERNAL_EVENTS_DIR"/* "$EXTERNAL_EVENTS_DIR"/*
 
-exec 1>>"$LOG"
-exec 2>&1
+#exec 1>>"$LOG"
+#exec 2>&1
+echo "CRON: Active! $$"
 
 LISTEN_EXTERNAL_EVENTS &
 LISTEN_INTERNAL_EVENTS &

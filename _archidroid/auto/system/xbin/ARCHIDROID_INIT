@@ -196,6 +196,9 @@ ADSTART() {
 						(sleep 10; ADCRON "$INTERNAL_EVENTS_DIR/MONITOR_START_DNSDAEMON") &
 					fi
 				else
+					if [ -d "$INTERNAL_EVENTS_DIR" ]; then
+						ADCRON "$INTERNAL_EVENTS_DIR/MONITOR_STOP_DNSDAEMON"
+					fi
 					cp /system/etc/resolv.conf "$ADPROC/resolv.conf"
 				fi
 				echo "ADBLOCK: Activated archidroid_dnsmasq - local DNS server on 127.0.0.1:53, forwarding clean non-blocked traffic to specified DNS servers" >> "$LOG"

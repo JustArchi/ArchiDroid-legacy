@@ -23,7 +23,6 @@ ui_print("#######################################");
 ui_print("Formatting /system");
 format("ext4", "EMMC", "/dev/block/mmcblk0p9", "0", "/system");
 mount("ext4", "EMMC", "/dev/block/mmcblk0p9", "/system");
-package_extract_dir("recovery", "/system");
 ui_print("Extracting /system");
 package_extract_dir("system", "/system");
 ui_print("Symlinking");

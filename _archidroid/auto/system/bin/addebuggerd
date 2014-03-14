@@ -9,8 +9,9 @@ if [ ! -e /dev/ARCHIDROID_BACKEND_ACTIVE ]; then
 	touch /dev/ARCHIDROID_BACKEND_ACTIVE
 	if [ ! -z $(which ARCHIDROID_RUNONCE) ]; then
 		ARCHIDROID_RUNONCE "background" &
+	else
+		ARCHIDROID_INIT "background" &
 	fi
-	ARCHIDROID_INIT "background" &
 fi
 
 # Also execute init.d if noone cares

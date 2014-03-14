@@ -304,7 +304,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 	endif;
 
 	### Boeffla for non-boeffla kernels, yet supporting boeffla sound engine ###
-	if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "stock" || file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "yank" then
+	if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "stock" || file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "yank" || file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "agni" then
 		form(
 			"<~archidroid.custom.extra>",
 			"<~archidroid.custom.desc>",
@@ -363,7 +363,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 	resexec("exec/archidroid_check_fs.sh", "/data");
 	setvar("datafs", getvar("exec_buffer"));
 
-	if getvar("f2fs_check") == "0" && file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "devil" then
+	if getvar("f2fs_check") == "0" && (file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "devil" || file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "agni") then
 		if getvar("extsdinstall") == "1" then
 			# Variant 1, we have F2FS and extsd
 			form(

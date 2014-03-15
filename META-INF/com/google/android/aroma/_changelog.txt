@@ -28,6 +28,7 @@ ArchiDroid 2.3.9
 - BACKEND: Optimized dnsmasq and dns daemon - changing of local DNSes doesn't require restarting of backend anymore
 - Added AGNi kernel developed by @psndna88
 - Removed Temasek kernel # I consider it more or less EOL, especially because Temasek focuses on Note3 and definitely will not spend any more time on his kernel for SGS3
+- Updated Modem to XXUGNA8
 - Updated Boeffla kernel to 2.2-beta6a
 - Updated Googy Max kernel to 2.1.8
 - Updated PA GAPPS to 14-03

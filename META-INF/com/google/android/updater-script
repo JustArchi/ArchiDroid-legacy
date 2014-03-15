@@ -656,20 +656,6 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 			endif;
 		endif;
 
-		set_progress(0.79);
-
-
-		################
-		### RECOVERY ###
-		################
-
-		### PHILZ ###
-		if file_getprop("/tmp/aroma-data/archidroid.prop","updaterecovery") == "1" then
-			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Flashing PhilZ Recovery");
-			assert(package_extract_file("recovery.img", "/tmp/recovery.img"),
-			write_raw_image("/tmp/recovery.img", "/dev/block/mmcblk0p6"));
-		endif;
-
 		set_progress(0.80);
 
 

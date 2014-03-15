@@ -1,7 +1,0 @@
-#!/sbin/busybox sh
-#USB Charge Rate
-#Set charging rate when connected to USB
-#475 mA (default)
-
-echo 475 > /sys/devices/platform/samsung-battery/sdp_chrg_curr
-echo 475 > /sys/devices/platform/samsung-battery/cdp_chrg_curr

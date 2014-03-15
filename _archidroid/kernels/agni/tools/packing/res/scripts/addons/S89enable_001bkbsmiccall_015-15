@@ -1,7 +1,0 @@
-#!/system/bin/sh
-#Microphone sensivity call
-#Set microphone sensivity for calls
-#6db
-
-echo 1 > /sys/class/misc/boeffla_sound/boeffla_sound
-echo 15 > /sys/class/misc/boeffla_sound/mic_level_call

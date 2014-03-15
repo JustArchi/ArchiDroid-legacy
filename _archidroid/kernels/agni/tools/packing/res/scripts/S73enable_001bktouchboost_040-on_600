@@ -1,8 +1,0 @@
-#!/sbin/busybox sh
-#Touchboost
-#Enable or disable Touchboost:
-#600 MHz
-
-echo "1" > /sys/class/misc/touchboost_switch/touchboost_switch
-echo "600000" > /sys/class/misc/touchboost_switch/touchboost_freq
-

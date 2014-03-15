@@ -95,7 +95,7 @@
     <boolean name="hideCarrierLockscreen" value="false" />
     <boolean name="enableCallAdd" value="true" />
     <boolean name="enableLockscreenRotation" value="false" />
-    <boolean name="quickSettingsCollapseOnToggle" value="true" />
+    <boolean name="quickSettingsCollapseOnToggle" value="false" />
     <boolean name="hideWifiInAndOut" value="false" />
     <boolean name="quickPinUnlockEnabled" value="false" />
     <string name="customDateFormat">EEEE

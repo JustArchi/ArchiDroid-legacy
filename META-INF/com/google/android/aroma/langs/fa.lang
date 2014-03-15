@@ -171,6 +171,7 @@ archidroid.apps.adobeflash.desc=پشتيباني از فلش اضافه ميکن
 
 archidroid.tweaks.buildtweaks.desc= بسياري از ترفند هاي build.prop، از جمله خواب عميق تر، ترفند عملکرد و بيشتر
 archidroid.tweaks.nocell.desc= به طور کلي به عنوان Bloatware ها در نظر گرفته شده است. اگر قصد استفاده از اين ابزار را داريد انتخاب نکنيد
+archidroid.tweaks.camerafix.desc=Fix camera error, use this option only in case of camera issues after flashing!
 
 archidroid.preset.no=بدون تنظيمات پيش فرض
 archidroid.preset.no.desc= توصيه نمي شود زيرا شما بهينه سازي آرچي را از دست مي دهيد.
@@ -182,10 +183,6 @@ archidroid.preset.kernel.boeffla.archipowersave.desc= به طور پيش فرض 
 archidroid.preset.kernel.boeffla.archiultrapowersave=حالت فوق العاده ذخيره انرژي آرچي درويد
 archidroid.preset.kernel.boeffla.archiultrapowersave.desc= از پيش تعيين شده طراحي شده و بهينه شده براي گرفتن حداکثر عمر باتري، از جمله متوسط. عمر بهتر باتري براي عملکرد بهتر انتظار مي رود
 
-archidroid.boeffla.yesarchi=  بله همراه با استفاده audiophile
-archidroid.boeffla.yesarchi.desc=توصيه ميشود کيفيت موسيقي را افزايش ميدهد بوسيله نصب ابزار پيشرفته و Boeffla SC طبق وضعيت Archi 
-archidroid.boeffla.yes.desc=اگر ميخواهيد  Boeffla SC رو بر طبق دلخواه خود بسازيد ، بعدا دوباره تنظيم کنيد.
-archidroid.boeffla.no.desc=اگر نميخواهيد Boeffla SC را نصب کنيد
 
 archidroid.xposed.appsettings.desc=اجازه ميدهد تنظيمات نرم افزار را تغيير دهيد.ابزار بسيار کاربردي
 archidroid.xposed.gravitybox.desc=A complex and feature-rich customizable tweak box

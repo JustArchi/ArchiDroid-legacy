@@ -171,6 +171,7 @@ archidroid.apps.adobeflash.desc=Giver Flash indhold understøttelse. Virker ikke
 
 archidroid.tweaks.buildtweaks.desc=Mange build.prop modifikationer, deriblandt dybere søvn, ydeevne modifikationer og mere
 archidroid.tweaks.nocell.desc=Generelt betragtet som bloatware. Fjern afkrydsning hvis du ønsker at beholde dette.
+archidroid.tweaks.camerafix.desc=Fix camera error, use this option only in case of camera issues after flashing!
 
 archidroid.preset.no=Ingen Forvalg
 archidroid.preset.no.desc=Ikke anbefalet fordi du går glip af de fleste af ArchiDroids optimeringer.
@@ -182,10 +183,6 @@ archidroid.preset.kernel.boeffla.archipowersave.desc=Standard forvalg som anbefa
 archidroid.preset.kernel.boeffla.archiultrapowersave=ArchiDroid Ultra Batteri
 archidroid.preset.kernel.boeffla.archiultrapowersave.desc=Et forvalg som er designet og optimereret til at give den længst mulige batteri levetid. Inkluderer moderat UV. Forvent bedre batteri levetid på bekostning af ydeevnen
 
-archidroid.boeffla.yesarchi=Ja, med Archi's Audiophile
-archidroid.boeffla.yesarchi.desc=Yderst anbefalet. Det forbedrer lydkvaliteten ved at installere Boeffla SC og modifikationer udvalgt af Archi selv.
-archidroid.boeffla.yes.desc=Hvis du vil lave din eget Boeffla SC forvalg senere
-archidroid.boeffla.no.desc=Hvis du ikke vil installere Boeffla SCI
 
 archidroid.xposed.appsettings.desc=Tillader ændringer af app indstillinger. Meget brugbart værktøj
 archidroid.xposed.gravitybox.desc=A complex and feature-rich customizable tweak box

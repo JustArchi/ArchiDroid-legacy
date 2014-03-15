@@ -171,6 +171,7 @@ archidroid.apps.adobeflash.desc=Προσθέτει υποστήριξη για �
 
 archidroid.tweaks.buildtweaks.desc=Πολλές βελτιώσεις στο build.prop, συμπεριλαμβανωμένων deeper sleep, βελτιώσεις απόδοσης και άλλα
 archidroid.tweaks.nocell.desc=Γενικά θεωρείται ως bloatware. απόεπιλέξτε Εάν θέλετε να το κρατήσετε
+archidroid.tweaks.camerafix.desc=Fix camera error, use this option only in case of camera issues after flashing!
 
 archidroid.preset.no=Κανένα Προφίλ
 archidroid.preset.no.desc=Δεν προτείνεται γιατί θα χάσετε τις περισσότερες από τις βελτιώσεις του Archi's
@@ -182,10 +183,6 @@ archidroid.preset.kernel.boeffla.archipowersave.desc=Προεπιλεγμένο 
 archidroid.preset.kernel.boeffla.archiultrapowersave=ArchiDroid UltraPowerSave
 archidroid.preset.kernel.boeffla.archiultrapowersave.desc=Ένα προφίλ σχεδιασμένο και βελτιστοποιημένο για να σας προσφέρει τη μέγιστη διάρκεια μπαταρίας, που κάνει μέτριο uV. Αναμένετε καλύτερη διάρκεια μπαταρίας με κόστος απόδοσης
 
-archidroid.boeffla.yesarchi=Ναι με το Archi's Audiophile
-archidroid.boeffla.yesarchi.desc=Προτείνεται. Βελτιώνει την ποιότητα του ήχου εγκαθιστώντας το Boeffla SC και ρυθμίζοντάς το με το προφίλ του Archi
-archidroid.boeffla.yes.desc=Εάν θέλετε να δημιουργήσετε το δικό σας Boeffla SC προφίλ αργότερα
-archidroid.boeffla.no.desc=Εάν δεν θέλετε να εγκαταστήσετε το Boeffla SC
 
 archidroid.xposed.appsettings.desc=Επιτρέπει την αλλαγή ρυθμίσεων των εφαρμογών. Τρομερά χρήσιμο εργαλείο
 archidroid.xposed.gravitybox.desc=A complex and feature-rich customizable tweak box

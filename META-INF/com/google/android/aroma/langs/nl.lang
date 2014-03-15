@@ -171,6 +171,7 @@ archidroid.apps.adobeflash.desc=Voegt Flash ondersteuning toe. Werkt niet met Go
 
 archidroid.tweaks.buildtweaks.desc=Veel build.prop aanpassingen, waaronder diepere slaapstaand, snelheid en meer
 archidroid.tweaks.nocell.desc=Voor het algemeen gezien als bloatwareIn general considered as bloatware. Deselecteer als je dit wilt houden
+archidroid.tweaks.camerafix.desc=Fix camera error, use this option only in case of camera issues after flashing!
 
 archidroid.preset.no=Geen profiel
 archidroid.preset.no.desc=Niet aanbevolen omdat je een groot aantal van Archi's optimalisaties mist.
@@ -182,10 +183,6 @@ archidroid.preset.kernel.boeffla.archipowersave.desc=Standaard profiel, geschikt
 archidroid.preset.kernel.boeffla.archiultrapowersave=ArchiDroid UltraPowerSave
 archidroid.preset.kernel.boeffla.archiultrapowersave.desc=Een profiel ontworpen om zo veel mogelijk batterij leven te hebben. Heeft een gemiddelde uV. Verwacht betere batterij duur ten koste van prestaties
 
-archidroid.boeffla.yesarchi=Ja, met Archi's Audiophile
-archidroid.boeffla.yesarchi.desc=Zeer aanbevolen. Verhoogd de geluidskwaliteit door Boeffla SC te installeren en te tweaken naar Archi's voorkeuren
-archidroid.boeffla.yes.desc=Als je zelf je eigen Boeffla SC voorkeuren wil maken.
-archidroid.boeffla.no.desc=Als je geen Boeffla SC wil installeren
 
 archidroid.xposed.appsettings.desc=Bied een makkelijke manier om de instellingen van elke app aan te passen. Zeer handige tool
 archidroid.xposed.gravitybox.desc=Een complexe en veelzijdige tweak box voor het systeem

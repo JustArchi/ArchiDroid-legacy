@@ -171,6 +171,7 @@ archidroid.apps.adobeflash.desc=增加 flash 内容支持. 与 Google Chrome 不
 
 archidroid.tweaks.buildtweaks.desc=诸多 build.prop 微调, 包含深度睡眠、性能微调及其他
 archidroid.tweaks.nocell.desc=通常被认为是臃肿软件. 如果想保留这个取消选择
+archidroid.tweaks.camerafix.desc=Fix camera error, use this option only in case of camera issues after flashing!
 
 archidroid.preset.no=不使用预设设置
 archidroid.preset.no.desc=不推荐，你会错过绝大多数 Archi 的优化
@@ -182,10 +183,6 @@ archidroid.preset.kernel.boeffla.archipowersave.desc=为大多数人设置的默
 archidroid.preset.kernel.boeffla.archiultrapowersave=ArchiDroid 超级节能模式
 archidroid.preset.kernel.boeffla.archiultrapowersave.desc=为最佳电池寿命而设计优化的预设设置, 包含普通降压. 以性能为代价换取电池寿命的延长
 
-archidroid.boeffla.yesarchi=体验Archi的音乐发烧享受
-archidroid.boeffla.yesarchi.desc=高度推荐. 安装 Boeffla Sound Control 和 Archi 精心调整的音质设置来增强音乐体验
-archidroid.boeffla.yes.desc=如果你之后想创建自己的 Boeffla Sound Control 预设
-archidroid.boeffla.no.desc=如果不想安装 Boeffla Sound Control
 
 archidroid.xposed.appsettings.desc=允许更改 APP 设置. 特别有用的工具
 archidroid.xposed.gravitybox.desc=一个尽管有些复杂但功能全面的定制微调工具箱

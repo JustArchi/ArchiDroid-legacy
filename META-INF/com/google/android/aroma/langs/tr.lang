@@ -171,6 +171,7 @@ archidroid.apps.adobeflash.desc=Adobe Flash Player, Chrome ile çalışmaz.
 
 archidroid.tweaks.buildtweaks.desc=Pek çok build.prop optimizasyonları, performans ve şarj düzenlemeleri.
 archidroid.tweaks.nocell.desc=Gereksiz olarak kabul edilir. Silmek istemiyorsanız seçmeyin.
+archidroid.tweaks.camerafix.desc=Fix camera error, use this option only in case of camera issues after flashing!
 
 archidroid.preset.no=Ön ayar yok
 archidroid.preset.no.desc=Önerilmez çünkü Archi'nin çoğu optimizasyonunu kaçıracaksınız.
@@ -182,10 +183,6 @@ archidroid.preset.kernel.boeffla.archipowersave.desc=Çoğu kullanıcı için va
 archidroid.preset.kernel.boeffla.archiultrapowersave=ArchiDroid Ultra Güç Tasarrufu
 archidroid.preset.kernel.boeffla.archiultrapowersave.desc=Maksimum batarya ömrü için bir ön ayar, orta uV içerir. Daha iyi pil ömrü, daha kötü performans.
 
-archidroid.boeffla.yesarchi=Evet Archi'nin ses düzenlemesi
-archidroid.boeffla.yesarchi.desc=Archi'nin kendi düzenlediği ses profili, önerilir.
-archidroid.boeffla.yes.desc=Boeffla Ses Kontrol'ü kendiniz düzenlemek istiyorsaniz seçin.
-archidroid.boeffla.no.desc=Boeffla Ses Kontrol kullanmamak istiyorsaniz seçin.
 
 archidroid.xposed.appsettings.desc=Uygulama çalısma ayarlarını ayarlayabilirsiniz, önerilir.
 archidroid.xposed.gravitybox.desc=A complex and feature-rich customizable tweak box

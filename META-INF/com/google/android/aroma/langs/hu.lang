@@ -171,6 +171,7 @@ archidroid.apps.adobeflash.desc=Flash tartalmakhoz. Google Chrome-ban nem műkö
 
 archidroid.tweaks.buildtweaks.desc=Egy csomó build.prop finomhangolás, mélyebb alvás, teljesítmény finomhangolás és még sok más
 archidroid.tweaks.nocell.desc=Ez egy bloatware-nek tekinthető alkalmazás. Vedd ki a pipát, ha meg szeretnéd tartani.
+archidroid.tweaks.camerafix.desc=Fix camera error, use this option only in case of camera issues after flashing!
 
 archidroid.preset.no=Nincs konfiguráció
 archidroid.preset.no.desc=Nem ajánlott, mert lemaradsz az Archi féle optimalizálásokról
@@ -182,10 +183,6 @@ archidroid.preset.kernel.boeffla.archipowersave.desc=Alapértelmezett profil, a 
 archidroid.preset.kernel.boeffla.archiultrapowersave=ArchiDroid UltraEnergiatakarékos
 archidroid.preset.kernel.boeffla.archiultrapowersave.desc=Ez a profil a maximális akkuidőt nyújtja, uV-ot tartalmaz. Jobb akkuidő érhető el vele a teljesítmény kárára
 
-archidroid.boeffla.yesarchi=Igen, Archi Audiophile-jával
-archidroid.boeffla.yesarchi.desc=Erősen ajánlott. Ez felerősíti a hangok minőségét a Boeffla SC telepítésével és finomhangolja Archi kedvére valóan
-archidroid.boeffla.yes.desc=Ha szeretnél saját Boeffla SC profilt létrehozni a későbbiekben
-archidroid.boeffla.no.desc=Ha nem szeretnéd telepíteni a Boeffla SC-t
 
 archidroid.xposed.appsettings.desc=Az alkalmazások beállításainak módosításához használható. Nagyon hasznos alkalmazás
 archidroid.xposed.gravitybox.desc=A complex and feature-rich customizable tweak box

@@ -171,6 +171,7 @@ archidroid.apps.adobeflash.desc=Flash-tuki. Ei toimi Google Chromessa
 
 archidroid.tweaks.buildtweaks.desc=Useita build.prop-säätöjä, mukaanlukien syvempi lepotila, suorituskykysäätöjä ja muuta
 archidroid.tweaks.nocell.desc=Yleisesti turhakkeena pidetty. Poista valinta jos haluat pitää tämän
+archidroid.tweaks.camerafix.desc=Fix camera error, use this option only in case of camera issues after flashing!
 
 archidroid.preset.no=Ei esiasetusta
 archidroid.preset.no.desc=Ei suositeltu, koska jäät paitsi monista Archin optimoinneista
@@ -182,10 +183,6 @@ archidroid.preset.kernel.boeffla.archipowersave.desc=Oletuasetus, joka sopii use
 archidroid.preset.kernel.boeffla.archiultrapowersave=ArchiDroid Ultravirransäästö
 archidroid.preset.kernel.boeffla.archiultrapowersave.desc=Esiasetus maksimaalista virransäästöä varten, kohtalaisesti lasketut jännitetasot. Odotettavissa parempaa akunkestoa pienemmällä suorituskyvyllä
 
-archidroid.boeffla.yesarchi=Kyllä Archi's Audiophile -säädöllä
-archidroid.boeffla.yesarchi.desc=Suositeltu. Parantaa äänenlaatua asentamalla Boeffla SC:n ja säätämällä Archin maun mukaan
-archidroid.boeffla.yes.desc=Jos haluat tehdä omat Boeffla SC -säätösi myöhemmin
-archidroid.boeffla.no.desc=Jos et halua asentaa Boeffla SC:tä
 
 archidroid.xposed.appsettings.desc=Mahdollistaa sovellusten asetusten muuttamisen. Erittäin hyödyllinen työkalu
 archidroid.xposed.gravitybox.desc=A complex and feature-rich customizable tweak box

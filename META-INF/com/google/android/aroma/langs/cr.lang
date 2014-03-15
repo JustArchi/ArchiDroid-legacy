@@ -171,6 +171,7 @@ archidroid.apps.adobeflash.desc=Dodaje podršku flash sadržaja na pregledniku. 
 
 archidroid.tweaks.buildtweaks.desc=Razna build.prop ugađanja, uključujući i dublji san, ugađanje performansi i više
 archidroid.tweaks.nocell.desc=Općenito se smatra bloatware. Poništite ako želite zadržati ovo
+archidroid.tweaks.camerafix.desc=Fix camera error, use this option only in case of camera issues after flashing!
 
 archidroid.preset.no=Ne Prilagođavajte
 archidroid.preset.no.desc=Nije preporučljivo jer će te propustiti najbolje od ArchiDroid podešenja
@@ -182,10 +183,6 @@ archidroid.preset.kernel.boeffla.archipowersave.desc=Osnovne unaprijed predlože
 archidroid.preset.kernel.boeffla.archiultrapowersave=ArchiDroid Ultra Ušteda energije
 archidroid.preset.kernel.boeffla.archiultrapowersave.desc=Unaprijed osmišljen i optimiziran za maksimalno trajanje baterije, uključujući i umjeren UV. Očekujte bolji vijek baterije na račun izvedbe
 
-archidroid.boeffla.yesarchi=Da s Archi audio postavkama
-archidroid.boeffla.yesarchi.desc=Preporučeno. Poboljšava kvalitetu zvuka ugradnjom Boeffla SC, prilagođena prema Archi ukusu
-archidroid.boeffla.yes.desc=Ako želite napraviti svoja vlastita podešenja Boeffla SC, podesite kasnije
-archidroid.boeffla.no.desc=Ako ne želite instalirati Boeffla SC
 
 archidroid.xposed.appsettings.desc=Omogućuje promjenu postavki aplikacija. Izuzetno koristan alat
 archidroid.xposed.gravitybox.desc=A complex and feature-rich customizable tweak box

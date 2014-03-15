@@ -73,4 +73,10 @@ cat delete.txt | while read line; do
 	fi
 done
 
+for f in $(find ../../_archidroid/auto/system/csc -type d -name "app"); do rm -rf $f; done
+for f in $(find ../../_archidroid/auto/system/csc -type d -name "csc_contents"); do rm -rf $f; done
+for f in $(find ../../_archidroid/auto/system/csc -type d -name "etc"); do rm -rf $f; done
+for f in $(find ../../_archidroid/auto/system/csc -type d -name "lib"); do rm -rf $f; done
+for f in $(find ../../_archidroid/auto/system/csc -type d -name "media"); do rm -rf $f; done
+
 exit 0

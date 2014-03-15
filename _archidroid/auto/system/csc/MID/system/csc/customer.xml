@@ -61,23 +61,7 @@
     </NetworkInfo>
   </GeneralInfo>
   <Settings>
-    <Main><Security>
-        <NbNetworkLock>13</NbNetworkLock>
-        <NetworkLock>460BB</NetworkLock>
-        <NetworkLock>250BB</NetworkLock>
-        <NetworkLock>255BB</NetworkLock>
-        <NetworkLock>502BB</NetworkLock>
-        <NetworkLock>510BB</NetworkLock>
-        <NetworkLock>401BB</NetworkLock>
-        <NetworkLock>525BB</NetworkLock>
-        <NetworkLock>452BB</NetworkLock>
-        <NetworkLock>505BB</NetworkLock>
-        <NetworkLock>515BB</NetworkLock>
-        <NetworkLock>470BB</NetworkLock>
-        <NetworkLock>404BB</NetworkLock>
-        <NetworkLock>405BB</NetworkLock>
-      </Security>
-	
+    <Main>	
       <Network>
         <AutoProfile>on</AutoProfile>
         <AutoVoicemail>off</AutoVoicemail>

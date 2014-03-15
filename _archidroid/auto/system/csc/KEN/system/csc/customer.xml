@@ -1,7 +1,7 @@
-﻿<?xml  version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <CustomerData>
   <GeneralInfo>
-    <CSCEdition>ED007</CSCEdition>
+    <CSCEdition>ED0010</CSCEdition>
     <Country>Kenya</Country>
     <CountryISO>KE</CountryISO>
     <Region>MEA</Region>
@@ -21,7 +21,7 @@
     </NetworkInfo>
     <NetworkInfo>
       <MCCMNC>63905</MCCMNC>
-      <NetworkName>Econet</NetworkName>
+      <NetworkName>YU</NetworkName>
     </NetworkInfo>
     <NetworkInfo>
       <MCCMNC>64004</MCCMNC>
@@ -30,7 +30,7 @@
   </GeneralInfo>
   <Settings>
     <Main>
-	<Security>
+      <Security>
         <NbNetworkLock>60</NbNetworkLock>
         <NetworkLock>460BB</NetworkLock>
         <NetworkLock>454BB</NetworkLock>
@@ -92,7 +92,7 @@
         <NetworkLock>418BB</NetworkLock>
         <NetworkLock>286BB</NetworkLock>
         <NetworkLock>412BB</NetworkLock>
-	 </Security>
+      </Security>
       <Network>
         <NbSOSNumber>1</NbSOSNumber>
         <SOSNumber>999</SOSNumber>

@@ -15,5 +15,6 @@
 	<CscFeature_RIL_EnableLaunchBrowser>TRUE</CscFeature_RIL_EnableLaunchBrowser>
 	<CscFeature_Web_SetHomepageURL>http://content.samsung.com</CscFeature_Web_SetHomepageURL>
 	<CscFeature_Web_DisableMostVisitedHomepage>TRUE</CscFeature_Web_DisableMostVisitedHomepage>
+	<CscFeature_Camera_EnableCameraDuringCall>FALSE</CscFeature_Camera_EnableCameraDuringCall>
   </FeatureSet>
 </SamsungMobileFeauture>

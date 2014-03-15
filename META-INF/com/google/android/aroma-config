@@ -29,7 +29,7 @@
 # Initializing Rom Information
 ##
 
-setvar("preset_version","13");
+setvar("preset_version","14");
 
 ini_set("dp","3");
 ini_set("rom_name",             "ArchiDroid");
@@ -271,6 +271,9 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 		"archidroidota","ArchiDroid OTA","<~archidroid.ota.desc>","check.checked",
 		"xposed","Xposed Framework","<~archidroid.xposed.desc>","check.checked",
 		"updatemodem","<~archidroid.updatemodem> [XXUGMK6]","<~archidroid.updatemodem.desc>","check",
+
+		"googleapps","<#selectbg_g>Google Apps</#>","","group",
+		"gapps","Google Apps","<~archidroid.gapps.desc>","check.checked",
 
 		"archiapps","<#selectbg_g>ArchiDroid Apps</#>","","group",
 		"vnc","VNC Viewer","<~archidroid.apps.vnc.desc>","check",

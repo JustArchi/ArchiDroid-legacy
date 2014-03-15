@@ -5,7 +5,7 @@
 #exit 1
 
 # Common
-VERSION=1.7.12
+VERSION=1.7.13
 STABLE=0
 NOSYNC=0
 SAMMY=0

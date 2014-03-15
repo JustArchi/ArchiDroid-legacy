@@ -211,7 +211,6 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "previ
 	else
 		writetmpfile("archidroid.prop",read("/data/media/0/ArchiDroid/AromaPreset/2.X/archidroid.prop"));
 		writetmpfile("archidroidboeffla.prop",read("/data/media/0/ArchiDroid/AromaPreset/2.X/archidroidboeffla.prop"));
-		writetmpfile("archidroidboefflasound.prop",read("/data/media/0/ArchiDroid/AromaPreset/2.X/archidroidboefflasound.prop"));
 		writetmpfile("archidroidxposed.prop",read("/data/media/0/ArchiDroid/AromaPreset/2.X/archidroidxposed.prop"));
 		writetmpfile("archidroidbuild.prop",read("/data/media/0/ArchiDroid/AromaPreset/2.X/archidroidbuild.prop"));
 	endif;
@@ -301,22 +300,6 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 			"no","<~archidroid.preset.no>","<~archidroid.preset.no.desc>","select"
 		);
 		write("/data/media/0/ArchiDroid/AromaPreset/2.X/archidroidboeffla.prop",readtmpfile("archidroidboeffla.prop"));
-	endif;
-
-	### Boeffla for non-boeffla kernels, yet supporting boeffla sound engine ###
-	if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "stock" || file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "yank" || file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "agni" then
-		form(
-			"<~archidroid.custom.extra>",
-			"<~archidroid.custom.desc>",
-			"icons/apps",
-			"archidroidboefflasound.prop",
-
-			"boeffla","<#selectbg_g>Boeffla Sound Control</#>","","group",
-			"yesarchi","<~archidroid.boeffla.yesarchi>","<~archidroid.boeffla.yesarchi.desc>","select.selected",
-			"yes","<~text_yes>","<~archidroid.boeffla.yes.desc>","select",
-			"no","<~text_no>","<~archidroid.boeffla.no.desc>","select"
-		);
-		write("/data/media/0/ArchiDroid/AromaPreset/2.X/archidroidboefflasound.prop",readtmpfile("archidroidboefflasound.prop"));
 	endif;
 
 	if file_getprop("/tmp/aroma-data/archidroid.prop","xposed") == "1" then

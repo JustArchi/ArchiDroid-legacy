@@ -11,6 +11,10 @@
   <!-- OBSOLETE -->
   <remove-project name="android_packages_apps_OpenDelta" />
   
+  <!-- ARCHIDROID ADDITIONS -->
+  <project name="microg/android_packages_apps_UnifiedNlp" path="packages/apps/UnifiedNlp" remote="github" revision="master" />
+  <project name="rtreffer/LocalGSMLocationProvider" path="packages/apps/LocalGSMLocationProvider" remote="github" revision="master" />
+  
   <!-- ARCHIDROID FORKS -->  
   <remove-project name="platform/frameworks/rs" />
   <project name="JustArchi/android_frameworks_rs" path="frameworks/rs" remote="github" revision="android-4.4" />

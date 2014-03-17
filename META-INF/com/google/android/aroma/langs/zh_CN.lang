@@ -114,7 +114,7 @@ archidroid.kernel.boeffla.desc=高度推荐的杰作，适合每个人, 包含 B
 archidroid.kernel.yank.desc=推荐作为替代选择
 archidroid.kernel.googy.desc=基于 Siyah 源码. 双启动特性, 带有 STweaks 进行控制
 archidroid.kernel.devil.desc=基于 Perseus 源码. 双启动特性, 带有 DevilTools 进行控制
-archidroid.kernel.agni.desc=A very sophisticated kernel, featuring F2FS support
+archidroid.kernel.agni.desc=支持 F2FS 的一款非常尖端的内核
 archidroid.kernel.stock.desc=使用 ROM 默认内核
 
 archidroid.theme.aosp.desc=AOSP 主题
@@ -171,7 +171,7 @@ archidroid.apps.adobeflash.desc=增加 flash 内容支持. 与 Google Chrome 不
 
 archidroid.tweaks.buildtweaks.desc=诸多 build.prop 微调, 包含深度睡眠、性能微调及其他
 archidroid.tweaks.nocell.desc=通常被认为是臃肿软件. 如果想保留这个取消选择
-archidroid.tweaks.camerafix.desc=Fix camera error, use this option only in case of camera issues after flashing!
+archidroid.tweaks.camerafix.desc=修复相机错误, 使用这个选项只是为了防止在刷机结束后导致相机问题!
 
 archidroid.preset.no=不使用预设设置
 archidroid.preset.no.desc=不推荐，你会错过绝大多数 Archi 的优化

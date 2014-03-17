@@ -114,7 +114,7 @@ archidroid.kernel.boeffla.desc=Erősen ajánlott, mesterien tökéletes mindenki
 archidroid.kernel.yank.desc=Alternatívaként ajánlott
 archidroid.kernel.googy.desc=Siyah forrására alapszik. Dual-boot támogatás, STweaks
 archidroid.kernel.devil.desc=Perseus forrására alapszik. Dual-boot támogatás, DevilTools
-archidroid.kernel.agni.desc=A very sophisticated kernel, featuring F2FS support
+archidroid.kernel.agni.desc=Nagyon kifinomult kernel F2FS támogatással
 archidroid.kernel.stock.desc=Alapértelmezett kernel, mely jön a ROM-mal.
 
 archidroid.theme.aosp.desc=AOSP téma
@@ -171,7 +171,7 @@ archidroid.apps.adobeflash.desc=Flash tartalmakhoz. Google Chrome-ban nem műkö
 
 archidroid.tweaks.buildtweaks.desc=Egy csomó build.prop finomhangolás, mélyebb alvás, teljesítmény finomhangolás és még sok más
 archidroid.tweaks.nocell.desc=Ez egy bloatware-nek tekinthető alkalmazás. Vedd ki a pipát, ha meg szeretnéd tartani.
-archidroid.tweaks.camerafix.desc=Fix camera error, use this option only in case of camera issues after flashing!
+archidroid.tweaks.camerafix.desc=Kamera hibák javítása, csak akkor élj ezzel a lehetőséggel, ha flashelés után nem működik a kamera!
 
 archidroid.preset.no=Nincs konfiguráció
 archidroid.preset.no.desc=Nem ajánlott, mert lemaradsz az Archi féle optimalizálásokról
@@ -185,7 +185,7 @@ archidroid.preset.kernel.boeffla.archiultrapowersave.desc=Ez a profil a maximál
 
 
 archidroid.xposed.appsettings.desc=Az alkalmazások beállításainak módosításához használható. Nagyon hasznos alkalmazás
-archidroid.xposed.gravitybox.desc=A complex and feature-rich customizable tweak box
+archidroid.xposed.gravitybox.desc=Komplex és funkciógazdag testreszabható tweak doboz
 archidroid.xposed.xprivacy.desc=Az alkalmazások engedélyeinek állítgatásához használható modul
 archidroid.xposed.wanam.desc=Mesterdarab Wanam-tól. Továbbfejleszti az ArchiDroid rugalmasságát és egy tonna funkciót biztosít személyreszabáshoz
 

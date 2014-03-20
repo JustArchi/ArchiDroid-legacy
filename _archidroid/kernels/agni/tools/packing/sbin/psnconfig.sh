@@ -18,12 +18,6 @@ echo "0" > /sys/class/misc/touchwake/enabled
 # setting up swappiness
 echo 30 > /proc/sys/vm/swappiness
 
-# Optimize mounts
-#mount -o remount,noatime,nodiratime,nodev,nosuid /system
-#mount -o remount,noatime,nodiratime,nodev,nosuid /data
-#mount -o remount,noatime,nodiratime,nodev,nosuid /cache
-#mount -o remount,noatime,nodiratime,nodev,nosuid /preload
-
 # MDNIE Hijack
 echo 0 > /sys/class/mdnie/mdnie/hijack
 echo 0 > /sys/class/mdnie/mdnie/sharpen

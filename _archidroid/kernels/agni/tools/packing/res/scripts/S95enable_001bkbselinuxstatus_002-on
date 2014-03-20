@@ -1,0 +1,7 @@
+#!/system/bin/sh
+#AGNi Kernel SELINUX STATUS
+#Set SELINUX Status Enforcing or Permissive :
+#Enforcing
+
+setenforce 1
+

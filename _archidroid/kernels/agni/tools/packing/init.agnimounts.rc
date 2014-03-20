@@ -1,10 +1,17 @@
 ## AGNi Mounts (I9300)
 
-on fs
+on early-fs
     mkdir /system
     mkdir /data
     mkdir /cache
     mkdir /preload
+    wait /dev/block/mmcblk0p9
+    wait /dev/block/mmcblk0p12
+    wait /dev/block/mmcblk0p8
+    wait /dev/block/mmcblk0p10
+    wait /proc/mounts
+    exec /sbin/fs_checker.sh
+    wait /fs_checker_status
     mount ext4 /dev/block/mmcblk0p9 /system ro wait noatime nodiratime nosuid nodev discard
     mount f2fs /dev/block/mmcblk0p9 /system ro wait noatime nodiratime nosuid nodev discard,background_gc=off,inline_xattr
     mount ext4 /dev/block/mmcblk0p12 /data wait noatime nodiratime nosuid nodev discard,noauto_da_alloc,journal_async_commit
@@ -13,6 +20,5 @@ on fs
     mount f2fs /dev/block/mmcblk0p8 /cache wait noatime nodiratime nosuid nodev discard,background_gc=off,inline_xattr
     mount ext4 /dev/block/mmcblk0p10 /preload wait noatime nodiratime nosuid nodev discard
     mount f2fs /dev/block/mmcblk0p10 /preload wait noatime nodiratime nosuid nodev discard,background_gc=off,inline_xattr
-    wait /proc/mounts
     exec /sbin/fstab_handler.sh
 

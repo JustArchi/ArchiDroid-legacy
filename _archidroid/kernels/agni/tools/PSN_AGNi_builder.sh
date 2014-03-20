@@ -9,7 +9,7 @@ AGNI_PURECM_SELINUX="PERMISSIVE"
 DEVICE_MODEL="I9300"
 DEVICE_NAME="m0"
 BOOT_PARTITION="/dev/block/mmcblk0p5"
-AGNI_PATCHER_VER="4.3.1"
+AGNI_PATCHER_VER="4.3.2"
 #############################################################################################################
 #### DEFINE MKBOOTIMG PARAMETERS (Device specifics) #########################################################
 MK_BASE=40000000
@@ -41,13 +41,11 @@ RAMFS_EXTRACT_FAIL="0"
 touch $AGNI_LOG_FILE
 chmod 664 $AGNI_LOG_FILE
 
-if ! [ "`grep Installer $AGNI_LOG_FILE`" ];
-then
-	echo " " >> $AGNI_LOG_FILE
-	echo "############################################################################" >> $AGNI_LOG_FILE
-	echo "			AGNi pureCM Installer LOG " >> $AGNI_LOG_FILE
-	echo "############################################################################" >> $AGNI_LOG_FILE
-fi
+echo " " > $AGNI_LOG_FILE
+echo " " >> $AGNI_LOG_FILE
+echo "############################################################################" >> $AGNI_LOG_FILE
+echo "			AGNi pureCM Installer LOG                                 " >> $AGNI_LOG_FILE
+echo "############################################################################" >> $AGNI_LOG_FILE
 echo " " >> $AGNI_LOG_FILE
 echo "Dated: `date` " >> $AGNI_LOG_FILE
 echo "   pureCM version		: v$AGNI_PURECM_VER" >> $AGNI_LOG_FILE
@@ -123,6 +121,16 @@ if ! [ "`grep init.agnimounts.rc /tmp/extracted/init.smdk4x12.rc`" ];
 	then
         awk '/init.smdk4x12.usb.rc/{print "	import init.agnimounts.rc"} {print}' /tmp/extracted/init.smdk4x12.rc > /tmp/extracted/init.smdk4x12.rc-temp
 	mv /tmp/extracted/init.smdk4x12.rc-temp /tmp/extracted/init.smdk4x12.rc
+        awk '/mount_all/{print "	   mount_all /fstab.smdk4x12.additional"} {print}' /tmp/extracted/init.smdk4x12.rc > /tmp/extracted/init.smdk4x12.rc-temp
+	mv /tmp/extracted/init.smdk4x12.rc-temp /tmp/extracted/init.smdk4x12.rc
+	sed '/mmcblk0p9/d' /tmp/extracted/fstab.smdk4x12 > /tmp/extracted/fstab.smdk4x12-temp
+	mv /tmp/extracted/fstab.smdk4x12-temp /tmp/extracted/fstab.smdk4x12
+	sed '/mmcblk0p12/d' /tmp/extracted/fstab.smdk4x12 > /tmp/extracted/fstab.smdk4x12-temp
+	mv /tmp/extracted/fstab.smdk4x12-temp /tmp/extracted/fstab.smdk4x12
+	sed '/mmcblk0p8/d' /tmp/extracted/fstab.smdk4x12 > /tmp/extracted/fstab.smdk4x12-temp
+	mv /tmp/extracted/fstab.smdk4x12-temp /tmp/extracted/fstab.smdk4x12
+	sed '/mmcblk0p10/d' /tmp/extracted/fstab.smdk4x12 > /tmp/extracted/fstab.smdk4x12-temp
+	mv /tmp/extracted/fstab.smdk4x12-temp /tmp/extracted/fstab.smdk4x12
 	echo " Applied modification 1 to init.smdk4x12.rc ! " >> $AGNI_LOG_FILE
 fi
 if ! [ "`grep AGNi-Set-SELINUX-PERMISSIVE /tmp/extracted/init.smdk4x12.rc`" ];
@@ -138,15 +146,18 @@ if ! [ "`grep f2fs /tmp/extracted/lpm.rc`" ];
 	mv /tmp/extracted/lpm.rc-temp /tmp/extracted/lpm.rc
 	echo " Applied modification to lpm.rc ! " >> $AGNI_LOG_FILE
 fi
-if ! [ "`grep AGNi /system/bin/sysinit`" ];
+if ! [ "`grep AGNi-Modified-conditional-sysinit /system/bin/sysinit`" ];
 	then
 	echo "`cat /tmp/workboot/system-sysinit-replace`" > /system/bin/sysinit
 	echo " Applied modification to /system/bin/sysinit ! " >> $AGNI_LOG_FILE
 fi
-if [ "`grep omni $ROM_BUILD_PROP`" ];
+if [ "`grep f2fs /proc/mounts`" ];
 	then
-	mv -f /tmp/workboot/sepolicy-omni /tmp/extracted/sepolicy
-	echo " Replaced sepolicy for omni. " >> $AGNI_LOG_FILE
+	if [ "`grep omni $ROM_BUILD_PROP`" ] || [ "`grep slim $ROM_BUILD_PROP`" ];
+		then
+		mv -f /tmp/workboot/sepolicy /tmp/extracted/sepolicy
+		echo " Replaced sepolicy. " >> $AGNI_LOG_FILE
+	fi
 fi
 
 mkdir -p /tmp/extracted/dev
@@ -159,9 +170,11 @@ cp -rf /tmp/packing/* /tmp/extracted
 cd /tmp/extracted/sbin; ln -s ../init ueventd; ln -s ../init watchdogd;
 cd /tmp/extracted/sbin; ln -s busybox sh;
 cd /tmp/extracted/sbin; ln -s mount.exfat fsck.exfat; ln -s mount.exfat mkfs.exfat;
+cd /tmp/extracted/sbin; ln -s f2fs fibmap.f2fs; ln -s f2fs mkfs.f2fs; ln -s f2fs fsck.f2fs;
 chmod 644 /tmp/extracted/*
 chmod 777 /tmp/extracted/init
 chmod -R 777 /tmp/extracted/res
+chmod -R 777 /tmp/extracted/sbin
 echo " RAMDISK has been modified successfully ! " >> $AGNI_LOG_FILE
 
 echo "  " >> $AGNI_LOG_FILE

@@ -274,6 +274,7 @@ We are able to have most of our routing static so do that
 <device name="builtin-mic">
     <path name="on">
         <ctl name="Main Mic Switch" val="1"/>
+        <ctl name="MainMicBias Mode" val="1"/>
         <ctl name="IN1L Volume" val="28"/>
         <ctl name="MIXINL IN1L Switch" val="1"/>
         <ctl name="MIXINL IN1L Volume" val="1"/>
@@ -284,6 +285,7 @@ We are able to have most of our routing static so do that
     </path>
     <path name="off">
         <ctl name="Main Mic Switch" val="0"/>
+        <ctl name="MainMicBias Mode" val="0"/>
         <ctl name="MIXINL IN1L Switch" val="0"/>
         <ctl name="MIXINL IN1L Volume" val="0"/>
         <ctl name="IN1L Volume" val="10"/>
@@ -292,6 +294,7 @@ We are able to have most of our routing static so do that
 <device name="back-mic">
     <path name="on">
         <ctl name="Sub Mic Switch" val="1"/>
+        <ctl name="SubMicBias Mode" val="1"/>
         <ctl name="IN1R Volume" val="28"/>
         <ctl name="MIXINR IN1R Switch" val="1"/>
         <ctl name="MIXINR IN1R Volume" val="1"/>
@@ -302,6 +305,7 @@ We are able to have most of our routing static so do that
     </path>
     <path name="off">
         <ctl name="Sub Mic Switch" val="0"/>
+        <ctl name="SubMicBias Mode" val="0"/>
         <ctl name="MIXINR IN1R Switch" val="0"/>
         <ctl name="IN1R Volume" val="11"/>
     </path>

@@ -1,11 +1,24 @@
-###############################################################
-#     _                _      _  ____               _      _  #
-#    / \    _ __  ___ | |__  (_)|  _ \  _ __  ___  (_)  __| | #
-#   / _ \  | '__|/ __|| '_ \ | || | | || '__|/ _ \ | | / _` | #
-#  / ___ \ | |  | (__ | | | || || |_| || |  | (_) || || (_| | #
-# /_/   \_\|_|   \___||_| |_||_||____/ |_|   \___/ |_| \__,_| #
-#                                                             #
-###############################################################
+#     _             _     _ ____            _     _
+#    / \   _ __ ___| |__ (_)  _ \ _ __ ___ (_) __| |
+#   / _ \ | '__/ __| '_ \| | | | | '__/ _ \| |/ _` |
+#  / ___ \| | | (__| | | | | |_| | | | (_) | | (_| |
+# /_/   \_\_|  \___|_| |_|_|____/|_|  \___/|_|\__,_|
+#
+# Copyright 2014 Łukasz "JustArchi" Domeradzki
+# Contact: JustArchi@JustArchi.net
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
 ui_print(">>> ArchiDroid is now loading...");
 #sleep (1);
 assert(getprop("ro.product.device") == "m0" || getprop("ro.build.product") == "m0" || 
@@ -33,7 +46,7 @@ endif;
 
 if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" then
 	### ARCHIDROID TOOLS ###
-	package_extract_file("_archidroid/scripts/adlock.sh", "/tmp/adlock.sh");
+	package_extract_file("_archidroid/exec/adlock.sh", "/tmp/adlock.sh");
 	set_perm(0, 0, 0777, "/tmp/adlock.sh");
 
 	set_progress(0.02);
@@ -59,7 +72,7 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 
 	if file_getprop("/tmp/aroma-data/archidroidwipe.prop","wipe") == "yes" then
 		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Formatting /data excluding /data/media");
-		package_extract_file("_archidroid/scripts/wipe.sh", "/tmp/wipe.sh");
+		package_extract_file("_archidroid/exec/wipe.sh", "/tmp/wipe.sh");
 		set_perm(0, 0, 0777, "/tmp/wipe.sh");
 		run_program("/tmp/wipe.sh");
 		delete("/tmp/wipe.sh");
@@ -75,33 +88,23 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 	endif;
 
 	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Executing Archi's Scripts");
-	package_extract_file("_archidroid/scripts/archidroid.sh", "/tmp/archidroid.sh");
+	package_extract_file("_archidroid/exec/archidroid.sh", "/tmp/archidroid.sh");
 	set_perm(0, 0, 0777, "/tmp/archidroid.sh");
-	run_program("/tmp/archidroid.sh");
-	delete("/tmp/archidroid.sh");
 
 	if file_getprop("/tmp/aroma-data/archidroidwipe.prop","wipe") == "yes" then
 		ui_print("<b><#ff0000>RunOnce</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>$</#></b> Install Mode Detected");
-		package_extract_file("_archidroid/scripts/archidroid_install.sh", "/tmp/archidroid_install.sh");
-		set_perm(0, 0, 0777, "/tmp/archidroid_install.sh");
-		run_program("/tmp/archidroid_install.sh");
-		delete("/tmp/archidroid_install.sh");
+		run_program("/tmp/archidroid.sh", "INSTALL");
 	else
 		if file_getprop("/tmp/aroma-data/archidroidwipe.prop","force") == "no" then
 			ui_print("<b><#ff0000>RunOnce</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>$</#></b> Update Mode Detected");
-			package_extract_file("_archidroid/scripts/archidroid_update.sh", "/tmp/archidroid_update.sh");
-			set_perm(0, 0, 0777, "/tmp/archidroid_update.sh");
-			run_program("/tmp/archidroid_update.sh");
+			run_program("/tmp/archidroid.sh", "UPDATE");
 		else
 			ui_print("<b><#ff0000>RunOnce</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>$</#></b> Forced Update Mode Detected");
-			package_extract_file("_archidroid/scripts/archidroid_update.sh", "/tmp/archidroid_update.sh");
-			set_perm(0, 0, 0777, "/tmp/archidroid_update.sh");
-			run_program("/tmp/archidroid_update.sh", "force");
+			run_program("/tmp/archidroid.sh", "UPDATE", "FORCE");
 		endif;
-		delete("/tmp/archidroid_update.sh");
 	endif;
 
-	set_progress(0.09);
+	delete("/tmp/archidroid.sh");
 
 	set_progress(0.1);
 
@@ -194,7 +197,7 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Flashing ArchiDroid Init Scripts");
 	### IMPORTANT ###
 	package_extract_dir("_archidroid/auto", "/");
-	package_extract_file("_archidroid/scripts/archidroid_backend.sh", "/tmp/archidroid_backend.sh");
+	package_extract_file("_archidroid/exec/archidroid_backend.sh", "/tmp/archidroid_backend.sh");
 	set_perm(0, 0, 0777, "/tmp/archidroid_backend.sh");
 	run_program("/tmp/archidroid_backend.sh");
 	delete("/tmp/archidroid_backend.sh");

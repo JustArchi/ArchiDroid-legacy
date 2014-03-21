@@ -21,14 +21,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-reboot recovery &
+AD="/data/media/0/ArchiDroid"
 
-# In some recent versions of CWM, reboot recovery command isn't working properly, it's stuck
-# We should keep this fallback for a while
-# If reboot in fact works, 5 seconds will be enough to sync and reboot device
-sleep 5
+touch "/data/ARCHIDROID_DONT_REMOVE_ME"
+mkdir -p "$AD"
+rm -f "$AD/INSTALL" "$AD/UPDATE" "$AD/FORCE"
+
+for ARG in "$@"; do
+	touch "$AD/$ARG"
+done
+
 sync
-echo 1 > /proc/sys/kernel/sysrq # HARD
-echo b > /proc/sysrq-trigger # REBOOT
-
 exit 0

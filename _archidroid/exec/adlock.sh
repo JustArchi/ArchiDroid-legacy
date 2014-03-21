@@ -21,14 +21,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-reboot recovery &
+if [ "$1" = "lock" ]; then
+	chattr +i "$2"
+elif [ "$1" = "unlock" ]; then
+	chattr -i "$2"
+else
+	exit 1
+fi
 
-# In some recent versions of CWM, reboot recovery command isn't working properly, it's stuck
-# We should keep this fallback for a while
-# If reboot in fact works, 5 seconds will be enough to sync and reboot device
-sleep 5
 sync
-echo 1 > /proc/sys/kernel/sysrq # HARD
-echo b > /proc/sysrq-trigger # REBOOT
-
 exit 0

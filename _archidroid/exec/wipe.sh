@@ -21,14 +21,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-reboot recovery &
+for f in $(find /data -mindepth 1 -maxdepth 1); do
+	if [ "$f" != "/data/media" ]; then
+		rm -fR "$f"
+	fi
+done
 
-# In some recent versions of CWM, reboot recovery command isn't working properly, it's stuck
-# We should keep this fallback for a while
-# If reboot in fact works, 5 seconds will be enough to sync and reboot device
-sleep 5
-sync
-echo 1 > /proc/sys/kernel/sysrq # HARD
-echo b > /proc/sysrq-trigger # REBOOT
-
+printf "2" > /data/.layout_version
 exit 0

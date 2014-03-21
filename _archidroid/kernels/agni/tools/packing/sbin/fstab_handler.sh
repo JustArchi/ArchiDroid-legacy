@@ -13,11 +13,11 @@ $BBOX mount -o rw,remount /
 if [ -f $DATA_F2FS_INDICATOR ];
 	then
 	$BBOX mv -f /res/etc/fstab.smdk4x12.f2fs /fstab.smdk4x12.additional
-	chmod 644 /fstab.espresso.additional
+	chmod 644 /fstab.smdk4x12.additional
 	rm $DATA_F2FS_INDICATOR
 	else
 	$BBOX mv -f /res/etc/fstab.smdk4x12.ext4 /fstab.smdk4x12.additional
-	chmod 644 /fstab.espresso.additional
+	chmod 644 /fstab.smdk4x12.additional
 fi
 
 

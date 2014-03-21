@@ -4,7 +4,7 @@
 #### AGNi Kernel-Patcher (based on original implementation for GT-S5830)
 
 #### DEFINE AGNi pureCM version info ########################################################################
-AGNI_PURECM_VER="2.7.4"
+AGNI_PURECM_VER="2.7.5"
 AGNI_PURECM_SELINUX="PERMISSIVE"
 DEVICE_MODEL="I9300"
 DEVICE_NAME="m0"
@@ -140,9 +140,9 @@ if ! [ "`grep AGNi-Set-SELINUX-PERMISSIVE /tmp/extracted/init.smdk4x12.rc`" ];
 fi
 if ! [ "`grep f2fs /tmp/extracted/lpm.rc`" ];
 	then
-	awk '/mmcblk0p9/{print "    mount f2fs /dev/block/mmcblk0p9 /system ro wait noatime nodiratime inline_xattr"} {print}' /tmp/extracted/lpm.rc > /tmp/extracted/lpm.rc-temp
+	awk '/mmcblk0p9/{print "    mount f2fs /dev/block/mmcblk0p9 /system ro wait noatime nodiratime inline_xattr active_logs=2"} {print}' /tmp/extracted/lpm.rc > /tmp/extracted/lpm.rc-temp
 	mv /tmp/extracted/lpm.rc-temp /tmp/extracted/lpm.rc
-	awk '/mmcblk0p12/{print "    mount f2fs /dev/block/mmcblk0p12 /data wait noatime nosuid nodev nodiratime inline_xattr"} {print}' /tmp/extracted/lpm.rc > /tmp/extracted/lpm.rc-temp
+	awk '/mmcblk0p12/{print "    mount f2fs /dev/block/mmcblk0p12 /data wait noatime nosuid nodev nodiratime inline_xattr active_logs=2"} {print}' /tmp/extracted/lpm.rc > /tmp/extracted/lpm.rc-temp
 	mv /tmp/extracted/lpm.rc-temp /tmp/extracted/lpm.rc
 	echo " Applied modification to lpm.rc ! " >> $AGNI_LOG_FILE
 fi

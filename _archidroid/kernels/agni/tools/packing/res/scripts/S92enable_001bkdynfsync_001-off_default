@@ -1,7 +1,7 @@
 #!/sbin/busybox sh
 #Dynamic FileSync v1.2
 #Enable or disable Dynamic FSync :
-#off
+#off (Default)
 
 echo 0 > /sys/kernel/dyn_fsync/Dyn_fsync_earlysuspend
 echo 0 > /sys/kernel/dyn_fsync/Dyn_fsync_active

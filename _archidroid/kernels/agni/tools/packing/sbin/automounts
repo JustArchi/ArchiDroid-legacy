@@ -20,28 +20,28 @@ mkdir /system && mkdir /data && mkdir /cache && mkdir /preload;
 $BBOX mount -t ext4 -o ro,noatime,nodiratime,nosuid,nodev,discard $SYSTEM /system && echo " /system mounted as ext4" || echo "----> Because /system is either already mounted as ext4 or isnt ext4";
 if ! [ "`grep system /proc/mounts`" ];
 	then
-	$BBOX mount -t f2fs -o ro,noatime,nodiratime,nosuid,nodev,discard,background_gc=off,inline_xattr $SYSTEM /system &&	echo " /system mounted as f2fs";
+	$BBOX mount -t f2fs -o ro,noatime,nodiratime,nosuid,nodev,discard,background_gc=off,inline_xattr,active_logs=2 $SYSTEM /system &&	echo " /system mounted as f2fs";
 fi
 
 # /preload
 $BBOX mount -t ext4 -o noatime,nosuid,nodev,nodiratime,discard,barrier=0 $PRELOAD /preload && echo " /preload mounted as ext4" || echo "----> Because /preload is either already mounted as ext4 or isnt ext4";
 if ! [ "`grep preload /proc/mounts`" ];
 	then
-	$BBOX mount -t f2fs -o noatime,nosuid,nodev,nodiratime,background_gc=off,discard,inline_xattr $PRELOAD /preload && echo " /preload mounted as f2fs" || echo "----> Because /preload is a swap partition";
+	$BBOX mount -t f2fs -o noatime,nosuid,nodev,nodiratime,background_gc=off,discard,inline_xattr,active_logs=2 $PRELOAD /preload && echo " /preload mounted as f2fs" || echo "----> Because /preload is a swap partition";
 fi
 
 # /cache
 $BBOX mount -t ext4 -o noatime,nosuid,nodev,nodiratime,discard,barrier=0 $CACHE /cache && echo " /cache mounted as ext4" || echo "----> Because /cache is either already mounted as ext4 or isnt ext4";
 if ! [ "`grep cache /proc/mounts`" ];
 	then
-	$BBOX mount -t f2fs -o noatime,nosuid,nodev,nodiratime,background_gc=off,discard,inline_xattr $CACHE /cache && echo " /cache mounted as f2fs";
+	$BBOX mount -t f2fs -o noatime,nosuid,nodev,nodiratime,background_gc=off,discard,inline_xattr,active_logs=2 $CACHE /cache && echo " /cache mounted as f2fs";
 fi
 
 # /data
 $BBOX mount -t ext4 -o noatime,nosuid,nodev,nodiratime,discard,barrier=0 $DATA /data && echo " /data mounted as ext4" || echo "----> Because /data is either already mounted as ext4 or isnt ext4";
 if ! [ "`grep data /proc/mounts`" ];
 	then
-	$BBOX mount -t f2fs -o noatime,nosuid,nodev,nodiratime,background_gc=off,discard,inline_xattr $DATA /data && echo " /data mounted as f2fs";
+	$BBOX mount -t f2fs -o noatime,nosuid,nodev,nodiratime,background_gc=off,discard,inline_xattr,active_logs=2 $DATA /data && echo " /data mounted as f2fs";
 fi
 
 $BBOX mount -o ro,remount /

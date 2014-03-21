@@ -61,7 +61,6 @@ if [ $STABLE -eq 0 ]; then
 else
 	VERSION="$VERSION STABLE"
 fi
-DENSITY="#ro.sf.lcd_density=320"
 
 function zamien {
 	FILEO=wynik.txt
@@ -189,8 +188,6 @@ echo "# ArchiDroid build.prop" >> $FILEO
 cat $FILE >> $FILEO
 cp $FILEO $FILE
 rm $FILEO
-
-sed -i 's/ro.sf.lcd_density=320/#ro.sf.lcd_density=320/g' $FILE
 
 if [ $SAMMY -eq 1 ]; then
 	sed -i 's/S_Over_the_horizon.ogg/Backroad.ogg/g' $FILE

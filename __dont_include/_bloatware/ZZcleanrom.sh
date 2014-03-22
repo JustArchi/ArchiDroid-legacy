@@ -1,7 +1,7 @@
 #!/bin/bash
 # Archi's cleaning script
 
-#rm -rf bloatware
+rm -rf bloatware
 mkdir -p bloatware/system/app > /dev/null 2>&1
 cat clean.txt | while read line; do
 	if [ -z $line ]; then

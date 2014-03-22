@@ -193,9 +193,9 @@ rm $FILEO
 sed -i 's/ro.sf.lcd_density=320/#ro.sf.lcd_density=320/g' $FILE
 
 if [ $SAMMY -eq 1 ]; then
-	sed -i 's/S_Over_the_horizon.ogg/09_Underwater_world.ogg/g' $FILE
-	sed -i 's/S_Whistle.ogg/S_Good_News.ogg/g' $FILE
-	sed -i 's/Walk_in_the_forest.ogg/Dawn_chorus.ogg/g' $FILE
+	sed -i 's/S_Over_the_horizon.ogg/Backroad.ogg/g' $FILE
+	sed -i 's/S_Whistle.ogg/pixiedust.ogg/g' $FILE
+	sed -i 's/Walk_in_the_forest.ogg/Argon.ogg/g' $FILE
 fi
 
 GDZIE=`grep -n "ro.build.display.id=" $FILE | cut -f1 -d:`

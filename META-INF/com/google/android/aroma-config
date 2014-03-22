@@ -56,7 +56,7 @@ theme("touchwiz");
 resexec("exec/admount.sh", "/system");
 resexec("exec/admount.sh", "/data");
 resexec("exec/admount.sh", "/cache");
-resexec("exec/archidroid_init.sh", "2.X");
+resexec("exec/archidroid_init.sh", "1.X");
 setvar("extsdinstall", resexec("exec/archidroid_detect_zip.sh"));
 
 

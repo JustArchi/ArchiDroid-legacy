@@ -295,9 +295,144 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Flashing Stock Kernel");
 			package_extract_file("boot.img", "/dev/block/mmcblk0p5");
 	else
+		##############
+		### KERNEL ###
+		##############
+
+		# We need to make sure that current kernel is Stock-based to prevent random zygote kernel panics
+		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Cleaning Old Kernel");
+		package_extract_file("boot.img", "/dev/block/mmcblk0p5");
+
+		### BOEFFLA ###
+		if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "boeffla" then
+			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Flashing Boeffla Kernel");
+			delete_recursive("/system/lib/modules");
+			#package_extract_dir("_archidroid/kernels/boeffla/system", "/system");
+			package_extract_dir("_archidroid/kernels/boeffla/data", "/data");
+			package_extract_dir("_archidroid/kernels/boeffla/presetseditable", "/");
+			package_extract_file("_archidroid/kernels/boeffla/boot.img", "/tmp/boeffla.img");
+			write_raw_image("/tmp/boeffla.img", "/dev/block/mmcblk0p5");
+			delete("/tmp/boeffla.img");
+
+			if file_getprop("/tmp/aroma-data/archidroidboeffla.prop","preset") == "archiperformance" then
+				ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying ArchiDroid Performance kernel preset");
+				package_extract_dir("_archidroid/kernels/boeffla/presets/archi_performance", "/data/.boeffla");
+			endif;
+			if file_getprop("/tmp/aroma-data/archidroidboeffla.prop","preset") == "archipowersave" then
+				ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying ArchiDroid PowerSave kernel preset");
+				package_extract_dir("_archidroid/kernels/boeffla/presets/archi", "/data/.boeffla");
+			endif;
+			if file_getprop("/tmp/aroma-data/archidroidboeffla.prop","preset") == "archiultrapowersave" then
+				ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying ArchiDroid UltraPowerSave kernel preset");
+				package_extract_dir("_archidroid/kernels/boeffla/presets/archi_ultrapowersave", "/data/.boeffla");
+			endif;
+		endif;
+
+		### YANK ###
+		if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "yank" then
+			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Flashing Yank555.lu Kernel");
+			package_extract_dir("_archidroid/kernels/yank/system", "/system");
+			set_perm(0, 2000, 0755, "/system/etc/init.kernel.sh");
+			package_extract_file("_archidroid/kernels/yank/boot.img", "/tmp/yank.img");
+			write_raw_image("/tmp/yank.img", "/dev/block/mmcblk0p5");
+			delete("/tmp/yank.img");
+		endif;
+
+		### GOOGY ###
+		if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "googy" then
+			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Flashing Googy Max Kernel");
+			package_extract_file("_archidroid/kernels/googy/boot.img", "/tmp/googy.img");
+			write_raw_image("/tmp/googy.img", "/dev/block/mmcblk0p5");
+			delete("/tmp/googy.img");
+		endif;
+
+		### DEVIL ###
+		if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "devil" then
+			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Flashing Devil Kernel");
+			package_extract_file("_archidroid/kernels/devil/boot.img", "/tmp/devil.img");
+			write_raw_image("/tmp/devil.img", "/dev/block/mmcblk0p5");
+			delete("/tmp/devil.img");
+			
+			package_extract_dir("_archidroid/kernels/devil/data", "/data");
+		endif;
+
+		### AGNI ###
+		if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "agni" then
+			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Flashing AGNi Kernel");
+			package_extract_dir("_archidroid/kernels/agni/system", "/system");
+			set_perm_recursive(0, 2000, 0755, 0755, "/system/etc/init.d");
+			set_perm(0, 0, 0755, "/system/etc/init.d");
+			package_extract_file("_archidroid/kernels/agni/boot.img", "/tmp/agni.img");
+			write_raw_image("/tmp/agni.img", "/dev/block/mmcblk0p5");
+			delete("/tmp/agni.img");
+		endif;
+
+		### STOCK CM ###
+		if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "stock" then
+			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Flashing Stock Kernel");
+		endif;
+
+		set_progress(0.55);
+
+
+		###############
+		### RESTORE ###
+		###############
+
+		if file_getprop("/tmp/aroma-data/archidroidwipe.prop","wipe") == "no" then
+			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Restoring Addons");
+			package_extract_file("_archidroid/auto/system/bin/backuptool.sh", "/tmp/backuptool.sh");
+			package_extract_file("_archidroid/auto/system/bin/backuptool.functions", "/tmp/backuptool.functions");
+			set_perm(0, 0, 0777, "/tmp/backuptool.sh");
+			set_perm(0, 0, 0644, "/tmp/backuptool.functions");
+			run_program("/tmp/backuptool.sh", "restore");
+			delete("/system/bin/backuptool.sh");
+			delete("/system/bin/backuptool.functions");;
+		endif;
+
+		set_progress(0.63);
+
+
+		#############
+		### THEME ###
+		#############
+
+		if file_getprop("/tmp/aroma-data/archidroid.prop","theme") != "stock" then
+			package_extract_dir("_archidroid/themes/vrtheme", "/cache/vrtheme");
+			set_perm(0, 0, 0755, "/cache/vrtheme/installtheme.sh");
+			set_perm(0, 0, 0755, "/cache/vrtheme/zip");
+			set_perm(0, 0, 0755, "/cache/vrtheme/cleanup.sh");
+			set_perm(0, 0, 0755, "/cache/vrtheme/zipalign");
+
+			if file_getprop("/tmp/aroma-data/archidroid.prop","theme") == "blue" then
+				ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Blue Theme");
+				package_extract_dir("_archidroid/themes/blue/vrtheme", "/cache/vrtheme");
+				package_extract_dir("_archidroid/themes/blue/prebuilt", "/");
+			endif;
+			if file_getprop("/tmp/aroma-data/archidroid.prop","theme") == "aosp" then
+				ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing AOSP Theme");
+				package_extract_dir("_archidroid/themes/aosp/vrtheme", "/cache/vrtheme");
+				package_extract_dir("_archidroid/themes/aosp/prebuilt", "/");
+			endif;
+			if file_getprop("/tmp/aroma-data/archidroid.prop","theme") == "black" then
+				ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Black Theme");
+				package_extract_dir("_archidroid/themes/black/vrtheme", "/cache/vrtheme");
+			endif;
+
+			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Notice! This can take a longer while");
+			run_program("/cache/vrtheme/installtheme.sh");
+			run_program("/cache/vrtheme/cleanup.sh");
+		else
+			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Stock Theme");
+		endif;
+
+		set_progress(0.75);
+
+
 		#################
 		### BLOATWARE ###
 		#################
+
 		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Removing Bloatware");
 		if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","accuweather") == "0" then
 			delete("/system/app/AccuweatherDaemon.apk");
@@ -440,140 +575,6 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 			delete("/system/app/ClipboardSaveService.apk");
 			delete("/system/app/ClipboardSaveService.odex");
 		endif;
-
-
-		##############
-		### KERNEL ###
-		##############
-
-		# We need to make sure that current kernel is Stock-based to prevent random zygote kernel panics
-		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Cleaning Old Kernel");
-		package_extract_file("boot.img", "/dev/block/mmcblk0p5");
-
-		### BOEFFLA ###
-		if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "boeffla" then
-			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Flashing Boeffla Kernel");
-			delete_recursive("/system/lib/modules");
-			#package_extract_dir("_archidroid/kernels/boeffla/system", "/system");
-			package_extract_dir("_archidroid/kernels/boeffla/data", "/data");
-			package_extract_dir("_archidroid/kernels/boeffla/presetseditable", "/");
-			package_extract_file("_archidroid/kernels/boeffla/boot.img", "/tmp/boeffla.img");
-			write_raw_image("/tmp/boeffla.img", "/dev/block/mmcblk0p5");
-			delete("/tmp/boeffla.img");
-
-			if file_getprop("/tmp/aroma-data/archidroidboeffla.prop","preset") == "archiperformance" then
-				ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying ArchiDroid Performance kernel preset");
-				package_extract_dir("_archidroid/kernels/boeffla/presets/archi_performance", "/data/.boeffla");
-			endif;
-			if file_getprop("/tmp/aroma-data/archidroidboeffla.prop","preset") == "archipowersave" then
-				ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying ArchiDroid PowerSave kernel preset");
-				package_extract_dir("_archidroid/kernels/boeffla/presets/archi", "/data/.boeffla");
-			endif;
-			if file_getprop("/tmp/aroma-data/archidroidboeffla.prop","preset") == "archiultrapowersave" then
-				ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying ArchiDroid UltraPowerSave kernel preset");
-				package_extract_dir("_archidroid/kernels/boeffla/presets/archi_ultrapowersave", "/data/.boeffla");
-			endif;
-		endif;
-
-		### YANK ###
-		if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "yank" then
-			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Flashing Yank555.lu Kernel");
-			package_extract_dir("_archidroid/kernels/yank/system", "/system");
-			set_perm(0, 2000, 0755, "/system/etc/init.kernel.sh");
-			package_extract_file("_archidroid/kernels/yank/boot.img", "/tmp/yank.img");
-			write_raw_image("/tmp/yank.img", "/dev/block/mmcblk0p5");
-			delete("/tmp/yank.img");
-		endif;
-
-		### GOOGY ###
-		if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "googy" then
-			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Flashing Googy Max Kernel");
-			package_extract_file("_archidroid/kernels/googy/boot.img", "/tmp/googy.img");
-			write_raw_image("/tmp/googy.img", "/dev/block/mmcblk0p5");
-			delete("/tmp/googy.img");
-		endif;
-
-		### DEVIL ###
-		if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "devil" then
-			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Flashing Devil Kernel");
-			package_extract_file("_archidroid/kernels/devil/boot.img", "/tmp/devil.img");
-			write_raw_image("/tmp/devil.img", "/dev/block/mmcblk0p5");
-			delete("/tmp/devil.img");
-			
-			package_extract_dir("_archidroid/kernels/devil/data", "/data");
-		endif;
-
-		### AGNI ###
-		if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "agni" then
-			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Flashing AGNi Kernel");
-			package_extract_dir("_archidroid/kernels/agni/system", "/system");
-			set_perm_recursive(0, 2000, 0755, 0755, "/system/etc/init.d");
-			set_perm(0, 0, 0755, "/system/etc/init.d");
-			package_extract_file("_archidroid/kernels/agni/boot.img", "/tmp/agni.img");
-			write_raw_image("/tmp/agni.img", "/dev/block/mmcblk0p5");
-			delete("/tmp/agni.img");
-		endif;
-
-		### STOCK CM ###
-		if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "stock" then
-			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Flashing Stock Kernel");
-		endif;
-
-		set_progress(0.55);
-
-
-		###############
-		### RESTORE ###
-		###############
-
-		if file_getprop("/tmp/aroma-data/archidroidwipe.prop","wipe") == "no" then
-			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Restoring Addons");
-			package_extract_file("_archidroid/auto/system/bin/backuptool.sh", "/tmp/backuptool.sh");
-			package_extract_file("_archidroid/auto/system/bin/backuptool.functions", "/tmp/backuptool.functions");
-			set_perm(0, 0, 0777, "/tmp/backuptool.sh");
-			set_perm(0, 0, 0644, "/tmp/backuptool.functions");
-			run_program("/tmp/backuptool.sh", "restore");
-			delete("/system/bin/backuptool.sh");
-			delete("/system/bin/backuptool.functions");;
-		endif;
-
-		set_progress(0.63);
-
-
-		#############
-		### THEME ###
-		#############
-
-		if file_getprop("/tmp/aroma-data/archidroid.prop","theme") != "stock" then
-			package_extract_dir("_archidroid/themes/vrtheme", "/cache/vrtheme");
-			set_perm(0, 0, 0755, "/cache/vrtheme/installtheme.sh");
-			set_perm(0, 0, 0755, "/cache/vrtheme/zip");
-			set_perm(0, 0, 0755, "/cache/vrtheme/cleanup.sh");
-			set_perm(0, 0, 0755, "/cache/vrtheme/zipalign");
-
-			if file_getprop("/tmp/aroma-data/archidroid.prop","theme") == "blue" then
-				ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Blue Theme");
-				package_extract_dir("_archidroid/themes/blue/vrtheme", "/cache/vrtheme");
-				package_extract_dir("_archidroid/themes/blue/prebuilt", "/");
-			endif;
-			if file_getprop("/tmp/aroma-data/archidroid.prop","theme") == "aosp" then
-				ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing AOSP Theme");
-				package_extract_dir("_archidroid/themes/aosp/vrtheme", "/cache/vrtheme");
-				package_extract_dir("_archidroid/themes/aosp/prebuilt", "/");
-			endif;
-			if file_getprop("/tmp/aroma-data/archidroid.prop","theme") == "black" then
-				ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Black Theme");
-				package_extract_dir("_archidroid/themes/black/vrtheme", "/cache/vrtheme");
-			endif;
-
-			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Notice! This can take a longer while");
-			run_program("/cache/vrtheme/installtheme.sh");
-			run_program("/cache/vrtheme/cleanup.sh");
-		else
-			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Stock Theme");
-		endif;
-
-		set_progress(0.75);
 
 
 		###########

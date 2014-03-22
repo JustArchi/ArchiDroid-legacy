@@ -23,7 +23,7 @@
 # Initializing Rom Information
 ##
 
-setvar("preset_version","8");
+setvar("preset_version","9");
 
 ini_set("dp","3");
 ini_set("rom_name",             "ArchiDroid");
@@ -222,38 +222,38 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 		"archidroid.prop",
 
 		"kernel","<#selectbg_g>Kernel</#>","","group",
-		"boeffla","Boeffla Kernel","<~archidroid.kernel.boeffla.desc>","select.selected",
-		"yank","Yank555.lu Kernel","<~archidroid.kernel.yank.desc>","select",
-		"googy","Googy Max Kernel","<~archidroid.kernel.googy.desc>","select",
-		"devil","Devil Kernel","<~archidroid.kernel.devil.desc>","select",
-		"agni","AGNi Kernel","<~archidroid.kernel.agni.desc>","select",
-		"stock","Stock CM","<~archidroid.kernel.stock.desc>","select",
+		"boeffla","Boeffla","<~archidroid.kernel.boeffla.desc>","select.selected",
+		"yank","Yank555.lu","<~archidroid.kernel.yank.desc>","select",
+		"googy","Googy Max","<~archidroid.kernel.googy.desc>","select",
+		"devil","Devil","<~archidroid.kernel.devil.desc>","select",
+		"agni","AGNi","<~archidroid.kernel.agni.desc>","select",
+		"stock","Stock","<~archidroid.kernel.stock.desc>","select",
 
 		"dpi","<#selectbg_g>DPI</#>","","group",
-		"240","240 DPI","<~archidroid.dpi.240.desc>","select.selected",
-		"260","260 DPI","","select",
-		"280","280 DPI","<~archidroid.dpi.280.desc>","select",
-		"300","300 DPI","","select",
-		"320","320 DPI","<~archidroid.dpi.320.desc>","select",
+		"240","240","<~archidroid.dpi.240.desc>","select.selected",
+		"260","260","","select",
+		"280","280","<~archidroid.dpi.280.desc>","select",
+		"300","300","","select",
+		"320","320","<~archidroid.dpi.320.desc>","select",
 
 		"launcher","<#selectbg_g>Launcher</#>","","group",
-		"nova","Nova Launcher","<~archidroid.launcher.nova.desc>","select.selected",
-		"google","Google Launcher","<~archidroid.launcher.google.desc>","select",
-		"stock","AOSP Launcher","<~archidroid.launcher.stock.desc>","select",
+		"google","Google","<~archidroid.launcher.google.desc>","select.selected",
+		"nova","Nova","<~archidroid.launcher.nova.desc>","select",
+		"stock","Stock","<~archidroid.launcher.stock.desc>","select",
 		"none","<~common.none>","<~archidroid.launcher.none.desc>","select",
 
 		"keyboard","<#selectbg_g><~archidroid.keyboard></#>","","group",
-		"touchpal","TouchPal Keyboard","<~archidroid.keyboard.touchpal.desc>","select.selected",
-		"hackers","Hacker's Keyboard","<~archidroid.keyboard.hackers.desc>","select",
-		"both","TouchPal + Hacker's Keyboard","<~archidroid.keyboard.both.desc>","select",
-		"stock","Stock CM","<~archidroid.keyboard.stock.desc>","select",
+		"google","Google","<~archidroid.keyboard.google.desc>","select.selected",
+		"hackers","Hacker's","<~archidroid.keyboard.hackers.desc>","select",
+		"both","Google + Hacker's","<~archidroid.keyboard.both.desc>","select",
+		"stock","Stock","<~archidroid.keyboard.stock.desc>","select",
 		"none","<~common.none>","<~archidroid.keyboard.none.desc>","select",
 
 		"bootanimation","<#selectbg_g><~archidroid.bootanimation></#>","","group",
 		"archi","ArchiDroid","<~archidroid.bootanimation.archi.desc>","select.selected",
 		"archilegacy","ArchiDroid Legacy","<~archidroid.bootanimation.archilegacy.desc>","select",
 		"logcat","Logcat","<~archidroid.bootanimation.logcat.desc>","select",
-		"stock","CyanogenMod","<~archidroid.bootanimation.stock.desc>","select",
+		"stock","Stock","<~archidroid.bootanimation.stock.desc>","select",
 		"none","<~common.none>","<~archidroid.bootanimation.none.desc>","select",
 
 		"other","<#selectbg_g><~archidroid.other></#>","","group",
@@ -261,14 +261,12 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 		"xposed","Xposed Framework","<~archidroid.xposed.desc>","check.checked",
 		"updatemodem","<~archidroid.updatemodem> [XXUGNA8]","<~archidroid.updatemodem.desc>","check",
 
-		"googleapps","<#selectbg_g>Google Apps</#>","","group",
-		"gapps","Google Apps","<~archidroid.gapps.desc>","check.checked",
-
 		"archiapps","<#selectbg_g>ArchiDroid Apps</#>","","group",
+		"gapps","Google Apps","<~archidroid.gapps.desc>","check.checked",
 		"vnc","VNC Viewer","<~archidroid.apps.vnc.desc>","check",
 		"titaniumbackup","Titanium Backup","<~archidroid.apps.titaniumbackup.desc>","check.checked",
 		"greenify","Greenify","<~archidroid.apps.greenify.desc>","check.checked",
-		"lmt","LMT","<~archidroid.apps.lmt.desc>","check",
+		"lmt","LMT","<~archidroid.apps.lmt.desc>","check.checked",
 		"mxplayer","MXPlayer","<~archidroid.apps.mxplayer.desc>","check.checked",
 		"spiritfm","Spirit FM","<~archidroid.apps.spiritfm.desc>","check.checked",
 		"bbs","BetterBatteryStats","<~archidroid.apps.bbs.desc>","check.checked",

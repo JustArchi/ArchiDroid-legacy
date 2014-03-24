@@ -1,23 +1,5 @@
-ArchiDroid 1.7.13
+ArchiDroid 1.7.14
 
-- Updated base to UBUGNB1
-- Added alarms, notifications and ringtones from ArchiDroid 2.X (All Samsung sounds are still in bloatware pack)
-- Fixed Google Launcher not working on ArchiDroid 1.X (shame we're still on 4.3)
-- Updated Boeffla kernel to 5.2-rc1
-- Updated Wanam Xposed to 2.9.4
+- Fixed misc issue with google now/launcher, which caused FC when hotword was called
 
 * ArchiDroid Commons
-
-- Improved internal ArchiDroid components used during flashing
-- Added 260 DPI and 300 DPI, thanks to above
-- Added 2 new ArchiDroid bootanimations, thanks to @DroidShift79
-- Added an option to preview themes and bootanimations directly in AROMA # I know you've been waiting for this! Includes only one screenshot per item (because of size) 
-- Replaced TouchPal keyboard with Google keyboard
-- Updated Devil kernel to 3.4_0.1.4
-- Updated Googy Max kernel to 2.2.0
-- Updated Google Play to 4.6.17
-- Updated LMT to 2.0
-- Updated BetterBatteryStats to 1.16.0.0 B3
-- Updated Xposed to 2.5
-- Updated GravityBox to 3.0.0
-- Updated XPrivacy to 2.0.11

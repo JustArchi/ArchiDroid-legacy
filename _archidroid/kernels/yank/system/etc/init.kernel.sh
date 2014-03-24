@@ -24,7 +24,7 @@ sleep 10
 
 echo `date +"%F %R:%S : Starting kernel configuration..."` >>$log_file
 
-# Script generated on 07/02/2014 at 18:08
+# Script generated on 24/03/2014 at 17:40
 #----------------------------------------------------
 
 # - Enabled init.d scripts support by kernel/ramdisk
@@ -60,94 +60,24 @@ echo `date +"%F %R:%S : CPU Multicore Powersave mode set to Off."` >>$log_file
 echo 1600000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
 echo `date +"%F %R:%S : CPU max. frequency set to 1.6GHz."` >>$log_file
 
-# - zzmoove battery profile (by yank555.lu)
-echo `date +"%F %R:%S : zzmoove - yank-battery profile :"` >>$log_file
-
-# zzmoove governor settings optimized for battery:
-echo "75000" >/sys/devices/system/cpu/cpufreq/zzmoove/sampling_rate
-echo `date +"%F %R:%S : zzmoove - sampling rate set to 75000."` >>$log_file
-echo "1" >/sys/devices/system/cpu/cpufreq/zzmoove/sampling_down_factor
-echo `date +"%F %R:%S : zzmoove - sampling down factor set to 1."` >>$log_file
-echo "60" >/sys/devices/system/cpu/cpufreq/zzmoove/up_threshold
-echo `date +"%F %R:%S : zzmoove - up threshold set to 60."` >>$log_file
-echo "40" >/sys/devices/system/cpu/cpufreq/zzmoove/down_threshold
-echo `date +"%F %R:%S : zzmoove - down threshold set to 40."` >>$log_file
-echo "0" >/sys/devices/system/cpu/cpufreq/zzmoove/ignore_nice_load
-echo `date +"%F %R:%S : zzmoove - ignore nice load set to 0."` >>$log_file
-echo "10" >/sys/devices/system/cpu/cpufreq/zzmoove/freq_step
-echo `date +"%F %R:%S : zzmoove - frequency step set to 10."` >>$log_file
-echo "65" >/sys/devices/system/cpu/cpufreq/zzmoove/smooth_up
-echo `date +"%F %R:%S : zzmoove - smooth up set to 65."` >>$log_file
-
-# hotplug up threshold per core
-echo "85" >/sys/devices/system/cpu/cpufreq/zzmoove/up_threshold_hotplug1
-echo `date +"%F %R:%S : zzmoove - up threshold hotplug1 set to 85."` >>$log_file
-echo "90" >/sys/devices/system/cpu/cpufreq/zzmoove/up_threshold_hotplug2
-echo `date +"%F %R:%S : zzmoove - up threshold hotplug2 set to 90."` >>$log_file
-echo "98" >/sys/devices/system/cpu/cpufreq/zzmoove/up_threshold_hotplug3
-echo `date +"%F %R:%S : zzmoove - up threshold hotplug3 set to 98."` >>$log_file
-
-echo "1000000" >/sys/devices/system/cpu/cpufreq/zzmoove/up_threshold_hotplug_freq1
-echo `date +"%F %R:%S : zzmoove - up threshold hotplug1 freq. set to 1.0GHz."` >>$log_file
-echo "1200000" >/sys/devices/system/cpu/cpufreq/zzmoove/up_threshold_hotplug_freq2
-echo `date +"%F %R:%S : zzmoove - up threshold hotplug2 freq. set to 1.2GHz."` >>$log_file
-echo "1400000" >/sys/devices/system/cpu/cpufreq/zzmoove/up_threshold_hotplug_freq3
-echo `date +"%F %R:%S : zzmoove - up threshold hotplug3 freq. set to 1.4GHz."` >>$log_file
-
-# hotplug down threshold per core
-echo "65" >/sys/devices/system/cpu/cpufreq/zzmoove/down_threshold_hotplug1
-echo `date +"%F %R:%S : zzmoove - down threshold hotplug1 set to 65."` >>$log_file
-echo "75" >/sys/devices/system/cpu/cpufreq/zzmoove/down_threshold_hotplug2
-echo `date +"%F %R:%S : zzmoove - down threshold hotplug2 set to 75."` >>$log_file
-echo "85" >/sys/devices/system/cpu/cpufreq/zzmoove/down_threshold_hotplug3
-echo `date +"%F %R:%S : zzmoove - down threshold hotplug3 set to 85."` >>$log_file
-
-echo "800000" >/sys/devices/system/cpu/cpufreq/zzmoove/down_threshold_hotplug_freq1
-echo `date +"%F %R:%S : zzmoove - down threshold hotplug1 freq. set to 800MHz."` >>$log_file
-echo "1000000" >/sys/devices/system/cpu/cpufreq/zzmoove/down_threshold_hotplug_freq2
-echo `date +"%F %R:%S : zzmoove - down threshold hotplug2 freq. set to 1.0GHz."` >>$log_file
-echo "1200000" >/sys/devices/system/cpu/cpufreq/zzmoove/down_threshold_hotplug_freq3
-echo `date +"%F %R:%S : zzmoove - down threshold hotplug3 freq. set to 1.2GHz."` >>$log_file
-
-# hotplug block cycles
-echo "0" >/sys/devices/system/cpu/cpufreq/zzmoove/hotplug_block_cycles
-echo `date +"%F %R:%S : zzmoove - hotplug block cycles set to 0."` >>$log_file
-
-# Screen off settings
-echo "4" >/sys/devices/system/cpu/cpufreq/zzmoove/sampling_rate_sleep_multiplier
-echo `date +"%F %R:%S : zzmoove - sampling rate sleep multiplier set to 4."` >>$log_file
-echo "85" >/sys/devices/system/cpu/cpufreq/zzmoove/up_threshold_sleep
-echo `date +"%F %R:%S : zzmoove - up threshold sleep set to 85."` >>$log_file
-echo "75" >/sys/devices/system/cpu/cpufreq/zzmoove/down_threshold_sleep
-echo `date +"%F %R:%S : zzmoove - down threshold sleep set to 75."` >>$log_file
-echo "1" > /sys/devices/system/cpu/cpufreq/zzmoove/freq_step_sleep
-echo `date +"%F %R:%S : zzmoove - CPU step for standby set to 1."` >>$log_file
-echo "90" >/sys/devices/system/cpu/cpufreq/zzmoove/smooth_up_sleep
-echo `date +"%F %R:%S : zzmoove - smooth up sleep set to 90."` >>$log_file
-echo "1" >/sys/devices/system/cpu/cpufreq/zzmoove/hotplug_sleep
-echo `date +"%F %R:%S : zzmoove - hotplug sleep set to 1."` >>$log_file
-
-echo `date +"%F %R:%S : zzmoove - yank-battery profile applied."` >>$log_file
+# - zzmoove ZaneZam battery plus profile
+echo "5" > /sys/devices/system/cpu/cpufreq/zzmoove/profile_number
+echo `date +"%F %R:%S : zzmoove - ZaneZam battery plus profile."` >>$log_file
 
 # - Set CPU max frequency in standby
-echo "600000" > /sys/devices/system/cpu/cpufreq/zzmoove/freq_limit_sleep
-echo `date +"%F %R:%S : zzmoove - CPU freq. max for standby set to 600MHz."` >>$log_file
+echo `date +"%F %R:%S : zzmoove - keep profile setting for CPU max. in standby."` >>$log_file
 
-# use 1 step up/down fast scaling when screen is on
-echo "5" > /sys/devices/system/cpu/cpufreq/zzmoove/fast_scaling
-echo `date +"%F %R:%S : zzmoove - 1 step up/down fast scaling enabled."` >>$log_file
+# use profile for fast scaling up when screen is on
+echo `date +"%F %R:%S : zzmoove - keep profile setting for fast scaling up when screen on."` >>$log_file
 
-# Do not use fast scaling when screen is off
-echo "0" > /sys/devices/system/cpu/cpufreq/zzmoove/fast_scaling_sleep
-echo `date +"%F %R:%S : zzmoove - fast scaling for standby disabled."` >>$log_file
+# use profile for fast scaling down when screen is on
+echo `date +"%F %R:%S : zzmoove - keep profile setting for fast scaling down when screen on."` >>$log_file
 
-# Use early demand
-echo "1" > /sys/devices/system/cpu/cpufreq/zzmoove/early_demand
-echo `date +"%F %R:%S : zzmoove - early demand enabled."` >>$log_file
+# use profile for fast scaling up when screen is off
+echo `date +"%F %R:%S : zzmoove - keep profile setting for fast scaling up when screen off."` >>$log_file
 
-# Early demand : set threshold to 50%
-echo "50" > /sys/devices/system/cpu/cpufreq/zzmoove/grad_up_threshold
-echo `date +"%F %R:%S : zzmoove - early demand threshold set to 50%."` >>$log_file
+# use profile for fast scaling down when screen is off
+echo `date +"%F %R:%S : zzmoove - keep profile setting for fast scaling down when screen off."` >>$log_file
 
 # - zRam activation - 200Mb
 if [ -e /sys/block/zram0/disksize ] ; then

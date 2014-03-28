@@ -13,6 +13,7 @@ done
 
 ## Setting profiles scripts as non-executable
 /sbin/busybox chmod 0666 /system/etc/init.d/S46enable_001bkprofiles_*
+/sbin/busybox rm /system/etc/init.d/S35enable_001bkusbumsmode_002-on
 
 /sbin/busybox sh /sbin/frandom.sh
 /sbin/busybox sh /sbin/touchkey_manage.sh

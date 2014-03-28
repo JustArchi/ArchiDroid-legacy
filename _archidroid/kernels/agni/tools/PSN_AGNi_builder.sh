@@ -4,7 +4,7 @@
 #### AGNi Kernel-Patcher (based on original implementation for GT-S5830)
 
 #### DEFINE AGNi pureCM version info ########################################################################
-AGNI_PURECM_VER="2.7.5"
+AGNI_PURECM_VER="2.7.5 R3"
 AGNI_PURECM_SELINUX="PERMISSIVE"
 DEVICE_MODEL="I9300"
 DEVICE_NAME="m0"

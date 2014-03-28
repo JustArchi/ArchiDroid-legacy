@@ -1,6 +1,6 @@
 #!/sbin/sh
 
-###### AGNi FS CHECKER v1.1 (I9300)################
+###### AGNi FS CHECKER v1.2 (I9300)################
 
 SYSTEM_PARTITION="mmcblk0p9"
 DATA_PARTITION="mmcblk0p12"
@@ -32,6 +32,15 @@ $BBOX mount -t ext4,f2fs -o ro,noatime,nodiratime $SYSTEM /system
 if [ -f /system/etc/init.d/S93enable_001bkagnibootfschecking_002-on ];
 	then
 	FS_CHECKER="ON"
+	$BBOX touch /agni_fs_checker.log
+	$BBOX chmod 777 /agni_fs_checker.log
+	$BBOX echo " " > $TMP_LOG_FILE
+	$BBOX echo " " >> $TMP_LOG_FILE
+	$BBOX echo "################################################" >> $TMP_LOG_FILE
+	$BBOX echo "	AGNi FS_CHECKER LOG " >> $TMP_LOG_FILE
+	$BBOX echo "################################################" >> $TMP_LOG_FILE
+	$BBOX echo "   DATED: `date`" >> $TMP_LOG_FILE
+	$BBOX echo " " >> $TMP_LOG_FILE	
 fi
 $BBOX umount /system
 
@@ -71,6 +80,13 @@ if [ "$FS_CHECKER" == "ON" ];
 			else
 			PRELOAD_FS="EXT4"
 		fi
+	fi
+	$BBOX rm $BLKID_INFO
+	else
+	$BBOX echo "`$BBOX blkid`" > $BLKID_INFO
+	if [ "`$BBOX grep $DATA_PARTITION $BLKID_INFO | $BBOX grep f2fs`" ];
+		then
+		$BBOX touch $DATA_F2FS_INDICATOR
 	fi
 	$BBOX rm $BLKID_INFO
 fi

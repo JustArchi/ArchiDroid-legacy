@@ -1,7 +1,0 @@
-#!/system/bin/sh
-#Mono downmix
-#Enable mono downmix for headphones
-#Off (default)
-
-echo 1 > /sys/class/misc/boeffla_sound/boeffla_sound
-echo 0 > /sys/class/misc/boeffla_sound/mono_downmix

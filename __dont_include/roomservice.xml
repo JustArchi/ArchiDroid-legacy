@@ -28,6 +28,9 @@
   <remove-project name="android_frameworks_base" />
   <project name="JustArchi/android_frameworks_base" path="frameworks/base" remote="github" revision="android-4.4" />
 
+  <remove-project name="android_frameworks_native" />
+  <project name="JustArchi/android_frameworks_native" path="frameworks/native" remote="github" revision="android-4.4" />
+
   <remove-project name="android_packages_apps_OmniGears" />
   <project name="JustArchi/android_packages_apps_OmniGears" path="packages/apps/OmniGears" remote="github" revision="android-4.4" />
 

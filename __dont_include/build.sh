@@ -1,8 +1,46 @@
 #!/bin/bash
-# ArchiDroid build.sh Helper
 
-# Not Disabled
-#exit 1
+#     _             _     _ ____            _     _
+#    / \   _ __ ___| |__ (_)  _ \ _ __ ___ (_) __| |
+#   / _ \ | '__/ __| '_ \| | | | | '__/ _ \| |/ _` |
+#  / ___ \| | | (__| | | | | |_| | | | (_) | | (_| |
+# /_/   \_\_|  \___|_| |_|_|____/|_|  \___/|_|\__,_|
+#
+# Copyright 2014 Łukasz "JustArchi" Domeradzki
+# Contact: JustArchi@JustArchi.net
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# HOW TO PORT ARCHIDROID TO OTHER DEVICE
+# 1. Make sure you have a good base, this can be a stock ROM or AOSP ROM. Put it in .zip format in the root of ArchiDroid.
+# 2. Enter __dont_include folder and execute this script with nobuild parameter - bash build.sh "nobuild"
+# 3. It should properly start extracting everything and overwriting /system partition
+# 4. Ignore md5 sum mismatch, as it's a feature for me to easily detect updater-script changes when I'm merging new base
+# 5. After it's done, you should have new system folder
+# 6. Edit META-INF/com/google/android/updater-script. You should modify SYMLINKS, PERMISSIONS and BLOCK PATHS for YOUR device.
+# All of them should be taken from updater-script of the base.
+# MAKE SURE that you edit ALL INCLUDED BLOCKS to MATCH your device! Mostly important - kernel block, modem block and recovery block. CHECK IT TWICE. If you overwrite wrong block then you can say bye to your phone
+#
+# 7. After YOU'RE SURE that you have proper blocks, symlinks and permissions. You can start modyfing ArchiDroid to your own.
+# 8. Start from META-INF/com/google/android/aroma/exec folder, there are a few scripts which ALSO utilize blocks, this time partitions - /system /data /cache /preload. You should edit them to match your device, mostly important - admount, adumount, adreformat, check_fs
+# 9. Lastly, delete _archidoid/auto/system/partlayout4nandroid or replace it with proper one for your device
+# 10. When you're sure that everything is good and you understand that if you missed something, you may even brick your device, then delete or change safety check on the top of updater-script to match your device
+#
+# This should be pretty much it, start modifying aroma to your preferences, make sure that you won't flash improper kernel, recovery, modem etc.
+# If you know what you're doing, you should be fine. Eventually you can always catch me on xda or github - JustArchi
+# Aha, and prepare for many issues because ArchiDroid definitely won't work out of the box without additional modifications to your preferences. ArchiDroid backend is pretty much universal, but apps, gapps, or anything, may not be
+# In general if you used proper blocks then nothing can go wrong, flash it, boot, and fix remaining errors, FCs, or anything
+# You should also check _archidroid/auto folder, as this is flashed on top of the base, by default.
 
 # Common
 VERSION=1.7.14

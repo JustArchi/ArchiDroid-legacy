@@ -23,7 +23,9 @@
 
 # HOW TO PORT ARCHIDROID TO OTHER DEVICE
 # 1. Make sure you have a good base, this can be a stock ROM or AOSP ROM. Put it in .zip format in the root of ArchiDroid.
-# 2. Enter __dont_include folder and execute this script with nobuild parameter - bash build.sh "nobuild"
+# 2. Enter __dont_include folder and execute this script with nobuild parameter - bash build.sh "nobuild", before that, modify following parameter to be a real path to root of the ArchiDroid:
+ADROOT="/root/shared/git/ArchiDroid"
+
 # 3. It should properly start extracting everything and overwriting /system partition
 # 4. Ignore md5 sum mismatch, as it's a feature for me to easily detect updater-script changes when I'm merging new base
 # 5. After it's done, you should have new system folder
@@ -144,10 +146,10 @@ if [ $SAMMY -eq 0 ] && [ $NOBUILD -eq 0 ]; then
 	source build/envsetup.sh
 	brunch i9300
 	cd $OUT
-	cp omni-*.zip /root/shared/git/ArchiDroid
+	cp omni-*.zip "$ADROOT"
 fi
 
-cd /root/shared/git/ArchiDroid
+cd "$ADROOT"
 
 if [ $BPROP -eq 0 ]; then
 	if [ ! -e *.zip ]; then

@@ -3,6 +3,7 @@ ArchiDroid 2.4.1
 - Reverted "Base: Speed up booting on multicore devices" # This fixes issues with ART and other problems, check http://jira.omnirom.org/browse/OMNI-833 for more info
 - Updated Linaro toolchain to 14.03
 - Updated Boeffla kernel to 2.2
+- Updated Googy Max kernel to 2.2.1
 - Updated AGNi kernel to 2.7.5 R3
 - Updated SuperSU to 1.94
 - Updated Greenify to 2.2

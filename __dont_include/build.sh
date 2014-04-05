@@ -23,8 +23,24 @@
 
 # HOW TO PORT ARCHIDROID TO OTHER DEVICE
 # 1. Make sure you have a good base, this can be a stock ROM or AOSP ROM. Put it in .zip format in the root of ArchiDroid.
-# 2. Enter __dont_include folder and execute this script with nobuild parameter - bash build.sh "nobuild", before that, modify following parameter to be a real path to root of the ArchiDroid:
-ADROOT="/root/shared/git/ArchiDroid"
+# 2. Enter __dont_include folder and execute this script with nobuild parameter - bash build.sh "nobuild", before that, modify following parameters to proper ones
+
+# CHANGE ME
+ADROOT="/root/shared/git/ArchiDroid" # This is where ArchiDroid GitHub repo is located
+
+# CHANGE ME IF BUILDING FROM SOURCE
+ADCOMPILEROOT="/root/android/omni" # This is where AOSP sources are located
+ADVARIANT="i9300" # This is AOSP variant to build, the one used in brunch command. If you use "brunch mydevice", you should set it to mydevice here
+NOGIT=0 # Change that to 1, it's 0 only for me to allow faster updates of local AOSP repos
+
+# Notice: If you want you can also totally ignore above 3 variables and always call build.sh with "nobuild" parameter, i.e. bash build.sh nobuild
+# In this case, make sure that you already have output zip base in ADROOT specified on the top
+# build.sh will then jump straight to extracting and overwriting current ArchiDroid base with new one
+# This is perfect if you already have your own build.sh for building from source, then you move output zip to ADROOT and call bash build.sh nobuild
+
+# OPTIONAL
+ADOUT="$ADCOMPILEROOT/out/target/product/$ADVARIANT" # This is the location of output zip from above sources, usually it doesn't need to be changed
+ADREPOS="/root/git/auto" # This is used only when NOGIT is 0
 
 # 3. It should properly start extracting everything and overwriting /system partition
 # 4. Ignore md5 sum mismatch, as it's a feature for me to easily detect updater-script changes when I'm merging new base
@@ -48,12 +64,13 @@ ADROOT="/root/shared/git/ArchiDroid"
 VERSION=2.4.1
 STABLE=0
 NOSYNC=0
-NOGIT=0
 SAMMY=0
 BPROP=0
 NOOPD=1
 NOBUILD=0
 TEMP=0
+
+cd "$(dirname "$0")"
 
 for ARG in "$@" ; do
 	if [ $TEMP -eq 0 ]; then
@@ -110,10 +127,10 @@ fi
 if [ $SAMMY -eq 0 ] && [ $NOBUILD -eq 0 ]; then
 	if [ $NOSYNC -eq 0 ]; then
 		if [ $NOGIT -eq 0 ]; then
-			cd /root/git/auto
+			cd $ADREPOS
 			bash updaterepos.sh
 		fi
-		cd /root/android/omni/out/target/product/i9300
+		cd $ADOUT
 		if [ $? -eq 0 ]; then
 			for f in `ls` ; do
 				if [[ "$f" != "obj" ]]; then
@@ -121,22 +138,19 @@ if [ $SAMMY -eq 0 ] && [ $NOBUILD -eq 0 ]; then
 				fi
 			done
 		fi
-		cd /root/android/omni
+		cd $ADCOMPILEROOT
 		repo selfupdate
 		repo sync -c -j16
-
-		# Apply all temporary patches
-		bash ../../shared/git/ArchiDroid/__dont_include/patches.sh
 	else
-		cd /root/android/omni
+		cd $ADCOMPILEROOT
 	fi
 	if [ $? -ne 0 ]; then
 		read -p "Something went wrong, please check and tell me when you're done, master!" -n1 -s
 	fi
 	
 	source build/envsetup.sh
-	brunch i9300 user
-	cd $OUT
+	brunch $ADVARIANT user
+	cd $ADOUT
 	cp omni-*.zip "$ADROOT"
 fi
 

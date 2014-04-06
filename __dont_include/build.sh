@@ -21,6 +21,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+VERSION=1.7.15
+
 # HOW TO PORT ARCHIDROID TO OTHER DEVICE
 # 1. Make sure you have a good base, this can be a stock ROM or AOSP ROM. Put it in .zip format in the root of ArchiDroid.
 # 2. Enter __dont_include folder and execute this script with nobuild parameter - bash build.sh "nobuild", before that, modify following parameters to proper ones
@@ -61,7 +63,6 @@ ADREPOS="/root/git/auto" # This is used only when NOGIT is 0
 # You should also check _archidroid/auto folder, as this is flashed on top of the base, by default.
 
 # Common
-VERSION=1.7.14
 STABLE=0
 NOSYNC=0
 SAMMY=0

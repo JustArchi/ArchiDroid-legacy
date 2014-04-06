@@ -1,15 +1,3 @@
-ArchiDroid 2.4.1
+ArchiDroid 2.4.2
 
-- [!] Google Apps (core) are now preinstalled by default (without aroma choice) # This is because of some dependencies i.e. with google keyboard, you can still override it with any pack you want. Also they're not being installed in barebones preset
-- Reverted "Base: Speed up booting on multicore devices" # This fixes issues with ART and other problems, check http://jira.omnirom.org/browse/OMNI-833 for more info
-- Moved BetterBatteryStats to priv-app # This fixes BBS asking for being installed as system app
-- Updated Linaro toolchain to 14.03
-- Updated Boeffla kernel to 2.2
-- Updated Googy Max kernel to 2.2.1
-- Updated AGNi kernel to 2.7.5 R3
-- Updated SuperSU to 1.94
-- Updated Greenify to 2.2
-- Updated Android Terminal Emulator to 1.0.59
-- Updated GravityBox to 3.0.1
-- Updated XPrivacy 2.0.14
 - Updated sources

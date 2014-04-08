@@ -23,7 +23,7 @@
 # Initializing Rom Information
 ##
 
-setvar("preset_version","9");
+setvar("preset_version","10");
 
 ini_set("dp","3");
 ini_set("rom_name",             "ArchiDroid");
@@ -258,6 +258,10 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 		"stock","Stock","<~archidroid.bootanimation.stock.desc>","select",
 		"none","<~common.none>","<~archidroid.bootanimation.none.desc>","select",
 		"bootanimationpreview","Preview","<~archidroid.preview.desc>","check",
+
+		"runtime","<#selectbg_g>Runtime</#>","","group",
+		"libart.so","ART","<~archidroid.runtime.art.desc>","select.selected",
+		"libdvm.so","Dalvik Legacy","<~archidroid.runtime.dalvik.desc>","select",
 
 		"other","<#selectbg_g><~archidroid.other></#>","","group",
 		"archidroidota","ArchiDroid OTA","<~archidroid.ota.desc>","check.checked",

@@ -408,9 +408,9 @@ fi
 # 1 - Sammy
 # 2 - Omni
 ROM=1 # Default to sammy
-if [ $(cat /system/build.prop | grep "ro.omni.version" | wc -l) -gt 0 ]; then
+if [ $(grep -qi "ro.omni.version" "/system/build.prop"; echo $?) -eq 0 ]; then
 	ROM=2 # OK, definitely Omni
-elif [ $(cat /system/build.prop | grep "ro.cm.version" | wc -l) -gt 0 ]; then
+elif [ $(grep -qi "ro.cm.version" "/system/build.prop"; echo $?) -eq 0 ]; then
 	ROM=0 # OK, definitely CM
 fi
 
@@ -541,13 +541,13 @@ if [ ! -z $(which ARCHIDROID_RUNONCE) ]; then
 fi
 
 # Mount external sd card if needed
-if [ -e /dev/block/mmcblk1p1 ] && [ $(mount | grep -i "sdcard1" | wc -l) -eq 0 ] && [ $(mount | grep -i "extSdCard" | wc -l) -eq 0 ]; then
+if [ -e /dev/block/mmcblk1p1 ] && [ $(mount | grep -qi "sdcard1"; echo $?) -ne 0 ] && [ $(mount | grep -qi "extSdCard"; echo $?) -ne 0 ]; then
 	# Initial idea by AndiP71, aka Lord Boeffla
 	# Further improvements by JustArchi
 
 	echo "INFO: Detected sd card but it's not mounted yet, mounting..." >> "$LOG"
 	KEEPGOING=1
-	if [ $(lsmod | grep "exfat" | wc -l) -eq 0 ]; then
+	if [ $(lsmod | grep -qi "exfat"; echo $?) -ne 0 ]; then
 		echo "WARNING: No exfat module found, it's either compiled in kernel or not loaded. Blindly loading..." >> "$LOG"
 		busybox insmod /system/lib/modules/exfat_core.ko >/dev/null 2>&1
 		busybox insmod /system/lib/modules/exfat_fs.ko >/dev/null 2>&1
@@ -566,7 +566,7 @@ if [ -e /dev/block/mmcblk1p1 ] && [ $(mount | grep -i "sdcard1" | wc -l) -eq 0 ]
 		EXTSDMOUNT="/dev/block/vold/179:49"
 		echo "INFO: Mounting through vold 179:49!" >> "$LOG"
 		busybox mount -t auto $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
-		if [ $(mount | grep -i "sdcard1" | wc -l) -eq 0 ] && [ $(mount | grep -i "extSdCard" | wc -l) -eq 0 ]; then
+		if [ $(mount | grep -qi "sdcard1"; echo $?) -ne 0 ] && [ $(mount | grep -qi "extSdCard"; echo $?) -ne 0 ]; then
 			echo "WARNING: Failed!" >> "$LOG"
 		else
 			echo "INFO: Success!" >> "$LOG"
@@ -578,7 +578,7 @@ if [ -e /dev/block/mmcblk1p1 ] && [ $(mount | grep -i "sdcard1" | wc -l) -eq 0 ]
 		EXTSDMOUNT="/dev/block/mmcblk1p1"
 		echo "INFO: Mounting through mmcblk1p1!" >> "$LOG"
 		busybox mount -t auto $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
-		if [ $(mount | grep -i "sdcard1" | wc -l) -eq 0 ] && [ $(mount | grep -i "extSdCard" | wc -l) -eq 0 ]; then
+		if [ $(mount | grep -qi "sdcard1"; echo $?) -ne 0 ] && [ $(mount | grep -qi "extSdCard"; echo $?) -ne 0 ]; then
 			echo "WARNING: Failed!" >> "$LOG"
 		else
 			echo "INFO: Success!" >> "$LOG"
@@ -596,7 +596,7 @@ if [ -e /dev/block/mmcblk1p1 ] && [ $(mount | grep -i "sdcard1" | wc -l) -eq 0 ]
 		mount -t exfat $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
 		mount -t ext4 $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
 		mount -t vfat $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
-		if [ $(mount | grep -i "sdcard1" | wc -l) -eq 0 ] && [ $(mount | grep -i "extSdCard" | wc -l) -eq 0 ]; then
+		if [ $(mount | grep -qi "sdcard1"; echo $?) -ne 0 ] && [ $(mount | grep -qi "extSdCard"; echo $?) -ne 0 ]; then
 			echo "WARNING: Failed!" >> "$LOG"
 		else
 			echo "INFO: Success!" >> "$LOG"
@@ -604,7 +604,7 @@ if [ -e /dev/block/mmcblk1p1 ] && [ $(mount | grep -i "sdcard1" | wc -l) -eq 0 ]
 		fi
 	fi
 
-	if [ $(mount | grep -i "sdcard1" | wc -l) -eq 0 ] && [ $(mount | grep -i "extSdCard" | wc -l) -eq 0 ]; then
+	if [ $(mount | grep -qi "sdcard1"; echo $?) -ne 0 ] && [ $(mount | grep -qi "extSdCard"; echo $?) -ne 0 ]; then
 			echo "ERROR: I failed to mount external sd card with automatic filesystem. Giving up here!" >> "$LOG"
 	else
 		echo "INFO: Successfully mounted external sd card!" >> "$LOG"

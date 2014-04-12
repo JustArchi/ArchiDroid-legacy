@@ -296,16 +296,6 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Flashing Stock Kernel");
 			package_extract_file("boot.img", "/dev/block/mmcblk0p5");
 	else
-		###############
-		### RUNTIME ###
-		###############
-		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying ", file_getprop("/tmp/aroma-data/archidroid.prop","runtime"), " Runtime");
-		package_extract_file("_archidroid/exec/runtime.sh", "/tmp/runtime.sh");
-		set_perm(0, 0, 0777, "/tmp/runtime.sh");
-		run_program("/tmp/runtime.sh", file_getprop("/tmp/aroma-data/archidroid.prop","runtime"));
-		delete("tmp/runtime.sh");
-
-
 		##############
 		### KERNEL ###
 		##############

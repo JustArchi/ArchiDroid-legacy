@@ -68,26 +68,11 @@ echo 1 > /sys/block/zram3/initstate
 mkswap /dev/block/zram3
 swapon -p 2 /dev/block/zram3
 
-# Folder migration
-if [ -f /data/.psn ] && [ ! -f /data/.AGNi] ; then
-	mkdir /data/.AGNi
-	mv -f /data/.psn/* /data/.AGNi && rm -rf /data/.psn
-fi
-if [ -f /data/.psn ] && [ -f /data/.AGNi] ; then
-	mv -f /data/.psn/* /data/.AGNi && rm -rf /data/.psn
-fi
-if [ ! -f /data/.psn ] && [ ! -f /data/.AGNi] ; then
-	mkdir /data/.AGNi
-fi
-if [ -d /data/media/0/psn_efs_backup ] ; then
-	rm -rf /data/media/0/psn_efs_backup
-fi
-
 #### EFS backup
 if [ ! -f /data/.AGNi/efsbackup.tar.gz ];
 then
   mkdir /data/media/0/AGNi_efs_backup
-  chmod 775 /data/.AGni
+  chmod 775 /data/.AGNi
   /sbin/busybox tar zcvf /data/.AGNi/efsbackup.tar.gz /efs
   /sbin/busybox cat /dev/block/mmcblk0p3 > /data/.AGNi/efsdev-mmcblk0p3.img
   /sbin/busybox gzip /data/.AGNi/efsdev-mmcblk0p3.img

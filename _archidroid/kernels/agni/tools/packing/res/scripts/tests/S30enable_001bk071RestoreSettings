@@ -5,8 +5,7 @@
 TITLE="Restore settings"
 STYLE="Ok"
 
-SYSTEM_DEVICE="/dev/block/mmcblk0p9"
-NOT_PRESENT="0"
+RESTORE_STATUS="0"
 
 # Ask for confirmation
 rm /sdcard/boeffla_twk_dlg_helper
@@ -20,60 +19,51 @@ done
 RESULT=`cat /sdcard/boeffla_twk_dlg_helper`
 
 if [ "$RESULT" = "yes" ]; then
-/sbin/busybox sh /sbin/sysrw
-	if [ -d /data/media/0/AGNi_settings_backup ]; then
-
+	if [ -d /data/media/0/AGNi_settings_backup ];
+		then
 		# Restore previous settings
+		/sbin/busybox sh /sbin/sysrw
 		/sbin/busybox rm /system/etc/init.d/*_001bk*
 		/sbin/busybox chown -R media_rw:media_rw /data/media/0/AGNi_settings_backup
-		/sbin/busybox chmod -R 0666 /data/media/0/AGNi_settings_backup
-		/sbin/busybox cp /data/media/0/AGNi_settings_backup/*_001bk* /system/etc/init.d || NOT_PRESENT="1"
-		/sbin/busybox chown root:shell /system/etc/init.d/*_001bk*
-		/sbin/busybox chmod 0777 /system/etc/init.d/*_001bk*
-		if [ -f /system/etc/init.d/*_001bkprofiles* ]; then
-			/sbin/busybox sh /system/etc/init.d/*_001bkprofiles*
-			/sbin/busybox chmod 0666 /system/etc/init.d/*_001bkprofiles*
-			/sbin/busybox sh /system/etc/init.d/*_001bk*
-		else
-			/sbin/busybox sh /system/etc/init.d/*_001bk*
-		fi
-
-		if [ "$NOT_PRESENT" = "0" ]; then
-			# Display confirmation window
-			rm /sdcard/boeffla_twk_dlg_helper
-			am start -a android.intent.action.MAIN -e message "Your settings have been restored and applied." -e title "$TITLE" -e okstyle "$STYLE" -n hm.agni.control.dialog.helper/.AGNiControlDialogActivity
-
-			while [ ! -f /sdcard/boeffla_twk_dlg_helper ]
+		/sbin/busybox chmod -R 777 /data/media/0/AGNi_settings_backup
+		/sbin/busybox cp /data/media/0/AGNi_settings_backup/*_001bk* /system/etc/init.d
+		/sbin/busybox chown root:root /system/etc/init.d/*_001bk*
+		/sbin/busybox chmod 777 /system/etc/init.d/*_001bk*
+		#Execution
+		/sbin/busybox mkdir -p /system/etc/init.d-temp-profile
+		/sbin/busybox mkdir -p /system/etc/init.d-temp
+		/sbin/busybox mv /system/etc/init.d/*_001bkprofiles* /system/etc/init.d-temp-profile
+		/sbin/busybox mv /system/etc/init.d/*_001bk* /system/etc/init.d-temp
+		/sbin/busybox chmod -R 777 /system/etc/init.d-temp-profile
+		/sbin/busybox chmod -R 777 /system/etc/init.d-temp
+		/sbin/busybox run-parts /system/etc/init.d-temp-profile
+		/sbin/busybox run-parts /system/etc/init.d-temp
+		/sbin/busybox mv /system/etc/init.d-temp-profile/* /system/etc/init.d
+		/sbin/busybox mv /system/etc/init.d-temp/* /system/etc/init.d
+		/sbin/busybox rmdir /system/etc/init.d-temp-profile
+		/sbin/busybox rmdir /system/etc/init.d-temp
+		/sbin/busybox chmod 0666 /system/etc/init.d/*_001bkprofiles*
+		/sbin/busybox sh /sbin/sysro
+		RESTORE_STATUS="1"
+	fi
+	if [ "$RESTORE_STATUS" = "1" ];
+		then
+		# Display confirmation window
+		rm /sdcard/boeffla_twk_dlg_helper
+		am start -a android.intent.action.MAIN -e message "Your settings have been restored and applied." -e title "$TITLE" -e okstyle "$STYLE" -n hm.agni.control.dialog.helper/.AGNiControlDialogActivity
+		while [ ! -f /sdcard/boeffla_twk_dlg_helper ]
 			do
 			  /sbin/busybox sleep 1
 			done
-		fi
-
 	else
-	
-		# Display error message
-		rm /sdcard/boeffla_twk_dlg_helper
-		am start -a android.intent.action.MAIN -e message "Backup Folder Not Found. Aborting now." -e title "$TITLE" -e okstyle "$STYLE" -n hm.agni.control.dialog.helper/.AGNiControlDialogActivity
-
-		while [ ! -f /sdcard/boeffla_twk_dlg_helper ]
-		do
-		  /sbin/busybox sleep 1
-		done
-
+	# Display error message
+	rm /sdcard/boeffla_twk_dlg_helper
+	am start -a android.intent.action.MAIN -e message "Backup Folder Missing. Aborting now." -e title "$TITLE" -e okstyle "$STYLE" -n hm.agni.control.dialog.helper/.AGNiControlDialogActivity
+	while [ ! -f /sdcard/boeffla_twk_dlg_helper ]
+	do
+	  /sbin/busybox sleep 1
+	done
 	fi
-	if [ "$NOT_PRESENT" = "1" ]; then
-		rm /sdcard/boeffla_twk_dlg_helper
-		am start -a android.intent.action.MAIN -e message "Empty backup folder. Aborting now." -e title "$TITLE" -e okstyle "$STYLE" -n hm.agni.control.dialog.helper/.AGNiControlDialogActivity
-
-		while [ ! -f /sdcard/boeffla_twk_dlg_helper ]
-		do
-		  /sbin/busybox sleep 1
-		done
-	/sbin/busybox chown -R media_rw:media_rw /data/media/0/AGNi_settings_backup
-	/sbin/busybox chmod -R 0666 /data/media/0/AGNi_settings_backup	
-	fi
-/sbin/busybox sh /sbin/sysro
 fi
 
-NOT_PRESENT="0"
 rm /sdcard/boeffla_twk_dlg_helper

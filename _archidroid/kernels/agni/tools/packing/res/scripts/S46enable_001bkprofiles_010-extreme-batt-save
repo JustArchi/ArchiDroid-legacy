@@ -16,34 +16,31 @@
 /sbin/busybox rm /system/etc/init.d/*001bkschedmcpowersavings*
 /sbin/busybox rm /system/etc/init.d/*001bklmkminfree*
 
+/sbin/busybox chmod 0777 /res/scripts/S77enable_001bkschedmcpowersavings_010-off_default
+
 # Moving relevant scripts
-/sbin/busybox cp /res/scripts/S50enable_001bkcpufreq_040-1200 /system/etc/init.d
-/sbin/busybox cp /res/scripts/S47enable_001bkgov_041-zzmoove_yank /system/etc/init.d
+/sbin/busybox cp /res/scripts/S47enable_001bkgov_012-zzmoove_ybatext /system/etc/init.d
 /sbin/busybox cp /res/scripts/S53enable_001bkgpufreq_030-108to350 /system/etc/init.d
 /sbin/busybox cp /res/scripts/S54enable_001bkgpuuv_055-25 /system/etc/init.d
-/sbin/busybox cp /res/scripts/S51enable_001bkcpuuv_010-25 /system/etc/init.d
+/sbin/busybox cp /res/scripts/S51enable_001bkcpuuv_020-20 /system/etc/init.d
 /sbin/busybox cp /res/scripts/S55enable_001bkgputhreshold_030-on_morebattsave /system/etc/init.d
-/sbin/busybox cp /res/scripts/S77enable_001bkschedmcpowersavings_030-max /system/etc/init.d
 /sbin/busybox cp /res/scripts/S59enable_001bklmkminfree_040-medium /system/etc/init.d
 
-/sbin/busybox chmod 0777 /system/etc/init.d/S50enable_001bkcpufreq_040-1200
-/sbin/busybox chmod 0777 /system/etc/init.d/S47enable_001bkgov_041-zzmoove_yank
+/sbin/busybox chmod 0777 /system/etc/init.d/S47enable_001bkgov_012-zzmoove_ybatext
 /sbin/busybox chmod 0777 /system/etc/init.d/S53enable_001bkgpufreq_030-108to350
 /sbin/busybox chmod 0777 /system/etc/init.d/S54enable_001bkgpuuv_055-25
-/sbin/busybox chmod 0777 /system/etc/init.d/S51enable_001bkcpuuv_010-25
+/sbin/busybox chmod 0777 /system/etc/init.d/S51enable_001bkcpuuv_020-20
 /sbin/busybox chmod 0777 /system/etc/init.d/S55enable_001bkgputhreshold_030-on_morebattsave
-/sbin/busybox chmod 0777 /system/etc/init.d/S77enable_001bkschedmcpowersavings_030-max
 /sbin/busybox chmod 0777 /system/etc/init.d/S59enable_001bklmkminfree_040-medium
 
 # Executing Scripts
 
-/sbin/busybox sh /system/etc/init.d/S47enable_001bkgov_041-zzmoove_yank
-/sbin/busybox sh /system/etc/init.d/S50enable_001bkcpufreq_040-1200
+/sbin/busybox sh /system/etc/init.d/S47enable_001bkgov_012-zzmoove_ybatext
 /sbin/busybox sh /system/etc/init.d/S53enable_001bkgpufreq_030-108to350
 /sbin/busybox sh /system/etc/init.d/S54enable_001bkgpuuv_055-25
-/sbin/busybox sh /system/etc/init.d/S51enable_001bkcpuuv_010-25
+/sbin/busybox sh /system/etc/init.d/S51enable_001bkcpuuv_020-20
 /sbin/busybox sh /system/etc/init.d/S55enable_001bkgputhreshold_030-on_morebattsave
-/sbin/busybox sh /system/etc/init.d/S77enable_001bkschedmcpowersavings_030-max
+/sbin/busybox sh /res/scripts/S77enable_001bkschedmcpowersavings_010-off_default
 /sbin/busybox sh /system/etc/init.d/S59enable_001bklmkminfree_040-medium
 
 ## Setting this script as non-executable

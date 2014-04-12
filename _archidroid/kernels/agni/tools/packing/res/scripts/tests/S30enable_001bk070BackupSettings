@@ -1,4 +1,4 @@
-#!/system/bin/sh
+#!/sbin/sh
 #Settings: Backup current settings
 #Backup current settings of AGNi Control app
 
@@ -22,15 +22,11 @@ RESULT=`cat /sdcard/boeffla_twk_dlg_helper`
 if [ "$RESULT" = "yes" ]; then
 
 	# Backup current settings
-	if [ ! -d /data/media/0/AGNi_settings_backup ]; then
-		/sbin/busybox mkdir /data/media/0/AGNi_settings_backup
-		/sbin/busybox chown -R media_rw:media_rw /data/media/0/AGNi_settings_backup
-		/sbin/busybox chmod -R 0666 /data/media/0/AGNi_settings_backup
-	fi
+	/sbin/busybox mkdir -p /data/media/0/AGNi_settings_backup
 	/sbin/busybox rm /data/media/0/AGNi_settings_backup/*_001bk*
 	/sbin/busybox cp /system/etc/init.d/*_001bk* /data/media/0/AGNi_settings_backup || NO_SETTING="1"
 	/sbin/busybox chown -R media_rw:media_rw /data/media/0/AGNi_settings_backup
-	/sbin/busybox chmod -R 0666 /data/media/0/AGNi_settings_backup
+	/sbin/busybox chmod -R 777 /data/media/0/AGNi_settings_backup
 
 	if [ "$NO_SETTING" = "0" ]; then
 		# Display confirmation window

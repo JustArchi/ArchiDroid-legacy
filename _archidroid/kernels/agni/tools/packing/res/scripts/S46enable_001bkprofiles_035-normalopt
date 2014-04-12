@@ -18,27 +18,25 @@
 
 /sbin/busybox chmod 0777 /res/scripts/S50enable_001bkcpufreq_030-1400_default
 /sbin/busybox chmod 0777 /res/scripts/S53enable_001bkgpufreq_050-160to533_default
+/sbin/busybox chmod 0777 /res/scripts/S54enable_001bkgpuuv_050-off_default
+/sbin/busybox chmod 0777 /res/scripts/S51enable_001bkcpuuv_001-off_default
 /sbin/busybox chmod 0777 /res/scripts/S77enable_001bkschedmcpowersavings_010-off_default
 /sbin/busybox chmod 0777 /res/scripts/S59enable_001bklmkminfree_010-normal_default
 
 # Moving relevant scripts
-/sbin/busybox cp /res/scripts/S47enable_001bkgov_030-zzmoove_opt /system/etc/init.d
-/sbin/busybox cp /res/scripts/S54enable_001bkgpuuv_075-light /system/etc/init.d
-/sbin/busybox cp /res/scripts/S51enable_001bkcpuuv_020-light /system/etc/init.d
+/sbin/busybox cp /res/scripts/S47enable_001bkgov_016-zzmoove_zzopt /system/etc/init.d
 /sbin/busybox cp /res/scripts/S55enable_001bkgputhreshold_020-on_battsave /system/etc/init.d
 
-/sbin/busybox chmod 0777 /system/etc/init.d/S47enable_001bkgov_030-zzmoove_opt
-/sbin/busybox chmod 0777 /system/etc/init.d/S54enable_001bkgpuuv_075-light
-/sbin/busybox chmod 0777 /system/etc/init.d/S51enable_001bkcpuuv_020-light
+/sbin/busybox chmod 0777 /system/etc/init.d/S47enable_001bkgov_016-zzmoove_zzopt
 /sbin/busybox chmod 0777 /system/etc/init.d/S55enable_001bkgputhreshold_020-on_battsave
 
 # Executing Scripts
 
-/sbin/busybox sh /system/etc/init.d/S47enable_001bkgov_030-zzmoove_opt
+/sbin/busybox sh /system/etc/init.d/S47enable_001bkgov_016-zzmoove_zzopt
 /sbin/busybox sh /res/scripts/S50enable_001bkcpufreq_030-1400_default
 /sbin/busybox sh /res/scripts/S53enable_001bkgpufreq_050-160to533_default
-/sbin/busybox sh /system/etc/init.d/S54enable_001bkgpuuv_075-light
-/sbin/busybox sh /system/etc/init.d/S51enable_001bkcpuuv_020-light
+/sbin/busybox sh /res/scripts/S54enable_001bkgpuuv_050-off_default
+/sbin/busybox sh /res/scripts/S51enable_001bkcpuuv_001-off_default
 /sbin/busybox sh /system/etc/init.d/S55enable_001bkgputhreshold_020-on_battsave
 /sbin/busybox sh /res/scripts/S77enable_001bkschedmcpowersavings_010-off_default
 /sbin/busybox sh /res/scripts/S59enable_001bklmkminfree_010-normal_default

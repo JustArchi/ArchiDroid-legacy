@@ -225,9 +225,9 @@ fi
 # 1 - Sammy
 # 2 - Omni
 ROM=1 # Default to sammy
-if [ $(cat /system/build.prop | grep "ro.omni.version" | wc -l) -gt 0 ]; then
+if [ $(grep -qi "ro.omni.version" "/system/build.prop"; echo $?) -eq 0 ]; then
 	ROM=2 # OK, definitely Omni
-elif [ $(cat /system/build.prop | grep "ro.cm.version" | wc -l) -gt 0 ]; then
+elif [ $(grep -qi "ro.cm.version" "/system/build.prop"; echo $?) -eq 0 ]; then
 	ROM=0 # OK, definitely CM
 fi
 

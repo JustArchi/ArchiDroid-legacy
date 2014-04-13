@@ -255,6 +255,9 @@
 /system/vendor/firmware(/.*)?           u:object_r:firmware_camera:s0
 /system/vendor/firmware/mfc_fw.bin      u:object_r:firmware_mfc:s0
 /data/cfw(/.*)?                         u:object_r:firmware_camera:s0
+
+# Vibrator
+/dev/tspdrv                             u:object_r:input_device:s0
 #line 1 "vendor/omni/sepolicy/file_contexts"
 ###########################
 # OmniROM common sepolicy

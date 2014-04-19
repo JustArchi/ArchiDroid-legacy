@@ -1,6 +1,13 @@
 ArchiDroid 2.4.3
 
-- Updated ArchiDroid Backend tools (dnsmasq, haveged, dnsproxy2) to latest versions
+- Improved archidroid_pixelserv
+# Previously archidroid_pixelserv responded to all requests with the same 1x1 NULLGIF response (GIF89a[]![])
+# This was OK but in some apps it showed our gif in binary form (GIF89a[]![]) instead of showing nothing, i.e. in Subway Surfers game
+# Now we respond with a "NULL" content proper for request
+# If app requests JPG, we respond with NULLJPG, if app requests TEXT, we respond with NULLTEXT etc.
+# This way app "gets what it wants" and won't show something, which it can't understand to user
+
+- Updated ArchiDroid Backend tools (dnsmasq, haveged, dnsproxy2, pixelserv) to latest versions
 - Updated Googy Max kernel to 2.2.2
 - Updated PhilZ Touch recovery to 6.26.6
 - Updated sources

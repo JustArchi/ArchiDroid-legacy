@@ -56,7 +56,7 @@ text_quit_msg=Willst du die Installation wirklich abbrechen?
 #
 common.for=für
 common.none=Keine
-common.reboot=Reboot
+common.reboot=Neu starten
 common.replaces=Ersetzt
 common.inverted=Invertiert
 common.experimental=EXPERIMENTAL
@@ -68,7 +68,7 @@ terms.check2=Ich habe verstanden und akzeptiere
 terms.confirm2=Respektiere die Entwickler!
 
 archidroid.tos=ArchiDroid Bedingungen
-archidroid.preview.desc=When checked, you'll see a sample of the selected item on the next page
+archidroid.preview.desc=Wenn aktiviert, siehst du eine Vorschau auf der nächsten Seite.
 
 archidroid.detect.fail=ArchiDroid konnte keine ArchiDroid-Installation finden. Hast du alle Daten gelöscht oder hast du eine andere ROM installiert?
 archidroid.detect.fail.yes=Ja, ich habe kein ArchiDroid!
@@ -81,11 +81,11 @@ archidroid.detect.pass.no=Nein, Full Wipe (alles löschen)
 archidroid.detect.pass.alert.no=OK, ich mache einen Full Wipe (Datenlöschung) und starte dann den ArchiDroid Installations-Modus
 archidroid.detect.force=Soll ein Update erzwungen werden? Dies sagt ArchiDroid RunOnce spezielle Verbesserungen durchzuführen, die sonst nur bei einer Neuinstallation gemacht würden. Wähle nein, wenn du unsicher bist.
 
-archidroid.partition.wizard.desc=ArchiDroid Partition Wizard shows only partitions, which are currently supported. F2FS requires special recovery and kernel (selected on the previous page) to be available\
+archidroid.partition.wizard.desc=ArchiDroid zeigt nur Partitionen an, die auch momentan unterstützt werden. F2FS benötigt ein spezielles Recovery und Kernel(gewählt auf den vorderen Seiten)\
 \
-<b><#f00>WARNING! REPARTITIONING CAN LEAD TO SOFT AND HARD BRICKS IF SOMETHING GOES WRONG. YOU SHOULDN'T TOUCH THESE SETTINGS UNLESS YOU KNOW WHAT YOU'RE DOING</#></b>\
+<b><#f00>WARNUNG!! DIE REPARTITIONIERUNG KANN DEIN GERÄT SOFT- ODER HARD-BRICKEN, WENN DU NICHT WEISST WAS DU MACHST, SOLLTEST DU NICHTS ÄNDERN!</#></b>\
 \
-In addition to that, during repartitioning <b><#f00>ALL DATA WILL BE LOST</#></b>
+In addition to that, during repartitioning <b><#f00>ALLE DATEN WERDEN GELÖSCHT</#></b>
 
 archidroid.filesystem.ext4.desc=Fourth Extended File System. Proven to be stable and reliable. Supported by all kernels
 archidroid.filesystem.f2fs.desc=Flash-Friendly File System. Optimized for NAND flash memory-based storage devices, gives significant I/O boost compared to EXT4. Supported only by a few custom kernels

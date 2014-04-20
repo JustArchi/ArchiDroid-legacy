@@ -265,7 +265,6 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 		"updatemodem","<~archidroid.updatemodem> [XXUGNA8]","<~archidroid.updatemodem.desc>","check",
 
 		"archiapps","<#selectbg_g>ArchiDroid Apps</#>","","group",
-		"vnc","VNC Viewer","<~archidroid.apps.vnc.desc>","check",
 		"titaniumbackup","Titanium Backup","<~archidroid.apps.titaniumbackup.desc>","check.checked",
 		"greenify","Greenify","<~archidroid.apps.greenify.desc>","check.checked",
 		"lmt","LMT","<~archidroid.apps.lmt.desc>","check.checked",

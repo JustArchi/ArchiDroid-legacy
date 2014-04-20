@@ -9,6 +9,7 @@ ArchiDroid 2.4.3
 # Surprisingly, at least Subway Surfers doesn't show any ad right now, so it also stops some apps from displaying NULL content, instead of showing NULL in binary form :)
 
 - Fixed Boeffla Sound values not applying after boot, due to conflict with DSP Manager
+- Removed VNC Viewer
 - Updated ArchiDroid Backend tools (dnsmasq, haveged, dnsproxy2, pixelserv) to latest versions
 - Updated Googy Max kernel to 2.2.2
 - Updated PA GAPPS to 0417

@@ -836,11 +836,6 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 		### APPS ###
 		############
 
-		if file_getprop("/tmp/aroma-data/archidroid.prop","vnc") == "1" then
-			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing VNC Viewer");
-			package_extract_dir("_archidroid/apps/vnc", "/");
-		endif;
-
 		if file_getprop("/tmp/aroma-data/archidroid.prop","titaniumbackup") == "1" then
 			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Titanium Backup");
 			package_extract_dir("_archidroid/apps/titaniumbackup", "/");

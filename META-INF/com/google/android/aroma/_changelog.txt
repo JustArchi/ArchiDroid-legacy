@@ -7,6 +7,7 @@ ArchiDroid 2.4.3
 # If app requests JPG, we respond with NULLJPG, if app requests TEXT, we respond with NULLTEXT etc.
 # This way app "gets what it wants" and won't show something, which it can't understand to user
 
+- Fixed Boeffla Sound values not applying after boot, due to conflict with DSP Manager
 - Updated ArchiDroid Backend tools (dnsmasq, haveged, dnsproxy2, pixelserv) to latest versions
 - Updated Googy Max kernel to 2.2.2
 - Updated PhilZ Touch recovery to 6.26.6

@@ -34,6 +34,8 @@
   <project name="JustArchi/android_frameworks_native" path="frameworks/native" remote="github" revision="android-4.4" />
   <remove-project name="android_packages_apps_OmniGears" />
   <project name="JustArchi/android_packages_apps_OmniGears" path="packages/apps/OmniGears" remote="github" revision="android-4.4" />
+  <remove-project name="android_packages_apps_DSPManager" />
+  <project name="JustArchi/android_packages_apps_DSPManager" path="packages/apps/DSPManager" remote="github" revision="android-4.4" />
   <remove-project name="android_packages_providers_MediaProvider" />
   <project name="JustArchi/android_packages_providers_MediaProvider" path="packages/providers/MediaProvider" remote="github" revision="android-4.4" />
   <remove-project name="android_external_skia" />

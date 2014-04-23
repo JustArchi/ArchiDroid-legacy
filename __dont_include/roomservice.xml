@@ -58,4 +58,6 @@
   <project name="JustArchi/android_kernel_samsung_smdk4412" path="kernel/samsung/smdk4412" remote="github" revision="android-4.4" />
   <remove-project name="android_device_samsung_i9300" />
   <project name="JustArchi/android_device_samsung_i9300" path="device/samsung/i9300" remote="github" revision="android-4.4" />
+  <remove-project name="DonkeyCoyote/proprietary_vendor_samsung" />
+  <project name="JustArchi/proprietary_vendor_samsung" path="vendor/samsung" remote="github" revision="android-4.4" />
 </manifest>

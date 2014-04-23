@@ -183,6 +183,12 @@ exec 1>>"$LOG"
 exec 2>&1
 echo "CRON: Active! $$"
 
+# Halt if we failed creating proper folders
+if [ ! -d "$ADCRON" ]; then
+	echo "FATAL ERROR: Could not create directories, please investigate!"
+	exit 1
+fi
+
 LISTEN_EXTERNAL_EVENTS &
 LISTEN_INTERNAL_EVENTS &
 

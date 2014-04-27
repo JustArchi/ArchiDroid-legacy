@@ -24,7 +24,7 @@
 
 # NOTICE #1
 # Yes, you're right, this was initially written to allow easy parallel jobs in background.
-# By simply adding & to the end of our WORK command we would run all these command in parallel
+# By simply adding & to the end of our WORK command we would run all these commands in parallel
 # which would drastically reduce time needed for doing all of these tasks
 # HOWEVER, unfortunately, AROMA or CWM recovery doesn't allow background tasks
 # and immediately crashes when the first one is launched
@@ -35,11 +35,13 @@ VRDIR="/cache/vrtheme"
 WORK() {
 	# $1 - Target dir such as /system/app or /system/framework
 	# $2 - Apk name such as SystemUI.apk or framework-res.apk
-	cd "$VRDIR/$1/$2" &&
-	"$VRDIR/zip" -r "$1/$2" * &&
-	"$VRDIR/zipalign" -f 4 "$1/$2" "$1/$2.aligned" &&
-	mv -f "$1/$2.aligned" "$1/$2" &&
-	chmod 644 "$1/$2"
+	if [ -f "$1/$2" ]; then
+		cd "$VRDIR/$1/$2" &&
+		"$VRDIR/zip" -r "$1/$2" * &&
+		"$VRDIR/zipalign" -f 4 "$1/$2" "$1/$2.aligned" &&
+		mv -f "$1/$2.aligned" "$1/$2" &&
+		chmod 644 "$1/$2"
+	fi
 }
 
 if [ -d "$VRDIR/system/app" ]; then

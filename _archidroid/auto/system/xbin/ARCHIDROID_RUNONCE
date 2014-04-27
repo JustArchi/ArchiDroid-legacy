@@ -35,13 +35,27 @@ ADALIAS() {
 	return $?
 }
 
+ADALIAS2() {
+	# Because fuck you kernel, that's why
+	local CMD="$1"
+	shift 1
+	if [ -x "/system/xbin/$CMD" ]; then
+		"/system/xbin/$CMD" "$@" # Yes, we must break on spaces in this case, SC2068
+	elif [ -x "/system/bin/$CMD" ]; then
+		"/system/bin/$CMD" "$@" # Yes, we must break on spaces in this case, SC2068
+	else
+		"$CMD" "$@" # Yes, we must break on spaces in this case, SC2068
+	fi
+	return $?
+}
+
 # Define all unreliable commands, which kernel could override
 # It's really sad that we're doing this
 alias busybox='ADALIAS busybox'
 alias kill='ADALIAS kill'
 alias echo='ADALIAS echo'
 alias reboot='ADALIAS reboot'
-alias sqlite3='ADALIAS sqlite3'
+alias sqlite3='ADALIAS2 sqlite3'
 alias tinyplay='ADALIAS tinyplay'
 alias mount='ADALIAS mount'
 

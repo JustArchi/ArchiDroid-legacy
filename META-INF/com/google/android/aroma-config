@@ -304,6 +304,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 		"archidroidbloatware.prop",
 
 		"bloatware","<#selectbg_g>Samsung Bloatware</#>","","group",
+		"accuweather","Samsung Accuweather","Should be safe to remove","check",
 		"exchange","Samsung Email/Exchange","Should be safe to remove","check",
 		"videoplayer","Samsung Video Player","Should be safe to remove","check",
 		"calendar","Samsung Calendar","Should be safe to remove","check",

@@ -436,6 +436,14 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 		#################
 
 		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Removing Bloatware");
+		if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","accuweather") == "0" then
+			delete("/system/app/AccuweatherDaemon.apk");
+			delete("/system/app/AccuweatherDaemon.odex");
+			delete("/system/app/AccuweatherWidget.apk");
+			delete("/system/app/AccuweatherWidget.odex");
+			delete("/system/app/AccuweatherWidget_Main.apk");
+			delete("/system/app/AccuweatherWidget_Main.odex");
+		endif;
 		if file_getprop("/tmp/aroma-data/archidroidbloatware.prop","exchange") == "0" then
 			delete("/system/app/SecExchange.apk");
 			delete("/system/app/SecExchange.odex");

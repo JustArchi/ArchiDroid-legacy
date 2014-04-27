@@ -2,6 +2,7 @@ ArchiDroid 1.7.15
 
 * ArchiDroid Commons
 
+- [!] Code revision, big cleanup and optimizations in ArchiDroid scripts and tools
 - Improved archidroid_pixelserv
 # Previously archidroid_pixelserv responded to all requests with the same 1x1 NULLGIF response (GIF89a[]![])
 # This was OK but in some apps it showed our gif in binary form (GIF89a[]![]) instead of showing nothing, i.e. in Subway Surfers game

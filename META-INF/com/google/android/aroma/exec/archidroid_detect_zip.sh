@@ -25,12 +25,11 @@
 # exit 1 -> Zip has been called from external sd card
 # exit 2 -> I don't know where zip has been called from
 
-if [ $(ps w | grep -i "[/]storage/sdcard1" | wc -l) -gt 0 ]; then
+if [ "$(ps w | grep -qi "[e]xtsdcard/"; echo $?)" -eq 0 ] || [ "$(ps w | grep -qi "[s]dcard1/"; echo $?)" -eq 0 ]; then # We can't use pgrep here due to limited busybox, SC2009
 	# Definitely extsd
 	exit 1
-fi
-if [ $(ps w | grep -i "[m]edia/" | wc -l) -gt 0 ]; then
-	# Nearly sure intsd
+elif [ "$(ps w | grep -qi "[d]ata/media/"; echo $?)" -eq 0 ] || [ "$(ps w | grep -qi "[s]dcard/"; echo $?)" -eq 0 ]; then # We can't use pgrep here due to limited busybox, SC2009
+	# Definitely intsd
 	exit 0
 fi
 

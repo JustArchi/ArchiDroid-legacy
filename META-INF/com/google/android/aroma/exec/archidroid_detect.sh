@@ -21,22 +21,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# exit 0 -> Internal error, no build.prop detected. Full wipe?
+# exit 0 -> No build.prop detected, we can't check ArchiDroid existance. Full wipe?
 # exit 1 -> All fine, we're NOT running ArchiDroid
 # exit 2 -> All fine, we're running ArchiDroid
 
-if [ -e /system/build.prop ]; then
-	# Good
-	if [ $(cat /system/build.prop | grep -i "ArchiDroid" | wc -l) -gt 0 ]; then
-		# Yay we're running ArchiDroid"
+if [ -f "/system/build.prop" ]; then
+	# We're not after full wipe
+	if [ "$(grep -qi "ArchiDroid" "/system/build.prop"; echo $?)" -eq 0 ]; then
+		# We're running ArchiDroid"
 		exit 2
 	else
 		# We're not running ArchiDroid
 		exit 1
 	fi
-else
-	# Report internal error
-	exit 0
 fi
 
 sync

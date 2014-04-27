@@ -7,8 +7,8 @@ echo '1400000' > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
 echo '200000' > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
 echo 'pegasusq - boeffla battery saving' > /dev/bk_governor_profile
 /res/bc/bccontroller.sh apply_governor_profile 'pegasusq - boeffla battery saving'
-echo 'row' > /sys/block/mmcblk0/queue/scheduler
-echo 'cfq' > /sys/block/mmcblk1/queue/scheduler
+echo 'noop' > /sys/block/mmcblk0/queue/scheduler
+echo 'noop' > /sys/block/mmcblk1/queue/scheduler
 echo '512' > /sys/block/mmcblk0/bdi/read_ahead_kb
 echo '1024' > /sys/block/mmcblk1/bdi/read_ahead_kb
 /res/bc/bccontroller.sh apply_ext4_tweaks 1

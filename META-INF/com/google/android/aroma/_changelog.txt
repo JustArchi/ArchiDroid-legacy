@@ -1,29 +1,5 @@
-ArchiDroid 1.7.15
+ArchiDroid 1.8
 
-- Added S5 theme, thanks to @Kik0o # It's a good idea to try recently added theme preview option in AROMA now :)
-- Rewrited VRTheme script from the scratch, which reduces time needed for theming ArchiDroid to the minimum
-- Updated Boeffla kernel to 5.3-beta1
-- Updated AGNi kernel to 3.6
+- Kitkat today, Samsung?!
 
 * ArchiDroid Commons
-
-- [!] Code revision, big cleanup and optimizations in ArchiDroid scripts and tools
-- Improved archidroid_pixelserv
-# Previously archidroid_pixelserv responded to all requests with the same 1x1 NULLGIF response (GIF89a[]![])
-# This was OK but in some apps it showed our gif in binary form (GIF89a[]![]) instead of showing nothing, i.e. in Subway Surfers game
-# Now we respond with a "NULL" content proper for request
-# If app requests JPG, we respond with NULLJPG, if app requests TEXT, we respond with NULLTEXT etc.
-# This way app "gets what it wants" and won't show something, which it can't understand to user
-# Surprisingly, at least Subway Surfers doesn't show any ad right now, so it also stops some apps from displaying NULL content, instead of showing NULL in binary form :)
-
-- Removed VNC Viewer
-- Archi_UltraPowerSave Boeffla preset now uses noop/noop I/O scheduler (previously: row/cfq)
-- Updated ArchiDroid Backend tools (dnsmasq, haveged, dnsproxy2, pixelserv) to latest versions
-- Updated AdAway and MOAB adblocking rules to latest versions
-- Updated Googy Max kernel to 2.3.0
-- Updated Google Keyboard to 3.0.19423
-- Updated Xposed to 2.5.1
-- Updated App Settings to 1.8
-- Updated XPrivacy to 2.0.19
-- Updated GravityBox to 3.1.0
-- Updated PhilZ Touch recovery to 6.26.6

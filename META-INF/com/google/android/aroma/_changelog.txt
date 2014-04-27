@@ -1,5 +1,6 @@
 ArchiDroid 2.4.4
 
 - [!] Code revision, big cleanup and optimizations in ArchiDroid scripts and tools
+- Archi_UltraPowerSave Boeffla preset now uses noop/noop I/O scheduler (previously: row/cfq)
 - Updated Googy Max kernel to 2.3.0
 - Updated sources

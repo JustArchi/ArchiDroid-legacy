@@ -598,7 +598,3 @@ endif;
 
 # Delayed tasks. These for some reason require already flashed ArchiDroid
 # Stub
-
-
-# Ultra-delayed tasks. These are blocked by aroma process, can cause problems to aroma itself, take care
-# Aroma is blocking /cache partition, therefore we must force-repartition that (if needed), this WILL cause recovery kernel panic but task itself finishes properly. Also, if we use instant "onfinish" reboot, kernel panic shouldn't happen, as recovery won't have time to access /cache partition. This should be safe approach.

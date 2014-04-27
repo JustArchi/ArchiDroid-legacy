@@ -21,7 +21,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-touch /dev/archidroid/cron/listeners/TETHERING # Set up a listener for ARCHIDROID_CRON
-touch /dev/archidroid/cron/events/external/TETHERING # Notify ARCHIDROID_CRON about tethering
-inotifywait -qqe delete /dev/archidroid/cron/listeners/TETHERING # Wait for ARCHIDROID_CRON
-exec dnsmasq.real "$@" # Exec original binary and share the environment
+touch "/dev/archidroid/cron/listeners/TETHERING" # Set up a listener for ARCHIDROID_CRON
+touch "/dev/archidroid/cron/events/external/TETHERING" # Notify ARCHIDROID_CRON about tethering
+inotifywait -qqe delete "/dev/archidroid/cron/listeners/TETHERING" # Wait for ARCHIDROID_CRON
+exec dnsmasq.real $@ # Exec original binary and share the environment, yes we must break on spaces in this case

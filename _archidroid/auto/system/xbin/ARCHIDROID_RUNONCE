@@ -25,13 +25,14 @@ ADALIAS() {
 	# Because fuck you kernel, that's why
 	local CMD="$1"
 	shift 1
-	if [ -e /system/xbin/"$CMD" ]; then
-		/system/xbin/"$CMD" "$@"
-	elif [ -e /system/bin/"$CMD" ]; then
-		/system/bin/"$CMD" "$@"
+	if [ -x "/system/xbin/$CMD" ]; then
+		"/system/xbin/$CMD" $@ # Yes, we must break on spaces in this case, SC2068
+	elif [ -x "/system/bin/$CMD" ]; then
+		"/system/bin/$CMD" $@ # Yes, we must break on spaces in this case, SC2068
 	else
-		"$CMD" "$@"
+		"$CMD" $@ # Yes, we must break on spaces in this case, SC2068
 	fi
+	return $?
 }
 
 # Define all unreliable commands, which kernel could override

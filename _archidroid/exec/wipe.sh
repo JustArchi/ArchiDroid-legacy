@@ -21,11 +21,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-for f in $(find /data -mindepth 1 -maxdepth 1); do
-	if [ "$f" != "/data/media" ]; then
-		rm -fR "$f"
+if [ -f "/data/.layout_version" ]; then
+	LAYOUT="$(cat "/data/.layout_version")"
+fi
+if [ -z "$LAYOUT" ]; then
+	LAYOUT="2" # Default value
+fi
+
+find /data -mindepth 1 -maxdepth 1 | while read line; do
+	if [ "$line" != "/data/media" ]; then
+		rm -rf "$line"
 	fi
 done
 
-printf "2" > /data/.layout_version
+printf "%s" "$LAYOUT" > "/data/.layout_version"
+sync
 exit 0

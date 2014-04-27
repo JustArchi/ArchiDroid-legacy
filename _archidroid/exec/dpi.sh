@@ -21,6 +21,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-sed -i "s/ro.sf.lcd_density=320/ro.sf.lcd_density=$1/g" "/system/build.prop"
+ORIGDPI="$(grep -i "lcd_density" "/system/build.prop" | cut -d '=' -f 2)"
+
+if [ ! -z "$ORIGDPI" ]; then
+	sed -i "s/ro.sf.lcd_density=$ORIGDPI/ro.sf.lcd_density=$1/g" "/system/build.prop"
+fi
 sync
 exit 0

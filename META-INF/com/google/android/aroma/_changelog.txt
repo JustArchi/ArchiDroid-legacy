@@ -1,5 +1,8 @@
 ArchiDroid 1.7.15
 
+- Updated Boeffla kernel to 5.3-beta1
+- Updated AGNi kernel to 3.6
+
 * ArchiDroid Commons
 
 - [!] Code revision, big cleanup and optimizations in ArchiDroid scripts and tools
@@ -15,7 +18,6 @@ ArchiDroid 1.7.15
 - Updated ArchiDroid Backend tools (dnsmasq, haveged, dnsproxy2, pixelserv) to latest versions
 - Updated AdAway and MOAB adblocking rules to latest versions
 - Updated Googy Max kernel to 2.2.2
-- Updated AGNi kernel to 3.6
 - Updated Google Keyboard to 3.0.19423
 - Updated Xposed to 2.5.1
 - Updated App Settings to 1.8

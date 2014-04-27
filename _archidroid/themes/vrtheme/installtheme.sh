@@ -31,31 +31,28 @@
 # Therefore, we can't use background task at least now, maybe in future...
 
 VRDIR="/cache/vrtheme"
+VALIDTARGETS="app framework priv-app"
 
 WORK() {
 	# $1 - Target dir such as /system/app or /system/framework
 	# $2 - Apk name such as SystemUI.apk or framework-res.apk
 	if [ -f "$1/$2" ]; then
 		cd "$VRDIR/$1/$2" &&
-		"$VRDIR/zip" -r "$1/$2" * &&
+		"$VRDIR/zip" -r "$1/$2" ./* &&
 		"$VRDIR/zipalign" -f 4 "$1/$2" "$1/$2.aligned" &&
 		mv -f "$1/$2.aligned" "$1/$2" &&
 		chmod 644 "$1/$2"
 	fi
 }
 
-if [ -d "$VRDIR/system/app" ]; then
-	find "$VRDIR/system/app" -mindepth 1 -maxdepth 1 -type d | while read APK; do
-		#WORK "/system/app" "$(basename "$APK")" & # NOTICE #1
-		WORK "/system/app" "$(basename "$APK")"
-	done
-fi
-if [ -d "$VRDIR/system/framework" ]; then
-	find "$VRDIR/system/framework" -mindepth 1 -maxdepth 1 -type d | while read APK; do
-		#WORK "/system/framework" "$(basename "$APK")" & # NOTICE #1
-		WORK "/system/framework" "$(basename "$APK")"
-	done
-fi
+for TARGET in $VALIDTARGETS; do 
+	if [ -d "$VRDIR/system/$TARGET" ]; then
+		find "$VRDIR/system/$TARGET" -mindepth 1 -maxdepth 1 -type d | while read APK; do
+			#WORK "/system/$TARGET" "$(basename "$APK")" & # NOTICE #1
+			WORK "/system/$TARGET" "$(basename "$APK")"
+		done
+	fi
+done
 
 #wait # NOTICE #1
 

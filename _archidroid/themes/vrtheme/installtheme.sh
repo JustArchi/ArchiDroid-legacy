@@ -1,129 +1,61 @@
 #!/sbin/sh
-# Copyright VillainROM 2011. All Rights Reserved
 
-# we need to first go through each file in the "app" folder, and for each one present, apply the modified theme to the APK
-# let us copy each original APK here first. 
-echo "Processing /system/app/"
-busybox mkdir -p /cache/vrtheme/apply/system/app
-cd /cache/vrtheme/system/app/
-for f in $(ls)
-do
-  echo "Processing $f"
-  cp /system/app/$f /cache/vrtheme/apply/system/app/
-done
-echo "Backups done for system apps"
+#     _             _     _ ____            _     _
+#    / \   _ __ ___| |__ (_)  _ \ _ __ ___ (_) __| |
+#   / _ \ | '__/ __| '_ \| | | | | '__/ _ \| |/ _` |
+#  / ___ \| | | (__| | | | | |_| | | | (_) | | (_| |
+# /_/   \_\_|  \___|_| |_|_|____/|_|  \___/|_|\__,_|
+#
+# Copyright 2011 VillainROM
+# Copyright 2014 Łukasz "JustArchi" Domeradzki
+# Contact: JustArchi@JustArchi.net
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
 
-# repeat for /system/framework now
+# NOTICE #1
+# Yes, you're right, this was initially written to allow easy parallel jobs in background.
+# By simply adding & to the end of our WORK command we would run all these command in parallel
+# which would drastically reduce time needed for doing all of these tasks
+# HOWEVER, unfortunately, AROMA or CWM recovery doesn't allow background tasks
+# and immediately crashes when the first one is launched
+# Therefore, we can't use background task at least now, maybe in future...
 
+VRDIR="/cache/vrtheme"
 
-[ -d /cache/vrtheme/system/framework ] && framework=1 || framework=0
+WORK() {
+	# $1 - Target dir such as /system/app or /system/framework
+	# $2 - Apk name such as SystemUI.apk or framework-res.apk
+	cd "$VRDIR/$1/$2" &&
+	"$VRDIR/zip" -r "$1/$2" * &&
+	"$VRDIR/zipalign" -f 4 "$1/$2" "$1/$2.aligned" &&
+	mv -f "$1/$2.aligned" "$1/$2" &&
+	chmod 644 "$1/$2"
+}
 
-if [ "$framework" -eq "1" ]; then
-echo "Processing /system/framework"
-busybox mkdir -p /cache/vrtheme/apply/system/framework
-cd /cache/vrtheme/system/framework
-for f in $(ls)
-do
-  echo "Processing $f"
-  cp /system/framework/$f /cache/vrtheme/apply/system/framework/
-done
-echo "Backups done for frameworks"
+if [ -d "$VRDIR/system/app" ]; then
+	find "$VRDIR/system/app" -mindepth 1 -maxdepth 1 -type d | while read APK; do
+		#WORK "/system/app" "$(basename "$APK")" & # NOTICE #1
+		WORK "/system/app" "$(basename "$APK")"
+	done
+fi
+if [ -d "$VRDIR/system/framework" ]; then
+	find "$VRDIR/system/framework" -mindepth 1 -maxdepth 1 -type d | while read APK; do
+		#WORK "/system/framework" "$(basename "$APK")" & # NOTICE #1
+		WORK "/system/framework" "$(basename "$APK")"
+	done
 fi
 
-# repeat for /data/app now
+#wait # NOTICE #1
 
-
-[ -d /cache/vrtheme/data ] && dataapps=1 || dataapps=0
-
-if [ "$dataapps" -eq "1" ]; then
-echo "Processing /data/app/"
-busybox mkdir -p /cache/vrtheme/apply/data/app
-cd /cache/vrtheme/data/app/
-for f in $(ls)
-do
-  echo "Processing $f"
-  cp /data/app/$f /cache/vrtheme/apply/data/app/
-done
-echo "Backups done for data apps"
-fi
-
-# for each of the system apps needing processed 
-cd /cache/vrtheme/apply/system/app/
-for f in $(ls)
-do
-  echo "Working on $f"
-  cd /cache/vrtheme/system/app/$f/
-  /cache/vrtheme/zip -r /cache/vrtheme/apply/system/app/$f *
-done
-echo "Patched system files"
-
-if [ "$dataapps" -eq "1" ]; then
-cd /cache/vrtheme/apply/data/app/
-for f in $(ls)
-do
-  echo "Working on $f"
-  cd /cache/vrtheme/data/app/$f/
-  /cache/vrtheme/zip -r /cache/vrtheme/apply/data/app/$f *
-
-done
-echo "Patched data files"
-fi
-
-if [ "$framework" -eq "1" ]; then
-cd /cache/vrtheme/apply/system/framework
-for f in $(ls)
-do
-  echo "Working on $f"
-  cd /cache/vrtheme/system/framework/$f/
-  /cache/vrtheme/zip -r /cache/vrtheme/apply/system/framework/$f *
-done
-echo "Patched framework files"
-fi
-
-# and now time to zipalign
-cd /cache/vrtheme/apply/system/app/
-busybox mkdir aligned
-for f in $(ls)
-do
-  echo "Zipaligning $f"
-  /cache/vrtheme/zipalign -f 4 $f ./aligned/$f
-done
-
-if [ "$dataapps" -eq "1" ]; then
-cd /cache/vrtheme/apply/data/app/
-busybox mkdir aligned
-for f in $(ls)
-do
-  echo "Zipaligning $f"
-  /cache/vrtheme/zipalign -f 4 $f ./aligned/$f
-done
-fi
-
-if [ "$framework" -eq "1" ]; then
-cd /cache/vrtheme/apply/system/framework/
-busybox mkdir aligned
-for f in $(ls)
-do
-  echo "Zipaligning $f"
-  /cache/vrtheme/zipalign -f 4 $f ./aligned/$f
-done
-fi
-
-# time to now move each new app back to its original location
-cd /cache/vrtheme/apply/system/app/aligned/
-cp * /system/app/
-chmod 644 /system/app/*
-if [ "$dataapps" -eq "1" ]; then
-cd /cache/vrtheme/apply/data/app/aligned/
-cp * /data/app/
-chmod 644 /data/app/*
-fi
-if [ "$framework" -eq "1" ]; then
-cd /cache/vrtheme/apply/system/framework/aligned/
-cp * /system/framework/
-chmod 644 /system/framework/*
-fi
-
-# Do not remove the credits from this, it's called being a douche
-echo "VillainTheme is done"
-# we are all done now
+rm -rf "$VRDIR"
+exit 0

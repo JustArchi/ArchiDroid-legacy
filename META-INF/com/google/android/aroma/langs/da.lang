@@ -118,11 +118,6 @@ archidroid.kernel.devil.desc=Based on Perseus sources. Featuring dual-boot, come
 archidroid.kernel.agni.desc=A very sophisticated kernel, featuring F2FS support
 archidroid.kernel.stock.desc=Standard kernel der følger med denne ROM.
 
-archidroid.theme.aosp.desc=AOSP tema
-archidroid.theme.black.desc=Black theme
-archidroid.theme.blue.desc=Blue theme
-archidroid.theme.stock.desc=Standard tema
-
 archidroid.dpi.240w.desc=ADVARSEL! Husk at der kan forekomme små grafiske fejl ved brug af denne DPI
 archidroid.dpi.240.desc=Alt vil være mindre, det inkluderer knapper, ikoner, tekst osv. Anbefalet for bedste brugeroplevelse med ArchiDroid!
 archidroid.dpi.280.desc=En god balance mellem standard og 240 DPI
@@ -155,7 +150,6 @@ archidroid.updatemodem=Opdater Modem
 archidroid.updatemodem.desc=Hvis du ønsker at få det seneste modem
 archidroid.updaterecovery=Opdater Recovery
 archidroid.updaterecovery.desc=Hvis du ønsker at få den seneste Philz recovery
-
 
 archidroid.apps.titaniumbackup.desc=Perfekt løsning for at gemme personlig/app data når du opdaterer
 archidroid.apps.greenify.desc=Brugbart hvis du vil sætte apps i dvale, hvilket giver mere batteri levetid

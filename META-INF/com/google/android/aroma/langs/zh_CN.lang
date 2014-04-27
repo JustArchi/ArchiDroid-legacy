@@ -118,11 +118,6 @@ archidroid.kernel.devil.desc=基于 Perseus 源码. 双启动特性, 带有 Devi
 archidroid.kernel.agni.desc=支持 F2FS 的一款非常尖端的内核
 archidroid.kernel.stock.desc=使用 ROM 默认内核
 
-archidroid.theme.aosp.desc=AOSP 主题
-archidroid.theme.black.desc=黑色主题
-archidroid.theme.blue.desc=蓝色主题
-archidroid.theme.stock.desc=原生系统主题
-
 archidroid.dpi.240w.desc=警告! 在这个DPI下会有一些轻微的图形故障，小心使用
 archidroid.dpi.240.desc=所有都会变小, 包含按钮、图标和文本等等. 建议使用，最佳体验!
 archidroid.dpi.280.desc=原生和240 DPI模式之间的平衡选项
@@ -155,7 +150,6 @@ archidroid.updatemodem=更新基带
 archidroid.updatemodem.desc=如果你想用最新基带的话
 archidroid.updaterecovery=更新 Recovery
 archidroid.updaterecovery.desc=如果你想使用最新recovery
-
 
 archidroid.apps.titaniumbackup.desc=刷机/更新保存个人数据和app的最佳方案
 archidroid.apps.greenify.desc=休眠任何app的利器, 能增强电池续航

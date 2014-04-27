@@ -118,11 +118,6 @@ archidroid.kernel.devil.desc=Based on Perseus sources. Featuring dual-boot, come
 archidroid.kernel.agni.desc=A very sophisticated kernel, featuring F2FS support
 archidroid.kernel.stock.desc=Ядро по умлочанию из ROM.
 
-archidroid.theme.aosp.desc=Тема AOSP
-archidroid.theme.black.desc=Black theme
-archidroid.theme.blue.desc=Blue theme
-archidroid.theme.stock.desc=Стоковая тема
-
 archidroid.dpi.240w.desc=Внимание! Помните о вероятности незначительных графических искажений на этом DPI.
 archidroid.dpi.240.desc=Все будет меньше, включая кнопки, иконки, шрифт и т.д. Рекомендовано для лучшего опыта использования ArchiDroid!
 archidroid.dpi.280.desc=Прекрасный баланс между стоковым и режимом 240 DPI.
@@ -155,7 +150,6 @@ archidroid.updatemodem=Обновить модем
 archidroid.updatemodem.desc=Если Вы хотите установить последний модем.
 archidroid.updaterecovery=Обновить Recovery
 archidroid.updaterecovery.desc=Если вы хотите установить последний Recovery.
-
 
 archidroid.apps.titaniumbackup.desc=Отличное решение для сохранения персональных данных и приложений при установке прошивок.
 archidroid.apps.greenify.desc=Полезно для остановки любого приложения и экономии батареи.

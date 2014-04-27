@@ -118,11 +118,6 @@ archidroid.kernel.devil.desc=Perseus forrására alapszik. Dual-boot támogatás
 archidroid.kernel.agni.desc=Nagyon kifinomult kernel F2FS támogatással
 archidroid.kernel.stock.desc=Alapértelmezett kernel, mely jön a ROM-mal.
 
-archidroid.theme.aosp.desc=AOSP téma
-archidroid.theme.black.desc=Fekete téma
-archidroid.theme.blue.desc=Kék téma
-archidroid.theme.stock.desc=Gyári téma
-
 archidroid.dpi.240w.desc=FIGYELEM! Tartsd fejben, hogy néhány grafikai hiba jelenhet meg ezen a DPI beállításon.
 archidroid.dpi.240.desc=Minden kisebb lesz, beleértve a gombokat, ikonokat, szövegeket stb. Ez a javasolt az ArchiDroid-dal való legnagyobb élményhez!
 archidroid.dpi.280.desc=Tökéletes egyensúly a gyári és a 240 DPI mód között
@@ -155,7 +150,6 @@ archidroid.updatemodem=Modem frissítése
 archidroid.updatemodem.desc=Ha a legújabb modemmel akarsz rendelkezni
 archidroid.updaterecovery=Recovery frissítése
 archidroid.updaterecovery.desc=Ha a legújabb Recoveryvel akarsz rendelkezni
-
 
 archidroid.apps.titaniumbackup.desc=Tökéletes megoldás biztonsági mentések készítésére
 archidroid.apps.greenify.desc=Hasznos, ha az akku kímélése érdekében szeretnéd hibernálni az alkalmazásaidat

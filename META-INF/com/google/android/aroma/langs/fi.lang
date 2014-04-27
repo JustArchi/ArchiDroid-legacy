@@ -118,11 +118,6 @@ archidroid.kernel.devil.desc=Based on Perseus sources. Featuring dual-boot, come
 archidroid.kernel.agni.desc=A very sophisticated kernel, featuring F2FS support
 archidroid.kernel.stock.desc=ROM oletusydin
 
-archidroid.theme.aosp.desc=AOSP theme
-archidroid.theme.black.desc=Black theme
-archidroid.theme.blue.desc=Blue theme
-archidroid.theme.stock.desc=Stock theme
-
 archidroid.dpi.240w.desc=VAROITUS! Tämä DPI voi aiheuttaa pieniä visuaalisia ongelmia
 archidroid.dpi.240.desc=Kaikki on pienempää; mukaanlukien painikkeet, ikonit, teksti jne. ArchiDroid suosittelee parhaaseen käyttökokemukseen!
 archidroid.dpi.280.desc=Mukava vaihtoehto oletusarvon ja 240 DPI:n väliltä
@@ -155,7 +150,6 @@ archidroid.updatemodem=Päivitä modeemi
 archidroid.updatemodem.desc=Jos haluat käyttää viimeisintä modeemia
 archidroid.updaterecovery=Päivitä recovery
 archidroid.updaterecovery.desc=Jos haluat käyttää viimeisintä recoverya
-
 
 archidroid.apps.titaniumbackup.desc=Täydellinen ratkaisu datan ja sovelluksien varmuuskopiointiin
 archidroid.apps.greenify.desc=Hyödyllinen jos haluat vaivuttaa sovelluksia horrokseen virransäästön vuoksi

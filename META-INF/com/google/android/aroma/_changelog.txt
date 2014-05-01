@@ -3,6 +3,9 @@ ArchiDroid 2.4.4
 - [!] Code revision, big cleanup and optimizations in ArchiDroid scripts and tools
 - ADBLOCK: Fixed adblock sometimes not working on mobile data connection
 - Archi_UltraPowerSave Boeffla preset now uses noop/noop I/O scheduler (previously: row/cfq)
+- Changed ArchiDroid-specific /dev/archidroid implementation to more flexible tmpfs mounted under /data/media/0/ArchiDroid/tmpfs, this is to make i9305, i9000, YP-G1 and all future ports happier
+# Fellow ArchiDroid-ports users, this should fix ARCHIDROID_CRON for you - Tethering and Adblock
+
 - Updated Googy Max kernel to 2.3.0
 - [!] Updated sources
 # Due to some stability problems I decided to stick purely with Omni base and not cherry-pick features not-yet approved

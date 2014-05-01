@@ -53,6 +53,7 @@ MONITOR_DNS() {
 			DNS1="$CURDNS1"
 			DNS2="$CURDNS2"
 			REGENERATE_RESOLV
+			ARCHIDROID_INIT "RELOAD" "archidroid_dnsproxy2"
 		fi
 		sleep 2
 	done

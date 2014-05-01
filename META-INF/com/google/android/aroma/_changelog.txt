@@ -4,4 +4,12 @@ ArchiDroid 2.4.4
 - ADBLOCK: Fixed adblock sometimes not working on mobile data connection
 - Archi_UltraPowerSave Boeffla preset now uses noop/noop I/O scheduler (previously: row/cfq)
 - Updated Googy Max kernel to 2.3.0
-- Updated sources
+- [!] Updated sources
+# Due to some stability problems I decided to stick purely with Omni base and not cherry-pick features not-yet approved
+# Reverted:
+# - Animation Controls
+# - Theme Engine
+# - Battery Power Saver
+# - Messaging FC fix
+# - Boeffla settings not sticking after reboot fix
+# If you want them merged, visit gerrit.omnirom.org or jira.omnirom.org

@@ -378,34 +378,8 @@ while (! pgrep com.android && [ $LOOP -lt 300 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 				DBUPDATE system clear_recents_button 1
 				DBUPDATE system clear_recents_button_location 3
 				DBUPDATE system status_bar_battery_style 4
-				DBUPDATE system qs_quick_pulldown 1
+				DBUPDATE system qs_smart_pulldown 1
 				DBUPDATE system volume_music_control 1
-				DBUPDATE system lockscreen_see_through 1
-
-				# Requires SlimBean's Dark Droid
-				#DBUPDATE secure ui_theme_mode 2
-
-				# Reguires Custom Animations
-				DBUPDATE system animation_controls_no_override 1
-				DBUPDATE system animation_controls_duration 50
-				DBUPDATE system task_open 2
-				DBUPDATE system task_close 3
-				DBUPDATE system task_to_front 2
-				DBUPDATE system task_to_back 3
-				DBUPDATE system wallpaper_open 2
-				DBUPDATE system wallpaper_close 3
-				DBUPDATE system wallpaper_intra_open 2
-				DBUPDATE system wallpaper_intra_close 3
-				DBUPDATE system activity_open 2
-				DBUPDATE system activity_close 3
-				#DBUPDATE system animation_ime_enter 6
-				#DBUPDATE system animation_ime_exit 6
-				#DBUPDATE system animation_ime_interpolator 9
-				#DBUPDATE system animation_ime_duration 20
-				DBUPDATE system listview_animation 4
-				DBUPDATE system listview_interpolator 9
-				DBUPDATE system listview_animation_cache 3
-				DBUPDATE system listview_duration 10
 			fi
 
 			# And don't execute twice

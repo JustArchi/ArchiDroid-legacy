@@ -24,7 +24,7 @@
 AD="/data/media/0/ArchiDroid"
 ADSYS="/system/archidroid"
 ADDEV="$ADSYS/dev"
-ADPROC="$AD/tmpfs"
+ADPROC="/data/archidroid/tmpfs"
 ADCRON="$ADPROC/cron"
 LOG="$AD/Cron.log"
 ADSTATUS="$ADPROC/ARCHIDROID_CRON_STATUS"

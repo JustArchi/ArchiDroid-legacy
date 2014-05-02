@@ -4,7 +4,7 @@ ArchiDroid 1.7.16
 
 * ArchiDroid Commons
 
-- Changed ArchiDroid-specific /dev/archidroid implementation to more flexible tmpfs mounted under /data/media/0/ArchiDroid/tmpfs, this is to make i9305, i9000, YP-G1 and all future ports happier
+- Changed ArchiDroid-specific /dev/archidroid implementation to more flexible tmpfs mounted under /data/archidroid/tmpfs, this is to make i9305, i9000, YP-G1 and all future ports happier
 # Fellow ArchiDroid-ports users, this should fix ARCHIDROID_CRON for you - Tethering and Adblock
 
 - ADBLOCK: Fixed adblock sometimes not working on mobile data connection

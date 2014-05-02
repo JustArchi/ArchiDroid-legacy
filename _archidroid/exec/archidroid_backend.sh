@@ -38,11 +38,6 @@ if [ ! -L "/system/archidroid/etc/hosts" ]; then
 	ln -s "/system/archidroid/etc/hosts_adaway" "/system/archidroid/etc/hosts"
 fi
 
-# ArchiDroid dynamic resolv.conf
-if [ ! -L "/system/archidroid/etc/resolv.conf" ]; then
-	ln -s "/data/media/0/ArchiDroid/tmpfs/resolv.conf" "/system/archidroid/etc/resolv.conf"
-fi
-
 # SuperSU
 mkdir -p "/system/bin/.ext"
 cp "/system/xbin/su" "/system/xbin/daemonsu"

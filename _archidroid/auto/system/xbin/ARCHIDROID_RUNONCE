@@ -251,44 +251,12 @@ else
 	exit 2
 fi
 
-# Cool ArchiDroid Banner
-if [ -e /system/bin/boot-dmesg ]; then
-	echo "INFO: boot-dmesg detected, turning on logcat banner" >> $LOG
-	ADBANNER=1
-else
-	echo "INFO: boot-dmesg NOT detected, turning off logcat banner" >> $LOG
-	ADBANNER=0
-fi
-
 # ArchiDroid Semaphore
 # Wait until we see some android processes to consider boot is more or less complete (credits to AndiP71)
 # Also respect number of loops, maybe something went wrong
 echo "INFO: RunOnce Semaphore started" >> $LOG
 LOOP=0
 while (! pgrep com.android && [ $LOOP -lt 300 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ; do
-
-	if [ $ADBANNER -eq 1 ]; then
-		echo "
-*******************************************************************************
-*             _                _      _  ____               _      _          *
-*            / \    _ __  ___ | |__  (_)|  _ \  _ __  ___  (_)  __| |         *
-*           / _ \  | '__|/ __|| '_ \ | || | | || '__|/ _ \ | | / _\` |         *
-*          / ___ \ | |  | (__ | | | || || |_| || |  | (_) || || (_| |         *
-*         /_/   \_\|_|   \___||_| |_||_||____/ |_|   \___/ |_| \__,_|         *
-*                                                                             *
-*******************************************************************************
-*                  _                       _  _                               *
-*                 | |     ___    __ _   __| |(_) _ __    __ _                 *
-*                 | |    / _ \  / _\` | / _\` || || '_ \  / _\` |                *
-*                 | |___| (_) || (_| || (_| || || | | || (_| |                *
-*                 |_____|\___/  \__,_| \__,_||_||_| |_| \__, |                *
-*                                                       |___/                 *
-*******************************************************************************
-*            root@ArchiDroid:~# Waiting for ArchiDroid to load...             *
-*******************************************************************************
-"
-	fi
-
 	if [ $DBUPDATE -eq 1 ]; then
 		if [ -e /data/data/com.android.providers.settings/databases/settings.db ]; then
 			echo "INFO: Android created settings.db for me, how cute! Performing DBUPDATE" >> $LOG

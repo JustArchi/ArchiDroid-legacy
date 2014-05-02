@@ -407,6 +407,7 @@ if [ $ADRELOAD -eq 1 ]; then
 	setsid ARCHIDROID_INIT "background" &
 	sleep 1
 	tinyplay $ADSYS/system/reboot.wav >/dev/null 2>&1 &
+	setprop ctl.stop bootanim
 	setprop ctl.restart surfaceflinger
 	setprop ctl.restart zygote
 fi

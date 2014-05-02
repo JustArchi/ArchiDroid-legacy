@@ -22,7 +22,8 @@
 # limitations under the License.
 
 AD="/data/media/0/ArchiDroid"
-ADPROC="/data/archidroid/tmpfs"
+ADSYS="/system/archidroid"
+ADPROC="$ADSYS/tmpfs"
 ADCRON="$ADPROC/cron"
 LOG="$AD/Cron.log"
 MONITORS_DIR="$ADCRON/monitors"

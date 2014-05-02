@@ -21,8 +21,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-AD="/data/media/0/ArchiDroid"
-ADPROC="/data/archidroid/tmpfs"
+ADSYS="/system/archidroid"
+ADPROC="$ADSYS/tmpfs"
 ADCRON="$ADPROC/cron"
 LISTENERS_DIR="$ADCRON/listeners"
 

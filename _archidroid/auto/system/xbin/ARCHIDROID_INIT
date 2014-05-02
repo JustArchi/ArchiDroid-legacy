@@ -263,7 +263,7 @@ ADRELOAD() {
 AD="/data/media/0/ArchiDroid"
 ADSYS="/system/archidroid"
 ADDEV="$ADSYS/dev"
-ADPROC="$AD/tmpfs"
+ADPROC="/data/archidroid/tmpfs"
 ADCRON="$ADPROC/cron"
 LOG="$AD/Init.log" # "/dev/null" is no verbose
 RUNONCELOG="$AD/RunOnce.log"

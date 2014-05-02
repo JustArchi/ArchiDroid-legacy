@@ -33,7 +33,7 @@ if [ -z "$PROCESS" ]; then
 fi
 
 AD="/data/media/0/ArchiDroid"
-ADPROC="$AD/tmpfs"
+ADPROC="/data/archidroid/tmpfs"
 ADCRON="$ADPROC/cron"
 LOG="$AD/Cron.log"
 MONITORS_DIR="$ADCRON/monitors"

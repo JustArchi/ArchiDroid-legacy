@@ -402,15 +402,6 @@ if [ -e $AD/PowerOn.wav ]; then
 	tinyplay $AD/PowerOn.wav > /dev/null 2>&1 &
 fi
 
-# Cool ArchiDroid Banner
-if [ -e /system/bin/boot-dmesg ]; then
-	echo "INFO: boot-dmesg detected, turning on logcat banner" >> "$LOG"
-	ADBANNER=1
-else
-	echo "INFO: boot-dmesg NOT detected, turning off logcat banner" >> "$LOG"
-	ADBANNER=0
-fi
-
 # ArchiDroid tmpfs
 mkdir -p "$ADPROC"
 mount -t tmpfs tmpfs "$ADPROC"
@@ -456,27 +447,6 @@ fi
 echo "INFO: Init Semaphore started" >> "$LOG"
 LOOP=0
 while ! pgrep com.android && [ $LOOP -lt 300 ] ; do
-	if [ $ADBANNER -eq 1 ]; then
-		echo "
-*******************************************************************************
-*             _                _      _  ____               _      _          *
-*            / \    _ __  ___ | |__  (_)|  _ \  _ __  ___  (_)  __| |         *
-*           / _ \  | '__|/ __|| '_ \ | || | | || '__|/ _ \ | | / _\` |         *
-*          / ___ \ | |  | (__ | | | || || |_| || |  | (_) || || (_| |         *
-*         /_/   \_\|_|   \___||_| |_||_||____/ |_|   \___/ |_| \__,_|         *
-*                                                                             *
-*******************************************************************************
-*                  _                       _  _                               *
-*                 | |     ___    __ _   __| |(_) _ __    __ _                 *
-*                 | |    / _ \  / _\` | / _\` || || '_ \  / _\` |                *
-*                 | |___| (_) || (_| || (_| || || | | || (_| |                *
-*                 |_____|\___/  \__,_| \__,_||_||_| |_| \__, |                *
-*                                                       |___/                 *
-*******************************************************************************
-*            root@ArchiDroid:~# Waiting for ArchiDroid to load...             *
-*******************************************************************************
-"
-	fi
 	LOOP=$(expr $LOOP + 1)
 	sleep 2
 done

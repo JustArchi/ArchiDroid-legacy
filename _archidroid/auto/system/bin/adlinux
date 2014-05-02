@@ -5,28 +5,6 @@
 SSHD=false
 VNCD=false
 
-ADALIAS() {
-	# Because fuck you kernel, that's why
-	local CMD="$1"
-	shift 1
-	if [ -e /system/xbin/$CMD ]; then
-		/system/xbin/$CMD "$@"
-	elif [ -e /system/bin/$CMD ]; then
-		/system/bin/$CMD "$@"
-	else
-		$CMD "$@"
-	fi
-}
-
-# Define all unreliable commands, which kernel could override
-# It's really sad that we're doing this
-alias busybox='ADALIAS busybox'
-alias ln='ADALIAS ln'
-alias whoami='ADALIAS whoami'
-alias reboot='ADALIAS reboot'
-alias mount='ADALIAS mount'
-alias tar='ADALIAS tar'
-
 if [ `whoami 2>&1 | grep -i "root" | wc -l` -eq 0 ] && [ `whoami 2>&1 | grep -i "uid 0" | wc -l` -eq 0 ]; then
 	echo "Sorry, but I require root access, please execute me as root"
 	exit 1

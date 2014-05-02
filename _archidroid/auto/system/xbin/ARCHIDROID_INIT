@@ -109,10 +109,10 @@ ADSTOP() {
 ADSTART() {
 	case "$1" in
 		"ALL")
+			ADSTART "CRON"
 			ADSTART "HAVEGED"
 			ADSTART "FRANDOM"
 			ADSTART "ADBLOCK"
-			ADSTART "CRON"
 			;;
 		"ADBLOCK")
 			ADSTART "archidroid_dnsmasq"

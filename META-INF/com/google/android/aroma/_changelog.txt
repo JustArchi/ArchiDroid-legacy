@@ -1,14 +1,5 @@
 ArchiDroid 2.4.4
 
-- [!] ArchiDroid is now built with Linaro Daily (GCC 4.10)
-# In comparision with previously used 4.8, some interesting changes:
-# C++ hidden keyed methods can now be optimized out.
-# Calls that were speculatively made direct are turned back to indirect where direct call is not cheaper.
-# New time profiling determines typical order in which functions are executed.
-# A new function reordering pass (controlled by -freorder-functions) significantly reduces startup time of large applications
-# Feedback driven indirect call removal and devirtualization now handle cross-module calls when link-time optimization is enabled.
-# More: http://gcc.gnu.org/gcc-4.9/changes.html https://launchpad.net/gcc-linaro/4.8/4.8-2014.04
-
 - [!] Code revision, big cleanup and optimizations in ArchiDroid scripts and tools
 - ADBLOCK: Fixed adblock sometimes not working on mobile data connection
 - Archi_UltraPowerSave Boeffla preset now uses noop/noop I/O scheduler (previously: row/cfq)
@@ -29,4 +20,3 @@ ArchiDroid 2.4.4
 # - Messaging FC fix
 # - Boeffla settings not sticking after reboot fix
 # If you want them merged, visit gerrit.omnirom.org or jira.omnirom.org
-# This made ArchiDroid rock stable again, after messy 2.4.3

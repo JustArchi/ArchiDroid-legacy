@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
   <!-- LINARO TOOLCHAIN -->
-  <project name="JustArchi/linaro.git" path="prebuilts/gcc/linux-x86/arm/arm-eabi-4.10" remote="github" revision="4.10-eabi" /> <!-- Comment me if you have problem compiling your kernel with Linaro -->
-  <project name="JustArchi/linaro.git" path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.10" remote="github" revision="4.10-androideabi" />
+  <!-- <project name="JustArchi/linaro.git" path="prebuilts/gcc/linux-x86/arm/arm-eabi-4.8" remote="github" revision="4.8-eabi" /> -->
+  <project name="JustArchi/linaro.git" path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8" remote="github" revision="4.8-androideabi" />
 
   <!-- GOOGLE GCC TOOLCHAIN -->
-  <!-- <project name="platform/prebuilts/gcc/linux-x86/arm/arm-eabi-4.10" path="prebuilts/gcc/linux-x86/arm/arm-eabi-4.7" revision="master" /> --> <!-- And uncomment me -->
-  <!-- <project name="platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.10" path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.7" revision="master" /> -->
+  <project name="platform/prebuilts/gcc/linux-x86/arm/arm-eabi-4.8" path="prebuilts/gcc/linux-x86/arm/arm-eabi-4.8" revision="master" />
+  <!-- <project name="platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8" path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8" revision="master" /> -->
 
   <!-- OBSOLETE -->
   <remove-project name="android_packages_apps_OpenDelta" />

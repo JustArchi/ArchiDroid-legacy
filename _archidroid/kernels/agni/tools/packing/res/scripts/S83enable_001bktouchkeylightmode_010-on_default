@@ -1,6 +1,0 @@
-#!/sbin/busybox sh
-#TOUCHKEY LIGHTING SCENARIO
-#Select hardware touch keys lighting scenario :
-#Lights up on h/w keys or screen touch (default)
-
-echo 1 > /sys/class/sec/sec_touchkey/touch_led_on_screen_touch

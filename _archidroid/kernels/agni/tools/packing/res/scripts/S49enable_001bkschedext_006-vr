@@ -1,6 +1,0 @@
-#!/system/bin/sh
-#Scheduler (ext SD)
-#Change I/O scheduler for external SD memory:
-#VR
-
-echo "vr" > /sys/block/mmcblk1/queue/scheduler

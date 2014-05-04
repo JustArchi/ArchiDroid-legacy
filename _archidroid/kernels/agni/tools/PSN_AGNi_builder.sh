@@ -4,7 +4,7 @@
 #### AGNi Kernel-Patcher (based on original implementation for GT-S5830)
 
 #### DEFINE AGNi pureCM version info ########################################################################
-AGNI_PURECM_VER="2.7.6"
+AGNI_PURECM_VER="2.7.7"
 AGNI_PURECM_SELINUX="PERMISSIVE"
 DEVICE_MODEL="I9300"
 DEVICE_NAME="m0"
@@ -170,7 +170,6 @@ cp -rf /tmp/packing/* /tmp/extracted
 cd /tmp/extracted/sbin; ln -s ../init ueventd; ln -s ../init watchdogd;
 cd /tmp/extracted/sbin; ln -s busybox sh;
 cd /tmp/extracted/sbin; ln -s mount.exfat fsck.exfat; ln -s mount.exfat mkfs.exfat;
-cd /tmp/extracted/sbin; ln -s f2fs fibmap.f2fs; ln -s f2fs mkfs.f2fs; ln -s f2fs fsck.f2fs;
 chmod 644 /tmp/extracted/*
 chmod 777 /tmp/extracted/init
 chmod -R 777 /tmp/extracted/res

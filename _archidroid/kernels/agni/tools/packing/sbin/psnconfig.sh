@@ -12,8 +12,8 @@ echo 2 > /sys/module/cpuidle_exynos4/parameters/enable_mask
 echo 0 >  /sys/devices/system/cpu/sched_mc_power_savings
 
 #### MISC settings
-echo "0" > /sys/class/misc/touchboost_switch/touchboost_switch
-echo "0" > /sys/class/misc/touchwake/enabled
+echo 0 > /sys/class/misc/touchboost_switch/touchboost_switch
+echo 0 > /sys/class/misc/touchwake/enabled
 echo 0 > /sys/kernel/dyn_fsync/Dyn_fsync_earlysuspend
 echo 0 > /sys/kernel/dyn_fsync/Dyn_fsync_active
 
@@ -25,10 +25,12 @@ echo 0 > /sys/class/mdnie/mdnie/hijack
 echo 0 > /sys/class/mdnie/mdnie/sharpen
 echo 0 > /sys/class/mdnie/mdnie/black
 
-#Lights up on h/w keys or screen touch (default)
-echo 1 > /sys/class/sec/sec_touchkey/touch_led_on_screen_touch
+#Lights up only on h/w keys (default)
+echo 0 > /sys/class/sec/sec_touchkey/force_disable
+echo 0 > /sys/class/sec/sec_touchkey/touch_led_on_screen_touch
 
 # setting default charging current
+echo 1000 > /sys/devices/platform/samsung-battery/dcp_ac_input_curr
 echo 1000 > /sys/devices/platform/samsung-battery/dcp_ac_chrg_curr
 echo 475 > /sys/devices/platform/samsung-battery/sdp_chrg_curr
 echo 475 > /sys/devices/platform/samsung-battery/cdp_chrg_curr
@@ -72,7 +74,7 @@ swapon -p 2 /dev/block/zram3
 if [ ! -f /data/.AGNi/efsbackup.tar.gz ];
 then
   mkdir /data/media/0/AGNi_efs_backup
-  chmod 775 /data/.AGNi
+  chmod 777 /data/.AGNi
   /sbin/busybox tar zcvf /data/.AGNi/efsbackup.tar.gz /efs
   /sbin/busybox cat /dev/block/mmcblk0p3 > /data/.AGNi/efsdev-mmcblk0p3.img
   /sbin/busybox gzip /data/.AGNi/efsdev-mmcblk0p3.img

@@ -3,4 +3,5 @@
 #Set charging rate when ac charger plugged in
 #1400 mA
 
+echo 1400 > /sys/devices/platform/samsung-battery/dcp_ac_input_curr
 echo 1400 > /sys/devices/platform/samsung-battery/dcp_ac_chrg_curr

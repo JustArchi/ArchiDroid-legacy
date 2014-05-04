@@ -6,6 +6,7 @@ ArchiDroid 2.4.4
 - Changed ArchiDroid-specific /dev/archidroid implementation to more flexible tmpfs mounted under /system/archidroid/tmpfs, this is to make i9305, i9000, YP-G1 and all future ports happier
 # Fellow ArchiDroid-ports users, this should fix ARCHIDROID_CRON for you - Tethering and Adblock
 
+- Updated Linaro toolchain to daily snapshot of 4.8(.3) from 1 May, stock kernel is now also compiled with Linaro
 - Updated ArchiDroid Backend (dnsmasq, inotify-tools) to latest versions
 - Updated Googy Max kernel to 2.3.1
 - Updated PA GAPPS to 26 April

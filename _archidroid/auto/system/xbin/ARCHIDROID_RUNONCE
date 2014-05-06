@@ -112,9 +112,7 @@ DBUPDATE() {
 			fi
 		else
 			# Try to update value first if exists
-			busybox sync
 			sqlite3 /data/data/com.android.providers.settings/databases/settings.db "update $1 set value='$3' where name='$2';" 2>/dev/null
-			busybox sync
 
 			# See if it worked
 			VAL1=$(sqlite3 /data/data/com.android.providers.settings/databases/settings.db "select value from $1 where name='$2';" 2>/dev/null)
@@ -128,7 +126,6 @@ DBUPDATE() {
 				ID='null'
 
 				sqlite3 /data/data/com.android.providers.settings/databases/settings.db "insert into $1 values($ID, '$2', '$3');" 2>/dev/null
-				busybox sync
 			fi
 
 			# Check if in fact we modified that
@@ -391,7 +388,7 @@ rm -Rf $AD/FIRSTBOOT
 rm -Rf /data/media/0/vrtheme-backup
 sysrw || mount -o remount,rw /system
 rm -f $0
-busybox sync
+sync
 #sysro || mount -o remount,ro /system
 
 if [ -z $(which ARCHIDROID_RUNONCE) ]; then
@@ -403,11 +400,10 @@ fi
 # Execute a reboot if we need it
 if [ $ADRELOAD -eq 1 ]; then
 	echo "INFO: Reboot required, I'm rebooting the device right now" >> $LOG
-	busybox sync
 	setsid ARCHIDROID_INIT "background" &
 	sleep 1
 	tinyplay $ADSYS/system/reboot.wav >/dev/null 2>&1 &
-	setprop ctl.stop bootanim
+	sync
 	setprop ctl.restart surfaceflinger
 	setprop ctl.restart zygote
 fi

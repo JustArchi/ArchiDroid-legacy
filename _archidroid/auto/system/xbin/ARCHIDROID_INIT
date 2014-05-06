@@ -273,6 +273,7 @@ INTERNAL_EVENTS_DIR="$ADCRON/events/internal"
 
 if [ ! -e /data/ARCHIDROID_DONT_REMOVE_ME ]; then
 	echo "ERROR: ArchiDroid is not compatible with wiping data, please reflash your system!" >> "$LOG"
+	sync
 	reboot recovery || poweroff
 fi
 
@@ -463,12 +464,15 @@ if [ -e $AD/HARD_REBOOT_REQUIRED ]; then
 	rm -f $AD/SOFT_REBOOT_REQUIRED
 	rm -f $AD/HARD_REBOOT_REQUIRED
 	tinyplay $ADSYS/system/reboot.wav > /dev/null 2>&1
+	sync
 	reboot
 elif [ -e $AD/SOFT_REBOOT_REQUIRED ]; then
 	echo "INFO: SOFT_REBOOT_REQUIRED found, I'm rebooting android interface now..." >> "$LOG"
 	rm -f $AD/SOFT_REBOOT_REQUIRED
-	tinyplay $ADSYS/system/reboot.wav > /dev/null 2>&1
-	killall system_server
+	tinyplay $ADSYS/system/reboot.wav > /dev/null 2>&1 &
+	sync
+	setprop ctl.restart surfaceflinger
+	setprop ctl.restart zygote
 fi
 
 # Wait a little longer

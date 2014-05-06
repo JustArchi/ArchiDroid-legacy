@@ -273,7 +273,7 @@ INTERNAL_EVENTS_DIR="$ADCRON/events/internal"
 
 if [ ! -e /data/ARCHIDROID_DONT_REMOVE_ME ]; then
 	echo "ERROR: ArchiDroid is not compatible with wiping data, please reflash your system!" >> "$LOG"
-	poweroff
+	reboot recovery || poweroff
 fi
 
 mkdir -p "$ADPROC"

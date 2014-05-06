@@ -27,10 +27,10 @@ setvar("preset_version","9");
 
 ini_set("dp","3");
 ini_set("rom_name",             "ArchiDroid");
-ini_set("rom_version",          "2.4.4");
+ini_set("rom_version",          "2.4.5");
 ini_set("rom_author",           "JustArchi");
 ini_set("rom_device",           "Samsung Galaxy S3");
-ini_set("rom_date",             "May 5th, 2014");
+ini_set("rom_date",             "May XXth, 2014");
 
 ##
 # Show Animated Splash

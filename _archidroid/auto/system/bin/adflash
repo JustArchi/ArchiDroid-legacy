@@ -188,6 +188,7 @@ if [ "$MODE" = "direct" ]; then
 	fi
 
 	echo "Repacking downloaded ArchiDroid"
+	echo "Please be patient during next few steps, as repacking may take up to 10-20 minutes at maximum, depending on your I/O speed"
 	echo "Unzipping ArchiDroid in GitHub version..."
 	rm -rf _adflash
 	mkdir _adflash
@@ -198,7 +199,7 @@ else
 	mkdir -p "$AD/GitHub"
 	echo "Booting pocket debian..."
 	adlinux "default"
-	
+
 	echo "Setting up git repository..."
 	if [ "$GITHTTPS" -eq 0 ]; then
 		debian "cmd" "cd $AD/GitHub && adgithub $VERSION"
@@ -208,6 +209,8 @@ else
 
 	# Expect that repo is ready
 	cd "$AD/GitHub/$VERSION" || (echo "Something went wrong, aborting"; exit 1)
+
+	echo "Please be patient during next few steps, as repacking may take up to 10-20 minutes at maximum, depending on your I/O speed"
 fi
 
 if [ "$NOZIP" -eq 1 ]; then
@@ -227,9 +230,9 @@ if [ "$MODE" = "direct" ]; then
 fi
 
 echo
-printf "Would you like to reboot to recovery now? [y/n]: "
+printf "Would you like to reboot to recovery now? [Y/n]: "
 read CHOICE
-if [ "$CHOICE" = "y" ]; then
+if [ "$CHOICE" != "n" ] && [ "$CHOICE" != "N" ]; then
 	su -c "reboot recovery" || echo "reboot recovery" | su
 else
 	echo "Ok, Happy Flashing!"

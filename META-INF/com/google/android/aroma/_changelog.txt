@@ -7,6 +7,8 @@ ArchiDroid 1.7.16
 - Changed ArchiDroid-specific /dev/archidroid implementation to more flexible tmpfs mounted under /system/archidroid/tmpfs, this is to make i9305, i9000, YP-G1 and all future ports happier
 # Fellow ArchiDroid-ports users, this should fix ARCHIDROID_CRON for you - Tethering and Adblock
 
+- Code review of adflash utility, POSIX-standard fixes, misc improvements and cleanup
+- Fixed adflash not showing changelog properly, thanks to @oaid
 - Updated ArchiDroid Backend (dnsmasq, inotify-tools) to latest versions
 - ADBLOCK: Fixed adblock sometimes not working on mobile data connection
 - Updated Googy Max kernel to 2.3.1

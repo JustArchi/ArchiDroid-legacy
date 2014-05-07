@@ -1,18 +1,38 @@
 #!/system/bin/sh
 
-VERSION=""
-TEMP=""
+#     _             _     _ ____            _     _
+#    / \   _ __ ___| |__ (_)  _ \ _ __ ___ (_) __| |
+#   / _ \ | '__/ __| '_ \| | | | | '__/ _ \| |/ _` |
+#  / ___ \| | | (__| | | | | |_| | | | (_) | | (_| |
+# /_/   \_\_|  \___|_| |_|_|____/|_|  \___/|_|\__,_|
+#
+# Copyright 2014 Łukasz "JustArchi" Domeradzki
+# Contact: JustArchi@JustArchi.net
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+VERSION="$1"
 NOZIP=0
 GITHTTPS=0
 
-if [ -d /storage/sdcard1/ArchiDroid ]; then
+if [ -d "/storage/sdcard1/ArchiDroid" ]; then
 	AD="/storage/sdcard1/ArchiDroid"
-elif [ -d /storage/extSdCard/ArchiDroid ]; then
+elif [ -d "/storage/extSdCard/ArchiDroid" ]; then
 	AD="/storage/extSdCard/ArchiDroid"
 else
 	AD="/data/media/0/ArchiDroid"
 fi
-if [ -d $AD/GitHub ]; then
+if [ -d "$AD/GitHub" ]; then
 	MODE="git"
 else
 	MODE="direct"
@@ -21,57 +41,48 @@ fi
 echo "Welcome to ArchiDroid Command Line Flasher!"
 echo "Detected ArchiDroid in $AD"
 echo "Checking access to $AD"
-mkdir -p $AD/tmp
-cd $AD/tmp && rm -f test && touch test && rm -f test
-CHECK1=$?
-if [ $CHECK1 -ne 0 ]; then
-	echo "Sorry, access test failed. Make sure that $AD/tmp is not being owned by root or give me root access"
-	exit 1
-else
-	echo "Access test passed, we're ready to go!"
-fi
+mkdir -p "$AD/tmp"
+(cd "$AD/tmp" && rm -f test && touch test && rm -f test && echo "Access test passed, we're ready to go!") || (echo "Sorry, access test failed. Make sure that $AD/tmp is not being owned by root or give me root access"; exit 1)
 
 if [ $# -eq 0 ]; then
 	echo "Usage: $0 <VERSION>"
-	echo ""
+	echo
 	echo "Available versions:"
-	echo "2e	2.X-EXPERIMENTAL"
-	echo "2s	2.X-STABLE"
-	echo "1e	1.X-EXPERIMENTAL"
-	echo "1s	1.X-STABLE"
-	echo ""
-	echo -n "Your choice: "
+	echo "2e    2.X-EXPERIMENTAL"
+	echo "2s    2.X-STABLE"
+	echo "1e    1.X-EXPERIMENTAL"
+	echo "1s    1.X-STABLE"
+	echo
+	printf "Your choice: "
 	read VERSION
-	echo ""
-	echo ""
+	echo
+	echo
 	echo "You may specify any extra options here separated by a whitespace. Eventually you can just skip this question and apply defaults"
-	echo ""
+	echo
 	echo "ArchiDroid will prioritize git mode if ArchiDroid github repository already exists on your device and eventually fall back to direct, you can override this here"
 	echo "Currently using mode: $MODE. If you're satisfied with this mode you can just skip this question"
-	echo "git			Sets up local git repository, which gives you delta upgrades and bandwidth saving"
-	echo "direct		Downloads targeted branch as .zip file directly from github"
-	echo "clean			Cleans everything up, including local repo and tmp folder from ArchiDroid directory specified below"
-	echo ""
+	echo "git       Sets up local git repository, which gives you delta upgrades and bandwidth saving"
+	echo "direct    Downloads targeted branch as .zip file directly from github"
+	echo "clean     Cleans everything up, including local repo and tmp folder from ArchiDroid directory specified below"
+	echo
 	echo "ArchiDroid will prioritize extsd if it contains ArchiDroid folder and eventually fall back to intsd, you can override this here"
 	echo "Currently using ArchiDroid in: $AD. If you're satisfied with this path you can just skip this question"
-	echo "extsd			Use external sd card (/storage/sdcard1 /storage/extSdCard)"
-	echo "intsd			Use internal sd card (/data/media/0)"
-	echo ""
+	echo "extsd    Use external sd card (/storage/sdcard1 /storage/extSdCard)"
+	echo "intsd    Use internal sd card (/data/media/0)"
+	echo
 	echo "Other selectable options"
-	echo "nozip			Shows changelog and changes only"
-	echo "https			Affects only git mode during cloning (creating repository). This will tell git to use HTTPS instead of GIT protocol which may be faster/slower in some scenarios"
-	echo ""
-	echo ""
+	echo "nozip    Shows changelog and changes only"
+	echo "https    Affects only git mode during cloning (creating repository). This will tell git to use HTTPS instead of GIT protocol which may be faster/slower in some scenarios"
+	echo
+	echo
 	echo "Example: git extsd"
-	echo -n "Your extra options: "
+	printf "Your extra options: "
 	read EXTRA
-else
-	VERSION="$1"
-	EXTRA="$@"
+	set -- $EXTRA # Yes, we must break on spaces in this case
 fi
 
 # Parse extra args
-for arg in $EXTRA; do
+for arg in "$@"; do
 	case "$arg" in
 		"git")
 			MODE="git"
@@ -92,19 +103,12 @@ for arg in $EXTRA; do
 			if [ "$AD" != "/data/media/0/ArchiDroid" ]; then
 				echo "Changing path to internal sd!"
 				AD="/data/media/0/ArchiDroid"
-				mkdir -p $AD/tmp
-				cd $AD/tmp && rm -f test && touch test && rm -f test
-				CHECK1=$?
-				if [ $CHECK1 -ne 0 ]; then
-					echo "Sorry, access test failed. Make sure that $AD/tmp is not being owned by root or give me root access"
-					exit 1
-				else
-					echo "Access test passed, we're ready to go!"
-				fi
+				mkdir -p "$AD/tmp"
+				(cd "$AD/tmp" && rm -f test && touch test && rm -f test && echo "Access test passed, we're ready to go!") || (echo "Sorry, access test failed. Make sure that $AD/tmp is not being owned by root or give me root access"; exit 1)
 			fi
 			;;
 		"extsd")
-			if [ "$AD" == "/data/media/0/ArchiDroid" ]; then
+			if [ "$AD" = "/data/media/0/ArchiDroid" ]; then
 				echo "Changing path to external sd!"
 				if [ -e /storage/sdcard1 ]; then
 					AD="/storage/sdcard1/ArchiDroid"
@@ -113,15 +117,8 @@ for arg in $EXTRA; do
 				fi
 
 				if [ "$AD" != "/data/media/0/ArchiDroid" ]; then
-					mkdir -p $AD/tmp
-					cd $AD/tmp && rm -f test && touch test && rm -f test
-					CHECK1=$?
-					if [ $CHECK1 -ne 0 ]; then
-						echo "Sorry, access test failed. Make sure that $AD/tmp is not being owned by root or give me root access"
-						exit 1
-					else
-						echo "Access test passed, we're ready to go!"
-					fi
+					mkdir -p "$AD/tmp"
+					(cd "$AD/tmp" && rm -f test && touch test && rm -f test && echo "Access test passed, we're ready to go!") || (echo "Sorry, access test failed. Make sure that $AD/tmp is not being owned by root or give me root access"; exit 1)
 				else
 					echo "Sorry, could not detect any valid path to use"
 					echo "You selected extsd, but I failed to use it so I'm aborting here"
@@ -134,10 +131,10 @@ for arg in $EXTRA; do
 	esac
 done
 
-if [ "$MODE" == "clean" ]; then
+if [ "$MODE" = "clean" ]; then
 	echo "Cleaning..."
-	rm -rf $AD/tmp
-	rm -rf $AD/GitHub
+	rm -rf "$AD/tmp"
+	rm -rf "$AD/GitHub"
 	echo "Done, Removed $AD/tmp and $AD/GitHub folders"
 	exit 0
 fi
@@ -160,53 +157,32 @@ case "$VERSION" in
 		exit 1
 esac
 
-echo ""
+echo
 echo "Testing your internet connection..."
-curl google.com > /dev/null 2>&1
-CHECK=$?
-if [ $CHECK -ne 0 ]; then
-	echo "Something went wrong, test returned error code $CHECK."
-	echo "Sorry but I can't let you pass, either you don't have a valid connection with the internet or required components aren't working properly"
-	exit 1
-else
-	echo "Internet test passed successfully!"
-	echo ""
-fi
+(curl google.com > /dev/null 2>&1 && echo "Internet test passed successfully!") || (echo "Something went wrong, test returned error code $CHECK"; echo "Sorry but I can't let you pass, either you don't have a valid connection with the internet or required components aren't working properly"; exit 1)
 
-if [ "$MODE" == "direct" ]; then
-	mkdir -p $AD/tmp
-	cd $AD/tmp
-	echo "CHANGELOG START"
-	echo ""
-	curl -kSs https://raw.github.com/JustArchi/ArchiDroid/$VERSION/META-INF/com/google/android/aroma/_changelog.txt
-	echo ""
-	echo ""
-	echo "CHANGELOG EOF"
+echo "CHANGELOG START"
+echo
+curl -kLSs "https://raw.github.com/JustArchi/ArchiDroid/$VERSION/META-INF/com/google/android/aroma/_changelog.txt"
+echo
+echo
+echo "CHANGELOG EOF"
 
-	if [ $NOZIP -eq 1 ]; then
+if [ "$MODE" = "direct" ]; then
+	if [ "$NOZIP" -eq 1 ]; then
 		echo "Nozip detected, finishing!"
 		exit 0
 	fi
-
-	echo ""
+	mkdir -p "$AD/tmp"
+	cd "$AD/tmp"
+	echo
 	echo "Ok, starting download from GitHub"
 	echo "Warning, it may take long time. Make sure that you have stable Wi-Fi connection"
-	echo ""
-	TEMP=`curl -kISs https://codeload.github.com/JustArchi/ArchiDroid/zip/$VERSION | grep "Content-Length" | awk '{print $2}'`
-	if [ ! -z "$TEMP" ]; then
-		TEMP=`expr $TEMP / 1048576`
-		echo "It's about $TEMP Megabytes"
-	else
-		echo "Couldn't retrieve remote ArchiDroid size, sorry"
-	fi
-	echo ""
-	TEMP=""
-	echo "Downloading right now..."
 	rm -f archidroid_github.zip
-	curl -Sk https://codeload.github.com/JustArchi/ArchiDroid/zip/$VERSION > archidroid_github.zip
+	curl -Lk "https://github.com/JustArchi/ArchiDroid/archive/$VERSION.zip" > archidroid_github.zip || (echo "Download failed, please try again"; rm -f archidroid_github.zip; exit 1)
 	echo "Download completed, it took some time..."
 
-	if [ ! -e archidroid_github.zip ]; then
+	if [ ! -f archidroid_github.zip ]; then
 		echo "Couldn't find $AD/tmp/archidroid_github.zip, aborting"
 		exit 1
 	fi
@@ -215,70 +191,45 @@ if [ "$MODE" == "direct" ]; then
 	echo "Unzipping ArchiDroid in GitHub version..."
 	rm -rf _adflash
 	mkdir _adflash
-
-	unzip -q archidroid_github.zip -d _adflash
-	if [ $? -ne 0 ]; then
-		echo "Unzipping failed, aborting"
-		exit 1
-	fi
-
+	unzip -q archidroid_github.zip -d _adflash || (echo "Unzipping failed, aborting"; exit 1)
 	rm -f archidroid_github.zip
-	cd _adflash/ArchiDroid-$VERSION
-	if [ $? -ne 0 ]; then
-		echo "Something went wrong, aborting"
-		exit 1
-	fi
+	cd "_adflash/ArchiDroid-$VERSION" || (echo "Something went wrong, aborting"; exit 1)
 else
-	mkdir -p $AD/GitHub
-	echo "CHANGELOG START"
-	echo ""
-	curl -kSs https://raw.github.com/JustArchi/ArchiDroid/$VERSION/META-INF/com/google/android/aroma/_changelog.txt
-	echo ""
-	echo ""
-	echo "CHANGELOG EOF"
-	echo ""
+	mkdir -p "$AD/GitHub"
 	echo "Booting pocket debian..."
 	adlinux "default"
 	
 	echo "Setting up git repository..."
-	if [ $GITHTTPS -eq 0 ]; then
+	if [ "$GITHTTPS" -eq 0 ]; then
 		debian "cmd" "cd $AD/GitHub && adgithub $VERSION"
 	else
 		debian "cmd" "cd $AD/GitHub && adgithub $VERSION https"
 	fi
-	
+
 	# Expect that repo is ready
-	cd $AD/GitHub/$VERSION
-	if [ $? -ne 0 ]; then
-		echo "Something went wrong, aborting"
-		exit 1
-	fi
+	cd "$AD/GitHub/$VERSION" || (echo "Something went wrong, aborting"; exit 1)
 fi
 
-if [ $NOZIP -eq 1 ]; then
+if [ "$NOZIP" -eq 1 ]; then
 	echo "Nozip detected, finishing!"
 	exit 0
 fi
 
 echo "Zipping ArchiDroid to flashable version..."
-zip -qry -1 ArchiDroid.zip . -x ".git/*" "__dont_include/*"
-if [ $? -ne 0 ]; then
-	echo "Zipping failed, aborting"
-	exit 1
-fi
-	
-rm -f $AD/ArchiDroid.zip
-mv ArchiDroid.zip $AD/ArchiDroid.zip
+zip -qry -1 ArchiDroid.zip . -x ".git/*" "__dont_include/*" || (echo "Zipping failed, aborting"; exit 1)
+
+rm -f "$AD/ArchiDroid.zip"
+mv ArchiDroid.zip "$AD/ArchiDroid.zip"
 echo "Done, you can find your flashable rom in $AD/ArchiDroid.zip"
 
-if [ "$MODE" == "direct" ]; then
-	rm -rf $AD/tmp
+if [ "$MODE" = "direct" ]; then
+	rm -rf "$AD/tmp"
 fi
 
-echo ""
-echo -n "Would you like to reboot to recovery now? [y/n]: "
+echo
+printf "Would you like to reboot to recovery now? [y/n]: "
 read CHOICE
-if [ "$CHOICE" == "y" ]; then
+if [ "$CHOICE" = "y" ]; then
 	su -c "reboot recovery" || echo "reboot recovery" | su
 else
 	echo "Ok, Happy Flashing!"

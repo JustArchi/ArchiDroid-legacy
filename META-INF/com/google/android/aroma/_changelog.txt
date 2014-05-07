@@ -4,6 +4,8 @@ ArchiDroid 2.4.5
 * Performed loop invariant motion on trees. It also moved operands of conditions that are invariant out of the loop, so that we can use just trivial invariantness analysis in loop unswitching. The pass also includes store motion (-ftree-loop-im)
 * Created a canonical counter for number of iterations in loops for which determining number of iterations requires complicated analysis. Later optimizations then may determine the number easily (-ftree-loop-ivcanon)
 
+- Code review of adflash utility, POSIX-standard fixes, misc improvements and cleanup
+- Fixed adflash not showing changelog properly, thanks to @oaid
 - Updated Linaro toolchain to daily snapshot from 7 May
 - Updated Boeffla kernel to 2.3-beta2
 - Updated sources

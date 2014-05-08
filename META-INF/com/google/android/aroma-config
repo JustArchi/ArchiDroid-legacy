@@ -56,6 +56,8 @@ theme("touchwiz");
 resexec("exec/admount.sh", "/system");
 resexec("exec/admount.sh", "/data");
 resexec("exec/admount.sh", "/cache");
+resexec("exec/admount.sh", "/preload");
+resexec("exec/admount.sh", "/storage/sdcard1");
 resexec("exec/archidroid_init.sh", "1.X");
 setvar("extsdinstall", resexec("exec/archidroid_detect_zip.sh"));
 
@@ -539,6 +541,64 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 endif;
 
 if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") != "recovery" then
+	###########################
+	### ARCHIDROID HARDSWAP ###
+	###########################
+		pleasewait("Executing Shell...");
+		resexec("exec/archidroid_hardswap_check.sh", "/cache");
+		setvar("hardswapcache", getvar("exec_buffer"));
+		resexec("exec/archidroid_hardswap_check.sh", "/preload");
+		setvar("hardswappreload", getvar("exec_buffer"));
+		resexec("exec/archidroid_hardswap_check.sh", "/storage/sdcard1");
+		setvar("hardswapsdcard", getvar("exec_buffer"));
+
+		form(
+			"ArchiDroid Hardswap",
+			"<~archidroid.hardswap.desc>",
+			"icons/apps",
+			"archidroidhardswap.prop",
+
+			"cache","<#selectbg_g>Cache</#>","","group",
+			"0","0 Megabytes","<~archidroid.hardswap.remove.desc>","select",
+			"64","64 Megabytes","","select",
+			"128","128 Megabytes","","select",
+			"256","256 Megabytes","<~archidroid.hardswap.size.default.desc>","select",
+			"512","512 Megabytes","","select",
+			"current","Current: "+getvar("hardswapcache"),"","select.selected",
+
+			"preload","<#selectbg_g>Preload</#>","","group",
+			"0","0 Megabytes","<~archidroid.hardswap.remove.desc>","select",
+			"64","64 Megabytes","","select",
+			"128","128 Megabytes","","select",
+			"256","256 Megabytes","<~archidroid.hardswap.size.default.desc>","select",
+			"512","512 Megabytes","","select",
+			"current","Current: "+getvar("hardswappreload"),"","select.selected",
+
+			"sdcard1","<#selectbg_g>External SD Card</#>","","group",
+			"0","0 Megabytes","<~archidroid.hardswap.remove.desc>","select",
+			"64","64 Megabytes","","select",
+			"128","128 Megabytes","","select",
+			"256","256 Megabytes","<~archidroid.hardswap.size.default.desc>","select",
+			"512","512 Megabytes","","select",
+			"current","Current: "+getvar("hardswapsdcard"),"","select.selected"
+		);
+
+		if file_getprop("/tmp/aroma-data/archidroidhardswap.prop","cache") != "current" then
+			pleasewait("Applying Hardswap...");
+			resexec("exec/archidroid_hardswap.sh", "/cache", file_getprop("/tmp/aroma-data/archidroidhardswap.prop","cache"));
+			textbox("ArchiDroid Partition Wizard", "<~archidroid.hardswap.finish.desc>", "@default", getvar("exec_buffer"));
+		endif;
+		if file_getprop("/tmp/aroma-data/archidroidhardswap.prop","preload") != "current" then
+			pleasewait("Applying Hardswap...");
+			resexec("exec/archidroid_hardswap.sh", "/preload", file_getprop("/tmp/aroma-data/archidroidhardswap.prop","preload"));
+			textbox("ArchiDroid Partition Wizard", "<~archidroid.hardswap.finish.desc>", "@default", getvar("exec_buffer"));
+		endif;
+		if file_getprop("/tmp/aroma-data/archidroidhardswap.prop","sdcard1") != "current" then
+			pleasewait("Applying Hardswap...");
+			resexec("exec/archidroid_hardswap.sh", "/storage/sdcard1", file_getprop("/tmp/aroma-data/archidroidhardswap.prop","sdcard1"));
+			textbox("ArchiDroid Partition Wizard", "<~archidroid.hardswap.finish.desc>", "@default", getvar("exec_buffer"));
+		endif;
+
 	#########################
 	### ARCHIDROID DETECT ###
 	#########################
@@ -625,6 +685,8 @@ install(
 resexec("exec/adumount.sh", "/system");
 resexec("exec/adumount.sh", "/data");
 resexec("exec/adumount.sh", "/cache");
+resexec("exec/adumount.sh", "/preload");
+resexec("exec/adumount.sh", "/storage/sdcard1");
 
 if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "recovery" then
 	resexec("exec/rebootrecovery.sh");

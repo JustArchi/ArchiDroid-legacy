@@ -1,7 +1,28 @@
 #!/bin/bash
+
+#     _             _     _ ____            _     _
+#    / \   _ __ ___| |__ (_)  _ \ _ __ ___ (_) __| |
+#   / _ \ | '__/ __| '_ \| | | | | '__/ _ \| |/ _` |
+#  / ___ \| | | (__| | | | | |_| | | | (_) | | (_| |
+# /_/   \_\_|  \___|_| |_|_|____/|_|  \___/|_|\__,_|
+#
+# Copyright 2014 Łukasz "JustArchi" Domeradzki
+# Contact: JustArchi@JustArchi.net
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
 ourRepo="origin"
 ourLink="github.com/JustArchi/ArchiDroid.git"
-NOPROTOCOL=1
 VERSION="$1"
 
 if [ -z "$VERSION" ]; then
@@ -10,20 +31,16 @@ fi
 
 # Parse extra args
 shift 1
-for arg in $@; do
-	case "$arg" in
-		"https")
-			if [ $NOPROTOCOL -eq 1 ]; then
-				ourLink="https://$ourLink"
-				NOPROTOCOL=0
-			fi
-			;;
+for ARG in "$@"; do
+	case "$ARG" in
+		"https") ourTarget="https://$ourLink" ;;
+		"git") ourTarget="git://$ourLink" ;;
 		"head")
-			if [ -d $VERSION ]; then
-				cd $VERSION
-				echo `git rev-parse HEAD`
+			if [ -d "$VERSION" ]; then
+				cd "$VERSION"
+				git rev-parse HEAD
 			else
-				echo ""
+				echo
 			fi
 			exit 0
 			;;
@@ -32,32 +49,26 @@ for arg in $@; do
 	esac
 done
 
-if [ $NOPROTOCOL -eq 1 ]; then
-	ourLink="git://$ourLink"
-	NOPROTOCOL=0
+if [ -z "$ourTarget" ]; then
+	ourTarget="git://$ourLink"
 fi
 
-echo "CHANGELOG START"
-echo ""
-curl -kSs https://raw.github.com/JustArchi/ArchiDroid/$VERSION/META-INF/com/google/android/aroma/_changelog.txt
-echo ""
-echo ""
-echo "CHANGELOG EOF"
-
-if [ -d $VERSION ]; then
+if [ -d "$VERSION/.git" ]; then
 	echo "Ok, repository already available with branch $VERSION. Updating..."
-	cd $VERSION
-	ourOldHead=`git rev-parse HEAD`
-	git pull $ourRepo $VERSION
+	cd "$VERSION"
+	ourOldHead="$(git rev-parse HEAD)"
+	git reset --hard HEAD
+	git clean -fd
+	git pull "$ourRepo" "$VERSION"
 	echo "New commits:"
-	git --no-pager log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset commited by %C(bold blue)%an%Creset' $ourOldHead..$ourRepo/$VERSION
-	echo ""
-	echo ""
+	git --no-pager log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset commited by %C(bold blue)%an%Creset' "$ourOldHead..$ourRepo/$VERSION"
+	echo
+	echo
 else
 	echo "Repository isn't available yet, cloning ArchiDroid repository branch $VERSION"
-	git clone --branch $VERSION --depth 1 $ourLink $VERSION
-	cd $VERSION
-	git pull $ourRepo $VERSION
+	git clone --branch "$VERSION" --depth 1 "$ourTarget" "$VERSION"
+	cd "$VERSION"
+	git pull "$ourRepo" "$VERSION"
 fi
 
 exit 0

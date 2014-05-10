@@ -407,6 +407,17 @@ fi
 mkdir -p "$ADPROC"
 mount -t tmpfs tmpfs "$ADPROC"
 
+# ArchiDroid Hardswap
+if [ "$(busybox swapon --help 2>&1 | grep -qi "-p pri"; echo $?)" -eq 0 ]; then
+	HSEXTRA="-p 10"
+fi
+for HSPATH in "/cache" "/preload" "/storage/sdcard1"; do
+	if [ -f "$HSPATH/ArchiDroid.swp" ]; then
+		echo "INFO: Found ArchiDroid swap file in $HSPATH directory, $(du -mh "$HSPATH/ArchiDroid.swp" | cut -f1)" >> "$LOG"
+		busybox swapon $HSEXTRA "$HSPATH/ArchiDroid.swp" # Yes, we must break on spaces in this case
+	fi
+done
+
 # ArchiDroid services
 ADSTART "ALL"
 

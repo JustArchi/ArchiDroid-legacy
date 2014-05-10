@@ -170,6 +170,7 @@ form(
 
 	"preset","<#selectbg_g><~archidroid.preset.group></#>","","group",
 	"custom","<~archidroid.preset.custom>", "<~archidroid.preset.custom.desc>","select",
+	"previousexpert","<~archidroid.preset.previousexpert>","<~archidroid.preset.previousexpert.desc>","select",
 	"previous","<~archidroid.preset.previous>","<~archidroid.preset.previous.desc>","select.selected",
 	"barebones","<~archidroid.preset.barebones>","<~archidroid.preset.barebones.desc>","select",
 	"recovery","Recovery","<~archidroid.preset.recovery.desc>","select"
@@ -213,6 +214,15 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "previ
 		writetmpfile("archidroidxposed.prop",read(getvar("adaroma")+"/archidroidxposed.prop"));
 		writetmpfile("archidroidbuild.prop",read(getvar("adaroma")+"/archidroidbuild.prop"));
 	endif;
+endif;
+
+if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "previousexpert" then
+	# TODO: Aroma hangs when no files are present, add exception for this later
+	writetmpfile("archidroidinstallmode.prop","preset=custom\n");
+	writetmpfile("archidroid.prop",read(getvar("adaroma")+"/archidroid.prop"));
+	writetmpfile("archidroidboeffla.prop",read(getvar("adaroma")+"/archidroidboeffla.prop"));
+	writetmpfile("archidroidxposed.prop",read(getvar("adaroma")+"/archidroidxposed.prop"));
+	writetmpfile("archidroidbuild.prop",read(getvar("adaroma")+"/archidroidbuild.prop"));
 endif;
 
 ###############################

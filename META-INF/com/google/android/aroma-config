@@ -24,10 +24,11 @@
 ##
 
 setvar("preset_version","14");
+setvar("adaroma","/data/media/0/ArchiDroid/AromaPreset/1.X");
 
 ini_set("dp","3");
 ini_set("rom_name",             "ArchiDroid");
-ini_set("rom_version",          "1.8");
+ini_set("rom_version",          "1.7.16");
 ini_set("rom_author",           "JustArchi");
 ini_set("rom_device",           "Samsung Galaxy S3");
 ini_set("rom_date",             "May XXth, 2014");
@@ -201,16 +202,16 @@ endif;
 #######################
 
 if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "previous" then
-	setvar("preset_version_probe",read("/data/media/0/ArchiDroid/AromaPreset/1.X/version.txt"));
+	setvar("preset_version_probe",read(getvar("adaroma")+"/version.txt"));
 	if getvar("preset_version")!=getvar("preset_version_probe") then
 		alert("ArchiDroid Wizard","<~archidroid.detect.previouspreset.fail>","@alert");
 		writetmpfile("archidroidinstallmode.prop","preset=custom\n");
 	else
-		writetmpfile("archidroid.prop",read("/data/media/0/ArchiDroid/AromaPreset/1.X/archidroid.prop"));
-		writetmpfile("archidroidbloatware.prop",read("/data/media/0/ArchiDroid/AromaPreset/1.X/archidroidbloatware.prop"));
-		writetmpfile("archidroidboeffla.prop",read("/data/media/0/ArchiDroid/AromaPreset/1.X/archidroidboeffla.prop"));
-		writetmpfile("archidroidxposed.prop",read("/data/media/0/ArchiDroid/AromaPreset/1.X/archidroidxposed.prop"));
-		writetmpfile("archidroidbuild.prop",read("/data/media/0/ArchiDroid/AromaPreset/1.X/archidroidbuild.prop"));
+		writetmpfile("archidroid.prop",read(getvar("adaroma")+"/archidroid.prop"));
+		writetmpfile("archidroidbloatware.prop",read(getvar("adaroma")+"/archidroidbloatware.prop"));
+		writetmpfile("archidroidboeffla.prop",read(getvar("adaroma")+"/archidroidboeffla.prop"));
+		writetmpfile("archidroidxposed.prop",read(getvar("adaroma")+"/archidroidxposed.prop"));
+		writetmpfile("archidroidbuild.prop",read(getvar("adaroma")+"/archidroidbuild.prop"));
 	endif;
 endif;
 
@@ -297,7 +298,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 		splash(4000,"preview/bootanimation/" + file_getprop("/tmp/aroma-data/archidroid.prop","bootanimation"));
 		back("1");
 	endif;
-	write("/data/media/0/ArchiDroid/AromaPreset/1.X/archidroid.prop",readtmpfile("archidroid.prop"));
+	write(getvar("adaroma")+"/archidroid.prop",readtmpfile("archidroid.prop"));
 
 	form(
 		"<~archidroid.custom.extra>",
@@ -325,7 +326,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 		"keystring","Samsung Keystring [<~common.experimental>]","Unknown functionality and side effects. Safe?","check.checked",
 		"other","Other [<~common.experimental>]","Various other unknown apps with unknown functionality and side effects. May not be safe!","check.checked"
 	);
-	write("/data/media/0/ArchiDroid/AromaPreset/1.X/archidroidbloatware.prop",readtmpfile("archidroidbloatware.prop"));
+	write(getvar("adaroma")+"/archidroidbloatware.prop",readtmpfile("archidroidbloatware.prop"));
 
 	### ArchiDroid Extra ###
 	if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "boeffla" then
@@ -341,7 +342,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 			"archiultrapowersave","<~archidroid.preset.kernel.boeffla.archiultrapowersave>","<~archidroid.preset.kernel.boeffla.archiultrapowersave.desc>","select",
 			"no","<~archidroid.preset.no>","<~archidroid.preset.no.desc>","select"
 		);
-		write("/data/media/0/ArchiDroid/AromaPreset/1.X/archidroidboeffla.prop",readtmpfile("archidroidboeffla.prop"));
+		write(getvar("adaroma")+"/archidroidboeffla.prop",readtmpfile("archidroidboeffla.prop"));
 	endif;
 
 	if file_getprop("/tmp/aroma-data/archidroid.prop","xposed") == "1" then
@@ -357,7 +358,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 			"xprivacy","XPrivacy","<~archidroid.xposed.xprivacy.desc>","check",
 			"wanam","Wanam's Xposed","<~archidroid.xposed.wanam.desc>","check.checked"
 		);
-		write("/data/media/0/ArchiDroid/AromaPreset/1.X/archidroidxposed.prop",readtmpfile("archidroidxposed.prop"));
+		write(getvar("adaroma")+"/archidroidxposed.prop",readtmpfile("archidroidxposed.prop"));
 	endif;
 
 	if file_getprop("/tmp/aroma-data/archidroid.prop","buildtweaks") == "1" then
@@ -372,9 +373,9 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 			"zerowakeup","ZeroWakeUp","<~archidroid.buildtweaks.zerowakeup.desc>","check",
 			"navibar","Navigation Bar","<~archidroid.buildtweaks.navibar.desc>","check"
 		);
-		write("/data/media/0/ArchiDroid/AromaPreset/1.X/archidroidbuild.prop",readtmpfile("archidroidbuild.prop"));
+		write(getvar("adaroma")+"/archidroidbuild.prop",readtmpfile("archidroidbuild.prop"));
 	endif;
-	write("/data/media/0/ArchiDroid/AromaPreset/1.X/version.txt",getvar("preset_version"));
+	write(getvar("adaroma")+"/version.txt",getvar("preset_version"));
 
 	####################
 	### F2FS SUPPORT ###

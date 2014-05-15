@@ -5,6 +5,7 @@ ArchiDroid 2.4.5
 * Performed loop invariant motion on trees. It also moved operands of conditions that are invariant out of the loop, so that we can use just trivial invariantness analysis in loop unswitching. The pass also includes store motion (-ftree-loop-im)
 * Created a canonical counter for number of iterations in loops for which determining number of iterations requires complicated analysis. Later optimizations then may determine the number easily (-ftree-loop-ivcanon)
 * Performed induction variable optimizations (strength reduction, induction variable merging and induction variable elimination) on trees (-fivopts)
+* Tried to reduce the number of symbolic address calculations by using shared “anchor” symbols to address nearby objects. This transformation can help to reduce the number of GOT entries and GOT accesses on some targets (-fsection-anchors)
 
 - Code review of adflash utility, POSIX-standard fixes, misc improvements and cleanup
 - Fixed adflash not showing changelog properly, thanks to @oaid

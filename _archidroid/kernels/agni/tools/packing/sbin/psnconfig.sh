@@ -40,35 +40,14 @@ echo 0 > /sys/devices/platform/samsung-battery/ignore_unstable_power
 chmod 664 /sys/module/lowmemorykiller/parameters/minfree
 echo "12288,15360,18432,21504,24576,30720" > /sys/module/lowmemorykiller/parameters/minfree
 
-# PSN>> ZRAM activator 300 MB
+# PSN>> ZRAM activator 200 MB
 #Zram0
 swapoff /dev/block/zram0
 echo 1 > /sys/block/zram0/reset
-echo 78643200 > /sys/block/zram0/disksize
+echo 209715200 > /sys/block/zram0/disksize
 echo 1 > /sys/block/zram0/initstate
 mkswap /dev/block/zram0
 swapon -p 2 /dev/block/zram0
-#Zram1
-swapoff /dev/block/zram1
-echo 1 > /sys/block/zram1/reset
-echo 78643200 > /sys/block/zram1/disksize
-echo 1 > /sys/block/zram0/initstate
-mkswap /dev/block/zram1
-swapon -p 2 /dev/block/zram1
-#Zram2
-swapoff /dev/block/zram2
-echo 1 > /sys/block/zram2/reset
-echo 78643200 > /sys/block/zram2/disksize
-echo 1 > /sys/block/zram2/initstate
-mkswap /dev/block/zram2
-swapon -p 2 /dev/block/zram2
-#Zram3
-swapoff /dev/block/zram3
-echo 1 > /sys/block/zram3/reset
-echo 78643200 > /sys/block/zram3/disksize
-echo 1 > /sys/block/zram3/initstate
-mkswap /dev/block/zram3
-swapon -p 2 /dev/block/zram3
 
 #### EFS backup
 if [ ! -f /data/.AGNi/efsbackup.tar.gz ];
@@ -82,5 +61,13 @@ then
   chmod 777 /data/media/0/AGNi_efs_backup/efsdev-mmcblk0p3.img
   chmod 777 /data/media/0/AGNi_efs_backup/efsbackup.tar.gz
 fi
+
+### Disable Sound Engine if selected in AROMA
+if [ ! -f /res/scripts/tests/S30enable_001bk040resetAppSound ];
+then
+  echo 0 > /sys/class/misc/boeffla_sound/boeffla_sound
+fi
+
+
 
 

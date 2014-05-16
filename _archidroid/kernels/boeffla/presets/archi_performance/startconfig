@@ -1,9 +1,9 @@
-# created by: Boeffla-Config 2.1.28
-# (28.02.2014-22.51.52)
+# created by: Boeffla-Config 2.1.38
+# (16.05.2014-21.20.45)
 
 echo 'No undervolting' > /dev/bk_cpu_voltages_profile
-echo '1400 1363 1300 1238 1200 1150 1100 1050 1000 975 963 950 950 925 900' > /sys/devices/system/cpu/cpu0/cpufreq/UV_mV_table
-echo '1600000' > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+echo '1425 1400 1300 1238 1200 1150 1100 1050 1000 975 963 950 950 925 900' > /sys/devices/system/cpu/cpu0/cpufreq/UV_mV_table
+echo '1700000' > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
 echo '200000' > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
 echo 'intelliactive' > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
 busybox sleep 0.5s
@@ -46,15 +46,18 @@ echo '0' > /sys/class/misc/touchwake/charger_mode
 echo '0' > /sys/kernel/early_suspend/early_suspend_delay
 echo '0' > /sys/class/misc/mdnie_preset/mdnie_preset
 echo '' > /dev/bk_mdnie_overwrite
-echo '1' > /sys/class/sec/sec_touchkey/touch_led_handling
-echo '0' > /sys/class/sec/sec_touchkey/touch_led_on_screen_touch
+echo '' > /sys/class/sec/sec_touchkey/force_disable
+echo '' > /sys/class/sec/sec_touchkey/touch_led_handling
+echo '' > /sys/class/sec/sec_touchkey/touch_led_on_screen_touch
 echo '' > /dev/bk_system_tweaks
 /res/bc/bccontroller.sh apply_system_tweaks ''
 echo '26214400' > /sys/block/zram0/disksize
 echo '26214400' > /sys/block/zram1/disksize
 echo '26214400' > /sys/block/zram2/disksize
 echo '26214400' > /sys/block/zram3/disksize
-echo '0' > /dev/bk_swappiness_overwrite
+/res/bc/bccontroller.sh apply_zram 1 4
+echo '1' > /dev/bk_swappiness_overwrite
+echo '80' > /proc/sys/vm/swappiness
 echo '1100' > /sys/kernel/charge_levels/charge_level_ac
 echo '475' > /sys/kernel/charge_levels/charge_level_usb
 echo '475' > /sys/kernel/charge_levels/charge_level_wireless
@@ -63,6 +66,7 @@ echo '0' > /sys/kernel/charge_levels/ignore_unstable_power
 /res/bc/bccontroller.sh apply_cifs 0
 /res/bc/bccontroller.sh apply_nfs 0
 /res/bc/bccontroller.sh apply_xbox 0
+/res/bc/bccontroller.sh apply_usb_ethernet 0
 /res/bc/bccontroller.sh apply_exfat 1
 /res/bc/bccontroller.sh apply_ntfs 0
 echo '0' > /sys/kernel/logger_mode/logger_mode

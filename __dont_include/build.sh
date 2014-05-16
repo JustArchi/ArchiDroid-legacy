@@ -21,7 +21,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-VERSION=1.8
+VERSION=1.7.16
 
 # HOW TO PORT ARCHIDROID TO OTHER DEVICE
 # 1. Make sure you have a good base, this can be a stock ROM or AOSP ROM. Put it in .zip format in the root of ArchiDroid.
@@ -269,6 +269,7 @@ if [ $SAMMY -eq 1 ]; then
 	mv -f TEMP.apk ../system/framework/framework-res.apk
 	rm -f ../system/app/Superuser.apk
 	rm -f ../system/xbin/su
+	rm -f ../system/xbin/busybox
 	rm -f ../system/xbin/daemonsu
 	rm -f ../system/etc/init.d/99SuperSUDaemon
 	rm -f ../system/etc/install-recovery.sh

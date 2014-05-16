@@ -1,8 +1,8 @@
-# created by: Boeffla-Config 2.1.38
-# (16.05.2014-21.20.13)
+# created by: Boeffla-Config 2.1.28
+# (28.02.2014-22.53.52)
 
 echo 'undervolt -25mV' > /dev/bk_cpu_voltages_profile
-echo '1400 1375 1275 1213 1175 1125 1075 1025 975 950 938 925 925 900 875' > /sys/devices/system/cpu/cpu0/cpufreq/UV_mV_table
+echo '1375 1338 1275 1213 1175 1125 1075 1025 975 950 938 925 925 900 875' > /sys/devices/system/cpu/cpu0/cpufreq/UV_mV_table
 echo '1400000' > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
 echo '200000' > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
 echo 'pegasusq - boeffla battery saving' > /dev/bk_governor_profile
@@ -45,7 +45,6 @@ echo '0' > /sys/class/misc/touchwake/charger_mode
 echo '0' > /sys/kernel/early_suspend/early_suspend_delay
 echo '0' > /sys/class/misc/mdnie_preset/mdnie_preset
 echo '' > /dev/bk_mdnie_overwrite
-echo '' > /sys/class/sec/sec_touchkey/force_disable
 echo '1' > /sys/class/sec/sec_touchkey/touch_led_handling
 echo '0' > /sys/class/sec/sec_touchkey/touch_led_on_screen_touch
 echo '' > /dev/bk_system_tweaks
@@ -65,7 +64,6 @@ echo '0' > /sys/kernel/charge_levels/ignore_unstable_power
 /res/bc/bccontroller.sh apply_cifs 0
 /res/bc/bccontroller.sh apply_nfs 0
 /res/bc/bccontroller.sh apply_xbox 0
-/res/bc/bccontroller.sh apply_usb_ethernet 0
 /res/bc/bccontroller.sh apply_exfat 1
 /res/bc/bccontroller.sh apply_ntfs 0
 echo '0' > /sys/kernel/logger_mode/logger_mode

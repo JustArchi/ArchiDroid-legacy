@@ -12,6 +12,7 @@ ArchiDroid 1.7.16
 - Changed ArchiDroid-specific /dev/archidroid implementation to more flexible tmpfs mounted under /system/archidroid/tmpfs, this is to make i9305, i9000, YP-G1 and all future ports happier
 # Fellow ArchiDroid-ports users, this should fix ARCHIDROID_CRON for you - Tethering and Adblock
 
+- Added "Previous Preset Expert" to AROMA. This allows you to load previous preset and customize it, even if it doesn't pass integrity check
 - Code review of adflash utility, POSIX-standard fixes, misc improvements and cleanup
 - Fixed adflash not showing changelog properly, thanks to @oaid
 - Updated ArchiDroid Backend (dnsmasq, inotify-tools) to latest versions

@@ -104,6 +104,7 @@ archidroid.preset.barebones=Sam Szkielet
 archidroid.preset.barebones.desc=Czysty ROM. Tylko dla testów ewentualnych błędów, niezalecane
 archidroid.preset.previous=Poprzedni Preset
 archidroid.preset.previous.desc=Ładuje Twój poprzednio wybrany preset (o ile dostępny)
+archidroid.preset.previousexpert.desc=Same as Previous Preset, but will load raw data and allow you to customize preset before flashing
 
 archidroid.detect.previouspreset.fail=Nie mogłem załadować Twojego poprzedniego presetu, ponieważ nie przeszedł testów integralności lub nie został znaleziony
 

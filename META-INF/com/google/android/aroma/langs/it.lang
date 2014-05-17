@@ -104,6 +104,7 @@ archidroid.preset.barebones=Pulita
 archidroid.preset.barebones.desc=Rom pulita.Raccomandata solo per testing.
 archidroid.preset.previous=Vecchie impostazioni
 archidroid.preset.previous.desc=Caricare le tue vecchie impostazioni d'installazione (se ce ne sono)
+archidroid.preset.previousexpert.desc=Same as Previous Preset, but will load raw data and allow you to customize preset before flashing
 
 archidroid.detect.previouspreset.fail=Non è stato possibile caricare le tue vecchie impostazioni, o è fallito il test d'integrità o non esistono
 

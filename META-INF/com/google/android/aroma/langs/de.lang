@@ -104,6 +104,7 @@ archidroid.preset.barebones=Bare Bones
 archidroid.preset.barebones.desc=reine ROM. Nur zum testen, wird nicht empfohlen
 archidroid.preset.previous=Letzte Voreinstellung
 archidroid.preset.previous.desc=Einstellungen von vorderer Installation behalten (wenn möglich)
+archidroid.preset.previousexpert.desc=Same as Previous Preset, but will load raw data and allow you to customize preset before flashing
 
 archidroid.detect.previouspreset.fail=Konnte die Einstellungen nicht laden, wählen Sie bitte "Anpassen"
 

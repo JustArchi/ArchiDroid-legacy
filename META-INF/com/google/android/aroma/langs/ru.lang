@@ -104,6 +104,7 @@ archidroid.preset.barebones=Голые кости
 archidroid.preset.barebones.desc=Чистый ROM. Предназначен для тестирования, не рекомендуется.
 archidroid.preset.previous=Сохраненный режим установки
 archidroid.preset.previous.desc=Загружает Ваш сохраненный режим установки (если Вы его сохраняли ранее).
+archidroid.preset.previousexpert.desc=Same as Previous Preset, but will load raw data and allow you to customize preset before flashing
 
 archidroid.detect.previouspreset.fail=Не смог загрузить сохраненный режим. Либо он несовместим, либо не создавался.
 

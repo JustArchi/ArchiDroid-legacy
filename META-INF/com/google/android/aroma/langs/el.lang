@@ -104,6 +104,7 @@ archidroid.preset.barebones=Bare Bones
 archidroid.preset.barebones.desc=Καθαρή ROM. Μόνο για δοκιμαστικούς σκοπούς, δεν προτείνεται
 archidroid.preset.previous=Προηγούμενο Προφίλ
 archidroid.preset.previous.desc=Φορτώνει το προηγούμενο προσαρμοσμένο σας προφίλ εγκατάστασης (Εάν είναι διαθέσιμο)
+archidroid.preset.previousexpert.desc=Same as Previous Preset, but will load raw data and allow you to customize preset before flashing
 
 archidroid.detect.previouspreset.fail=απότυχία φόρτωσης του προηγούμενου προφίλ σας, είτε απέτυχε στον έλεγχο εγκυρότητας ή δεν υπάρχει
 

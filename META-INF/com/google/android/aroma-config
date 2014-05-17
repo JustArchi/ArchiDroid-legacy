@@ -170,8 +170,8 @@ form(
 
 	"preset","<#selectbg_g><~archidroid.preset.group></#>","","group",
 	"custom","<~archidroid.preset.custom>", "<~archidroid.preset.custom.desc>","select",
-	"previousexpert","<~archidroid.preset.previousexpert>","<~archidroid.preset.previousexpert.desc>","select",
 	"previous","<~archidroid.preset.previous>","<~archidroid.preset.previous.desc>","select.selected",
+	"previousexpert","<~archidroid.preset.previous> Expert","<~archidroid.preset.previousexpert.desc>","select",
 	"barebones","<~archidroid.preset.barebones>","<~archidroid.preset.barebones.desc>","select",
 	"recovery","Recovery","<~archidroid.preset.recovery.desc>","select"
 );

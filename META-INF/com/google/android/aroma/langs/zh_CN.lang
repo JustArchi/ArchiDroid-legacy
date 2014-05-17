@@ -104,6 +104,7 @@ archidroid.preset.barebones=纯净 ROM
 archidroid.preset.barebones.desc=纯净 ROM 选项. 只为测试, 不推荐
 archidroid.preset.previous=使用之前的预设
 archidroid.preset.previous.desc=载入之前的自定义安装预设 (如果存在的话)
+archidroid.preset.previousexpert.desc=Same as Previous Preset, but will load raw data and allow you to customize preset before flashing
 
 archidroid.detect.previouspreset.fail=不能载入之前的安装预设, 不存在或者完整性检测失败
 

@@ -104,6 +104,7 @@ archidroid.preset.barebones=Nativo
 archidroid.preset.barebones.desc=ROM Puro. Sólo para fines de prueba, no se recomienda
 archidroid.preset.previous=Configuración Anterior
 archidroid.preset.previous.desc=Carga su configuración de instalación anterior (si está disponible)
+archidroid.preset.previousexpert.desc=Same as Previous Preset, but will load raw data and allow you to customize preset before flashing
 
 archidroid.detect.previouspreset.fail=No se pudo cargar su configuración anterior, falló la comprobación de integridad ó no existe
 

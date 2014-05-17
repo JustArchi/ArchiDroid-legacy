@@ -81,6 +81,10 @@ archidroid.detect.pass.no=Nie, full wipe
 archidroid.detect.pass.alert.no=OK, wybrałem tryb instalacji, czyli dokonania full wipe.
 archidroid.detect.force=Czy chciałbyś użyć trybu wymuszonej aktualizacji? Ta opcja powoduje wykonanie przez ArchiDroid RunOnce wielu zaawansowanych modyfikacji, które normalnie byłyby wykonane wyłącznie podczas trybu instalacji. Wybierz Nie jeśli nie jesteś pewny
 
+archidroid.hardswap.desc=ArchiDroid Hardswap pozwala Ci na poświęcenie szybkości i życia Twojej pamięci flash na dodatkową pamięć. Ta opcja utworzy specjalny plik swap w wybranej przez Ciebie lokacji i pozwoli Androidowi używać go jako dodatkowej pamięci RAM. Czym więcej dodatkowej pamięci, tym wolniejsza szybkość I/O. <b><#f00>Weź pod uwagę fakt, że używanie hardswapu może znacznie skrócić czas życia twojej pamięci flash</#></b>
+archidroid.hardswap.remove.desc=Usuwa hardswap z tej partycji
+archidroid.hardswap.size.default.desc=Sugerowany maksymalny rozmiar dla hardswapu
+
 archidroid.partition.wizard.desc=Menadżer partycjonowania ArchiDroid pokazuje wyłącznie partycje, które są aktualnie wspierane. F2FS wymaga specjalnego recovery i kernela (wybranego wcześniej), aby być dostępnym na liście\
 \
 <b><#f00>UWAGA! REPARTYCJONOWANIE MOŻE PROWADZIĆ DO SOFT ORAZ HARD BRICKÓW JEŚLI SIĘ NIE POWIEDZIE. NIE POWINIENEŚ DOTYKAĆ TYCH USTAWIEŃ, CHYBA ŻE MASZ ABSOLUTNE POJĘCIE NA TEMAT TEGO CO ROBISZ</#></b>\
@@ -104,7 +108,7 @@ archidroid.preset.barebones=Sam Szkielet
 archidroid.preset.barebones.desc=Czysty ROM. Tylko dla testów ewentualnych błędów, niezalecane
 archidroid.preset.previous=Poprzedni Preset
 archidroid.preset.previous.desc=Ładuje Twój poprzednio wybrany preset (o ile dostępny)
-archidroid.preset.previousexpert.desc=Same as Previous Preset, but will load raw data and allow you to customize preset before flashing
+archidroid.preset.previousexpert.desc=Działa identycznie jak Poprzedni Preset, ale ładuje surowe dane i pozwala na modyfikację presetu przed flashowaniem
 
 archidroid.detect.previouspreset.fail=Nie mogłem załadować Twojego poprzedniego presetu, ponieważ nie przeszedł testów integralności lub nie został znaleziony
 

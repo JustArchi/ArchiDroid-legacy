@@ -81,6 +81,10 @@ archidroid.detect.pass.no=Nein, Full Wipe (alles löschen)
 archidroid.detect.pass.alert.no=OK, ich mache einen Full Wipe (Datenlöschung) und starte dann den ArchiDroid Installations-Modus
 archidroid.detect.force=Soll ein Update erzwungen werden? Dies sagt ArchiDroid RunOnce spezielle Verbesserungen durchzuführen, die sonst nur bei einer Neuinstallation gemacht würden. Wähle nein, wenn du unsicher bist.
 
+archidroid.hardswap.desc=ArchiDroid Hardswap allows you to trade your flash memory speed and lifetime for more memory. This option will create special swap file on your desired location and let Android use it for extra memory. Every chunk of extra memory results in small decrease in I/O speed. <b><#f00>Please note that using hardswap may significantly decrease your flash memory lifetime</#></b>
+archidroid.hardswap.remove.desc=Removes hardswap from this partition
+archidroid.hardswap.size.default.desc=Maximum suggested size for hardswap partition
+
 archidroid.partition.wizard.desc=ArchiDroid zeigt nur Partitionen an, die auch momentan unterstützt werden. F2FS benötigt ein spezielles Recovery und Kernel(gewählt auf den vorderen Seiten)\
 \
 <b><#f00>WARNUNG!! DIE REPARTITIONIERUNG KANN DEIN GERÄT SOFT- ODER HARD-BRICKEN, WENN DU NICHT WEISST WAS DU MACHST, SOLLTEST DU NICHTS ÄNDERN!</#></b>\

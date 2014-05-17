@@ -597,17 +597,17 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 	if file_getprop("/tmp/aroma-data/archidroidhardswap.prop","cache") != "current" then
 		pleasewait("Applying Hardswap...");
 		resexec("exec/archidroid_hardswap.sh", "/cache", file_getprop("/tmp/aroma-data/archidroidhardswap.prop","cache"));
-		textbox("ArchiDroid Partition Wizard", "<~archidroid.hardswap.finish.desc>", "@default", getvar("exec_buffer"));
+		textbox("ArchiDroid Partition Wizard", "", "@default", getvar("exec_buffer"));
 	endif;
 	if file_getprop("/tmp/aroma-data/archidroidhardswap.prop","preload") != "current" then
 		pleasewait("Applying Hardswap...");
 		resexec("exec/archidroid_hardswap.sh", "/preload", file_getprop("/tmp/aroma-data/archidroidhardswap.prop","preload"));
-		textbox("ArchiDroid Partition Wizard", "<~archidroid.hardswap.finish.desc>", "@default", getvar("exec_buffer"));
+		textbox("ArchiDroid Partition Wizard", "", "@default", getvar("exec_buffer"));
 	endif;
 	if file_getprop("/tmp/aroma-data/archidroidhardswap.prop","sdcard1") != "current" then
 		pleasewait("Applying Hardswap...");
 		resexec("exec/archidroid_hardswap.sh", "/storage/sdcard1", file_getprop("/tmp/aroma-data/archidroidhardswap.prop","sdcard1"));
-		textbox("ArchiDroid Partition Wizard", "<~archidroid.hardswap.finish.desc>", "@default", getvar("exec_buffer"));
+		textbox("ArchiDroid Partition Wizard", "", "@default", getvar("exec_buffer"));
 	endif;
 endif;
 

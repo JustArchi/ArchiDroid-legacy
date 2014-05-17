@@ -81,6 +81,10 @@ archidroid.detect.pass.no=Nem, Full Wipe
 archidroid.detect.pass.alert.no=OK, akkor full wipe lesz és az ArchiDroid Telepítés mód kerül futtatásra
 archidroid.detect.force=Szeretnéd az eröltetett frissítési módot használni? Ez megmondja az ArchiDroid RunOnce scriptnek, hogy az emelt szintű finomhangolásokat hajtsa végre, melyeket alapértelmezetten csak a Telepítés mód során tenne meg. Válaszd a Nem lehetőséget, ha nem vagy biztos benne!
 
+archidroid.hardswap.desc=ArchiDroid Hardswap allows you to trade your flash memory speed and lifetime for more memory. This option will create special swap file on your desired location and let Android use it for extra memory. Every chunk of extra memory results in small decrease in I/O speed. <b><#f00>Please note that using hardswap may significantly decrease your flash memory lifetime</#></b>
+archidroid.hardswap.remove.desc=Removes hardswap from this partition
+archidroid.hardswap.size.default.desc=Maximum suggested size for hardswap partition
+
 archidroid.partition.wizard.desc=Az ArchiDroid Partition Wizard csak a támogatott particiókat mutatja. Az F2FS speciális recovery-t és kernelt követel meg (az előző oldalon lett kiválasztva), hogy elérhető legyen\
 \
 <b><#f00>FIGYELEM! AZ ÚJRAPARTÍCIONÁLÁS AZ ESZKÖZ BRICKELÉSÉHEZ VEZETHET, HA VALAMI ROSSZUL SÜL EL. NE NYÚLJ EZEKHEZ A BEÁLLÍTÁSOKHOZ, HA NEM TUDOD, HOGY MIT CSINÁLSZ!</#></b>\

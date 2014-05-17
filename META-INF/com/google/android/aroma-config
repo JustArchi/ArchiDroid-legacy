@@ -204,7 +204,7 @@ endif;
 
 if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "previous" then
 	setvar("preset_version_probe",read(getvar("adaroma")+"/version.txt"));
-	if getvar("preset_version")!=getvar("preset_version_probe") then
+	if getvar("preset_version_probe")!=getvar("preset_version") then
 		alert("ArchiDroid Wizard","<~archidroid.detect.previouspreset.fail>","@alert");
 		writetmpfile("archidroidinstallmode.prop","preset=custom\n");
 	else
@@ -216,12 +216,14 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "previ
 endif;
 
 if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "previousexpert" then
-	# TODO: Aroma hangs when no files are present, add exception for this later
+	setvar("preset_version_probe",read(getvar("adaroma")+"/version.txt"));
 	writetmpfile("archidroidinstallmode.prop","preset=custom\n");
-	writetmpfile("archidroid.prop",read(getvar("adaroma")+"/archidroid.prop"));
-	writetmpfile("archidroidboeffla.prop",read(getvar("adaroma")+"/archidroidboeffla.prop"));
-	writetmpfile("archidroidxposed.prop",read(getvar("adaroma")+"/archidroidxposed.prop"));
-	writetmpfile("archidroidbuild.prop",read(getvar("adaroma")+"/archidroidbuild.prop"));
+	if getvar("preset_version_probe")!="" then
+		writetmpfile("archidroid.prop",read(getvar("adaroma")+"/archidroid.prop"));
+		writetmpfile("archidroidboeffla.prop",read(getvar("adaroma")+"/archidroidboeffla.prop"));
+		writetmpfile("archidroidxposed.prop",read(getvar("adaroma")+"/archidroidxposed.prop"));
+		writetmpfile("archidroidbuild.prop",read(getvar("adaroma")+"/archidroidbuild.prop"));
+	endif;
 endif;
 
 ###############################

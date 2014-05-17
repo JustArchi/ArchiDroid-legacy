@@ -81,6 +81,10 @@ archidroid.detect.pass.no=不, 全部擦除数据
 archidroid.detect.pass.alert.no=好, 将全部擦除数据并使用 ArchiDroid 安装模式
 archidroid.detect.force=想要用强制升级模式吗? ArchiDroid 执行 RunOnce 脚本来进行高级tweaks, 通常只会在安装模式执行. 不确定的话选择 否
 
+archidroid.hardswap.desc=ArchiDroid Hardswap allows you to trade your flash memory speed and lifetime for more memory. This option will create special swap file on your desired location and let Android use it for extra memory. Every chunk of extra memory results in small decrease in I/O speed. <b><#f00>Please note that using hardswap may significantly decrease your flash memory lifetime</#></b>
+archidroid.hardswap.remove.desc=Removes hardswap from this partition
+archidroid.hardswap.size.default.desc=Maximum suggested size for hardswap partition
+
 archidroid.partition.wizard.desc=ArchiDroid 分区向导只显示当前支持的分区. F2FS 只在特定的 recovery 和内核 (在之前页面选择的) 下有效\
 \
 <b><#f00>严重警告! 重新分区在操作不当时可能导致半砖或者全砖. 除非你了解你在干什么，否则不要动这里的任何设置，切记切记!</#></b>\

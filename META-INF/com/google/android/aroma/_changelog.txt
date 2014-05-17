@@ -8,6 +8,10 @@ ArchiDroid 2.4.5
 * Tried to reduce the number of symbolic address calculations by using shared “anchor” symbols to address nearby objects. This transformation can help to reduce the number of GOT entries and GOT accesses on some targets (-fsection-anchors)
 * Assumed that loop indices do not overflow, and that loops with nontrivial exit condition are not infinite. This enables a wider range of loop optimizations even if the loop optimizer itself cannot prove that these assumptions are valid (-funsafe-loop-optimizations)
 
+- [!] Implemented ArchiDroid Hardswap
+# ArchiDroid Hardswap allows you to trade your flash memory speed and lifetime for more memory. This option will create special swap file on your desired location and let Android use it for extra memory
+# Every chunk of extra memory results in small decrease in I/O speed. Please note that using hardswap may significantly decrease your flash memory lifetime
+
 - Added "Previous Preset Expert" to AROMA. This allows you to load previous preset and customize it, even if it doesn't pass integrity check
 - Code review of adflash utility, POSIX-standard fixes, misc improvements and cleanup
 - Fixed adflash not showing changelog properly, thanks to @oaid

@@ -81,6 +81,10 @@ archidroid.detect.pass.no=Nee, Full Wipe
 archidroid.detect.pass.alert.no=OK, Ik ga door met full wipe en ArchiDroid Installatie modus.
 archidroid.detect.force=Wil je geforceerd updaten gebruiken? Dit vertelt ArchiDroid RunOnce om geavanceerde instellingen toe te passen welke normaal alleen bij de installatie modus worden uitgevoerd. Selecteer Nee als je het niet zeker weet.
 
+archidroid.hardswap.desc=ArchiDroid Hardswap allows you to trade your flash memory speed and lifetime for more memory. This option will create special swap file on your desired location and let Android use it for extra memory. Every chunk of extra memory results in small decrease in I/O speed. <b><#f00>Please note that using hardswap may significantly decrease your flash memory lifetime</#></b>
+archidroid.hardswap.remove.desc=Removes hardswap from this partition
+archidroid.hardswap.size.default.desc=Maximum suggested size for hardswap partition
+
 archidroid.partition.wizard.desc=ArchiDroid Partition Wizard toont alleen partities, die momenteel worden ondersteund. F2FS vereist dat er speciale recovery en kernel (geselecteerd op de vorige pagina) beschikbaar is.\
 \
 <b><#f00>WAARSCHUWING! HERPATITIONERING KAN LEIDEN TOT EEN SOFTWAREMATIGE OF HARDWAREMATIGE BRICK. VERANDER HIER NIETS TENZIJ JE WEET WAT JE DOET!</#></b>\

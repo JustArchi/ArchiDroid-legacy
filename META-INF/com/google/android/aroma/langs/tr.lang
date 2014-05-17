@@ -81,6 +81,10 @@ archidroid.detect.pass.no=Hayır, temiz kurulum yap.
 archidroid.detect.pass.alert.no=Tamam, temiz ArchiDroid yüklemesi başlatılacak.
 archidroid.detect.force=Would you like to use forced update mode? This tells ArchiDroid RunOnce to perform advanced tweaks, which normally would be executed only during install mode. Select No if you're unsure
 
+archidroid.hardswap.desc=ArchiDroid Hardswap allows you to trade your flash memory speed and lifetime for more memory. This option will create special swap file on your desired location and let Android use it for extra memory. Every chunk of extra memory results in small decrease in I/O speed. <b><#f00>Please note that using hardswap may significantly decrease your flash memory lifetime</#></b>
+archidroid.hardswap.remove.desc=Removes hardswap from this partition
+archidroid.hardswap.size.default.desc=Maximum suggested size for hardswap partition
+
 archidroid.partition.wizard.desc=ArchiDroid Partition Wizard shows only partitions, which are currently supported. F2FS requires special recovery and kernel (selected on the previous page) to be available\
 \
 <b><#f00>WARNING! REPARTITIONING CAN LEAD TO SOFT AND HARD BRICKS IF SOMETHING GOES WRONG. YOU SHOULDN'T TOUCH THESE SETTINGS UNLESS YOU KNOW WHAT YOU'RE DOING</#></b>\

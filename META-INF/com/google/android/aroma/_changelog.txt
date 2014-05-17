@@ -19,6 +19,7 @@ ArchiDroid 1.7.16
 - Added "Previous Preset Expert" to AROMA. This allows you to load previous preset and customize it, even if it doesn't pass integrity check
 - Code review of adflash utility, POSIX-standard fixes, misc improvements and cleanup
 - Fixed adflash not showing changelog properly, thanks to @oaid
+- Updated ArchiDroid's Pocket Debian to 17 May (you will need to use adlinux rebuild)
 - Updated ArchiDroid Backend (dnsmasq, inotify-tools) to latest versions
 - ADBLOCK: Fixed adblock sometimes not working on mobile data connection
 - Updated Googy Max kernel to 2.3.1

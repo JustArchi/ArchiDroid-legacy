@@ -21,7 +21,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-VERSION=2.4.5
+VERSION=2.4.6
 
 # HOW TO PORT ARCHIDROID TO OTHER DEVICE
 # 1. Make sure you have a good base, this can be a stock ROM or AOSP ROM. Put it in .zip format in the root of ArchiDroid.

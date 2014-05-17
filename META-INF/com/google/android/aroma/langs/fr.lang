@@ -104,6 +104,7 @@ archidroid.preset.barebones=Bare Bones
 archidroid.preset.barebones.desc=ROM Clean. Uniquement à des fins de test, non recommandé
 archidroid.preset.previous=Configuration précédente
 archidroid.preset.previous.desc=Applique votre configuration personnalisée précédente (si disponible)
+archidroid.preset.previousexpert.desc=Same as Previous Preset, but will load raw data and allow you to customize preset before flashing
 
 archidroid.detect.previouspreset.fail=Impossible de charger votre configuration précédente, ou erreur d'intégrité de celle-ci
 

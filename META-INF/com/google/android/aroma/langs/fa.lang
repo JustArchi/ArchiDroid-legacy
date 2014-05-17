@@ -104,6 +104,7 @@ archidroid.preset.barebones=فقط ساختار
 archidroid.preset.barebones.desc=توصيه نميشود،پاک کردن رام فقط براي تست کردن اهداف
 archidroid.preset.previous=تنظيمات پيش فرض قبلي
 archidroid.preset.previous.desc=بارگذاري تنظيمات پيش فرض قبلي براي نصب(در صورت وجود)
+archidroid.preset.previousexpert.desc=Same as Previous Preset, but will load raw data and allow you to customize preset before flashing
 
 archidroid.detect.previouspreset.fail=قادر به بارگذاري تنظيمات  پيش فرض قبلي نمي باشد، يا وجود ندارد يا مخدوش شده است
 

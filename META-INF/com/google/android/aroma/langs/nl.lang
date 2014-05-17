@@ -104,6 +104,7 @@ archidroid.preset.barebones=Bare Bones
 archidroid.preset.barebones.desc=Lege ROM. Alleen voor test doeleinden. Niet aangeraden!
 archidroid.preset.previous=Vorige keuzes
 archidroid.preset.previous.desc=Laad de installatie keuzes van de vorige installatie(indien mogelijk)
+archidroid.preset.previousexpert.desc=Same as Previous Preset, but will load raw data and allow you to customize preset before flashing
 
 archidroid.detect.previouspreset.fail=Kan vorige installatie keuzes niet laden, ze zijn corrupt of bestaan niet.
 

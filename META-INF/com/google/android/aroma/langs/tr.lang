@@ -104,6 +104,7 @@ archidroid.preset.barebones=Sade kurulum
 archidroid.preset.barebones.desc=Saf ROM. Test amaçlıdır, önerilmez.
 archidroid.preset.previous=Previous Preset
 archidroid.preset.previous.desc=Loads your previous custom installation preset (if available)
+archidroid.preset.previousexpert.desc=Same as Previous Preset, but will load raw data and allow you to customize preset before flashing
 
 archidroid.detect.previouspreset.fail=Could not load your previous preset, either it failed integrity check or doesn't exist
 

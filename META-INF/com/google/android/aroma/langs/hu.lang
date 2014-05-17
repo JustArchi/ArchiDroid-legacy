@@ -104,6 +104,7 @@ archidroid.preset.barebones=Csupasz Csontok
 archidroid.preset.barebones.desc=Tiszta ROM. Csak tesztelés céljából ajánlott.
 archidroid.preset.previous=Előző konfiguráció
 archidroid.preset.previous.desc=Betölti az előző telepítésed konfigurációját (ha elérhető)
+archidroid.preset.previousexpert.desc=Same as Previous Preset, but will load raw data and allow you to customize preset before flashing
 
 archidroid.detect.previouspreset.fail=Nem lehet betölteni az előző konfigurációt, mert hibás, vagy nem létezik
 

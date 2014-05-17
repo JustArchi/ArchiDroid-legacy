@@ -104,6 +104,7 @@ archidroid.preset.barebones=Skrabet udgave
 archidroid.preset.barebones.desc=Helt ren ROM. Kun til test formål, ikke anbefalet til daglig brug.
 archidroid.preset.previous=Forrige forvalg
 archidroid.preset.previous.desc=Indlæser dit forrige brugerdefinerede forvalg (hvis tilgængeligt)
+archidroid.preset.previousexpert.desc=Same as Previous Preset, but will load raw data and allow you to customize preset before flashing
 
 archidroid.detect.previouspreset.fail=Kunne ikke indlæse dit forrige forvalg. Enten har det fejlet integritetstest eller også findes den ikke.
 

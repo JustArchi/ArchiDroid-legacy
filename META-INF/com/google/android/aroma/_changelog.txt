@@ -15,6 +15,7 @@ ArchiDroid 2.4.5
 - Added "Previous Preset Expert" to AROMA. This allows you to load previous preset and customize it, even if it doesn't pass integrity check
 - Code review of adflash utility, POSIX-standard fixes, misc improvements and cleanup
 - Fixed adflash not showing changelog properly, thanks to @oaid
+- Updated ArchiDroid's Pocket Debian to 17 May (you will need to use adlinux rebuild)
 - Updated Linaro toolchain to daily snapshot from 16 May
 - Updated PA GAPPS to 17 May
 - Updated Boeffla kernel to 2.3-beta3

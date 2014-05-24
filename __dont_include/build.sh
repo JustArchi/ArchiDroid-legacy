@@ -65,7 +65,7 @@ ADREPOS="/root/git/auto" # This is used only when NOGIT is 0
 # Common
 STABLE=0
 NOSYNC=0
-SAMMY=0
+SAMMY=1
 BPROP=0
 NOOPD=1
 NOBUILD=0

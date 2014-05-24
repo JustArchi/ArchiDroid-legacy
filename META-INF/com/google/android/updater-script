@@ -115,9 +115,7 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 	set_progress(0.51);
 
 	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Creating symlinks");
-	symlink("dumpstate", "/system/bin/dumpcrash");
 	symlink("libGLESv2.so", "/system/lib/libGLESv3.so");
-	symlink("logcat", "/system/bin/lolcat");
 	symlink("mksh", "/system/bin/sh");
 	symlink("Roboto-Bold.ttf", "/system/fonts/DroidSans-Bold.ttf");
 	symlink("Roboto-Regular.ttf", "/system/fonts/DroidSans.ttf");
@@ -161,7 +159,6 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 	symlink("toolbox", "/system/bin/netstat");
 	symlink("toolbox", "/system/bin/newfs_msdos");
 	symlink("toolbox", "/system/bin/notify");
-	symlink("toolbox", "/system/bin/playback");
 	symlink("toolbox", "/system/bin/printenv");
 	symlink("toolbox", "/system/bin/ps");
 	symlink("toolbox", "/system/bin/reboot");
@@ -185,7 +182,6 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 	symlink("toolbox", "/system/bin/sync");
 	symlink("toolbox", "/system/bin/top");
 	symlink("toolbox", "/system/bin/touch");
-	symlink("toolbox", "/system/bin/touchinput");
 	symlink("toolbox", "/system/bin/umount");
 	symlink("toolbox", "/system/bin/uptime");
 	symlink("toolbox", "/system/bin/vmstat");

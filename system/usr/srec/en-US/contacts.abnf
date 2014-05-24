@@ -10,26 +10,21 @@
 
 tag-semantics <literal>;
 
-// TODO: We need to determine the weights of $CANCEL and $CONFIRM.
-$root = /1/ $VOICE_DIALING | /5/ $OTHER | /5/ $CANCEL | /5/ $CONFIRM;
+$root = /0.07/ $VOICE_DIALING | /0.93/ $OTHER;
 
-$CANCEL = cancel {_exit};
+$CONTACT_AND_DIGIT_DIALING = /0.95/ $CONTACT_CALLING | /0.05/ $DIGIT_DIALING;
 
-$CONFIRM = okay {_confirm};
-
-$CONTACT_AND_DIGIT_DIALING = /100/ $CONTACT_CALLING | /1/ $DIGIT_DIALING;
-
-$CONTACT_CALLING = [please] ((/120/ $CONTACT_CALL | /3/ dial | /2/ phone | /1/ get)  {_call}) {___<scrub>___} $TARGET {___</scrub>___} $SUFFIX;
+$CONTACT_CALLING = [please] ((/0.94/ $CONTACT_CALL | /0.03/ dial | /0.02/ phone | /0.01/ get)  {_call}) {___<scrub>___} $TARGET {___</scrub>___} $SUFFIX;
 
 $CONTACT_CALL =
-      /20/ call |
-      /2/ (make a [phone] call to) |
-      /1/ (place a [phone] call to);
+      /0.87/ call |
+      /0.08/ (make a [phone] call to) |
+      /0.05/ (place a [phone] call to);
 
 $SUFFIX = [$MOBILE | $WORK | $HOME];
 
 $HOME = ([at | at $PRON] | [on | on $PRON_THE]) $HOME_BASE [phone];
-$ON_AT = /5/ on | /1/ at;
+$ON_AT = /0.85/ on | /0.15/ at;
 $MOBILE = ([$ON_AT | $ON_AT $PRON] | [$ON_AT | $ON_AT $PRON_THE]) $MOBILE_BASE [phone];
 $WORK = ([at | at $PRON] | [on | on $PRON_THE]) $HOME_BASE [phone];
 
@@ -39,16 +34,14 @@ $HOME_BASE = (home | house) {_p1};
 $MOBILE_BASE = (mobile | cell | cellular) {_p2};
 $WORK_BASE = (business | work | office) {_p3};
 
-$DIGIT_DIALING = [please] ((/9/ $DIGIT_CALL | /3/ dial | /1/ phone) {_call}) [the number] {___<scrub>___} $LITERAL_NUM {___</scrub>___};
+$DIGIT_DIALING = [please] ((/0.7/ $DIGIT_CALL | /0.22/ dial | /0.08/ phone) {_call}) [the number] {___<scrub>___} $LITERAL_NUM {___</scrub>___};
 
 $DIGIT_CALL =
-      /12/ call |
-      /3/ (make a [phone] call to) |
-      /1/ (place a [phone] call to);
+      /0.75/ call |
+      /0.17/ (make a [phone] call to) |
+      /0.08/ (place a [phone] call to);
 
-// This grammar supports both single digit dialing (used to choose
-// a contact from the list of contacts) and phone dialing.
-$LITERAL_NUM = $digit | $digit<7-15>;
+$LITERAL_NUM = $digit<7-15>;
 $digit = $digit0 | $digit1 | $digit2 | $digit3 | $digit4 | $digit5 | $digit6 | $digit7 | $digit8 | $digit9;
 $digit0 = (0 {_d0});
 $digit1 = (1 {_d1});

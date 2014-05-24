@@ -50,7 +50,7 @@ WORK_ODEX() {
 	if [ -f "$VRDIR/$1/$2/classes.dex" ]; then
 		echo "ODEX: Found classes.dex in new $2"
 		rm -f "$ODEXFILE"
-		"$VRDIR/dexopt-wrapper" "$1/$2" "$ODEXFILE" >/dev/null || echo "ODEX: Could not odex $1/$2"
+		#"$VRDIR/dexopt-wrapper" "$1/$2" "$ODEXFILE" >/dev/null || echo "ODEX: Could not odex $1/$2"
 	fi
 }
 

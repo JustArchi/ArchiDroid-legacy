@@ -25,7 +25,8 @@
 VRDIR="/cache/vrtheme"
 VALIDTARGETS="app framework priv-app"
 TOOLS="zip zipalign dexopt-wrapper"
-LOG="$VRDIR/log.txt" # Can be /dev/null
+LOG="/dev/null" # Can be /dev/null
+BOOTCLASSPATH="/system/framework/core.jar:/system/framework/core-junit.jar:/system/framework/bouncycastle.jar:/system/framework/ext.jar:/system/framework/framework.jar:/system/framework/framework2.jar:/system/framework/telephony-common.jar:/system/framework/voip-common.jar:/system/framework/mms-common.jar:/system/framework/android.policy.jar:/system/framework/services.jar:/system/framework/apache-xml.jar:/system/framework/sec_edm.jar:/system/framework/seccamera.jar:/system/framework/scrollpause.jar:/system/framework/stayrotation.jar:/system/framework/smartfaceservice.jar:/system/framework/sc.jar:/system/framework/secocsp.jar:/system/framework/commonimsinterface.jar"
 
 WORK_DEODEX() {
 	# $1 - Target dir such as /system/app or /system/framework
@@ -47,15 +48,15 @@ WORK_DEODEX() {
 WORK_ODEX() {
 	local ODEXFILE="$(echo "$1/$2" | rev | cut -d'.' -f2- | rev).odex"
 	WORK_DEODEX "$1" "$2" || return
-	if [ -f "$VRDIR/$1/$2/classes.dex" ]; then
-		echo "ODEX: Found classes.dex in new $2"
+	if [ -f "$VRDIR/$1/$2/classes.dex" ] && [ -f "$ODEXFILE" ]; then
+		echo "ODEX: Found classes.dex in new $2 and old odex file"
 		rm -f "$ODEXFILE"
-		#"$VRDIR/dexopt-wrapper" "$1/$2" "$ODEXFILE" >/dev/null || echo "ODEX: Could not odex $1/$2"
+		"$VRDIR/dexopt-wrapper" "$1/$2" "$ODEXFILE" "$BOOTCLASSPATH" >/dev/null || echo "ODEX: Could not odex $1/$2"
 	fi
 }
 
-#exec 1>"$LOG"
-#exec 2>&1
+exec 1>"$LOG"
+exec 2>&1
 
 for TOOL in $TOOLS; do
 	chmod 755 "$VRDIR/$TOOL"
@@ -64,10 +65,10 @@ done
 if [ -f "/system/framework/framework.odex" ]; then
 	echo "INFO: Using ODEX mode"
 	# Define BOOTCLASSPATH as all available JARs
-	BOOTCLASSPATH=""
-	for f in /system/framework/*.jar; do
-		BOOTCLASSPATH="$BOOTCLASSPATH$f:"
-	done
+	#BOOTCLASSPATH=""
+	#for f in /system/framework/*.jar; do
+	#	BOOTCLASSPATH="$BOOTCLASSPATH$f:"
+	#done
 	export BOOTCLASSPATH="$BOOTCLASSPATH"
 
 	for TARGET in $VALIDTARGETS; do 

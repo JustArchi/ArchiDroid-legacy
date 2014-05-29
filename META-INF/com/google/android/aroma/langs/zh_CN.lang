@@ -68,7 +68,7 @@ terms.check2=我完全理解并遵守它
 terms.confirm2=尊敬开发者劳动!
 
 archidroid.tos=ArchiDroid 许可协议条款
-archidroid.preview.desc=When checked, you'll see a sample of the selected item on the next page
+archidroid.preview.desc=当选中后，你能在下一页看到选中项目的预览
 
 archidroid.detect.fail=没有检测到 ArchiDroid 在本机上运行. 你full wipe过吗，还是刚从其他的 ROM 转到ArchiDroid?
 archidroid.detect.fail.yes=我原来没有 ArchiDroid
@@ -81,9 +81,9 @@ archidroid.detect.pass.no=不, 全部擦除数据
 archidroid.detect.pass.alert.no=好, 将全部擦除数据并使用 ArchiDroid 安装模式
 archidroid.detect.force=想要用强制升级模式吗? ArchiDroid 执行 RunOnce 脚本来进行高级tweaks, 通常只会在安装模式执行. 不确定的话选择 否
 
-archidroid.hardswap.desc=ArchiDroid Hardswap allows you to trade your flash memory speed and lifetime for more memory. This option will create special swap file on your desired location and let Android use it for extra memory. Every chunk of extra memory results in small decrease in I/O speed. <b><#f00>Please note that using hardswap may significantly decrease your flash memory lifetime</#></b>
-archidroid.hardswap.remove.desc=Removes hardswap from this partition
-archidroid.hardswap.size.default.desc=Maximum suggested size for hardswap partition
+archidroid.hardswap.desc=ArchiDroid Hardswap 允许你以闪存的速度和寿命为代价换取更多的可用内存. 该选项将会在你选定的位置创建特殊的交换文件并为 Android 所用. 每块额外的运存会导致 I/O 速度的轻微降低. <b><#f00>请注意！使用 hardswap 可能显著降低闪存芯片的使用寿命</#></b>
+archidroid.hardswap.remove.desc=从当前分区移除 hardswap
+archidroid.hardswap.size.default.desc=hardswap 分区的最大建议容量
 
 archidroid.partition.wizard.desc=ArchiDroid 分区向导只显示当前支持的分区. F2FS 只在特定的 recovery 和内核 (在之前页面选择的) 下有效\
 \
@@ -108,7 +108,7 @@ archidroid.preset.barebones=纯净 ROM
 archidroid.preset.barebones.desc=纯净 ROM 选项. 只为测试, 不推荐
 archidroid.preset.previous=使用之前的预设
 archidroid.preset.previous.desc=载入之前的自定义安装预设 (如果存在的话)
-archidroid.preset.previousexpert.desc=Same as Previous Preset, but will load raw data and allow you to customize preset before flashing
+archidroid.preset.previousexpert.desc=与 使用之前的预设 基本相同, 可以载入预设的原始数据并能在刷写之前自定义预设值
 
 archidroid.detect.previouspreset.fail=不能载入之前的安装预设, 不存在或者完整性检测失败
 
@@ -143,7 +143,7 @@ archidroid.keyboard.none.desc=不安装输入法. 警告! 在完全擦除之后�
 archidroid.bootanimation=开机动画
 archidroid.bootanimation.archi.desc=全新花哨 ArchiDroid 开机动画
 archidroid.bootanimation.archilegacy.desc=旧 1.X 系列开机动画
-archidroid.bootanimation.logcat.desc=更改默认开机动画为 logcat 输出 - 使用 logcat lite 构建
+archidroid.bootanimation.logcat.desc=更改默认开机动画为 logcat 输出 - 使用 logcat lite 驱动
 archidroid.bootanimation.stock.desc=ROM 自带原生开机动画
 archidroid.bootanimation.none.desc=无开机动画, 启动速度略微提高
 
@@ -154,7 +154,7 @@ archidroid.crossbreeder.desc=性能更好，更加顺滑，推荐, 与 Seeder �
 archidroid.updatemodem=更新基带
 archidroid.updatemodem.desc=如果你想用最新基带的话
 archidroid.updaterecovery=更新 Recovery
-archidroid.updaterecovery.desc=如果你想使用最新recovery
+archidroid.updaterecovery.desc=如果你想使用最新 Recovery
 
 archidroid.apps.titaniumbackup.desc=刷机/更新保存个人数据和app的最佳方案
 archidroid.apps.greenify.desc=休眠任何app的利器, 能增强电池续航

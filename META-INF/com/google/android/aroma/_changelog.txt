@@ -6,6 +6,7 @@ ArchiDroid 2.4.6
 * Optimized for speed also targets compiled with Clang (-O3)
 * Disabled strict-aliasing for potentially broken parts (-fno-strict-aliasing)
 
+- Updated Linaro toolchain to 27 May
 - Updated all ArchiDroid Backend components (dnsmasq, dnsproxy2, haveged, pixelserv, inotify-tools) to latest versions
 - Updated Modem to XXUGND1
 - Updated Google Playstore to 4.8.19

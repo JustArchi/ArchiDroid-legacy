@@ -16,8 +16,6 @@
   <project name="rtreffer/LocalGSMLocationProvider" path="packages/apps/LocalGSMLocationProvider" remote="github" revision="master" /> -->
 
   <!-- ARCHIDROID REQUIRED FORKS -->  
-  <remove-project name="platform/frameworks/rs" />
-  <project name="JustArchi/android_frameworks_rs" path="frameworks/rs" remote="github" revision="android-4.4" />
   <remove-project name="android_build" />
   <project name="JustArchi/android_build" path="build" remote="github" revision="android-4.4" />
   <remove-project name="android_art" />

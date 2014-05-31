@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
   <!-- LINARO TOOLCHAIN -->
-  <project name="JustArchi/linaro.git" path="prebuilts/gcc/linux-x86/arm/arm-eabi-4.8" remote="github" revision="4.8-eabi" />
-  <project name="JustArchi/linaro.git" path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8" remote="github" revision="4.8-androideabi" />
+  <project name="JustArchi/Linaro" path="prebuilts/gcc/linux-x86/arm/arm-eabi-4.8" remote="github" revision="4.8-eabi" />
+  <project name="JustArchi/Linaro" path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8" remote="github" revision="4.8-androideabi" />
 
   <!-- GOOGLE GCC TOOLCHAIN -->
   <!-- <project name="platform/prebuilts/gcc/linux-x86/arm/arm-eabi-4.8" path="prebuilts/gcc/linux-x86/arm/arm-eabi-4.8" revision="master" /> -->
@@ -28,7 +28,7 @@
   <!-- ARCHIDROID TEMPORARY FORKS -->  
 
   <!-- GALAXY S3 DEPENDENCIES -->
-  <project name="DonkeyCoyote/proprietary_vendor_samsung" path="vendor/samsung" remote="github" revision="android-4.4" />
+  <project name="JustArchi/proprietary_vendor_samsung" path="vendor/samsung" remote="github" revision="android-4.4" />
   <project name="android_device_samsung_i9300" path="device/samsung/i9300" remote="omnirom" revision="android-4.4" />
   <project name="android_kernel_samsung_smdk4412" path="kernel/samsung/smdk4412" remote="omnirom" revision="android-4.4" />
   <project name="android_hardware_samsung" path="hardware/samsung" remote="omnirom" revision="android-4.4" />

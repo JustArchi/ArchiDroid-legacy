@@ -716,7 +716,3 @@ endif;
 # Delayed tasks. These for some reason require already flashed ArchiDroid
 # Stub
 
-);
-else
-	writetmpfile(
-		

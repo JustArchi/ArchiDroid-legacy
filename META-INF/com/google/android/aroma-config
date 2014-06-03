@@ -221,6 +221,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "previ
 	writetmpfile("archidroidinstallmode.prop","preset=custom\n");
 	if getvar("preset_version_probe")!="" then
 		writetmpfile("archidroid.prop",read(getvar("adaroma")+"/archidroid.prop"));
+		writetmpfile("archidroidbloatware.prop",read(getvar("adaroma")+"/archidroidbloatware.prop"));
 		writetmpfile("archidroidboeffla.prop",read(getvar("adaroma")+"/archidroidboeffla.prop"));
 		writetmpfile("archidroidxposed.prop",read(getvar("adaroma")+"/archidroidxposed.prop"));
 		writetmpfile("archidroidbuild.prop",read(getvar("adaroma")+"/archidroidbuild.prop"));

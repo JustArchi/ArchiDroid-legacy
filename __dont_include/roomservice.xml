@@ -4,6 +4,10 @@
   <project name="JustArchi/Linaro" path="prebuilts/gcc/linux-x86/arm/arm-eabi-4.8" remote="github" revision="4.8-eabi" />
   <project name="JustArchi/Linaro" path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8" remote="github" revision="4.8-androideabi" />
 
+  <!-- SABERMOD TOOLCHAIN -->
+  <!-- <project name="SaberMod/android_prebuilts_gcc_linux-x86_arm_sabermod-arm-eabi-4.8" path="prebuilts/gcc/linux-x86/arm/arm-eabi-4.8" remote="github" revision="sm-kk-mr1" /> -->
+  <!-- <project name="UBERUTILS/arm-linux-androideabi-4.8" path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8" remote="github" revision="master" /> -->
+
   <!-- GOOGLE GCC TOOLCHAIN -->
   <!-- <project name="platform/prebuilts/gcc/linux-x86/arm/arm-eabi-4.8" path="prebuilts/gcc/linux-x86/arm/arm-eabi-4.8" revision="master" /> -->
   <!-- <project name="platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8" path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8" revision="master" /> -->
@@ -15,7 +19,7 @@
   <!-- <project name="microg/android_packages_apps_UnifiedNlp" path="packages/apps/UnifiedNlp" remote="github" revision="master" />
   <project name="rtreffer/LocalGSMLocationProvider" path="packages/apps/LocalGSMLocationProvider" remote="github" revision="master" /> -->
 
-  <!-- ARCHIDROID REQUIRED FORKS -->  
+  <!-- ARCHIDROID REQUIRED FORKS -->
   <remove-project name="android_build" />
   <project name="JustArchi/android_build" path="build" remote="github" revision="android-4.4" />
   <remove-project name="android_art" />
@@ -25,7 +29,7 @@
   <remove-project name="android_vendor_omni" />
   <project name="JustArchi/android_vendor_omni" path="vendor/omni" remote="github" revision="android-4.4" />
 
-  <!-- ARCHIDROID TEMPORARY FORKS -->  
+  <!-- ARCHIDROID TEMPORARY FORKS -->
 
   <!-- GALAXY S3 DEPENDENCIES -->
   <project name="JustArchi/proprietary_vendor_samsung" path="vendor/samsung" remote="github" revision="android-4.4" />

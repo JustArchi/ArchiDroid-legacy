@@ -19,5 +19,7 @@
     <feature name="com.google.android.feature.GOOGLE_BUILD" />
 <!-- This should be added to all Nexus and GPe devices -->
     <feature name="com.google.android.feature.GOOGLE_EXPERIENCE" />
+<!-- This should declare the version of Exchange that ships -->
+    <feature name="com.google.android.feature.EXCHANGE_6_2" />
 </permissions>
 

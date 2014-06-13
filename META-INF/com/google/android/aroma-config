@@ -240,6 +240,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 		"archidroid.prop",
 
 		"kernel","<#selectbg_g>Kernel</#>","","group",
+		"archi","ArchiKernel","ALPHA","select",
 		"boeffla","Boeffla","<~archidroid.kernel.boeffla.desc>","select.selected",
 		"yank","Yank555.lu","<~archidroid.kernel.yank.desc>","select",
 		"googy","Googy Max [EOL]","<~archidroid.kernel.googy.desc>","select",

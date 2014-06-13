@@ -1,25 +1,4 @@
-ArchiDroid 2.4.6
-FULL WIPE HIGHLY RECOMMENDED
+ArchiDroid 2.4.7
 
-- [!] Further ArchiDroid Optimizations
-* Added missing Cortex-A9 optimizations for armv7-a-neon target (-mcpu=cortex-a9)
-* Disabled not-needed fixes for Cortex-A8 (-Wl,--fix-cortex-a8)
-* Optimized for speed also targets compiled with Clang (-O3)
-* Disabled strict-aliasing for potentially broken parts (-fno-strict-aliasing)
-
-- Updated GPS and Sensors blobs to XXUGND5
-- Compiled using latest SaberMod 4.8 GCC toolchain until Linaro fixes funky Google Store icons # Yes, this fixes Google Store icons
-- Updated all ArchiDroid Backend components (dnsmasq, dnsproxy2, haveged, pixelserv, inotify-tools) to latest versions
-- Updated Boeffla kernel to 2.3-beta6
-- Updated Modem to XXUGND1
-- Updated PA GAPPS to 8 June
-- Updated Google Playstore to 4.8.19
-- Updated SuperSU to 1.99r4
-- Updated Nova Launcher to 3.0.1
-- Updated Greenify to 2.3.1
-- Updated Android Terminal Emulator to 1.0.61
-- Updated MX Player to 1.7.27
-- Updated Xposed to 2.6.1
-- Updated XPrivacy to 2.0.30
-- Updated GravityBox to 3.1.5
-- Updated sources # Android 4.4.3
+- [!] Added ArchiKernel # Alpha
+- Updated sources

@@ -199,7 +199,7 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 	package_extract_dir("_archidroid/auto", "/");
 	package_extract_file("_archidroid/exec/archidroid_backend.sh", "/tmp/archidroid_backend.sh");
 	set_perm(0, 0, 0777, "/tmp/archidroid_backend.sh");
-	run_program("/tmp/archidroid_backend.sh");
+	run_program("/tmp/archidroid_backend.sh", file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset"));
 	delete("/tmp/archidroid_backend.sh");
 	### IMPORTANT ###
 
@@ -895,11 +895,11 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 		run_program("/sbin/sync");
 
 		set_progress(0.97);
+
+		### LOCK ###
+		run_program("/tmp/adlock.sh", "lock", "/system/etc/hosts");
 	endif;
 	set_progress(0.98);
-
-	### LOCK ###
-	run_program("/tmp/adlock.sh", "lock", "/system/etc/hosts");
 endif;
 
 run_program("/sbin/sync");
@@ -912,5 +912,4 @@ ui_print("===================================");
 ui_print("  ArchiDroid Flashed Successfully  ");
 ui_print("Please share your experience on XDA");
 ui_print("===================================");
-run_program("cp", "/tmp/recovery.log", "/sdcard/ArchiDroid.log");
 set_progress(1.0);

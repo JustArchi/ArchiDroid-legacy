@@ -271,7 +271,13 @@ ADSTATUS="$ADPROC/ARCHIDROID_INIT_STATUS"
 ADCRONSTATUS="$ADPROC/ARCHIDROID_CRON_STATUS"
 INTERNAL_EVENTS_DIR="$ADCRON/events/internal"
 
-if [ ! -e /data/ARCHIDROID_DONT_REMOVE_ME ]; then
+# Exit if barebones preset was used
+if [ -e /system/archidroid/dev/PRESET_BAREBONES ]; then
+	exit 0
+fi
+
+# Exit if user wiped data without reflashing
+if [ ! -f /data/ARCHIDROID_DONT_REMOVE_ME ]; then
 	echo "ERROR: ArchiDroid is not compatible with wiping data, please reflash your system!" >> "$LOG"
 	sync
 	reboot recovery || poweroff

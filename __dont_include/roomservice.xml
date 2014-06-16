@@ -5,12 +5,16 @@
   <!-- <project name="JustArchi/Linaro" path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8" remote="github" revision="4.8-androideabi" /> -->
 
   <!-- SABERMOD TOOLCHAIN -->
-  <project name="UBERUTILS/arm-eabi-4.8" path="prebuilts/gcc/linux-x86/arm/arm-eabi-4.8" remote="github" revision="master" />
-  <project name="UBERUTILS/arm-linux-androideabi-4.8" path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8" remote="github" revision="master" />
+  <!-- <project name="UBERUTILS/arm-eabi-4.8" path="prebuilts/gcc/linux-x86/arm/arm-eabi-4.8" remote="github" revision="master" /> -->
+  <!-- <project name="UBERUTILS/arm-linux-androideabi-4.8" path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8" remote="github" revision="master" /> -->
 
   <!-- GOOGLE GCC TOOLCHAIN -->
   <!-- <project name="platform/prebuilts/gcc/linux-x86/arm/arm-eabi-4.8" path="prebuilts/gcc/linux-x86/arm/arm-eabi-4.8" revision="master" /> -->
   <!-- <project name="platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8" path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8" revision="master" /> -->
+
+  <!-- ARCHIDROID HYBRID -->
+  <project name="JustArchi/Linaro" path="prebuilts/gcc/linux-x86/arm/arm-eabi-4.8" remote="github" revision="4.9-eabi" />
+  <project name="UBERUTILS/arm-linux-androideabi-4.8" path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8" remote="github" revision="master" />
 
   <!-- OBSOLETE -->
   <remove-project name="android_packages_apps_OpenDelta" />

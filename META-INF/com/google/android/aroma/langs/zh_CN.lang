@@ -85,7 +85,7 @@ archidroid.hardswap.desc=ArchiDroid Hardswap 允许你以闪存的速度和寿�
 archidroid.hardswap.remove.desc=从当前分区移除 hardswap
 archidroid.hardswap.size.default.desc=hardswap 分区的最大建议容量
 
-archidroid.partition.wizard.desc=ArchiDroid 分区向导只显示当前支持的分区. F2FS 只在特定的 recovery 和内核 (在之前页面选择的) 下有效\
+archidroid.partition.wizard.desc=ArchiDroid 分区向导只显示当前支持的分区. F2FS 只在特定的 Recovery 和内核 (在之前页面选择的) 下有效\
 \
 <b><#f00>严重警告! 重新分区在操作不当时可能导致半砖或者全砖. 除非你了解你在干什么，否则不要动这里的任何设置，切记切记!</#></b>\
 \
@@ -95,9 +95,9 @@ archidroid.filesystem.ext4.desc=第四代针对EXT3系统的扩展日志式文�
 archidroid.filesystem.f2fs.desc=闪存友好文件系统（F2FS）. 特别为NAND闪存存储设备优化, 与EXT4相比具有显著的 I/O 性能提升. 只被不多的第三方内核支持
 archidroid.partition.wizard.finish.desc=ArchiDroid 分区向导已经完成重新分区. 如果 RETURN STATUS （返回值）等于 0, 代表全部操作成功完成
 
-archidroid.preset.recovery.desc=只刷写 recovery 而不是 ROM. 适用于需要更新 recovery 先于刷入 ArchiDroid 的情况
-archidroid.recovery.philz.desc=功能最强大的第三方 recovery ,由 Phil 开发
-archidroid.recovery.devil.desc=Devil 开发的替代 recovery, 支持双启动特性和 F2FS 文件系统
+archidroid.preset.recovery.desc=只刷写 Recovery 而不是 ROM. 适用于需要更新 Recovery 先于刷入 ArchiDroid 的情况
+archidroid.recovery.philz.desc=功能最强大的第三方 Recovery ,由 Phil 开发
+archidroid.recovery.devil.desc=Devil 开发的替代 Recovery, 支持双启动特性和 F2FS 文件系统
 
 archidroid.preset=ArchiDroid 安装预设
 archidroid.preset.desc=请选择安装预设:
@@ -117,7 +117,7 @@ archidroid.custom.extra=ArchiDroid 额外定制选项
 archidroid.custom.desc=请修改设置,怎么习惯怎么来
 
 archidroid.kernel.boeffla.desc=高度推荐的杰作，适合每个人, 包含 Boeffla Sound和更多特性
-archidroid.kernel.archi.desc=Featuring perfect synergy with ArchiDroid ROM
+archidroid.kernel.archi.desc=与 ArchiDroid 完美融合
 archidroid.kernel.yank.desc=推荐作为替代选择
 archidroid.kernel.googy.desc=基于 Siyah 源码. 双启动特性, 带有 STweaks 进行控制
 archidroid.kernel.devil.desc=基于 Perseus 源码. 双启动特性, 带有 DevilTools 进行控制
@@ -137,7 +137,7 @@ archidroid.launcher.none.desc=不含启动器.警告! 在完全擦除之后不�
 archidroid.keyboard=输入法
 archidroid.keyboard.google.desc=推荐强大顺滑的 Swype/Curve 输入法
 archidroid.keyboard.hackers.desc=如果用不到 swype/curve 的功能，TouchPal(触宝国际版) 是极好的替代选择
-archidroid.keyboard.both.desc=同时使用 TouchPal(触宝国际版) 和 Hacker输入法 (例如在终端中)
+archidroid.keyboard.both.desc=同时使用 TouchPal(触宝国际版) 和 Hacker 输入法 (例如在终端中)
 archidroid.keyboard.stock.desc=如果你想保留 ROM 自带输入法
 archidroid.keyboard.none.desc=不安装输入法. 警告! 在完全擦除之后不要勾选! 第一次启动之前你需要至少一个第三方输入法!
 
@@ -164,7 +164,7 @@ archidroid.apps.mxplayer.desc=应该是安卓下最好的视频播放器
 archidroid.apps.spiritfm.desc=能在 CyanogenMod 下工作的免费收音机
 archidroid.apps.bbs.desc=查看更具体的电池信息, 特别是 wakelocks
 archidroid.apps.cooltool.desc=在通知栏显示使用情况（如 CPU百分比，内存用量等）
-archidroid.apps.rootbrowser.desc=可选 root 权限拓展，非常酷的Root浏览器
+archidroid.apps.rootbrowser.desc=可选 Root 权限拓展，非常酷的 Root 浏览器
 
 archidroid.tweaks.buildtweaks.desc=诸多 build.prop 微调, 包含深度睡眠、性能微调及其他
 archidroid.tweaks.nocell.desc=通常被认为是臃肿软件. 如果想保留这个取消选择
@@ -174,7 +174,7 @@ archidroid.preset.no=不使用预设设置
 archidroid.preset.no.desc=不推荐，你会错过绝大多数 Archi 的优化
 
 archidroid.preset.kernel.boeffla.archiperformance=ArchiDroid 性能模式
-archidroid.preset.kernel.boeffla.archiperformance.desc=为游戏玩家定制优化的profile,包含CPU/GPU超频. 以消耗电池寿命为代价换取更好的性能
+archidroid.preset.kernel.boeffla.archiperformance.desc=为游戏玩家定制优化的 profile ,包含 CPU/GPU 超频. 以消耗电池寿命为代价换取更好的性能
 archidroid.preset.kernel.boeffla.archipowersave=ArchiDroid 节能模式
 archidroid.preset.kernel.boeffla.archipowersave.desc=为大多数人设置的默认预设, 包含轻微降压. 电池寿命和性能间的平衡选项 Archi推荐!
 archidroid.preset.kernel.boeffla.archiultrapowersave=ArchiDroid 超级节能模式

@@ -116,12 +116,12 @@ archidroid.custom=ArchiDroid 个人定制选项
 archidroid.custom.extra=ArchiDroid 额外定制选项
 archidroid.custom.desc=请修改设置,怎么习惯怎么来
 
-archidroid.kernel.boeffla.desc=高度推荐的杰作，适合每个人, 包含 Boeffla Sound和更多特性
-archidroid.kernel.archi.desc=与 ArchiDroid 完美融合
+archidroid.kernel.boeffla.desc=高度推荐的杰作，适合每个人, 包含 Boeffla Sound 和更多特性
+archidroid.kernel.archi.desc=与 ArchiDroid 完美融合协同工作
 archidroid.kernel.yank.desc=推荐作为替代选择
-archidroid.kernel.googy.desc=基于 Siyah 源码. 双启动特性, 带有 STweaks 进行控制
-archidroid.kernel.devil.desc=基于 Perseus 源码. 双启动特性, 带有 DevilTools 进行控制
-archidroid.kernel.agni.desc=支持 F2FS 的一款非常尖端的内核
+archidroid.kernel.googy.desc=基于 Siyah 源码. 双启动特性, 附带控制工具 STweaks
+archidroid.kernel.devil.desc=基于 Perseus 源码. 双启动特性, 附带控制工具 DevilTools
+archidroid.kernel.agni.desc=支持 F2FS 的一款顶尖内核
 archidroid.kernel.stock.desc=使用 ROM 默认内核
 
 archidroid.dpi.240w.desc=警告! 在这个DPI下会有一些轻微的图形故障，小心使用
@@ -136,7 +136,7 @@ archidroid.launcher.none.desc=不含启动器.警告! 在完全擦除之后不�
 
 archidroid.keyboard=输入法
 archidroid.keyboard.google.desc=推荐强大顺滑的 Swype/Curve 输入法
-archidroid.keyboard.hackers.desc=如果用不到 swype/curve 的功能，TouchPal(触宝国际版) 是极好的替代选择
+archidroid.keyboard.hackers.desc=如果用不到 Swype/Curve 的功能，TouchPal(触宝国际版) 是极好的替代选择
 archidroid.keyboard.both.desc=同时使用 TouchPal(触宝国际版) 和 Hacker 输入法 (例如在终端中)
 archidroid.keyboard.stock.desc=如果你想保留 ROM 自带输入法
 archidroid.keyboard.none.desc=不安装输入法. 警告! 在完全擦除之后不要勾选! 第一次启动之前你需要至少一个第三方输入法!
@@ -159,7 +159,7 @@ archidroid.updaterecovery.desc=如果你想使用最新 Recovery
 
 archidroid.apps.titaniumbackup.desc=刷机/更新保存个人数据和app的最佳方案
 archidroid.apps.greenify.desc=休眠任何app的利器, 能增强电池续航
-archidroid.apps.lmt.desc=执行绑定到特定屏幕手势的命令的工具, 在SlimBean也被称为 pie
+archidroid.apps.lmt.desc=执行绑定到特定屏幕手势的命令的工具, 在 SlimBean 也被称为 pie
 archidroid.apps.mxplayer.desc=应该是安卓下最好的视频播放器
 archidroid.apps.spiritfm.desc=能在 CyanogenMod 下工作的免费收音机
 archidroid.apps.bbs.desc=查看更具体的电池信息, 特别是 wakelocks
@@ -184,7 +184,7 @@ archidroid.preset.kernel.boeffla.archiultrapowersave.desc=为最佳电池寿命�
 archidroid.xposed.appsettings.desc=允许更改 APP 设置. 特别有用的工具
 archidroid.xposed.gravitybox.desc=一个尽管有些复杂但功能全面的定制微调工具箱
 archidroid.xposed.xprivacy.desc=能防止泄露个人数据,限制权限，拥有更多功能的极佳模块
-archidroid.xposed.wanam.desc=Wanam 杰作. 增强 ArchiDroid 顺滑度提供大量自定义选项
+archidroid.xposed.wanam.desc=Wanam 杰作. 增强 ArchiDroid 顺滑度并提供大量自定义选项
 
 archidroid.wizard.reboot=ArchiDroid 已经成功刷入，要立即自动重启吗?
 

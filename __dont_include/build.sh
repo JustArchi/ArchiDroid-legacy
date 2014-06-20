@@ -21,6 +21,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+set -e
 VERSION=1.7.17
 
 # HOW TO PORT ARCHIDROID TO OTHER DEVICE
@@ -29,9 +30,10 @@ VERSION=1.7.17
 
 # CHANGE ME
 ADROOT="/root/shared/git/ArchiDroid" # This is where ArchiDroid GitHub repo is located
+ADZIP="cm-" # This is with what output zip starts, i.e. for omni-xxx-yyy.zip you should type "omni-"
 
 # CHANGE ME IF BUILDING FROM SOURCE
-ADCOMPILEROOT="/root/android/omni" # This is where AOSP sources are located
+ADCOMPILEROOT="/root/android/cm" # This is where AOSP sources are located
 ADVARIANT="i9300" # This is AOSP variant to build, the one used in brunch command. If you use "brunch mydevice", you should set it to mydevice here
 NOGIT=0 # Change that to 1, it's 0 only for me to allow faster updates of local AOSP repos
 
@@ -74,7 +76,7 @@ TEMP=0
 cd "$(dirname "$0")"
 
 for ARG in "$@" ; do
-	if [ $TEMP -eq 0 ]; then
+	if [[ "$TEMP" -eq 0 ]]; then
 		case "$ARG" in
 			sammy)
 				SAMMY=1
@@ -83,6 +85,7 @@ for ARG in "$@" ; do
 				;;
 			bprop)
 				BPROP=1
+				NOBUILD=1
 				echo "Build prop update only!"
 				;;
 			stable)
@@ -112,56 +115,49 @@ for ARG in "$@" ; do
 			*)
 		esac
 	else
-		VERION=$ARG
+		VERION="$ARG"
 		TEMP=0
 		echo "Version: $VERSION"
 	fi
 done
 
 OTA="echo \"updateme.version=$VERSION\" >> /system/build.prop"
-if [ $STABLE -eq 0 ]; then
+if [[ "$STABLE" -eq 0 ]]; then
 	VERSION="$VERSION EXPERIMENTAL"
 else
 	VERSION="$VERSION STABLE"
 fi
 
-if [ $SAMMY -eq 0 ] && [ $NOBUILD -eq 0 ]; then
-	if [ $NOSYNC -eq 0 ]; then
-		if [ $NOGIT -eq 0 ]; then
-			cd $ADREPOS
+if [[ "$SAMMY" -eq 0 && "$NOBUILD" -eq 0 ]]; then
+	if [[ "$NOSYNC" -eq 0 ]]; then
+		if [[ "$NOGIT" -eq 0 ]]; then
+			cd "$ADREPOS"
 			bash updaterepos.sh
 		fi
-		cd $ADOUT
-		if [ $? -eq 0 ]; then
+		if [[ -d "$ADOUT" ]]; then
+			cd "$ADOUT"
 			for f in `ls` ; do
 				if [[ "$f" != "obj" ]]; then
 					rm -rf $f
 				fi
 			done
 		fi
-		cd $ADCOMPILEROOT
+		cd "$ADCOMPILEROOT"
 		repo selfupdate
 		repo sync -c -j16
 	else
-		cd $ADCOMPILEROOT
+		cd "$ADCOMPILEROOT"
 	fi
-	if [ $? -ne 0 ]; then
-		read -p "Something went wrong, please check and tell me when you're done, master!" -n1 -s
-	fi
-	
+
 	source build/envsetup.sh
-	brunch $ADVARIANT user
-	cd $ADOUT
-	cp omni-*.zip "$ADROOT"
+	brunch "$ADVARIANT" user || true
+	cd "$ADOUT"
+	cp "$ADZIP"*.zip "$ADROOT"
 fi
 
 cd "$ADROOT"
 
-if [ $BPROP -eq 0 ]; then
-	if [ ! -e *.zip ]; then
-		exit 1
-	fi
-
+if [[ "$BPROP" -eq 0 ]]; then
 	unzip *.zip -d __adtemp
 	rm -Rf system/
 	mv META-INF/com/google/android/updater-script META-INF/com/google/android/updater-script2
@@ -170,33 +166,33 @@ if [ $BPROP -eq 0 ]; then
 	cp -R * ..
 	cd ..
 	rm -f META-INF/com/google/android/updater-script && mv META-INF/com/google/android/updater-script2 META-INF/com/google/android/updater-script
-	if [ $SAMMY -eq 0 ]; then
+	if [[ "$SAMMY" -eq 0 ]]; then
 		rm -f META-INF/com/google/android/update-binary-installer && mv META-INF/com/google/android/update-binary META-INF/com/google/android/update-binary-installer && mv META-INF/com/google/android/update-binary2 META-INF/com/google/android/update-binary
 	else
 		rm -f META-INF/com/google/android/update-binary && mv META-INF/com/google/android/update-binary2 META-INF/com/google/android/update-binary
 	fi
-	OLD=`md5sum __dont_include/_updater-scripts/archidroid/updater-script | awk '{print $1}'`
-	NEW=`md5sum __adtemp/META-INF/com/google/android/updater-script | awk '{print $1}'`
+	OLD="$(md5sum __dont_include/_updater-scripts/archidroid/updater-script | awk '{print $1}')"
+	NEW="$(md5sum __adtemp/META-INF/com/google/android/updater-script | awk '{print $1}')"
 
-	if [ $OLD != $NEW ]; then
+	if [[ "$OLD" != "$NEW" ]]; then
 		echo "Warning! New $NEW does not equal old $OLD."
 		echo "Probably just symlink or permissions stuff"
-		diff __dont_include/_updater-scripts/archidroid/updater-script __adtemp/META-INF/com/google/android/updater-script
+		diff __dont_include/_updater-scripts/archidroid/updater-script __adtemp/META-INF/com/google/android/updater-script || true
 		cp __adtemp/META-INF/com/google/android/updater-script __dont_include/_updater-scripts/archidroid/updater-script
 		read -p "Tell me when you're done, master!" -n1 -s
 	else
 		echo "MD5 Sums matches, no further action required, automatic mode goes on..."
 	fi
-	rm -Rf __adtemp
-	rm -f *.zip
+	rm -rf __adtemp
+	#rm -f *.zip
 fi
 
 cd __dont_include/
 VERSION+=' ['
-if [ $SAMMY -eq 1 ]; then
-	VERSION+=`cat ../system/build.prop | grep "ro.build.version.incremental" | cut -d '=' -f 2`
+if [[ "$SAMMY" -eq 1 ]]; then
+	VERSION+="$(cat ../system/build.prop | grep "ro.build.version.incremental" | cut -d '=' -f 2)"
 else
-	VERSION+=`cat ../system/build.prop | grep "ro.build.id" | cut -d '=' -f 2`
+	VERSION+="$(cat ../system/build.prop | grep "ro.build.id" | cut -d '=' -f 2)"
 fi
 VERSION+=']'
 
@@ -269,7 +265,6 @@ if [ $SAMMY -eq 1 ]; then
 	mv -f TEMP.apk ../system/framework/framework-res.apk
 	rm -f ../system/app/Superuser.apk
 	rm -f ../system/xbin/su
-	rm -f ../system/xbin/busybox
 	rm -f ../system/xbin/daemonsu
 	rm -f ../system/etc/init.d/99SuperSUDaemon
 	rm -f ../system/etc/install-recovery.sh
@@ -286,6 +281,6 @@ fi
 if [ $NOOPD -eq 0 ]; then
 	bash openpdroid.sh
 else
-	rm -f ../omni-*.zip
+	rm -f ../*.zip
 fi
 exit 0

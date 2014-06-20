@@ -55,8 +55,8 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Backing up all addons");
 		package_extract_file("system/bin/backuptool.sh", "/tmp/backuptool.sh");
 		package_extract_file("system/bin/backuptool.functions", "/tmp/backuptool.functions");
-		set_perm(0, 0, 0777, "/tmp/backuptool.sh");
-		set_perm(0, 0, 0644, "/tmp/backuptool.functions");
+		set_metadata("/tmp/backuptool.sh", "uid", 0, "gid", 0, "mode", 0755);
+		set_metadata("/tmp/backuptool.functions", "uid", 0, "gid", 0, "mode", 0644);
 		run_program("/tmp/backuptool.sh", "backup");
 	endif;
 
@@ -109,7 +109,8 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 	set_progress(0.1);
 
 	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Flashing ArchiDroid Core");
-	show_progress(0.4, 1212);
+	#show_progress(0.4, 1212);
+	package_extract_dir("recovery", "/system");
 	package_extract_dir("system", "/system");
 
 	run_program("/sbin/sync");
@@ -117,6 +118,8 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 
 	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Creating symlinks");
 
+	symlink("../bin/fsck.f2fs", "/system/bin/dump.f2fs");
+	symlink("../xbin/su", "/system/bin/su");
 	symlink("Roboto-Bold.ttf", "/system/fonts/DroidSans-Bold.ttf");
 	symlink("Roboto-Regular.ttf", "/system/fonts/DroidSans.ttf");
 	symlink("busybox", "/system/xbin/[", "/system/xbin/[[",
@@ -125,24 +128,25 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 			"/system/xbin/bbconfig", "/system/xbin/blkid", "/system/xbin/blockdev",
 			"/system/xbin/brctl", "/system/xbin/bunzip2", "/system/xbin/bzcat",
 			"/system/xbin/bzip2", "/system/xbin/cal", "/system/xbin/cat",
-			"/system/xbin/catv", "/system/xbin/chattr", "/system/xbin/chgrp",
-			"/system/xbin/chmod", "/system/xbin/chown", "/system/xbin/chroot",
-			"/system/xbin/clear", "/system/xbin/cmp", "/system/xbin/comm",
-			"/system/xbin/cp", "/system/xbin/cpio", "/system/xbin/crond",
-			"/system/xbin/crontab", "/system/xbin/cut", "/system/xbin/date",
-			"/system/xbin/dc", "/system/xbin/dd", "/system/xbin/depmod",
-			"/system/xbin/devmem", "/system/xbin/df", "/system/xbin/diff",
-			"/system/xbin/dirname", "/system/xbin/dmesg", "/system/xbin/dnsd",
-			"/system/xbin/dos2unix", "/system/xbin/du", "/system/xbin/echo",
-			"/system/xbin/ed", "/system/xbin/egrep", "/system/xbin/env",
-			"/system/xbin/expand", "/system/xbin/expr", "/system/xbin/false",
-			"/system/xbin/fbsplash", "/system/xbin/fdisk", "/system/xbin/fgrep",
-			"/system/xbin/find", "/system/xbin/flash_lock",
+			"/system/xbin/catv", "/system/xbin/chattr", "/system/xbin/chcon",
+			"/system/xbin/chgrp", "/system/xbin/chmod", "/system/xbin/chown",
+			"/system/xbin/chroot", "/system/xbin/clear", "/system/xbin/cmp",
+			"/system/xbin/comm", "/system/xbin/cp", "/system/xbin/cpio",
+			"/system/xbin/crond", "/system/xbin/crontab", "/system/xbin/cut",
+			"/system/xbin/date", "/system/xbin/dc", "/system/xbin/dd",
+			"/system/xbin/depmod", "/system/xbin/devmem", "/system/xbin/df",
+			"/system/xbin/diff", "/system/xbin/dirname", "/system/xbin/dmesg",
+			"/system/xbin/dnsd", "/system/xbin/dos2unix", "/system/xbin/du",
+			"/system/xbin/echo", "/system/xbin/ed", "/system/xbin/egrep",
+			"/system/xbin/env", "/system/xbin/expand", "/system/xbin/expr",
+			"/system/xbin/false", "/system/xbin/fbsplash", "/system/xbin/fdisk",
+			"/system/xbin/fgrep", "/system/xbin/find", "/system/xbin/flash_lock",
 			"/system/xbin/flash_unlock", "/system/xbin/flashcp",
 			"/system/xbin/flock", "/system/xbin/fold", "/system/xbin/free",
 			"/system/xbin/freeramdisk", "/system/xbin/fstrim", "/system/xbin/fsync",
 			"/system/xbin/ftpget", "/system/xbin/ftpput", "/system/xbin/fuser",
-			"/system/xbin/getopt", "/system/xbin/grep", "/system/xbin/groups",
+			"/system/xbin/getenforce", "/system/xbin/getopt",
+			"/system/xbin/getsebool", "/system/xbin/grep", "/system/xbin/groups",
 			"/system/xbin/gunzip", "/system/xbin/gzip", "/system/xbin/halt",
 			"/system/xbin/head", "/system/xbin/hexdump", "/system/xbin/id",
 			"/system/xbin/ifconfig", "/system/xbin/inetd", "/system/xbin/insmod",
@@ -152,26 +156,30 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 			"/system/xbin/losetup", "/system/xbin/ls", "/system/xbin/lsattr",
 			"/system/xbin/lsmod", "/system/xbin/lsusb", "/system/xbin/lzcat",
 			"/system/xbin/lzma", "/system/xbin/lzop", "/system/xbin/lzopcat",
-			"/system/xbin/man", "/system/xbin/md5sum", "/system/xbin/mesg",
-			"/system/xbin/mkdir", "/system/xbin/mke2fs", "/system/xbin/mkfifo",
-			"/system/xbin/mkfs.ext2", "/system/xbin/mkfs.vfat",
-			"/system/xbin/mknod", "/system/xbin/mkswap", "/system/xbin/mktemp",
-			"/system/xbin/modinfo", "/system/xbin/modprobe", "/system/xbin/more",
-			"/system/xbin/mount", "/system/xbin/mountpoint", "/system/xbin/mpstat",
-			"/system/xbin/mv", "/system/xbin/nanddump", "/system/xbin/nandwrite",
-			"/system/xbin/nbd-client", "/system/xbin/netstat", "/system/xbin/nice",
-			"/system/xbin/nohup", "/system/xbin/nslookup", "/system/xbin/ntpd",
-			"/system/xbin/od", "/system/xbin/patch", "/system/xbin/pgrep",
-			"/system/xbin/pidof", "/system/xbin/ping", "/system/xbin/pipe_progress",
-			"/system/xbin/pkill", "/system/xbin/pmap", "/system/xbin/poweroff",
-			"/system/xbin/printenv", "/system/xbin/printf", "/system/xbin/ps",
-			"/system/xbin/pstree", "/system/xbin/pwd", "/system/xbin/pwdx",
-			"/system/xbin/rdev", "/system/xbin/readlink", "/system/xbin/realpath",
-			"/system/xbin/renice", "/system/xbin/reset", "/system/xbin/resize",
+			"/system/xbin/man", "/system/xbin/matchpathcon", "/system/xbin/md5sum",
+			"/system/xbin/mesg", "/system/xbin/mkdir", "/system/xbin/mke2fs",
+			"/system/xbin/mkfifo", "/system/xbin/mkfs.ext2",
+			"/system/xbin/mkfs.vfat", "/system/xbin/mknod", "/system/xbin/mkswap",
+			"/system/xbin/mktemp", "/system/xbin/modinfo", "/system/xbin/modprobe",
+			"/system/xbin/more", "/system/xbin/mount", "/system/xbin/mountpoint",
+			"/system/xbin/mpstat", "/system/xbin/mv", "/system/xbin/nanddump",
+			"/system/xbin/nandwrite", "/system/xbin/nbd-client",
+			"/system/xbin/netstat", "/system/xbin/nice", "/system/xbin/nohup",
+			"/system/xbin/nslookup", "/system/xbin/ntpd", "/system/xbin/od",
+			"/system/xbin/patch", "/system/xbin/pgrep", "/system/xbin/pidof",
+			"/system/xbin/ping", "/system/xbin/pipe_progress", "/system/xbin/pkill",
+			"/system/xbin/pmap", "/system/xbin/poweroff", "/system/xbin/printenv",
+			"/system/xbin/printf", "/system/xbin/ps", "/system/xbin/pstree",
+			"/system/xbin/pwd", "/system/xbin/pwdx", "/system/xbin/rdev",
+			"/system/xbin/readlink", "/system/xbin/realpath", "/system/xbin/renice",
+			"/system/xbin/reset", "/system/xbin/resize", "/system/xbin/restorecon",
 			"/system/xbin/rev", "/system/xbin/rm", "/system/xbin/rmdir",
 			"/system/xbin/rmmod", "/system/xbin/route", "/system/xbin/run-parts",
-			"/system/xbin/rx", "/system/xbin/sed", "/system/xbin/seq",
-			"/system/xbin/setconsole", "/system/xbin/setserial",
+			"/system/xbin/runcon", "/system/xbin/rx", "/system/xbin/sed",
+			"/system/xbin/selinuxenabled", "/system/xbin/seq",
+			"/system/xbin/sestatus", "/system/xbin/setconsole",
+			"/system/xbin/setenforce", "/system/xbin/setfiles",
+			"/system/xbin/setsebool", "/system/xbin/setserial",
 			"/system/xbin/setsid", "/system/xbin/sh", "/system/xbin/sha1sum",
 			"/system/xbin/sha256sum", "/system/xbin/sha3sum",
 			"/system/xbin/sha512sum", "/system/xbin/sleep", "/system/xbin/sort",
@@ -195,9 +203,11 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 			"/system/xbin/yes",
 			"/system/xbin/zcat");
 	symlink("libGLESv2.so", "/system/lib/libGLESv3.so");
+	symlink("logcat", "/system/bin/lolcat");
 	symlink("mksh", "/system/bin/sh");
 	symlink("mount.exfat", "/system/bin/fsck.exfat",
 			"/system/bin/mkfs.exfat");
+	symlink("pigz", "/system/xbin/unpigz");
 	symlink("toolbox", "/system/bin/cat", "/system/bin/chcon",
 			"/system/bin/chmod", "/system/bin/chown", "/system/bin/clear",
 			"/system/bin/cmp", "/system/bin/cp", "/system/bin/date",
@@ -213,15 +223,16 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 			"/system/bin/mv", "/system/bin/nandread", "/system/bin/netstat",
 			"/system/bin/newfs_msdos", "/system/bin/notify", "/system/bin/printenv",
 			"/system/bin/ps", "/system/bin/readlink", "/system/bin/renice",
-			"/system/bin/restorecon", "/system/bin/rm", "/system/bin/rmdir",
-			"/system/bin/rmmod", "/system/bin/route", "/system/bin/runcon",
-			"/system/bin/schedtop", "/system/bin/sendevent",
+			"/system/bin/restart", "/system/bin/restorecon", "/system/bin/rm",
+			"/system/bin/rmdir", "/system/bin/rmmod", "/system/bin/route",
+			"/system/bin/runcon", "/system/bin/schedtop", "/system/bin/sendevent",
 			"/system/bin/setconsole", "/system/bin/setenforce",
-			"/system/bin/setprop", "/system/bin/setsebool", "/system/bin/sleep",
-			"/system/bin/smd", "/system/bin/start", "/system/bin/stop",
-			"/system/bin/swapoff", "/system/bin/swapon", "/system/bin/sync",
-			"/system/bin/top", "/system/bin/touch", "/system/bin/umount",
-			"/system/bin/uptime", "/system/bin/vmstat", "/system/bin/watchprops",
+			"/system/bin/setfattr", "/system/bin/setprop", "/system/bin/setsebool",
+			"/system/bin/sleep", "/system/bin/smd", "/system/bin/start",
+			"/system/bin/stop", "/system/bin/swapoff", "/system/bin/swapon",
+			"/system/bin/sync", "/system/bin/top", "/system/bin/touch",
+			"/system/bin/umount", "/system/bin/uptime", "/system/bin/vmstat",
+			"/system/bin/watchprops",
 			"/system/bin/wipe");
 
 	set_progress(0.52);
@@ -239,6 +250,7 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 
 	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Setting Permissions");
 	set_metadata_recursive("/system", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+	set_metadata_recursive("/system/addon.d", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
 	set_metadata_recursive("/system/bin", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
 	set_metadata("/system/bin/app_process", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:zygote_exec:s0");
 	set_metadata("/system/bin/clatd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:clatd_exec:s0");
@@ -268,7 +280,9 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 	set_metadata("/system/etc/dhcpcd/dhcpcd-run-hooks", "uid", 1014, "gid", 2000, "mode", 0550, "capabilities", 0x0, "selabel", "u:object_r:dhcp_system_file:s0");
 	set_metadata_recursive("/system/etc/init.d", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
 	set_metadata("/system/etc/init.d", "uid", 0, "gid", 0, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+	set_metadata("/system/etc/install-cm-recovery.sh", "uid", 0, "gid", 0, "mode", 0544, "capabilities", 0x0);
 	set_metadata_recursive("/system/etc/ppp", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0555, "capabilities", 0x0, "selabel", "u:object_r:ppp_system_file:s0");
+	set_metadata("/system/recovery-from-boot.p", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0);
 	set_metadata_recursive("/system/vendor", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:firmware_camera:s0");
 	set_metadata("/system/vendor", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
 	set_metadata_recursive("/system/vendor/etc", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
@@ -279,16 +293,14 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 	set_metadata("/system/vendor/lib", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
 	set_metadata_recursive("/system/vendor/lib/drm", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
 	set_metadata("/system/vendor/lib/drm/libdrmwvmplugin.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
-	set_metadata_recursive("/system/vendor/lib/mediadrm", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
-	set_metadata("/system/vendor/lib/mediadrm/libwvdrmengine.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
 	set_metadata_recursive("/system/xbin", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
 
 	# ArchiDroid
-	set_metadata("/system/xbin/su", "uid", 0, "gid", 0, "mode", 06755, "capabilities", 0x0, "selabel", "u:object_r:zygote_exec:s0");
-	set_metadata("/system/xbin/daemonsu", "uid", 0, "gid", 0, "mode", 06755, "capabilities", 0x0, "selabel", "u:object_r:su_exec:s0");
-	set_metadata("/system/bin/.ext", "uid", 0, "gid", 2000, "mode", 0777, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
-	set_metadata("/system/bin/.ext/.su", "uid", 0, "gid", 0, "mode", 06755, "capabilities", 0x0, "selabel", "u:object_r:su_exec:s0");
-	run_program("/system/xbin/su", "--install");
+	#set_metadata("/system/xbin/su", "uid", 0, "gid", 0, "mode", 06755, "capabilities", 0x0, "selabel", "u:object_r:zygote_exec:s0");
+	#set_metadata("/system/xbin/daemonsu", "uid", 0, "gid", 0, "mode", 06755, "capabilities", 0x0, "selabel", "u:object_r:su_exec:s0");
+	#set_metadata("/system/bin/.ext", "uid", 0, "gid", 2000, "mode", 0777, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+	#set_metadata("/system/bin/.ext/.su", "uid", 0, "gid", 0, "mode", 06755, "capabilities", 0x0, "selabel", "u:object_r:su_exec:s0");
+	#run_program("/system/xbin/su", "--install");
 
 	set_progress(0.54);
 
@@ -423,11 +435,11 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Restoring Addons");
 			package_extract_file("system/bin/backuptool.sh", "/tmp/backuptool.sh");
 			package_extract_file("system/bin/backuptool.functions", "/tmp/backuptool.functions");
-			set_perm(0, 0, 0777, "/tmp/backuptool.sh");
-			set_perm(0, 0, 0644, "/tmp/backuptool.functions");
+			set_metadata("/tmp/backuptool.sh", "uid", 0, "gid", 0, "mode", 0755);
+			set_metadata("/tmp/backuptool.functions", "uid", 0, "gid", 0, "mode", 0644);
 			run_program("/tmp/backuptool.sh", "restore");
 			delete("/system/bin/backuptool.sh");
-			delete("/system/bin/backuptool.functions");;
+			delete("/system/bin/backuptool.functions");
 		endif;
 
 		set_progress(0.63);

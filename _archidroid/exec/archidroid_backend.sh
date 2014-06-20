@@ -30,9 +30,9 @@ for ARG in "$@"; do
 done
 
 # SuperSU
-mkdir -p "/system/bin/.ext"
-cp "/system/xbin/su" "/system/xbin/daemonsu"
-cp "/system/xbin/su" "/system/bin/.ext/.su"
+#mkdir -p "/system/bin/.ext"
+#cp "/system/xbin/su" "/system/xbin/daemonsu"
+#cp "/system/xbin/su" "/system/bin/.ext/.su"
 
 # Apply additional ArchiDroid things if we're not on barebones
 if [ "$BAREBONES" -eq 0 ]; then

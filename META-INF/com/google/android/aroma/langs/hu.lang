@@ -68,7 +68,7 @@ terms.check2=Teljes mértékben megértem és tiszteletben tartom
 terms.confirm2=Tiszteld a fejlesztőket!
 
 archidroid.tos=ArchiDroid Felhasználási Feltételek
-archidroid.preview.desc=When checked, you'll see a sample of the selected item on the next page
+archidroid.preview.desc=Ha ezt kiválasztod, akkor a következő oldalon előnézetet kapsz a kiválasztott elemről
 
 archidroid.detect.fail=Ellenőriztem, a jelek szerint neked még nincs telepítve az ArchiDroid. Full wipe után jöttél, esetleg egy másik ROM-ról?
 archidroid.detect.fail.yes=Nincs ArchiDroidom
@@ -81,9 +81,9 @@ archidroid.detect.pass.no=Nem, Full Wipe
 archidroid.detect.pass.alert.no=OK, akkor full wipe lesz és az ArchiDroid Telepítés mód kerül futtatásra
 archidroid.detect.force=Szeretnéd az eröltetett frissítési módot használni? Ez megmondja az ArchiDroid RunOnce scriptnek, hogy az emelt szintű finomhangolásokat hajtsa végre, melyeket alapértelmezetten csak a Telepítés mód során tenne meg. Válaszd a Nem lehetőséget, ha nem vagy biztos benne!
 
-archidroid.hardswap.desc=ArchiDroid Hardswap allows you to trade your flash memory speed and lifetime for more memory. This option will create special swap file on your desired location and let Android use it for extra memory. Every chunk of extra memory results in small decrease in I/O speed. <b><#f00>Please note that using hardswap may significantly decrease your flash memory lifetime</#></b>
-archidroid.hardswap.remove.desc=Removes hardswap from this partition
-archidroid.hardswap.size.default.desc=Maximum suggested size for hardswap partition
+archidroid.hardswap.desc=Az ArchiDroid Hardswap engedélyezi, hogy egy kis memória sebesség és élettartam csökkenés ellenében több memóriával rendelkezz. Ez egy speciális swap fájlt hoz létre a kiválasztott helyen és engedélyezi az Android számára, hogy memóriaként használja. Minden egyes kis darab extra memória kis I/O sebesség csökkenéssel jár. <b><#f00>Kérlek tartsd szem előtt, hogy a hardswap jelentősen csökkentheti a flash memória élettartamát</#></b>
+archidroid.hardswap.remove.desc=Eltávolítja a hardswap-et erről a partícióról
+archidroid.hardswap.size.default.desc=Maximum ajánlott méret a hardswap partícióhoz
 
 archidroid.partition.wizard.desc=Az ArchiDroid Partition Wizard csak a támogatott particiókat mutatja. Az F2FS speciális recovery-t és kernelt követel meg (az előző oldalon lett kiválasztva), hogy elérhető legyen\
 \
@@ -108,7 +108,7 @@ archidroid.preset.barebones=Csupasz Csontok
 archidroid.preset.barebones.desc=Tiszta ROM. Csak tesztelés céljából ajánlott.
 archidroid.preset.previous=Előző konfiguráció
 archidroid.preset.previous.desc=Betölti az előző telepítésed konfigurációját (ha elérhető)
-archidroid.preset.previousexpert.desc=Same as Previous Preset, but will load raw data and allow you to customize preset before flashing
+archidroid.preset.previousexpert.desc=Ugyanaz, mint az előző, csak ez betölti a nyers adatokat és engedélyezi a konfiguráció testreszabását flashelés előtt
 
 archidroid.detect.previouspreset.fail=Nem lehet betölteni az előző konfigurációt, mert hibás, vagy nem létezik
 
@@ -117,7 +117,7 @@ archidroid.custom.extra=ArchiDroid Extra Személyreszabás
 archidroid.custom.desc=Kérlek módosítsd a beállításokat kedved szerint
 
 archidroid.kernel.boeffla.desc=Erősen ajánlott, mesterien tökéletes mindenki számára, melyben a Boeffla hang és még sok más funkció áll rendelkezésre
-archidroid.kernel.archi.desc=Featuring perfect synergy with ArchiDroid ROM
+archidroid.kernel.archi.desc=Tökéletes együttműködést kínál az ArchiDroid ROM-mal
 archidroid.kernel.yank.desc=Alternatívaként ajánlott
 archidroid.kernel.googy.desc=Siyah forrására alapszik. Dual-boot támogatás, STweaks
 archidroid.kernel.devil.desc=Perseus forrására alapszik. Dual-boot támogatás, DevilTools
@@ -130,7 +130,7 @@ archidroid.dpi.280.desc=Tökéletes egyensúly a gyári és a 240 DPI mód köz�
 archidroid.dpi.320.desc=Gyári érték
 
 archidroid.launcher.nova.desc=Ajánlott az extra rugalmassághoz és teljesítményhez
-archidroid.launcher.google.desc=Recommended for pure google experience, also known as Google Home
+archidroid.launcher.google.desc=Ajánlott a tiszta Google élményhez, Google Home-ként is ismert
 archidroid.launcher.stock.desc=Ami a ROM-mal jön
 archidroid.launcher.none.desc=Nincs launcher. FIGYELEM! Full wipe után ne ezt válaszd! Mindenképpen kell legyen minimum egy launcher az első bootkor!
 

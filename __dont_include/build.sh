@@ -159,11 +159,12 @@ cd "$ADROOT"
 
 if [[ "$BPROP" -eq 0 ]]; then
 	unzip *.zip -d __adtemp
-	rm -Rf system/
+	rm -rf system/
+	rm -rf recovery/
 	mv META-INF/com/google/android/updater-script META-INF/com/google/android/updater-script2
 	mv META-INF/com/google/android/update-binary META-INF/com/google/android/update-binary2
 	cd __adtemp
-	cp -R * ..
+	cp -r * ..
 	cd ..
 	rm -f META-INF/com/google/android/updater-script && mv META-INF/com/google/android/updater-script2 META-INF/com/google/android/updater-script
 	if [[ "$SAMMY" -eq 0 ]]; then

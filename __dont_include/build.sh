@@ -85,6 +85,7 @@ for ARG in "$@" ; do
 				;;
 			bprop)
 				BPROP=1
+				NOBUILD=1
 				echo "Build prop update only!"
 				;;
 			stable)
@@ -157,10 +158,6 @@ fi
 cd "$ADROOT"
 
 if [[ "$BPROP" -eq 0 ]]; then
-	if [[ ! -f *.zip ]]; then
-		exit 1
-	fi
-
 	unzip *.zip -d __adtemp
 	rm -Rf system/
 	mv META-INF/com/google/android/updater-script META-INF/com/google/android/updater-script2
@@ -180,13 +177,13 @@ if [[ "$BPROP" -eq 0 ]]; then
 	if [[ "$OLD" != "$NEW" ]]; then
 		echo "Warning! New $NEW does not equal old $OLD."
 		echo "Probably just symlink or permissions stuff"
-		diff __dont_include/_updater-scripts/archidroid/updater-script __adtemp/META-INF/com/google/android/updater-script
+		diff __dont_include/_updater-scripts/archidroid/updater-script __adtemp/META-INF/com/google/android/updater-script || true
 		cp __adtemp/META-INF/com/google/android/updater-script __dont_include/_updater-scripts/archidroid/updater-script
 		read -p "Tell me when you're done, master!" -n1 -s
 	else
 		echo "MD5 Sums matches, no further action required, automatic mode goes on..."
 	fi
-	rm -Rf __adtemp
+	rm -rf __adtemp
 	#rm -f *.zip
 fi
 

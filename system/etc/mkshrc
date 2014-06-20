@@ -6,7 +6,7 @@
 #
 # Support: https://launchpad.net/mksh
 
-: ${TERM:=vt100} ${HOME:=/data} ${MKSH:=/system/bin/sh} ${HOSTNAME:=$(getprop ro.product.device)}
+: ${TERM:=linux} ${HOME:=/data} ${MKSH:=/system/bin/sh} ${HOSTNAME:=$(getprop ro.product.device)}
 : ${SHELL:=$MKSH} ${USER:=$(typeset x=$(id); x=${x#*\(}; print -r -- ${x%%\)*})} ${HOSTNAME:=android}
 if (( USER_ID )); then PS1='$'; else PS1='#'; fi
 function precmd {

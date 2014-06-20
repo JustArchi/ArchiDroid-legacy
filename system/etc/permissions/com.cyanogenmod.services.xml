@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<permissions>
+	<allow-permission name="android.permission.CAPTURE_VIDEO_OUTPUT" sharedUserId="com.cyanogenmod.uid.cms"/>
+	<allow-permission name="android.permission.CAPTURE_SECURE_VIDEO_OUTPUT" sharedUserId="com.cyanogenmod.uid.cms"/>
+
+    <!-- every time we add a new feature or permission, add a new revision -->
+    <feature name="com.cyanogenmod.services.version.1" />
+</permissions>

@@ -12,9 +12,9 @@
   <!-- <project name="platform/prebuilts/gcc/linux-x86/arm/arm-eabi-4.8" path="prebuilts/gcc/linux-x86/arm/arm-eabi-4.8" revision="master" /> -->
   <!-- <project name="platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8" path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8" revision="master" /> -->
 
-  <!-- ARCHIDROID HYBRID -->
-  <project name="JustArchi/Linaro" path="prebuilts/gcc/linux-x86/arm/arm-eabi-4.8" remote="github" revision="4.9-eabi" />
-  <project name="JustArchi/Linaro" path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8" remote="github" revision="4.9-androideabi" />
+  <!-- CURRENTLY USED BY ARCHIDROID -->
+  <project name="JustArchi/Linaro" path="prebuilts/gcc/linux-x86/arm/arm-eabi-4.9" remote="github" revision="4.9-eabi" />
+  <project name="JustArchi/Linaro" path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9" remote="github" revision="4.9-androideabi" />
 
   <!-- OBSOLETE -->
   <remove-project name="CyanogenMod/android_packages_apps_CMUpdater" />
@@ -28,6 +28,8 @@
   <project name="JustArchi/android_build" path="build" remote="github" />
   <remove-project name="CyanogenMod/android_art" />
   <project name="JustArchi/android_art" path="art" remote="github" />
+  <remove-project name="CyanogenMod/android_external_fuse" />
+  <project name="JustArchi/android_external_fuse" path="external/fuse" remote="github" />
   <remove-project name="CyanogenMod/android_vendor_cm" />
   <project name="JustArchi/android_vendor_cm" path="vendor/cm" remote="github" />
 

@@ -1,7 +1,10 @@
 ArchiDroid 2.5.0
 FULL WIPE REQUIRED
 
-- [!] Added ArchiKernel # For perfect synergy!
 - [!] ArchiDroid is now based on CyanogenMod (previously: Omni)
-- ArchiKernel is default kernel choice now
+- [!] Added ArchiKernel # For perfect synergy!
+- [!] Further ArchiDroid Optimizations
+* TARGET ARM is now compiled using the fastest possible optimization flag (-Ofast)
+* Thanks to CyanogenMod base, whole ROM+Kernel is now compiled using latest Linaro 4.9.1 toolchain
+
 - Updated sources # Android 4.4.4

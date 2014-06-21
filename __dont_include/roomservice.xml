@@ -14,7 +14,7 @@
 
   <!-- ARCHIDROID HYBRID -->
   <project name="JustArchi/Linaro" path="prebuilts/gcc/linux-x86/arm/arm-eabi-4.8" remote="github" revision="4.9-eabi" />
-  <project name="JustArchi/Linaro" path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8" remote="github" revision="4.8-androideabi" />
+  <project name="JustArchi/Linaro" path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8" remote="github" revision="4.9-androideabi" />
 
   <!-- OBSOLETE -->
   <remove-project name="CyanogenMod/android_packages_apps_CMUpdater" />

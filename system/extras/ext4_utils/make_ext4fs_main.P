@@ -4,7 +4,7 @@ out/target/product/i9300/obj/STATIC_LIBRARIES/libmake_ext4fs_intermediates/../..
  bionic/libc/include/fcntl.h bionic/libc/include/sys/cdefs.h \
  bionic/libc/include/sys/cdefs_elf.h \
  bionic/libc/include/android/api-level.h bionic/libc/include/sys/types.h \
- /root/android/cm/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8/lib/gcc/arm-linux-androideabi/4.8.3/include/stddef.h \
+ /root/android/cm/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8/lib/gcc/arm-linux-androideabi/4.9.1/include/stddef.h \
  bionic/libc/include/stdint.h bionic/libc/include/sys/_types.h \
  bionic/libc/arch-arm/include/machine/_types.h \
  bionic/libc/kernel/common/linux/posix_types.h \
@@ -37,7 +37,7 @@ out/target/product/i9300/obj/STATIC_LIBRARIES/libmake_ext4fs_intermediates/../..
  bionic/libc/kernel/common/asm-generic/siginfo.h \
  bionic/libc/include/sys/sysconf.h bionic/libc/include/pathconf.h \
  bionic/libc/include/libgen.h bionic/libc/include/stdio.h \
- /root/android/cm/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8/lib/gcc/arm-linux-androideabi/4.8.3/include/stdarg.h \
+ /root/android/cm/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8/lib/gcc/arm-linux-androideabi/4.9.1/include/stdarg.h \
  bionic/libc/kernel/common/linux/fs.h \
  bionic/libc/kernel/common/linux/ioctl.h \
  bionic/libc/kernel/arch-arm/asm/ioctl.h \
@@ -62,7 +62,7 @@ out/target/product/i9300/obj/STATIC_LIBRARIES/libmake_ext4fs_intermediates/../..
  bionic/libc/include/fcntl.h bionic/libc/include/sys/cdefs.h :
  bionic/libc/include/sys/cdefs_elf.h :
  bionic/libc/include/android/api-level.h bionic/libc/include/sys/types.h :
- /root/android/cm/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8/lib/gcc/arm-linux-androideabi/4.8.3/include/stddef.h :
+ /root/android/cm/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8/lib/gcc/arm-linux-androideabi/4.9.1/include/stddef.h :
  bionic/libc/include/stdint.h bionic/libc/include/sys/_types.h :
  bionic/libc/arch-arm/include/machine/_types.h :
  bionic/libc/kernel/common/linux/posix_types.h :
@@ -95,7 +95,7 @@ out/target/product/i9300/obj/STATIC_LIBRARIES/libmake_ext4fs_intermediates/../..
  bionic/libc/kernel/common/asm-generic/siginfo.h :
  bionic/libc/include/sys/sysconf.h bionic/libc/include/pathconf.h :
  bionic/libc/include/libgen.h bionic/libc/include/stdio.h :
- /root/android/cm/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8/lib/gcc/arm-linux-androideabi/4.8.3/include/stdarg.h :
+ /root/android/cm/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8/lib/gcc/arm-linux-androideabi/4.9.1/include/stdarg.h :
  bionic/libc/kernel/common/linux/fs.h :
  bionic/libc/kernel/common/linux/ioctl.h :
  bionic/libc/kernel/arch-arm/asm/ioctl.h :

@@ -32,6 +32,7 @@ ini_set("rom_version",          "1.7.17");
 ini_set("rom_author",           "JustArchi");
 ini_set("rom_device",           "Samsung Galaxy S3");
 ini_set("rom_date",             "August XXth, 2014");
+setvar("experimental","1");
 
 ##
 # Show Animated Splash
@@ -118,7 +119,7 @@ textbox(
 	#-- Icon
 	"@info",
 
-	#-- Arg 4
+	#-- Text Content
 	resread("_changelog.txt")
 );
 
@@ -132,8 +133,8 @@ agreebox(
 	#-- Icon
 	"@license",
 
-	#-- Text Content ( Read from <AROMA Resource Dir>/read_me.txt )
-	resread("read_me.txt"),
+	#-- Text Content
+	resread("tos.txt"),
 
 	#-- Checkbox Text
 	"<~terms.check>",
@@ -142,7 +143,29 @@ agreebox(
 	"<~terms.confirm>"
 );
 
-agreebox(
+if getvar("experimental") == "1" then
+	agreebox(
+		#-- Title
+		"ArchiDroid Experimental",
+
+		#-- Subtitle / Description
+		"",
+
+		#-- Icon
+		"@alert",
+
+		#-- Text Content
+		resread("experimental.txt"),
+
+		#-- Checkbox Text
+		"I fully understand that experimental versions may brick my device",
+
+		#-- Unchecked Alert Message
+		"<~terms.confirm>"
+	);
+endif;
+
+textbox(
 	#-- Title
 	"<~archidroid.tos>",
 
@@ -152,14 +175,8 @@ agreebox(
 	#-- Icon
 	"@license",
 
-	#-- Text Content ( Read from <AROMA Resource Dir>/read_me2.txt )
-	resread("read_me2.txt"),
-
-	#-- Checkbox Text
-	"<~terms.check2>",
-
-	#-- Unchecked Alert Message
-	"<~terms.confirm2>"
+	#-- Text Content
+	resread("thirdparty.txt")
 );
 
 form(

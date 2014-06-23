@@ -81,23 +81,23 @@ archidroid.detect.pass.no=Nein, Full Wipe (alles löschen)
 archidroid.detect.pass.alert.no=OK, ich mache einen Full Wipe (Datenlöschung) und starte dann den ArchiDroid Installations-Modus
 archidroid.detect.force=Soll ein Update erzwungen werden? Dies sagt ArchiDroid RunOnce spezielle Verbesserungen durchzuführen, die sonst nur bei einer Neuinstallation gemacht würden. Wähle nein, wenn du unsicher bist.
 
-archidroid.hardswap.desc=ArchiDroid Hardswap allows you to trade your flash memory speed and lifetime for more memory. This option will create special swap file on your desired location and let Android use it for extra memory. Every chunk of extra memory results in small decrease in I/O speed. <b><#f00>Please note that using hardswap may significantly decrease your flash memory lifetime</#></b>
-archidroid.hardswap.remove.desc=Removes hardswap from this partition
-archidroid.hardswap.size.default.desc=Maximum suggested size for hardswap partition
+archidroid.hardswap.desc=Mit ArchiDroid Hardswap können Sie Ihren Flash-Speicher vergrössern auf kosten der Geschwindigkeit und Lebensdauer. Diese Option wird spezielle Swap-Dateien auf dem gewünschten Standort erstellen und lässt es Android für mehr Speicher nutzen. Je grösser die Swap-Datei, desto mehr geht die I / O-Geschwindigkeit leicht zurück. <b><#f00>Bitte beachten Sie, dass die Verwendung von Hardswap die Flash-Speicherlebensdauer verringert.</#></b>
+archidroid.hardswap.remove.desc=Hardswap von Partition entfernen
+archidroid.hardswap.size.default.desc=Maximale vorgeschlagene Grösse
 
 archidroid.partition.wizard.desc=ArchiDroid zeigt nur Partitionen an, die auch momentan unterstützt werden. F2FS benötigt ein spezielles Recovery und Kernel(gewählt auf den vorderen Seiten)\
 \
 <b><#f00>WARNUNG!! DIE REPARTITIONIERUNG KANN DEIN GERÄT SOFT- ODER HARD-BRICKEN, WENN DU NICHT WEISST WAS DU MACHST, SOLLTEST DU NICHTS ÄNDERN!</#></b>\
 \
-In addition to that, during repartitioning <b><#f00>ALLE DATEN WERDEN GELÖSCHT</#></b>
+Während des Vorgangs(Repartitionierung) werden<b><#f00> ALLE DATEN WERDEN GELÖSCHT</#></b>
 
-archidroid.filesystem.ext4.desc=Fourth Extended File System. Proven to be stable and reliable. Supported by all kernels
-archidroid.filesystem.f2fs.desc=Flash-Friendly File System. Optimized for NAND flash memory-based storage devices, gives significant I/O boost compared to EXT4. Supported only by a few custom kernels
-archidroid.partition.wizard.finish.desc=ArchiDroid Partition Wizard has finished repartitioning your partition. If RETURN STATUS is equal to 0, everything ended successfully
+archidroid.filesystem.ext4.desc=Fourth Extended File System. Sehr stabil und zuverlässig, von allen Kernel unterstützt
+archidroid.filesystem.f2fs.desc=Flash-Friendly File System. Optimiert für NAND-Flash-Speichermedien, gibt eine schnellere I/O-Geschwindigkeit im Vergleich zu EXT4. Wird nur von wenigen angepasster Kernel unterstützt
+archidroid.partition.wizard.finish.desc=ArchiDroid hat die Neupartitionierung beendet. Wenn RETURN STATUS = 0 ist, war die Repartionierung erfolgreich
 
-archidroid.preset.recovery.desc=Will flash recovery (only) instead of a ROM. May be useful if recovery update is required prior to flashing
-archidroid.recovery.philz.desc=The most feature-rich custom recovery ever created, developed by Phil
-archidroid.recovery.devil.desc=Alternative recovery developed by Devil, which includes dual-boot support and F2FS filesystem
+archidroid.preset.recovery.desc=Flasht nur Recovery anstelle der Archidroid-Rom. Dies kann nützlich sein, wenn ein Recovery-Update vor dem flashen der Rom erforderlich ist.
+archidroid.recovery.philz.desc=Das costum Recovery mit den meisten Möglichkeiten und den meisten Funktionen das jemals erstellt wurde, entwickelt von Phil.
+archidroid.recovery.devil.desc=Alternatives Recovery entwickelt von Devil, es beinhaltet dual-boot und F2F Support. 
 
 archidroid.preset=ArchiDroid Installations-Voreinstellung
 archidroid.preset.desc=Bitte wähle eine Installations-Voreinstellung:
@@ -108,7 +108,7 @@ archidroid.preset.barebones=Bare Bones
 archidroid.preset.barebones.desc=reine ROM. Nur zum testen, wird nicht empfohlen
 archidroid.preset.previous=Letzte Voreinstellung
 archidroid.preset.previous.desc=Einstellungen von vorderer Installation behalten (wenn möglich)
-archidroid.preset.previousexpert.desc=Same as Previous Preset, but will load raw data and allow you to customize preset before flashing
+archidroid.preset.previousexpert.desc=Wie letzte Voreinstellung, jedoch kann man jede Einstellung nochmals anpassen.
 
 archidroid.detect.previouspreset.fail=Konnte die Einstellungen nicht laden, wählen Sie bitte "Anpassen"
 
@@ -117,12 +117,12 @@ archidroid.custom.extra=ArchiDroid Extra Anpassung
 archidroid.custom.desc=Bitte wähle die Einstellungen, wie du sie möchtest
 
 archidroid.kernel.boeffla.desc=Empfohlenes Meisterwerk perfekt für jeden, mit Boeffla Sound und vielen weiteren Funktionen
-archidroid.kernel.archi.desc=Featuring perfect synergy with ArchiDroid ROM
+archidroid.kernel.archi.desc=Perfekte Kombination mit der ArchiDroid ROM.
 archidroid.kernel.yank.desc=Empfohlen als Alternative
 archidroid.kernel.googy.desc=Basierend auf dem Siyah-Kernel. Dual-Boot kompatibel und mit STweaks
 archidroid.kernel.devil.desc=Basierend auf dem Perseus-Kernel. Dual-Boot kompatibel und mit DevilTools
-archidroid.kernel.agni.desc=A very sophisticated kernel, featuring F2FS support
-archidroid.kernel.stock.desc=Der Standard-Kernel von ROM
+archidroid.kernel.agni.desc=Ein sehr ausgeklügelter Kernel, mit F2FS-Unterstützung.
+archidroid.kernel.stock.desc=Der Standard-Kernel von Cyanogenmod
 
 archidroid.dpi.240w.desc=WARNUNG! Bei dieser DPI kann es zu kleineren Grafikfehlern kommen
 archidroid.dpi.240.desc=Alles ist kleiner: Buttons, Icons, Text u.s.w.. empfohlen für die beste ArchiDroid-Erfahrung!
@@ -130,8 +130,8 @@ archidroid.dpi.280.desc=Gute Balance zwischen Standard und 240 DPI
 archidroid.dpi.320.desc=Standard
 
 archidroid.launcher.nova.desc=Empfohlen für extra Flexibilität und Performance
-archidroid.launcher.google.desc=Recommended for pure google experience, also known as Google Home
-archidroid.launcher.stock.desc=Von ROM
+archidroid.launcher.google.desc=Empfohlen für eine reine Google Erfahrung, auch als Google-Home bekannt.
+archidroid.launcher.stock.desc=Standart Cyanogenmod-Launcher
 archidroid.launcher.none.desc=Kein Launcher. ACHTUNG! Nicht nach einem Full Wipe auswählen! Du brauchst mindestens einen eigenen Launcher vor dem 1. Start!
 
 archidroid.keyboard=Tastatur
@@ -145,7 +145,7 @@ archidroid.bootanimation=Bootanimation
 archidroid.bootanimation.archi.desc=Neue ausgefallene ArchiDroid Bootanimation
 archidroid.bootanimation.archilegacy.desc=Alte ArchiDroid 1.X Bootanimation
 archidroid.bootanimation.logcat.desc=Ersetzt die Standard Bootanimation durch eine logcat Ausgabe - powered by logcat lite
-archidroid.bootanimation.stock.desc=Standard Omni Rom Bootanimation
+archidroid.bootanimation.stock.desc=Standard Cyanogenmod Bootanimation
 archidroid.bootanimation.none.desc=Keine Bootanimation, für etwas schnellere Bootzeit
 
 archidroid.other=Anderes
@@ -168,7 +168,7 @@ archidroid.apps.rootbrowser.desc=Sehr cooler Dateibrowser mit optionalem Root-Zu
 
 archidroid.tweaks.buildtweaks.desc=Viele build.prop Anpassungen, inklusiv tieferem Schlafmodus, Performance Verbesserungen und mehr
 archidroid.tweaks.nocell.desc=Wird als Bloatware (unnötige  Apps) gesehen. Deselektieren wenn du die App behalten möchtest
-archidroid.tweaks.camerafix.desc=Fix camera error, use this option only in case of camera issues after flashing!
+archidroid.tweaks.camerafix.desc=Behept Kamerafehler, nur benutzen wenn nach der Installation die Kamera fehlerhaft ist.
 
 archidroid.preset.no=Kein Preset
 archidroid.preset.no.desc=Nicht empfohlen, da du die meisten Optimierungen von Archi verpassen wirst
@@ -182,7 +182,7 @@ archidroid.preset.kernel.boeffla.archiultrapowersave.desc=Ein Profil für die ma
 
 
 archidroid.xposed.appsettings.desc=Erlaubt App-Einstellungen zu ändern. Sehr praktisches Tool
-archidroid.xposed.gravitybox.desc=A complex and feature-rich customizable tweak box
+archidroid.xposed.gravitybox.desc=Eine Komplexe und funktionsreiche App um Android zu personalisieren
 archidroid.xposed.xprivacy.desc=Perfektes Modul um die Preisgabe persönlicher Daten zu verhintern,  Berechtigungen einschränken und vieles mehr
 archidroid.xposed.wanam.desc=Meisterstück von Wanam. Verbessert ArchiDroid's flexibilität und ermöglicht eine Menge Anpassungen
 

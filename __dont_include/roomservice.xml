@@ -32,6 +32,8 @@
   <project name="JustArchi/android_external_fuse" path="external/fuse" remote="github" />
   <remove-project name="CyanogenMod/android_vendor_cm" />
   <project name="JustArchi/android_vendor_cm" path="vendor/cm" remote="github" />
+  <remove-project name="CyanogenMod/Superuser" />
+  <project name="JustArchi/Superuser" path="external/koush/Superuser" remote="github" />
 
   <!-- ARCHIDROID TEMPORARY FORKS -->
 

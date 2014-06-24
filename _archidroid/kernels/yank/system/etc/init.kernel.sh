@@ -24,7 +24,7 @@ sleep 10
 
 echo `date +"%F %R:%S : Starting kernel configuration..."` >>$log_file
 
-# Script generated on 24/03/2014 at 19:26
+# Script generated on 24/06/2014 at 17:54
 #----------------------------------------------------
 
 # - init.d support by kernel/ramdisk not installed
@@ -52,24 +52,24 @@ echo `date +"%F %R:%S : CPU Multicore Powersave mode set to Off."` >>$log_file
 echo 1600000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
 echo `date +"%F %R:%S : CPU max. frequency set to 1.6GHz."` >>$log_file
 
-# - zzmoove ZaneZam battery plus profile
-echo "5" > /sys/devices/system/cpu/cpufreq/zzmoove/profile_number
-echo `date +"%F %R:%S : zzmoove - ZaneZam battery plus profile."` >>$log_file
+# - zzmoove yank battery profile (by yank555.lu)
+echo "2" > /sys/devices/system/cpu/cpufreq/zzmoove/profile_number
+echo `date +"%F %R:%S : zzmoove - yank-battery profile."` >>$log_file
 
 # - Set CPU max frequency in standby
 echo `date +"%F %R:%S : zzmoove - keep profile setting for CPU max. in standby."` >>$log_file
 
-# use profile for fast scaling up when screen is on
-echo `date +"%F %R:%S : zzmoove - keep profile setting for fast scaling up when screen on."` >>$log_file
+# use profile for up/down fast scaling when screen is on
+echo `date +"%F %R:%S : zzmoove - keep profile setting for up/down fast scaling when screen on."` >>$log_file
 
-# use profile for fast scaling down when screen is on
-echo `date +"%F %R:%S : zzmoove - keep profile setting for fast scaling down when screen on."` >>$log_file
+# use profile for up/down fast scaling when screen is off
+echo `date +"%F %R:%S : zzmoove - keep profile setting for up/down fast scaling when screen off."` >>$log_file
 
-# use profile for fast scaling up when screen is off
-echo `date +"%F %R:%S : zzmoove - keep profile setting for fast scaling up when screen off."` >>$log_file
+# use profile for early demand
+echo `date +"%F %R:%S : zzmoove - keep profile setting for early demand."` >>$log_file
 
-# use profile for fast scaling down when screen is off
-echo `date +"%F %R:%S : zzmoove - keep profile setting for fast scaling down when screen off."` >>$log_file
+# Early demand
+echo `date +"%F %R:%S : zzmoove - keep profile setting for early demand threshold."` >>$log_file
 
 # - zRam activation - 200Mb
 if [ -e /sys/block/zram0/disksize ] ; then
@@ -133,9 +133,9 @@ echo `date +"%F %R:%S : Touch Wake disabled."` >>$log_file
 echo 0 > /sys/class/sec/sec_touchkey/touch_led_on_screen_touch
 echo `date +"%F %R:%S : Hardwarekeys light on screen touch disabled."` >>$log_file
 
-# - Handle Hardwarekeys light by kernel in hybrid mode (older CM)
-echo 2 > /sys/class/sec/sec_touchkey/touch_led_handling
-echo `date +"%F %R:%S : Hardwarekeys light handled by kernel in hybrid mode (older CM)."` >>$log_file
+# - Handle Hardwarekeys light by ROM (newer CM)
+echo 0 > /sys/class/sec/sec_touchkey/touch_led_handling
+echo `date +"%F %R:%S : Hardwarekeys light handled by ROM (newer CM)."` >>$log_file
 
 # - Enable fading notification LED
 echo 1 > /sys/class/sec/led/led_fade
@@ -191,8 +191,8 @@ echo 1024 > /sys/block/mmcblk1/bdi/read_ahead_kb
 echo `date +"%F %R:%S : External MMC Readahead set to 1024Kb."` >>$log_file
 
 # SD card I/O scheduler
-echo "cfq" > /sys/block/mmcblk1/queue/scheduler
-echo `date +"%F %R:%S : External MMC scheduler set to CFQ."` >>$log_file
+echo "deadline" > /sys/block/mmcblk1/queue/scheduler
+echo `date +"%F %R:%S : External MMC scheduler set to DEADLINE."` >>$log_file
 
 # - Set Android Low Memory Killer to Stock SGS3 +10Mb (in number of pages of 4Kbytes)
 #     Forground apps    : 10752 pages / 42Mb

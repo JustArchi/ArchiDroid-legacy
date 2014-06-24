@@ -23,7 +23,7 @@
 # Initializing Rom Information
 ##
 
-setvar("preset_version","9");
+setvar("preset_version","10");
 setvar("adaroma","/data/media/0/ArchiDroid/AromaPreset/2.X");
 
 ini_set("dp","3");
@@ -292,6 +292,11 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 		"stock","Stock","<~archidroid.bootanimation.stock.desc>","select",
 		"none","<~common.none>","<~archidroid.bootanimation.none.desc>","select",
 		"bootanimationpreview","Preview","<~archidroid.preview.desc>","check",
+
+		"bcm4334","<#selectbg_g>Bluetooth Profiling</#>","","group",
+		"stock","Stock","","select.selected",
+		"murata","Murata","","select",
+		"semcosh","Semcosh","","select",
 
 		"other","<#selectbg_g><~archidroid.other></#>","","group",
 		"archidroidota","ArchiDroid OTA","<~archidroid.ota.desc>","check.checked",

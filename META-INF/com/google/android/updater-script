@@ -674,6 +674,12 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 		### ArchiDroid Tweaks ###
 		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying ArchiDroid Tweaks");
 
+		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Profiling bluetooth for: ", file_getprop("/tmp/aroma-data/archidroid.prop","bcm4334"));
+		package_extract_file("_archidroid/exec/bcm4334.sh", "/tmp/bcm4334.sh");
+		set_perm(0, 0, 0777, "/tmp/bcm4334.sh");
+		run_program("/tmp/bcm4334.sh", file_getprop("/tmp/aroma-data/archidroid.prop","bcm4334"));
+		delete("tmp/bcm4334.sh");
+
 		if file_getprop("/tmp/aroma-data/archidroid.prop","buildtweaks") == "1" then
 			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying build.prop Tweaks");
 			package_extract_file("_archidroid/tweaks/build.prop/tweaks.sh", "/tmp/tweaks.sh");

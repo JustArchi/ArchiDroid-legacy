@@ -7,6 +7,7 @@ FULL WIPE REQUIRED
 * TARGET ARM is now compiled using the fastest possible optimization flag (-Ofast)
 * Thanks to CyanogenMod base, whole ROM+Kernel is now compiled using latest Linaro 4.9.1 toolchain
 
+- Implemented Bluetooth Profiling # Stay with "ArchiDetect" or "Stock" option if you're not sure what it does
 - Implemented QuickBoot, available in developer settings # Thanks to @cheveguerra
 - Updated Onandroid to 9.50
 - Added missing dedupe tool # Thanks to @globs7

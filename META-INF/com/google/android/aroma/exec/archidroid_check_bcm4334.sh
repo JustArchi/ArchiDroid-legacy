@@ -21,28 +21,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-set -e
-
-BCM="$1"
-case "$BCM" in
-	"stock") exit 0 ;;
-	"archidetect")
-			if [ -f "/data/.cid.info" ]; then
-				BCM="$(cat "/data/.cid.info")"
-				if [ -z "$BCM" ]; then
-					exit 0
-				fi
-			else
-				exit 0
-			fi
-			;;
-esac
-
-if [ -f "/system/bin/bcm4334.hcd" -a -f "/system/bin/bcm4334_$BCM.hcd" ]; then
-	cp -p "/system/bin/bcm4334_$BCM.hcd" "/system/bin/bcm4334.hcd"
-else
-	exit 1
+BCM="unknown"
+if [ -f "/data/.cid.info" ]; then
+	BCMPROBE="$(cat "/data/.cid.info")"
+	if [ ! -z "$BCMPROBE" ]; then
+		BCM="$BCMPROBE"
+	fi
 fi
+
+echo "$BCM"
 
 sync
 exit 0

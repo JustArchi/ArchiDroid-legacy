@@ -248,6 +248,9 @@ endif;
 ###############################
 
 if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custom" then
+	pleasewait("Executing Shell...");
+	resexec("exec/archidroid_check_bcm4334.sh");
+	setvar("bcm4334", getvar("exec_buffer"));
 	form(
 		"<~archidroid.custom>",
 		"<~archidroid.custom.desc>",
@@ -294,7 +297,8 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 		"bootanimationpreview","Preview","<~archidroid.preview.desc>","check",
 
 		"bcm4334","<#selectbg_g>Bluetooth Profiling</#>","","group",
-		"stock","Stock","","select.selected",
+		"archidetect","ArchiDetect","Apply automatically if possible. Detected: "+getvar("bcm4334"),"select.selected",
+		"stock","Stock","","select",
 		"murata","Murata","","select",
 		"semcosh","Semcosh","","select",
 

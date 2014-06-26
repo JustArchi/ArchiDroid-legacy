@@ -56,7 +56,7 @@ text_quit_msg=Weet je zeker dat je de installatie wilt stoppen?
 #
 common.for=Voor
 common.none=Geen
-common.reboot=Reboot
+common.reboot=Herstart
 common.replaces=Vervangt
 common.inverted=Omgekeerd
 common.experimental=EXPERIMENTEEL
@@ -81,9 +81,9 @@ archidroid.detect.pass.no=Nee, Full Wipe
 archidroid.detect.pass.alert.no=OK, Ik ga door met full wipe en ArchiDroid Installatie modus.
 archidroid.detect.force=Wil je geforceerd updaten gebruiken? Dit vertelt ArchiDroid RunOnce om geavanceerde instellingen toe te passen welke normaal alleen bij de installatie modus worden uitgevoerd. Selecteer Nee als je het niet zeker weet.
 
-archidroid.hardswap.desc=ArchiDroid Hardswap allows you to trade your flash memory speed and lifetime for more memory. This option will create special swap file on your desired location and let Android use it for extra memory. Every chunk of extra memory results in small decrease in I/O speed. <b><#f00>Please note that using hardswap may significantly decrease your flash memory lifetime</#></b>
-archidroid.hardswap.remove.desc=Removes hardswap from this partition
-archidroid.hardswap.size.default.desc=Maximum suggested size for hardswap partition
+archidroid.hardswap.desc=ArchiDroid Hardswap staat je toe om je flash geheugen te gebruiken voor meer werkgeheugen. Deze optie creëert een een speciaal swap bestand op de gewenste locatie en laat android het gebruiken voor extra geheugen. Elk blok van extra geheugen zorgt voor een kleine daling in I/O snelheid. <b><#f00>Let op! Het gebruik van hardswap kan leiden tot een kortere levensduur van het flash geheugen.</#></b>
+archidroid.hardswap.remove.desc=Verwijderd hardswap van deze partitie
+archidroid.hardswap.size.default.desc=Maximaal aanbevolen grootte voor hardswap partitie.
 
 archidroid.partition.wizard.desc=ArchiDroid Partition Wizard toont alleen partities, die momenteel worden ondersteund. F2FS vereist dat er speciale recovery en kernel (geselecteerd op de vorige pagina) beschikbaar is.\
 \
@@ -100,7 +100,7 @@ archidroid.recovery.philz.desc=De meest feature-rijke custom recovery ooit gemaa
 archidroid.recovery.devil.desc=Alternatieve recovery ontwikkeld door Devil, heeft dual-boot-ondersteuning en ondersteuning voor het F2FS bestandssysteem.
 
 archidroid.preset=ArchiDroid Installatie modus
-archidroid.preset.desc=Selecteer alsutblieft de installatie modus:
+archidroid.preset.desc=Selecteer alstublieft de installatie modus:
 archidroid.preset.group=Modus
 archidroid.preset.custom=Custom
 archidroid.preset.custom.desc=Je hebt de mogelijkheid om elk aspect van de installatie aan te passen
@@ -108,7 +108,7 @@ archidroid.preset.barebones=Bare Bones
 archidroid.preset.barebones.desc=Lege ROM. Alleen voor test doeleinden. Niet aangeraden!
 archidroid.preset.previous=Vorige keuzes
 archidroid.preset.previous.desc=Laad de installatie keuzes van de vorige installatie(indien mogelijk)
-archidroid.preset.previousexpert.desc=Same as Previous Preset, but will load raw data and allow you to customize preset before flashing
+archidroid.preset.previousexpert.desc=Zelfde als Previous Preset alleen kan je de keuzes aanpassen voor het flashen.
 
 archidroid.detect.previouspreset.fail=Kan vorige installatie keuzes niet laden, ze zijn corrupt of bestaan niet.
 
@@ -117,11 +117,11 @@ archidroid.custom.extra=ArchiDroid Extra Opties
 archidroid.custom.desc=Pas hier de instellingen naar je eigen keuzes aan.
 
 archidroid.kernel.boeffla.desc=Sterk aanbevolen meesterwerk, perfect voor iedereen. Heeft Boeffla geluid en veel meer opties
-archidroid.kernel.archi.desc=Featuring perfect synergy with ArchiDroid ROM
+archidroid.kernel.archi.desc=Heeft perfecte synergie met ArchiDroid ROM
 archidroid.kernel.yank.desc=Aanbevolen als alternatief
 archidroid.kernel.googy.desc=Gebaseerd op Siyah bronnen. Ondersteund dual-boot, komt met STweaks
 archidroid.kernel.devil.desc=Gebaseerd op Perseus bronnen. Ondersteund dual-boot, komt met DevilTools
-archidroid.kernel.agni.desc=A very sophisticated kernel, featuring F2FS support
+archidroid.kernel.agni.desc=Een zeer geavanceerder kernel, Heeft F2FS ondersteuning
 archidroid.kernel.stock.desc=Standaard ROM kernel 
 
 archidroid.dpi.240w.desc=WAARSCHUWING! Er kunnen zich wat verstoringen in het beeld voordoen op dit DPI level
@@ -164,11 +164,11 @@ archidroid.apps.mxplayer.desc=Waarschijnlijk de beste video speler voor Android
 archidroid.apps.spiritfm.desc=Gratis FM Radio app welke werkt met CyanogenMod
 archidroid.apps.bbs.desc=Geeft je de kracht om specifieke batterij statistieken te zien - voornamelijk wakelocks
 archidroid.apps.cooltool.desc=Laat handige statistieken zien op de bovenste balk
-archidroid.apps.rootbrowser.desc=Very cool browser extended by optional root access
+archidroid.apps.rootbrowser.desc=Erg handige file browser. Heeft ook mogelijkheid tot root toegang.
 
 archidroid.tweaks.buildtweaks.desc=Veel build.prop aanpassingen, waaronder diepere slaapstaand, snelheid en meer
-archidroid.tweaks.nocell.desc=Voor het algemeen gezien als bloatwareIn general considered as bloatware. Deselecteer als je dit wilt houden
-archidroid.tweaks.camerafix.desc=Fix camera error, use this option only in case of camera issues after flashing!
+archidroid.tweaks.nocell.desc=Wordt meestal aangezien voor bloatware. Deselecteer als je dit wilt houden
+archidroid.tweaks.camerafix.desc=Fix camera error. Gebruik dit alleen als je camera problemen hebt na het flashen.
 
 archidroid.preset.no=Geen profiel
 archidroid.preset.no.desc=Niet aanbevolen omdat je een groot aantal van Archi's optimalisaties mist.

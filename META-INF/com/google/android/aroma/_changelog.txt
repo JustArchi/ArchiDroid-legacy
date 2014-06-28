@@ -4,9 +4,9 @@ FULL WIPE REQUIRED
 - [!] ArchiDroid is now based on CyanogenMod (previously: Omni)
 - [!] Added ArchiKernel # For perfect synergy!
 - [!] Further ArchiDroid Optimizations
-* TARGET ARM is now compiled using the fastest possible optimization flag (-Ofast)
-* Thanks to CyanogenMod base, whole ROM+Kernel is now compiled using latest Linaro 4.9.1 toolchain
+* Thanks to CyanogenMod base, whole ROM+Kernel is now compiled using GCC 4.9.1 toolchain
 
+- ArchiKernel is default kernel choice now
 - Implemented Bluetooth Profiling # Stay with "ArchiDetect" or "Stock" option if you're not sure what it does
 - Implemented QuickBoot, available in developer settings # Thanks to @cheveguerra
 - Updated Onandroid to 9.50

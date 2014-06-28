@@ -50,9 +50,9 @@ fi
 
 mkdir -p "$AKDROP"
 echo "Unpacking pulled boot.img"
-$AK/unpackbootimg-static -i "$AK/boot.img" -o "$AKDROP"
+"$AK/unpackbootimg-static" -i "$AK/boot.img" -o "$AKDROP"
 echo "Combining ArchiKernel zImage and current kernel ramdisk"
-$AK/mkbootimg-static \
+"$AK/mkbootimg-static" \
 	--kernel "$AK/zImage" \
 	--ramdisk "$AKDROP/boot.img-ramdisk.gz" \
 	--cmdline "$(cat $AKDROP/boot.img-cmdline)" \
@@ -74,6 +74,7 @@ else
 fi
 
 echo "Everything finished successfully!"
+touch "$AK/_OK"
 date
 
 sync

@@ -35,7 +35,7 @@ rm -f "$1/ArchiDroid.swp"
 
 if [ "$2" -ne 0 ]; then
 	echo "Checking free space..."
-	FREESPACE="$(df -m /cache | tail -n 1 | awk '{print $4}')"
+	FREESPACE="$(df -m "$1" | tail -n 1 | awk '{print $4}')"
 	echo "Required: $2"
 	echo "Available: $FREESPACE"
 	if [ "$FREESPACE" -lt "$2" ]; then

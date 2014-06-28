@@ -692,8 +692,6 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 
 		### GOOGLE ###
 		if file_getprop("/tmp/aroma-data/archidroid.prop","keyboard") == "google" then
-			delete("/system/app/SamsungIME.apk");
-			delete("/system/app/SamsungIME.odex");
 			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Google Keyboard");
 			package_extract_dir("_archidroid/apps/google/keyboard", "/");
 		endif;
@@ -701,16 +699,12 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 		### HACKERS ###
 		if file_getprop("/tmp/aroma-data/archidroid.prop","keyboard") == "hackers" then
 			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Hacker's Keyboard");
-			delete("/system/app/SamsungIME.apk");
-			delete("/system/app/SamsungIME.odex");
 			package_extract_dir("_archidroid/apps/hackers", "/");
 		endif;
 
 		### BOTH ###
 		if file_getprop("/tmp/aroma-data/archidroid.prop","keyboard") == "both" then
 			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Google + Hacker's Keyboard");
-			delete("/system/app/SamsungIME.apk");
-			delete("/system/app/SamsungIME.odex");
 			package_extract_dir("_archidroid/apps/google/keyboard", "/");
 			package_extract_dir("_archidroid/apps/hackers", "/");
 		endif;
@@ -718,15 +712,13 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 		### STOCK ###
 		if file_getprop("/tmp/aroma-data/archidroid.prop","keyboard") == "stock" then
 			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Stock Keyboard");
-			# Not needed, haha!
+		else
+			delete("/system/app/SamsungIME.apk", "/system/app/SamsungIME.odex", "/system/app/LatinIME.apk", "/system/app/LatinIME.odex");
 		endif;
 
 		### NONE ###
 		if file_getprop("/tmp/aroma-data/archidroid.prop","keyboard") == "none" then
-			# Just delete LatinIME then
 			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Skipping Keyboard");
-			delete("/system/app/SamsungIME.apk");
-			delete("/system/app/SamsungIME.odex");
 		endif;
 
 		set_progress(0.82);
@@ -739,31 +731,25 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 		### NOVA ###
 		if file_getprop("/tmp/aroma-data/archidroid.prop","launcher") == "nova" then
 			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Nova Launcher");
-			delete("/system/app/SecLauncher2.apk");
-			delete("/system/app/SecLauncher2.odex");
 			package_extract_dir("_archidroid/apps/nova", "/");
 		endif;
 
 		### GOOGLE ###
 		if file_getprop("/tmp/aroma-data/archidroid.prop","launcher") == "google" then
 			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Google Launcher");
-			delete("/system/app/SecLauncher2.apk");
-			delete("/system/app/SecLauncher2.odex");
 			package_extract_dir("_archidroid/apps/google/launcher", "/");
 		endif;
 
 		### STOCK ###
 		if file_getprop("/tmp/aroma-data/archidroid.prop","launcher") == "stock" then
 			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Stock Launcher");
-			# Not needed, haha!
+		else
+			delete("/system/app/SecLauncher2.apk", "/system/app/SecLauncher2.odex", "/system/priv-app/Launcher3.apk", "/system/priv-app/Launcher3.odex", "/system/priv-app/Trebuchet.apk", "/system/priv-app/Trebuchet.odex");
 		endif;
 
 		### NONE ###
 		if file_getprop("/tmp/aroma-data/archidroid.prop","launcher") == "none" then
-			# Just delete Trebuchet then
 			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Skipping Launcher");
-			delete("/system/app/SecLauncher2.apk");
-			delete("/system/app/SecLauncher2.odex");
 		endif;
 
 		set_progress(0.83);

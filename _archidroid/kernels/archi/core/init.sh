@@ -31,8 +31,8 @@ exec 1>"$AK/ArchiKernel.log"
 exec 2>&1
 
 date
-echo "ArchiKernel flasher ready!"
-echo "Safety check: ON, flasher will immediately terminate in case of ANY error"
+echo "INFO: ArchiKernel flasher ready!"
+echo "INFO: Safety check: ON, flasher will immediately terminate in case of ANY error"
 
 if [ ! -f "$AK/mkbootimg-static" -o ! -f "$AK/unpackbootimg-static" ]; then
 	echo "FATAL ERROR: No bootimg tools?!"
@@ -41,17 +41,41 @@ else
 	chmod 755 "$AK/mkbootimg-static" "$AK/unpackbootimg-static"
 fi
 
-echo "Pulling boot.img from $KERNEL"
+echo "INFO: Pulling boot.img from $KERNEL"
 if [ ! -z "$(which dump_image)" ]; then
 	dump_image "$KERNEL" "$AK/boot.img"
 else
 	dd if="$KERNEL" of="$AK/boot.img"
 fi
 
-mkdir -p "$AKDROP"
-echo "Unpacking pulled boot.img"
+mkdir -p "$AKDROP/ramdisk"
+echo "INFO: Unpacking pulled boot.img"
 "$AK/unpackbootimg-static" -i "$AK/boot.img" -o "$AKDROP"
-echo "Combining ArchiKernel zImage and current kernel ramdisk"
+if [ -f "$AKDROP/boot.img-ramdisk.gz" ]; then
+	echo "INFO: Ramdisk in gzip format found, extracting..."
+	cd "$AKDROP/ramdisk"
+	gunzip -c ../boot.img-ramdisk.gz | cpio -i
+	if [ -d "$AKDROP/ramdisk/lib/modules" ]; then
+		echo "INFO: Detected Samsung variant"
+		# Remove all current modules
+		find "$AKDROP/ramdisk/lib/modules" -type f -iname "*.ko" | while read line; do
+			rm -f "$line"
+		done
+		# Copy all new ArchiKernel modules
+		find "/system/lib/modules" -type f -iname "*.ko" | while read line; do
+			cp "$line" "$AKDROP/ramdisk/lib/modules"
+		done
+		rm -rf "/system/lib/modules" # No need to confusion on Sammy base
+	else
+		echo "INFO: Detected AOSP variant"
+	fi
+	rm -f "$AKDROP/boot.img-ramdisk.gz"
+	find . | cpio -o -H newc | gzip > "$AKDROP/boot.img-ramdisk.gz"
+else
+	echo "FATAL ERROR: No ramdisk?!"
+	exit 2
+fi
+echo "INFO: Combining ArchiKernel zImage and current kernel ramdisk"
 "$AK/mkbootimg-static" \
 	--kernel "$AK/zImage" \
 	--ramdisk "$AKDROP/boot.img-ramdisk.gz" \
@@ -64,16 +88,16 @@ echo "Combining ArchiKernel zImage and current kernel ramdisk"
 	--tags_offset "$(cat $AKDROP/boot.img-tagsoff)" \
 	--output "$AK/newboot.img"
 
-echo "newboot.img ready!"
+echo "INFO: newboot.img ready!"
 
-echo "FLASHING newboot.img on $KERNEL"
+echo "INFO: Flashing newboot.img on $KERNEL"
 if [ ! -z "$(which flash_image)" ]; then
 	flash_image "$KERNEL" "$AK/newboot.img"
 else
 	dd if="$AK/newboot.img" of="$KERNEL"
 fi
 
-echo "Everything finished successfully!"
+echo "SUCCESS: Everything finished successfully!"
 touch "$AK/_OK"
 date
 

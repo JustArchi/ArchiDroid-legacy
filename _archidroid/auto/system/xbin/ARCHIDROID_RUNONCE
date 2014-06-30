@@ -307,14 +307,19 @@ while (! pgrep com.android && [ $LOOP -lt 300 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 			else
 				echo "INFO: Applying AOSP-specific DBUPDATE" >> $LOG
 
+				# CyanogenMod
+				DBUPDATE system status_bar_battery 2
+				DBUPDATE system status_bar_battery_show_percent 1
+				DBUPDATE system screen_animation_style 1
+
 				# OMNI
-				DBUPDATE system screen_off_animation 0
-				DBUPDATE system screenshot_in_power_menu 1
-				DBUPDATE system clear_recents_button 1
-				DBUPDATE system clear_recents_button_location 3
-				DBUPDATE system status_bar_battery_style 4
-				DBUPDATE system qs_smart_pulldown 1
-				DBUPDATE system volume_music_control 1
+				#DBUPDATE system screen_off_animation 0
+				#DBUPDATE system screenshot_in_power_menu 1
+				#DBUPDATE system clear_recents_button 1
+				#DBUPDATE system clear_recents_button_location 3
+				#DBUPDATE system status_bar_battery_style 4
+				#DBUPDATE system qs_smart_pulldown 1
+				#DBUPDATE system volume_music_control 1
 			fi
 
 			# And don't execute twice

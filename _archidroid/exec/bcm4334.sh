@@ -31,8 +31,6 @@ case "$BCM" in
 				BCM="$(cat "/data/.cid.info")"
 			elif [ -f "/tmp/archidroid/bcm4334" ]; then
 				BCM="$(cat "/tmp/archidroid/bcm4334")"
-			else
-				exit 0
 			fi
 			;;
 esac
@@ -40,7 +38,7 @@ esac
 if [ ! -z "$BCM" -a -f "/system/bin/bcm4334.hcd" -a -f "/system/bin/bcm4334_$BCM.hcd" ]; then
 	cp -p "/system/bin/bcm4334_$BCM.hcd" "/system/bin/bcm4334.hcd"
 else
-	exit 1
+	exit 0
 fi
 
 sync

@@ -24,7 +24,7 @@
 AD="/data/media/0/ArchiDroid"
 
 # Init
-mkdir -p "$AD/AromaPreset/$1"
+mkdir -p "$AD/AromaPreset/$1" "/tmp/archidroid"
 
 sync
 exit 0

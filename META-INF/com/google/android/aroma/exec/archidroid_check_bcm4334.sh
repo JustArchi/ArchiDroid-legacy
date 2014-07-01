@@ -29,6 +29,7 @@ if [ -f "/data/.cid.info" ]; then
 	fi
 fi
 
+echo "$BCM" > "/tmp/archidroid/bcm4334"
 echo "$BCM"
 
 sync

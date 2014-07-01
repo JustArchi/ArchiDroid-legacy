@@ -29,16 +29,15 @@ case "$BCM" in
 	"archidetect")
 			if [ -f "/data/.cid.info" ]; then
 				BCM="$(cat "/data/.cid.info")"
-				if [ -z "$BCM" ]; then
-					exit 0
-				fi
+			elif [ -f "/tmp/archidroid/bcm4334" ]; then
+				BCM="$(cat "/tmp/archidroid/bcm4334")"
 			else
 				exit 0
 			fi
 			;;
 esac
 
-if [ -f "/system/bin/bcm4334.hcd" -a -f "/system/bin/bcm4334_$BCM.hcd" ]; then
+if [ ! -z "$BCM" -a -f "/system/bin/bcm4334.hcd" -a -f "/system/bin/bcm4334_$BCM.hcd" ]; then
 	cp -p "/system/bin/bcm4334_$BCM.hcd" "/system/bin/bcm4334.hcd"
 else
 	exit 1

@@ -21,4 +21,4 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-exit "$(echo "$@" | grep -q "XXth"; echo $?)"
+exit "$(echo "$@" | grep -qi "XX"; echo $?)"

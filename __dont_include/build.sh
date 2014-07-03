@@ -34,7 +34,7 @@ ADZIP="cm-" # This is with what output zip starts, i.e. for omni-xxx-yyy.zip you
 
 # CHANGE ME IF BUILDING FROM SOURCE
 ADCOMPILEROOT="/root/android/cm" # This is where AOSP sources are located
-ADVARIANT="i9300" # This is AOSP variant to build, the one used in brunch command. If you use "brunch mydevice", you should set it to mydevice here
+ADVARIANT="nicki" # This is AOSP variant to build, the one used in brunch command. If you use "brunch mydevice", you should set it to mydevice here
 NOGIT=0 # Change that to 1, it's 0 only for me to allow faster updates of local AOSP repos
 
 # Notice: If you want you can also totally ignore above 3 variables and always call build.sh with "nobuild" parameter, i.e. bash build.sh nobuild

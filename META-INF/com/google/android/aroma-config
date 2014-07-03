@@ -32,7 +32,6 @@ ini_set("rom_version",          "1.7.17");
 ini_set("rom_author",           "JustArchi");
 ini_set("rom_device",           "Samsung Galaxy S3");
 ini_set("rom_date",             "August XXth, 2014");
-setvar("experimental","1");
 
 ##
 # Show Animated Splash
@@ -143,7 +142,7 @@ agreebox(
 	"<~terms.confirm>"
 );
 
-if getvar("experimental") == "1" then
+if resexec("exec/archidroid_check_experimental.sh", ini_get("rom_date")) == "0" then
 	agreebox(
 		#-- Title
 		"ArchiDroid Experimental",

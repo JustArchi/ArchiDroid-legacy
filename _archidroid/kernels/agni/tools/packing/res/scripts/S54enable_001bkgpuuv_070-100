@@ -1,6 +1,0 @@
-#!/system/bin/sh
-#GPU Undervolting
-#Change GPU voltage:
-#-100 mV
-
-echo "775000 800000 850000 925000 975000" >> /sys/class/misc/gpu_control/gpu_voltage_control

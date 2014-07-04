@@ -1,6 +1,0 @@
-#!/sbin/busybox sh
-#InternalSD read_ahead_kb
-#Set InternalSD read_ahead_kb:
-#4096
-
-echo 4096 > /sys/block/mmcblk0/bdi/read_ahead_kb

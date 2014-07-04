@@ -1,9 +1,0 @@
-#!/system/bin/sh
-
-# AGNi-Modified-conditional-sysinit
-
-if ! [ "`/system/xbin/busybox uname -r | /system/xbin/busybox grep India `" ];
-	then
-	export PATH=/sbin:/system/sbin:/system/bin:/system/xbin
-	/system/bin/logwrapper /system/xbin/run-parts /system/etc/init.d
-fi

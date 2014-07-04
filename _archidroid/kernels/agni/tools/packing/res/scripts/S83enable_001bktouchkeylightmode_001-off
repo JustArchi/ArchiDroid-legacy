@@ -1,6 +1,0 @@
-#!/sbin/busybox sh
-#TOUCHKEY LIGHTING SCENARIO
-#Select hardware touch keys lighting scenario :
-#Always Off
-
-echo 1 > /sys/class/sec/sec_touchkey/force_disable

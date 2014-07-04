@@ -38,12 +38,11 @@
 
 # These are absolute paths without slashes, for example /storage/sdcard1 is storagesdcard1, because you can't use / in variables
 fs="ext4" # Filesystem
-efs="/dev/block/mmcblk0p3" # EFS, if available, used by eval in stages 2+, SC2034
-cache="/dev/block/mmcblk0p8" # Cache partition, used by eval in stages 2+, SC2034
-system="/dev/block/mmcblk0p9" # System partition, used by eval in stages 2+, SC2034
-preload="/dev/block/mmcblk0p10" # Preload partition (also SELinux), used by eval in stages 2+, SC2034
-data="/dev/block/mmcblk0p12" # Data and internal memory, used by eval in stages 2+, SC2034
-storagesdcard1="/dev/block/mmcblk1p1" # External memory, if available, used by eval in stages 2+, SC2034
+cache="/dev/block/platform/msm_sdcc.1/by-name/cache" # Cache partition, used by eval in stages 2+, SC2034
+system="/dev/block/platform/msm_sdcc.1/by-name/system" # System partition, used by eval in stages 2+, SC2034
+data="/dev/block/platform/msm_sdcc.1/by-name/userdata" # Data and internal memory, used by eval in stages 2+, SC2034
+storagesdcard1="/dev/block/platform/msm_sdcc.3/by-num/p1" # External memory, if available, used by eval in stages 2+, SC2034
+AUTO="/cache /system /data /storage/sdcard1" # Filesystems which should be mounted/unmounted automatically when no argument is given, typically every partition excluding images
 
 GOTBUSYBOX="false"
 GOTMOUNT="false"

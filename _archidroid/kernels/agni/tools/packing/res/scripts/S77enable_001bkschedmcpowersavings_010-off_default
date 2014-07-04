@@ -1,6 +1,0 @@
-#!/sbin/busybox sh
-#Power Saving Load Balancer
-#Attempts to run workload on minimum number of cores:
-#Off (default)
-
-echo 0 >  /sys/devices/system/cpu/sched_mc_power_savings

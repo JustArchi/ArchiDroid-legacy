@@ -1,7 +1,0 @@
-#!/system/bin/sh
-#AGNi Kernel SELINUX STATUS
-#Set SELINUX Status Enforcing or Permissive :
-#Permissive (Default)
-
-setenforce 0
-

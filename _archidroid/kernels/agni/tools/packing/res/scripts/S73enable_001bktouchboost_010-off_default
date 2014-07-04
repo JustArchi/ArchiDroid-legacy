@@ -1,8 +1,0 @@
-#!/sbin/busybox sh
-#Touchboost
-#Enable or disable Touchboost:
-#off (default)
-
-echo "0" > /sys/class/misc/touchboost_switch/touchboost_switch
-
-

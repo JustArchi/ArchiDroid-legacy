@@ -1,6 +1,0 @@
-#!/sbin/busybox sh
-#SWAPPINESS
-#Set Zram swappiness value (more means more swapping):
-#90
-
-echo 90 > /proc/sys/vm/swappiness

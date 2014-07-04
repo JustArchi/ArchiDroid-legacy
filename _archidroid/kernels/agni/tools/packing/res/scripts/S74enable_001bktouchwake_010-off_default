@@ -1,7 +1,0 @@
-#!/sbin/busybox sh
-#Touch Wake
-#Enable or disable Touch to Wake:
-#off (default)
-
-echo "0" > /sys/class/misc/touchwake/enabled
-

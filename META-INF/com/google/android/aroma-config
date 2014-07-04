@@ -57,7 +57,6 @@ theme("touchwiz");
 resexec("exec/admount.sh", "/system");
 resexec("exec/admount.sh", "/data");
 resexec("exec/admount.sh", "/cache");
-resexec("exec/admount.sh", "/preload");
 resexec("exec/admount.sh", "/storage/sdcard1");
 resexec("exec/archidroid_init.sh", "2.X");
 setvar("extsdinstall", resexec("exec/archidroid_detect_zip.sh"));
@@ -188,31 +187,8 @@ form(
 	"custom","<~archidroid.preset.custom>", "<~archidroid.preset.custom.desc>","select",
 	"previous","<~archidroid.preset.previous>","<~archidroid.preset.previous.desc>","select.selected",
 	"previousexpert","<~archidroid.preset.previous> Expert","<~archidroid.preset.previousexpert.desc>","select",
-	"barebones","<~archidroid.preset.barebones>","<~archidroid.preset.barebones.desc>","select",
-	"recovery","Recovery","<~archidroid.preset.recovery.desc>","select"
+	"barebones","<~archidroid.preset.barebones>","<~archidroid.preset.barebones.desc>","select"
 );
-
-################
-### RECOVERY ###
-################
-
-if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "recovery" then
-form(
-	"<~archidroid.custom>",
-	"<~archidroid.custom.desc>",
-	"@apps",
-	"archidroidrecovery.prop",
-
-	"recovery","<#selectbg_g>Recovery</#>","","group",
-	"philz","PhilZ Touch Recovery","<~archidroid.recovery.philz.desc>","select.selected",
-	"devil","Devil Recovery","<~archidroid.recovery.devil.desc>","select"
-);
-else
-	writetmpfile(
-		"archidroidrecovery.prop",
-		"recovery=none\n"
-	);
-endif;
 
 #######################
 ### PREVIOUS PRESET ###
@@ -247,9 +223,6 @@ endif;
 ###############################
 
 if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custom" then
-	pleasewait("Executing Shell...");
-	resexec("exec/archidroid_check_bcm4334.sh");
-	setvar("bcm4334", getvar("exec_buffer"));
 	form(
 		"<~archidroid.custom>",
 		"<~archidroid.custom.desc>",
@@ -257,20 +230,14 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 		"archidroid.prop",
 
 		"kernel","<#selectbg_g>Kernel</#>","","group",
-		"archi","ArchiKernel","<~archidroid.kernel.archi.desc>","select.selected",
-		"boeffla","Boeffla","<~archidroid.kernel.boeffla.desc>","select",
-		"yank","Yank555.lu","<~archidroid.kernel.yank.desc>","select",
-		"googy","Googy Max [EOL]","<~archidroid.kernel.googy.desc>","select",
-		"devil","Devil","<~archidroid.kernel.devil.desc>","select",
-		"agni","AGNi","<~archidroid.kernel.agni.desc>","select",
-		"stock","Stock","<~archidroid.kernel.stock.desc>","select",
+		"stock","Stock","<~archidroid.kernel.stock.desc>","select.selected",
 
 		"dpi","<#selectbg_g>DPI</#>","","group",
-		"240","240","<~archidroid.dpi.240.desc>","select.selected",
-		"260","260","","select",
-		"280","280","<~archidroid.dpi.280.desc>","select",
-		"300","300","","select",
-		"320","320","<~archidroid.dpi.320.desc>","select",
+		"160","160","<~archidroid.dpi.240.desc>","select.selected",
+		"180","180","","select",
+		"200","200","<~archidroid.dpi.280.desc>","select",
+		"220","220","","select",
+		"240","240","<~archidroid.dpi.320.desc>","select",
 
 		"launcher","<#selectbg_g>Launcher</#>","","group",
 		"google","Google","<~archidroid.launcher.google.desc>","select",
@@ -295,16 +262,9 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 		"none","<~common.none>","<~archidroid.bootanimation.none.desc>","select",
 		"bootanimationpreview","Preview","<~archidroid.preview.desc>","check",
 
-		"bcm4334","<#selectbg_g>Bluetooth Profiling</#>","","group",
-		"archidetect","ArchiDetect","Apply automatically if possible. Detected: "+getvar("bcm4334"),"select.selected",
-		"stock","Stock","","select",
-		"murata","Murata","","select",
-		"semcosh","Semcosh","","select",
-
 		"other","<#selectbg_g><~archidroid.other></#>","","group",
 		"archidroidota","ArchiDroid OTA","<~archidroid.ota.desc>","check.checked",
 		"xposed","Xposed Framework","<~archidroid.xposed.desc>","check.checked",
-		"updatemodem","<~archidroid.updatemodem> [XXUGND1]","<~archidroid.updatemodem.desc>","check",
 
 		"archiapps","<#selectbg_g>ArchiDroid Apps</#>","","group",
 		"titaniumbackup","Titanium Backup","<~archidroid.apps.titaniumbackup.desc>","check.checked",
@@ -327,22 +287,6 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 	write(getvar("adaroma")+"/archidroid.prop",readtmpfile("archidroid.prop"));
 
 	### ArchiDroid Extra ###
-	if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "boeffla" then
-		form(
-			"<~archidroid.custom.extra>",
-			"<~archidroid.custom.desc>",
-			"icons/apps",
-			"archidroidboeffla.prop",
-
-			"preset","<#selectbg_g>Boeffla Kernel Preset</#>","","group",
-			"archiperformance","<~archidroid.preset.kernel.boeffla.archiperformance>","<~archidroid.preset.kernel.boeffla.archiperformance.desc>","select",
-			"archipowersave","<~archidroid.preset.kernel.boeffla.archipowersave>","<~archidroid.preset.kernel.boeffla.archipowersave.desc>","select.selected",
-			"archiultrapowersave","<~archidroid.preset.kernel.boeffla.archiultrapowersave>","<~archidroid.preset.kernel.boeffla.archiultrapowersave.desc>","select",
-			"no","<~archidroid.preset.no>","<~archidroid.preset.no.desc>","select"
-		);
-		write(getvar("adaroma")+"/archidroidboeffla.prop",readtmpfile("archidroidboeffla.prop"));
-	endif;
-
 	if file_getprop("/tmp/aroma-data/archidroid.prop","xposed") == "1" then
 		form(
 			"<~archidroid.custom.extra>",
@@ -366,175 +310,11 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 
 			"build","<#selectbg_g>Build.prop Tweaks</#>","","group",
 			"fastdormancy","Fast Dormancy","<~archidroid.buildtweaks.fastdormancy.desc>","check.checked",
-			"zerowakeup","ZeroWakeUp","<~archidroid.buildtweaks.zerowakeup.desc>","check",
-			"navibar","Navigation Bar","<~archidroid.buildtweaks.navibar.desc>","check"
+			"zerowakeup","ZeroWakeUp","<~archidroid.buildtweaks.zerowakeup.desc>","check"
 		);
 		write(getvar("adaroma")+"/archidroidbuild.prop",readtmpfile("archidroidbuild.prop"));
 	endif;
 	write(getvar("adaroma")+"/version.txt",getvar("preset_version"));
-
-	####################
-	### F2FS SUPPORT ###
-	####################
-	pleasewait("Executing Shell...");
-	setvar("f2fs_check",resexec("exec/archidroid_check_fs.sh"));
-	resexec("exec/archidroid_check_fs.sh", "/system");
-	setvar("systemfs", getvar("exec_buffer"));
-	resexec("exec/archidroid_check_fs.sh", "/cache");
-	setvar("cachefs", getvar("exec_buffer"));
-	resexec("exec/archidroid_check_fs.sh", "/preload");
-	setvar("preloadfs", getvar("exec_buffer"));
-	resexec("exec/archidroid_check_fs.sh", "/data");
-	setvar("datafs", getvar("exec_buffer"));
-
-	if getvar("f2fs_check") == "0" && (file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "devil" || file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "agni") then
-		if getvar("extsdinstall") == "1" then
-			# Variant 1, we have F2FS and extsd
-			form(
-				"ArchiDroid Partition Wizard",
-				"<~archidroid.partition.wizard.desc>",
-				"icons/apps",
-				"archidroidfs.prop",
-
-				"system","<#selectbg_g>/System filesystem</#>","","group",
-				"f2fs","F2FS","<~archidroid.filesystem.f2fs.desc>","select",
-				"ext4","EXT4","<~archidroid.filesystem.ext4.desc>","select",
-				"current","Current: "+getvar("systemfs"),"","select.selected",
-
-				"data","<#selectbg_g>/Data filesystem</#>","","group",
-				"f2fs","F2FS","<~archidroid.filesystem.f2fs.desc>","select",
-				"ext4","EXT4","<~archidroid.filesystem.ext4.desc>","select",
-				"current","Current: "+getvar("datafs"),"","select.selected",
-
-				"cache","<#selectbg_g>/Cache filesystem</#>","","group",
-				#"f2fs","F2FS","<~archidroid.filesystem.f2fs.desc>","select",
-				#"ext4","EXT4","<~archidroid.filesystem.ext4.desc>","select",
-				"current","Current: "+getvar("cachefs"),"","select.selected",
-
-				"preload","<#selectbg_g>/Preload filesystem</#>","","group",
-				"f2fs","F2FS","<~archidroid.filesystem.f2fs.desc>","select",
-				"ext4","EXT4","<~archidroid.filesystem.ext4.desc>","select",
-				"current","Current: "+getvar("preloadfs"),"","select.selected"
-			);
-		else
-			# Variant 2, we have F2FS and intsd
-			form(
-				"ArchiDroid Partition Wizard",
-				"<~archidroid.partition.wizard.desc>",
-				"icons/apps",
-				"archidroidfs.prop",
-
-				"system","<#selectbg_g>/System filesystem</#>","","group",
-				"f2fs","F2FS","<~archidroid.filesystem.f2fs.desc>","select",
-				"ext4","EXT4","<~archidroid.filesystem.ext4.desc>","select",
-				"current","Current: "+getvar("systemfs"),"","select.selected",
-
-				"data","<#selectbg_g>/Data filesystem</#>","","group",
-				"current","Current: "+getvar("datafs"),"","select.selected",
-
-				"cache","<#selectbg_g>/Cache filesystem</#>","","group",
-				#"f2fs","F2FS","<~archidroid.filesystem.f2fs.desc>","select",
-				#"ext4","EXT4","<~archidroid.filesystem.ext4.desc>","select",
-				"current","Current: "+getvar("cachefs"),"","select.selected",
-
-				"preload","<#selectbg_g>/Preload filesystem</#>","","group",
-				"f2fs","F2FS","<~archidroid.filesystem.f2fs.desc>","select",
-				"ext4","EXT4","<~archidroid.filesystem.ext4.desc>","select",
-				"current","Current: "+getvar("preloadfs"),"","select.selected"
-			);
-		endif;
-	else
-		if getvar("extsdinstall") == "1" then
-			# Variant 3, we DON'T have F2FS but we have extsd
-			form(
-				"ArchiDroid Partition Wizard",
-				"<~archidroid.partition.wizard.desc>",
-				"icons/apps",
-				"archidroidfs.prop",
-
-				"system","<#selectbg_g>/System filesystem</#>","","group",
-				"ext4","EXT4","<~archidroid.filesystem.ext4.desc>","select",
-				"current","Current: "+getvar("systemfs"),"","select.selected",
-
-				"data","<#selectbg_g>/Data filesystem</#>","","group",
-				"ext4","EXT4","<~archidroid.filesystem.ext4.desc>","select",
-				"current","Current: "+getvar("datafs"),"","select.selected",
-
-				"cache","<#selectbg_g>/Cache filesystem</#>","","group",
-				#"ext4","EXT4","<~archidroid.filesystem.ext4.desc>","select",
-				"current","Current: "+getvar("cachefs"),"","select.selected",
-
-				"preload","<#selectbg_g>/Preload filesystem</#>","","group",
-				"ext4","EXT4","<~archidroid.filesystem.ext4.desc>","select",
-				"current","Current: "+getvar("preloadfs"),"","select.selected"
-			);
-		else
-			# Variant 4, we DON'T have F2FS neither extsd
-			form(
-				"ArchiDroid Partition Wizard",
-				"<~archidroid.partition.wizard.desc>",
-				"icons/apps",
-				"archidroidfs.prop",
-
-				"system","<#selectbg_g>/System filesystem</#>","","group",
-				"ext4","EXT4","<~archidroid.filesystem.ext4.desc>","select",
-				"current","Current: "+getvar("systemfs"),"","select.selected",
-
-				"data","<#selectbg_g>/Data filesystem</#>","","group",
-				"current","Current: "+getvar("datafs"),"","select.selected",
-
-				"cache","<#selectbg_g>/Cache filesystem</#>","","group",
-				#"f2fs","F2FS","<~archidroid.filesystem.f2fs.desc>","select",
-				#"ext4","EXT4","<~archidroid.filesystem.ext4.desc>","select",
-				"current","Current: "+getvar("cachefs"),"","select.selected",
-
-				"preload","<#selectbg_g>/Preload filesystem</#>","","group",
-				"ext4","EXT4","<~archidroid.filesystem.ext4.desc>","select",
-				"current","Current: "+getvar("preloadfs"),"","select.selected"
-			);
-		endif;
-	endif;
-
-	# Execute what we've got
-
-	# SYSTEM
-	if file_getprop("/tmp/aroma-data/archidroidfs.prop","system") == "f2fs" then
-		pleasewait("Reformatting...");
-		setvar("resexec_retstatus",resexec("exec/adreformat.sh", "/system", "f2fs"));
-		textbox("ArchiDroid Partition Wizard", "<~archidroid.partition.wizard.finish.desc>", "@default", getvar("exec_buffer")+"\n\n<b>RETURN STATUS : "+getvar("resexec_retstatus"));
-	endif;
-	if file_getprop("/tmp/aroma-data/archidroidfs.prop","system") == "ext4" then
-		pleasewait("Reformatting...");
-		setvar("resexec_retstatus",resexec("exec/adreformat.sh", "/system", "ext4"));
-		textbox("ArchiDroid Partition Wizard", "<~archidroid.partition.wizard.finish.desc>", "@default", getvar("exec_buffer")+"\n\n<b>RETURN STATUS : "+getvar("resexec_retstatus"));
-	endif;
-
-	# PRELOAD
-	if file_getprop("/tmp/aroma-data/archidroidfs.prop","preload") == "f2fs" then
-		pleasewait("Reformatting...");
-		setvar("resexec_retstatus",resexec("exec/adreformat.sh", "/preload", "f2fs"));
-		textbox("ArchiDroid Partition Wizard", "<~archidroid.partition.wizard.finish.desc>", "@default", getvar("exec_buffer")+"\n\n<b>RETURN STATUS : "+getvar("resexec_retstatus"));
-	endif;
-	if file_getprop("/tmp/aroma-data/archidroidfs.prop","preload") == "ext4" then
-		pleasewait("Reformatting...");
-		setvar("resexec_retstatus",resexec("exec/adreformat.sh", "/preload", "ext4"));
-		textbox("ArchiDroid Partition Wizard", "<~archidroid.partition.wizard.finish.desc>", "@default", getvar("exec_buffer")+"\n\n<b>RETURN STATUS : "+getvar("resexec_retstatus"));
-	endif;
-
-	# CACHE
-	# Stub, not possible to do anything due to mount lock, pending solution
-
-	# DATA
-	if file_getprop("/tmp/aroma-data/archidroidfs.prop","data") == "f2fs" then
-		pleasewait("Reformatting...");
-		setvar("resexec_retstatus",resexec("exec/adreformat.sh", "/data", "f2fs"));
-		textbox("ArchiDroid Partition Wizard", "<~archidroid.partition.wizard.finish.desc>", "@default", getvar("exec_buffer")+"\n\n<b>RETURN STATUS : "+getvar("resexec_retstatus"));
-	endif;
-	if file_getprop("/tmp/aroma-data/archidroidfs.prop","data") == "ext4" then
-		pleasewait("Reformatting...");
-		setvar("resexec_retstatus",resexec("exec/adreformat.sh", "/data", "ext4"));
-		textbox("ArchiDroid Partition Wizard", "<~archidroid.partition.wizard.finish.desc>", "@default", getvar("exec_buffer")+"\n\n<b>RETURN STATUS : "+getvar("resexec_retstatus"));
-	endif;
 
 	###########################
 	### ARCHIDROID HARDSWAP ###
@@ -561,14 +341,6 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 		"512","512 Megabytes","","select",
 		"current","Current: "+getvar("hardswapcache"),"","select.selected",
 
-		"preload","<#selectbg_g>Preload</#>","","group",
-		"0","0 Megabytes","<~archidroid.hardswap.remove.desc>","select",
-		"64","64 Megabytes","","select",
-		"128","128 Megabytes","<~archidroid.hardswap.size.default.desc>","select",
-		"256","256 Megabytes","","select",
-		"512","512 Megabytes","","select",
-		"current","Current: "+getvar("hardswappreload"),"","select.selected",
-
 		"sdcard1","<#selectbg_g>External SD Card</#>","","group",
 		"0","0 Megabytes","<~archidroid.hardswap.remove.desc>","select",
 		"64","64 Megabytes","","select",
@@ -581,11 +353,6 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 	if file_getprop("/tmp/aroma-data/archidroidhardswap.prop","cache") != "current" then
 		pleasewait("Applying Hardswap...");
 		resexec("exec/archidroid_hardswap.sh", "/cache", file_getprop("/tmp/aroma-data/archidroidhardswap.prop","cache"));
-		textbox("ArchiDroid Partition Wizard", "", "@default", getvar("exec_buffer"));
-	endif;
-	if file_getprop("/tmp/aroma-data/archidroidhardswap.prop","preload") != "current" then
-		pleasewait("Applying Hardswap...");
-		resexec("exec/archidroid_hardswap.sh", "/preload", file_getprop("/tmp/aroma-data/archidroidhardswap.prop","preload"));
 		textbox("ArchiDroid Partition Wizard", "", "@default", getvar("exec_buffer"));
 	endif;
 	if file_getprop("/tmp/aroma-data/archidroidhardswap.prop","sdcard1") != "current" then
@@ -684,19 +451,14 @@ install(
 resexec("exec/adumount.sh", "/system");
 resexec("exec/adumount.sh", "/data");
 resexec("exec/adumount.sh", "/cache");
-resexec("exec/adumount.sh", "/preload");
 resexec("exec/adumount.sh", "/storage/sdcard1");
 
-if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "recovery" then
-	resexec("exec/rebootrecovery.sh");
-else
-	if confirm(
-		"ArchiDroid Wizard",
-		"<~archidroid.wizard.reboot>",
-		"@confirm"
-	)=="yes" then
-		reboot("onfinish");
-	endif;
+if confirm(
+	"ArchiDroid Wizard",
+	"<~archidroid.wizard.reboot>",
+	"@confirm"
+)=="yes" then
+	reboot("onfinish");
 endif;
 
 # Delayed tasks. These for some reason require already flashed ArchiDroid

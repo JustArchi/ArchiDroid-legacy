@@ -34,6 +34,8 @@
   <project name="JustArchi/android_vendor_cm" path="vendor/cm" remote="github" />
   <remove-project name="CyanogenMod/Superuser" />
   <project name="JustArchi/Superuser" path="external/koush/Superuser" remote="github" />
+  <remove-project name="CyanogenMod/android_bootable_recovery" />
+  <project name="PhilZ-cwm6/philz_touch_cwm6" path="bootable/recovery" remote="github" />
 
   <!-- ARCHIDROID TEMPORARY FORKS -->
 

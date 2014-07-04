@@ -1,4 +1,4 @@
-out/target/product/i9300/obj/STATIC_LIBRARIES/libmake_ext4fs_intermediates/../../../system/extras/ext4_utils/make_ext4fs_main.o: \
+out/target/product/nicki/obj/STATIC_LIBRARIES/libmake_ext4fs_intermediates/../../../system/extras/ext4_utils/make_ext4fs_main.o: \
  bootable/recovery/utilities/../../../system/extras/ext4_utils/make_ext4fs_main.c \
  build/core/combo/include/arch/linux-arm/AndroidConfig.h \
  bionic/libc/include/fcntl.h bionic/libc/include/sys/cdefs.h \
@@ -48,9 +48,9 @@ out/target/product/i9300/obj/STATIC_LIBRARIES/libmake_ext4fs_intermediates/../..
  bionic/libc/include/endian.h bionic/libc/include/sys/endian.h \
  bionic/libc/arch-arm/include/machine/endian.h \
  bionic/libc/kernel/common/linux/capability.h \
- out/target/product/i9300/obj/include/selinux/selinux.h \
- out/target/product/i9300/obj/include/selinux/label.h \
- out/target/product/i9300/obj/include/selinux/android.h \
+ out/target/product/nicki/obj/include/selinux/selinux.h \
+ out/target/product/nicki/obj/include/selinux/label.h \
+ out/target/product/nicki/obj/include/selinux/android.h \
  bootable/recovery/utilities/../../../system/extras/ext4_utils/make_ext4fs.h \
  bootable/recovery/utilities/../../../system/extras/ext4_utils/ext4_utils.h \
  bionic/libc/include/stdlib.h bionic/libc/include/alloca.h \
@@ -106,9 +106,9 @@ out/target/product/i9300/obj/STATIC_LIBRARIES/libmake_ext4fs_intermediates/../..
  bionic/libc/include/endian.h bionic/libc/include/sys/endian.h :
  bionic/libc/arch-arm/include/machine/endian.h :
  bionic/libc/kernel/common/linux/capability.h :
- out/target/product/i9300/obj/include/selinux/selinux.h :
- out/target/product/i9300/obj/include/selinux/label.h :
- out/target/product/i9300/obj/include/selinux/android.h :
+ out/target/product/nicki/obj/include/selinux/selinux.h :
+ out/target/product/nicki/obj/include/selinux/label.h :
+ out/target/product/nicki/obj/include/selinux/android.h :
  bootable/recovery/utilities/../../../system/extras/ext4_utils/make_ext4fs.h :
  bootable/recovery/utilities/../../../system/extras/ext4_utils/ext4_utils.h :
  bionic/libc/include/stdlib.h bionic/libc/include/alloca.h :

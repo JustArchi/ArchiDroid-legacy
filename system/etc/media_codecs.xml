@@ -1,5 +1,8 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!-- Copyright (C) 2012 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012-2013 The Android Open Source Project
+     Copyright (C) 2012-2013 The Linux Foundation. All rights reserved.
+     Not a contribution.
+     Copyright (C) 2012-2013 Sony Mobile Communications AB.
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -12,122 +15,112 @@
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
      See the License for the specific language governing permissions and
      limitations under the License.
+
+     NOTE: This file has been modified by Sony Mobile Communications AB.
+     Modifications are licensed under the License.
 -->
-
-<!--
-<!DOCTYPE MediaCodecs [
-<!ELEMENT MediaCodecs (Decoders,Encoders)>
-<!ELEMENT Decoders (MediaCodec*)>
-<!ELEMENT Encoders (MediaCodec*)>
-<!ELEMENT MediaCodec (Type*,Quirk*)>
-<!ATTLIST MediaCodec name CDATA #REQUIRED>
-<!ATTLIST MediaCodec type CDATA>
-<!ELEMENT Type EMPTY>
-<!ATTLIST Type name CDATA #REQUIRED>
-<!ELEMENT Quirk EMPTY>
-<!ATTLIST Quirk name CDATA #REQUIRED>
-]>
-
-There's a simple and a complex syntax to declare the availability of a
-media codec:
-
-A codec that properly follows the OpenMax spec and therefore doesn't have any
-quirks and that only supports a single content type can be declared like so:
-
-    <MediaCodec name="OMX.foo.bar" type="something/interesting" />
-
-If a codec has quirks OR supports multiple content types, the following syntax
-can be used:
-
-    <MediaCodec name="OMX.foo.bar" >
-        <Type name="something/interesting" />
-        <Type name="something/else" />
-        ...
-        <Quirk name="requires-allocate-on-input-ports" />
-        <Quirk name="requires-allocate-on-output-ports" />
-        <Quirk name="output-buffers-are-unreadable" />
-    </MediaCodec>
-
-Only the three quirks included above are recognized at this point:
-
-"requires-allocate-on-input-ports"
-    must be advertised if the component does not properly support specification
-    of input buffers using the OMX_UseBuffer(...) API but instead requires
-    OMX_AllocateBuffer to be used.
-
-"requires-allocate-on-output-ports"
-    must be advertised if the component does not properly support specification
-    of output buffers using the OMX_UseBuffer(...) API but instead requires
-    OMX_AllocateBuffer to be used.
-
-"output-buffers-are-unreadable"
-    must be advertised if the emitted output buffers of a decoder component
-    are not readable, i.e. use a custom format even though abusing one of
-    the official OMX colorspace constants.
-    Clients of such decoders will not be able to access the decoded data,
-    naturally making the component much less useful. The only use for
-    a component with this quirk is to render the output to the screen.
-    Audio decoders MUST NOT advertise this quirk.
-    Video decoders that advertise this quirk must be accompanied by a
-    corresponding color space converter for thumbnail extraction,
-    matching surfaceflinger support that can render the custom format to
-    a texture and possibly other code, so just DON'T USE THIS QUIRK.
-
--->
-
-<MediaCodecs>
+<CodecList>
+    <Encoders>
+        <!-- Audio Hardware  -->
+        <MediaCodec name="OMX.google.aac.encoder" type="audio/mp4a-latm" />
+        <MediaCodec name="OMX.google.flac.encoder" type="audio/flac"/>
+        <!-- Audio Software  -->
+        <MediaCodec name="AACEncoder" type="audio/mp4a-latm" />
+        <MediaCodec name="OMX.google.amrnb.encoder" type="audio/3gpp" />
+        <MediaCodec name="OMX.google.amrwb.encoder" type="audio/amr-wb" />
+        <!-- Video Hardware  -->
+        <MediaCodec name="OMX.qcom.video.encoder.avc" type="video/avc" >
+            <Quirk name="requires-allocate-on-input-ports" />
+            <Quirk name="requires-allocate-on-output-ports" />
+            <Quirk name="requires-loaded-to-idle-after-allocation" />
+        </MediaCodec>
+        <MediaCodec name="OMX.qcom.video.encoder.mpeg4" type="video/mp4v-es" >
+            <Quirk name="requires-allocate-on-input-ports" />
+            <Quirk name="requires-allocate-on-output-ports" />
+            <Quirk name="requires-loaded-to-idle-after-allocation"/>
+        </MediaCodec>
+        <MediaCodec name="OMX.qcom.video.encoder.h263" type="video/3gpp" >
+            <Quirk name="requires-allocate-on-input-ports" />
+            <Quirk name="requires-allocate-on-output-ports" />
+            <Quirk name="requires-loaded-to-idle-after-allocation" />
+        </MediaCodec>
+        <!-- Video Software  -->
+        <MediaCodec name="OMX.google.h264.encoder" type="video/avc" />
+        <MediaCodec name="OMX.google.mpeg4.encoder" type="video/mp4v-es" />
+        <MediaCodec name="OMX.google.h263.encoder" type="video/3gpp" />
+    </Encoders>
     <Decoders>
-        <MediaCodec name="OMX.SEC.AVC.Decoder" type="video/avc" />
-        <MediaCodec name="OMX.SEC.MPEG4.Decoder" type="video/mp4v-es" />
-        <MediaCodec name="OMX.SEC.H263.Decoder" type="video/3gpp" />
-        <MediaCodec name="OMX.SEC.AVC.Decoder" type="video/avc" />
-
+        <!-- Audio Software  -->
+        <MediaCodec name="OMX.google.vorbis.decoder" type="audio/vorbis" />
         <MediaCodec name="OMX.google.mp3.decoder" type="audio/mpeg" />
+        <MediaCodec name="MP3Decoder" type="audio/mpeg" />
         <MediaCodec name="OMX.google.amrnb.decoder" type="audio/3gpp" />
         <MediaCodec name="OMX.google.amrwb.decoder" type="audio/amr-wb" />
         <MediaCodec name="OMX.google.aac.decoder" type="audio/mp4a-latm" />
+        <MediaCodec name="AACDecoder" type="audio/mp4a-latm" />
         <MediaCodec name="OMX.google.g711.alaw.decoder" type="audio/g711-alaw" />
         <MediaCodec name="OMX.google.g711.mlaw.decoder" type="audio/g711-mlaw" />
-        <MediaCodec name="OMX.google.vorbis.decoder" type="audio/vorbis" />
+        <!-- Video Hardware  -->
+        <MediaCodec name="OMX.qcom.video.decoder.avc" type="video/avc" >
+            <Quirk name="requires-allocate-on-input-ports" />
+            <Quirk name="requires-allocate-on-output-ports" />
+            <Quirk name="defers-output-buffer-allocation" />
+        </MediaCodec>
+        <MediaCodec name="OMX.qcom.video.decoder.mpeg4" type="video/mp4v-es" >
+            <Quirk name="requires-allocate-on-input-ports" />
+            <Quirk name="requires-allocate-on-output-ports" />
+            <Quirk name="defers-output-buffer-allocation" />
+        </MediaCodec>
+        <MediaCodec name="OMX.qcom.video.decoder.h263" type="video/3gpp" >
+            <Quirk name="requires-allocate-on-input-ports" />
+            <Quirk name="requires-allocate-on-output-ports" />
+            <Quirk name="defers-output-buffer-allocation" />
+        </MediaCodec>
+        <MediaCodec name="OMX.qcom.video.decoder.divx" type="video/divx" >
+            <Quirk name="requires-allocate-on-input-ports" />
+            <Quirk name="requires-allocate-on-output-ports" />
+            <Quirk name="defers-output-buffer-allocation" />
+        </MediaCodec>
+        <MediaCodec name="OMX.qcom.video.decoder.divx311" type="video/divx311" >
+            <Quirk name="requires-allocate-on-input-ports" />
+            <Quirk name="requires-allocate-on-output-ports" />
+            <Quirk name="defers-output-buffer-allocation" />
+        </MediaCodec>
+        <MediaCodec name="OMX.qcom.video.decoder.divx4" type="video/divx4" >
+            <Quirk name="requires-allocate-on-input-ports" />
+            <Quirk name="requires-allocate-on-output-ports" />
+            <Quirk name="defers-output-buffer-allocation" />
+        </MediaCodec>
+        <MediaCodec name="OMX.qcom.video.decoder.vp8" type="video/x-vnd.on2.vp8" >
+            <Quirk name="requires-allocate-on-input-ports" />
+            <Quirk name="requires-allocate-on-output-ports" />
+            <Quirk name="defers-output-buffer-allocation" />
+        </MediaCodec>
+        <!-- Video Software  -->
+        <MediaCodec name="OMX.google.h264.decoder" type="video/avc" />
         <MediaCodec name="OMX.google.mpeg4.decoder" type="video/mp4v-es" />
         <MediaCodec name="OMX.google.h263.decoder" type="video/3gpp" />
-        <MediaCodec name="OMX.google.h264.decoder" type="video/avc" />
         <MediaCodec name="OMX.google.vp8.decoder" type="video/x-vnd.on2.vp8" />
         <MediaCodec name="OMX.google.vp9.decoder" type="video/x-vnd.on2.vp9" />
-
-        <!--  ffmpeg audio codecs  -->
-        <MediaCodec name="OMX.ffmpeg.ra.decoder" type="audio/vnd.rn-realaudio"/>
-        <MediaCodec name="OMX.ffmpeg.flac.decoder" type="audio/flac"/>
-        <MediaCodec name="OMX.ffmpeg.mp2.decoder" type="audio/mpeg-L2"/>
-        <MediaCodec name="OMX.ffmpeg.ac3.decoder" type="audio/ac3"/>
-        <MediaCodec name="OMX.ffmpeg.ape.decoder" type="audio/x-ape"/>
-        <MediaCodec name="OMX.ffmpeg.dts.decoder" type="audio/vnd.dts"/>
-        <MediaCodec name="OMX.ffmpeg.atrial.decoder" type="audio/ffmpeg"/>
-
-        <!--  ffmpeg video codecs  -->
-        <MediaCodec name="OMX.ffmpeg.mpeg2v.decoder" type="video/mpeg2"/>
-        <MediaCodec name="OMX.ffmpeg.h263.decoder" type="video/3gpp"/>
-        <MediaCodec name="OMX.ffmpeg.mpeg4.decoder" type="video/mp4v-es"/>
-        <MediaCodec name="OMX.ffmpeg.wmv.decoder" type="video/x-ms-wmv"/>
-        <MediaCodec name="OMX.ffmpeg.rv.decoder" type="video/vnd.rn-realvideo"/>
-        <MediaCodec name="OMX.ffmpeg.h264.decoder" type="video/avc"/>
-        <MediaCodec name="OMX.ffmpeg.vc1.decoder" type="video/vc1"/>
-        <MediaCodec name="OMX.ffmpeg.flv1.decoder" type="video/x-flv"/>
-        <MediaCodec name="OMX.ffmpeg.divx.decoder" type="video/divx"/>
-        <MediaCodec name="OMX.ffmpeg.hevc.decoder" type="video/hevc"/>
-        <MediaCodec name="OMX.ffmpeg.vtrial.decoder" type="video/ffmpeg"/>
-
+        <!-- ffmpeg audio codec -->
+        <MediaCodec name="OMX.ffmpeg.ra.decoder" type="audio/vnd.rn-realaudio" />
+        <MediaCodec name="OMX.ffmpeg.flac.decoder" type="audio/flac" />
+        <MediaCodec name="OMX.ffmpeg.mp2.decoder" type="audio/mpeg-L2" />
+        <MediaCodec name="OMX.ffmpeg.ac3.decoder" type="audio/ac3" />
+        <MediaCodec name="OMX.ffmpeg.ape.decoder" type="audio/x-ape" />
+        <MediaCodec name="OMX.ffmpeg.dts.decoder" type="audio/vnd.dts" />
+        <MediaCodec name="OMX.ffmpeg.atrial.decoder" type="audio/ffmpeg" />
+        <!-- ffmpeg video codec -->
+        <MediaCodec name="OMX.ffmpeg.mpeg2v.decoder" type="video/mpeg2" />
+        <MediaCodec name="OMX.ffmpeg.h263.decoder" type="video/3gpp" />
+        <MediaCodec name="OMX.ffmpeg.mpeg4.decoder" type="video/mp4v-es" />
+        <MediaCodec name="OMX.ffmpeg.wmv.decoder" type="video/x-ms-wmv" />
+        <MediaCodec name="OMX.ffmpeg.rv.decoder" type="video/vnd.rn-realvideo" />
+        <MediaCodec name="OMX.ffmpeg.h264.decoder" type="video/avc" />
+        <MediaCodec name="OMX.ffmpeg.vc1.decoder" type="video/vc1" />
+        <MediaCodec name="OMX.ffmpeg.flv1.decoder" type="video/x-flv" />
+        <MediaCodec name="OMX.ffmpeg.divx.decoder" type="video/divx" />
+        <MediaCodec name="OMX.ffmpeg.hevc.decoder" type="video/hevc" />
+        <MediaCodec name="OMX.ffmpeg.vtrial.decoder" type="video/ffmpeg" />
     </Decoders>
-
-    <Encoders>
-        <MediaCodec name="OMX.SEC.MPEG4.Encoder" type="video/mp4v-es" />
-        <MediaCodec name="OMX.SEC.H263.Encoder" type="video/3gpp" />
-        <MediaCodec name="OMX.SEC.AVC.Encoder" type="video/avc" />
-
-        <MediaCodec name="OMX.google.amrnb.encoder" type="audio/3gpp" />
-        <MediaCodec name="OMX.google.amrwb.encoder" type="audio/amr-wb" />
-        <MediaCodec name="OMX.google.aac.encoder" type="audio/mp4a-latm" />
-        <MediaCodec name="OMX.google.flac.encoder" type="audio/flac" />
-        <MediaCodec name="OMX.google.vp8.encoder" type="video/x-vnd.on2.vp8" />
-    </Encoders>
-</MediaCodecs>
+</CodecList>

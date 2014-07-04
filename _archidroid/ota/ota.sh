@@ -6,8 +6,8 @@ echo "# Please don't remove these lines, they're needed for OTA" >> /system/buil
 echo "updateme.name=ArchiDroid2" >> /system/build.prop
 echo "updateme.version=2.5.1" >> /system/build.prop
 echo "updateme.otauid=archidroid2" >> /system/build.prop
-echo "updateme.urlcheck=https://dl.dropboxusercontent.com/u/23869279/ArchiDroid2/OTA/update_me_check.xml" >> /system/build.prop
-echo "updateme.urlelement=https://dl.dropboxusercontent.com/u/23869279/ArchiDroid2/OTA/update_me_parts.xml" >> /system/build.prop
+echo "updateme.urlcheck=https://dl.dropboxusercontent.com/u/23869279/ArchiDroid/2/nicki/OTA/update_me_check.xml" >> /system/build.prop
+echo "updateme.urlelement=https://dl.dropboxusercontent.com/u/23869279/ArchiDroid/2/nicki/OTA/update_me_parts.xml" >> /system/build.prop
 echo "updateme.reboottype=1" >> /system/build.prop
 echo "updateme.downloaddir=/mnt/sdcard/downloadDir" >> /system/build.prop
 echo "updateme.disableinstalledapps=1" >> /system/build.prop

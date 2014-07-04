@@ -131,9 +131,15 @@ fi
 
 if [[ "$SAMMY" -eq 0 && "$NOBUILD" -eq 0 ]]; then
 	if [[ "$NOSYNC" -eq 0 ]]; then
-		if [[ "$NOGIT" -eq 0 ]]; then
-			cd "$ADREPOS"
-			bash updaterepos.sh
+		if [[ "$NOGIT" -eq 0 && ]]; then
+			if [[ -d "$ADREPOS" ]]; then
+				cd "$ADREPOS"
+				bash updaterepos.sh
+			fi
+			if [[ -d "$ADREPOS"2 ]]; then
+				cd "$ADREPOS"2
+				bash updaterepos.sh "trustupstream"
+			fi
 		fi
 		if [[ -d "$ADOUT" ]]; then
 			cd "$ADOUT"

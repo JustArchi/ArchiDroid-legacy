@@ -131,7 +131,7 @@ fi
 
 if [[ "$SAMMY" -eq 0 && "$NOBUILD" -eq 0 ]]; then
 	if [[ "$NOSYNC" -eq 0 ]]; then
-		if [[ "$NOGIT" -eq 0 && ]]; then
+		if [[ "$NOGIT" -eq 0 ]]; then
 			if [[ -d "$ADREPOS" ]]; then
 				cd "$ADREPOS"
 				bash updaterepos.sh

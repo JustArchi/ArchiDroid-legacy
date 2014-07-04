@@ -1,66 +1,91 @@
 #!/bin/bash
 
 INIT=0
-KEEPSYNC=0
+TRUSTUPSTREAM=0
+for ARG in "$@"; do
+	case "$ARG" in
+		init|INIT) INIT=1 ;;
+		trustupstream|TRUSTUPSTREAM) TRUSTUPSTREAM=1 ;;
+	esac
+done
 
 contains () {
-	local e
 	for e in "${@:2}"; do
-		[[ "$e" == "$1" ]] && return 0
+		[[ "$e" = "$1" ]] && return 0
 	done
 	return 1
 }
 
 addUpstream () {
-	#ourBranch=`git rev-parse --abbrev-ref HEAD`
-	ourName=`basename "$folder"`
-	git remote remove $CMRepo > /dev/null 2>&1
-	git remote remove $crDroidRepo > /dev/null 2>&1
-	git remote add cm $CMRepoLink/$ourName.git
-	git remote add upstream $crDroidRepoLink/$ourName.git
+	ourName="$(basename "$folder")"
+	#if contains "$ourName" "${aospForks[@]}"; then
+		#git remote remove "$AOSPRepo" > /dev/null 2>&1
+		#ourName="$(echo "$ourName" | sed 's/android/platform/g')"
+		#ourName="$(echo "$ourName" | tr '_' '/')"
+		#git remote add "$AOSPRepo" "$AOSPRepoLink/$ourName.git"
+	#else
+		git remote remove "$CUSTOMRepo" > /dev/null 2>&1
+		git remote add "$CUSTOMRepo" "$CUSTOMRepoLink/$ourName.git"
+	#fi
 }
 
-# Packages in perfect sync with CM. We should pull them directly from CyanogenMod and merge any conflicts (if any)
-inPerfectSyncWithCM=("android_vendor_cm" "android_frameworks_native" "android_packages_apps_Nfc" "android_packages_providers_MediaProvider" "android_packages_inputmethods_LatinIME" "android_packages_apps_Phone" "android_packages_apps_Mms" "android_packages_apps_Gallery2" "android_packages_apps_Email" "android_packages_apps_Dialer" "android_packages_apps_Contacts" "android_packages_apps_ContactsCommon" "android_packages_apps_Calculator")
+# Packages available only in AOSP sources, which we eventually want to sync
+#aospForks=("")
 
-# Packages not in perfect sync with CM but still good enough. For these we should sync automatically only non-conflicting commits and eventually cherry-pick the rest, as we should stay in sync with the upstream.
-inSyncWithCM=("android_frameworks_base" "android_packages_apps_Settings")
-
-# Packages NOT in great sync with CM, we should wait for upstream merges
-NOTinSyncWithCM=("")
+# Abandoned
+#droppedFromUpstream=("")
 
 # Branches
-crDroid="cr-main-10.2"
-crDroidRepo="upstream"
-crDroidRepoLink="https://github.com/cristianomatos"
-CM="cm-10.2"
-CMRepo="cm"
-CMRepoLink="https://github.com/CyanogenMod"
-ourRepo="origin"
+CUSTOM="cm-11.0"
+CUSTOMRepo="cm"
+CUSTOMRepoLink="https://github.com/CyanogenMod"
 
-for folder in `find . -mindepth 1 -maxdepth 1 -type d` ; do
-	cd $folder
-	ourBranch=`git rev-parse --abbrev-ref HEAD`
-	ourName=`basename "$folder"`
-	if [ $INIT -eq 1 ]; then
+AOSP="master"
+AOSPRepo="aosp"
+AOSPRepoLink="https://android.googlesource.com"
+
+ourRepo="origin"
+ourSshRepo="ssh"
+ourRepoLink="https://github.com/JustArchi"
+
+# This is done via more flexible .netrc
+#if ! (pgrep ssh-agent); then
+	#eval `ssh-agent -s`
+	#ssh-add
+#fi
+
+if [[ "$TRUSTUPSTREAM" -eq 1 ]]; then
+	CUSTOMRepo="upstream"
+	if [[ "$INIT" -eq 1 ]]; then
+		exit 0
+	fi
+fi
+
+find . -mindepth 1 -maxdepth 1 -type d | while read folder; do
+	cd "$folder" || continue
+	ourBranch="$(git rev-parse --abbrev-ref HEAD)"
+	if [[ "$ourBranch" != "$CUSTOM" ]]; then
+		git checkout "$CUSTOM"
+	fi
+	ourName="$(basename "$folder")"
+	if [[ "$INIT" -eq 1 ]]; then
 		addUpstream
 	else
-		git pull $crDroidRepo $crDroid
-		if [ $? -ne 0 ]; then
-			read -p "Something went wrong, please check and tell me when you're done, master!" -n1 -s
-		fi
-		if `contains "$ourName" "${inPerfectSyncWithCM[@]}"`; then
-			git pull $CMRepo $CM
-		elif `contains "$ourName" "${inSyncWithCM[@]}"` && [ $KEEPSYNC -eq 1 ]; then
-			git pull $CMRepo $CM
-		fi
-		if [ $? -ne 0 ]; then
-			read -p "Something went wrong, please check and tell me when you're done, master!" -n1 -s
-		fi
-		git push $ourRepo $ourBranch
-		if [ $? -ne 0 ]; then
-			read -p "Something went wrong, please check and tell me when you're done, master!" -n1 -s
-		fi
+		git pull "$ourRepo" "$ourBranch"
+		#if ! contains "$ourName" "${droppedFromUpstream[@]}"; then
+			#if contains "$ourName" "${aospForks[@]}"; then
+				#git pull "$AOSPRepo" "$AOSP"
+			#else
+				git pull "$CUSTOMRepo" "$CUSTOM"
+			#fi
+			if [ $? -ne 0 ]; then
+				# This is mandatory, we MUST stay in sync with upstream
+				git reset --hard
+				git clean -fd
+				read -p "Something went wrong, tell me when you're done, master!" -s
+			fi
+		#fi
+		git push "$ourRepo" "$ourBranch" || read -p "Something went wrong, tell me when you're done, master!" -s
 	fi
 	cd ..
 done

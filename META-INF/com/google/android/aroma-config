@@ -23,6 +23,7 @@
 # Initializing Rom Information
 ##
 
+ini_set("force_colorspace","rgba");
 setvar("preset_version","10");
 setvar("adaroma","/data/media/0/ArchiDroid/AromaPreset/2.X");
 

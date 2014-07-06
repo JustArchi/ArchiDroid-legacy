@@ -256,8 +256,6 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 		"bootanimation","<#selectbg_g><~archidroid.bootanimation></#>","","group",
 		"archi","ArchiDroid","<~archidroid.bootanimation.archi.desc>","select.selected",
 		"archilegacy","ArchiDroid Legacy","<~archidroid.bootanimation.archilegacy.desc>","select",
-		"archiminimalistic","ArchiDroid Minimalistic","Thanks to DroidShift79","select",
-		"archiminimalistic2","ArchiDroid Minimalistic V2","Thanks to DroidShift79","select",
 		"logcat","Logcat","<~archidroid.bootanimation.logcat.desc>","select",
 		"stock","Stock","<~archidroid.bootanimation.stock.desc>","select",
 		"none","<~common.none>","<~archidroid.bootanimation.none.desc>","select",

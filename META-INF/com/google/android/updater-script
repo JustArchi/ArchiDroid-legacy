@@ -482,31 +482,6 @@ else
 		package_extract_dir("_archidroid/bootanimations/archilegacy", "/");
 	endif;
 
-	if file_getprop("/tmp/aroma-data/archidroid.prop","bootanimation") == "logcat" then
-		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying Logcat Bootanimation");
-		run_program("/sbin/busybox", "mv", "/system/bin/bootanimation", "/system/bin/bootanimation.backup");
-		package_extract_dir("_archidroid/bootanimations/logcat", "/");
-		set_perm_recursive(0, 2000, 0755, 0755, "/system/bin");
-		set_perm(0, 0, 06755, "/system/bin/boot-dmesg");
-		delete("/system/media/bootanimation.zip");
-	endif;
-
-	if file_getprop("/tmp/aroma-data/archidroid.prop","bootanimation") == "archiminimalistic" then
-		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying ArchiDroid Minimalistic Bootanimation");
-		delete("/system/media/audio/ui/PowerOn.ogg");
-		package_extract_dir("_archidroid/bootanimations/archiminimalistic", "/");
-		package_extract_file("_archidroid/bootanimations/bootanimation", "/system/bin/bootanimation");
-		set_perm(0, 2000, 0755, "/system/bin/bootanimation");
-	endif;
-
-	if file_getprop("/tmp/aroma-data/archidroid.prop","bootanimation") == "archiminimalistic2" then
-		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying ArchiDroid Minimalistic Bootanimation V2");
-		delete("/system/media/audio/ui/PowerOn.ogg");
-		package_extract_dir("_archidroid/bootanimations/archiminimalistic2", "/");
-		package_extract_file("_archidroid/bootanimations/bootanimation", "/system/bin/bootanimation");
-		set_perm(0, 2000, 0755, "/system/bin/bootanimation");
-	endif;
-
 	if file_getprop("/tmp/aroma-data/archidroid.prop","bootanimation") == "stock" then
 		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying CyanogenMod Bootanimation");
 		# Not needed, haha!

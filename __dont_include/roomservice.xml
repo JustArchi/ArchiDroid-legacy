@@ -35,7 +35,7 @@
   <remove-project name="CyanogenMod/Superuser" />
   <project name="JustArchi/Superuser" path="external/koush/Superuser" remote="github" />
   <remove-project name="CyanogenMod/android_bootable_recovery" />
-  <project name="PhilZ-cwm6/philz_touch_cwm6" path="bootable/recovery" remote="github" />
+  <project name="omnirom/android_bootable_recovery" path="bootable/recovery" remote="github" revision="android-4.4" />
 
   <!-- ARCHIDROID TEMPORARY FORKS -->
 

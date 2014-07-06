@@ -744,7 +744,7 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 		if file_getprop("/tmp/aroma-data/archidroid.prop","launcher") == "stock" then
 			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Stock Launcher");
 		else
-			delete("/system/app/SecLauncher2.apk", "/system/app/SecLauncher2.odex", "/system/priv-app/Launcher3.apk", "/system/priv-app/Launcher3.odex", "/system/priv-app/Trebuchet.apk", "/system/priv-app/Trebuchet.odex");
+			delete("/system/app/SecLauncher2.apk", "/system/app/SecLauncher2.odex", "/system/priv-app/CMHome.apk", "/system/priv-app/CMHome.odex", "/system/priv-app/Launcher3.apk", "/system/priv-app/Launcher3.odex", "/system/priv-app/Trebuchet.apk", "/system/priv-app/Trebuchet.odex");
 		endif;
 
 		### NONE ###

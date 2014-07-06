@@ -272,7 +272,6 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 		"greenify","Greenify","<~archidroid.apps.greenify.desc>","check.checked",
 		"lmt","LMT","<~archidroid.apps.lmt.desc>","check.checked",
 		"mxplayer","MXPlayer","<~archidroid.apps.mxplayer.desc>","check.checked",
-		"spiritfm","Spirit FM","<~archidroid.apps.spiritfm.desc>","check.checked",
 		"bbs","BetterBatteryStats","<~archidroid.apps.bbs.desc>","check.checked",
 		"cooltool","CoolTool","<~archidroid.apps.cooltool.desc>","check.checked",
 		"rootbrowser","Root Browser","<~archidroid.apps.rootbrowser.desc>","check.checked",

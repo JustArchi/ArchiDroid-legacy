@@ -27,7 +27,7 @@ ini_set("force_colorspace","rgba");
 setvar("preset_version","10");
 setvar("adaroma","/data/media/0/ArchiDroid/AromaPreset/2.X");
 
-ini_set("dp","3");
+ini_set("dp","2");
 ini_set("rom_name",             "ArchiDroid");
 ini_set("rom_version",          "2.5.1");
 ini_set("rom_author",           "JustArchi");

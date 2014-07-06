@@ -48,10 +48,8 @@ if [ $# -eq 0 ]; then
 	echo "Usage: $0 <VERSION>"
 	echo
 	echo "Available versions:"
-	echo "2e    2.X-EXPERIMENTAL"
-	echo "2s    2.X-STABLE"
-	echo "1e    1.X-EXPERIMENTAL"
-	echo "1s    1.X-STABLE"
+	echo "2e    2.X-EXPERIMENTAL-nicki"
+	echo "2s    2.X-STABLE-nicki"
 	echo
 	printf "Your choice: "
 	read VERSION
@@ -141,16 +139,10 @@ fi
 
 case "$VERSION" in
 	"2e")
-		VERSION="2.X-EXPERIMENTAL"
+		VERSION="2.X-EXPERIMENTAL-nicki"
 		;;
 	"2s")
-		VERSION="2.X-STABLE"
-		;;
-	"1e")
-		VERSION="1.X-EXPERIMENTAL"
-		;;
-	"1s")
-		VERSION="1.X-STABLE"
+		VERSION="2.X-STABLE-nicki"
 		;;
 	*)
 		echo "Sorry, could not detect any valid version, exiting"

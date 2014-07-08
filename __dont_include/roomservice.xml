@@ -67,4 +67,6 @@
   <project name="JustArchi/android_device_sony_nicki" path="device/sony/nicki" remote="github" />
   <remove-project name="CyanogenMod/android_hardware_qcom_display" />
   <project name="JustArchi/android_hardware_qcom_display" path="hardware/qcom/display" remote="github" />
+  <remove-project name="CyanogenMod/android_hardware_qcom_display-caf" />
+  <project name="JustArchi/android_hardware_qcom_display-caf" path="hardware/qcom/display-caf" remote="github" />
 </manifest>

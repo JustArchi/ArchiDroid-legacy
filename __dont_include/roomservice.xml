@@ -34,8 +34,8 @@
   <project name="JustArchi/android_vendor_cm" path="vendor/cm" remote="github" />
   <remove-project name="CyanogenMod/Superuser" />
   <project name="JustArchi/Superuser" path="external/koush/Superuser" remote="github" />
-  <remove-project name="CyanogenMod/android_bootable_recovery" />
-  <project name="omnirom/android_bootable_recovery" path="bootable/recovery" remote="github" revision="android-4.4" />
+  <!-- <remove-project name="CyanogenMod/android_bootable_recovery" />
+  <project name="omnirom/android_bootable_recovery" path="bootable/recovery" remote="github" revision="android-4.4" /> -->
 
   <!-- ARCHIDROID TEMPORARY FORKS -->
 
@@ -50,10 +50,6 @@
   <!-- ARCHIDROID GALAXY S3 DEPENDENCIES FORKS -->
   <remove-project name="CyanogenMod/android_kernel_samsung_smdk4412" />
   <project name="JustArchi/android_kernel_samsung_smdk4412" path="kernel/samsung/smdk4412" remote="github" />
-  <remove-project name="CyanogenMod/android_device_samsung_smdk4412-common" />
-  <project name="JustArchi/android_device_samsung_smdk4412-common" path="device/samsung/smdk4412-common" remote="github" />
-  <remove-project name="CyanogenMod/android_device_samsung_i9300" />
-  <project name="JustArchi/android_device_samsung_i9300" path="device/samsung/i9300" remote="github" />
 
   <!-- XPERIA M DEPENDENCIES -->
   <project name="freexperia/android_device_sony_nicki" path="device/sony/nicki" remote="github" />

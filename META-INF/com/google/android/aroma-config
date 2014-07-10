@@ -231,7 +231,8 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 		"archidroid.prop",
 
 		"kernel","<#selectbg_g>Kernel</#>","","group",
-		"stock","Stock","<~archidroid.kernel.stock.desc>","select.selected",
+		"archi","ArchiKernel","<~archidroid.kernel.archi.desc>","select.selected",
+		"stock","Stock","<~archidroid.kernel.stock.desc>","select",
 
 		"dpi","<#selectbg_g>DPI</#>","","group",
 		"160","160","<~archidroid.dpi.240.desc>","select.selected",

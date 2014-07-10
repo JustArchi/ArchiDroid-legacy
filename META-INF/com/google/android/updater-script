@@ -301,6 +301,17 @@ else
 	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Cleaning Old Kernel");
 	package_extract_file("boot.img", "/dev/block/platform/msm_sdcc.1/by-name/boot");
 
+	### ARCHI ###
+	if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "archi" then
+		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Flashing ArchiKernel");
+		delete_recursive("/tmp/archikernel");
+		package_extract_dir("_archidroid/kernels/archi/core", "/tmp/archikernel");
+		set_perm(0, 0, 0755, "/tmp/archikernel/init.sh");
+		delete_recursive("/system/lib/modules");
+		package_extract_dir("_archidroid/kernels/archi/system", "/system");
+		run_program("/tmp/archikernel/init.sh");
+	endif;
+
 	### STOCK CM ###
 	if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "stock" then
 		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Flashing CM Kernel");

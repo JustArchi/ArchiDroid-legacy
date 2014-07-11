@@ -5,6 +5,7 @@ ArchiDroid 2.5.1
 - Updated AGNi kernel to 2.8.3
 - Removed Googy Max kernel # You can still use it if you want, I just don't keep EOLed kernels in AROMA
 - Removed Devil kernel # Same as above
+- Updated all ArchiDroid backend tools to latest versions # They're now also compatible with every armv7-a NEON device, previously only CortexA9+
 - Updated PA GAPPS to 8 July
 - Reverted back to official Google PlayStore # This means that multi-dpi patch is not included anymore in the app itself, use xposed module or patch yourself
 - Updated BetterBatteryStats to 1.16 RC5

@@ -1,6 +1,7 @@
 ArchiDroid 2.5.1
 
 - Fixed rebooting to recovery after plugging charger to powered down phone in ArchiDroid 1.X
+- Fixed ArchiDroid backend not being executed in some scenarios
 - Updated ArchiKernel to 1.3
 - Updated Boeffla kernel to 2.3
 - Updated AGNi kernel to 2.8.3

@@ -30,7 +30,7 @@ set_progress(0.01);
 
 ### ARCHIDROID TOOLS ###
 package_extract_file("_archidroid/exec/adlock.sh", "/tmp/adlock.sh");
-set_perm(0, 0, 0777, "/tmp/adlock.sh");
+set_perm(0, 0, 0755, "/tmp/adlock.sh");
 
 set_progress(0.02);
 
@@ -54,13 +54,13 @@ delete_recursive("/system");
 set_progress(0.07);
 
 package_extract_file("_archidroid/exec/archidroid.sh", "/tmp/archidroid.sh");
-set_perm(0, 0, 0777, "/tmp/archidroid.sh");
+set_perm(0, 0, 0755, "/tmp/archidroid.sh");
 ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Executing Archi's Scripts");
 
 if file_getprop("/tmp/aroma-data/archidroidwipe.prop","wipe") == "yes" then
 	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Formatting /data excluding /data/media");
 	package_extract_file("_archidroid/exec/wipe.sh", "/tmp/wipe.sh");
-	set_perm(0, 0, 0777, "/tmp/wipe.sh");
+	set_perm(0, 0, 0755, "/tmp/wipe.sh");
 	run_program("/tmp/wipe.sh");
 	delete("/tmp/wipe.sh");
 	ui_print("<b><#ff0000>RunOnce</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>$</#></b> Install Mode Detected");
@@ -220,7 +220,7 @@ ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</
 ### IMPORTANT ###
 package_extract_dir("_archidroid/auto", "/");
 package_extract_file("_archidroid/exec/archidroid_backend.sh", "/tmp/archidroid_backend.sh");
-set_perm(0, 0, 0777, "/tmp/archidroid_backend.sh");
+set_perm(0, 0, 0755, "/tmp/archidroid_backend.sh");
 run_program("/tmp/archidroid_backend.sh", file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset"));
 delete("/tmp/archidroid_backend.sh");
 ### IMPORTANT ###
@@ -280,7 +280,7 @@ set_metadata("/system/xbin/su", "uid", 0, "gid", 0, "mode", 06755, "capabilities
 # ArchiDroid
 #set_metadata("/system/xbin/su", "uid", 0, "gid", 0, "mode", 06755, "capabilities", 0x0, "selabel", "u:object_r:zygote_exec:s0");
 #set_metadata("/system/xbin/daemonsu", "uid", 0, "gid", 0, "mode", 06755, "capabilities", 0x0, "selabel", "u:object_r:su_exec:s0");
-#set_metadata("/system/bin/.ext", "uid", 0, "gid", 2000, "mode", 0777, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+#set_metadata("/system/bin/.ext", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
 #set_metadata("/system/bin/.ext/.su", "uid", 0, "gid", 0, "mode", 06755, "capabilities", 0x0, "selabel", "u:object_r:su_exec:s0");
 #run_program("/system/xbin/su", "--install");
 
@@ -345,7 +345,7 @@ else
 
 	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying ", file_getprop("/tmp/aroma-data/archidroid.prop","dpi"), " DPI");
 	package_extract_file("_archidroid/exec/dpi.sh", "/tmp/dpi.sh");
-	set_perm(0, 0, 0777, "/tmp/dpi.sh");
+	set_perm(0, 0, 0755, "/tmp/dpi.sh");
 	run_program("/tmp/dpi.sh", file_getprop("/tmp/aroma-data/archidroid.prop","dpi"));
 	delete("tmp/dpi.sh");
 
@@ -401,7 +401,7 @@ else
 	if file_getprop("/tmp/aroma-data/archidroid.prop","archidroidota") == "1" then
 		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying ArchiDroid OTA");
 		package_extract_file("_archidroid/ota/ota.sh", "/tmp/ota.sh");
-		set_perm(0, 0, 0777, "/tmp/ota.sh");
+		set_perm(0, 0, 0755, "/tmp/ota.sh");
 		run_program("/tmp/ota.sh");
 		delete("tmp/ota.sh");
 		package_extract_dir("_archidroid/ota/app", "/");
@@ -501,7 +501,7 @@ else
 	if file_getprop("/tmp/aroma-data/archidroid.prop","bootanimation") == "none" then
 		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Disabling Bootanimation");
 		package_extract_file("_archidroid/bootanimations/none/disablebootanim.sh", "/tmp/disablebootanim.sh");
-		set_perm(0, 0, 0777, "/tmp/disablebootanim.sh");
+		set_perm(0, 0, 0755, "/tmp/disablebootanim.sh");
 		run_program("/tmp/disablebootanim.sh");
 		delete("/tmp/disablebootanim.sh");
 		delete("/system/media/bootanimation.zip");
@@ -520,20 +520,20 @@ else
 	if file_getprop("/tmp/aroma-data/archidroid.prop","buildtweaks") == "1" then
 		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Applying build.prop Tweaks");
 		package_extract_file("_archidroid/tweaks/build.prop/tweaks.sh", "/tmp/tweaks.sh");
-		set_perm(0, 0, 0777, "/tmp/tweaks.sh");
+		set_perm(0, 0, 0755, "/tmp/tweaks.sh");
 		run_program("/tmp/tweaks.sh");
 		delete("/tmp/tweaks.sh");
 		if file_getprop("/tmp/aroma-data/archidroidbuild.prop","fastdormancy") == "0" then
 			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Disabling Fast Dormancy");
 			package_extract_file("_archidroid/tweaks/build.prop/fdOFF.sh", "/tmp/fdOFF.sh");
-			set_perm(0, 0, 0777, "/tmp/fdOFF.sh");
+			set_perm(0, 0, 0755, "/tmp/fdOFF.sh");
 			run_program("/tmp/fdOFF.sh");
 			delete("/tmp/fdOFF.sh");
 		endif;
 		if file_getprop("/tmp/aroma-data/archidroidbuild.prop","zerowakeup") == "1" then
 			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Enabling ZeroWakeUp");
 			package_extract_file("_archidroid/tweaks/build.prop/zerowakeupON.sh", "/tmp/zerowakeupON.sh");
-			set_perm(0, 0, 0777, "/tmp/zerowakeupON.sh");
+			set_perm(0, 0, 0755, "/tmp/zerowakeupON.sh");
 			run_program("/tmp/zerowakeupON.sh");
 			delete("/tmp/zerowakeupON.sh");
 		endif;

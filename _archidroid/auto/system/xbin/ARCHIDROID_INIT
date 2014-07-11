@@ -276,10 +276,6 @@ ADSTATUS="$ADPROC/ARCHIDROID_INIT_STATUS"
 ADCRONSTATUS="$ADPROC/ARCHIDROID_CRON_STATUS"
 INTERNAL_EVENTS_DIR="$ADCRON/events/internal"
 
-# Debug
-exec 1>>"$LOG"
-exec 2>&1
-
 # Exit if barebones preset was used
 if [[ -f "/system/archidroid/dev/PRESET_BAREBONES" ]]; then
 	exit 0
@@ -380,8 +376,8 @@ if [[ "$BACKGROUND" -ne 1 ]]; then
 fi
 
 # Redirect stdout and stderr to our log, just in case something bad happen
-#exec 1>"$LOG"
-#exec 2>&1
+exec 1>"$LOG"
+exec 2>&1
 
 date
 echo "ArchiDroid $(getprop ro.archidroid.version)"

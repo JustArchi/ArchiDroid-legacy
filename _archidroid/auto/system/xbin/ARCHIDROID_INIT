@@ -21,6 +21,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+ADMOUNTED() {
+	return "$(mount | grep -qi "$1"; echo $?)"
+}
+
 ADTWEAK() {
 	# $1 - what we're changing
 	# $2 - to what we're changing
@@ -277,10 +281,15 @@ if [ -e /system/archidroid/dev/PRESET_BAREBONES ]; then
 fi
 
 # Exit if user wiped data without reflashing
-if [ ! -f /data/ARCHIDROID_DONT_REMOVE_ME ]; then
-	echo "ERROR: ArchiDroid is not compatible with wiping data, please reflash your system!" >> "$LOG"
-	sync
-	reboot recovery || poweroff
+if [ ! -f "/data/ARCHIDROID_DONT_REMOVE_ME" ] ; then
+	if ADMOUNTED "/data"; then
+		echo "ERROR: ArchiDroid is not compatible with wiping data, please reflash your system!" >> "$LOG"
+		sync
+		reboot recovery || poweroff
+	else
+		# User is probably only charging his device, that's fine
+		exit 0
+	fi
 fi
 
 mkdir -p "$ADPROC"
@@ -334,16 +343,12 @@ else
 	elif [ "$ADSIGNAL" = "RESTART" ]; then
 		# Backend restarts itself, good to know, allow that
 		echo $$ > $ADSTATUS
+	elif [ -d "/proc/$ADSIGNAL" ]; then
+		# Something tried to execute already running init, double-execution?
+		exit 3
 	else
-		kill -s 0 "$ADSIGNAL" >/dev/null 2>&1
-		ADSIGNAL=$?
-		if [ $ADSIGNAL -eq 0 ]; then
-			# Something tried to execute already running init, double-execution?
-			exit 3
-		else
-			# Old PID is dead and didn't exit properly, allow that for now
-			echo $$ > $ADSTATUS
-		fi
+		# Old PID is dead and didn't exit properly, allow that for now
+		echo $$ > $ADSTATUS
 	fi
 fi
 

@@ -61,17 +61,13 @@ else
 		exit 0
 	elif [ "$ADSIGNAL" = "RESTART" ]; then
 		# Backend restarts itself, good to know, allow that
-		echo "$$" > "$ADSTATUS"
+		echo $$ > $ADSTATUS
+	elif [ -d "/proc/$ADSIGNAL" ]; then
+		# Something tried to execute already running init, double-execution?
+		exit 3
 	else
-		kill -s 0 "$ADSIGNAL" >/dev/null 2>&1
-		ADSIGNAL="$?"
-		if [ "$ADSIGNAL" -eq 0 ]; then
-			# Something tried to execute already running init, double-execution?
-			exit 3
-		else
-			# Old PID is dead and didn't exit properly, allow that for now
-			echo "$$" > "$ADSTATUS"
-		fi
+		# Old PID is dead and didn't exit properly, allow that for now
+		echo $$ > $ADSTATUS
 	fi
 fi
 

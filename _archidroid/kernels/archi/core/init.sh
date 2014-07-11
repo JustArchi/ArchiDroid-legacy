@@ -23,7 +23,11 @@
 
 set -e
 
-KERNEL="/dev/block/mmcblk0p5" # THIS IS FOR SAMSUNG GALAXY S3 I9300 ONLY
+# Device-specific
+KERNEL="/dev/block/mmcblk0p5" # THIS IS FOR GALAXY S3 ONLY
+PARSERAMDISK=1 # If we don't need to worry about compressed ramdisk (i.e. putting modules inside), we can skip it
+
+# Global
 AK="/tmp/archikernel"
 AKDROP="$AK/drop"
 
@@ -52,25 +56,27 @@ mkdir -p "$AKDROP/ramdisk"
 echo "INFO: Unpacking pulled boot.img"
 "$AK/unpackbootimg-static" -i "$AK/boot.img" -o "$AKDROP"
 if [ -f "$AKDROP/boot.img-ramdisk.gz" ]; then
-	echo "INFO: Ramdisk in gzip format found, extracting..."
-	cd "$AKDROP/ramdisk"
-	gunzip -c ../boot.img-ramdisk.gz | cpio -i
-	if [ -d "$AKDROP/ramdisk/lib/modules" ]; then
-		echo "INFO: Detected Samsung variant"
-		# Remove all current modules
-		find "$AKDROP/ramdisk/lib/modules" -type f -iname "*.ko" | while read line; do
-			rm -f "$line"
-		done
-		# Copy all new ArchiKernel modules
-		find "/system/lib/modules" -type f -iname "*.ko" | while read line; do
-			cp "$line" "$AKDROP/ramdisk/lib/modules"
-		done
-		rm -rf "/system/lib/modules" # No need to confusion on Sammy base
-	else
-		echo "INFO: Detected AOSP variant"
+	if [ "$PARSERAMDISK" -eq 1 ]; then
+		echo "INFO: Ramdisk in gzip format found, extracting..."
+		cd "$AKDROP/ramdisk"
+		gunzip -c ../boot.img-ramdisk.gz | cpio -i
+		if [ -d "$AKDROP/ramdisk/lib/modules" ]; then
+			echo "INFO: Detected Samsung variant"
+			# Remove all current modules
+			find "$AKDROP/ramdisk/lib/modules" -type f -iname "*.ko" | while read line; do
+				rm -f "$line"
+			done
+			# Copy all new ArchiKernel modules
+			find "/system/lib/modules" -type f -iname "*.ko" | while read line; do
+				cp "$line" "$AKDROP/ramdisk/lib/modules"
+			done
+			rm -rf "/system/lib/modules" # No need to confusion on Sammy base
+		else
+			echo "INFO: Detected AOSP variant"
+		fi
+		rm -f "$AKDROP/boot.img-ramdisk.gz"
+		find . | cpio -o -H newc | gzip > "$AKDROP/boot.img-ramdisk.gz"
 	fi
-	rm -f "$AKDROP/boot.img-ramdisk.gz"
-	find . | cpio -o -H newc | gzip > "$AKDROP/boot.img-ramdisk.gz"
 else
 	echo "FATAL ERROR: No ramdisk?!"
 	exit 2

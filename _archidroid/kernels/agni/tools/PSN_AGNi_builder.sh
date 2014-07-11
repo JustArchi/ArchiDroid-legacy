@@ -4,12 +4,12 @@
 #### AGNi Kernel-Patcher (based on original implementation for GT-S5830)
 
 #### DEFINE AGNi pureCM version info ########################################################################
-AGNI_PURECM_VER="2.7.8"
+AGNI_PURECM_VER="2.8.3"
 AGNI_PURECM_SELINUX="PERMISSIVE"
 DEVICE_MODEL="I9300"
 DEVICE_NAME="m0"
 BOOT_PARTITION="/dev/block/mmcblk0p5"
-AGNI_PATCHER_VER="4.3.2"
+AGNI_PATCHER_VER="4.3.4"
 #############################################################################################################
 #### DEFINE MKBOOTIMG PARAMETERS (Device specifics) #########################################################
 MK_BASE=40000000
@@ -31,15 +31,15 @@ mkdir -p /tmp/oldboot
 mkdir -p /tmp/extracted
 mkdir -p /tmp/workboot
 mkdir -p /tmp/bootimg
-chmod -R 775 /tmp/packing
-chmod -R 775 /tmp/oldboot
-chmod -R 775 /tmp/workboot
-chmod -R 775 /tmp/extracted
-chmod -R 775 /tmp/bootimg
+chmod -R 777 /tmp/packing
+chmod -R 777 /tmp/oldboot
+chmod -R 777 /tmp/workboot
+chmod -R 777 /tmp/extracted
+chmod -R 777 /tmp/bootimg
 
 RAMFS_EXTRACT_FAIL="0"
 touch $AGNI_LOG_FILE
-chmod 664 $AGNI_LOG_FILE
+chmod 777 $AGNI_LOG_FILE
 
 echo " " > $AGNI_LOG_FILE
 echo " " >> $AGNI_LOG_FILE
@@ -117,12 +117,38 @@ if ! [ "`grep psnconfig.sh /tmp/extracted/init.rc`" ];
 	echo "`cat /tmp/workboot/init-append`" >> /tmp/extracted/init.rc
 	echo " Applied modification 2 to init.rc ! " >> $AGNI_LOG_FILE
 fi
-if ! [ "`grep init.agnimounts.rc /tmp/extracted/init.smdk4x12.rc`" ];
+if ! [ "`grep init.agnimounts.rc /tmp/extracted/init.rc`" ];
 	then
-        awk '/init.smdk4x12.usb.rc/{print "	import init.agnimounts.rc"} {print}' /tmp/extracted/init.smdk4x12.rc > /tmp/extracted/init.smdk4x12.rc-temp
+        awk '/init.usb.rc/{print "import /init.agnimounts.rc"} {print}' /tmp/extracted/init.rc > /tmp/extracted/init.rc-temp
+	mv /tmp/extracted/init.rc-temp /tmp/extracted/init.rc
+	echo " Applied modification 3 to init.rc ! " >> $AGNI_LOG_FILE
+fi
+if ! [ "`grep fstab_handler.sh /tmp/extracted/init.smdk4x12.rc`" ];
+	then
+	awk '/mount_all/{print;print "	exec /sbin/fstab_handler.sh";next}1' /tmp/extracted/init.smdk4x12.rc > /tmp/extracted/init.smdk4x12.rc-temp
 	mv /tmp/extracted/init.smdk4x12.rc-temp /tmp/extracted/init.smdk4x12.rc
-        awk '/mount_all/{print "	   mount_all /fstab.smdk4x12.additional"} {print}' /tmp/extracted/init.smdk4x12.rc > /tmp/extracted/init.smdk4x12.rc-temp
-	mv /tmp/extracted/init.smdk4x12.rc-temp /tmp/extracted/init.smdk4x12.rc
+	if [ "`grep init.agnimounts.rc /tmp/extracted/init.smdk4x12.rc`" ];
+		then
+		sed '/init.agnimounts.rc/d' /tmp/extracted/init.smdk4x12.rc > /tmp/extracted/init.smdk4x12.rc-temp
+		mv /tmp/extracted/init.smdk4x12.rc-temp /tmp/extracted/init.smdk4x12.rc
+	fi
+	echo " Applied modification 1 to init.smdk4x12.rc ! " >> $AGNI_LOG_FILE
+fi
+if ! [ "`grep AGNi-Set-SELINUX-PERMISSIVE /tmp/extracted/init.smdk4x12.rc`" ];
+	then
+	echo "`cat /tmp/workboot/init.smdk4x12-append`" >> /tmp/extracted/init.smdk4x12.rc
+	echo " Applied modification 2 to init.smdk4x12.rc ! " >> $AGNI_LOG_FILE
+fi
+if ! [ "`grep AGNI /tmp/extracted/fstab.smdk4x12`" ];
+	then
+	awk '/mmcblk0p9/{print "# AGNI_SYSTEM"} {print}' /tmp/extracted/fstab.smdk4x12 > /tmp/extracted/fstab.smdk4x12-temp
+	mv /tmp/extracted/fstab.smdk4x12-temp /tmp/extracted/fstab.smdk4x12
+	awk '/mmcblk0p12/{print "# AGNI_DATA"} {print}' /tmp/extracted/fstab.smdk4x12 > /tmp/extracted/fstab.smdk4x12-temp
+	mv /tmp/extracted/fstab.smdk4x12-temp /tmp/extracted/fstab.smdk4x12
+	awk '/mmcblk0p8/{print "# AGNI_CACHE"} {print}' /tmp/extracted/fstab.smdk4x12 > /tmp/extracted/fstab.smdk4x12-temp
+	mv /tmp/extracted/fstab.smdk4x12-temp /tmp/extracted/fstab.smdk4x12
+	awk '/mmcblk0p10/{print "# AGNI_PRELOAD"} {print}' /tmp/extracted/fstab.smdk4x12 > /tmp/extracted/fstab.smdk4x12-temp
+	mv /tmp/extracted/fstab.smdk4x12-temp /tmp/extracted/fstab.smdk4x12
 	sed '/mmcblk0p9/d' /tmp/extracted/fstab.smdk4x12 > /tmp/extracted/fstab.smdk4x12-temp
 	mv /tmp/extracted/fstab.smdk4x12-temp /tmp/extracted/fstab.smdk4x12
 	sed '/mmcblk0p12/d' /tmp/extracted/fstab.smdk4x12 > /tmp/extracted/fstab.smdk4x12-temp
@@ -131,12 +157,7 @@ if ! [ "`grep init.agnimounts.rc /tmp/extracted/init.smdk4x12.rc`" ];
 	mv /tmp/extracted/fstab.smdk4x12-temp /tmp/extracted/fstab.smdk4x12
 	sed '/mmcblk0p10/d' /tmp/extracted/fstab.smdk4x12 > /tmp/extracted/fstab.smdk4x12-temp
 	mv /tmp/extracted/fstab.smdk4x12-temp /tmp/extracted/fstab.smdk4x12
-	echo " Applied modification 1 to init.smdk4x12.rc ! " >> $AGNI_LOG_FILE
-fi
-if ! [ "`grep AGNi-Set-SELINUX-PERMISSIVE /tmp/extracted/init.smdk4x12.rc`" ];
-	then
-	echo "`cat /tmp/workboot/init.smdk4x12-append`" >> /tmp/extracted/init.smdk4x12.rc
-	echo " Applied modification 2 to init.smdk4x12.rc ! " >> $AGNI_LOG_FILE
+	echo " Applied modifications to fstab.smdk4x12 ! " >> $AGNI_LOG_FILE
 fi
 if ! [ "`grep f2fs /tmp/extracted/lpm.rc`" ];
 	then
@@ -151,14 +172,14 @@ if ! [ "`grep AGNi-Modified-conditional-sysinit /system/bin/sysinit`" ];
 	echo "`cat /tmp/workboot/system-sysinit-replace`" > /system/bin/sysinit
 	echo " Applied modification to /system/bin/sysinit ! " >> $AGNI_LOG_FILE
 fi
-if [ "`grep f2fs /proc/mounts`" ];
-	then
-	if [ "`grep omni $ROM_BUILD_PROP`" ] || [ "`grep slim $ROM_BUILD_PROP`" ];
-		then
-		mv -f /tmp/workboot/sepolicy /tmp/extracted/sepolicy
-		echo " Replaced sepolicy. " >> $AGNI_LOG_FILE
-	fi
-fi
+#if [ "`grep f2fs /proc/mounts`" ];
+#	then
+#	if [ "`grep omni $ROM_BUILD_PROP`" ] || [ "`grep slim $ROM_BUILD_PROP`" ];
+#		then
+#		mv -f /tmp/workboot/sepolicy /tmp/extracted/sepolicy
+#		echo " Replaced sepolicy. " >> $AGNI_LOG_FILE
+#	fi
+#fi
 
 mkdir -p /tmp/extracted/dev
 mkdir -p /tmp/extracted/proc
@@ -205,7 +226,7 @@ if [ -f /data/.AGNi/copy_bootimg ];
 	rm /data/.AGNi/patched_boot.img_copy/boot.img
 	cp /tmp/oldboot/boot.img /data/.AGNi/unpatched_boot.img_copy/boot.img
 	cp /tmp/boot.img /data/.AGNi/patched_boot.img_copy/boot.img
-	chmod -R 775 /data/.AGNi
+	chmod -R 777 /data/.AGNi
 	echo " Placed copy of old and new patched boot.imgs !  " >> $AGNI_LOG_FILE
 	echo "	=====>	Size: `du -h /data/.AGNi/unpatched_boot.img_copy/boot.img`" >> $AGNI_LOG_FILE
 	echo "	=====>	Size: `du -h /data/.AGNi/patched_boot.img_copy/boot.img`" >> $AGNI_LOG_FILE

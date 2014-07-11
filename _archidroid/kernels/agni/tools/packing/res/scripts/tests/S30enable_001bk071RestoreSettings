@@ -27,7 +27,7 @@ if [ "$RESULT" = "yes" ]; then
 		/sbin/busybox chown -R media_rw:media_rw /data/media/0/AGNi_settings_backup
 		/sbin/busybox chmod -R 777 /data/media/0/AGNi_settings_backup
 		/sbin/busybox cp /data/media/0/AGNi_settings_backup/*_001bk* /system/etc/init.d
-		/sbin/busybox chown root:root /system/etc/init.d/*_001bk*
+		/sbin/busybox chown system:system /system/etc/init.d/*_001bk*
 		/sbin/busybox chmod 777 /system/etc/init.d/*_001bk*
 		#Execution
 		/sbin/busybox mkdir -p /system/etc/init.d-temp-profile
@@ -36,12 +36,12 @@ if [ "$RESULT" = "yes" ]; then
 		/sbin/busybox mv /system/etc/init.d/*_001bk* /system/etc/init.d-temp
 		/sbin/busybox chmod -R 777 /system/etc/init.d-temp-profile
 		/sbin/busybox chmod -R 777 /system/etc/init.d-temp
-		/sbin/busybox run-parts /system/etc/init.d-temp-profile
+		#/sbin/busybox run-parts /system/etc/init.d-temp-profile
 		/sbin/busybox run-parts /system/etc/init.d-temp
 		/sbin/busybox mv /system/etc/init.d-temp-profile/* /system/etc/init.d
 		/sbin/busybox mv /system/etc/init.d-temp/* /system/etc/init.d
-		/sbin/busybox rmdir /system/etc/init.d-temp-profile
-		/sbin/busybox rmdir /system/etc/init.d-temp
+		/sbin/busybox rm -rf /system/etc/init.d-temp-profile
+		/sbin/busybox rm -rf /system/etc/init.d-temp
 		/sbin/busybox chmod 0666 /system/etc/init.d/*_001bkprofiles*
 		/sbin/busybox sh /sbin/sysro
 		RESTORE_STATUS="1"

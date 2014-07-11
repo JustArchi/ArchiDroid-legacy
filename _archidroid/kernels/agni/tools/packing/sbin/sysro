@@ -1,4 +1,4 @@
-#!/sbin/sh
+#!/sbin/busybox sh
 
-mount -o ro,remount /system;
+mount -o ro,remount /system
 

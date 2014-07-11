@@ -1,0 +1,7 @@
+#!/sbin/busybox sh
+#TOUCHKEY LIGHTS METHOD
+#Select hardware touch keys lights method (ROM DEPENDENT) :
+#KERNEL CONTROLED <Like Omni>
+
+echo 1 > /sys/class/sec/sec_touchkey/touch_led_handling
+

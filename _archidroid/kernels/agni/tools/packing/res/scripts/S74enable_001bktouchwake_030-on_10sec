@@ -4,5 +4,7 @@
 #10 sec
 
 echo "1" > /sys/class/misc/touchwake/enabled
-echo "10000" > /sys/class/misc/touchwake/delay
+echo "10" > /sys/class/misc/touchwake/delay
 
+echo "0" > /sys/class/misc/touchwake/knockon
+echo "0" > /sys/class/misc/touchwake/keypower_mode

@@ -1,6 +1,6 @@
-#!/sbin/sh
+#!/sbin/busybox sh
 
-###### AGNi FS CHECKER v1.2 (I9300)################
+###### AGNi FS CHECKER v1.3 (I9300)################
 
 SYSTEM_PARTITION="mmcblk0p9"
 DATA_PARTITION="mmcblk0p12"
@@ -22,7 +22,6 @@ CACHE_FS=""
 FS_CHECKER="OFF"
 TMP_LOG_FILE="/agni_fs_checker.log"
 BLKID_INFO="/blkid_info"
-DATA_F2FS_INDICATOR="/data_is_f2fs"
 FS_CHECKER_STATUS="/fs_checker_status"
 
 $BBOX mount -o rw,remount /
@@ -45,50 +44,39 @@ fi
 $BBOX umount /system
 
 # GATHERING PARTITION INFO
-if [ "$FS_CHECKER" == "ON" ];
+$BBOX echo "`$BBOX blkid`" > $BLKID_INFO
+# /system
+if [ "`$BBOX grep $SYSTEM_PARTITION $BLKID_INFO | $BBOX grep f2fs`" ];
 	then
-	$BBOX echo "`$BBOX blkid`" > $BLKID_INFO
-	# /system
-	if [ "`$BBOX grep $SYSTEM_PARTITION $BLKID_INFO | $BBOX grep f2fs`" ];
-		then
-		SYSTEM_FS="F2FS"
-		else
-		SYSTEM_FS="EXT4"
-	fi
-	# /data
-	if [ "`$BBOX grep $DATA_PARTITION $BLKID_INFO | $BBOX grep f2fs`" ];
-		then
-		DATA_FS="F2FS" && $BBOX touch $DATA_F2FS_INDICATOR
-		else
-		DATA_FS="EXT4"
-	fi
-	# /cache
-	if [ "`$BBOX grep $CACHE_PARTITION $BLKID_INFO | $BBOX grep f2fs`" ];
-		then
-		CACHE_FS="F2FS"
-		else
-		CACHE_FS="EXT4"
-	fi
-	# /preload
-	if [ "`$BBOX grep $PRELOAD_PARTITION $BLKID_INFO | $BBOX grep f2fs`" ];
-		then
-		PRELOAD_FS="F2FS"
-		else
-		if [ "`$BBOX grep $PRELOAD_PARTITION $BLKID_INFO | $BBOX grep swap`" ];
-			then
-			PRELOAD_FS="SWAP"
-			else
-			PRELOAD_FS="EXT4"
-		fi
-	fi
-	$BBOX rm $BLKID_INFO
+	SYSTEM_FS="F2FS"
 	else
-	$BBOX echo "`$BBOX blkid`" > $BLKID_INFO
-	if [ "`$BBOX grep $DATA_PARTITION $BLKID_INFO | $BBOX grep f2fs`" ];
+	SYSTEM_FS="EXT4"
+fi
+# /data
+if [ "`$BBOX grep $DATA_PARTITION $BLKID_INFO | $BBOX grep f2fs`" ];
+	then
+	DATA_FS="F2FS"
+	else
+	DATA_FS="EXT4"
+fi
+# /cache
+if [ "`$BBOX grep $CACHE_PARTITION $BLKID_INFO | $BBOX grep f2fs`" ];
+	then
+	CACHE_FS="F2FS"
+	else
+	CACHE_FS="EXT4"
+fi
+# /preload
+if [ "`$BBOX grep $PRELOAD_PARTITION $BLKID_INFO | $BBOX grep f2fs`" ];
+	then
+	PRELOAD_FS="F2FS"
+	else
+	if [ "`$BBOX grep $PRELOAD_PARTITION $BLKID_INFO | $BBOX grep swap`" ];
 		then
-		$BBOX touch $DATA_F2FS_INDICATOR
+		PRELOAD_FS="SWAP"
+		else
+		PRELOAD_FS="EXT4"
 	fi
-	$BBOX rm $BLKID_INFO
 fi
 
 if [ "$FS_CHECKER" == "ON" ];
@@ -148,6 +136,65 @@ if [ "$FS_CHECKER" == "ON" ];
 	fi
 fi
 
+# MODIFY /fstab.smdk4x12 WITH CURRENT-STATE FILESYSTEM ENTRIES
+$BBOX chmod 777 /fstab.smdk4x12
+if [ "$SYSTEM_FS" == "EXT4" ];
+	then
+	$BBOX awk '/AGNI_SYSTEM/{print;print "/dev/block/mmcblk0p9		/system			ext4		ro,noatime		wait";next}1' /fstab.smdk4x12 > /fstab.smdk4x12-temp
+	$BBOX mv /fstab.smdk4x12-temp /fstab.smdk4x12
+	$BBOX echo "/system entry as EXT4 added to /fstab.smdk4x12" >> $TMP_LOG_FILE
+fi
+if [ "$SYSTEM_FS" == "F2FS" ];
+	then
+	$BBOX awk '/AGNI_SYSTEM/{print;print "/dev/block/mmcblk0p9		/system			f2fs		ro,noatime,background_gc=off	wait";next}1' /fstab.smdk4x12 > /fstab.smdk4x12-temp
+	$BBOX mv /fstab.smdk4x12-temp /fstab.smdk4x12
+	$BBOX echo "/system entry as F2FS added to /fstab.smdk4x12" >> $TMP_LOG_FILE
+fi
+if [ "$CACHE_FS" == "EXT4" ];
+	then
+	$BBOX awk '/AGNI_CACHE/{print;print "/dev/block/mmcblk0p8		/cache			ext4		noatime,nosuid,nodev,journal_async_commit,errors=panic		wait";next}1' /fstab.smdk4x12 > /fstab.smdk4x12-temp
+	$BBOX mv /fstab.smdk4x12-temp /fstab.smdk4x12
+	$BBOX echo "/cache entry as EXT4 added to /fstab.smdk4x12" >> $TMP_LOG_FILE
+fi
+if [ "$CACHE_FS" == "F2FS" ];
+	then
+	$BBOX awk '/AGNI_CACHE/{print;print "/dev/block/mmcblk0p8		/cache			f2fs		noatime,nosuid,nodev,background_gc=off		wait";next}1' /fstab.smdk4x12 > /fstab.smdk4x12-temp
+	$BBOX mv /fstab.smdk4x12-temp /fstab.smdk4x12
+	$BBOX echo "/cache entry as F2FS added to /fstab.smdk4x12" >> $TMP_LOG_FILE
+fi
+if [ "$PRELOAD_FS" == "EXT4" ];
+	then
+	$BBOX awk '/AGNI_PRELOAD/{print;print "/dev/block/mmcblk0p10		/preload		ext4		noatime,nosuid,nodev,journal_async_commit		wait";next}1' /fstab.smdk4x12 > /fstab.smdk4x12-temp
+	$BBOX mv /fstab.smdk4x12-temp /fstab.smdk4x12
+	$BBOX echo "/preload entry as EXT4 added to /fstab.smdk4x12" >> $TMP_LOG_FILE
+fi
+if [ "$PRELOAD_FS" == "F2FS" ];
+	then
+	$BBOX awk '/AGNI_PRELOAD/{print;print "/dev/block/mmcblk0p10		/preload		f2fs		noatime,nosuid,nodev,background_gc=off		wait";next}1' /fstab.smdk4x12 > /fstab.smdk4x12-temp
+	$BBOX mv /fstab.smdk4x12-temp /fstab.smdk4x12
+	$BBOX echo "/preload entry as F2FS added to /fstab.smdk4x12" >> $TMP_LOG_FILE
+fi
+if [ "$DATA_FS" == "EXT4" ];
+	then
+	$BBOX awk '/AGNI_DATA/{print;print "/dev/block/mmcblk0p12		/data			ext4		noatime,nosuid,nodev,discard,noauto_da_alloc,journal_async_commit,errors=panic		wait,check,encryptable=footer";next}1' /fstab.smdk4x12 > /fstab.smdk4x12-temp
+	$BBOX mv /fstab.smdk4x12-temp /fstab.smdk4x12
+	$BBOX echo "/data entry as EXT4 added to /fstab.smdk4x12" >> $TMP_LOG_FILE
+fi
+if [ "$DATA_FS" == "F2FS" ];
+	then
+	$BBOX awk '/AGNI_DATA/{print;print "/dev/block/mmcblk0p12		/data			f2fs		noatime,nosuid,nodev,discard,background_gc=off	wait,encryptable=footer";next}1' /fstab.smdk4x12 > /fstab.smdk4x12-temp
+	$BBOX mv /fstab.smdk4x12-temp /fstab.smdk4x12
+	$BBOX echo "/data entry as F2FS added to /fstab.smdk4x12" >> $TMP_LOG_FILE
+fi
+$BBOX chmod 664 /fstab.smdk4x12
+
+if [ "$FS_CHECKER" == "OFF" ];
+	then
+	$BBOX rm $TMP_LOG_FILE
+fi
+
+$BBOX rm $BLKID_INFO
 $BBOX touch $FS_CHECKER_STATUS
+
 $BBOX mount -o ro,remount /
 

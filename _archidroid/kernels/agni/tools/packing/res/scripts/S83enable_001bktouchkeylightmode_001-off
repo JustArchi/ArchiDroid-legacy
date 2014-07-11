@@ -3,4 +3,7 @@
 #Select hardware touch keys lighting scenario :
 #Always Off
 
+chmod 666 /sys/class/sec/sec_touchkey/force_disable
 echo 1 > /sys/class/sec/sec_touchkey/force_disable
+chmod 444 /sys/class/sec/sec_touchkey/force_disable
+

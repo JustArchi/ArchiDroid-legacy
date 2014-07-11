@@ -1,0 +1,7 @@
+#!/sbin/busybox sh
+#TOUCHKEY LIGHTS METHOD
+#Select hardware touch keys lights method (ROM DEPENDENT) :
+#ROM CONTROLED <Like Official CM>
+
+echo 0 > /sys/class/sec/sec_touchkey/touch_led_handling
+

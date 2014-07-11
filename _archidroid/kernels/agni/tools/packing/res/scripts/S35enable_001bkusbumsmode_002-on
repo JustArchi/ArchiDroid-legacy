@@ -3,12 +3,12 @@
 #ENABLE/DISABLE UMS MODE for external sdcard :
 #On
 
-#AOSP 4.4.2
+#AOSP 4.4.4
 
 USB_GADGET="/sys/devices/platform/s3c-usbgadget/gadget/lun0/file"
 
-EXTERNAL_SD_MOUNT_POINT="`mount | grep vold | cut -f 2 -d ' '`"
-EXTERNAL_SD_LOCATION="`mount | grep vold | cut -f 1 -d ' '`"
+EXTERNAL_SD_MOUNT_POINT="`mount | grep vold | grep sdcard1 | cut -f 2 -d ' '`"
+EXTERNAL_SD_LOCATION="`mount | grep vold | grep sdcard1 | cut -f 1 -d ' '`"
 
 /sbin/busybox sync
 /sbin/busybox umount -l $EXTERNAL_SD_MOUNT_POINT

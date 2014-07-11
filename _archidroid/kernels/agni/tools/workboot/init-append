@@ -17,9 +17,4 @@ service sysinitd /sbin/sysinitd.sh
     user root
     oneshot
 
-### Fix AGNi
-service fix_app /sbin/fix_app.sh
-    class core
-    user root
-    oneshot
 

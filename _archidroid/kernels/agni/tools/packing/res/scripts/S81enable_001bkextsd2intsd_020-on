@@ -1,0 +1,28 @@
+#!/system/bin/sh
+#AGNi sdcard1<-->sdcard0 Switcher
+#Select internal sdcard or external sdcard :
+#Secondary Storage-->sdcard1
+
+# Display dialog window
+
+if [ ! -f /system/etc/init.d/*bkextsd2intsd_020-on ]; then
+
+	rm /sdcard/boeffla_twk_dlg_helper
+
+	am start -a android.intent.action.MAIN -e message "Changes will be made on next reboot !" -e title "sdcard1<-->sdcard0 Switcher" -e okstyle "Ok" -n hm.agni.control.dialog.helper/.AGNiControlDialogActivity
+
+	while [ ! -f /sdcard/boeffla_twk_dlg_helper ]
+	do
+		/sbin/busybox sleep 1
+	done
+
+	if [ -f /system/etc/init.d/11extsd2internalsd ] ; then
+		mount -o rw,remount /system
+		rm -f /system/etc/init.d/11extsd2internalsd
+		mount -o ro,remount /system
+	fi
+
+	rm /sdcard/boeffla_twk_dlg_helper
+
+fi
+

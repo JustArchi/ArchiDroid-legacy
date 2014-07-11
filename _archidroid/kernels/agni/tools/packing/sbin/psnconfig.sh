@@ -27,6 +27,7 @@ echo 0 > /sys/class/mdnie/mdnie/black
 
 #Lights up only on h/w keys (default)
 echo 0 > /sys/class/sec/sec_touchkey/force_disable
+chmod 444 /sys/class/sec/sec_touchkey/force_disable
 echo 0 > /sys/class/sec/sec_touchkey/touch_led_on_screen_touch
 
 # setting default charging current

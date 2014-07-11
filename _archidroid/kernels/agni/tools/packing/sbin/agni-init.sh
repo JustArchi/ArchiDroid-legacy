@@ -24,12 +24,6 @@ if ! [ -f /data/app/hm.agni.control.dialog.helper-*.apk ];
 	/system/bin/pm install -r /data/media/0/AGNiControlDialogHelper.apk
 	rm /data/media/0/AGNiControlDialogHelper.apk
 fi
-# Remove AGNi PhoneKill app
-if [ -f /data/app/AGNi_PhoneKill.apk ] || [ -f /data/app/tfy.wwc.pwt-*.apk ];
-	then
-	/system/bin/pm uninstall tfy.wwc.pwt
-fi
-
 # AGNi reseter
 ### AGNi reset oc-uv on boot failure
 

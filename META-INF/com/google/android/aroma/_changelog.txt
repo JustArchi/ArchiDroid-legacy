@@ -1,6 +1,7 @@
 ArchiDroid 2.5.2
 
 - Included ArchiKernel, it's default kernel choice now
+- Updated all ArchiDroid backend tools to latest versions # They're now also compatible with every armv7-a NEON device, previously only CortexA9+
 - Updated PA GAPPS to 8 July
 - Reverted back to official Google PlayStore # This means that multi-dpi patch is not included anymore in the app itself, use xposed module or patch yourself
 - Updated sources

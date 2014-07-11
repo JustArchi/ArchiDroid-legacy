@@ -382,14 +382,6 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 			endif;
 		endif;
 
-		### GOOGY ###
-		if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "googy" then
-			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Flashing Googy Max Kernel");
-			package_extract_file("_archidroid/kernels/googy/boot.img", "/tmp/googy.img");
-			write_raw_image("/tmp/googy.img", "/dev/block/mmcblk0p5");
-			delete("/tmp/googy.img");
-		endif;
-
 		### DEVIL ###
 		if file_getprop("/tmp/aroma-data/archidroid.prop","kernel") == "devil" then
 			ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Flashing Devil Kernel");

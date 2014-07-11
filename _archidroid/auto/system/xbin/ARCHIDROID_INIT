@@ -28,19 +28,19 @@ ADMOUNTED() {
 ADTWEAK() {
 	# $1 - what we're changing
 	# $2 - to what we're changing
-	local CURRENT=$(cat "$1")
-	if [ "$CURRENT" = "$2" ]; then
-		echo "ADTWEAK: Value of $1 is already set to $CURRENT" >> "$LOG"
+	local CURRENT="$(cat "$1")"
+	if [[ "$CURRENT" = "$2" ]]; then
+		echo "ADTWEAK: Value of $1 is already set to $CURRENT"
 	else
 		echo "$2" > "$1"
-		echo "ADTWEAK: Tweaked $1 value from $CURRENT to $2" >> "$LOG"
+		echo "ADTWEAK: Tweaked $1 value from $CURRENT to $2"
 	fi
 }
 
 ADCRON() {
 	# $1 - Cron file to notify
 	# $2 - Optional content
-	if [ -e "$1" ]; then
+	if [[ -f "$1" ]]; then
 		rm -f "$1"
 	fi
 	echo "$2" > "$1"
@@ -67,7 +67,7 @@ ADSTOP() {
 			;;
 		"FRANDOM")
 			# Generic check if we're not doing something harmful
-			if [ -e /dev/urandom.orig ] && [ -e /dev/random.orig ]; then
+			if [[ -c /dev/urandom.orig && -c /dev/random.orig ]]; then
 				rm -f /dev/urandom && mv /dev/urandom.orig /dev/urandom
 				rm -f /dev/random && mv /dev/random.orig /dev/random
 			fi
@@ -111,137 +111,138 @@ ADSTART() {
 			ADSTART "archidroid_pixelserv"
 			;;
 		"FRANDOM")
-			if [ "$FRANDOM" -eq 1 ]; then
-				echo "INFO: Activating frandom!" >> "$LOG"
-				if [ ! -c /dev/frandom ]; then
-					echo "FRANDOM: frandom device not found, searching for frandom.ko kernel module..." >> "$LOG"
+			if [[ "$FRANDOM" -eq 1 ]]; then
+				echo "INFO: Activating frandom!"
+				if [[ ! -c /dev/frandom ]]; then
+					echo "FRANDOM: frandom device not found, searching for frandom.ko kernel module..."
 					for FRANDOMPATH in "/system/lib/modules" "/system/modules" "/lib/modules" "/modules"; do
-						if [ -f $FRANDOMPATH/frandom.ko ]; then
-							echo "FRANDOM: Loading frandom using $FRANDOMPATH/frandom.ko!" >> "$LOG"
-							insmod $FRANDOMPATH/frandom.ko
+						if [[ -f "$FRANDOMPATH/frandom.ko" ]]; then
+							echo "FRANDOM: Loading frandom using $FRANDOMPATH/frandom.ko!"
+							insmod "$FRANDOMPATH/frandom.ko"
 							sleep 1
 							break
 						fi
 					done
 				fi
-				if [ -c /dev/frandom ]; then
-					echo "FRANDOM: frandom device found, activating erandom!" >> "$LOG"
-					if [ ! -e /dev/urandom.orig ] && [ ! -e /dev/random.orig ]; then
-						mv /dev/urandom /dev/urandom.orig
-						ln /dev/erandom /dev/urandom
-						busybox chmod 644 /dev/urandom
-						mv /dev/random /dev/random.orig
-						ln /dev/frandom /dev/random
-						busybox chmod 644 /dev/random
-						echo "FRANDOM: Activated!" >> "$LOG"
+				if [[ -c /dev/frandom ]]; then
+					echo "FRANDOM: frandom device found, activating erandom!"
+					if [[ ! -c /dev/urandom.orig && ! -c /dev/random.orig ]]; then
+						mv /dev/urandom /dev/urandom.orig &&
+						ln /dev/erandom /dev/urandom &&
+						chmod 666 /dev/urandom
+
+						mv /dev/random /dev/random.orig &&
+						ln /dev/frandom /dev/random &&
+						chmod 666 /dev/random
+						echo "FRANDOM: Activated!"
 					else
-						echo "FRANDOM: It looks like frandom has been already loaded" >> "$LOG"
+						echo "FRANDOM: It looks like frandom has been already loaded"
 					fi
 				else
-					echo "FRANDOM: frandom device not found after loading, it looks like it's not provided by your kernel or failed to load!" >> "$LOG"
+					echo "FRANDOM: frandom device not found after loading, it looks like it's not provided by your kernel or failed to load!"
 				fi
 			else
-				echo "INFO: Frandom has been disabled" >> "$LOG"
+				echo "INFO: Frandom has been disabled"
 			fi
 			;;
 		"HAVEGED")
 			ADSTART "archidroid_haveged"
 			;;
 		"CRON")
-			echo "INFO: Activating ArchiDroid Cron!" >> "$LOG"
+			echo "INFO: Activating ArchiDroid Cron!"
 			setsid ARCHIDROID_CRON "background" &
 			;;
 		"archidroid_dnsmasq")
-			if [ "$ADBLOCK" -eq 1 ]; then
+			if [[ "$ADBLOCK" -eq 1 ]]; then
 				sysrw
-				if [ ! -e /system/archidroid/etc/hosts ]; then
-					if [ -e "$ADDEV/ADBLOCK_USE_ADAWAY_HOSTS" ]; then
+				if [[ ! -f /system/archidroid/etc/hosts ]]; then
+					if [[ -f "$ADDEV/ADBLOCK_USE_ADAWAY_HOSTS" ]]; then
 						ln -s /system/archidroid/etc/hosts_adaway /system/archidroid/etc/hosts
-					elif [ -e "$ADDEV/ADBLOCK_USE_MOAB_HOSTS" ]; then
+					elif [[ -f "$ADDEV/ADBLOCK_USE_MOAB_HOSTS" ]]; then
 						ln -s /system/archidroid/etc/hosts_moab /system/archidroid/etc/hosts
 					else
-						echo "ERROR: No adblock hosts mode specified!" >> "$LOG"
+						echo "WARNING: No adblock hosts mode specified!"
 					fi
 				else
-					if [ -e "$ADDEV/ADBLOCK_USE_ADAWAY_HOSTS" ]; then
-						if [ "$(readlink /system/archidroid/etc/hosts)" != "/system/archidroid/etc/hosts_adaway" ]; then
-							rm -f /system/archidroid/etc/hosts
+					if [[ -f "$ADDEV/ADBLOCK_USE_ADAWAY_HOSTS" ]]; then
+						if [[ "$(readlink /system/archidroid/etc/hosts)" != "/system/archidroid/etc/hosts_adaway" ]]; then
+							rm -f /system/archidroid/etc/hosts &&
 							ln -s /system/archidroid/etc/hosts_adaway /system/archidroid/etc/hosts
 						fi
-					elif [ -e "$ADDEV/ADBLOCK_USE_MOAB_HOSTS" ]; then
-						if [ "$(readlink /system/archidroid/etc/hosts)" != "/system/archidroid/etc/hosts_moab" ]; then
-							rm -f /system/archidroid/etc/hosts
+					elif [[ -f "$ADDEV/ADBLOCK_USE_MOAB_HOSTS" ]]; then
+						if [[ "$(readlink /system/archidroid/etc/hosts)" != "/system/archidroid/etc/hosts_moab" ]]; then
+							rm -f /system/archidroid/etc/hosts &&
 							ln -s /system/archidroid/etc/hosts_moab /system/archidroid/etc/hosts
 						fi
 					else
-						echo "ERROR: No adblock hosts mode specified!" >> "$LOG"
+						echo "ERROR: No adblock hosts mode specified!"
 					fi
 				fi
 				sysro
-				if [ ! -f "$ADPROC/resolv.conf" ]; then
+				if [[ ! -f "$ADPROC/resolv.conf" ]]; then
 					cp /system/etc/resolv.conf "$ADPROC/resolv.conf"
-					busybox chmod 644 "$ADPROC/resolv.conf"
+					#chmod 644 "$ADPROC/resolv.conf"
 				fi
 				local EXTRA="--all-servers -x $ADPROC/DNSMASQ.PID"
-				if [ "$ADBLOCKLOCALDNSES" -eq 1 ]; then
-					if [ "$ADBLOCKSTRICTORDER" -eq 1 ]; then
-						echo "ADBLOCK: Strict order enabled!" >> "$LOG"
+				if [[ "$ADBLOCKLOCALDNSES" -eq 1 ]]; then
+					if [[ "$ADBLOCKSTRICTORDER" -eq 1 ]]; then
+						echo "ADBLOCK: Strict order enabled!"
 						EXTRA+=" --strict-order"
 					fi
-					echo "ADBLOCK: Including local DNSes!" >> "$LOG"
-					if [ -d "$INTERNAL_EVENTS_DIR" ]; then
+					echo "ADBLOCK: Including local DNSes!"
+					if [[ -d "$INTERNAL_EVENTS_DIR" ]]; then
 						ADCRON "$INTERNAL_EVENTS_DIR/MONITOR_START_DNSDAEMON"
 					else
 						(sleep 10; ADCRON "$INTERNAL_EVENTS_DIR/MONITOR_START_DNSDAEMON") &
 					fi
 				else
-					if [ -d "$INTERNAL_EVENTS_DIR" ]; then
+					if [[ -d "$INTERNAL_EVENTS_DIR" ]]; then
 						ADCRON "$INTERNAL_EVENTS_DIR/MONITOR_STOP_DNSDAEMON"
 					fi
-					cp /system/etc/resolv.conf "$ADPROC/resolv.conf"
+					cp "/system/etc/resolv.conf" "$ADPROC/resolv.conf"
 				fi
-				echo "ADBLOCK: Activated archidroid_dnsmasq - local DNS server on 127.0.0.1:53, forwarding clean non-blocked traffic to specified DNS servers" >> "$LOG"
-				archidroid_dnsmasq $EXTRA -C /system/archidroid/etc/dnsmasq.conf
+				echo "ADBLOCK: Activated archidroid_dnsmasq - local DNS server on 127.0.0.1:53, forwarding clean non-blocked traffic to specified DNS servers"
+				archidroid_dnsmasq $EXTRA -C /system/archidroid/etc/dnsmasq.conf # Yes, we must break on spaces in this case
 				ADCRON "$INTERNAL_EVENTS_DIR/MONITOR_START_DNSMASQ"
 			fi
 			;;
 		"archidroid_dnsproxy2")
-			if [ "$ADBLOCK" -eq 1 ]; then
-				echo "ADBLOCK: Activated archidroid_dnsproxy2 - local proxy server, forwarding all DNS traffic to 127.0.0.1:53" >> "$LOG"
+			if [[ "$ADBLOCK" -eq 1 ]]; then
+				echo "ADBLOCK: Activated archidroid_dnsproxy2 - local proxy server, forwarding all DNS traffic to 127.0.0.1:53"
 				archidroid_dnsproxy2 -w 127.0.0.1 &
 				ADCRON "$INTERNAL_EVENTS_DIR/MONITOR_START_DNSPROXY2"
 			fi
 			;;
 		"archidroid_pixelserv")
-			if [ "$ADBLOCK" -eq 1 ]; then
-				echo "ADBLOCK: Activated archidroid_pixelserv - local web server on 127.0.0.1:80, responding with NULLGIF" >> "$LOG"
+			if [[ "$ADBLOCK" -eq 1 ]]; then
+				echo "ADBLOCK: Activated archidroid_pixelserv - local web server on 127.0.0.1:80, responding with NULLGIF"
 				archidroid_pixelserv 127.0.0.1 >/dev/null 2>&1 &
 				ADCRON "$INTERNAL_EVENTS_DIR/MONITOR_START_PIXELSERV"
 			fi
 			;;
 		"archidroid_haveged")
-			if [ "$HAVEGED" -eq 1 ]; then
-				echo "INFO: Activating haveged!" >> "$LOG"
-				local ENTROPY=1024 # Default: 128, Linux: 896, Max: 4096 - We want to make it high enough, but with considering battery life as well
+			if [[ "$HAVEGED" -eq 1 ]]; then
+				echo "INFO: Activating haveged!"
+				local ENTROPY="1024" # Default: 128, Linux: 896, Max: 4096 - We want to make it high enough, but with considering battery life as well
 				ADTWEAK "/proc/sys/vm/dirty_expire_centisecs" "1000"
 				ADTWEAK "/proc/sys/vm/dirty_writeback_centisecs" "500"
 
-				if [ -e /dev/random.orig ]; then
-					mv /dev/random /dev/random.TEMP
-					mv /dev/random.orig /dev/random
-					archidroid_haveged -p "$ADPROC/HAVEGED.PID" -w $ENTROPY >/dev/null 2>&1
-					sleep 2 # Let's give haveged some time to initialize
-					mv /dev/random /dev/random.orig
+				if [[ -c /dev/random.orig ]]; then
+					mv /dev/random /dev/random.TEMP &&
+					mv /dev/random.orig /dev/random &&
+					archidroid_haveged -p "$ADPROC/HAVEGED.PID" -w "$ENTROPY" >/dev/null 2>&1 &&
+					sleep 2 && # Let's give haveged some time to initialize
+					mv /dev/random /dev/random.orig &&
 					mv /dev/random.TEMP /dev/random
 				else
-					archidroid_haveged -p "$ADPROC/HAVEGED.PID" -w $ENTROPY >/dev/null 2>&1
+					archidroid_haveged -p "$ADPROC/HAVEGED.PID" -w "$ENTROPY" >/dev/null 2>&1 &&
 					sleep 2 # Let's give haveged some time to initialize
 				fi
 
-				echo "INFO: Activated archidroid_haveged - HArdware Volatile Entropy Gathering and Expansion Daemon, regenerating kernel's entropy pool" >> "$LOG"
-				echo "HAVEGED: Entropy levels: Android default: 128, Linux: 896, Max: 4096" >> "$LOG"
-				echo "HAVEGED: ArchiDroid entropy set to: $ENTROPY. Available entropy can't get below this level" >> "$LOG"
-				echo "HAVEGED: Current available entropy: $(cat /proc/sys/kernel/random/entropy_avail)" >> "$LOG"
+				echo "INFO: Activated archidroid_haveged - HArdware Volatile Entropy Gathering and Expansion Daemon, regenerating kernel's entropy pool"
+				echo "HAVEGED: Entropy levels: Android default: 128, Linux: 896, Max: 4096"
+				echo "HAVEGED: ArchiDroid entropy set to: $ENTROPY. Available entropy can't get below this level"
+				echo "HAVEGED: Current available entropy: $(cat /proc/sys/kernel/random/entropy_avail)"
 				ADCRON "$INTERNAL_EVENTS_DIR/MONITOR_START_HAVEGED"
 			fi
 			;;
@@ -270,20 +271,24 @@ ADDEV="$ADSYS/dev"
 ADPROC="$ADSYS/tmpfs"
 ADCRON="$ADPROC/cron"
 LOG="$AD/Init.log" # "/dev/null" is no verbose
-RUNONCELOG="$AD/RunOnce.log"
+#RUNONCELOG="$AD/RunOnce.log" # Unused
 ADSTATUS="$ADPROC/ARCHIDROID_INIT_STATUS"
 ADCRONSTATUS="$ADPROC/ARCHIDROID_CRON_STATUS"
 INTERNAL_EVENTS_DIR="$ADCRON/events/internal"
 
+# Debug
+exec 1>>"$LOG"
+exec 2>&1
+
 # Exit if barebones preset was used
-if [ -e /system/archidroid/dev/PRESET_BAREBONES ]; then
+if [[ -f "/system/archidroid/dev/PRESET_BAREBONES" ]]; then
 	exit 0
 fi
 
 # Exit if user wiped data without reflashing
-if [ ! -f "/data/ARCHIDROID_DONT_REMOVE_ME" ] ; then
+if [[ ! -f "/data/ARCHIDROID_DONT_REMOVE_ME" ]] ; then
 	if ADMOUNTED "/data"; then
-		echo "ERROR: ArchiDroid is not compatible with wiping data, please reflash your system!" >> "$LOG"
+		echo "ERROR: ArchiDroid is not compatible with wiping data, please reflash your system!"
 		sync
 		reboot recovery || poweroff
 	else
@@ -292,25 +297,22 @@ if [ ! -f "/data/ARCHIDROID_DONT_REMOVE_ME" ] ; then
 	fi
 fi
 
-mkdir -p "$ADPROC"
-busybox chmod 755 "$ADPROC"
-
 # Initial ArchiDroid dev status
-if [ -e $ADDEV/HAVEGED_ENABLED ]; then
+if [[ -f "$ADDEV/HAVEGED_ENABLED" ]]; then
 	HAVEGED=1
 else
 	HAVEGED=0
 fi
-if [ -e $ADDEV/FRANDOM_ENABLED ]; then
+if [[ -f "$ADDEV/FRANDOM_ENABLED" ]]; then
 	FRANDOM=1
 else
 	FRANDOM=0
 fi
-if [ -e $ADDEV/ADBLOCK_ENABLED ]; then
+if [[ -f "$ADDEV/ADBLOCK_ENABLED" ]]; then
 	ADBLOCK=1
-	if [ -e $ADDEV/ADBLOCK_LOCAL_DNSES_ENABLED ]; then
+	if [[ -f "$ADDEV/ADBLOCK_LOCAL_DNSES_ENABLED" ]]; then
 		ADBLOCKLOCALDNSES=1
-		if [ -e $ADDEV/ADBLOCK_FORCE_LOCAL_DNSES ]; then
+		if [[ -f "$ADDEV/ADBLOCK_FORCE_LOCAL_DNSES" ]]; then
 			ADBLOCKSTRICTORDER=1
 		else
 			ADBLOCKSTRICTORDER=0
@@ -322,7 +324,7 @@ else
 	ADBLOCK=0
 fi
 
-if [ "$1" = "RELOAD" ] || [ "$1" = "STOP" ] || [ "$1" = "START" ]; then
+if [[ "$1" = "RELOAD" || "$1" = "STOP" || "$1" = "START" ]]; then
 	# Allow that regardless of adstatus
 	LOG="/dev/null"
 	case "$1" in
@@ -331,31 +333,34 @@ if [ "$1" = "RELOAD" ] || [ "$1" = "STOP" ] || [ "$1" = "START" ]; then
 		"STOP") ADSTOP "$2" ;;
 	esac
 	exit 0
-elif [ ! -e $ADSTATUS ]; then
+elif [[ ! -f "$ADSTATUS" ]]; then
 	# First boot, good
-	echo $$ > $ADSTATUS
+	# debuggerd and init.d are executed in the nearly same moment, which may cause typical race condition here
+	# It's very likely that these childs will enter this segment in the same moment, we must stop it right here
+	# If we're not the lowest PID of all the PIDs from the same process, exit
+	if [[ "$(pidof "$(basename "$0")" | awk '{print $1}')" != "$$" ]]; then
+		exit 0
+	fi
+	mkdir -p "$ADPROC"
+	mount -t tmpfs tmpfs "$ADPROC"
+	echo "$$" > "$ADSTATUS"
 else
 	ADSIGNAL="$(cat $ADSTATUS)"
-	if [ "$ADSIGNAL" = "FINISHED" ]; then
+	if [[ "$ADSIGNAL" = "FINISHED" ]]; then
 		# Something tried to execute already finished init, halt
 		echo "This script has been executed already"
 		exit 0
-	elif [ "$ADSIGNAL" = "RESTART" ]; then
+	elif [[ "$ADSIGNAL" = "RESTART" ]]; then
 		# Backend restarts itself, good to know, allow that
-		echo $$ > $ADSTATUS
-	elif [ -d "/proc/$ADSIGNAL" ]; then
+		echo "$$" > "$ADSTATUS"
+	elif [[ -d "/proc/$ADSIGNAL" ]]; then
 		# Something tried to execute already running init, double-execution?
 		exit 3
 	else
 		# Old PID is dead and didn't exit properly, allow that for now
-		echo $$ > $ADSTATUS
+		echo "$$" > "$ADSTATUS"
 	fi
 fi
-
-# Redirect stderr to our log, just in case something bad happen
-#exec 1>"$LOG" # Use "exec 1>>"$LOG"" for append
-> "$LOG" # This is the same as echo -n "" > "$LOG" but it's compatible with POSIX standard, while echo flags are not
-exec 2>>"$LOG"
 
 # Parse args to variables
 BACKGROUND=0
@@ -365,25 +370,23 @@ for ARG in "$@"; do
 	esac
 done
 
-
-date >> "$LOG"
-echo "ArchiDroid $(getprop ro.archidroid.version)" >> "$LOG"
-uname -a >> "$LOG"
-echo "INFO: ArchiDroid_Init executed!" >> "$LOG"
-
-# Now we need to make sure that this is background process to prevent slowing down bootup
-if [ $BACKGROUND -ne 1 ]; then
+# Now we need to make sure that this is a background process to prevent slowing down bootup
+if [[ "$BACKGROUND" -ne 1 ]]; then
 	# We're not running in background, let's start a child and tell him that he's running in background
-	echo "INFO: Spawning child!" >> "$LOG"
-	echo "RESTART" > $ADSTATUS
+	echo "RESTART" > "$ADSTATUS"
 	"$0" "background" "$@" &
-	
 	# Nothing to do here anymore, exit call
-	exit 1
-else
-	# We're running in background so let's proceed
-	echo "INFO: I'm a child!" >> "$LOG"
+	exit 0
 fi
+
+# Redirect stdout and stderr to our log, just in case something bad happen
+#exec 1>"$LOG"
+#exec 2>&1
+
+date
+echo "ArchiDroid $(getprop ro.archidroid.version)"
+uname -a
+echo "INFO: ArchiDroid_Init executed!"
 
 
 #   ____
@@ -393,38 +396,34 @@ fi
 #  \____|\___/ |_|   \___|
 #
 # Which mode are we using?
-# 0 - CyanogenMod
-# 1 - Sammy
+# 0 - Sammy
+# 1 - CyanogenMod
 # 2 - Omni
-ROM=1 # Default to sammy
-if [ $(grep -qi "ro.omni.version" "/system/build.prop"; echo $?) -eq 0 ]; then
+ROM=0 # Default to sammy
+if [[ "$(grep -qi "ro.cm.version" "/system/build.prop"; echo $?)" -eq 0 ]]; then
+	ROM=1 # OK, definitely CM
+elif [[ "$(grep -qi "ro.omni.version" "/system/build.prop"; echo $?)" -eq 0 ]]; then
 	ROM=2 # OK, definitely Omni
-elif [ $(grep -qi "ro.cm.version" "/system/build.prop"; echo $?) -eq 0 ]; then
-	ROM=0 # OK, definitely CM
 fi
 
 # Bring su daemon if available
-if [ -e /system/xbin/daemonsu ]; then
-	echo "INFO: SuperSU daemon found, calling daemonsu!" >> "$LOG"
-	/system/xbin/daemonsu --auto-daemon &
+if [[ ! -z "$(which daemonsu)" ]]; then
+	echo "INFO: SuperSU daemon found, calling daemonsu!"
+	daemonsu --auto-daemon &
 fi
 
 # Custom boot sound support
-if [ -e $AD/PowerOn.wav ]; then
-	tinyplay $AD/PowerOn.wav > /dev/null 2>&1 &
+if [[ -f "$AD/PowerOn.wav" && ! -z "$(which tinyplay)" ]]; then
+	tinyplay "$AD/PowerOn.wav" >/dev/null 2>&1 &
 fi
 
-# ArchiDroid tmpfs
-mkdir -p "$ADPROC"
-mount -t tmpfs tmpfs "$ADPROC"
-
 # ArchiDroid Hardswap
-if [ "$(busybox swapon --help 2>&1 | grep -qi "\-p pri"; echo $?)" -eq 0 ]; then
+if [[ "$(busybox swapon --help 2>&1 | grep -qi "\-p pri"; echo $?)" -eq 0 ]]; then
 	HSEXTRA="-p 10"
 fi
 for HSPATH in "/cache" "/preload" "/storage/sdcard1"; do
-	if [ -f "$HSPATH/ArchiDroid.swp" ]; then
-		echo "INFO: Found ArchiDroid swap file in $HSPATH directory, $(busybox du -mh "$HSPATH/ArchiDroid.swp" | cut -f1)" >> "$LOG"
+	if [[ -f "$HSPATH/ArchiDroid.swp" ]]; then
+		echo "INFO: Found ArchiDroid swap file in $HSPATH directory, $(busybox du -mh "$HSPATH/ArchiDroid.swp" | awk '{print $1}')"
 		busybox swapon $HSEXTRA "$HSPATH/ArchiDroid.swp" # Yes, we must break on spaces in this case
 	fi
 done
@@ -432,66 +431,38 @@ done
 # ArchiDroid services
 ADSTART "ALL"
 
-# Sqlite VACUUM & REINDEX, disabled for a while
-if [ $ROM -eq 9 ]; then #Always false
-	echo "INFO: Performing VACUUM & REINDEX of databases" >> "$LOG"
-	mount -o remount,rw /
-	for i in $(busybox find /data/data -iname "*.db"); do
-		sqlite3 $i 'VACUUM;'
-		sqlite3 $i 'REINDEX;'
-	done
-	for i in $(busybox find /data/system -iname "*.db"); do
-		sqlite3 $i 'VACUUM;'
-		sqlite3 $i 'REINDEX;'
-	done
-	mount -o remount,ro /
-fi
-
-# Zipalign, disabled for a while
-if [ $ROM -eq 9 ]; then #Always false
-	echo "INFO: Performing ZIPALIGN of apks" >> "$LOG"
-	for apk in /data/app/*.apk ; do
-		zipalign -c 4 $apk;
-		ZIPCHECK=$?;
-		if [ $ZIPCHECK -eq 1 ]; then
-			zipalign -f 4 $apk /cache/$(basename $apk)
-			if [ -e /cache/$(basename $apk) ]; then
-				cp -f /cache/$(basename $apk) $apk
-				rm -f /cache/$(basename $apk)
-				busybox chmod 644 $apk
-			fi
-		fi
-	done
-fi
-
 # ArchiDroid Semaphore
 # Wait until we see some android processes to consider boot is more or less complete (credits to AndiP71)
 # Also respect number of loops, maybe something went wrong
-echo "INFO: Init Semaphore started" >> "$LOG"
+echo "INFO: Init Semaphore started"
 LOOP=0
-while ! pgrep com.android && [ $LOOP -lt 300 ] ; do
-	LOOP=$(expr $LOOP + 1)
-	sleep 2
+while ! pgrep com.android.systemu>/dev/null 2>&1 && [[ "$LOOP" -lt 600 ]]; do
+	((LOOP++))
+	sleep 1
 done
 
-if [ $LOOP -ge 300 ]; then
-	echo "ERROR: I looped $LOOP times and needed to exit from infinite loop, not good (Init Semaphore)" >> "$LOG"
+if [[ "$LOOP" -ge 600 ]]; then
+	echo "ERROR: I looped $LOOP times and needed to exit from infinite loop, not good (Init Semaphore)"
 else
-	echo "INFO: I looped $LOOP times and didn't have to exit from infinite loop, that's nice (Init Semaphore)" >> "$LOG"
+	echo "INFO: I looped $LOOP times and didn't have to exit from infinite loop, that's nice (Init Semaphore)"
 fi
 
 # Execute a reboot if we need it
-if [ -e $AD/HARD_REBOOT_REQUIRED ]; then
-	echo "INFO: HARD_REBOOT_REQUIRED found, I'm rebooting device now..." >> "$LOG"
-	rm -f $AD/SOFT_REBOOT_REQUIRED
-	rm -f $AD/HARD_REBOOT_REQUIRED
-	tinyplay $ADSYS/system/reboot.wav > /dev/null 2>&1
+if [[ -f "$AD/HARD_REBOOT_REQUIRED" ]]; then
+	echo "INFO: HARD_REBOOT_REQUIRED found, I'm rebooting device now..."
+	rm -f "$AD/SOFT_REBOOT_REQUIRED"
+	rm -f "$AD/HARD_REBOOT_REQUIRED"
+	if [[ -f "$ADSYS/system/reboot.wav" && ! -z "$(which tinyplay)" ]]; then
+		tinyplay "$ADSYS/system/reboot.wav" >/dev/null 2>&1
+	fi
 	sync
 	reboot
-elif [ -e $AD/SOFT_REBOOT_REQUIRED ]; then
-	echo "INFO: SOFT_REBOOT_REQUIRED found, I'm rebooting android interface now..." >> "$LOG"
-	rm -f $AD/SOFT_REBOOT_REQUIRED
-	tinyplay $ADSYS/system/reboot.wav > /dev/null 2>&1 &
+elif [[ -f "$AD/SOFT_REBOOT_REQUIRED" ]]; then
+	echo "INFO: SOFT_REBOOT_REQUIRED found, I'm rebooting android interface now..."
+	rm -f "$AD/SOFT_REBOOT_REQUIRED"
+	if [[ -f "$ADSYS/system/reboot.wav" && ! -z "$(which tinyplay)" ]]; then
+		tinyplay "$ADSYS/system/reboot.wav" >/dev/null 2>&1 &
+	fi
 	sync
 	setprop ctl.restart surfaceflinger
 	setprop ctl.restart zygote
@@ -505,96 +476,20 @@ sleep 30
 ####################################
 
 # Delete RunOnce if needed
-if [ ! -z $(which ARCHIDROID_RUNONCE) ]; then
-	echo "WARNING: RunOnce found, trying to remove it!" >> "$LOG"
+if [[ ! -z "$(which ARCHIDROID_RUNONCE)" ]]; then
+	echo "WARNING: RunOnce found, trying to remove it!"
 	sysrw || mount -o remount,rw /system
-	rm -f $(which ARCHIDROID_RUNONCE)
-	if [ -z $(which ARCHIDROID_RUNONCE) ]; then
-		echo "INFO: Success!" >> "$LOG"
+	rm -f "$(which ARCHIDROID_RUNONCE)" "$AD/ARCHIDROID_RUNONCE_STATUS"
+	if [[ -z "$(which ARCHIDROID_RUNONCE)" ]]; then
+		echo "INFO: Success!"
 		sysro || mount -o remount,ro /system
-		rm -f "$AD/ARCHIDROID_RUNONCE_STATUS"
 	else
-		echo "ERROR: Failed!" >> "$LOG"
+		echo "ERROR: Failed!"
 	fi
-else
-	rm -f "$AD/ARCHIDROID_RUNONCE_STATUS"
-fi
-
-# Mount external sd card if needed
-if [ -e /dev/block/mmcblk1p1 ] && [ $(mount | grep -qi "sdcard1"; echo $?) -ne 0 ] && [ $(mount | grep -qi "extSdCard"; echo $?) -ne 0 ]; then
-	# Initial idea by AndiP71, aka Lord Boeffla
-	# Further improvements by JustArchi
-
-	echo "INFO: Detected sd card but it's not mounted yet, mounting..." >> "$LOG"
-	KEEPGOING=1
-	if [ $(lsmod | grep -qi "exfat"; echo $?) -ne 0 ]; then
-		echo "WARNING: No exfat module found, it's either compiled in kernel or not loaded. Blindly loading..." >> "$LOG"
-		busybox insmod /system/lib/modules/exfat_core.ko >/dev/null 2>&1
-		busybox insmod /system/lib/modules/exfat_fs.ko >/dev/null 2>&1
-		echo "INFO: Blind load completed, proceeding with mounting now..."
-	fi
-
-	if [ -e /storage/sdcard1 ]; then
-		EXTSDPATH="/storage/sdcard1"
-	elif [ -e /storage/extSdCard ]; then
-		EXTSDPATH="/storage/extSdCard"
-	else
-		EXTSDPATH="UNKNOWN"
-	fi
-
-	if [ -e /dev/block/vold/179:49 ]; then
-		EXTSDMOUNT="/dev/block/vold/179:49"
-		echo "INFO: Mounting through vold 179:49!" >> "$LOG"
-		busybox mount -t auto $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
-		if [ $(mount | grep -qi "sdcard1"; echo $?) -ne 0 ] && [ $(mount | grep -qi "extSdCard"; echo $?) -ne 0 ]; then
-			echo "WARNING: Failed!" >> "$LOG"
-		else
-			echo "INFO: Success!" >> "$LOG"
-			KEEPGOING=0
-		fi
-	fi
-
-	if [ $KEEPGOING -eq 1 ]; then
-		EXTSDMOUNT="/dev/block/mmcblk1p1"
-		echo "INFO: Mounting through mmcblk1p1!" >> "$LOG"
-		busybox mount -t auto $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
-		if [ $(mount | grep -qi "sdcard1"; echo $?) -ne 0 ] && [ $(mount | grep -qi "extSdCard"; echo $?) -ne 0 ]; then
-			echo "WARNING: Failed!" >> "$LOG"
-		else
-			echo "INFO: Success!" >> "$LOG"
-			KEEPGOING=0
-		fi
-	fi
-
-	if [ $KEEPGOING -eq 1 ]; then
-		echo "INFO: Trying panic mode!" >> "$LOG"
-		EXTSDMOUNT="/dev/block/vold/179:49"
-		mount -t exfat $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
-		mount -t ext4 $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
-		mount -t vfat $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
-		EXTSDMOUNT="/dev/block/mmcblk1p1"
-		mount -t exfat $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
-		mount -t ext4 $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
-		mount -t vfat $EXTSDMOUNT $EXTSDPATH >/dev/null 2>&1
-		if [ $(mount | grep -qi "sdcard1"; echo $?) -ne 0 ] && [ $(mount | grep -qi "extSdCard"; echo $?) -ne 0 ]; then
-			echo "WARNING: Failed!" >> "$LOG"
-		else
-			echo "INFO: Success!" >> "$LOG"
-			KEEPGOING=0
-		fi
-	fi
-
-	if [ $(mount | grep -qi "sdcard1"; echo $?) -ne 0 ] && [ $(mount | grep -qi "extSdCard"; echo $?) -ne 0 ]; then
-			echo "ERROR: I failed to mount external sd card with automatic filesystem. Giving up here!" >> "$LOG"
-	else
-		echo "INFO: Successfully mounted external sd card!" >> "$LOG"
-	fi
-else
-	echo "INFO: OK, I don't need to mount external sd card" >> "$LOG"
 fi
 
 # Finish
-echo "FINISHED" > $ADSTATUS
-echo "INFO: ArchiDroid Init finished" >> "$LOG"
-echo "$(date)" >> "$LOG"
+echo "FINISHED" > "$ADSTATUS"
+echo "INFO: ArchiDroid Init finished"
+date
 exit 0

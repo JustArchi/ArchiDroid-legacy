@@ -3,6 +3,7 @@ ArchiDroid 1.7.17
 - [!] Added ArchiKernel # For perfect synergy!
 - ArchiKernel is default kernel choice now
 - Fixed rebooting to recovery after plugging charger to powered down phone in ArchiDroid 1.X
+- Fixed ArchiDroid backend not being executed in some scenarios
 - Implemented QuickBoot, available in developer settings # Thanks to @cheveguerra
 - Removed Googy Max kernel # You can still use it if you want, I just don't keep EOLed kernels in AROMA
 - Removed Devil kernel # Same as above

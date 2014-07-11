@@ -343,7 +343,7 @@ else
 	elif [ "$ADSIGNAL" = "RESTART" ]; then
 		# Backend restarts itself, good to know, allow that
 		echo $$ > $ADSTATUS
-	elif [ -d "/proc/$ADSIGNAL" ]; then
+	elif [ -d "/proc/$ADSTATUS" ]; then
 		# Something tried to execute already running init, double-execution?
 		exit 3
 	else

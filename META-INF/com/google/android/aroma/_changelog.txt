@@ -12,6 +12,8 @@ ArchiDroid 2.5.1
 - Updated all ArchiDroid backend tools to latest versions # They're now also compatible with every armv7-a NEON device, previously only CortexA9+
 - Updated PA GAPPS to 8 July
 - Reverted back to official Google PlayStore # This means that multi-dpi patch is not included anymore in the app itself, use xposed module or patch yourself
+- PlayStoreFix is now included with Xposed
+- App Settings is now included with Xposed
 - Updated BetterBatteryStats to 1.16 RC5
 - Updated XPrivacy to 2.1.24
 - Updated GravityBox to 3.2.5

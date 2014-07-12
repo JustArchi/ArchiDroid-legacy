@@ -54,11 +54,11 @@ ADCRONWAIT() {
 ADSTOP() {
 	case "$1" in
 		"ALL")
-			ADSTOP "TMPFS"
 			ADSTOP "HAVEGED"
 			ADSTOP "FRANDOM"
 			ADSTOP "ADBLOCK"
 			ADSTOP "CRON"
+			ADSTOP "TMPFS"
 			;;
 		"ADBLOCK")
 			ADSTOP "archidroid_dnsmasq"

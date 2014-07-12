@@ -142,11 +142,9 @@ if [[ "$SAMMY" -eq 0 && "$NOBUILD" -eq 0 ]]; then
 			fi
 		fi
 		if [[ -d "$ADOUT" ]]; then
-			cd "$ADOUT"
-			for f in `ls` ; do
-				if [[ "$f" != "obj" ]]; then
-					rm -rf $f
-				fi
+			find "$ADOUT" -mindepth 1 -maxdepth 1 -iname "$ADZIP"*.zip | while read line; do
+				echo "Removing $line"
+				rm -f "$line"
 			done
 		fi
 		cd "$ADCOMPILEROOT"

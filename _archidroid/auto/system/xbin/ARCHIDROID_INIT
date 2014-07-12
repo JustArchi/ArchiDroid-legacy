@@ -54,6 +54,7 @@ ADCRONWAIT() {
 ADSTOP() {
 	case "$1" in
 		"ALL")
+			ADSTOP "TMPFS"
 			ADSTOP "HAVEGED"
 			ADSTOP "FRANDOM"
 			ADSTOP "ADBLOCK"
@@ -75,6 +76,12 @@ ADSTOP() {
 		"HAVEGED")
 			ADSTOP "archidroid_haveged"
 			;;
+		"CRON") ADCRON "$ADCRONSTATUS" "STOPPED" ;;
+		"TMPFS")
+			if ADMOUNTED "$ADTMPFS"; then
+				umount "$ADTMPFS"
+			fi
+			;;
 		archidroid_haveged)
 			ADCRONWAIT "$INTERNAL_EVENTS_DIR/MONITOR_STOP_HAVEGED"
 			kill "$(pidof archidroid_haveged)" >/dev/null 2>&1
@@ -92,7 +99,6 @@ ADSTOP() {
 			ADCRONWAIT "$INTERNAL_EVENTS_DIR/MONITOR_STOP_PIXELSERV"
 			kill "$(pidof archidroid_pixelserv)" >/dev/null 2>&1
 			;;
-		"CRON") ADCRON "$ADCRONSTATUS" "STOPPED" ;;
 		*) kill "$(pidof "$1")" >/dev/null 2>&1
 	esac
 }
@@ -100,6 +106,7 @@ ADSTOP() {
 ADSTART() {
 	case "$1" in
 		"ALL")
+			ADSTART "TMPFS"
 			ADSTART "CRON"
 			ADSTART "HAVEGED"
 			ADSTART "FRANDOM"
@@ -152,6 +159,12 @@ ADSTART() {
 			echo "INFO: Activating ArchiDroid Cron!"
 			setsid ARCHIDROID_CRON "background" &
 			;;
+		"TMPFS")
+			if ! ADMOUNTED "$ADTMPFS"; then
+				mkdir -p "$ADTMPFS"
+				mount -t tmpfs tmpfs "$ADTMPFS"
+			fi
+			;;
 		"archidroid_dnsmasq")
 			if [[ "$ADBLOCK" -eq 1 ]]; then
 				sysrw
@@ -179,11 +192,10 @@ ADSTART() {
 					fi
 				fi
 				sysro
-				if [[ ! -f "$ADPROC/resolv.conf" ]]; then
-					cp /system/etc/resolv.conf "$ADPROC/resolv.conf"
-					#chmod 644 "$ADPROC/resolv.conf"
+				if [[ ! -f "$ADTMPFS/resolv.conf" ]]; then
+					cp -p /system/etc/resolv.conf "$ADTMPFS/resolv.conf"
 				fi
-				local EXTRA="--all-servers -x $ADPROC/DNSMASQ.PID"
+				local EXTRA="--all-servers -x $ADTMPFS/DNSMASQ.PID"
 				if [[ "$ADBLOCKLOCALDNSES" -eq 1 ]]; then
 					if [[ "$ADBLOCKSTRICTORDER" -eq 1 ]]; then
 						echo "ADBLOCK: Strict order enabled!"
@@ -199,7 +211,7 @@ ADSTART() {
 					if [[ -d "$INTERNAL_EVENTS_DIR" ]]; then
 						ADCRON "$INTERNAL_EVENTS_DIR/MONITOR_STOP_DNSDAEMON"
 					fi
-					cp "/system/etc/resolv.conf" "$ADPROC/resolv.conf"
+					cp "/system/etc/resolv.conf" "$ADTMPFS/resolv.conf"
 				fi
 				echo "ADBLOCK: Activated archidroid_dnsmasq - local DNS server on 127.0.0.1:53, forwarding clean non-blocked traffic to specified DNS servers"
 				archidroid_dnsmasq $EXTRA -C /system/archidroid/etc/dnsmasq.conf # Yes, we must break on spaces in this case
@@ -230,12 +242,12 @@ ADSTART() {
 				if [[ -c /dev/random.orig ]]; then
 					mv /dev/random /dev/random.TEMP &&
 					mv /dev/random.orig /dev/random &&
-					archidroid_haveged -p "$ADPROC/HAVEGED.PID" -w "$ENTROPY" >/dev/null 2>&1 &&
+					archidroid_haveged -p "$ADTMPFS/HAVEGED.PID" -w "$ENTROPY" >/dev/null 2>&1 &&
 					sleep 2 && # Let's give haveged some time to initialize
 					mv /dev/random /dev/random.orig &&
 					mv /dev/random.TEMP /dev/random
 				else
-					archidroid_haveged -p "$ADPROC/HAVEGED.PID" -w "$ENTROPY" >/dev/null 2>&1 &&
+					archidroid_haveged -p "$ADTMPFS/HAVEGED.PID" -w "$ENTROPY" >/dev/null 2>&1 &&
 					sleep 2 # Let's give haveged some time to initialize
 				fi
 
@@ -253,10 +265,11 @@ ADRELOAD() {
 	case "$1" in
 		"ALL")
 			shift 1
+			ADRELOAD "TMPFS"
+			ADRELOAD "CRON"
 			ADRELOAD "HAVEGED"
 			ADRELOAD "FRANDOM"
 			ADRELOAD "ADBLOCK"
-			ADRELOAD "CRON"
 			;;
 		*)
 			ADSTOP "$1"
@@ -268,12 +281,12 @@ ADRELOAD() {
 AD="/data/media/0/ArchiDroid"
 ADSYS="/system/archidroid"
 ADDEV="$ADSYS/dev"
-ADPROC="$ADSYS/tmpfs"
-ADCRON="$ADPROC/cron"
+ADTMPFS="$ADSYS/tmpfs"
+ADCRON="$ADTMPFS/cron"
 LOG="$AD/Init.log" # "/dev/null" is no verbose
 #RUNONCELOG="$AD/RunOnce.log" # Unused
-ADSTATUS="$ADPROC/ARCHIDROID_INIT_STATUS"
-ADCRONSTATUS="$ADPROC/ARCHIDROID_CRON_STATUS"
+ADSTATUS="$ADTMPFS/ARCHIDROID_INIT_STATUS"
+ADCRONSTATUS="$ADTMPFS/ARCHIDROID_CRON_STATUS"
 INTERNAL_EVENTS_DIR="$ADCRON/events/internal"
 
 # Exit if barebones preset was used
@@ -337,8 +350,7 @@ elif [[ ! -f "$ADSTATUS" ]]; then
 	if [[ "$(pidof "$(basename "$0")" | awk '{print $1}')" != "$$" ]]; then
 		exit 0
 	fi
-	mkdir -p "$ADPROC"
-	mount -t tmpfs tmpfs "$ADPROC"
+	ADSTART "TMPFS"
 	echo "$$" > "$ADSTATUS"
 else
 	ADSIGNAL="$(cat $ADSTATUS)"
@@ -432,7 +444,7 @@ ADSTART "ALL"
 # Also respect number of loops, maybe something went wrong
 echo "INFO: Init Semaphore started"
 LOOP=0
-while ! pgrep com.android.systemu>/dev/null 2>&1 && [[ "$LOOP" -lt 600 ]]; do
+while ! pgrep com.android.systemu >/dev/null 2>&1 && [[ "$LOOP" -lt 600 ]]; do
 	((LOOP++))
 	sleep 1
 done

@@ -21,168 +21,158 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+ADMOUNTED() {
+	return "$(mount | grep -qi "$1"; echo $?)"
+}
+
 # Initial variables, you should NOT change them unless you know what you're doing
 AD="/data/media/0/ArchiDroid"
 ADSYS="/system/archidroid"
+ADTMPFS="$ADSYS/tmpfs"
 LOG="$AD/RunOnce.log" # "/dev/null" is no verbose
-LOG2="$AD/RunOnce.log.0"
-ADSTATUS="$AD/ARCHIDROID_RUNONCE_STATUS"
+ADSTATUS="$ADTMPFS/ARCHIDROID_RUNONCE_STATUS"
 
-if [ ! -e "$AD" ]; then
+if [[ ! -d "$AD" ]]; then
 	exit 0
 fi
 
 # Exit if barebones preset was used
-if [ -e /system/archidroid/dev/PRESET_BAREBONES ]; then
+if [[ -f /system/archidroid/dev/PRESET_BAREBONES ]]; then
 	exit 0
 fi
 
 # Exit if user wiped data without reflashing
-if [ ! -f /data/ARCHIDROID_DONT_REMOVE_ME ]; then
-	echo "ERROR: ArchiDroid is not compatible with wiping data, please reflash your system!" >> "$LOG"
-	sync
-	reboot recovery || poweroff
+if [[ ! -f "/data/ARCHIDROID_DONT_REMOVE_ME" ]] ; then
+	if ADMOUNTED "/data"; then
+		echo "ERROR: ArchiDroid is not compatible with wiping data, please reflash your system!"
+		sync
+		reboot recovery || poweroff
+	else
+		# User is probably only charging his device, that's fine
+		exit 0
+	fi
 fi
 
-if [ ! -e "$ADSTATUS" ]; then
+if [[ ! -f "$ADSTATUS" ]]; then
 	# First boot, good
-	echo "$$" > "$ADSTATUS"
-
-	# Manage fallback log
-	if [ -e "$LOG" ]; then
-		rm -f "$LOG2"
-		mv "$LOG" "$LOG2"
+	# debuggerd and init.d are executed in the nearly same moment, which may cause typical race condition here
+	# It's very likely that these childs will enter this segment in the same moment, we must stop it right here
+	# If we're not the lowest PID of all the PIDs from the same process, exit
+	if [[ "$(pidof "$(basename "$0")" | awk '{print $1}')" != "$$" ]]; then
+		exit 0
 	fi
+	ARCHIDROID_INIT "START" "TMPFS"
+	echo "$$" > "$ADSTATUS"
 else
 	ADSIGNAL="$(cat $ADSTATUS)"
-	if [ "$ADSIGNAL" = "FINISHED" ]; then
+	if [[ "$ADSIGNAL" = "FINISHED" ]]; then
 		# Something tried to execute already finished init, halt
 		echo "This script has been executed already"
 		exit 0
-	elif [ "$ADSIGNAL" = "RESTART" ]; then
+	elif [[ "$ADSIGNAL" = "RESTART" ]]; then
 		# Backend restarts itself, good to know, allow that
-		echo $$ > $ADSTATUS
-	elif [ -d "/proc/$ADSIGNAL" ]; then
+		echo "$$" > "$ADSTATUS"
+	elif [[ -d "/proc/$ADSIGNAL" ]]; then
 		# Something tried to execute already running init, double-execution?
 		exit 3
 	else
 		# Old PID is dead and didn't exit properly, allow that for now
-		echo $$ > $ADSTATUS
+		echo "$$" > "$ADSTATUS"
 	fi
 fi
-
-# Redirect stderr to our log, just in case something bad happen
-#exec 1>$LOG # Use "exec 1>>$LOG" for append
-> "$LOG" # This is the same as echo -n "" > "$LOG" but it's compatible with POSIX standard, while echo flags are not
-exec 2>>"$LOG"
-
-DBUPDATE() {
-	# Thanks to idcrisis, modified by JustArchi
-	local DONE=0
-	local TRY=0
-	local VAL1=""
-	local VAL2=""
-	local ID=""
-
-	while [ "$DONE" -ne 1 ] ; do
-		TRY=$(expr $TRY + 1)
-		if [ "$4" == "APPEND" ]; then
-			# Append mode, value should exist already then
-			VAL1=$(sqlite3 /data/data/com.android.providers.settings/databases/settings.db "select value from $1 where name='$2';" 2>/dev/null)
-			VAL1="$VAL1$5$3"
-
-			# Let's update it now
-			sqlite3 /data/data/com.android.providers.settings/databases/settings.db "update $1 set value='$VAL1' where name='$2';" 2>/dev/null
-
-			# See if it worked
-			VAL2=$(sqlite3 /data/data/com.android.providers.settings/databases/settings.db "select value from $1 where name='$2';" 2>/dev/null)
-
-			if [ "$VAL1" == "$VAL2" ]; then
-				# Looks good
-				if [ $TRY -gt 1 ]; then
-					echo "INFO: DBUPDATE APPEND SUCCEEDED with $@. It was our $TRY try" >> $LOG
-				fi
-				DONE=1
-				return 0
-			else
-				# We failed, let's try maximum of 5 times before giving up
-				echo "WARNING: DBUPDATE APPEND FAILED with $@. This is our $TRY try" >> $LOG
-				sleep 1
-				if [ $TRY -ge 5 ]; then
-					echo "ERROR: Could not update $@ after $TRY times. I'm giving up here, please investigate!" >> $LOG
-					DONE=1
-					return 1
-				fi
-			fi
-		else
-			# Try to update value first if exists
-			sqlite3 /data/data/com.android.providers.settings/databases/settings.db "update $1 set value='$3' where name='$2';" 2>/dev/null
-
-			# See if it worked
-			VAL1=$(sqlite3 /data/data/com.android.providers.settings/databases/settings.db "select value from $1 where name='$2';" 2>/dev/null)
-
-			# If not create it
-			if [ "$VAL1" != "" ]; then
-				# Looks good
-				DONE=1
-				return 0
-			else
-				ID='null'
-
-				sqlite3 /data/data/com.android.providers.settings/databases/settings.db "insert into $1 values($ID, '$2', '$3');" 2>/dev/null
-			fi
-
-			# Check if in fact we modified that
-			VAL1=$(sqlite3 /data/data/com.android.providers.settings/databases/settings.db "select value from $1 where name='$2';" 2>/dev/null)
-			if [ "$VAL1" != "" ]; then
-				# Looks good
-				if [ $TRY -gt 1 ]; then
-					echo "INFO: DBUPDATE SUCCEEDED with $@. It was our $TRY try" >> $LOG
-				fi
-				DONE=1
-				return 0
-			else
-				# We failed, let's try maximum of 5 times before giving up
-				echo "WARNING: DBUPDATE FAILED with $@. This is our $TRY try" >> $LOG
-				sleep 1
-				if [ $TRY -ge 5 ]; then
-					echo "ERROR: Could not update $@ after $TRY times. I'm giving up here, please investigate!" >> $LOG
-					DONE=1
-					return 1
-				fi
-			fi
-		fi
-	done
-}
 
 # Parse args to variables
 BACKGROUND=0
 FORCEDSEMAPHORE=0
-for ARG in $@; do
+for ARG in "$@"; do
 	case "$ARG" in
 		"background") BACKGROUND=1 ;;
 		"force") FORCEDSEMAPHORE=1 ;;
 	esac
 done
 
-echo "$(date)" >> $LOG
-echo "ArchiDroid $(getprop ro.archidroid.version)" >> $LOG
-echo "$(uname -a)" >> $LOG
-echo "INFO: ArchiDroid_RunOnce executed!" >> $LOG
-
-# Now we need to make sure that this is background process to prevent slowing down bootup
-if [ $BACKGROUND -ne 1 ]; then
+# Now we need to make sure that this is a background process to prevent slowing down bootup
+if [[ "$BACKGROUND" -ne 1 ]]; then
 	# We're not running in background, let's start a child and tell him that he's running in background
-	echo "INFO: Spawning child!" >> $LOG
-	echo "RESTART" > $ADSTATUS
-	sh $0 "background" &
-
+	echo "RESTART" > "$ADSTATUS"
+	"$0" "background" "$@" &
 	# Nothing to do here anymore, exit call
-	exit 1
-else
-	# We're running in background so let's proceed
-	echo "INFO: I'm a child!" >> $LOG
+	exit 0
 fi
+
+# Redirect stdout and stderr to our log, just in case something bad happen
+exec 1>"$LOG"
+exec 2>&1
+
+date
+echo "ArchiDroid $(getprop ro.archidroid.version)"
+uname -a
+echo "INFO: ArchiDroid_RunOnce executed!"
+
+DBUPDATE() {
+	# Thanks to idcrisis, modified by JustArchi
+	local TRY=0
+	local VAL1=""
+	local VAL2=""
+	local ID=""
+
+	while [[ "$TRY" -le 5 ]] ; do
+		((TRY++))
+		if [[ "$4" = "APPEND" ]]; then
+			# Append mode, value should exist already then
+			VAL1="$(sqlite3 /data/data/com.android.providers.settings/databases/settings.db "select value from $1 where name='$2';" 2>/dev/null)"
+			VAL1="$VAL1$5$3"
+
+			# Let's update it now
+			sqlite3 /data/data/com.android.providers.settings/databases/settings.db "update $1 set value='$VAL1' where name='$2';" 2>/dev/null
+
+			# See if it worked
+			VAL2="$(sqlite3 /data/data/com.android.providers.settings/databases/settings.db "select value from $1 where name='$2';" 2>/dev/null)"
+
+			if [[ "$VAL1" = "$VAL2" ]]; then
+				# Looks good
+				if [[ "$TRY" -gt 1 ]]; then
+					echo "INFO: DBUPDATE APPEND SUCCEEDED with $*. It was our $TRY try"
+				fi
+				return 0
+			else
+				# We failed
+				echo "WARNING: DBUPDATE APPEND FAILED with $*. This is our $TRY try"
+				sleep 1
+			fi
+		else
+			# Insert/Update mode, check if value already exists
+			VAL1="$(sqlite3 /data/data/com.android.providers.settings/databases/settings.db "select value from $1 where name='$2';" 2>/dev/null)"
+			if [[ -z "$VAL1" ]]; then
+				# We don't have any value, insert mode
+				ID='null' # This actually means that we follow auto incremented key value and not putting our own
+				sqlite3 /data/data/com.android.providers.settings/databases/settings.db "insert into $1 values($ID, '$2', '$3');" 2>/dev/null
+			elif [[ "$VAL1" = "$3" ]]; then
+				# Value exists and is the same as the one we want to insert, that's great!
+				return 0
+			else
+				# Value exists but is not the one we want, update mode
+				sqlite3 /data/data/com.android.providers.settings/databases/settings.db "update $1 set value='$3' where name='$2';" 2>/dev/null
+			fi
+
+			# See if it worked
+			VAL1="$(sqlite3 /data/data/com.android.providers.settings/databases/settings.db "select value from $1 where name='$2';" 2>/dev/null)"
+			if [[ "$VAL1" = "$3" ]]; then
+				# Value exists and is the same as the one we want to insert, that's great!
+				if [[ "$TRY" -gt 1 ]]; then
+					echo "INFO: DBUPDATE APPEND SUCCEEDED with $*. It was our $TRY try"
+				fi
+				return 0
+			else
+				# Oops, something gone wrong
+				echo "WARNING: DBUPDATE FAILED with $*. This is our $TRY try"
+				sleep 1
+			fi
+		fi
+	done
+	echo "ERROR: Could not update $* after $TRY times. I'm giving up here, please investigate!"
+	return 1
+}
 
 
 #   ____
@@ -191,89 +181,84 @@ fi
 # | |___| (_) || |  |  __/
 #  \____|\___/ |_|   \___|
 #
+# Which mode are we using?
+# 0 - Sammy
+# 1 - CyanogenMod
+# 2 - Omni
+ROM=0 # Default to sammy
+if [[ "$(grep -qi "ro.cm.version" "/system/build.prop"; echo $?)" -eq 0 ]]; then
+	ROM=1 # OK, definitely CM
+elif [[ "$(grep -qi "ro.omni.version" "/system/build.prop"; echo $?)" -eq 0 ]]; then
+	ROM=2 # OK, definitely Omni
+fi
 
 # Custom boot sound support
-if [ -e $AD/PowerOn.wav ]; then
-	tinyplay $AD/PowerOn.wav > /dev/null 2>&1 &
+if [[ -f "$AD/PowerOn.wav" && ! -z "$(which tinyplay)" ]]; then
+	tinyplay "$AD/PowerOn.wav" >/dev/null 2>&1 &
 fi
-
-# Which mode are we using?
-# 0 - CyanogenMod
-# 1 - Sammy
-# 2 - Omni
-ROM=1 # Default to sammy
-if [ $(grep -qi "ro.omni.version" "/system/build.prop"; echo $?) -eq 0 ]; then
-	ROM=2 # OK, definitely Omni
-elif [ $(grep -qi "ro.cm.version" "/system/build.prop"; echo $?) -eq 0 ]; then
-	ROM=0 # OK, definitely CM
-fi
-
-# We don't need to reload anything for now
-ADRELOAD=0
 
 # Don't force install mode, unless FORCE file exists
-if [ -e $AD/FORCE ]; then
-	echo "WARNING: Forcing Install mode, even if Update mode found!" >> $LOG
+if [[ -f "$AD/FORCE" ]]; then
+	echo "WARNING: Forcing Install mode, even if Update mode found!"
 	FORCE=1
 else
-	echo "INFO: Not forcing Install mode if Update mode found" >> $LOG
+	echo "INFO: Not forcing Install mode if Update mode found"
 	FORCE=0
 fi
 
-# We want some sqlite3 updates and settings but only if INSTALL mode is enabled
-if [ -e $AD/INSTALL ] || [ $FORCE -eq 1 ]; then
-	echo "INFO: Install mode detected, I'm either after full wipe or forced to think so. Turning on ADMANY and DBUPDATE" >> $LOG
-	INSTALLMODE=1
-	if [ -d $AD/FIRSTBOOT/DATA ]; then
-		ADMANY=0
-		cd $AD/FIRSTBOOT/DATA
-		for folder in $(busybox find . -mindepth 1 -maxdepth 1 -type d) ; do
-			echo "I found $folder which need merging (data)" >> $LOG
-			ADMANY=$(expr $ADMANY + 1)
-		done
-	else
-		ADMANY=0
+# Let's find out what we want from our RunOnce
+ADRELOAD=0
+ADMANY=0
+
+if [[ -f "$AD/INSTALL" || "$FORCE" -eq 1 ]]; then
+	echo "INFO: Install mode detected, I'm either after full wipe or forced to think so. Turning on ADMANY and DBUPDATE"
+	if [[ -d "$AD/FIRSTBOOT/DATA" ]]; then
+		# Okay, this one is complicated due to lack of process substitution in our shell
+		# We set as ADMANY the output of a command created in named pipe
+		# This is because child shell can't modify parent's variables
+		ADMANY="$(
+			find "$AD/FIRSTBOOT/DATA" -mindepth 1 -maxdepth 1 -type d | (while read FOLDER; do
+				((ADMANY++))
+			done
+			echo "$ADMANY")
+		)"
 	fi
-	echo "INFO: I found $ADMANY folders which need merging (data)" >> $LOG
+	echo "INFO: I found $ADMANY folders for merging (data) in total"
 	DBUPDATE=1
 	ADRELOAD=1
-elif [ -e $AD/UPDATE ]; then
-	echo "INFO: Update mode detected. Turning off ADMANY and DBUPDATE" >> $LOG
-	INSTALLMODE=0
+elif [[ -f "$AD/UPDATE" ]]; then
+	echo "INFO: Update mode detected. Turning off ADMANY and DBUPDATE"
 	DBUPDATE=0
-	ADMANY=0
 else
 	# Panic
-	echo "FATAL ERROR: Could not detect Install/Update mode, ABORTING RUNONCE, PLEASE INVESTIGATE" >> $LOG
-	sysrw || mount -o remount,rw /system
-	rm -f $0
-	sysro || mount -o remount,ro /system
-	echo "FINISHED" > $ADSTATUS
+	echo "FATAL ERROR: Could not detect Install/Update mode, ABORTING RUNONCE, PLEASE INVESTIGATE"
+	echo "FINISHED" > "$ADSTATUS"
+	setsid ARCHIDROID_INIT "background" &
 	exit 2
 fi
 
 # ArchiDroid Semaphore
 # Wait until we see some android processes to consider boot is more or less complete (credits to AndiP71)
 # Also respect number of loops, maybe something went wrong
-echo "INFO: RunOnce Semaphore started" >> $LOG
+echo "INFO: RunOnce Semaphore started"
 LOOP=0
-while (! pgrep com.android && [ $LOOP -lt 300 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ; do
-	if [ $DBUPDATE -eq 1 ]; then
-		if [ -e /data/data/com.android.providers.settings/databases/settings.db ]; then
-			echo "INFO: Android created settings.db for me, how cute! Performing DBUPDATE" >> $LOG
+while ( ! pgrep com.android.systemu >/dev/null 2>&1 && [[ "$LOOP" -lt 600 ]]) || [[ "$FORCEDSEMAPHORE" -eq 1 ]] ; do
+	if [[ "$DBUPDATE" -eq 1 ]]; then
+		if [[ -f /data/data/com.android.providers.settings/databases/settings.db ]]; then
+			echo "INFO: settings.db created! Performing DBUPDATE"
 
 			# Let's update selected keyboard according to our choice
 			# TODO: We should handle this internally, according to FIRSTBOOT instead of hardcoding keyboards
 			ONESHOT=1
-			for KEYBOARDFULL in "org.pocketworkstation.pckeyboard/.LatinIME" "com.cootek.smartinputv5/com.cootek.smartinput5.TouchPalIME" ; do
-				KEYBOARD=$(echo $KEYBOARDFULL | cut -d '/' -f 1)
-				if [ -e /data/data/$KEYBOARD ] && [ $ONESHOT -eq 1 ]; then
-					echo "INFO: $KEYBOARD Keyboard found!" >> $LOG
+			for KEYBOARDFULL in "org.pocketworkstation.pckeyboard/.LatinIME"; do
+				KEYBOARD="$(echo $KEYBOARDFULL | cut -d '/' -f 1)"
+				if [[ -d "/data/data/$KEYBOARD" && "$ONESHOT" -eq 1 ]]; then
+					echo "INFO: $KEYBOARD Keyboard found!"
 					DBUPDATE secure default_input_method "$KEYBOARDFULL"
 					DBUPDATE secure enabled_input_methods "$KEYBOARDFULL"
 					ONESHOT=0
-				elif [ -e /data/data/$KEYBOARD ]; then
-					echo "INFO: Additional $KEYBOARD Keyboard found!" >> $LOG
+				elif [[ -d "/data/data/$KEYBOARD" ]]; then
+					echo "INFO: Additional $KEYBOARD Keyboard found!"
 					#DBUPDATE secure enabled_input_methods "$KEYBOARDFULL" APPEND ":"
 				fi
 			done
@@ -287,136 +272,122 @@ while (! pgrep com.android && [ $LOOP -lt 300 ]) || [ $FORCEDSEMAPHORE -eq 1 ] ;
 			DBUPDATE global development_settings_enabled 1
 			DBUPDATE global adb_enabled 0
 
-			if [ $ROM -eq 1 ]; then
-				echo "INFO: Applying Samsung-specific DBUPDATE" >> $LOG
+			if [[ "$ROM" -eq 0 ]]; then
+				# Samsung
+				echo "INFO: Applying Samsung-specific DBUPDATE"
 				DBUPDATE system lockscreen_ripple_effect 0
 				DBUPDATE system screen_mode_automatic_setting 0
 				DBUPDATE system screen_mode_setting 2
 				DBUPDATE system security_update_db 1
 				DBUPDATE system torchlight_enable 1
 				DBUPDATE system torchlight_timeout 120000
-
 				# Requires ROM Control
 				DBUPDATE system screen_off_anim_toggle 2
 				DBUPDATE system status_bar_traffic 0
 				DBUPDATE system battery_icon_list 4
-			else
-				echo "INFO: Applying AOSP-specific DBUPDATE" >> $LOG
-
+			elif [[ "$ROM" -eq 1 ]]; then
 				# CyanogenMod
+				echo "INFO: Applying CyanogenMod-specific DBUPDATE"
 				DBUPDATE system status_bar_battery 2
 				DBUPDATE system status_bar_battery_show_percent 1
 				DBUPDATE system screen_animation_style 1
-
-				# OMNI
-				#DBUPDATE system screen_off_animation 0
-				#DBUPDATE system screenshot_in_power_menu 1
-				#DBUPDATE system clear_recents_button 1
-				#DBUPDATE system clear_recents_button_location 3
-				#DBUPDATE system status_bar_battery_style 4
-				#DBUPDATE system qs_smart_pulldown 1
-				#DBUPDATE system volume_music_control 1
+			elif [[ "$ROM" -eq 2 ]]; then
+				# OmniROM
+				echo "INFO: Applying OmniROM-specific DBUPDATE"
+				DBUPDATE system screen_off_animation 0
+				DBUPDATE system screenshot_in_power_menu 1
+				DBUPDATE system clear_recents_button 1
+				DBUPDATE system clear_recents_button_location 3
+				DBUPDATE system status_bar_battery_style 4
+				DBUPDATE system qs_smart_pulldown 1
+				DBUPDATE system volume_music_control 1
 			fi
 
 			# And don't execute twice
-			echo "INFO: Finished DBUPDATE" >> $LOG
+			echo "INFO: Finished DBUPDATE"
 			DBUPDATE=0
 		fi
 	fi
 
 	# Now let's MAKE SURE that our settings are in fact applied, only if we don't have shared_prefs already (prevent non-clean override)
-	if [ $ADMANY -gt 0 ]; then
-		cd $AD/FIRSTBOOT/DATA
-		for FOLDER in * ; do
-			if [ -d /data/data/$FOLDER ]; then
-				echo "INFO: I'm currently merging $FOLDER, called by ADMANY" >> $LOG
-				ADOWNER=$(busybox ls -ld /data/data/$FOLDER | awk '{print $3}')
-				cp -R $FOLDER/* /data/data/$FOLDER/
-				busybox chown -hR $ADOWNER.$ADOWNER /data/data/$FOLDER
-				#busybox chmod -R 777 /data/data/$FOLDER
+	if [[ "$ADMANY" -gt 0 ]]; then
+		# We need to use the same trick here as well
+		ADMANY="$(
+			find "$AD/FIRSTBOOT/DATA" -mindepth 1 -maxdepth 1 -type d | (while read FOLDER; do
+				FOLDERSHORT="$(basename "$FOLDER")"
+				if [[ -d "/data/data/$FOLDERSHORT" ]]; then
+					#echo "INFO: I'm currently merging $FOLDERSHORT"
+					ADOWNER="$(busybox ls -ld "/data/data/$FOLDERSHORT" | awk '{print $3}')"
+					cp -R "$FOLDER"/* "/data/data/$FOLDERSHORT/"
+					busybox chown -hR "$ADOWNER.$ADOWNER" "/data/data/$FOLDERSHORT"
 
-				# Let's make it as safe as possible
-				cd /data/data/$FOLDER
-				for FILE in $(busybox find . -type d -mindepth 1); do
-					busybox chmod 775 $FILE
-				done
-				for FILE in $(busybox find . -type f -mindepth 1); do
-					EXTENSION=$(echo $FILE | awk -F '.' '{print $NF}')
+					# Let's try to apply proper permissions, Android will correct them anyway later
+					find "/data/data/$FOLDERSHORT" -type d -mindepth 1 | while read mFOLDER; do
+						case "$(basename "$mFOLDER")" in # This will match filenames
+							*) chmod 771 "$mFOLDER"
+						esac
+					done
+					find "/data/data/$FOLDERSHORT" -type f -mindepth 1 | while read mFILE; do
+						#case "$(echo "$mFILE" | awk -F '.' '{print $NF}')" in # This will match extensions, like jar
+							#"jar") chmod 664 "$mFILE" ;;
+							#*) chmod 660 "$mFILE"
+						#esac
+						case "$(basename "$mFILE")" in # This will match filenames
+							"XposedBridge.jar") chmod 664 "$mFILE" ;;
+							*) chmod 660 "$mFILE"
+						esac
+					done
 
-					# Try to apply correct permissions for specific files
-					# For example XposedBridge requires at least 644, so it doesn't work with generic 660
-					case "$EXTENSION" in
-						"jar") busybox chmod 664 $FILE ;;
-						*) busybox chmod 660 $FILE
-					esac
-				done
-
-				cd $AD/FIRSTBOOT/DATA
-				# And we're done!
-				rm -Rf $FOLDER
-				rm -Rf /data/data/$FOLDER/_ADTEMP
-				ADOWNER=""
-				ADMANY=$(expr $ADMANY - 1)
-				echo "INFO: Done! $ADMANY to go" >> $LOG
-			fi
-		done
+					# And we're done!
+					rm -rf "$FOLDER"
+					((ADMANY--))
+					#echo "INFO: Done! $ADMANY to go"
+				fi
+			done
+			echo "$ADMANY")
+		)"
 	fi
 
 	# Sleeping time
 	FORCEDSEMAPHORE=0
-	LOOP=$(expr $LOOP + 1)
-	sleep 2
+	((LOOP++))
+	sleep 1
 done
 
-if [ $LOOP -ge 300 ]; then
-	echo "ERROR: I looped $LOOP times and needed to exit from infinite loop, not good (RunOnce Semaphore)" >> $LOG
-elif [ $LOOP -eq 0 ]; then
-	echo "ERROR: I didn't even entered semaphore, forcing it this time, it may cause unexpected behaviour!" >> $LOG
-	echo "RESTART" > $ADSTATUS
-	sh $0 "background" "forcedsemaphore" &
+if [[ "$LOOP" -ge 600 ]]; then
+	echo "ERROR: I looped $LOOP times and needed to exit from infinite loop, not good (RunOnce Semaphore)"
+elif [[ "$LOOP" -eq 0 ]]; then
+	echo "ERROR: I didn't even entered semaphore, forcing it this time, it may cause unexpected behaviour!"
+	echo "RESTART" > "$ADSTATUS"
+	"$0" "background" "forcedsemaphore" &
 	exit 3
 else
-	echo "INFO: I looped $LOOP times and didn't have to exit from infinite loop, that's nice (RunOnce Semaphore)" >> $LOG
+	echo "INFO: I looped $LOOP times and didn't have to exit from infinite loop, that's nice (RunOnce Semaphore)"
 fi
 
-# Post-Installation functions
-if [ $INSTALLMODE -eq 1 ]; then
-	echo "INFO: Calling Post-Installation functions (if any)" >> $LOG
-fi
-
-if [ ! -z $(getprop ro.build.selinux) ] && [ -f /file_contexts ]; then
-	echo "INFO: Found SELinux build, relabeling /data" >> $LOG
+if [[ ! -z "$(getprop ro.build.selinux)" && -f /file_contexts ]]; then
+	echo "INFO: Found SELinux build, relabeling /data"
 	restorecon -R /data
 fi
 
 # I'm runonce script so let's clean everything and delete myself
-rm -f $AD/INSTALL
-rm -f $AD/UPDATE
-rm -f $AD/FORCE
-rm -Rf $AD/FIRSTBOOT
-rm -Rf /data/media/0/vrtheme-backup
-sysrw || mount -o remount,rw /system
-rm -f $0
-sync
-#sysro || mount -o remount,ro /system
-
-if [ -z $(which ARCHIDROID_RUNONCE) ]; then
-	echo "INFO: Could not detect RunOnce in init.d after cleanup, that's good" >> $LOG
-else
-	echo "ERROR: I've detected RunOnce still in init.d after cleanup, that's not good, please investigate" >> $LOG
-fi
+rm -f "$AD/INSTALL" "$AD/UPDATE" "$AD/FORCE"
+rm -rf "$AD/FIRSTBOOT"
 
 # Execute a reboot if we need it
-if [ $ADRELOAD -eq 1 ]; then
-	echo "INFO: Reboot required, I'm rebooting the device right now" >> $LOG
+if [[ "$ADRELOAD" -eq 1 ]]; then
+	echo "INFO: Reboot required, I'm rebooting the device right now"
 	setsid ARCHIDROID_INIT "background" &
 	sleep 1
-	tinyplay $ADSYS/system/reboot.wav >/dev/null 2>&1 &
-	sync
+	if [[ -f "$ADSYS/system/reboot.wav" && ! -z "$(which tinyplay)" ]]; then
+		tinyplay "$ADSYS/system/reboot.wav" >/dev/null 2>&1 &
+	fi
 	setprop ctl.restart surfaceflinger
 	setprop ctl.restart zygote
 fi
-echo "INFO: ArchiDroid RunOnce finished" >> $LOG
-"date" >> "$LOG"
-echo "FINISHED" > $ADSTATUS
+
+# Finish
+echo "FINISHED" > "$ADSTATUS"
+echo "INFO: ArchiDroid RunOnce finished"
+date
 exit 0

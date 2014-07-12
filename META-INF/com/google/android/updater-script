@@ -627,27 +627,24 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 			run_program("/sbin/busybox","mv","-f","/system/bin/app_process","/system/bin/app_process.orig");
 			package_extract_dir("_archidroid/apps/xposed/xposed", "/");
 			set_metadata("/system/bin/app_process", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
-			if file_getprop("/tmp/aroma-data/archidroid.prop","xposed") == "0" && file_getprop("/tmp/aroma-data/archidroid.prop","dpi") != "320" then
-				ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Including App Settings Xposed Module");
-				package_extract_dir("_archidroid/apps/xposed/appsettings", "/");
-			else
-				if file_getprop("/tmp/aroma-data/archidroidxposed.prop","appsettings") == "1" || file_getprop("/tmp/aroma-data/archidroid.prop","dpi") != "320" then
-					ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Including App Settings Xposed Module");
-					package_extract_dir("_archidroid/apps/xposed/appsettings", "/");
-				endif;
-				if file_getprop("/tmp/aroma-data/archidroidxposed.prop","gravitybox") == "1" then
-					ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Including GravityBox Xposed Module");
-					package_extract_dir("_archidroid/apps/xposed/gravitybox", "/");
-				endif;
-				if file_getprop("/tmp/aroma-data/archidroidxposed.prop","xprivacy") == "1" then
-					ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Including XPrivacy Xposed Module");
-					package_extract_dir("_archidroid/apps/xposed/xprivacy", "/");
-				endif;
+
+			# Xposed modules bundled with Xposed
+			package_extract_dir("_archidroid/apps/xposed/appsettings", "/");
+			package_extract_dir("_archidroid/apps/xposed/playstorefix", "/");
+
+			# Optional modules
+			if file_getprop("/tmp/aroma-data/archidroidxposed.prop","gravitybox") == "1" then
+				ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Including GravityBox Xposed Module");
+				package_extract_dir("_archidroid/apps/xposed/gravitybox", "/");
+			endif;
+			if file_getprop("/tmp/aroma-data/archidroidxposed.prop","xprivacy") == "1" then
+				ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Including XPrivacy Xposed Module");
+				package_extract_dir("_archidroid/apps/xposed/xprivacy", "/");
+			endif;
 				if file_getprop("/tmp/aroma-data/archidroidxposed.prop","wanam") == "1" then
 					ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Including Wanam's Xposed Module");
 					package_extract_dir("_archidroid/apps/xposed/wanam", "/");
 				endif;
-			endif;
 		endif;
 
 		set_progress(0.80);

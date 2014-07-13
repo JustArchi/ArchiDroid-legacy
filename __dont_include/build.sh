@@ -142,7 +142,7 @@ if [[ "$SAMMY" -eq 0 && "$NOBUILD" -eq 0 ]]; then
 			fi
 		fi
 		if [[ -d "$ADOUT" ]]; then
-			find "$ADOUT" -mindepth 1 -maxdepth 1 -iname "$ADZIP"*.zip | while read line; do
+			find "$ADOUT" -mindepth 1 -maxdepth 1 -iname "*.zip" | while read line; do
 				echo "Removing $line"
 				rm -f "$line"
 			done

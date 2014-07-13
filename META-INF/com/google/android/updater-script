@@ -244,6 +244,7 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 			"/system/bin/wipe");
 
 	set_progress(0.52);
+	delete("/system/bin/otasigcheck.sh");
 
 	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Flashing ArchiDroid Init Scripts");
 	### IMPORTANT ###

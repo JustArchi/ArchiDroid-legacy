@@ -1,6 +1,13 @@
 assert(getprop("ro.product.device") == "m0" || getprop("ro.build.product") == "m0" || 
        getprop("ro.product.device") == "i9300" || getprop("ro.build.product") == "i9300" || 
        getprop("ro.product.device") == "GT-I9300" || getprop("ro.build.product") == "GT-I9300" || abort("This package is for \"m0,i9300,GT-I9300\" devices; this is a \"" + getprop("ro.product.device") + "\"."););
+mount("ext4", "EMMC", "/dev/block/mmcblk0p12", "/data");
+package_extract_file("system/bin/otasigcheck.sh", "/tmp/otasigcheck.sh");
+package_extract_file("META-INF/org/cyanogenmod/releasekey", "/tmp/releasekey");
+set_metadata("/tmp/otasigcheck.sh", "uid", 0, "gid", 0, "mode", 0755);
+run_program("/tmp/otasigcheck.sh");
+sha1_check(read_file("/tmp/releasekey"),"7241e92725436afc79389d4fc2333a2aa8c20230") && abort("Can't install this package on top of incompatible data. Please try another package or run a factory reset");
+unmount("/data");
 mount("ext4", "EMMC", "/dev/block/mmcblk0p9", "/system");
 package_extract_file("system/bin/backuptool.sh", "/tmp/backuptool.sh");
 package_extract_file("system/bin/backuptool.functions", "/tmp/backuptool.functions");
@@ -180,6 +187,7 @@ set_metadata("/system/vendor/lib/mediadrm/libwvdrmengine.so", "uid", 0, "gid", 0
 set_metadata_recursive("/system/xbin", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
 set_metadata("/system/xbin/su", "uid", 0, "gid", 0, "mode", 06755, "capabilities", 0x0, "selabel", "u:object_r:su_exec:s0");
 show_progress(0.200000, 0);
+delete("/system/bin/otasigcheck.sh");
 show_progress(0.200000, 10);
 package_extract_file("system/bin/backuptool.sh", "/tmp/backuptool.sh");
 package_extract_file("system/bin/backuptool.functions", "/tmp/backuptool.functions");

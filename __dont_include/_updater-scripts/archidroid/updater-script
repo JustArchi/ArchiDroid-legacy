@@ -1,6 +1,13 @@
 assert(getprop("ro.product.device") == "c1904" || getprop("ro.build.product") == "c1904" || 
        getprop("ro.product.device") == "c1905" || getprop("ro.build.product") == "c1905" || 
        getprop("ro.product.device") == "nicki" || getprop("ro.build.product") == "nicki" || abort("This package is for \"c1904,c1905,nicki\" devices; this is a \"" + getprop("ro.product.device") + "\"."););
+mount("ext4", "EMMC", "/dev/block/platform/msm_sdcc.1/by-name/userdata", "/data");
+package_extract_file("system/bin/otasigcheck.sh", "/tmp/otasigcheck.sh");
+package_extract_file("META-INF/org/cyanogenmod/releasekey", "/tmp/releasekey");
+set_metadata("/tmp/otasigcheck.sh", "uid", 0, "gid", 0, "mode", 0755);
+run_program("/tmp/otasigcheck.sh");
+sha1_check(read_file("/tmp/releasekey"),"7241e92725436afc79389d4fc2333a2aa8c20230") && abort("Can't install this package on top of incompatible data. Please try another package or run a factory reset");
+unmount("/data");
 mount("ext4", "EMMC", "/dev/block/platform/msm_sdcc.1/by-name/system", "/system");
 package_extract_file("system/bin/backuptool.sh", "/tmp/backuptool.sh");
 package_extract_file("system/bin/backuptool.functions", "/tmp/backuptool.functions");
@@ -181,6 +188,7 @@ set_metadata("/system/xbin/procmem", "uid", 0, "gid", 0, "mode", 06755, "capabil
 set_metadata("/system/xbin/procrank", "uid", 0, "gid", 0, "mode", 06755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
 set_metadata("/system/xbin/su", "uid", 0, "gid", 0, "mode", 06755, "capabilities", 0x0, "selabel", "u:object_r:su_exec:s0");
 show_progress(0.200000, 0);
+delete("/system/bin/otasigcheck.sh");
 show_progress(0.200000, 10);
 package_extract_file("system/bin/backuptool.sh", "/tmp/backuptool.sh");
 package_extract_file("system/bin/backuptool.functions", "/tmp/backuptool.functions");

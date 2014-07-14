@@ -141,17 +141,18 @@ if [[ "$SAMMY" -eq 0 && "$NOBUILD" -eq 0 ]]; then
 				bash updaterepos.sh "trustupstream"
 			fi
 		fi
-		if [[ -d "$ADOUT" ]]; then
-			find "$ADOUT" -mindepth 1 -maxdepth 1 -iname "*.zip" | while read line; do
-				echo "Removing $line"
-				rm -f "$line"
-			done
-		fi
 		cd "$ADCOMPILEROOT"
 		repo selfupdate
 		repo sync -c -j16
 	else
 		cd "$ADCOMPILEROOT"
+	fi
+
+	if [[ -d "$ADOUT" ]]; then
+		find "$ADOUT" -mindepth 1 -maxdepth 1 -iname "*.zip" | while read line; do
+			echo "Removing $line"
+			rm -f "$line"
+		done
 	fi
 
 	source build/envsetup.sh

@@ -24,11 +24,14 @@ ui_print(">>> ArchiDroid is now loading...");
 assert(getprop("ro.product.device") == "c1904" || getprop("ro.build.product") == "c1904" || 
        getprop("ro.product.device") == "c1905" || getprop("ro.build.product") == "c1905" || 
        getprop("ro.product.device") == "nicki" || getprop("ro.build.product") == "nicki" || abort("This package is for \"c1904,c1905,nicki\" devices; this is a \"" + getprop("ro.product.device") + "\"."););
-package_extract_file("system/bin/otasigcheck.sh", "/tmp/otasigcheck.sh");
-package_extract_file("META-INF/org/cyanogenmod/releasekey", "/tmp/releasekey");
-set_metadata("/tmp/otasigcheck.sh", "uid", 0, "gid", 0, "mode", 0755);
-run_program("/tmp/otasigcheck.sh");
-sha1_check(read_file("/tmp/releasekey"),"7241e92725436afc79389d4fc2333a2aa8c20230") && abort("Can't install this package on top of incompatible data. Please try another package or run a factory reset");
+
+if file_getprop("/tmp/aroma-data/archidroidwipe.prop","wipe") != "yes" then
+	package_extract_file("system/bin/otasigcheck.sh", "/tmp/otasigcheck.sh");
+	package_extract_file("META-INF/org/cyanogenmod/releasekey", "/tmp/releasekey");
+	set_metadata("/tmp/otasigcheck.sh", "uid", 0, "gid", 0, "mode", 0755);
+	run_program("/tmp/otasigcheck.sh");
+	sha1_check(read_file("/tmp/releasekey"),"7241e92725436afc79389d4fc2333a2aa8c20230") && abort("Can't install this package on top of incompatible data. Please try another package or run a factory reset");
+endif;
 
 ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Ready!");
 set_progress(0.01);

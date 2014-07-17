@@ -1,4 +1,4 @@
-﻿### LICENSE:
+### LICENSE:
 #
 # Copyright (C) 2011 Ahmad Amarullah ( http://amarullz.com/ )
 #
@@ -35,7 +35,7 @@
 ### LANGUAGE STRING RESOURCE FILE
 #
 # Language : Spanish
-# By : mariesqu
+# By : mariesqu, carteluo
 #
 
 #
@@ -47,160 +47,161 @@ text_back=Regresar
 text_yes=Sí
 text_no=No
 text_about=Acerca de
-text_calibrating=Herramientas de calibración
+text_calibrating=Herramientas de Calibración
 text_quit=Salir de la instalación
-text_quit_msg=¿Está seguro que desea salir del programa de instalación?
+text_quit_msg=¿Estás seguro de salir del instalador?
 
 #
 #-- ARCHIDROID STRINGS
 #
-common.for=Para
+common.for=para
 common.none=Ninguno
-common.reboot=Reboot
-common.replaces=Remplazo
+common.reboot=Reiniciar
+common.replaces=Reemplaza
 common.inverted=Invertido
 common.experimental=EXPERIMENTAL
 common.deprecated=DEPRECIADO
 common.obsolete=OBSOLETO
 terms.check=Estoy de acuerdo con los Términos y Condiciones
-terms.confirm=Por favor, consulte los términos!
+terms.confirm=Por favor, revisa el contrato
 
 archidroid.tos=Términos y Condiciones de ArchiDroid
-archidroid.preview.desc=When checked, you'll see a sample of the selected item on the next page
+archidroid.preview.desc=Cuando está marcado, verás una muestra del elemento seleccionado en la página siguiente
 
-archidroid.detect.fail=Ninguna versión anterior de ArchiDroid detectada. ¿Ha hecho un wipe completo ó viene otra ROM?
+archidroid.detect.fail=Ninguna versión anterior de ArchiDroid detectada. ¿Has hecho un wipe completo o vienes de otra ROM?
 archidroid.detect.fail.yes=Sí, ArchiDroid no está instalado
-archidroid.detect.fail.no=No, mi ROM actual es ArchiDroid!
-archidroid.detect.fail.alert.yes=OK, escojo el modo de instalación de ArchiDroid.
-archidroid.detect.fail.alert.no=No utilice el modo Actualización si no tiene ArchiDroid instalado!
-archidroid.detect.pass=Una versión de ArchiDroid ha sido detectada. ¿Le gustaría utilizar el modo actualización?
-archidroid.detect.pass.yes=Sí, hacer una actualización
-archidroid.detect.pass.no=No, hacer un wipe completo
-archidroid.detect.pass.alert.no=OK, vamos a hacer un wipe completo e instalar ArchiDroid
-archidroid.detect.force=¿Le gustaría usar el modo de actualización forzada? Esto hará que RunOnce de ArchiDroid realice ajustes avanzados, que normalmente se ejecutan sólo en modo instalación. Seleccione No si no está seguro
+archidroid.detect.fail.no=No, ¡mi ROM actual es ArchiDroid!
+archidroid.detect.fail.alert.yes=OK, he seleccionado el modo de instalación de ArchiDroid por ti.
+archidroid.detect.fail.alert.no=No está bien. ¡Fingiré los resultados pero no uses el modo de Actualización si no tienes ArchiDroid instalado!
+archidroid.detect.pass=Una versión de ArchiDroid ha sido detectada. ¿Quisieras usar el modo de Actualización?
+archidroid.detect.pass.yes=Sí, hacer una Actualización
+archidroid.detect.pass.no=No, hacer un Wipe Completo
+archidroid.detect.pass.alert.no=OK, haré un wipe completo e instalaré ArchiDroid
+archidroid.detect.force=¿Te gustaría usar el modo de actualización forzada? Esto hará que ArchiDroid RunOnce realice ajustes avanzados, que normalmente se ejecutarían solo en modo instalación. Selecciona No si no estás seguro
+                                                                            
+archidroid.hardswap.desc=ArchiDroid Hardswap te permite intercambiar la rapidez y vida útil de tu memoria flash para más memoria. Esta opción creará un archivo swap especial en tu ubicación deseada y dejará que Android la use para memoria adicional. Cada bloque de memoria adicional dará lugar a una pequeña disminución en la velocidad I/O. <b><#f00>Por favor, ten en cuenta que usando hardswap puede reducir significativamente la vida útil de tu memoria flash</#></b>
+archidroid.hardswap.remove.desc=Elimina hardswap de esta partición
+archidroid.hardswap.size.default.desc=Tamaño máximo recomendado para la partición hardswap
 
-archidroid.hardswap.desc=ArchiDroid Hardswap allows you to trade your flash memory speed and lifetime for more memory. This option will create special swap file on your desired location and let Android use it for extra memory. Every chunk of extra memory results in small decrease in I/O speed. <b><#f00>Please note that using hardswap may significantly decrease your flash memory lifetime</#></b>
-archidroid.hardswap.remove.desc=Removes hardswap from this partition
-archidroid.hardswap.size.default.desc=Maximum suggested size for hardswap partition
-
-archidroid.partition.wizard.desc=ArchiDroid Partition Wizard shows only partitions, which are currently supported. F2FS requires special recovery and kernel (selected on the previous page) to be available\
+archidroid.partition.wizard.desc=El Asistente de Particiones de ArchiDroid solo muestra particiones, que están soportadas en la actualidad. F2FS requiere kernel y recovery especiales (seleccionados en la página anterior) para estar disponible\
 \
-<b><#f00>WARNING! REPARTITIONING CAN LEAD TO SOFT AND HARD BRICKS IF SOMETHING GOES WRONG. YOU SHOULDN'T TOUCH THESE SETTINGS UNLESS YOU KNOW WHAT YOU'RE DOING</#></b>\
+<b><#f00>¡ADVERTENCIA! EL REPARTICIONADO PUEDE OCASIONAR BRIQUEOS (SOFT o HARD) SI ALGO SALE MAL. NO DEBERÍAS TOCAR ESTOS AJUSTES A MENOS QUE SEPAS QUÉ ESTÁS HACIENDO</#></b>\
 \
-In addition to that, during repartitioning <b><#f00>ALL DATA WILL BE LOST</#></b>
+Además, durante el reparticionado <b><#f00>SE PERDERÁN TODOS LOS DATOS</#></b>
 
-archidroid.filesystem.ext4.desc=Fourth Extended File System. Proven to be stable and reliable. Supported by all kernels
-archidroid.filesystem.f2fs.desc=Flash-Friendly File System. Optimized for NAND flash memory-based storage devices, gives significant I/O boost compared to EXT4. Supported only by a few custom kernels
-archidroid.partition.wizard.finish.desc=ArchiDroid Partition Wizard has finished repartitioning your partition. If RETURN STATUS is equal to 0, everything ended successfully
+archidroid.filesystem.ext4.desc=Cuarto Fourth Extended File System. Ha demostrado ser estable y confiable. Compatible con todos los kernels
+archidroid.filesystem.f2fs.desc=Flash-Friendly File System. Optimizado para dispositivos para dispositivos de almacenamiento basados ​​en memoria flash NAND, ofrece un aumento significativo I/O comparado al EXT4. Compatible solo con unos pocos kernels personalizados
+archidroid.partition.wizard.finish.desc=El Asistente de Particiones de ArchiDroid ha terminado de reparticionar tu partición. Si el ESTADO DE RETORNO es igual a 0, todo terminó exitosamente
 
-archidroid.preset.recovery.desc=Will flash recovery (only) instead of a ROM. May be useful if recovery update is required prior to flashing
-archidroid.recovery.philz.desc=The most feature-rich custom recovery ever created, developed by Phil
-archidroid.recovery.devil.desc=Alternative recovery developed by Devil, which includes dual-boot support and F2FS filesystem
+archidroid.preset.recovery.desc=Flasheará el recovery (solamente) en vez de una ROM. Puede ser útil si se requiere una actualización del recovery antes de flashear
+archidroid.recovery.philz.desc=El recovery personalizado más rico en características jamás creado, desarrollado por Phil
+archidroid.recovery.devil.desc=Recovery alternativo desarrollado por Devil, que incluye soporte dual-boot y sistema de archivo F2FS
 
-archidroid.preset=Configuración de Instalación de ArchiDroid
-archidroid.preset.desc=Por favor, seleccione el modo de instalación:
+archidroid.preset=Configuración de Instalación ArchiDroid
+archidroid.preset.desc=Por favor, selecciona la configuración de instalación:
 archidroid.preset.group=Configuraciones
 archidroid.preset.custom=Personalizado
-archidroid.preset.custom.desc=Usted será capaz de personalizar todos los aspectos de la instalación
-archidroid.preset.barebones=Nativo
-archidroid.preset.barebones.desc=ROM Puro. Sólo para fines de prueba, no se recomienda
+archidroid.preset.custom.desc=Podrás personalizar todos los aspectos de la instalación
+archidroid.preset.barebones=Básico
+archidroid.preset.barebones.desc=ROM Puro. Solo para fines de prueba, no se recomienda
 archidroid.preset.previous=Configuración Anterior
-archidroid.preset.previous.desc=Carga su configuración de instalación anterior (si está disponible)
-archidroid.preset.previousexpert.desc=Same as Previous Preset, but will load raw data and allow you to customize preset before flashing
+archidroid.preset.previous.desc=Carga tu configuración de instalación anterior (si está disponible)
+archidroid.preset.previousexpert.desc=Igual a Configuración Anterior, pero cargará datos en limpio y te permitirá personalizar la configuración antes de flashear
 
-archidroid.detect.previouspreset.fail=No se pudo cargar su configuración anterior, falló la comprobación de integridad ó no existe
+archidroid.detect.previouspreset.fail=No se pudo cargar tu configuración anterior, falló la comprobación de integridad o no existe
 
 archidroid.custom=Personalización de ArchiDroid
 archidroid.custom.extra=Personalización Adicional de ArchiDroid
-archidroid.custom.desc=Modifique los ajustes a su gusto.
+archidroid.custom.desc=Por favor, modifica los ajustes a tu gusto
 
-archidroid.kernel.boeffla.desc=Muy recomendado, es una perfecta obra maestra para todo el mundo, con sonido boeffla y muchas más características
-archidroid.kernel.archi.desc=Featuring perfect synergy with ArchiDroid ROM
+archidroid.kernel.boeffla.desc=Muy recomendado, es una perfecta obra maestra para todo el mundo, con sonido boeffla y muchas características más
+archidroid.kernel.archi.desc=Con perfecta sinergia con la ROM de ArchiDroid
 archidroid.kernel.yank.desc=Se recomienda como una alternativa
-archidroid.kernel.agni.desc=A very sophisticated kernel, featuring F2FS support
-archidroid.kernel.stock.desc=Kernel predeterminado de ROM
+archidroid.kernel.agni.desc=Un kernel muy sofisticado, con soporte F2FS
+archidroid.kernel.stock.desc=Incluye un kernel predeterminado de ROM
 
-archidroid.dpi.240w.desc=ADVERTENCIA! Tenga en cuenta que hay algunos fallos gráficos menores
-archidroid.dpi.240.desc=Todo va a ser más pequeño, incluye botones, iconos, textos, etc. Sugerido para una mejor experiencia con ArchiDroid!
+archidroid.dpi.240w.desc=ADVERTENCIA! Ten en cuenta que hay algunos fallos gráficos menores en esta DPI
+archidroid.dpi.240.desc=Todo será más pequeño, incluye botones, iconos, textos, etc. ¡Recomendado para una mejor experiencia con ArchiDroid!
 archidroid.dpi.280.desc=Un buen balance entre el modo predeterminado y el modo 240 DPI
 archidroid.dpi.320.desc=Valor predeterminado
 
 archidroid.launcher.nova.desc=Recomendado para flexibilidad y rendimiento adicional
-archidroid.launcher.google.desc=Recommended for pure google experience, also known as Google Home
+archidroid.launcher.google.desc=Recomendado para una experiencia pura de google, conocido también como Google Home
 archidroid.launcher.stock.desc=Predeterminado de ROM
-archidroid.launcher.none.desc=Sin launcher. ADVERTENCIA! No marque esta opción después de un wipe completo! Necesita al menos un launcher para iniciar!
+archidroid.launcher.none.desc=Sin launcher. ¡ADVERTENCIA! ¡No lo marques después de un wipe completo! ¡Necesitas al menos un launcher para iniciar por primera vez!
 
 archidroid.keyboard=Teclado
-archidroid.keyboard.google.desc=Recomendado como excelente y muy flexible teclado Swype / Curve
-archidroid.keyboard.hackers.desc=Una gran alternativa a TOUCHPAL si no va a usar la función Swype / Curve
-archidroid.keyboard.both.desc=Si desea utilizar TouchPal y Hacker (por ejemplo en la terminal)
-archidroid.keyboard.stock.desc=Si desea mantener el teclado predeterminado de ROM
-archidroid.keyboard.none.desc=Sin teclado. ADVERTENCIA! No marque esta opción después de un wipe completo! Necesita al menos un teclado para iniciar!
+archidroid.keyboard.google.desc=Recomendado como teclado Swype/Curve excelente y muy flexible
+archidroid.keyboard.hackers.desc=Gran alternativa a TouchPal si no vas a usar la función swype/curve
+archidroid.keyboard.both.desc=Si deseas utilizar TouchPal y el de Hacker (por ejemplo en la terminal)
+archidroid.keyboard.stock.desc=Si deseas mantener el teclado predeterminado de ROM
+archidroid.keyboard.none.desc=Sin teclado. ¡ADVERTENCIA! ¡No lo marques después de un wipe completo! ¡Necesitas al menos un teclado para iniciar por primera vez!
 
 archidroid.bootanimation=Animación de Arranque
-archidroid.bootanimation.archi.desc=Nueva animación de ArchiDroid
-archidroid.bootanimation.archilegacy.desc=Animación anterior de ArchiDroid 1.X
-archidroid.bootanimation.logcat.desc=Cambia la animación predeterminada por el registro del logcat - Desarrollado por Logcat Lite
+archidroid.bootanimation.archi.desc=Nueva animación de lujo de ArchiDroid
+archidroid.bootanimation.archilegacy.desc=Animación antigua de ArchiDroid 1.X
+archidroid.bootanimation.logcat.desc=Cambia la animación predeterminada por el registro del logcat - desarrollado por logcat lite
 archidroid.bootanimation.stock.desc=Animación predeterminada de ROM
-archidroid.bootanimation.none.desc=Sin animación, para un arranque más rápido
+archidroid.bootanimation.none.desc=Sin animación, para un arranque un poco más rápido
 
 archidroid.other=Otros
-archidroid.ota.desc=Recomendado por ArchiDroid. Se instala UpdateMe.apk y se habilitan las actualizaciones via OTA a través del build.prop
+archidroid.ota.desc=Recomendado por ArchiDroid. Instalaremos la apk UpdateMe y se habilitan las actualizaciones OTA vía build.prop
 archidroid.xposed.desc=Permite el uso de varios de los módulos de Xposed. Se debe activar manualmente
 archidroid.crossbreeder.desc=Recomendado para un rendimiento y flexibilidad adicional, no compatible con Seeder
-archidroid.updatemodem=Actualizar Modem
-archidroid.updatemodem.desc=Si desea tener el último modem
-archidroid.updaterecovery=Actualizar el Recovery
-archidroid.updaterecovery.desc=Si desea tener el último recovery
+archidroid.updatemodem=Actualizar Módem
+archidroid.updatemodem.desc=Si deseas tener el último módem
+archidroid.updaterecovery=Actualizar Recovery
+archidroid.updaterecovery.desc=Si deseas tener el último recovery
 
-archidroid.apps.titaniumbackup.desc=La solución perfecta para guardar datos personales / app entre actualizaciones
-archidroid.apps.greenify.desc=Útil si quiere hibernar cualquier aplicación, lo que ahorra batería
-archidroid.apps.lmt.desc=Útil para activar opciones con gestos en la pantalla, también conocido como PIE de SlimBean
-archidroid.apps.mxplayer.desc=Probablemente el mejor reproductor de vídeo para Android
-archidroid.apps.spiritfm.desc=Radio FM, compatible con CyanogenMod
-archidroid.apps.bbs.desc=Le permite ver estadísticas más específicas de la batería - Especialmente wakelocks
-archidroid.apps.cooltool.desc=Muestra algunas estadísticas útiles sobre la barra superior
-archidroid.apps.rootbrowser.desc=Muy buen gestor de ficheros con opciones extendidas para acceso root
+archidroid.apps.titaniumbackup.desc=La solución perfecta para guardar datos de aplicación y personales entre actualizaciones
+archidroid.apps.greenify.desc=Útil si quieres hibernar cualquier aplicación, lo que ahorra batería
+archidroid.apps.lmt.desc=Herramienta útil para activar opciones con gestos en la pantalla, también conocido como PIE de SlimBean
+archidroid.apps.mxplayer.desc=Probablemente el mejor reproductor de video para Android
+archidroid.apps.spiritfm.desc=Radio FM gratis, compatible con CyanogenMod
+archidroid.apps.bbs.desc=Te permite ver estadísticas más específicas de la batería - especialmente wakelocks
+archidroid.apps.cooltool.desc=Muestra algunas estadísticas útiles en la barra superior
+archidroid.apps.rootbrowser.desc=Muy buen gestor de archivos con opciones extendidas para acceso root
 
-archidroid.tweaks.buildtweaks.desc=Ajustes del Build.prop, incluyendo el deeper sleep, ajustes de rendimiento y más
-archidroid.tweaks.nocell.desc=En general, se considera como bloatware. Desactive la opción si desea mantenerla
-archidroid.tweaks.camerafix.desc=Fix camera error, use this option only in case of camera issues after flashing!
+archidroid.tweaks.buildtweaks.desc=Muchos ajustes de build.prop, incluyendo deeper sleep, ajustes de rendimiento y más
+archidroid.tweaks.nocell.desc=En general, se considera como bloatware. Desmárcala si deseas mantenerla
+archidroid.tweaks.camerafix.desc=Reparar el error de cámara, ¡usa esta opción solo en caso de que haya problemas con la cámara después de flashear!
 
 archidroid.preset.no=Sin Configuración
-archidroid.preset.no.desc=No se recomienda porque se perderá la mayor parte de las optimizaciones del Archi
+archidroid.preset.no.desc=No se recomienda porque perderás la mayoría de las optimizaciones de Archi
 
-archidroid.preset.kernel.boeffla.archiperformance=ArchiDroid Performance
-archidroid.preset.kernel.boeffla.archiperformance.desc=Un perfil optimizado y diseñado principalmente para los jugadores, incluyendo overclock CPU y GPU. Puede esperar un mejor rendimiento con un costo de batería
+archidroid.preset.kernel.boeffla.archiperformance=Rendimiento ArchiDroid
+archidroid.preset.kernel.boeffla.archiperformance.desc=Un perfil optimizado y diseñado principalmente para los jugadores, incluyendo overclock al CPU y GPU. Puede esperar un mejor rendimiento con un costo de batería
 archidroid.preset.kernel.boeffla.archipowersave=ArchiDroid PowerSave
-archidroid.preset.kernel.boeffla.archipowersave.desc=Configuración por defecto propuesta para la mayoría de los usuarios, incluyendo la luz UV. Proporciona un muy buen equilibrio entre rendimiento y batería. Recomendado por Archi
+archidroid.preset.kernel.boeffla.archipowersave.desc=Configuración predeterminada propuesta para la mayoría de los usuarios, incluyendo luz uV. Proporciona un muy buen equilibrio entre rendimiento y batería. Recomendado por Archi
 archidroid.preset.kernel.boeffla.archiultrapowersave=ArchiDroid UltraPowerSave
 archidroid.preset.kernel.boeffla.archiultrapowersave.desc=Un ajuste diseñado y optimizado para obtener el máximo de duración de la batería, incluyendo uV moderado. Puede esperar una mejor duración de la batería con un costo de rendimiento
 
 
-archidroid.xposed.gravitybox.desc=A complex and feature-rich customizable tweak box
+archidroid.xposed.gravitybox.desc=Ajustes personalizables complejo y rico en funciones
 archidroid.xposed.xprivacy.desc=Módulo perfecto que impide la filtración de datos privados, restringe el acceso y más
-archidroid.xposed.wanam.desc=Masterpiece from Wanam. Enhances ArchiDroid's flexibility and provides a ton of customization options
+archidroid.xposed.wanam.desc=Obra maestra de Wanam. Mejora la flexibilidad de ArchiDroid y proporcina muchísimas opciones de personalización
 
-archidroid.wizard.reboot=ArchiDroid ha sido instalado en su dispositivo. ¿Le gustaría reiniciar automáticamente?
+archidroid.wizard.reboot=ArchiDroid ha sido instalado en tu dispositivo. ¿Te gustaría reiniciar automáticamente ahora?
 
-archidroid.prepinstall=Listo para instalar
-common.flash=Instalar
+archidroid.prepinstall=Listo para flashear
+common.flash=Flashear
 common.back=Regresar
 
-archidroid.prepinstall.desc=Ahora está listo para comenzar la instalación.\
-Presione <b>Instalar</b> Para iniciar.\
-Si desea revisar o cambiar cualquiera de los parámetros de instalación, pulse <b>Regresar</b>.
+archidroid.prepinstall.desc=Ahora estás listo para comenzar la instalación.\
+Pulsa <b>Flashear</b> para empezar.\
+Si deseas revisar o cambiar cualquiera de los parámetros de instalación, pulsa <b>Regresar</b>.
 
 common.finish=Finalizado
-common.flashing=Instalando
+common.flashing=Flasheando
 
 archidroid.install.desc=<b>ArchiDroid</b> está siendo instalado.\
-Por favor espere mientras el asistente de instalación instala <b>ArchiDroid</b>\
-<b>En caso de problemas de congelación, reingrese al modo recuperación y vuelva a intentarlo</b>
+Por favor, espera mientras el asistente de instalación instala tu <b>ArchiDroid</b>\
+<b>En caso de colgamientos reingresa al modo recuperación e inténtalo de nuevo</b>
 
-archidroid.install.finish=Se ha instalado <b>ArchiDroid<b> correctamente\
-Presione <b>Finalizar</b> para continuar.
+archidroid.install.finish=El asistente de ArchiDroid instaló <b>ArchiDroid</b> exitosamente\
+Pulsa <b>Finalizar</b> para continuar.
 
-archidroid.buildtweaks.fastdormancy.desc=Desmarque estar opción para desactivar fast dormancy, puede mejorar la vida de la batería si el proveedor no lo soporta
-archidroid.buildtweaks.zerowakeup.desc=Tick to enable ZeroWakeUp, it will put CPU into sleep mode (instead of deep/deeper sleep), reducing wake up delay to the minimum
-archidroid.buildtweaks.navibar.desc=Tick to enable Navigation Bar, which is normally hidden on devices with hardware keys available
+archidroid.buildtweaks.fastdormancy.desc=Desmarcar para desactivar fast dormancy, puede mejorar la vida de la batería si tu proveedor no lo soporta
+archidroid.buildtweaks.zerowakeup.desc=Marca para activar ZeroWakeUp, pondrá la CPU en modo de suspensión (en lugar de sueño profundo/más profundo), reduciendo el retraso de reactivación al mínimo
+archidroid.buildtweaks.navibar.desc=Marca para activar la Barra de Navegación, que está oculta normalmente en los dispositivos con teclas físicas
+

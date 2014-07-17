@@ -50,6 +50,8 @@
   <!-- ARCHIDROID GALAXY S3 DEPENDENCIES FORKS -->
   <remove-project name="CyanogenMod/android_kernel_samsung_smdk4412" />
   <project name="JustArchi/android_kernel_samsung_smdk4412" path="kernel/samsung/smdk4412" remote="github" />
+  <remove-project name="CyanogenMod/android_device_samsung_smdk4412-common" />
+  <project name="JustArchi/android_device_samsung_smdk4412-common" path="device/samsung/smdk4412-common" remote="github" />
 
   <!-- XPERIA M DEPENDENCIES -->
   <project name="freexperia/android_device_sony_nicki" path="device/sony/nicki" remote="github" />

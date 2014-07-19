@@ -35,7 +35,7 @@
 ### LANGUAGE STRING RESOURCE FILE
 #
 #   Language  : Português(Brasil)
-#   By        : Andrecaron
+#   By        : Andrecaron, edusperoni
 #
 
 #
@@ -66,7 +66,7 @@ terms.check=Eu concordo com os Termos e Condições
 terms.confirm=Por favor, verifique os termos e acordos!
 
 archidroid.tos=Termos e Condições do ArchiDroid
-archidroid.preview.desc=When checked, you'll see a sample of the selected item on the next page
+archidroid.preview.desc=Quando marcado, você verá uma demonstração do item selecionado na próxima página
 
 archidroid.detect.fail=ArchiDroid não pode se detectar instalado. Você fez "full wipe" ou está vindo de outra ROM?
 archidroid.detect.fail.yes=Sim, não tenho ArchiDroid instalado!
@@ -79,23 +79,24 @@ archidroid.detect.pass.no=Não, Faça o "Full Wipe"
 archidroid.detect.pass.alert.no=OK, Vou proceder fazendo um "full wipe" e usando o modo INSTALAÇÃO
 archidroid.detect.force=Você gostaria de suar o modo ATUALIZAÇÃO FORÇADA ? Isso indica ao "ArchiDroid RunOnce" para realizar modificações avançadas, que normalmente é executado apenas durante o modo INSTALAÇÃO. Selecione NÃO se você não tem certeza.
 
-archidroid.hardswap.desc=ArchiDroid Hardswap allows you to trade your flash memory speed and lifetime for more memory. This option will create special swap file on your desired location and let Android use it for extra memory. Every chunk of extra memory results in small decrease in I/O speed. <b><#f00>Please note that using hardswap may significantly decrease your flash memory lifetime</#></b>
-archidroid.hardswap.remove.desc=Removes hardswap from this partition
-archidroid.hardswap.size.default.desc=Maximum suggested size for hardswap partition
+archidroid.hardswap.desc=O ArchiDroid Hardswap permite que você troque a velocidade e o tempo de vida de sua memória flash em troca de mais memória. Esta opção irá criar um arquivo swap especial no lugar que você desejar e permitir que o Android use-o como memória extra. Cada pedaço extra de memória resulta em uma pequena redução na velocidade de escrita/leitura (I/O). <b><#f00>Por favor note que usar hardswap pode diminuir a vida útil da sua memória flash significativamente</#></b>
+archidroid.hardswap.remove.desc=Remove hardswap desta partição
+archidroid.hardswap.size.default.desc=Tamanho máximo sugerido para a partição de hardswap
 
-archidroid.partition.wizard.desc=ArchiDroid Partition Wizard shows only partitions, which are currently supported. F2FS requires special recovery and kernel (selected on the previous page) to be available\
+
+archidroid.partition.wizard.desc=O ArchiDroid Partition Wizard mostra apenas partições que são suportadas atualmente. F2FS requer uma recovery e um kernel especial (selecionados na página anterior) para estar disponível \
 \
-<b><#f00>WARNING! REPARTITIONING CAN LEAD TO SOFT AND HARD BRICKS IF SOMETHING GOES WRONG. YOU SHOULDN'T TOUCH THESE SETTINGS UNLESS YOU KNOW WHAT YOU'RE DOING</#></b>\
+<b><#f00>CUIDADO! REPARTICIONAMENTO PODE CAUSAR SOFT OU HARD BRICKS SE ALGO DER ERRADO. VOCÊ NÃO DEVERIA USAR ESTAS CONFIGURAÇÕES A NÃO SER QUE SAIBA EXATAMENTE O QUE ESTÁ FAZENDO</#></b>\
 \
-In addition to that, during repartitioning <b><#f00>ALL DATA WILL BE LOST</#></b>
+Adicionalmente, durante o reparticionamento <b><#f00>TODOS OS DADOS SERÃO PERDIDOS</#></b>
 
-archidroid.filesystem.ext4.desc=Fourth Extended File System. Proven to be stable and reliable. Supported by all kernels
-archidroid.filesystem.f2fs.desc=Flash-Friendly File System. Optimized for NAND flash memory-based storage devices, gives significant I/O boost compared to EXT4. Supported only by a few custom kernels
-archidroid.partition.wizard.finish.desc=ArchiDroid Partition Wizard has finished repartitioning your partition. If RETURN STATUS is equal to 0, everything ended successfully
+archidroid.filesystem.ext4.desc=4° Extended File System. Comprovadamente estável e confiável. Suportado por todos os kernels
+archidroid.filesystem.f2fs.desc=Flash-Friendly File System. Otimizado para dispositivos de armazenamento baseados em memória flash NAND. Um aumento de velocidade I/O significante em relação ao EXT4. Suportado apenas por alguns kernels personalizados
+archidroid.partition.wizard.finish.desc=O ArchiDroid Partition Wizard terminou de reparticionar sua partição. Se o RETURN STATUS é igual a 0, tudo terminou com sucesso
 
-archidroid.preset.recovery.desc=Will flash recovery (only) instead of a ROM. May be useful if recovery update is required prior to flashing
-archidroid.recovery.philz.desc=The most feature-rich custom recovery ever created, developed by Phil
-archidroid.recovery.devil.desc=Alternative recovery developed by Devil, which includes dual-boot support and F2FS filesystem
+archidroid.preset.recovery.desc=Irá instalar a recovery (apenas) em vez da ROM. Pode ser útil se for necessário atualizar a recovery antes de instalar a ROM
+archidroid.recovery.philz.desc=A recovery personalizada mais rica em recursos já criada, desenvolvida por Phil
+archidroid.recovery.devil.desc=Recovery alternativa desenvovilda por Devil, que inclui suporte a dual-boot e sistema de arquivos F2FS
 
 archidroid.preset= Instalação predefinada ArchiDroid
 archidroid.preset.desc=Por favor selecione a instalação predefinada:
@@ -106,7 +107,7 @@ archidroid.preset.barebones=Limpa
 archidroid.preset.barebones.desc=ROM limpa. Apenas para testes, não recomendada
 archidroid.preset.previous=Predefinida anteriormente
 archidroid.preset.previous.desc=Carrega suas opções de instalação anterior ( se disponível)
-archidroid.preset.previousexpert.desc=Same as Previous Preset, but will load raw data and allow you to customize preset before flashing
+archidroid.preset.previousexpert.desc=O mesmo que "Predefinida anteriormente", mas irá carregar os dados brutos e permitir que você personalize as opções antes da instalação
 
 archidroid.detect.previouspreset.fail=Não foi possível carregar suas definições anteriores, ou falhou no teste de integridade ou não existe
 
@@ -115,9 +116,9 @@ archidroid.custom.extra=Extra Personalização ArchiDroid
 archidroid.custom.desc=Favor faça as modificações do seu jeito
 
 archidroid.kernel.boeffla.desc=Uma obra de arte perfeita para todos, usando "boeffla sound e muitos outros recursos
-archidroid.kernel.archi.desc=Featuring perfect synergy with ArchiDroid ROM
+archidroid.kernel.archi.desc=Perfeita sinergia com a ROM Archidroid
 archidroid.kernel.yank.desc=Recomendado como alternativo
-archidroid.kernel.agni.desc=A very sophisticated kernel, featuring F2FS support
+archidroid.kernel.agni.desc=Um kernel muito sofisticado com suporte a F2FS
 archidroid.kernel.stock.desc=Kernel original
 
 archidroid.dpi.240w.desc=AVISO! Pode haver algumas falhas gráficas neste modo de DPI
@@ -157,17 +158,17 @@ archidroid.apps.titaniumbackup.desc=Perfeita solução para salvar seus aplicati
 archidroid.apps.greenify.desc=Util se você quer hibernar qualquer aplicativo, ajudando a salvar carga de bateria
 archidroid.apps.lmt.desc=Util para executar comandos ligados a gestos especificos na tela, também conhecido como PIE de SlimBean
 archidroid.apps.mxplayer.desc=Provavelmente o melhor aplicativo de video para Android
-archidroid.apps.spiritfm.desc=FM radio gratuito
+archidroid.apps.spiritfm.desc=Rádio FM gratuito
 archidroid.apps.bbs.desc=Lhe dá o poder de verificar estatisticas especificas do uso da bateria - especialmente wakelocks
 archidroid.apps.cooltool.desc=Mostra algumas informações úteis na barra superior
 archidroid.apps.rootbrowser.desc=Ótimo explorador de arquivos com função de acesso ROOT
 
 archidroid.tweaks.buildtweaks.desc=Muitos ajustes em build.prop, incluindo "deeper sleep", ajustes de performance e mais
 archidroid.tweaks.nocell.desc=Em geral é considerado como bloatware. Desmarque se você que manter isso
-archidroid.tweaks.camerafix.desc=Fix camera error, use this option only in case of camera issues after flashing!
+archidroid.tweaks.camerafix.desc=Corrige erro da câmera. Use esta opção apenas caso tenha problemas com a câmera depois de instalar!
 
 archidroid.preset.no=Sem predefinição
-archidroid.preset.no.desc=Não recomendado porque você vai perder a maioria das otimizações do Archi
+archidroid.preset.no.desc=Não recomendado porque você perderá a maioria das otimizações do Archi
 
 archidroid.preset.kernel.boeffla.archiperformance=ArchiDroid Performance
 archidroid.preset.kernel.boeffla.archiperformance.desc=Um perfil otimizado e designado em geral para jogadores, inclui overclock CPU & GPU. Melhora a performance porém aumenta o consumo de bateria
@@ -177,7 +178,7 @@ archidroid.preset.kernel.boeffla.archiultrapowersave=ArchiDroid UltraPowerSave
 archidroid.preset.kernel.boeffla.archiultrapowersave.desc=Uma definição feita e otimizada para ter o máximo de economia de bateria, inclui um moderado uV. Um excelente consumo de bateria porém com perda de performance
 
 
-archidroid.xposed.gravitybox.desc=A complex and feature-rich customizable tweak box
+archidroid.xposed.gravitybox.desc=Um módulo de personalização complexo e rico em recursos.
 archidroid.xposed.xprivacy.desc=Modulo perfeito que evita o vazamento de dados particulares, restringe acessos e mais
 archidroid.xposed.wanam.desc=Uma obra de arte do Wanam. Melhora a flexibilidade do ArchiDroid e fornece muitas opções de modificações
 

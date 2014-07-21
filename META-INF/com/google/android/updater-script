@@ -33,15 +33,20 @@ set_progress(0.01);
 ### RECOVERY ###
 ################
 
+### TWRP ###
+if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "twrp" then
+	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Flashing TWRP Recovery");
+	package_extract_file("_archidroid/recoveries/twrp/recovery.img", "/dev/block/mmcblk0p6");
+endif;
 ### PHILZ ###
 if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "philz" then
 	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Flashing PhilZ Recovery");
-	assert(package_extract_file("_archidroid/recoveries/philz/recovery.img", "/tmp/recovery.img"),write_raw_image("/tmp/recovery.img", "/dev/block/mmcblk0p6"),delete("/tmp/recovery.img"));
+	package_extract_file("_archidroid/recoveries/philz/recovery.img", "/dev/block/mmcblk0p6");
 endif;
 ### DEVIL ###
 if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "devil" then
 	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Flashing Devil Recovery");
-	assert(package_extract_file("_archidroid/recoveries/devil/recovery.img", "/tmp/recovery.img"),write_raw_image("/tmp/recovery.img", "/dev/block/mmcblk0p6"),delete("/tmp/recovery.img"));
+	package_extract_file("_archidroid/recoveries/devil/recovery.img", "/dev/block/mmcblk0p6");
 endif;
 
 if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" then

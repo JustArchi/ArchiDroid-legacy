@@ -204,8 +204,9 @@ form(
 	"archidroidrecovery.prop",
 
 	"recovery","<#selectbg_g>Recovery</#>","","group",
-	"philz","PhilZ Touch Recovery","<~archidroid.recovery.philz.desc>","select.selected",
-	"devil","Devil Recovery","<~archidroid.recovery.devil.desc>","select"
+	"twrp","TWRP Recovery","","select.selected",
+	"philz","PhilZ Touch Recovery","","select",
+	"devil","Devil Recovery [F2FS]","","select"
 );
 else
 	writetmpfile(

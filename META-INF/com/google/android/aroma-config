@@ -302,7 +302,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 		"other","<#selectbg_g><~archidroid.other></#>","","group",
 		"archidroidota","ArchiDroid OTA","<~archidroid.ota.desc>","check.checked",
 		"xposed","Xposed Framework","<~archidroid.xposed.desc>","check.checked",
-		"updatemodem","<~archidroid.updatemodem> [XXUGND1]","<~archidroid.updatemodem.desc>","check",
+		"updatemodem","<~archidroid.updatemodem> [XXUGNA8]","<~archidroid.updatemodem.desc>","check",
 
 		"archiapps","<#selectbg_g>ArchiDroid Apps</#>","","group",
 		"titaniumbackup","Titanium Backup","<~archidroid.apps.titaniumbackup.desc>","check.checked",

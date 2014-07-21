@@ -39,18 +39,6 @@
 
   <!-- ARCHIDROID TEMPORARY FORKS -->
 
-  <!-- GALAXY S3 DEPENDENCIES -->
-  <project name="JustArchi/proprietary_vendor_samsung" path="vendor/samsung" remote="github" />
-  <project name="CyanogenMod/android_device_samsung_i9300" path="device/samsung/i9300" remote="github" />
-  <project name="CyanogenMod/android_device_samsung_smdk4412-common" path="device/samsung/smdk4412-common" remote="github" />
-  <project name="CyanogenMod/android_kernel_samsung_smdk4412" path="kernel/samsung/smdk4412" remote="github" />
-  <project name="CyanogenMod/android_packages_apps_SamsungServiceMode" path="packages/apps/SamsungServiceMode" remote="github" />
-  <project name="CyanogenMod/android_hardware_samsung" path="hardware/samsung" remote="github" />
-
-  <!-- ARCHIDROID GALAXY S3 DEPENDENCIES FORKS -->
-  <remove-project name="CyanogenMod/android_kernel_samsung_smdk4412" />
-  <project name="JustArchi/android_kernel_samsung_smdk4412" path="kernel/samsung/smdk4412" remote="github" />
-
   <!-- XPERIA M DEPENDENCIES -->
   <project name="freexperia/android_device_sony_nicki" path="device/sony/nicki" remote="github" />
   <project name="CyanogenMod/android_device_qcom_common" path="device/qcom/common" remote="github" />

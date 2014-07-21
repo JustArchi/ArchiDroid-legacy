@@ -21,6 +21,8 @@ alias la='l -a'
 alias ll='l -l'
 alias lo='l -a -l'
 
+resize
+
 function hd {
 	cat "$@" | command hd /proc/self/fd/0
 }

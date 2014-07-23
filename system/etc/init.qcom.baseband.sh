@@ -4,4 +4,4 @@
 PATH=/sbin:/system/sbin:/system/bin:/system/xbin
 export PATH
 
-setprop gsm.version.baseband `strings /dev/block/platform/msm_sdcc.1/by-name/modem  | grep "8930B-" | head -1`
+setprop gsm.version.baseband `strings /dev/block/platform/msm_sdcc.1/by-name/modem  | grep "M8930B-" | head -1`

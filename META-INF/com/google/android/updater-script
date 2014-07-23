@@ -369,8 +369,7 @@ else
 	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing Google Apps");
 	delete("/system/app/Calendar.apk", "/system/app/Calendar.odex", "/system/app/QuickSearchBox.apk", "/system/app/QuickSearchBox.odex");
 	show_progress(0.1, 80);
-	package_extract_dir("_archidroid/gapps/core", "/");
-	package_extract_dir("_archidroid/gapps/archidroid", "/");
+	package_extract_dir("_archidroid/gapps", "/");
 
 	set_progress(0.80);
 

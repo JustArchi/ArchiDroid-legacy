@@ -1,18 +1,4 @@
-ArchiDroid 2.5.2
+ArchiDroid 2.5.3
 
-- Included ArchiKernel, it's default kernel choice now
-- ArchiDroid_Init code review
-- ArchiDroid_RunOnce code review
-- Fixed rebooting to recovery after plugging charger to powered down phone in ArchiDroid 1.X
-- Fixed ArchiDroid backend not being executed in some scenarios
-- Updated all ArchiDroid backend tools to latest versions # They're now also compatible with every armv7-a NEON device, previously only CortexA9+
-- Updated PA GAPPS to 23 July
-- Reverted back to official Google PlayStore # This means that multi-dpi patch is not included anymore in the app itself, use xposed module or patch yourself
-- Updated Nova Launcher to 3.0.2
-- Updated Google Keyboard
-- PlayStoreFix is now included with Xposed
-- App Settings is now included with Xposed
-- Updated XPrivacy to 2.2.1
-- Updated GravityBox to 3.2.5
-- Updated Onandroid to 9.51
+- Updated PA GAPPS to 25 July
 - Updated sources

@@ -74,6 +74,13 @@ if [ -f "$AKDROP/boot.img-ramdisk.gz" ]; then
 		else
 			echo "INFO: Detected AOSP variant"
 		fi
+		if [ -d "$AK/ramdisk" ]; then
+			echo "INFO: Overwriting ramdisk with custom content"
+			find "$AK/ramdisk" | while read line; do
+				echo "Overwriting $(basename "$line")"
+				cp -R "$line" .
+			done
+		fi
 		rm -f "$AKDROP/boot.img-ramdisk.gz"
 		find . | cpio -o -H newc | gzip > "$AKDROP/boot.img-ramdisk.gz"
 	fi

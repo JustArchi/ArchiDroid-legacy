@@ -7,7 +7,6 @@ ArchiDroid 1.7.17
 - Fixed rebooting to recovery after plugging charger to powered down phone in ArchiDroid 1.X
 - Fixed ArchiDroid backend not being executed in some scenarios
 - Reverted Modem back to XXUGNA8 (from XXUGND1) # This is the one included in most XXUGND5 releases
-- Implemented QuickBoot, available in developer settings # Thanks to @cheveguerra
 - Removed Googy Max kernel # You can still use it if you want, I just don't keep EOLed kernels in AROMA
 - Removed Devil kernel # Same as above
 - Added missing dedupe tool # Thanks to @globs7

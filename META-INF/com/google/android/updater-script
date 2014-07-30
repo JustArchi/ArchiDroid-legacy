@@ -114,7 +114,7 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 	set_progress(0.1);
 
 	ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Flashing ArchiDroid Core");
-	show_progress(0.4, 1500);
+	show_progress(0.4, 1600);
 	package_extract_dir("system", "/system");
 
 	run_program("/sbin/sync");

@@ -270,19 +270,19 @@ if [ $SAMMY -eq 1 ]; then
 	chmod 755 zipalign
 	./zipalign -v -f 4 ../system/framework/framework-res.apk TEMP.apk
 	mv -f TEMP.apk ../system/framework/framework-res.apk
-	rm -f ../system/app/Superuser.apk
-	rm -f ../system/xbin/su
-	rm -f ../system/xbin/daemonsu
-	rm -f ../system/etc/init.d/99SuperSUDaemon
-	rm -f ../system/etc/install-recovery.sh
-	rm -f ../system/etc/.installed_su_daemon
-	rm -rf ../system/bin/.ext
-	if [ -e ../system/bin/debuggerd.real ]; then
-		mv -f ../system/bin/debuggerd.real ../system/bin/debuggerd
-	fi
-	cd _bloatware
+	#rm -f ../system/app/Superuser.apk
+	#rm -f ../system/xbin/su
+	#rm -f ../system/xbin/daemonsu
+	#rm -f ../system/etc/init.d/99SuperSUDaemon
+	#rm -f ../system/etc/install-recovery.sh
+	#rm -f ../system/etc/.installed_su_daemon
+	#rm -rf ../system/bin/.ext
+	#if [ -e ../system/bin/debuggerd.real ]; then
+		#mv -f ../system/bin/debuggerd.real ../system/bin/debuggerd
+	#fi
+	#cd _bloatware
 	#bash ZZcleanrom.sh
-	cd ..
+	#cd ..
 fi
 
 if [ $NOOPD -eq 0 ]; then

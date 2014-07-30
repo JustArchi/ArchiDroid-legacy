@@ -146,7 +146,7 @@ examples:
     <spnOverride numeric="23211" fake_home_on="23201"/> <!-- bob @ A1 network -->
     <spnOverride numeric="23212" spn_display_rule="SPN_RULE_SHOW_SPN" spn_override_only_on="23201,23205" spn="yesss!" fake_home_on="23201,23205"/> <!-- yesss! @ A1 network @ Orange AT network -->
     <spnOverride numeric="23207" spn_display_rule="SPN_RULE_SHOW_SPN" spn="tele.ring" fake_home_on="23203"/> <!-- tele.ring @ T-Mobile A -->
-    <spnOverride numeric="23210" fake_home_on="23203,23205"/>  <!-- H3G Network -->
+    <spnOverride numeric="23210" fake_home_on="23201,23203"/>  <!-- H3G Network -->
     <spnOverride numeric="23205" fake_home_on="23203,23210"/>  <!-- H3G Network -->
 
 <!-- 3IE Ireland -->
@@ -197,16 +197,11 @@ examples:
 
 <!-- Swisscom -->
     <spnOverride numeric="22801" fake_home_on="29501"/>
-    <spnOverride numeric="22803" fake_home_on="29502"/>
-    <spnOverride numeric="29502" fake_home_on="22803"/>
 
 <!-- IDEA 64k sim -->
     <spnOverride numeric="404891" fake_home_on="40489"/>
 
 <!-- Singapore -->
     <spnOverride numeric="52503" spn_display_rule="SPN_RULE_SHOW_PLMN" spn_override_only_on="52503"/>
-	
-<!-- Algeria -->
-	<spnOverride numeric="60303" spn_display_rule="SPN_RULE_SHOW_SPN" spn="ooredoo"/>
-	
+
 </spnOverrides>

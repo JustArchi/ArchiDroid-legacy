@@ -125,7 +125,6 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 	symlink("mksh", "/system/bin/sh");
 	symlink("Roboto-Bold.ttf", "/system/fonts/DroidSans-Bold.ttf");
 	symlink("Roboto-Regular.ttf", "/system/fonts/DroidSans.ttf");
-	symlink("/system/xbin/busybox", "/system/bin/busybox");
 	symlink("toolbox", "/system/bin/cat");
 	symlink("toolbox", "/system/bin/chcon");
 	symlink("toolbox", "/system/bin/chmod");
@@ -193,6 +192,7 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 	symlink("toolbox", "/system/bin/vmstat");
 	symlink("toolbox", "/system/bin/watchprops");
 	symlink("toolbox", "/system/bin/wipe");
+	symlink("/system/xbin/busybox", "/system/bin/busybox");
 
 	# ArchiDroid
 	symlink("/system/xbin/busybox", "/system/bin/busybox");
@@ -291,16 +291,19 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 	set_metadata_recursive("/system/vendor/pittpatt/models/recognition", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
 	set_metadata("/system/vendor/pittpatt/models/recognition/face.face.y0-y0-22-b-N.bin", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
 	set_metadata_recursive("/system/xbin", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
-
-	# ArchiDroid
 	set_metadata_recursive("/system/etc/init.d", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
 	set_metadata("/system/etc/init.d", "uid", 0, "gid", 0, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
-	set_metadata("/system/xbin/su", "uid", 0, "gid", 0, "mode", 06755, "capabilities", 0x0, "selabel", "u:object_r:zygote_exec:s0");
-	set_metadata("/system/xbin/daemonsu", "uid", 0, "gid", 0, "mode", 06755, "capabilities", 0x0, "selabel", "u:object_r:su_exec:s0");
-	set_metadata("/system/bin/.ext", "uid", 0, "gid", 2000, "mode", 0777, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
-	set_metadata("/system/bin/.ext/.su", "uid", 0, "gid", 0, "mode", 06755, "capabilities", 0x0, "selabel", "u:object_r:su_exec:s0");
-	run_program("/system/xbin/busybox", "--install", "-s", "/system/xbin");
+	set_metadata("/system/bin/.ext", "uid", 0, "gid", 0, "mode", 0777, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+	set_metadata("/system/bin/.ext/.su", "uid", 0, "gid", 0, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+	set_metadata("/system/etc/install-recovery.sh", "uid", 0, "gid", 0, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+	set_metadata("/system/xbin/sugote", "uid", 0, "gid", 0, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:zygote_exec:s0");
+	set_metadata("/system/xbin/sugote-mksh", "uid", 0, "gid", 0, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+	set_metadata("/system/xbin/daemonsu", "uid", 0, "gid", 0, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+	set_metadata("/system/xbin/su", "uid", 0, "gid", 0, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+
+	# ArchiDroid
 	run_program("/system/xbin/su", "--install");
+	run_program("/system/xbin/busybox", "--install", "-s", "/system/xbin");
 
 	set_progress(0.54);
 

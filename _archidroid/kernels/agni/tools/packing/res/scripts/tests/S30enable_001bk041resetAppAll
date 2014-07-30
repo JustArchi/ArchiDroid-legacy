@@ -1,0 +1,42 @@
+#!/sbin/sh
+#App: Reset all settings
+#Resets all settings done via the AGNi Control app
+
+TITLE="App: Reset all settings"
+STYLE="Ok"
+
+if [ -f /sdcard/boeffla_twk_dlg_helper ]; then
+  rm /sdcard/boeffla_twk_dlg_helper
+fi;
+
+am start -a android.intent.action.MAIN -e message "Do you really want to reset all Settings done via AGNi Control app?" -e title "$TITLE" -e button1 "Yes" -e button2 "No" -e toasty "Resetting AGNi Control settings now!" -e toastn "Reset of AGNi Control settings aborted!" -n hm.agni.control.dialog.helper/.AGNiControlDialogActivity
+
+while [ ! -f /sdcard/boeffla_twk_dlg_helper ]
+do
+  /sbin/busybox sleep 1
+done
+
+
+RESULT=`cat /sdcard/boeffla_twk_dlg_helper`
+
+if [ "$RESULT" = "yes" ]; then
+
+  if [ -f /sdcard/boeffla_twk_dlg_helper ]; then
+    rm /sdcard/boeffla_twk_dlg_helper
+  fi;
+
+  /sbin/busybox sh /sbin/sysrw
+  /sbin/busybox rm /system/etc/init.d/*_bk*
+  /sbin/busybox rm /system/etc/init.d/*_001bk*
+  /sbin/busybox sh /sbin/sysro
+  /sbin/busybox chmod 0777 /res/scripts/*_default
+  /sbin/busybox sh /res/scripts/*_default
+
+am start -a android.intent.action.MAIN -e message "Reset of AGNi Control settings done! Changes Applied Successfully." -e title "$TITLE" -e okstyle "$STYLE" -n hm.agni.control.dialog.helper/.AGNiControlDialogActivity
+
+else
+  if [ -f /sdcard/boeffla_twk_dlg_helper ]; then
+    rm /sdcard/boeffla_twk_dlg_helper
+  fi;
+  exit 0
+fi;

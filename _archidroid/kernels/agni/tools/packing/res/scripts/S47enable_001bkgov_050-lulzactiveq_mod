@@ -1,0 +1,14 @@
+#!/system/bin/sh
+#Governor
+#Change CPU governor:
+#Lulzactiveq_mod
+
+echo "lulzactiveq" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+
+echo "70" > /sys/devices/system/cpu/cpufreq/lulzactiveq/inc_cpu_load 
+echo "40" > /sys/devices/system/cpu/cpufreq/lulzactiveq/dec_cpu_load 
+echo "1" > /sys/devices/system/cpu/cpufreq/lulzactiveq/pump_up_step 
+echo "1" > /sys/devices/system/cpu/cpufreq/lulzactiveq/pump_down_step 
+echo "30000" > /sys/devices/system/cpu/cpufreq/lulzactiveq/up_sample_time 
+echo "60000" > /sys/devices/system/cpu/cpufreq/lulzactiveq/down_sample_time 
+echo "12" > /sys/devices/system/cpu/cpufreq/lulzactiveq/screen_off_min_step

@@ -1,0 +1,7 @@
+#!/system/bin/sh
+#Headphone volume
+#Change headphone volume:
+#Vol 55
+
+echo 1 > /sys/class/misc/boeffla_sound/boeffla_sound
+echo "55 55" > /sys/class/misc/boeffla_sound/headphone_volume

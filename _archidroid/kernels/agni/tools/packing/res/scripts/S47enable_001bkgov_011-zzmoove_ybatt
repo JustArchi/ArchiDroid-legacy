@@ -1,0 +1,10 @@
+#!/system/bin/sh
+#Governor
+#Change CPU governor:
+#ZZMoove yank-batt
+
+# switch governor
+echo "zzmoove" >/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+/sbin/busybox sleep 2
+
+echo 2 > /sys/devices/system/cpu/cpufreq/zzmoove/profile_number

@@ -1,0 +1,6 @@
+#!/sbin/busybox sh
+#ExternalSD read_ahead_kb
+#Set ExternalSD read_ahead_kb:
+#3072
+
+echo 3072 > /sys/block/mmcblk1/bdi/read_ahead_kb

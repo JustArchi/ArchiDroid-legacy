@@ -1,0 +1,49 @@
+#!/sbin/sh
+#AGNi Main Profiles Selection
+#This affects only CPU governor, CPU Max Frequency, GPU Frequency, GPU & CPU UV, GPU threshold, sched_mc_power_savings, LMK minfree
+#Gaming
+
+/sbin/busybox mount -o rw,remount /
+/sbin/busybox sh /sbin/sysrw
+
+# Clearing existing selected relevant scripts
+/sbin/busybox rm /system/etc/init.d/*001bkgov*
+/sbin/busybox rm /system/etc/init.d/*001bkcpufreq*
+/sbin/busybox rm /system/etc/init.d/*001bkgpufreq*
+/sbin/busybox rm /system/etc/init.d/*001bkgpuuv*
+/sbin/busybox rm /system/etc/init.d/*001bkcpuuv*
+/sbin/busybox rm /system/etc/init.d/*001bkgputhreshold*
+/sbin/busybox rm /system/etc/init.d/*001bkschedmcpowersavings*
+/sbin/busybox rm /system/etc/init.d/*001bklmkminfree*
+
+/sbin/busybox chmod 0777 /res/scripts/S47enable_001bkgov_001-pegasusq_default
+/sbin/busybox chmod 0777 /res/scripts/S50enable_001bkcpufreq_030-1400_default
+/sbin/busybox chmod 0777 /res/scripts/S53enable_001bkgpufreq_050-160to440_default
+/sbin/busybox chmod 0777 /res/scripts/S54enable_001bkgpuuv_050-off_default
+/sbin/busybox chmod 0777 /res/scripts/S51enable_001bkcpuuv_001-off_default
+/sbin/busybox chmod 0777 /res/scripts/S55enable_001bkgputhreshold_010-on_default
+/sbin/busybox chmod 0777 /res/scripts/S77enable_001bkschedmcpowersavings_010-off_default
+
+# Moving relevant scripts
+/sbin/busybox cp /res/scripts/S47enable_001bkgov_018-zzmoove_zzinzane /system/etc/init.d
+/sbin/busybox cp /res/scripts/S59enable_001bklmkminfree_050-aggressive /system/etc/init.d
+
+/sbin/busybox chmod 0777 /system/etc/init.d/S47enable_001bkgov_018-zzmoove_zzinzane
+/sbin/busybox chmod 0777 /system/etc/init.dS59enable_001bklmkminfree_050-aggressive
+
+# Executing Scripts
+/sbin/busybox sh /system/etc/init.d/S47enable_001bkgov_018-zzmoove_zzinzane
+/sbin/busybox sh /res/scripts/S50enable_001bkcpufreq_030-1400_default
+/sbin/busybox sh /res/scripts/S53enable_001bkgpufreq_050-160to533_default
+/sbin/busybox sh /res/scripts/S54enable_001bkgpuuv_050-off_default
+/sbin/busybox sh /res/scripts/S51enable_001bkcpuuv_001-off_default
+/sbin/busybox sh /res/scripts/S55enable_001bkgputhreshold_010-on_default
+/sbin/busybox sh /res/scripts/S77enable_001bkschedmcpowersavings_010-off_default
+/sbin/busybox sh /system/etc/init.d/S59enable_001bklmkminfree_050-aggressive
+
+## Setting this script as non-executable
+/sbin/busybox chmod 0666 /system/etc/init.d/S46enable_001bkprofiles_*
+
+# Mounting / & /system RO
+/sbin/busybox mount -o ro,remount /
+/sbin/busybox sh /sbin/sysro

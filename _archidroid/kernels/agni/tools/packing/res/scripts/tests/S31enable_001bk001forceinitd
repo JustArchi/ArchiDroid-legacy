@@ -1,0 +1,38 @@
+#!/sbin/busybox sh
+#Forced init.d Execution
+#Execute /system/etc/init.d NOW without rebooting
+
+TITLE="Force init.d Execution"
+STYLE="Ok"
+
+# Ask for confirmation
+rm /sdcard/boeffla_twk_dlg_helper
+am start -a android.intent.action.MAIN -e message "Do you really want to execute init.d scripts NOW without rebooting?" -e title "$TITLE" -e button1 "Yes" -e button2 "No" -e toasty "Executing init.d scripts now..." -e toastn "Forced init.d Execution aborted!" -n hm.agni.control.dialog.helper/.AGNiControlDialogActivity
+
+while [ ! -f /sdcard/boeffla_twk_dlg_helper ]
+do
+  /sbin/busybox sleep 1
+done
+
+RESULT=`cat /sdcard/boeffla_twk_dlg_helper`
+
+if [ "$RESULT" = "yes" ]; then
+	if [ -d /system/etc/init.d ];
+	then
+	/sbin/busybox sh /sbin/sysrw
+	/sbin/busybox chmod 777 /system/etc/init.d/*_001bk*
+	/sbin/busybox chmod 0666 /system/etc/init.d/*_001bkprofiles*
+	/sbin/busybox sh /sbin/sysro
+	/sbin/busybox run-parts /system/etc/init.d
+	# Display confirmation window
+	rm /sdcard/boeffla_twk_dlg_helper
+	am start -a android.intent.action.MAIN -e message "/system/etc/init.d scripts executed !" -e title "$TITLE" -e okstyle "$STYLE" -n hm.agni.control.dialog.helper/.AGNiControlDialogActivity
+	while [ ! -f /sdcard/boeffla_twk_dlg_helper ]
+		do
+		/sbin/busybox sleep 1
+	done
+	fi
+fi
+
+rm /sdcard/boeffla_twk_dlg_helper
+

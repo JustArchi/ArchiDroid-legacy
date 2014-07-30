@@ -1,0 +1,45 @@
+#!/sbin/sh
+#init.d: Clean completely (ATTENTION)
+#Remove all scripts from init.d folder and backup to sd card before -
+
+TITLE="init.d: Clean completely"
+STYLE="Ok"
+
+BACKUPFILE="/data/media/kernel-data/initd-backup-$(date +%d.%m.%Y-%H.%M.%S).tar.gz"
+
+
+if [ -f /sdcard/boeffla_twk_dlg_helper ]; then
+  rm /sdcard/boeffla_twk_dlg_helper
+fi;
+
+am start -a android.intent.action.MAIN -e message "Do you really want to remove and backup ALL scripts from init.d folder?" -e title "$TITLE" -e button1 "Yes" -e button2 "No" -e toasty "Clean init.d folder now!" -e toastn "Clean init.d folder aborted!" -n hm.agni.control.dialog.helper/.AGNiControlDialogActivity
+
+while [ ! -f /sdcard/boeffla_twk_dlg_helper ]
+do
+  /sbin/busybox sleep 1
+done
+
+RESULT=`cat /sdcard/boeffla_twk_dlg_helper`
+
+if [ "$RESULT" = "yes" ]; then
+
+  if [ -f /sdcard/boeffla_twk_dlg_helper ]; then
+    rm /sdcard/boeffla_twk_dlg_helper
+  fi;
+
+  /sbin/busybox tar cvz -f $BACKUPFILE /system/etc/init.d
+
+  SYSTEM_DEVICE="/dev/block/mmcblk0p9"
+
+  /sbin/busybox sh /sbin/sysrw
+  /sbin/busybox rm /system/etc/init.d/*
+  /sbin/busybox sh /sbin/sysro
+
+am start -a android.intent.action.MAIN -e message "Clean init.d folder done, backup created!" -e title "$TITLE" -e okstyle "$STYLE" -n hm.agni.control.dialog.helper/.AGNiControlDialogActivity
+
+else
+  if [ -f /sdcard/boeffla_twk_dlg_helper ]; then
+    rm /sdcard/boeffla_twk_dlg_helper
+  fi;
+  exit 0
+fi;

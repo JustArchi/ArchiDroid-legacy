@@ -1,0 +1,18 @@
+#!/sbin/busybox sh
+#AGNi FileSystems Checking on Boot
+#Enable or disable Boot time FS_Checking :
+#off (Default)
+
+BBOX="/sbin/busybox"
+$BBOX mount -o rw,remount /
+
+TMP_LOG_FILE="/agni_fs_checker.log"
+FINAL_LOG_FILE="/data/.AGNi/agni_fs_checker.log"
+
+if [ -f $TMP_LOG_FILE] || [ -f $FINAL_LOG_FILE ];
+	then
+	$BBOX rm /data/media/0/agni_fs_checker.log
+	$BBOX rm $FINAL_LOG_FILE
+fi
+
+$BBOX mount -o ro,remount /

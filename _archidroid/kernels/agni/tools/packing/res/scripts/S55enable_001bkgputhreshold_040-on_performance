@@ -1,0 +1,12 @@
+#!/system/bin/sh
+#GPU Threshold
+#Change MALI 400MP GPU Frequency Threshold:
+#Performance
+
+# Threshold0-1/up-down: 30% 22%
+# Threshold1-2/up-down: 50% 45%
+# Threshold2-3/up-down: 50% 45%
+# Threshold3-4/up-down: 50% 45%
+
+echo "30% 22% 50% 45% 50% 45% 50% 45%" > /sys/class/misc/gpu_control/gpu_clock_control
+

@@ -1,0 +1,7 @@
+#!/system/bin/sh
+#DAC oversampling
+#DAC 128 bit oversampling:
+#On
+
+echo 1 > /sys/class/misc/boeffla_sound/boeffla_sound
+echo 1 > /sys/class/misc/boeffla_sound/dac_oversampling

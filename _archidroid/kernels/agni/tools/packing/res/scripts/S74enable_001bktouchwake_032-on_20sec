@@ -1,0 +1,10 @@
+#!/sbin/busybox sh
+#Touch Wake
+#Enable or disable Touch to Wake:
+#20 sec
+
+echo "1" > /sys/class/misc/touchwake/enabled
+echo "20" > /sys/class/misc/touchwake/delay
+
+echo "0" > /sys/class/misc/touchwake/knockon
+echo "0" > /sys/class/misc/touchwake/keypower_mode

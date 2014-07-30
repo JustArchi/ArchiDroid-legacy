@@ -1,0 +1,5 @@
+#!/sbin/busybox sh
+
+/system/bin/mount -o rw,remount /system
+/sbin/busybox mount -o rw,remount /system
+

@@ -1,0 +1,13 @@
+#!/system/bin/sh
+#Equalizer
+#Equalizer Preset:
+#Bass Extreme (no satpr)
+
+echo 1 > /sys/class/misc/boeffla_sound/boeffla_sound
+echo 2 > /sys/class/misc/boeffla_sound/eq
+echo "12 8 3 -1 1" > /sys/class/misc/boeffla_sound/eq_gains
+echo "1 4027 1031 0 276" > /sys/class/misc/boeffla_sound/eq_bands
+echo "2 8076 61555 456 456" > /sys/class/misc/boeffla_sound/eq_bands
+echo "3 7256 62323 2644 1368" > /sys/class/misc/boeffla_sound/eq_bands
+echo "4 5774 63529 1965 4355" > /sys/class/misc/boeffla_sound/eq_bands
+echo "5 1380 1369 0 16384" > /sys/class/misc/boeffla_sound/eq_bands

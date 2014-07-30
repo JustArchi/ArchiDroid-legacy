@@ -1,0 +1,47 @@
+#!/sbin/busybox sh
+#MDNIE HIJACK
+#Select MDNIE hijack mode :
+#Natural
+
+echo 1 > /sys/class/mdnie/mdnie/hijack
+
+#### MIN-MAX limits are 0-255 (RGB)
+
+# Black
+echo 0 > /sys/class/mdnie/mdnie/black
+
+# Blue
+echo 28 > /sys/class/mdnie/mdnie/blue_red
+echo 12 > /sys/class/mdnie/mdnie/blue_green
+echo 232 > /sys/class/mdnie/mdnie/blue_blue
+
+# Cyan
+echo 29 > /sys/class/mdnie/mdnie/cyan_red
+echo 241 > /sys/class/mdnie/mdnie/cyan_green
+echo 222 > /sys/class/mdnie/mdnie/cyan_blue
+
+# Green
+echo 20 > /sys/class/mdnie/mdnie/green_red
+echo 231 > /sys/class/mdnie/mdnie/green_green
+echo 0 > /sys/class/mdnie/mdnie/green_blue
+
+# Magenta
+echo 251 > /sys/class/mdnie/mdnie/magenta_red
+echo 23 > /sys/class/mdnie/mdnie/magenta_green
+echo 231 > /sys/class/mdnie/mdnie/magenta_blue
+
+# Red
+echo 240 > /sys/class/mdnie/mdnie/red_red
+echo 19 > /sys/class/mdnie/mdnie/red_green
+echo 15 > /sys/class/mdnie/mdnie/red_blue
+
+# White
+echo 255 > /sys/class/mdnie/mdnie/white_red
+echo 248 > /sys/class/mdnie/mdnie/white_green
+echo 241 > /sys/class/mdnie/mdnie/white_blue
+
+# Yellow
+echo 240 > /sys/class/mdnie/mdnie/yellow_red
+echo 242 > /sys/class/mdnie/mdnie/yellow_green
+echo 39 > /sys/class/mdnie/mdnie/yellow_blue
+

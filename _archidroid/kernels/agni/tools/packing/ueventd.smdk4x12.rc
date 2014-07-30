@@ -1,0 +1,29 @@
+/dev/mali                 0666   system     system
+/dev/ion                  0666   system     system
+/dev/ump                  0666   system     graphics
+/dev/exynos-mem           0660   system     graphics
+/dev/s3c-mfc              0660   media      graphics
+/dev/video0               0660   system     camera
+/dev/video1               0660   system     camera
+/dev/video2               0660   system     camera
+/dev/video3               0660   system     camera
+/dev/video11              0660   system     system
+/dev/video12              0660   system     system
+/dev/video16              0660   system     system
+/dev/video20              0660   system     system
+/dev/fimg2d               0666   system     graphics
+/dev/i2c-2                0660   system     system
+/dev/i2c-5                0660   system     system
+/dev/i2c-7                0660   system     system
+/dev/CEC                  0660   system     system
+/dev/HPD                  0660   system     system
+/dev/fmradio              0660   system     audio
+
+# ULP Audio
+/dev/srp                  0660   system     audio
+/dev/srp_ctrl             0660   system     audio
+/dev/umts*                0660   system     radio
+/dev/block/mmcblk0p7	  0660	 system	    radio
+/dev/block/mmcblk0p4	  0660	 system	    system
+
+/dev/usb/lp*              0660   system     usb

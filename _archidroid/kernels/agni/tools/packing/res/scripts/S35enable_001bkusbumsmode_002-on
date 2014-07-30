@@ -1,0 +1,16 @@
+#!/sbin/sh
+#USB MASS STORAGE MODE (UMS)
+#ENABLE/DISABLE UMS MODE for external sdcard :
+#On
+
+#STOCK 4.3
+
+USB_GADGET="/sys/devices/platform/s3c-usbgadget/gadget/lun0/file"
+
+EXTERNAL_SD_MOUNT_POINT="`mount | grep vold | grep extSdCard | cut -f 2 -d ' '`"
+EXTERNAL_SD_LOCATION="`mount | grep vold | grep extSdCard | cut -f 1 -d ' '`"
+
+/sbin/busybox sync
+/sbin/busybox umount -l $EXTERNAL_SD_MOUNT_POINT
+/system/bin/setprop persist.sys.usb.config mass_storage,adb
+/sbin/busybox echo "$EXTERNAL_SD_LOCATION" > $USB_GADGET

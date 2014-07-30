@@ -1,0 +1,12 @@
+#!/sbin/sh
+#AGNi preloadSWAP 512MB
+#Enable or disable preloadSWAP with 2nd priority:
+#Off (default)
+
+PRELOAD="/dev/block/mmcblk0p10"
+
+umount /preload
+mount -o rw,remount /
+mkdir /preload
+mount -o ro,remount /
+swapoff $PRELOAD && /sbin/busybox mke2fs $PRELOAD && /sbin/make_ext4fs $PRELOAD && mount -t ext4 -o nosuid,nodev,noatime,nodiratime,discard $PRELOAD /preload;

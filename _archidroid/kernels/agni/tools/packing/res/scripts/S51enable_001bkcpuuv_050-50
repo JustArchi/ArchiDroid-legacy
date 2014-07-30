@@ -1,0 +1,6 @@
+#!/system/bin/sh
+#CPU Undervolting
+#Change CPU voltage:
+#-50 mV
+
+echo "1390 1343 1293 1230 1193 1155 1093 1043 993 955 930 918 905 880 868 843 843 " > /sys/devices/system/cpu/cpu0/cpufreq/UV_mV_table

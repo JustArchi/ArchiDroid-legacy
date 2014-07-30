@@ -1,0 +1,9 @@
+#!/sbin/busybox sh
+#TOUCHKEY LIGHTING SCENARIO
+#Select hardware touch keys lighting scenario :
+#Lights up only on h/w keys (default)
+
+echo 1 > /sys/class/sec/sec_touchkey/touch_led_handling # KERNEL MODE
+echo 0 > /sys/class/sec/sec_touchkey/force_disable
+echo 0 > /sys/class/sec/sec_touchkey/touch_led_on_screen_touch
+

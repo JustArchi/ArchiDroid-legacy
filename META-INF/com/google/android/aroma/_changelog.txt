@@ -1,33 +1,3 @@
-ArchiDroid 1.7.17
+ArchiDroid 1.7.18
 
-- [!] Added ArchiKernel # For perfect synergy!
-- ArchiKernel is default kernel choice now
-- ArchiDroid_Init code review
-- ArchiDroid_RunOnce code review
-- Fixed rebooting to recovery after plugging charger to powered down phone in ArchiDroid 1.X
-- Fixed ArchiDroid backend not being executed in some scenarios
-- Updated Modem to UBUGNF1
-- Removed camera fix as it's not needed anymore
-- Removed Googy Max kernel # You can still use it if you want, I just don't keep EOLed kernels in AROMA
-- Removed Devil kernel # Same as above
-- Added missing dedupe tool # Thanks to @globs7
-- Updated all ArchiDroid backend tools to latest versions # They're now also compatible with every armv7-a NEON device, previously only CortexA9+
-- Updated Boeffla kernel to 5.4-beta1
-- Updated AGNi kernel to 3.8.4
-- Updated Nova launcher to 3.0.2
-- Updated Google Keyboard
-- Updated Android Terminal Emulator to 1.0.62
-- Updated Greenify to 2.3.2
-- Updated MX Player to 1.7.28
-- Updated BetterBatteryStats to 1.16 RC5
-- Updated Android Terminal Emulator to 1.0.61
-- Updated MX Player to 1.7.27
-- Updated Xposed to 2.7 exp1
-- Reverted back to official Google PlayStore # This means that multi-dpi patch is not included anymore in the app itself, use xposed module or patch yourself
-- PlayStoreFix is now included with Xposed
-- App Settings is now included with Xposed
-- Updated XPrivacy to 2.2.2
-- Updated Wanam Xposed to 2.9.9
-- Updated GravityBox to 3.2.1
-- Updated PhilZ Touch recovery to 6.48.4
-- Updated Onandroid to 9.51
+- Fixed hardswap not being activated on ArchiDroid 1.X, when placed on external sd card # Reported by @bolt890

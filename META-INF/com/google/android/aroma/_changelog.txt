@@ -1,15 +1,4 @@
-ArchiDroid 2.5.2
+ArchiDroid 2.5.3
 
-- Fixed hardswap not being activated on ArchiDroid 1.X, when placed on external sd card # Reported by @bolt890
-- Added missing "semco" variant to BCM profiling.
-- Added additional r_submix audio module, idea thanks to @nelsonw # This should help with chromecast
-- Updated Modem to UBUGNF1
-- Updated Boeffla kernel to 2.4-beta1 (NG)
-- Updated AGNi kernel to 2.8.4
-- Updated PA GAPPS to 29 July
-- Updated Nova Launcher to 3.0.2
-- Updated Google Keyboard
-- Updated XPrivacy to 2.2.2
-- Updated PhilZ Touch recovery to 6.48.4
-- Updated Onandroid to 9.51
+- Removed BBS app as per developer request
 - Updated sources

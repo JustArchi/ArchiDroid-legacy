@@ -582,11 +582,6 @@ else
 		package_extract_dir("_archidroid/apps/mxplayer", "/");
 	endif;
 
-	if file_getprop("/tmp/aroma-data/archidroid.prop","bbs") == "1" then
-		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing BetterBatteryStats");
-		package_extract_dir("_archidroid/apps/betterbatterystats", "/");
-	endif;
-
 	if file_getprop("/tmp/aroma-data/archidroid.prop","cooltool") == "1" then
 		ui_print("<b><#ff0000>root</#><#ecec36>@</#><#0cdfdf>ArchiDroid</#><#ecec36>:~</#><#c00cdf>#</#></b> Installing CoolTool");
 		package_extract_dir("_archidroid/apps/cooltool", "/");

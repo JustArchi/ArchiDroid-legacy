@@ -1,0 +1,11 @@
+#!/sbin/busybox sh
+
+if [ "a$2" != "a" ];then
+echo $2 > /data/.archi/.archi.profile
+fi
+
+if [ -f /data/.archi/.archi.profile ];then
+  cat /data/.archi/.archi.profile
+else
+  echo "balanced" > /data/.archi/.archi.profile
+fi

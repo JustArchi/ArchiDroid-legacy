@@ -1,0 +1,28 @@
+#!/sbin/busybox sh
+
+if [ "a$3" == "a" ];then
+  evalcmd='eval "echo \$GPUVOLT$2"'
+  if [ "a`eval $evalcmd`" == "a" ];then
+    j=1
+    for i in `cat /sys/class/misc/gpu_voltage_control/gpu_control | awk -F: '{print $2}'`; do 
+      eval GPUVOLT$j=`expr $i / 1`
+      j=`expr $j + 1`
+    done
+  fi
+  evalcmd='eval "echo \$GPUVOLT$2"'
+  eval $evalcmd
+else
+  evalcmd='eval "GPUVOLT$2=$3"'
+  eval $evalcmd
+  evalcmd='eval "echo \$GPUVOLT$2"'
+  eval $evalcmd
+  VOLTAGES=""
+  j=1
+  for i in `cat /sys/class/misc/gpu_voltage_control/gpu_control | awk -F: '{print $2}'`;do
+    evalcmd='eval echo \$GPUVOLT$j'
+    VOLTAGES="$VOLTAGES `eval $evalcmd`"
+    j=`expr $j + 1`
+  done
+  echo $VOLTAGES > /sys/class/misc/gpu_voltage_control/gpu_control
+fi
+

@@ -1,0 +1,32 @@
+#!/sbin/busybox sh
+
+if [ "a$2" != "a" ];then
+filename=$(basename $2)
+filename=CPU_VOLT_`echo $filename`
+if [ "a$3" == "a" ];then
+  evalcmd='eval "echo \$$filename"'
+  if [ "a`eval $evalcmd`" == "a" ];then
+    for i in `cat /sys/devices/system/cpu/cpu0/cpufreq/UV_mV_table | \
+              sed -e 's/mhz//g;s/://g' | \
+              awk '{ print "CPU_VOLT_" $1 "=" $2 }'` ; do 
+      eval $i;
+    done
+  fi
+  eval $evalcmd
+else
+  evalcmd='eval "$filename=$3"'
+  eval $evalcmd
+  if [ "$CONTROLSWITCH_CPU" == "on" -o "$CONFIG_BOOTING" != "1" ]; then
+    VOLTAGES=""
+    for i in `cat /sys/devices/system/cpu/cpu0/cpufreq/UV_mV_table | \
+              sed -e 's/mhz//g;s/://g' | \
+              awk '{ print $1 }'` ; do 
+      evalcmd='eval echo \$CPU_VOLT_$i'
+      VOLTAGES="$VOLTAGES `eval $evalcmd`"
+    done
+    echo $VOLTAGES > /sys/devices/system/cpu/cpu0/cpufreq/UV_mV_table
+  fi
+  evalcmd='eval "echo \$$filename"'
+  eval $evalcmd
+fi
+fi

@@ -1,0 +1,26 @@
+#!/sbin/busybox sh
+
+. /res/customconfig/customconfig-helper
+
+_ACTIVEPROF=`cat /data/.archi/.archi.profile`
+
+case "${_ACTIVEPROF}" in
+  battery)
+    cp /data/.archi/battery.profile /data/.archi/default.profile 
+    read_defaults
+    read_config
+    apply_config
+    ;;
+  balanced)
+    cp /data/.archi/balanced.profile /data/.archi/default.profile 
+    read_defaults
+    read_config
+    apply_config
+    ;;
+  performance)
+    cp /data/.archi/performance.profile /data/.archi/default.profile 
+    read_defaults
+    read_config
+    apply_config
+    ;;
+esac;

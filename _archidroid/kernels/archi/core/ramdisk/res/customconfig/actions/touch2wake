@@ -1,0 +1,22 @@
+#!/sbin/busybox sh
+
+if [ "a$2" != "a" ];then
+
+filename=$(basename $2)
+
+if [ "a$3" == "a" ];then
+  evalcmd='eval "echo \$$filename"'
+  eval $evalcmd
+else
+  evalcmd='eval "$filename=$3"'
+  eval $evalcmd
+  evalcmd='eval "echo \$$filename"'
+  eval $evalcmd
+
+echo `expr $touchwakedelay \* 1000` > /sys/class/misc/touchwake/delay
+echo `expr $touchwake \* 1` > /sys/class/misc/touchwake/enabled
+echo `expr $knockondelay \* 1000` > /sys/class/misc/touchwake/knockon_delay
+echo `expr $knockon \* 1` > /sys/class/misc/touchwake/knockon
+
+fi
+fi

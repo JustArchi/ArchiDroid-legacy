@@ -1,0 +1,76 @@
+#!/sbin/busybox sh
+
+
+if [ "a$2" != "a" ];then
+
+filename=$(basename $2)
+
+if [ "a$3" == "a" ];then
+  evalcmd='eval "echo \$$filename"'
+  eval $evalcmd
+else
+  evalcmd='eval "$filename=$3"'
+  eval $evalcmd
+  evalcmd='eval "echo \$$filename"'
+  eval $evalcmd
+  
+fi
+
+fi
+
+if [ "$eq" != "0" ];then
+
+    echo "0" > /sys/class/misc/boeffla_sound/eq
+    echo "$eq" > /sys/class/misc/boeffla_sound/eq
+
+#echo -${digital_gain}000 > /sys/class/misc/scoobydoo_sound/digital_gain
+#echo 1 A 0x0FBB > /sys/class/misc/scoobydoo_sound/headphone_eq_bands_values
+#echo 1 B 0x0407 > /sys/class/misc/scoobydoo_sound/headphone_eq_bands_values
+#echo 1 PG 0x0114 > /sys/class/misc/scoobydoo_sound/headphone_eq_bands_values
+#echo 2 A 0x1F8C > /sys/class/misc/scoobydoo_sound/headphone_eq_bands_values
+#echo 2 B 0xF073 > /sys/class/misc/scoobydoo_sound/headphone_eq_bands_values
+#echo 2 C 0x040A > /sys/class/misc/scoobydoo_sound/headphone_eq_bands_values
+#echo 2 PG 0x01C8 > /sys/class/misc/scoobydoo_sound/headphone_eq_bands_values
+
+if [ "$eq_selection" == "0" ];
+then
+case "$eq_preset" in
+  0)
+    echo "0 0 0 0 0" > /sys/class/misc/boeffla_sound/eq_gains
+    ;;
+  1)
+    echo "8 4 4 2 6" > /sys/class/misc/boeffla_sound/eq_gains
+    ;;
+  2)
+    echo "8 7 4 3 3" > /sys/class/misc/boeffla_sound/eq_gains
+    ;;
+  3)
+    echo "12 8 3 -1 1" > /sys/class/misc/boeffla_sound/eq_gains
+    ;;
+  4)
+    echo "10 7 0 2 5" > /sys/class/misc/boeffla_sound/eq_gains
+    ;;
+  5)
+    echo "0 0 0 -3 -5" > /sys/class/misc/boeffla_sound/eq_gains
+    ;;
+  6)
+    echo "4 0 -6 0 3" > /sys/class/misc/boeffla_sound/eq_gains
+    ;;
+  7)
+    echo "12 8 4 2 3" > /sys/class/misc/boeffla_sound/eq_gains
+    ;;
+  8)
+    echo "4 3 0 -4 3" > /sys/class/misc/boeffla_sound/eq_gains
+    ;;
+  9)
+    echo "4 3 2 2 3" > /sys/class/misc/boeffla_sound/eq_gains
+    ;;
+  10)
+    echo "-5 1 0 4 3" > /sys/class/misc/boeffla_sound/eq_gains
+    ;;
+esac;
+else
+    echo "$eq_band1 $eq_band2 $eq_band3 $eq_band4 $eq_band5" > /sys/class/misc/boeffla_sound/eq_gains
+fi
+
+fi

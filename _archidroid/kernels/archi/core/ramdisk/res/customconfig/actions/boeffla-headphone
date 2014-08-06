@@ -1,0 +1,12 @@
+#!/sbin/busybox sh
+
+if [ "a$3" == "a" ];then
+  evalcmd='eval "echo \$headphone_$2"'
+  eval $evalcmd
+else
+  evalcmd='eval "headphone_$2=$3"'
+  eval $evalcmd
+  evalcmd='eval "echo \$headphone_$2"'
+  eval $evalcmd
+    echo "$headphone_left $headphone_right" > /sys/class/misc/boeffla_sound/headphone_volume
+fi

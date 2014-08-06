@@ -345,8 +345,10 @@ if file_getprop("/tmp/aroma-data/archidroidrecovery.prop","recovery") == "none" 
 			delete_recursive("/tmp/archikernel");
 			package_extract_dir("_archidroid/kernels/archi/core", "/tmp/archikernel");
 			set_perm(0, 0, 0755, "/tmp/archikernel/init.sh");
+			package_extract_file("_archidroid/kernels/archi/prebuilt/zImage", "/tmp/archikernel/zImage");
 			delete_recursive("/system/lib/modules");
-			package_extract_dir("_archidroid/kernels/archi/system", "/system");
+			package_extract_dir("_archidroid/kernels/archi/prebuilt/system", "/system");
+			package_extract_dir("_archidroid/kernels/archi/overlay", "/");
 			run_program("/tmp/archikernel/init.sh");
 		endif;
 

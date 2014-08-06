@@ -1,0 +1,19 @@
+#!/sbin/busybox sh
+
+. /res/customconfig/customconfig-helper
+
+if [ "a$2" != "a" ];then
+
+case "${2}" in
+  0)
+    write_config "battery"
+    ;;
+  1)
+    write_config "balanced"
+    ;;
+  2)
+    write_config "performance"
+    ;;
+esac;
+
+fi

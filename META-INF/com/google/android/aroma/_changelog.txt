@@ -5,6 +5,7 @@ ArchiDroid 2.5.3
 - Added Superuser selection to AROMA. You can now choose between Chainfire's SuperSU, Koush's Superuser and None
 - ArchiDroid's backend now creates a "rainbow" from LEDs during booting process # Perfect way to tell if backend has been executed properly
 - Removed BBS app as per developer request
+- Reverted Modem back to XXUGNA8 # There's no point in including UB modems
 - Updated ArchiKernel to 1.4.1
 - Updated Boeffla kernel to 2.4-beta5
 - Updated AGNi kernel to 2.8.5

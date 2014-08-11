@@ -40,18 +40,18 @@
   <!-- ARCHIDROID TEMPORARY FORKS -->
 
   <!-- XPERIA M DEPENDENCIES -->
-  <project name="freexperia/android_device_sony_nicki" path="device/sony/nicki" remote="github" />
+  <project name="CyanogenMod/android_device_sony_nicki" path="device/sony/nicki" remote="github" />
   <project name="CyanogenMod/android_device_qcom_common" path="device/qcom/common" remote="github" />
   <project name="CyanogenMod/android_device_sony_common" path="device/sony/common" remote="github" />
   <project name="CyanogenMod/android_device_sony_qcom-common" path="device/sony/qcom-common" remote="github" />
-  <project name="CyanogenMod/android_hardware_qcom_fm" path="hardware/qcom/fm" remote="github" />
   <project name="CyanogenMod/android_kernel_sony_msm8x27" path="kernel/sony/msm8x27" remote="github" />
+  <project name="CyanogenMod/android_hardware_qcom_fm" path="hardware/qcom/fm" remote="github" />
   <project name="TheMuppets/proprietary_vendor_sony" path="vendor/sony" remote="github" />
 
   <!-- ARCHIDROID XPERIA M DEPENDENCIES FORKS -->
   <remove-project name="CyanogenMod/android_kernel_sony_msm8x27" />
   <project name="JustArchi/android_kernel_sony_msm8x27" path="kernel/sony/msm8x27" remote="github" />
-  <remove-project name="freexperia/android_device_sony_nicki" />
+  <remove-project name="CyanogenMod/android_device_sony_nicki" />
   <project name="JustArchi/android_device_sony_nicki" path="device/sony/nicki" remote="github" />
   <remove-project name="CyanogenMod/android_hardware_qcom_display" />
   <project name="JustArchi/android_hardware_qcom_display" path="hardware/qcom/display" remote="github" />

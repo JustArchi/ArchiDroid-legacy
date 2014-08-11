@@ -1,0 +1,12 @@
+#!/sbin/busybox sh
+
+if [ "a$3" == "a" ];then
+  evalcmd='eval "echo \$speaker_$2"'
+  eval $evalcmd
+else
+  evalcmd='eval "speaker_$2=$3"'
+  eval $evalcmd
+  evalcmd='eval "echo \$speaker_$2"'
+  eval $evalcmd
+    echo "$speaker_left $speaker_right" > /sys/class/misc/boeffla_sound/speaker_volume
+fi

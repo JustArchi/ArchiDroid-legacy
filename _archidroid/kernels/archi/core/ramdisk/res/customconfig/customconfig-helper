@@ -1,0 +1,157 @@
+#!/system/bin/sh
+# custom script helper by Gokhan Moral
+
+DEFAULT_PROFILE=/res/customconfig/default.profile
+BATTERY_PROFILE=/res/customconfig/battery.profile
+PERFORMANCE_PROFILE=/res/customconfig/performance.profile
+CONFIG_XML=/res/customconfig/customconfig.xml
+PROFILE_PATH=/data/.archi
+TEMP_CONFIG=$PROFILE_PATH/.config.tmp
+LAST_SELECTED=.active.profile
+ACTIVE_PROFILE=${PROFILE_PATH}/${LAST_SELECTED}
+ACTION_SCRIPTS=/res/customconfig/actions
+
+
+apply_config()
+{
+actions=`print_config | \
+    sed -e 's/\n/ /g' -e 's/>/\n/g' -e '/<button/d' \
+        -e 's/action=/\naction=/g' | \
+    grep action | awk -F'"' '{print $2 }'`
+OLDIFS=$IFS
+IFS=$'\n'
+for i in $actions;do
+  IFS=$OLDIFS
+  action=`echo $i | awk '{print $1}'`
+  actionparam=`echo $i | awk '{print $2,$3,$4,$5}'`
+  if [ "a$action" != a ];then
+    . $ACTION_SCRIPTS/$action $action $actionparam
+    actionval=`. $ACTION_SCRIPTS/$action $action $actionparam`
+    echo applying: /res/uci.sh $action $actionparam $actionval
+    . $ACTION_SCRIPTS/$action $action $actionparam $actionval
+  fi
+done
+}
+
+print_config()
+{
+  cat $CONFIG_XML
+}
+
+dump_profile()
+{
+  if [ "a$1" == "a" ];
+  then
+    cat $PROFILE_PATH/`cat $ACTIVE_PROFILE`.profile
+  else
+    cat $PROFILE_PATH/$1.profile
+  fi
+}
+
+list_profile()
+{
+  ls -1 $PROFILE_PATH | grep \.profile | sed -e 's/.profile//g'
+}
+
+select_profile()
+{
+  if [ "a$1" == "a" ];
+  then
+    cat $ACTIVE_PROFILE
+  else
+    # if there is no such profile, create one
+    _ACTIVE_PROFILE=`cat $ACTIVE_PROFILE`
+    if [ ! -f ${PROFILE_PATH}/${_ACTIVE_PROFILE}.profile ];then
+      cp $DEFAULT_PROFILE ${PROFILE_PATH}/${1}.profile
+      [ "$_ACTIVE_PROFILE" == "battery" ] && cp $BATTERY_PROFILE ${PROFILE_PATH}/${1}.profile
+      [ "$_ACTIVE_PROFILE" == "performance" ] && cp $PERFORMANCE_PROFILE ${PROFILE_PATH}/${1}.profile
+    fi
+    if [ ! -f ${PROFILE_PATH}/${1}.profile ];then
+      cp ${PROFILE_PATH}/${_ACTIVE_PROFILE}.profile ${PROFILE_PATH}/${1}.profile
+    fi
+    echo $1 > $ACTIVE_PROFILE
+    chmod 777 ${PROFILE_PATH}/${1}.profile
+  fi
+}
+
+delete_profile()
+{
+  if [ "`cat $ACTIVE_PROFILE`" == "$1" ];then
+    select_profile "default"
+  fi
+  rm ${PROFILE_PATH}/${1}.profile
+}
+
+rename_profile()
+{
+  # move old profile to new
+  mv ${PROFILE_PATH}/${1}.profile ${PROFILE_PATH}/${2}.profile
+
+  # if old profile is active, set the new profile as active profile
+  if [ "`cat $ACTIVE_PROFILE`" == "$1" ];then
+    echo $2 > $ACTIVE_PROFILE
+  fi
+}
+
+write_config()
+{
+  if [ "a$1" == "a" ];then
+    _CONFIG_FILE=$PROFILE_PATH/`cat ${PROFILE_PATH}/${LAST_SELECTED}`.profile
+  else
+    _CONFIG_FILE=$PROFILE_PATH/${1}.profile
+  fi
+
+  rm -f $TEMP_CONFIG
+  while IFS="=" read -r key value
+  do
+    if [ -n "$key" ];then
+      evalexpr='eval "echo \$$key"'
+      echo $key=`eval $evalexpr`
+    fi
+  done < $DEFAULT_PROFILE > $TEMP_CONFIG
+  cp $TEMP_CONFIG $_CONFIG_FILE
+  chmod 777 $_CONFIG_FILE
+  rm -f $TEMP_CONFIG
+}
+
+read_config()
+{
+  if [ "a$1" == "a" ];then
+    _CONFIG_FILE=$PROFILE_PATH/`cat ${PROFILE_PATH}/${LAST_SELECTED}`.profile
+  else
+    _CONFIG_FILE=${1}
+  fi
+
+
+  eval `sed -e 's/[[:space:]]*\=[[:space:]]*/=/g' \
+    -e 's/;.*$//' \
+    -e 's/[[:space:]]*$//' \
+    -e 's/^[[:space:]]*//' \
+    -e "s/^\(.*\)=\([^\"']*\)$/\1=\"\2\"/" \
+   < $_CONFIG_FILE | grep = `
+}
+
+read_defaults ()
+{
+  read_config "$DEFAULT_PROFILE"
+  _ACTIVE_PROFILE=`cat $ACTIVE_PROFILE`
+  [ "$_ACTIVE_PROFILE" == "battery" ] && read_config "$BATTERY_PROFILE"
+  [ "$_ACTIVE_PROFILE" == "performance" ] && read_config "$PERFORMANCE_PROFILE"
+}
+
+# some initialization code
+if [ ! -f $CONFIG_XML ]; then
+  mount -o remount,rw /
+  . /res/customconfig/customconfig.xml.generate > $CONFIG_XML
+  mount -o remount,ro /
+fi
+
+if [ ! -f $PROFILE_PATH/$LAST_SELECTED ];then 
+  echo default > $PROFILE_PATH/$LAST_SELECTED
+  chmod 777 $PROFILE_PATH/$LAST_SELECTED
+fi
+
+if [ ! -f $PROFILE_PATH/default.profile ];then
+  cp $DEFAULT_PROFILE $PROFILE_PATH/default.profile
+  chmod 777 $PROFILE_PATH/default.profile
+fi

@@ -1,0 +1,38 @@
+#!/sbin/busybox sh
+
+
+if [ "a$2" != "a" ];then
+
+filename=$(basename $2)
+
+if [ "a$3" == "a" ];then
+  evalcmd='eval "echo \$$filename"'
+  eval $evalcmd
+else
+  evalcmd='eval "$filename=$3"'
+  eval $evalcmd
+  evalcmd='eval "echo \$$filename"'
+  eval $evalcmd
+  
+fi
+
+fi
+
+if [ "$eq" != "0" ];then
+
+if [ "$eq_bass" == "0" ];
+then
+  echo "1 4042 1024 0 216" > /sys/class/misc/boeffla_sound/eq_bands
+  echo "2 7861 61765 2933 453" > /sys/class/misc/boeffla_sound/eq_bands
+  echo "3 7256 62323 2644 1368" > /sys/class/misc/boeffla_sound/eq_bands
+  echo "4 5774 63529 1965 4355" > /sys/class/misc/boeffla_sound/eq_bands
+  echo "5 1380 1369 0 16384" > /sys/class/misc/boeffla_sound/eq_bands
+else
+  echo "1 4027 1031 0 276" > /sys/class/misc/boeffla_sound/eq_bands
+  echo "2 8076 61555 456 456" > /sys/class/misc/boeffla_sound/eq_bands
+  echo "3 7256 62323 2644 1368" > /sys/class/misc/boeffla_sound/eq_bands
+  echo "4 5774 63529 1965 4355" > /sys/class/misc/boeffla_sound/eq_bands
+  echo "5 1380 1369 0 16384" > /sys/class/misc/boeffla_sound/eq_bands  
+fi
+
+fi

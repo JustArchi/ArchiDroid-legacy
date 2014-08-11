@@ -60,27 +60,58 @@ if [ -f "$AKDROP/boot.img-ramdisk.gz" ]; then
 		echo "INFO: Ramdisk in gzip format found, extracting..."
 		cd "$AKDROP/ramdisk"
 		gunzip -c ../boot.img-ramdisk.gz | cpio -i
+
+		# Detect AOSP/Samsung variant based on existing modules in ramdisk
 		if [ -d "$AKDROP/ramdisk/lib/modules" ]; then
 			echo "INFO: Detected Samsung variant"
-			# Remove all current modules
+
+			# Remove all current modules from ramdisk
 			find "$AKDROP/ramdisk/lib/modules" -type f -iname "*.ko" | while read line; do
 				rm -f "$line"
 			done
-			# Copy all new ArchiKernel modules
+
+			# Copy all new ArchiKernel modules from system to ramdisk
 			find "/system/lib/modules" -type f -iname "*.ko" | while read line; do
 				cp "$line" "$AKDROP/ramdisk/lib/modules"
 			done
-			rm -rf "/system/lib/modules" # No need to confusion on Sammy base
+
+			# We're on Sammy so we have no use of system modules, delete them to avoid confusion
+			rm -rf "/system/lib/modules"
 		else
 			echo "INFO: Detected AOSP variant"
 		fi
+
+		# If we have any ramdisk content, write it
 		if [ -d "$AK/ramdisk" ]; then
 			echo "INFO: Overwriting ramdisk with custom content"
-			find "$AK/ramdisk" | while read line; do
-				echo "Overwriting $(basename "$line")"
-				cp -R "$line" .
+			find "$AK/ramdisk" -mindepth 1 -maxdepth 1 | while read line; do
+				cp -pR "$line" .
 			done
 		fi
+
+		# If we have any executable files/folders, chmod them
+		TO755="sbin/ArchiKernel-Init res/uci.sh"
+		for FILE in $TO755; do
+			if [ -e "$AKDROP/ramdisk/$FILE" ]; then
+				chmod 755 "$AKDROP/ramdisk/$FILE"
+			fi
+		done
+
+		# Add ArchiKernel Init if required
+		if [ "$(grep -qi "ArchiKernel-Init" "$AKDROP/ramdisk/init.rc"; echo $?)" -ne 0 ]; then
+			echo "INFO: User is flashing the kernel for the first time!"
+			{
+				echo
+				echo "service ArchiKernel-Init /sbin/ArchiKernel-Init"
+				echo "    class main"
+				echo "    user root"
+				echo "    group root"
+				echo "    oneshot"
+			} >> "$AKDROP/ramdisk/init.rc"
+		else
+			echo "INFO: User is updating the kernel!"
+		fi
+
 		rm -f "$AKDROP/boot.img-ramdisk.gz"
 		find . | cpio -o -H newc | gzip > "$AKDROP/boot.img-ramdisk.gz"
 	fi

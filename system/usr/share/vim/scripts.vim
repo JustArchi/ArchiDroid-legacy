@@ -332,8 +332,12 @@ else
     set ft=git
 
   " Logcat
-  elseif s:line1 == '--------- beginning of /dev/log/system'
+  elseif s:line1 =~ '^--------- beginning of /dev/log/.*'
     set ft=logcat
+
+  " Markdown
+  elseif s:line2 =~ '^[\=-]\+$'
+    set ft=markdown
 
    " Gprof (gnu profiler)
    elseif s:line1 == 'Flat profile:'

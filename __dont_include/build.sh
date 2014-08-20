@@ -24,16 +24,24 @@
 set -e
 VERSION=2.5.3
 
+# Detect HOME properly
+# This workaround is required because arm-eabi-nm has problems following ~. Don't change it
+if [[ "$(dirname ~)" = "/" ]]; then
+	HOME="$(dirname ~)$(basename ~)" # Root
+else
+	HOME="$(dirname ~)/$(basename ~)" # User
+fi
+
 # HOW TO PORT ARCHIDROID TO OTHER DEVICE
 # 1. Make sure you have a good base, this can be a stock ROM or AOSP ROM. Put it in .zip format in the root of ArchiDroid.
 # 2. Enter __dont_include folder and execute this script with nobuild parameter - bash build.sh "nobuild", before that, modify following parameters to proper ones
 
 # CHANGE ME
-ADROOT="/root/shared/git/ArchiDroid" # This is where ArchiDroid GitHub repo is located
+ADROOT="$HOME/shared/git/ArchiDroid" # This is where ArchiDroid GitHub repo is located
 ADZIP="cm-" # This is with what output zip starts, i.e. for omni-xxx-yyy.zip you should type "omni-"
 
 # CHANGE ME IF BUILDING FROM SOURCE
-ADCOMPILEROOT="/root/android/cm" # This is where AOSP sources are located
+ADCOMPILEROOT="$HOME/android/cm" # This is where AOSP sources are located
 ADVARIANT="i9300" # This is AOSP variant to build, the one used in brunch command. If you use "brunch mydevice", you should set it to mydevice here
 BUILDVARIANT="user" # Change this to userdebug if for some reason you can't build with user variant
 NOGIT=0 # Change that to 1, it's 0 only for me to allow faster updates of local AOSP repos
@@ -45,7 +53,7 @@ NOGIT=0 # Change that to 1, it's 0 only for me to allow faster updates of local 
 
 # OPTIONAL
 ADOUT="$ADCOMPILEROOT/out/target/product/$ADVARIANT" # This is the location of output zip from above sources, usually it doesn't need to be changed
-ADREPOS="/root/git/auto" # This is used only when NOGIT is 0
+ADREPOS="$HOME/git/auto" # This is used only when NOGIT is 0
 
 # 3. It should properly start extracting everything and overwriting /system partition
 # 4. Ignore md5 sum mismatch, as it's a feature for me to easily detect updater-script changes when I'm merging new base

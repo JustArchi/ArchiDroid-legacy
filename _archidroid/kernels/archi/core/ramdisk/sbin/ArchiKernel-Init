@@ -230,6 +230,69 @@ case "$default_governor" in
     ;;
 esac;
 
+##### Zram settings #####
+
+if [ "$zram_switch" == "on" ]; then
+
+  echo 1 > /sys/devices/virtual/block/zram0/reset &
+  echo 1 > /sys/devices/virtual/block/zram1/reset &
+  echo 1 > /sys/devices/virtual/block/zram2/reset &
+  echo 1 > /sys/devices/virtual/block/zram3/reset
+  swapoff /dev/block/zram0 > /dev/null 2>&1 &
+  swapoff /dev/block/zram1 > /dev/null 2>&1 &
+  swapoff /dev/block/zram2 > /dev/null 2>&1 &
+  swapoff /dev/block/zram3 > /dev/null 2>&1
+  
+ case "$zram_disks" in
+ 1)
+  echo `expr $zram_size \* 1024 \* 1024` > /sys/devices/virtual/block/zram0/disksize
+  echo `expr $zram_swappiness \* 1` > /proc/sys/vm/swappiness
+  mkswap /dev/block/zram0 > /dev/null 2>&1
+  swapon -p 2 /dev/block/zram0 > /dev/null 2>&1
+ ;;
+ 2)
+  echo `expr $zram_size \* 1024 \* 512` > /sys/devices/virtual/block/zram0/disksize
+  echo `expr $zram_size \* 1024 \* 512` > /sys/devices/virtual/block/zram1/disksize
+  echo `expr $zram_swappiness \* 1` > /proc/sys/vm/swappiness
+  mkswap /dev/block/zram0 > /dev/null 2>&1
+  swapon -p 2 /dev/block/zram0 > /dev/null 2>&1
+  mkswap /dev/block/zram1 > /dev/null 2>&1
+  swapon -p 2 /dev/block/zram1 > /dev/null 2>&1
+ ;;
+ 4)
+  echo `expr $zram_size \* 1024 \* 256` > /sys/devices/virtual/block/zram0/disksize
+  echo `expr $zram_size \* 1024 \* 256` > /sys/devices/virtual/block/zram1/disksize
+  echo `expr $zram_size \* 1024 \* 256` > /sys/devices/virtual/block/zram2/disksize
+  echo `expr $zram_size \* 1024 \* 256` > /sys/devices/virtual/block/zram3/disksize
+  echo `expr $zram_swappiness \* 1` > /proc/sys/vm/swappiness
+  mkswap /dev/block/zram0 > /dev/null 2>&1
+  swapon -p 2 /dev/block/zram0 > /dev/null 2>&1
+  mkswap /dev/block/zram1 > /dev/null 2>&1
+  swapon -p 2 /dev/block/zram1 > /dev/null 2>&1
+  mkswap /dev/block/zram2 > /dev/null 2>&1
+  swapon -p 2 /dev/block/zram2 > /dev/null 2>&1
+  mkswap /dev/block/zram3 > /dev/null 2>&1
+  swapon -p 2 /dev/block/zram3 > /dev/null 2>&1
+ ;;
+ esac;
+
+fi
+
+
+if [ "$zram_switch" == "off" ]; then
+
+  swapoff /dev/block/zram0 > /dev/null 2>&1 &
+  swapoff /dev/block/zram1 > /dev/null 2>&1 &
+  swapoff /dev/block/zram2 > /dev/null 2>&1 &
+  swapoff /dev/block/zram3 > /dev/null 2>&1
+  umount /dev/block/zram0 > /dev/null 2>&1 &
+  umount /dev/block/zram1 > /dev/null 2>&1 &
+  umount /dev/block/zram2 > /dev/null 2>&1 &
+  umount /dev/block/zram3 > /dev/null 2>&1
+	
+fi
+
+
 echo "ArchiKernel-Init finished!"
 date
 exit 0

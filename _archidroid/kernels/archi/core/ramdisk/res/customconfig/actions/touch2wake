@@ -15,7 +15,7 @@ else
 
 echo `expr $touchwakedelay \* 1000` > /sys/class/misc/touchwake/delay
 echo `expr $touchwake \* 1` > /sys/class/misc/touchwake/enabled
-echo `expr $knockondelay \* 1000` > /sys/class/misc/touchwake/knockon_delay
+echo `expr $knockondelay \* 1` > /sys/class/misc/touchwake/knockon_delay
 echo `expr $knockon \* 1` > /sys/class/misc/touchwake/knockon
 
 fi

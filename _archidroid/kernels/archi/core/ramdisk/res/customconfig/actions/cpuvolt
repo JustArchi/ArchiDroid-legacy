@@ -6,7 +6,7 @@ filename=CPU_VOLT_`echo $filename`
 if [ "a$3" == "a" ];then
   evalcmd='eval "echo \$$filename"'
   if [ "a`eval $evalcmd`" == "a" ];then
-    for i in `cat /sys/devices/system/cpu/cpu0/cpufreq/UV_mV_table | \
+    for i in `cat /sys/devices/system/cpu/cpu0/cpufreq/UV_uV_table | \
               sed -e 's/mhz//g;s/://g' | \
               awk '{ print "CPU_VOLT_" $1 "=" $2 }'` ; do 
       eval $i;
@@ -18,13 +18,13 @@ else
   eval $evalcmd
   if [ "$CONTROLSWITCH_CPU" == "on" -o "$CONFIG_BOOTING" != "1" ]; then
     VOLTAGES=""
-    for i in `cat /sys/devices/system/cpu/cpu0/cpufreq/UV_mV_table | \
+    for i in `cat /sys/devices/system/cpu/cpu0/cpufreq/UV_uV_table | \
               sed -e 's/mhz//g;s/://g' | \
               awk '{ print $1 }'` ; do 
       evalcmd='eval echo \$CPU_VOLT_$i'
       VOLTAGES="$VOLTAGES `eval $evalcmd`"
     done
-    echo $VOLTAGES > /sys/devices/system/cpu/cpu0/cpufreq/UV_mV_table
+    echo $VOLTAGES > /sys/devices/system/cpu/cpu0/cpufreq/UV_uV_table
   fi
   evalcmd='eval "echo \$$filename"'
   eval $evalcmd

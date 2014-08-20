@@ -74,6 +74,8 @@ NOOPD=1
 NOBUILD=0
 TEMP=0
 
+export USE_CCACHE=1
+
 cd "$(dirname "$0")"
 
 for ARG in "$@" ; do

@@ -72,13 +72,13 @@ cat << ENDCONFIG
     <settingsPane description="Decreasing voltage will lower power consumption of the CPU. Increasing it on overclocked frequencies improves stability. Too low voltage may cause instabilities and freezes." 
                   name="CPU voltage control">
 `
-cat /sys/devices/system/cpu/cpu0/cpufreq/UV_mV_table | \
+cat /sys/devices/system/cpu/cpu0/cpufreq/UV_uV_table | \
 sed -e 's/mhz//g;s/://g' | awk '{ print $1, $2 }' | \
-while read FREQ MVOLT; do
-  echo '      <seekBar  description="Default voltage: '$MVOLT'mV"
+while read FREQ UVOLT; do
+  echo '      <seekBar  description="Default voltage: '$UVOLT'µV"
 	        name="'${FREQ}' MHz step" 
                 action="cpuvolt '${FREQ}'"
-                unit=" mV" min="600" reversed="false" step="25" max="1400"/>'
+                unit=" µV" min="600000" reversed="false" step="12500" max="1400000"/>'
   CPUFREQLIST="$CPUFREQLIST $FREQ"
 done
 `
@@ -189,15 +189,15 @@ done
     
     <settingsPane description="GPU Voltage Levels." name="GPU Voltage Levels">
       <seekBar description="GPU Voltage for the first (lowest) step" 
-		name="GPU Voltage Level1" action="gpu-voltage 1" unit="µV" min="600000" reversed="false" step="25000" max="1200000"/>
+		name="GPU Voltage Level1" action="gpu-voltage 1" unit="µV" min="600000" reversed="false" step="12500" max="1200000"/>
       <seekBar description="GPU Voltage for the second step" 
-		name="GPU Voltage Level2" action="gpu-voltage 2" unit="µV" min="600000" reversed="false" step="25000" max="1200000"/>
+		name="GPU Voltage Level2" action="gpu-voltage 2" unit="µV" min="600000" reversed="false" step="12500" max="1200000"/>
       <seekBar description="GPU Voltage for the third step" 
-		name="GPU Voltage Level3" action="gpu-voltage 3" unit="µV" min="600000" reversed="false" step="25000" max="1200000"/>
+		name="GPU Voltage Level3" action="gpu-voltage 3" unit="µV" min="600000" reversed="false" step="12500" max="1200000"/>
       <seekBar description="GPU Voltage for the fourth step" 
-		name="GPU Voltage Level4" action="gpu-voltage 4" unit="µV" min="600000" reversed="false" step="25000" max="1200000"/>
+		name="GPU Voltage Level4" action="gpu-voltage 4" unit="µV" min="600000" reversed="false" step="12500" max="1200000"/>
       <seekBar description="GPU Voltage for the fifth step" 
-		name="GPU Voltage Level5" action="gpu-voltage 5" unit="µV" min="600000" reversed="false" step="25000" max="1200000"/>
+		name="GPU Voltage Level5" action="gpu-voltage 5" unit="µV" min="600000" reversed="false" step="12500" max="1200000"/>
     </settingsPane>
   </settingsTab>  
   
@@ -226,15 +226,15 @@ done
              <spinnerItem name="Disabled" value="0"/> 
              <spinnerItem name="Enabled" value="1"/> 
         </spinner>
-      <seekBar description="Touch-To-Wake Delay in seconds (Default is 5ms). Setting Delay to 0 makes Touch-to-Wake permanently active !" 
+      <seekBar description="Touch-To-Wake Delay in seconds (Default is 5s). Setting Delay to 0 makes Touch-to-Wake permanently active !" 
 		name="Touch-To-Wake Delay" action="touch2wake touchwakedelay" unit=" sec" min="0" reversed="false" step="1" max="60"/>
 		
        <spinner description="Knock-On" name="Knock-On" action="touch2wake knockon">
              <spinnerItem name="Disabled" value="0"/> 
              <spinnerItem name="Enabled" value="1"/> 
         </spinner>        
-        <seekBar description="Knock-On Delay in seconds (Default is 5ms)." 
-		name="Touch-To-Wake Delay" action="touch2wake knockondelay" unit=" sec" min="0" reversed="false" step="1" max="60"/>
+        <seekBar description="Knock-On Delay between knocks in milliseconds (Default is 500ms)." 
+		name="Knock-On Delay" action="touch2wake knockondelay" unit=" msec" min="0" reversed="false" step="50" max="1000"/>
    </settingsPane>
    
 if [ -e /sys/class/sec/sec_touchkey/touch_led_handling ]; then
@@ -423,7 +423,8 @@ fi
     
       <spinner description="This will set the default I/O scheduler for Internal Storage" name="Default I/O Scheduler for Internal Storage" action="iosched_int /tmp/int_scheduler">
 	     <spinnerItem name="deadline" value="deadline"/> 
-             <spinnerItem name="noop" value="noop"/> 
+             <spinnerItem name="noop" value="noop"/>
+             <spinnerItem name="bfq" value="bfq"/>
       </spinner>
       <seekBar  description="The read-ahead value for the internal storage." 
                 name="Internal storage read-ahead" 
@@ -432,7 +433,8 @@ fi
 
       <spinner description="This will set the default I/O scheduler for the external Storage (SD-Card)" name="Default I/O Scheduler for SD-Card Storage" action="iosched_ext /tmp/ext_scheduler">
              <spinnerItem name="deadline" value="deadline"/> 
-             <spinnerItem name="noop" value="noop"/> 
+             <spinnerItem name="noop" value="noop"/>
+             <spinnerItem name="bfq" value="bfq"/>
       </spinner>
 
       <seekBar  description="The read-ahead value for the external storage (SD-Card)." 
@@ -488,6 +490,33 @@ fi
 	    action="generic01 /sys/kernel/printk_mode/printk_mode"
 	    label="Enable Kernel Logger"/>
     </settingsPane>
+    
+    <settingsPane description="The zram settings let you determine the zram size, number of devices and swappiness" name="Zram Settings">
+      
+	 <checkbox  description="Enable/disable zram" name="Zram Switch" 
+	    action="generic01 /tmp/zram_switch"
+	    label="Enable zram"/>
+	 
+	 <seekBar  description="The total zram size that is allowed. The size will be devided by the number of disks and applied evenly to all disks." 
+                name="Zram size" 
+                action="generic /tmp/zram_size"
+                unit="mB" min="0" reversed="false" step="8" max="1024"/>
+	    
+	<spinner description="Set the number of disks for zram" name="Zram disks" action="generic /tmp/zram_disks">
+             <spinnerItem name="1 disk" value="1"/> 
+             <spinnerItem name="2 disks" value="2"/> 
+             <spinnerItem name="4 disks" value="4"/> 
+	</spinner>
+	  
+	<seekBar  description="A low value means the kernel will try to avoid swapping as much as possible where a higher value instead will make the kernel aggressively try to use swap space." 
+                name="Virtual machine swappiness" 
+                action="generic /tmp/zram_swappiness"
+                unit="%" min="0" reversed="false" step="1" max="100"/>
+	
+	<button description="Apply zram settings." name="Set zram settings" action="zramapply" label="Set zram settings"/>
+
+    </settingsPane>
+    
   </settingsTab>
 
     

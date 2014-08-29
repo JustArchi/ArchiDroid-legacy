@@ -1,20 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-  <!-- LINARO TOOLCHAIN -->
-  <!-- <project name="JustArchi/Linaro" path="prebuilts/gcc/linux-x86/arm/arm-eabi-4.8" remote="github" revision="4.8-eabi" /> -->
-  <!-- <project name="JustArchi/Linaro" path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8" remote="github" revision="4.8-androideabi" /> -->
-
-  <!-- SABERMOD TOOLCHAIN -->
-  <!-- <project name="UBERUTILS/arm-eabi-4.8" path="prebuilts/gcc/linux-x86/arm/arm-eabi-4.8" remote="github" revision="master" /> -->
-  <!-- <project name="UBERUTILS/arm-linux-androideabi-4.8" path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8" remote="github" revision="master" /> -->
-
   <!-- GOOGLE GCC TOOLCHAIN -->
   <!-- <project name="platform/prebuilts/gcc/linux-x86/arm/arm-eabi-4.8" path="prebuilts/gcc/linux-x86/arm/arm-eabi-4.8" remote="aosp" revision="master" /> -->
   <!-- <project name="platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8" path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8" remote="aosp" revision="master" /> -->
 
-  <!-- CURRENTLY USED BY ARCHIDROID -->
-  <project name="platform/prebuilts/gcc/linux-x86/arm/arm-eabi-4.8" path="prebuilts/gcc/linux-x86/arm/arm-eabi-4.8" remote="aosp" revision="master" />
-  <project name="platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8" path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8" remote="aosp" revision="master" />
+  <!-- ARCHIDROID TOOLCHAIN -->
+  <project name="JustArchi/Toolchain" path="prebuilts/gcc/linux-x86/arm/arm-eabi-4.9" remote="github" revision="linaro-4.9-arm-eabi" />
+  <project name="JustArchi/Toolchain" path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9" remote="github" revision="linaro-4.9-arm-linux-androideabi" />
 
   <!-- OBSOLETE -->
   <remove-project name="CyanogenMod/android_packages_apps_CMUpdater" />

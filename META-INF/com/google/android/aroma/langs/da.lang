@@ -144,6 +144,10 @@ archidroid.bootanimation.logcat.desc=Opstarts animationen ændres til logcat out
 archidroid.bootanimation.stock.desc=Standard opstartsanimation
 archidroid.bootanimation.none.desc=Ingen opstarts animation - Giver en smule hurtigere opstart
 
+archidroid.superuser.koush.desc=Free, open-source, stable and secure
+archidroid.superuser.chainfire.desc=Free, closed-source, widely supported and modern
+archidroid.superuser.none.desc=No superuser, for extra security when you don't need a root access
+
 archidroid.other=Andet
 archidroid.ota.desc=Anbefalet af ArchiDroid. Vi installerer UpdateME apk og aktiverer OTA opdateringer via build.prop
 archidroid.xposed.desc=Tillader brug af diverse Xposed moduler. Skal aktiveres manuelt

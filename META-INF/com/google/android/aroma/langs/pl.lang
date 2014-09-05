@@ -144,6 +144,10 @@ archidroid.bootanimation.logcat.desc=Zamienia domyślną bootanimację na logcat
 archidroid.bootanimation.stock.desc=Stockowa animacja dostarczona wraz z ROMem
 archidroid.bootanimation.none.desc=Brak animacji ładowania, dla nieco szybszego startu
 
+archidroid.superuser.koush.desc=Darmowy, open-source, stabilny i bezpieczny
+archidroid.superuser.chainfire.desc=Darmowy, closed-source, dobrze wspierany i nowoczesny
+archidroid.superuser.none.desc=Brak superusera, dla dodatkowego bezpieczeństwa, gdy nie potrzebujesz dostępu root
+
 archidroid.other=Inne
 archidroid.ota.desc=Wysoce zalecane. Zainstaluję aplikację UpdateMe oraz włączę aktualizacje OTA via build.prop
 archidroid.xposed.desc=Pozwala na używanie wielu modułów. Musi zostać włączony manualnie

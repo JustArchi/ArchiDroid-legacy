@@ -304,7 +304,7 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 		"superuser","<#selectbg_g>Superuser</#>","","group",
 		"koush","Superuser by Koush","<~archidroid.superuser.koush.desc>","select.selected",
 		"chainfire","SuperSU by Chainfire","<~archidroid.superuser.chainfire.desc>","select",
-		"none","None","<~archidroid.superuser.none.desc>","select",
+		"none","<~common.none>","<~archidroid.superuser.none.desc>","select",
 
 		"other","<#selectbg_g><~archidroid.other></#>","","group",
 		"archidroidota","ArchiDroid OTA","<~archidroid.ota.desc>","check.checked",

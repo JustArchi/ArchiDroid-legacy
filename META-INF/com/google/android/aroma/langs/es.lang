@@ -144,6 +144,10 @@ archidroid.bootanimation.logcat.desc=Cambia la animación predeterminada por el 
 archidroid.bootanimation.stock.desc=Animación predeterminada de ROM
 archidroid.bootanimation.none.desc=Sin animación, para un arranque un poco más rápido
 
+archidroid.superuser.koush.desc=Free, open-source, stable and secure
+archidroid.superuser.chainfire.desc=Free, closed-source, widely supported and modern
+archidroid.superuser.none.desc=No superuser, for extra security when you don't need a root access
+
 archidroid.other=Otros
 archidroid.ota.desc=Recomendado por ArchiDroid. Instalaremos la apk UpdateMe y se habilitan las actualizaciones OTA vía build.prop
 archidroid.xposed.desc=Permite el uso de varios de los módulos de Xposed. Se debe activar manualmente

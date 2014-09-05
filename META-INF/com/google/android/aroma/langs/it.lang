@@ -144,6 +144,10 @@ archidroid.bootanimation.logcat.desc=Togliere il bootanimation e mettere il logc
 archidroid.bootanimation.stock.desc=Bootanimation predefinita della ROM
 archidroid.bootanimation.none.desc=Nessun bootanimation per una leggera miglior performance
 
+archidroid.superuser.koush.desc=Free, open-source, stable and secure
+archidroid.superuser.chainfire.desc=Free, closed-source, widely supported and modern
+archidroid.superuser.none.desc=No superuser, for extra security when you don't need a root access
+
 archidroid.other=Altro
 archidroid.ota.desc=Raccomandato da ArchiDroid. Noi installeremo UpdateMe apk e attiveremo l'OTA tramite build.prop
 archidroid.xposed.desc=Permette a noi di usare vari moduli di Xposed. Deve essere attivato manualmente

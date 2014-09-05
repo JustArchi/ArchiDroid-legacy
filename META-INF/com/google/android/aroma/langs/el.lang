@@ -144,6 +144,10 @@ archidroid.bootanimation.logcat.desc=Αλλάζει το προκαθορισμ�
 archidroid.bootanimation.stock.desc=Stock bootanimation που παρέχεται από την rom
 archidroid.bootanimation.none.desc=Καθόλου bootanimation, για λίγο ταχύτερη εκκίνηση
 
+archidroid.superuser.koush.desc=Free, open-source, stable and secure
+archidroid.superuser.chainfire.desc=Free, closed-source, widely supported and modern
+archidroid.superuser.none.desc=No superuser, for extra security when you don't need a root access
+
 archidroid.other=Άλλα
 archidroid.ota.desc=Προτείνεται από ArchiDroid. Θα εγκατασταθεί το UpdateMe apk και θα ενεργοποιηθούν αναβαθμίσεις OTA μέσω build.prop
 archidroid.xposed.desc=Επιτρέπει τη χρήση διάφορων Xposed modules. Πρέπει να ενεργοποιηθεί χειροκίνητα

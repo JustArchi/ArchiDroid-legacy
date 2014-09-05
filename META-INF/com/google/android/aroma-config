@@ -23,7 +23,7 @@
 # Initializing Rom Information
 ##
 
-setvar("preset_version","11");
+setvar("preset_version","12");
 setvar("adaroma","/data/media/0/ArchiDroid/AromaPreset/2.X");
 
 ini_set("dp","3");
@@ -300,6 +300,11 @@ if file_getprop("/tmp/aroma-data/archidroidinstallmode.prop","preset") == "custo
 		"murata","Murata","","select",
 		"semco","Semco","","select",
 		"semcosh","Semcosh","","select",
+
+		"superuser","<#selectbg_g>Superuser</#>","","group",
+		"koush","Superuser by Koush","<~archidroid.superuser.koush.desc>","select.selected",
+		"chainfire","SuperSU by Chainfire","<~archidroid.superuser.chainfire.desc>","select",
+		"none","None","<~archidroid.superuser.none.desc>","select",
 
 		"other","<#selectbg_g><~archidroid.other></#>","","group",
 		"archidroidota","ArchiDroid OTA","<~archidroid.ota.desc>","check.checked",

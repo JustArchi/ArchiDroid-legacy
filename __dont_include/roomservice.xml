@@ -26,6 +26,8 @@
   <project name="JustArchi/android_vendor_cm" path="vendor/cm" remote="github" />
   <remove-project name="CyanogenMod/Superuser" />
   <project name="JustArchi/Superuser" path="external/koush/Superuser" remote="github" />
+  <remove-project name="CyanogenMod/android_external_webp" />
+  <project name="JustArchi/android_external_webp" path="external/webp" remote="github" />
   <!-- <remove-project name="CyanogenMod/android_bootable_recovery" />
   <project name="omnirom/android_bootable_recovery" path="bootable/recovery" remote="github" revision="android-4.4" /> -->
 

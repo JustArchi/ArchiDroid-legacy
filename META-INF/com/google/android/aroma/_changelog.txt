@@ -3,6 +3,7 @@ ArchiDroid 2.5.3
 - [!] ArchiDroid 2.X is now built with latest Linaro 4.9.2 (again) # This is due to resolved google play bug
 - [!] Enabling Navigation bar in AROMA now will also disable corresponding hardware keys (BACK, HOME, MENU)
 - Added Superuser selection to AROMA. You can now choose between Chainfire's SuperSU, Koush's Superuser and None
+- ArchiDroid's backend now creates a "rainbow" from LEDs during booting process # Perfect way to tell if backend has been executed properly
 - Removed BBS app as per developer request
 - Updated ArchiKernel to 1.4.1
 - Updated Boeffla kernel to 2.4-beta5

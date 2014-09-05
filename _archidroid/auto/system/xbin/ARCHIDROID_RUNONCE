@@ -237,12 +237,20 @@ else
 	exit 2
 fi
 
+# Check if we have LED sysfs available
+if [[ -e "/sys/class/leds/led_r/brightness" && -e "/sys/class/leds/led_g/brightness" && -e "/sys/class/leds/led_b/brightness" ]]; then
+	LEDS=1
+else
+	LEDS=0
+fi
+
 # ArchiDroid Semaphore
-# Wait until we see some android processes to consider boot is more or less complete (credits to AndiP71)
+# Wait until we see some android processes to consider boot is more or less complete (initial idea thanks to AndiP71)
 # Also respect number of loops, maybe something went wrong
 echo "INFO: RunOnce Semaphore started"
 LOOP=0
 while ( ! pgrep com.android.systemu >/dev/null 2>&1 && [[ "$LOOP" -lt 600 ]]) || [[ "$FORCEDSEMAPHORE" -eq 1 ]] ; do
+	((LOOP++))
 	if [[ "$DBUPDATE" -eq 1 ]]; then
 		if [[ -f /data/data/com.android.providers.settings/databases/settings.db ]]; then
 			echo "INFO: settings.db created! Performing DBUPDATE"
@@ -348,8 +356,28 @@ while ( ! pgrep com.android.systemu >/dev/null 2>&1 && [[ "$LOOP" -lt 600 ]]) ||
 
 	# Sleeping time
 	FORCEDSEMAPHORE=0
-	((LOOP++))
-	sleep 1
+
+	if [[ "$LEDS" -ge 1 ]]; then
+		while :; do
+			case "$LEDS" in
+				1) RED=40; GREEN=0; BLUE=0; ;;
+				2) RED=40; GREEN=40; BLUE=0 ;;
+				3) RED=0; GREEN=40; BLUE=0 ;;
+				4) RED=0; GREEN=40; BLUE=40 ;;
+				5) RED=0; GREEN=0; BLUE=40 ;;
+				6) RED=40; GREEN=0; BLUE=40 ;;
+				7) RED=0; GREEN=0; BLUE=0 ;;
+				8) LEDS=1; break ;; # This is the last one, so we go back to the start
+			esac
+			echo "$RED" > "/sys/class/leds/led_r/brightness"
+			echo "$GREEN" > "/sys/class/leds/led_g/brightness"
+			echo "$BLUE" > "/sys/class/leds/led_b/brightness"
+			((LEDS++))
+			sleep 0.2
+		done
+	else
+		sleep 1
+	fi
 done
 
 if [[ "$LOOP" -ge 600 ]]; then

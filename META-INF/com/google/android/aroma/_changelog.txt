@@ -1,11 +1,18 @@
 ArchiDroid 2.5.3
 
+- [!] Adlinux code review
+# ArchiDroid's Pocket Debian has been rewritten from scratch to become more user friendly
+# If you've already used APD before, I suggest to call "adlinux rebuild" in order to update, as this release also includes updated Pocket Debian
+# Adlinux command is now more newbie friendly and allows even easier mounting than before
+# It now takes care of things such as setting password or allowing root access by OpenSSH, to minimize required skill for using APB to the bare minimum
+
 - [!] ArchiDroid 2.X is now built with latest Linaro 4.9.2 (again) # This is due to resolved google play bug
 - [!] Enabling Navigation bar in AROMA now will also disable corresponding hardware keys (BACK, HOME, MENU)
 - Added Superuser selection to AROMA. You can now choose between Chainfire's SuperSU, Koush's Superuser and None
 - ArchiDroid's backend now creates a "rainbow" from LEDs during booting process # Perfect way to tell if backend has been executed properly
 - Removed BBS app as per developer request
 - Reverted Modem back to XXUGNA8 # There's no point in including UB modems
+- Updated ArchiDroid's Pocket Debian to latest version
 - Updated ArchiKernel to 1.4.1
 - Updated Boeffla kernel to 2.4-beta5
 - Updated AGNi kernel to 2.8.5

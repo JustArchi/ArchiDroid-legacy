@@ -100,7 +100,7 @@ if [ $# -eq 0 ]; then
 	echo
 	echo
 	echo "Example: intsd ssh"
-	echo -n "Extra options: "
+	printf "Extra options: "
 	read EXTRA
 else
 	CHOICE="$1"

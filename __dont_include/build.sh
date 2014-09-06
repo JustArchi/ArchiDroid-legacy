@@ -22,7 +22,7 @@
 # limitations under the License.
 
 set -e
-VERSION=2.5.3
+VERSION=2.5.4
 
 # Detect HOME properly
 # This workaround is required because arm-eabi-nm has problems following ~. Don't change it

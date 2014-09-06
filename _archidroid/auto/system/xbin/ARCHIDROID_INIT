@@ -387,6 +387,9 @@ if [[ "$BACKGROUND" -ne 1 ]]; then
 fi
 
 # Redirect stdout and stderr to our log, just in case something bad happen
+if [[ -f "$LOG" ]]; then
+	mv "$LOG" "$LOG.old"
+fi
 exec 1>"$LOG"
 exec 2>&1
 
@@ -394,6 +397,20 @@ date
 echo "ArchiDroid $(getprop ro.archidroid.version)"
 uname -a
 echo "INFO: ArchiDroid_Init executed!"
+
+echo "INFO: Waiting for bootanimation..."
+LOOP=0
+while ! pgrep bootanimation >/dev/null 2>&1 && [[ "$LOOP" -lt 10 ]]; do
+	((LOOP++))
+	sleep 1
+done
+
+if ! pgrep bootanimation >/dev/null 2>&1; then
+	echo "INFO: Bootanimation didn't spawn in given period, aborting backend!"
+	exit 0
+else
+	echo "INFO: Bootanimation spawned!"
+fi
 
 
 #   ____
